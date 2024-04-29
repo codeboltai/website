@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Header = () => {
   return (
@@ -35,7 +34,7 @@ const Header = () => {
                     <div className="col-lg-2 col-md-6 col-6">
                         <div className="logo">
                             <a href="index.html">
-                                <img className="logo-light" src="assets/images/logo/logo.png" alt="ChatBot Logo">
+                                <img className="logo-light" src="assets/images/logo/logo.png" alt="ChatBot Logo"/>
                             </a>
                         </div>
                     </div>
@@ -77,19 +76,19 @@ const Header = () => {
                                             </a>
                                         </li>
                                         <li>
-                                            <a tabindex="-1" className="disabled" aria-disabled="true">
+                                            <a className="disabled" aria-disabled="true">
                                                 <span>Audio Generator</span>
                                                 <div className="rainbow-badge-card badge-sm ml--5">COMING</div>
                                             </a>
                                         </li>
                                         <li>
-                                            <a tabindex="-1" className="disabled" aria-disabled="true">
+                                            <a className="disabled" aria-disabled="true">
                                                 <span>Edu. feedback</span>
                                                 <div className="rainbow-badge-card badge-sm ml--5">COMING</div>
                                             </a>
                                         </li>
                                         <li>
-                                            <a tabindex="-1" className="disabled" aria-disabled="true">
+                                            <a className="disabled" aria-disabled="true">
                                                 <span>Website Generator</span>
                                                 <div className="rainbow-badge-card badge-sm ml--5">COMING</div>
                                             </a>
@@ -274,7 +273,7 @@ const Header = () => {
 
                                                 <div className="col-lg-3 single-mega-item">
                                                     <div className="header-menu-img">
-                                                        <img src="assets/images/menu-img/menu-img-2.png" alt="Menu Split Image">
+                                                        <img src="assets/images/menu-img/menu-img-2.png" alt="Menu Split Image"/>
                                                     </div>
                                                 </div>
                                             </div>
