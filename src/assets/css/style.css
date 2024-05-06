@@ -19047,7 +19047,7 @@ iframe {
 .slider-style-1.variation-default .slider-frame {
   background: url(../images/bg/slider-main-bg.png);
   background-position: top center;
-  background-size: contain;
+  
   background-repeat: no-repeat;
   padding: 70px;
   padding-bottom: 42px;
