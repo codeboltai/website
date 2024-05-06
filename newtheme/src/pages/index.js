@@ -16,11 +16,8 @@ import Blogs from "../components/blogs";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
 
-import { TypeAnimation } from 'react-type-animation';
-
 export default function Index(){
     useEffect(() => {
-        document.documentElement.setAttribute("dir", "ltr");
         document.documentElement.classList.add('dark');
         document.documentElement.classList.remove('light');
       }, []);
@@ -32,28 +29,14 @@ export default function Index(){
             <div className="container relative z-2">
                 <div className="grid grid-cols-1 text-center">
                     <div className="">
-                        <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5">The AI Content <br/> Plaform for 
-                            <TypeAnimation
-                                sequence={[
-                                    // Same substring at the start will only be typed out once, initially
-                                    'Videos',
-                                    1000, // wait 1s before replacing "Mice" with "Hamsters"
-                                    'Modern Teams',
-                                    1000,
-                                    'Social Media',
-                                    1000
-                                ]}
-                                wrapper="span"
-                                speed={10}
-                                className="typewrite bg-gradient-to-br from-amber-400 to-fuchsia-600 text-transparent bg-clip-text ms-4"
-                                repeat={Infinity}
-                                />
+                        <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5">Code Editor Reimagined For<br/>  
+                            <span className="typewrite bg-gradient-to-br from-amber-400 to-fuchsia-600 text-transparent bg-clip-text ms-4">AI Agents</span> to Code
                         </h4>
-                        <p className="text-slate-400 dark:text-white/60 text-lg max-w-xl mx-auto">Artificial intelligence makes it fast easy to create content for your blog, social media, website, and more!</p>
+                        <p className="text-slate-400 dark:text-white/60 text-lg max-w-xl mx-auto">An AI Agent First Code Editor with focus on providing Easy AI Code generation based workflows by utilizing various AI Agents or even provides a simple api to create your own agents</p>
 
                         <div className="mt-6">
-                            <Link to="" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-amber-400 hover:bg-amber-500 border-amber-400 hover:border-amber-500 text-white rounded-md">Try For Free</Link>
-
+                            <Link to="" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-amber-400 hover:bg-amber-500 border-amber-400 hover:border-amber-500 text-white rounded-md">Download Codebolt</Link> &nbsp;
+                            <Link to="/about-agents" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center border-amber-400 hover:border-amber-500 text-amber-400 hover:text-white rounded-md">Codebolt Agent Framework</Link>
                             <p className="text-slate-400 dark:text-white/60 text-sm mt-3">No credit card required. Free 14-days trial</p>
                         </div>
                     </div>

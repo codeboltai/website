@@ -1,5 +1,6 @@
 import React,{useEffect} from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import contactImg from "../assets/images/contact.svg"
 
@@ -17,6 +18,10 @@ export default function Contact(){
       }, []);
     return(
         <>
+        <Helmet>
+            <title>Contact Page</title>
+            <meta name="description" content="This is utkarsh" />
+        </Helmet>
         <Navbar/>
         <div className="container-fluid relative mt-20">
             <div className="grid grid-cols-1">

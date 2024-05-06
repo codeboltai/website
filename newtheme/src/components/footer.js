@@ -20,7 +20,7 @@ export default function Footer(){
                 <div className="container relative">
                     <div className="grid grid-cols-1 text-center">
                         <div className="">
-                            <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-5xl text-white tracking-normal mb-4">Start Your Free Trail.</h4>
+                            <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-5xl text-white tracking-normal mb-4">Get Started Now</h4>
                             <p className="text-white/70 text-lg max-w-xl mx-auto">Artificial intelligence makes it fast easy to create content for your blog, social media, website, and more!</p>
 
                             <div className="mt-6">
@@ -41,17 +41,27 @@ export default function Footer(){
                                 </Link>
                             </div>
 
-                            <ul className="list-none footer-list md:text-end text-center mt-6 md:mt-0 space-x-1">
-                                <li className="inline"><Link to="https://1.envato.market/mortalai-react" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiShoppingCart className="h-4 w-4 align-middle"/></Link></li>
-                                <li className="inline"><Link to="https://dribbble.com/shreethemes" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiDribbble className="h-4 w-4 align-middle"/></Link></li>
-                                <li className="inline"><Link to="http://linkedin.com/company/shreethemes" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiLinkedin className="h-4 w-4 align-middle"/></Link></li>
-                                <li className="inline"><Link to="https://www.facebook.com/shreethemes" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiFacebook className="h-4 w-4 align-middle"/></Link></li>
-                                <li className="inline"><Link to="https://www.instagram.com/shreethemes/" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiInstagram className="h-4 w-4 align-middle"/></Link></li>
-                                <li className="inline"><Link to="https://twitter.com/shreethemes" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiTwitter className="h-4 w-4 align-middle"/></Link></li>
-                                <li className="inline"><Link to="mailto:support@shreethemes.in" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiMail className="h-4 w-4 align-middle"/></Link></li>
-                                <li className="inline"><Link to="https://forms.gle/QkTueCikDGqJnbky9" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiFileText className="h-4 w-4 align-middle"/></Link></li>
-                            </ul>
+                            <div>
+                                <ul className="list-none footer-list md:text-end text-center mt-6 md:mt-0 space-x-1">
+                                    <li className="inline"><Link to="https://1.envato.market/mortalai-react" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiShoppingCart className="h-4 w-4 align-middle"/></Link></li>
+                                    <li className="inline"><Link to="https://dribbble.com/shreethemes" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiDribbble className="h-4 w-4 align-middle"/></Link></li>
+                                    <li className="inline"><Link to="http://linkedin.com/company/shreethemes" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiLinkedin className="h-4 w-4 align-middle"/></Link></li>
+                                    <li className="inline"><Link to="https://www.facebook.com/shreethemes" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiFacebook className="h-4 w-4 align-middle"/></Link></li>
+                                    <li className="inline"><Link to="https://www.instagram.com/shreethemes/" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiInstagram className="h-4 w-4 align-middle"/></Link></li>
+                                    <li className="inline"><Link to="https://twitter.com/shreethemes" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiTwitter className="h-4 w-4 align-middle"/></Link></li>
+                                    <li className="inline"><Link to="mailto:support@shreethemes.in" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiMail className="h-4 w-4 align-middle"/></Link></li>
+                                    <li className="inline"><Link to="https://forms.gle/QkTueCikDGqJnbky9" target="_blank" className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"><FiFileText className="h-4 w-4 align-middle"/></Link></li>
+                                </ul>
+                                <div className="mt-6 flex justify-end space-x-4">
+                                    <Link to="/privacy" className="text-white hover:text-amber-400 dark:hover:text-amber-400">Privacy Policy &nbsp;</Link>|
+                                    <Link to="/terms" className="text-white hover:text-amber-400 dark:hover:text-amber-400">&nbsp;Terms of Service &nbsp;</Link>|
+                                    <Link to="/about" className="text-white hover:text-amber-400 dark:hover:text-amber-400">&nbsp;About Us &nbsp;</Link>|
+                                    <Link to="/contact" className="text-white hover:text-amber-400 dark:hover:text-amber-400">&nbsp;Contact Us</Link>
+                                </div>
+
+                            </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -60,7 +70,7 @@ export default function Footer(){
                 <div className="container relative text-center">
                     <div className="grid grid-cols-1">
                         <div className="text-center">
-                            <p className="text-gray-400">© {new Date().getFullYear()} Mortal.Ai. Design with <i className="mdi mdi-heart text-orange-700"></i> by <Link to="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</p>
+                            <p className="text-gray-400">© {new Date().getFullYear()} Codebolt.ai  -  Developed with <i className="mdi mdi-heart text-orange-700"></i> in India.</p>
                         </div>
                     </div>
                 </div>
