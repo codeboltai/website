@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "grunt",
+    "start": "npm run build && cd build && http-server ."
   },
   "devDependencies": {
     "grunt": "~0.4.5",
