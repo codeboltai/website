@@ -3,7 +3,7 @@ import './assets/css/materialdesignicons.min.css'
 import { Route,Routes } from 'react-router-dom';
 import Index from './pages';
 import Blog from './pages/blog';
-import IndexTwo from './pages/index-two';
+import Framework from './pages/framework';
 import IndexThree from './pages/index-three';
 import IndexLight from './pages/index-light';
 import AboutUs from './pages/aboutus';
@@ -23,7 +23,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Index/>} />
-      <Route path='/index-two' element={<IndexTwo/>} />
+      <Route path='/agentframework' element={<Framework/>} />
       <Route path='/index-three' element={<IndexThree/>} />
       <Route path='/index-light' element={<IndexLight/>} />
       <Route path='/blog' element={<Blog/>} />

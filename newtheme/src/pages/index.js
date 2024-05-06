@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 import { Link } from "react-router-dom";
 
-import bannerImg from '../assets/images/classic01.png'
+import bannerImg from '../assets/images/classic02.png'
 
 import Navbar from "../components/navbar";
 import BrandLogo from "../components/brandLogo";
@@ -29,10 +29,15 @@ export default function Index(){
             <div className="container relative z-2">
                 <div className="grid grid-cols-1 text-center">
                     <div className="">
-                        <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5">Code Editor Reimagined For<br/>  
+                        {/* <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5">Code Editor Reimagined For<br/>  
                             <span className="typewrite bg-gradient-to-br from-amber-400 to-fuchsia-600 text-transparent bg-clip-text ms-4">AI Agents</span> to Code
+                        </h4> */}
+                        <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5">Not Human, but<br/>  
+                            <span className="typewrite bg-gradient-to-br from-amber-400 to-fuchsia-600 text-transparent bg-clip-text ms-4">AI Centric</span>  Code Editor
                         </h4>
-                        <p className="text-slate-400 dark:text-white/60 text-lg max-w-xl mx-auto">An AI Agent First Code Editor with focus on providing Easy AI Code generation based workflows by utilizing various AI Agents or even provides a simple api to create your own agents</p>
+                        {/* <p className="text-slate-400 dark:text-white/60 text-lg max-w-xl mx-auto">An AI Agent First Code Editor with focus on providing Easy AI Code generation based workflows by utilizing various AI Agents or even provides a simple api to create your own agents</p> */}
+                        <p className="text-slate-400 dark:text-white/60 text-lg max-w-xl mx-auto">Codebolt is a new Generation of Code Editors that are AI Agents First, which provide features for AI Agent Based Code Generation Workflows and also new AI Agent Creation Framework</p>
+
 
                         <div className="mt-6">
                             <Link to="" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-amber-400 hover:bg-amber-500 border-amber-400 hover:border-amber-500 text-white rounded-md">Download Codebolt</Link> &nbsp;

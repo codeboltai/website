@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logoDark from '../assets/images/logo-dark.png'
 import logoLight from '../assets/images/logo-light.png'
+import { FiDownload } from 'react-icons/fi';
 
 export default function Navbar(){
     const [toggleMenu, setToggleMenu] = useState(false)
@@ -136,12 +137,16 @@ if (document.getElementById("navigation")) {
                     </li>
             
                     <li className="md:inline hidden ps-1 mb-0 ">
-                        <Link to="/signup" target="_blank" className="py-[6px] px-4 inline-block items-center justify-center tracking-wider align-middle duration-500 text-sm text-center rounded bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white font-semibold">Signup</Link>
+                        <Link to="/signup" target="_blank" className="py-[6px] px-4 inline-block items-center justify-center tracking-wider align-middle duration-500 text-sm text-center rounded bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white font-semibold">
+                            <span className="inline-flex items-center">
+                                Download <FiDownload className="ml-2" />
+                            </span>
+                        </Link>
                     </li>
                 </ul>
                 <div id="navigation" className={`${toggleMenu ? 'block' : ''}`}>
                     <ul className="navigation-menu">
-                        <li className="has-submenu parent-menu-item">
+                        {/* <li className="has-submenu parent-menu-item">
                             <Link to="#">Home</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
                                 <li><Link to="/" className="sub-menu-item">Hero One</Link></li>
@@ -149,25 +154,27 @@ if (document.getElementById("navigation")) {
                                 <li><Link to="/index-three" className="sub-menu-item">Hero Three</Link></li>
                                 <li><Link to="/index-light" className="sub-menu-item">Hero Light <span className="bg-gray-50 dark:bg-slate-800 text-[10px] shadow shadow-gray-300 dark:shadow-gray-700 font-bold px-2.5 py-0.5 rounded h-5 ms-1">Light</span></Link></li>
                             </ul>
-                        </li>
+                        </li> */}
 
-                
-                        <li><Link to="/aboutus" className="sub-menu-item">About Us</Link></li>
-                        <li><Link to="/pricing" className="sub-menu-item">Pricing </Link></li>
+                        <li><Link to="/" className="sub-menu-item">Editor</Link></li>
+                        <li><Link to="/aboutus" className="sub-menu-item">Features</Link></li>
+                        <li><Link to="/agentframework" className="sub-menu-item">Agent Framework</Link></li>
+                        {/* <li><Link to="/pricing" className="sub-menu-item">Pricing </Link></li> */}
                 
                         <li className="has-submenu parent-parent-menu-item">
-                            <Link to="#">Pages</Link><span className="menu-arrow"></span>
+                            <Link to="#">Developers</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link to="/services" className="sub-menu-item">Services</Link></li>
+                                <li><Link to="/services" className="sub-menu-item">Getting Started</Link></li>
+                                <li><Link to="/services" className="sub-menu-item">Documentation</Link></li>
                         
-                                <li className="has-submenu parent-menu-item"><Link to="#"> Blog </Link><span className="submenu-arrow"></span>
+                                {/* <li className="has-submenu parent-menu-item"><Link to="#"> Blog </Link><span className="submenu-arrow"></span>
                                     <ul className="submenu">
                                         <li><Link to="/blog" className="sub-menu-item"> Blogs</Link></li>
                                         <li><Link to="/blog-detail" className="sub-menu-item"> Blog Detail</Link></li>
                                     </ul> 
-                                </li>
+                                </li> */}
                         
-                                <li><Link to="/helpcenter" className="sub-menu-item">Helpcenter</Link></li>
+                                <li><Link to="/helpcenter" className="sub-menu-item">Blogs</Link></li>
 
                                 <li className="has-submenu parent-menu-item"><Link to="#"> Auth Pages </Link><span className="submenu-arrow"></span>
                                     <ul className="submenu">
@@ -187,7 +194,7 @@ if (document.getElementById("navigation")) {
                             </ul>
                         </li>
                 
-                        <li><Link to="/contact" className="sub-menu-item">Contact</Link></li>
+                        {/* <li><Link to="/contact" className="sub-menu-item">Contact</Link></li> */}
                     </ul>
                 </div>
             </div>
