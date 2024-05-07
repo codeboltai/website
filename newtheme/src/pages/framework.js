@@ -78,15 +78,15 @@ export default function Framework(){
                 <div className="grid grid-cols-1 pb-6 text-center">
                     <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">So, how does it works?</h3>
 
-                    <p className="text-slate-400 max-w-xl mx-auto">Artificial intelligence makes it fast easy to create content for your blog, social media, website, and more!</p>
+                    <p className="text-slate-400 max-w-xl mx-auto">Codebolt Framework provides a library interface for the Codebolt App API as well as a lot of Utility Functions and Framework </p>
                 </div>
 
                 <div className="grid md:grid-cols-3 grid-cols-1 mt-6 gap-6">
                     {workData.map((item,index)=>{
                         return(
                             <div className="relative p-6" key={index}>
-                                <i className={`${item.icon} bg-gradient-to-tl to-amber-400 from-fuchsia-600 text-transparent bg-clip-text text-[45px]`}></i>
-        
+                                <i className={`${item.icon} bg-gradient-to-tl to-amber-400 from-fuchsia-600 bg-clip-text text-[45px]`}></i>        
+
                                 <h5 className="text-xl font-semibold my-5">{item.title}</h5>
         
                                 <p className="text-slate-400">{item.desc}</p>
