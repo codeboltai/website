@@ -11,10 +11,10 @@ import Pricing from "../components/pricing";
 import Clients from "../components/clients";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
-import FrameWorkFeatures from "../components/agentsFramework/frameWorkFeatures";
+import Blogs from "../components/blogs";
 
 
-export default function Framework(){
+export default function AgentOverview(){
     useEffect(() => {
         document.documentElement.setAttribute("dir", "ltr");
         document.documentElement.classList.add('dark');
@@ -45,8 +45,7 @@ export default function Framework(){
                 <div className="relative grid lg:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
                     <div className="lg:col-span-7">
                         <div className="lg:me-6 lg:text-start text-center">
-                            <h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5">CodeSquad: <br/> Makes Developing Coding Agent Easy</h1>
-                            <h1> </h1>
+                            <h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5">You Write AI Agents, <br/> Agents Write Code</h1>
                             <p className="text-lg max-w-xl lg:ms-0 mx-auto">Codebolt Ai Agent Framework makes it easy for anyone to write their custom AI Agents</p>
                         
                             <div className="subcribe-form mt-6 mb-3">
@@ -99,18 +98,18 @@ export default function Framework(){
             </div>
 
             {/* <AboutThree/> */}
-          <FrameWorkFeatures/>
-            {/* <AboutTwo/>
-            <AboutOne/> */}
+            <AiFeatures/>
+            <AboutTwo/>
+            <AboutOne/>
 
-            {/* <div className="container relative md:mt-24 mt-16">
+            <div className="container relative md:mt-24 mt-16">
                 <div className="grid grid-cols-1 pb-6 text-center">
                     <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">You don't have to choose between cost, time and quality</h3>
 
                     <p className="text-slate-400 max-w-xl mx-auto">Artificial intelligence makes it fast easy to create content for your blog, social media, website, and more!</p>
                 </div>
                
-            </div> */}
+            </div>
           
         </section>
         <Footer/>

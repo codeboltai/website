@@ -20,6 +20,7 @@ import Error from "./pages/error";
 import Contact from "./pages/contact";
 import Navbar from "./components/navbar";
 import Features from "./pages/features";
+import AgentOverview from "./pages/agentsOverview";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/agentframework" element={<Framework />} />
+        <Route path="/agentOverview" element={<AgentOverview />} />
         <Route path="/index-three" element={<IndexThree />} />
         <Route path="/index-light" element={<IndexLight />} />
         <Route path="/blog" element={<Blog />} />
