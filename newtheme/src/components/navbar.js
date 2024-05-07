@@ -157,7 +157,7 @@ if (document.getElementById("navigation")) {
                         </li> */}
 
                         <li><Link to="/" className="sub-menu-item">Editor</Link></li>
-                        <li><Link to="/aboutus" className="sub-menu-item">Features</Link></li>
+                        <li><Link to="/features" className="sub-menu-item">Features</Link></li>
                         <li><Link to="/agentframework" className="sub-menu-item">Agent Framework</Link></li>
                         {/* <li><Link to="/pricing" className="sub-menu-item">Pricing </Link></li> */}
                 
