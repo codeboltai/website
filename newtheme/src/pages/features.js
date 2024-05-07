@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import "../assets/css/featuresPage/feature.css";
 import features from "../assets/images/features1.jpg";
 
 import image3 from "../assets/images/3.png";
@@ -102,7 +102,7 @@ export default function Features() {
         </div>
       </div>
 
-      <section className="relative md:py-24 py-16">
+      {/* <section className="relative md:py-24 py-16">
         <div className="container relative">
           <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
             <div className="relative overflow-hidden after:content-[''] after:absolute after:inset-0 after:m-auto after:w-96 after:h-96 after:bg-gradient-to-tl after:to-amber-400 after:from-fuchsia-600 after:blur-[80px] after:rounded-full p-6 bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-slate-800 lg:me-6">
@@ -164,7 +164,7 @@ export default function Features() {
           </div>
         </div>
 
-        {/* <div className="container relative md:mt-24 mt-16">
+        <div className="container relative md:mt-24 mt-16">
                 <div className="lg:flex justify-center">
                     <div className="lg:w-4/5">
                         <ul className="md:flex inline-block w-fit mx-auto flex-wrap justify-center text-center p-2 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
@@ -213,9 +213,9 @@ export default function Features() {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
-        {/* <div className="container relative md:mt-24 mt-16">
+        <div className="container relative md:mt-24 mt-16">
                 <div className="grid grid-cols-1 pb-6 text-center">
                     <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">The Team</h3>
 
@@ -235,34 +235,53 @@ export default function Features() {
                         )
                     })}
                 </div>
-            </div> */}
+            </div>
 
-        {/* <ClientsTwo/>
-            <Blogs/> */}
-      </section>
-      <div
-        className="container w-full"
-        style={{ display: "flex", flexDirection: "column" }}
-      >
-        {data.map((item, index) => {
-          const IconComponent = item.icon;
-          return (
-            <div key={index} className="flex mt-20">
-              <div className="h-12 w-12 flex p-2 border-2 border-amber-400 text-center rounded-full me-2">
-                <IconComponent className="h-full w-full" />
-              </div>
+        <ClientsTwo/>
+            <Blogs/>
+      </section> */}
+      <div className="container w-full sidebarContainer" >
+        <div className="sidebar">
+          <ul>
+            {data.map((item, index) => (
+              <li key={index} className="py-2">
+                <a href={`#section${index}`} onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(`section${index}`).scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }} className="hover:text-amber-400">
+                  {item.heading}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div
+          className="container w-full sidebarContent"
+        
+        >
+          {data.map((item, index) => {
+            const IconComponent = item.icon;
+            return (
+              <div id={`section${index}`} key={index} className="flex mt-20">
+                <div className="h-12 w-12 flex p-2 border-2 border-amber-400 text-center rounded-full me-2">
+                  <IconComponent className="h-full w-full" />
+                </div>
 
-              <div className="">
-                <h1 className="text-2xl font-semibold p-2">{item.heading}</h1>
-                <p className="p-2">{item.description}</p>
-                <div className="mt-2 bg-gradient-to-tl to-amber-400  from-fuchsia-600 rounded-lg">
-                  <img src={item.image} alt="" className="rounded-lg p-5" />
+                <div className="">
+                  <h1 className="text-2xl font-semibold p-2">{item.heading}</h1>
+                  <p className="p-2">{item.description}</p>
+                  <div className="mt-2 bg-gradient-to-tl to-amber-400 from-fuchsia-600 rounded-lg">
+                    <img src={item.image} alt="" className="rounded-lg p-5" />
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
+
       <Footer />
       <Switcher />
     </>

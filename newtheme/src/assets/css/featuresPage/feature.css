@@ -1,0 +1,22 @@
+.sidebar {
+    position: sticky;
+    top: 95px;
+    width: 25%;
+    height: 100vh;
+    background-color: transparent;
+    color: white;
+    display: none; 
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        display: block;
+    }
+}
+.sidebarContainer{
+    display: flex;
+}
+.sidebarContent{
+    display: flex;
+    flex-direction: column;
+}
