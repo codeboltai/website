@@ -1262,6 +1262,9 @@ video {
 .rounded-xl{
   border-radius: 0.75rem !important;
 }
+.rounded-2xl{
+  border-radius: 1.5rem !important;
+}
 .rounded-e-3xl{
   border-start-end-radius: 1.5rem !important;
   border-end-end-radius: 1.5rem !important;

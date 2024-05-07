@@ -16,9 +16,7 @@ import Switcher from "../components/switcher";
 import local from "../assets/images/featuresPage/local.png";
 import install from "../assets/images/featuresPage/install.png";
 
-import { FiCheckCircle } from "../assets/icons/vander";
 
-import ModalVideo from "react-modal-video";
 import "../../node_modules/react-modal-video/css/modal-video.css";
 
 export default function Features() {
@@ -27,7 +25,6 @@ export default function Features() {
     document.documentElement.classList.add("dark");
     document.documentElement.classList.remove("light");
   }, []);
-  const [isOpen, setOpen] = useState(false);
   const data = [
     {
       heading: "Connect Local LLM Provider ",
@@ -265,7 +262,7 @@ export default function Features() {
             const IconComponent = item.icon;
             return (
               <div id={`section${index}`} key={index} className="flex mt-20">
-                <div className="h-12 w-12 flex p-2 border-2 border-amber-400 text-center rounded-full me-2">
+                <div className="h-12 w-12 flex p-2 border-2 border-amber-400 text-center rounded-2xl  me-2">
                   <IconComponent className="h-full w-full" />
                 </div>
 
