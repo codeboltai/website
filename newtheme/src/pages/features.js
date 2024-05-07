@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import AboutImg from "../assets/images/about.jpg";
 import features from "../assets/images/features1.jpg";
-import image1 from "../assets/images/1.png";
-import image2 from "../assets/images/2.png";
+
 import image3 from "../assets/images/3.png";
+import {
+  FaGitAlt,
+  VscDebugDisconnect,
+  MdFitScreen,
+  MdFileUpload,
+} from "../assets/icons/vander";
 
-import client1 from "../assets/images/client/01.jpg";
-import client2 from "../assets/images/client/02.jpg";
-import client3 from "../assets/images/client/03.jpg";
-import client4 from "../assets/images/client/04.jpg";
-import client5 from "../assets/images/client/05.jpg";
-import client6 from "../assets/images/client/06.jpg";
-
-import ClientsTwo from "../components/clientTwo";
-import Blogs from "../components/blogs";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
-import NavLight from "../components/navlight";
+import local from "../assets/images/featuresPage/local.png";
+import install from "../assets/images/featuresPage/install.png";
 
 import { FiCheckCircle } from "../assets/icons/vander";
 
@@ -32,39 +28,35 @@ export default function Features() {
     document.documentElement.classList.remove("light");
   }, []);
   const [isOpen, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const teamData = [
+  const data = [
     {
-      image: client1,
-      name: "Calvin Carlo",
-      title: "C.E.O",
+      heading: "Connect Local LLM Provider ",
+      description:
+        " Integrate CodeBolt with local LLM providers Ollama and LMStudio for   enhanced coding experiences, enabling access to a wide range of language models. ",
+      image: local,
+      icon: VscDebugDisconnect,
     },
     {
-      image: client2,
-      name: "Aliana Rosy",
-      title: "Co-founder",
+      heading: "Keep Track of Every Commit",
+      description:
+        "CodeBolt keeps track of every commit made to your repository. ",
+      image: image3,
+      icon: FaGitAlt,
     },
     {
-      image: client3,
-      name: "Sofia Razaq",
-      title: "C.O.O.",
+      heading: "Preview Tab",
+      description: "View the Preview of your app that is built by your agent. ",
+      image: image3,
+      icon: MdFitScreen,
     },
     {
-      image: client4,
-      name: "Ronny Jofra",
-      title: "Director",
-    },
-    {
-      image: client5,
-      name: "Cristina Murphy",
-      title: "Manager",
-    },
-    {
-      image: client6,
-      name: "Jimmi Shaa",
-      title: "Operator",
+      heading: "Add your own Agent",
+      description: "User can add their own agent to build their own app. ",
+      image: install,
+      icon: MdFileUpload,
     },
   ];
+
   return (
     <>
       <section className="relative md:py-44 py-32 bg-[url('../../assets/images/bg/bg-pages.jpg')] bg-no-repeat bg-bottom bg-cover">
@@ -248,19 +240,28 @@ export default function Features() {
         {/* <ClientsTwo/>
             <Blogs/> */}
       </section>
-      <div className="container ">
-        <div className=" ">
-          <h1>Connect Local LLM Provider</h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia,
-            minus? Esse quod quidem deserunt quo odit autem voluptatum,
-            explicabo provident velit consequuntur pariatur repudiandae.
-            Assumenda nulla error numquam atque voluptatum.
-          </p>
-          <div className=" p-16 bg-gradient-to-tl to-amber-400  from-fuchsia-600 ">
-          <img src={image1} alt="" className="rounded-t-lg m-10" />
-          </div>
-        </div>
+      <div
+        className="container w-full"
+        style={{ display: "flex", flexDirection: "column" }}
+      >
+        {data.map((item, index) => {
+          const IconComponent = item.icon;
+          return (
+            <div key={index} className="flex mt-20">
+              <div className="h-12 w-12 flex p-2 border-2 border-amber-400 text-center rounded-full me-2">
+                <IconComponent className="h-full w-full" />
+              </div>
+
+              <div className="">
+                <h1 className="text-2xl font-semibold p-2">{item.heading}</h1>
+                <p className="p-2">{item.description}</p>
+                <div className="mt-2 bg-gradient-to-tl to-amber-400  from-fuchsia-600 rounded-lg">
+                  <img src={item.image} alt="" className="rounded-lg p-5" />
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
       <Footer />
       <Switcher />
