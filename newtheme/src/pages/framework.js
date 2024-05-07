@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 
 import Navbar from "../components/navbar";
-import BannerImg from "../assets/images/classic01.png"
+import BannerImg from "../assets/images/classic02.png"
 import BrandLogo from "../components/brandLogo";
 import AboutThree from "../components/aboutThree";
 import AiFeatures from "../components/aiFeatures";
@@ -13,6 +13,7 @@ import Footer from "../components/footer";
 import Switcher from "../components/switcher";
 import Blogs from "../components/blogs";
 
+
 export default function Framework(){
     useEffect(() => {
         document.documentElement.setAttribute("dir", "ltr");
@@ -22,8 +23,8 @@ export default function Framework(){
     const workData = [
         {
             icon:'mdi mdi-account-search-outline',
-            title:'Search & Write Content',
-            desc:'If the distribution of letters and words  is random, the reader will not be distracted from making.'
+            title:'Create Agent ',
+            desc:'By going through our CodeBolt documentation you will get to know how to create an agent.And tailor it to your needs.'
         },
         {
             icon:'mdi mdi-wallet-outline',
@@ -62,7 +63,7 @@ export default function Framework(){
                     <div className="lg:col-span-5">
                         <div className="relative after:content-[''] after:absolute lg:after:-top-0 after:-top-10 after:-right-32 after:w-[36rem] after:h-[36rem] after:border-2 after:border-dashed after:border-slate-700/10 dark:after:border-slate-200/10 after:rounded-full after:animate-[spin_120s_linear_infinite] after:-z-1 before:content-[''] before:absolute lg:before:-top-24 before:-top-36 before:-right-56 before:w-[48rem] before:h-[48rem] before:border-2 before:border-dashed before:border-slate-700/10 dark:before:border-slate-200/10 before:rounded-full before:animate-[spin_240s_linear_infinite] before:-z-1">
                             <div className="relative after:content-[''] after:absolute lg:after:-top-24 after:-top-10 after:-right-0 after:w-[42rem] after:h-[42rem] after:bg-gradient-to-tl after:to-amber-400/30  after:from-fuchsia-600/30 dark:after:to-amber-400/50 dark:after:from-fuchsia-600/50 after:blur-[200px] after:rounded-full after:-z-1">
-                                <img src={BannerImg} className="lg:max-w-none lg:ms-14" alt=""/>
+                                <img src={BannerImg} className="lg:max-w-2xl lg:ms-14" alt=""/>
                             </div>
                         </div>
                     </div>
@@ -72,7 +73,7 @@ export default function Framework(){
         <section className="relative pt-6 md:pb-24 pb-16 overflow-hidden">
             <span className="absolute blur-[200px] w-[500px] h-[500px] rounded-full top-[25%] -start-[20%] bg-gradient-to-tl to-amber-400  from-fuchsia-600 -z-1"></span>
             <span className="absolute blur-[200px] w-[500px] h-[500px] rounded-full bottom-[25%] -end-[20%] bg-gradient-to-tl to-amber-400  from-fuchsia-600 -z-1"></span>
-            <BrandLogo/>
+            {/* <BrandLogo/> */}
 
             <div className="container relative md:mt-24 mt-16">
                 <div className="grid grid-cols-1 pb-6 text-center">
@@ -96,7 +97,7 @@ export default function Framework(){
                 </div>
             </div>
 
-            <AboutThree/>
+            {/* <AboutThree/> */}
             <AiFeatures/>
             <AboutTwo/>
             <AboutOne/>
@@ -107,10 +108,9 @@ export default function Framework(){
 
                     <p className="text-slate-400 max-w-xl mx-auto">Artificial intelligence makes it fast easy to create content for your blog, social media, website, and more!</p>
                 </div>
-                <Pricing/>
+               
             </div>
-            <Clients/>
-            <Blogs/>
+          
         </section>
         <Footer/>
         <Switcher/>

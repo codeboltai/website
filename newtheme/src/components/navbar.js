@@ -163,7 +163,7 @@ if (document.getElementById("navigation")) {
                             <Link to="#">AI Agents</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
                                 <li><Link to="/agentframework" className="sub-menu-item">AI Agent Framework</Link></li>
-                                <li><Link to="https://docs.codebolt.ai/" target="_blank" className="sub-menu-item">AI Agent Marketplace</Link></li>
+                                <li><Link to="" target="_blank" className="sub-menu-item">AI Agent Marketplace</Link></li>
                             </ul>
                         </li>
                         {/* <li><Link to="/pricing" className="sub-menu-item">Pricing </Link></li> */}
