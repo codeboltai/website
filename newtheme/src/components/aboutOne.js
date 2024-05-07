@@ -18,13 +18,13 @@ export default function AboutOne(){
                     <p className="text-slate-400 max-w-xl">"Empower users to effortlessly create AI agents by simply reading our comprehensive documentation, streamlining the agent creation process."</p>
 
                     <ul className="list-none text-slate-400 mt-4">
-                        <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>Seamless Integration: Seamlessly integrate AI agent creation into your workflow by following our clear and concise documentation.</li>
-                        <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>Efficiency Boost: Save time and resources with a straightforward process that eliminates the need for complex coding or specialized training.</li>
-                        <li className="mb-2 flex items-start"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div> <span className="text-white font-semibold">Customization: </span> <span className="px-2">Tailor AI agents to your specific needs by following our step-by-step instructions, ensuring your agents are perfectly suited to your tasks. </span></li>
+                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div>Seamless Integration: Seamlessly integrate AI agent creation into your workflow by following our clear and concise documentation.</li>
+                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div>Efficiency Boost: Save time and resources with a straightforward process that eliminates the need for complex coding or specialized training.</li>
+                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div> <>Customization: </>  Tailor AI agents to your specific needs by following our step-by-step instructions, ensuring your agents are perfectly suited to your tasks.</li>
                     </ul>
 
                     <div className="mt-4">
-                        <Link to="" className="hover:text-amber-400 font-medium duration-500 inline-flex items-center">Find Out More <MdKeyboardArrowRight className="ms-1 text-[20px]"/></Link>
+                        <Link to="https://docs.codebolt.ai" target="_blank" className="hover:text-amber-400 font-medium duration-500 inline-flex items-center">Find Out More <MdKeyboardArrowRight className="ms-1 text-[20px]"/></Link>
                     </div>
                 </div>
             </div>
