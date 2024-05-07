@@ -61,7 +61,7 @@ export default function Index(){
         </section> */}
 
         <section className="relative md:py-24 py-16">
-            <BaseExplain classlist="container relative"/>
+            <Features classlist="container "/>
             <AboutOne/>
             <AboutTwo/>
             <AiAgents/>

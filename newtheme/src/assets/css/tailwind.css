@@ -1200,6 +1200,11 @@ video {
       -ms-flex-align: center !important;
           align-items: center !important;
 }
+.items-start{
+  -webkit-box-align: start !important;
+      -ms-flex-align: start !important;
+          align-items: start !important;
+}
 .justify-end{
   -webkit-box-pack: end !important;
       -ms-flex-pack: end !important;
