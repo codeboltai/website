@@ -40,7 +40,7 @@ export default function AiAgents() {
         <span className="absolute blur-[200px] w-[300px] h-[300px] rounded-full top-0 -start-[0] bg-gradient-to-tl to-amber-400  from-fuchsia-600 z-0"></span>
         <div className="grid grid-cols-1 pb-6 text-center">
           <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">
-            Meet Some AI Agents
+            Featured AI Agents
           </h3>
 
           <p className="text-slate-400 max-w-xl mx-auto">
