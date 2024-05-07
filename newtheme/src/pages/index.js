@@ -39,9 +39,9 @@ export default function Index(){
                         <p className="text-slate-400 dark:text-white/60 text-lg max-w-xl mx-auto">Codebolt is a new Generation of Code Editors that are AI Agents First, which provide features for AI Agent Based Code Generation Workflows and also new AI Agent Creation Framework</p>
 
 
-                        <div className="mt-6">
-                            <Link to="" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-amber-400 hover:bg-amber-500 border-amber-400 hover:border-amber-500 text-white rounded-md">Download Codebolt</Link> &nbsp;
-                            <Link to="/about-agents" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center border-amber-400 hover:border-amber-500 text-amber-400 hover:text-white rounded-md">Codebolt Agent Framework</Link>
+                        <div className="mt-6 ">
+                            <Link to="" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-amber-400 hover:bg-amber-500 border-amber-400 hover:border-amber-500 text-white rounded-md mb-2 md:mb-0 ">Download Codebolt</Link> &nbsp;
+                            <Link to="/about-agents" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center border-amber-400 hover:border-amber-500 text-amber-400 hover:text-white rounded-md  ">Codebolt Agent Framework</Link>
                             <p className="text-slate-400 dark:text-white/60 text-sm mt-3">No credit card required. Free 14-days trial</p>
                         </div>
                     </div>
