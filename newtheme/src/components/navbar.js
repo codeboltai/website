@@ -165,7 +165,7 @@ if (document.getElementById("navigation")) {
                             <Link to="#">Developers</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
                                 <li><Link to="/services" className="sub-menu-item">Getting Started</Link></li>
-                                <li><Link to="/services" className="sub-menu-item">Documentation</Link></li>
+                                <li><Link to="https://docs.codebolt.ai/" target="_blank" className="sub-menu-item">Documentation</Link></li>
                         
                                 {/* <li className="has-submenu parent-menu-item"><Link to="#"> Blog </Link><span className="submenu-arrow"></span>
                                     <ul className="submenu">

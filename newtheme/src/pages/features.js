@@ -2,6 +2,7 @@ import React,{useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 
 import AboutImg from "../assets/images/about.jpg"
+import features from "../assets/images/features1.jpg"
 import image1 from "../assets/images/1.png"
 import image2 from "../assets/images/2.png"
 import image3 from "../assets/images/3.png"
@@ -97,7 +98,7 @@ export default function Features(){
                 <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
                     <div className="relative overflow-hidden after:content-[''] after:absolute after:inset-0 after:m-auto after:w-96 after:h-96 after:bg-gradient-to-tl after:to-amber-400 after:from-fuchsia-600 after:blur-[80px] after:rounded-full p-6 bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-slate-800 lg:me-6">
                         <div className="relative overflow-hidden rounded-lg shadow-md dark:shadow-gray-800 z-1">
-                            <img src={AboutImg} alt=""/>
+                            <img src={features} alt=""/>
     
                             <div className="absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center">
                                 <Link to="#!" onClick={() => setOpen(true)} className="lightbox lg:h-16 h-14 lg:w-16 w-14 rounded-full shadow-lg dark:shadow-gray-800 inline-flex items-center justify-center bg-white dark:bg-slate-900 hover:bg-amber-400 dark:hover:bg-amber-400 text-amber-400 hover:text-white duration-500 ease-in-out mx-auto">
@@ -114,13 +115,12 @@ export default function Features(){
                         onClose={() => setOpen(false)} 
                     />
                     <div className="">
-                        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold"><span className="font-bold">Work smarter,</span> <br/> by using AI not  manually</h3>
-                        <p className="text-slate-400 max-w-xl">"Usually, our colleagues don't jump in the air when they hear e-learning, but the AI videos created with Mortal.Ai have sparked motivation that we haven't seen before."</p>
+                        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold"><span className="font-bold">Empower Your Code with </span> <br/> <strong> Codebolt</strong>  </h3>
+                        <p className="text-slate-400 max-w-xl">"Welcome to codebolt, the revolutionary CodeEditor that puts you in control. With codebolt, you can create your own agents like coding and documentation agents to streamline your workflow like never before. Whether you're a seasoned developer or just starting, codebolt empowers you to code smarter not harder." </p>
 
                         <ul className="list-none text-slate-400 mt-4">
-                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/> Digital Marketing Solutions for Tomorrow</li>
-                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/> Our Talented & Experienced Marketing Agency</li>
-                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/> Create your own skin to match your brand</li>
+                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/> Personalized coding assistants for efficient workflow</li>
+                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/> Effortless coding with personalized assistance</li>
                         </ul>
 
                         <div className="mt-4">
@@ -136,20 +136,20 @@ export default function Features(){
                         <ul className="md:flex inline-block w-fit mx-auto flex-wrap justify-center text-center p-2 bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
                             <li role="presentation" className="inline-block md:w-1/3 w-full p-2">
                                 <button className={`${activeIndex === 0 ? "text-white bg-amber-400" : " hover:text-amber-400 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800"} px-5 py-3 text-start rounded-md w-full duration-500 `} onClick={()=>setActiveIndex(0)}>
-                                    <h5 className="text-base font-semibold">Drag and drop</h5>
-                                    <p className="text-sm mt-1">Artificial intelligence makes it fast easy to create content for your video creations.</p>
+                                    <h5 className="text-base font-semibold">Agent Creation Functionality</h5>
+                                    <p className="text-sm mt-1">Empower your workflow with CodeBolt's agent creation feature, allowing you to tailor agents to perfectly suit your needs.</p>
                                 </button>
                             </li>
                             <li role="presentation" className="inline-block md:w-1/3 w-full p-2">
                                 <button className={`${activeIndex === 1 ? "text-white bg-amber-400" : " hover:text-amber-400 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800"} px-5 py-3 text-start rounded-md w-full duration-500 `} onClick={()=>setActiveIndex(1)}>
-                                    <h5 className="text-base font-semibold">Improve your Talent</h5>
-                                    <p className="text-sm mt-1">Artificial intelligence makes it fast easy to create content for your video creations.</p>
+                                    <h5 className="text-base font-semibold">Improve your Agent</h5>
+                                    <p className="text-sm mt-1">Seamless Model Integration: CodeBolt simplifies the integration of additional models into your agents, enhancing their capabilities with professionalism and ease.</p>
                                 </button>
                             </li>
                             <li role="presentation" className="inline-block md:w-1/3 w-full p-2">
                                 <button className={`${activeIndex === 2 ? "text-white bg-amber-400" : " hover:text-amber-400 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800"} px-5 py-3 text-start rounded-md w-full duration-500 `} onClick={()=>setActiveIndex(2)} >
-                                    <h5 className="text-base font-semibold">Go for Live</h5>
-                                    <p className="text-sm mt-1">Artificial intelligence makes it fast easy to create content for your video creations.</p>
+                                    <h5 className="text-base font-semibold">Versatile Agent Selection</h5>
+                                    <p className="text-sm mt-1"> CodeBolt enables users to seamlessly switch between specialized agents for different tasks, optimizing efficiency and workflow management.</p>
                                 </button>
                             </li>
                         </ul>
