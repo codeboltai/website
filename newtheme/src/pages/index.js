@@ -8,7 +8,7 @@ import BrandLogo from "../components/brandLogo";
 import Features from "../components/features";
 import AboutOne from "../components/aboutOne";
 import AboutTwo from "../components/aboutTwo";
-import AmazingFeatures from "../components/amazingFeatures";
+import AiAgents from "../components/aiAgents";
 import AboutThree from "../components/aboutThree";
 import Pricing from "../components/pricing";
 import Faq from "../components/Faq";
@@ -62,7 +62,7 @@ export default function Index(){
             <Features classlist="container relative"/>
             <AboutOne/>
             <AboutTwo/>
-            <AmazingFeatures/>
+            <AiAgents/>
             <AboutThree/>
 
             <div className="container relative md:mt-24 mt-16">

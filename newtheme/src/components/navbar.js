@@ -156,9 +156,16 @@ if (document.getElementById("navigation")) {
                             </ul>
                         </li> */}
 
-                        <li><Link to="/" className="sub-menu-item">Editor</Link></li>
+                        <li><Link to="/" className="sub-menu-item">Code Editor</Link></li>
                         <li><Link to="/features" className="sub-menu-item">Features</Link></li>
-                        <li><Link to="/agentframework" className="sub-menu-item">Agent Framework</Link></li>
+
+                        <li className="has-submenu parent-parent-menu-item">
+                            <Link to="#">AI Agents</Link><span className="menu-arrow"></span>
+                            <ul className="submenu">
+                                <li><Link to="/agentframework" className="sub-menu-item">AI Agent Framework</Link></li>
+                                <li><Link to="https://docs.codebolt.ai/" target="_blank" className="sub-menu-item">AI Agent Marketplace</Link></li>
+                            </ul>
+                        </li>
                         {/* <li><Link to="/pricing" className="sub-menu-item">Pricing </Link></li> */}
                 
                         <li className="has-submenu parent-parent-menu-item">
@@ -176,21 +183,21 @@ if (document.getElementById("navigation")) {
                         
                                 <li><Link to="/helpcenter" className="sub-menu-item">Blogs</Link></li>
 
-                                <li className="has-submenu parent-menu-item"><Link to="#"> Auth Pages </Link><span className="submenu-arrow"></span>
+                                {/* <li className="has-submenu parent-menu-item"><Link to="#"> Auth Pages </Link><span className="submenu-arrow"></span>
                                     <ul className="submenu">
                                         <li><Link to="/login" className="sub-menu-item"> Login</Link></li>
                                         <li><Link to="/signup" className="sub-menu-item"> Signup</Link></li>
                                         <li><Link to="/reset-password" className="sub-menu-item"> Forgot Password</Link></li>
                                     </ul> 
-                                </li>
-                                <li className="has-submenu parent-menu-item"><Link to="#"> Utility </Link><span className="submenu-arrow"></span>
+                                </li> */}
+                                {/* <li className="has-submenu parent-menu-item"><Link to="#"> Utility </Link><span className="submenu-arrow"></span>
                                     <ul className="submenu">
                                         <li><Link to="/terms" className="sub-menu-item">Terms of Services</Link></li>
                                         <li><Link to="/privacy" className="sub-menu-item">Privacy Policy</Link></li>
                                     </ul>  
-                                </li>
+                                </li> */}
                         
-                                <li><Link to="/error" className="sub-menu-item"> 404!</Link></li>
+                                {/* <li><Link to="/error" className="sub-menu-item"> 404!</Link></li> */}
                             </ul>
                         </li>
                 
