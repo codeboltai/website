@@ -55,7 +55,6 @@ export default function Helpcenter(){
     ]
     return(
         <>
-       <NavLight/>
         <section className="relative md:py-44 py-32 bg-[url('../../assets/images/bg/bg-pages.jpg')] bg-no-repeat bg-bottom bg-cover">
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-900/70"></div>
             <div className="container relative">

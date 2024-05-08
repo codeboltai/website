@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import feature4 from '../assets/images/features4.jpg'
+import Avatar, { genConfig } from 'react-nice-avatar'
 
 
 export default function AiAgents() {
@@ -22,6 +23,7 @@ export default function AiAgents() {
     },
 
   ];
+
   return (
     <>
       <div className="container  md:mt-24 mt-16  ">
@@ -41,13 +43,14 @@ export default function AiAgents() {
 
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
           {featureData.map((item, index) => {
+              const config = genConfig(item.title)
             return (
               <div
                 className="px-6 py-10 shadow hover:shadow-md  dark:shadow-gray-800 dark:hover:shadow-gray-700 duration-500 rounded-lg bg-white dark:bg-slate-900 border-white border-[3px]"
                 key={index}
               >
                 <div className="w-14 h-14 rounded-full ">
-                 <img src={feature4} alt="avatar" className="rounded-full h-14 w-14" />
+                <Avatar style={{ width: '3.5rem', height: '3.5rem' }} {...config} />
                 </div>
 
                 <div className="content mt-7">

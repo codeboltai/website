@@ -93,9 +93,7 @@ export default function AgentOverview(){
             </div>
 
             {/* <AboutThree/> */}
-            <AiFeatures/>
-            <AboutTwo/>
-            <AboutOne/>
+         
 
             <div className="container relative md:mt-24 mt-16">
                 <div className="grid grid-cols-1 pb-6 text-center">
