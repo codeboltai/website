@@ -29,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/agentframework" element={<Framework />} />
-        <Route path="/agentOverview" element={<AgentOverview />} />
+        <Route path="/agentsOverview" element={<AgentOverview />} />
         <Route path="/index-three" element={<IndexThree />} />
         <Route path="/index-light" element={<IndexLight />} />
         <Route path="/blog" element={<Blog />} />

@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 
 import Navbar from "../components/navbar";
-import BannerImg from "../assets/images/classic02.png"
+import BannerImg from "../assets/images/agentsOverview.png"
 import BrandLogo from "../components/brandLogo";
 import AboutThree from "../components/aboutThree";
 import AiFeatures from "../components/aiFeatures";
@@ -49,13 +49,8 @@ export default function AgentOverview(){
                             <p className="text-lg max-w-xl lg:ms-0 mx-auto">Codebolt Ai Agent Framework makes it easy for anyone to write their custom AI Agents</p>
                         
                             <div className="subcribe-form mt-6 mb-3">
-                                <form className="relative max-w-md mx-auto lg:ms-0">
-                                    {/* <div className="relative">
-                                        <i className="mdi mdi-email-outline text-xl absolute top-3 start-5"></i>
-                                        <input type="email" id="aiemail" name="email" className="py-4 pe-40 ps-12 w-full h-[50px] outline-none text-slate-900 dark:text-white rounded-md bg-white/60 dark:bg-slate-900/60 shadow dark:shadow-gray-800" placeholder="support@mortal.ai"/>
-                                    </div> */}
-                                    <button type="submit" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center absolute top-[2px] end-[3px] h-[46px] bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white rounded-md">Get Started</button>
-                                </form>
+                            <button type="submit" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center h-[46px] bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white rounded-md">Get Started</button>
+
                             </div>
                         </div>
                     </div>
