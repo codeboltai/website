@@ -4,33 +4,33 @@ export default function FrameWorkFeatures(){
     const featureData = [
         {
             icon:FiEdit2,
-            title:'AI Generator',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            title:'Prebuilt AI Agents',
+            desc:'Jumpstart your AI implementation with a broad selection of ready-made agents suited for various industries and tasks.'
         },
         {
             icon:FiAirplay,
-            title:'Advanced Dashboard',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            title:'Customization Made Simple',
+            desc:'Effortlessly modify agent behaviors and functionalities using intuitive customization tools provided by the Codebolt Framework.'
         },
         {
             icon:FiCreditCard,
-            title:'Payment Gateways',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            title:'Efficient Deployment',
+            desc:'Deploy your AI agents smoothly into any system with Codebolt Framework’s versatile integration capabilities, ensuring compatibility and minimal disruption.'
         },
         {
             icon:FiGlobe,
-            title:'Multi-Lingual',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            title:'Scalability',
+            desc:'Easily scale your AI solutions to match your business growth without compromising performance, thanks to the robust infrastructure of CodeSquad.'
         },
         {
             icon:FiLayout,
-            title:'Custom Templates',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            title:'No Coding Required',
+            desc:'Adjust and deploy AI agents without any need for deep technical knowledge, making advanced AI accessible to all users.'
         },
         {
             icon:FiLifeBuoy,
-            title:'Support Platform',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            title:'Continuous Support',
+            desc:'Benefit from ongoing support and enhancements through the Codebolt Framework, which includes a rich library of utility functions and continuous updates.'
         },
     ]
     return(
