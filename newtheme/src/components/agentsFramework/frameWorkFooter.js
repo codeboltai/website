@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LogoLight from '../assets/images/logo-light.png'
+import LogoLight from '../../assets/images/logo-light.png'
 
-import {FaGithub} from '../assets/icons/vander'
+import {FaGithub} from '../../assets/icons/vander'
 
-export default function Footer(){
+export default function FrameWorkFooter(){
     return(
         <>
          <div className="relative">
@@ -21,10 +21,10 @@ export default function Footer(){
                     <div className="grid grid-cols-1 text-center">
                         <div className="">
                             <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-5xl text-white tracking-normal mb-4">Get Started Now</h4>
-                            <p className="text-white/70 text-lg max-w-xl mx-auto">Artificial intelligence makes it fast easy to create content for your blog, social media, website, and more!</p>
+                            <p className="text-white/70 text-lg max-w-xl mx-auto">Makes Developing Coding Agent Easy</p>
 
                             <div className="mt-6">
-                                <Link to="https://codeboltai.web.app/" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-transparent hover:bg-amber-400 border-gray-800 dark:border-slate-800 hover:border-amber-400 dark:hover:border-amber-400 text-white rounded-md">Join Now!</Link>
+                                <Link to="https://codeboltai.web.app/" target="_blank" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-transparent hover:bg-amber-400 border-gray-800 dark:border-slate-800 hover:border-amber-400 dark:hover:border-amber-400 text-white rounded-md">Join Now!</Link>
                             </div>
                         </div>
                     </div>

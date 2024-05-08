@@ -1,17 +1,10 @@
 import React,{useEffect} from "react";
 
-import Navbar from "../components/navbar";
 import BannerImg from "../assets/images/classic02.png"
-import BrandLogo from "../components/brandLogo";
-import AboutThree from "../components/aboutThree";
-import AiFeatures from "../components/aiFeatures";
-import AboutOne from "../components/aboutOne";
-import AboutTwo from "../components/aboutTwo";
-import Pricing from "../components/pricing";
-import Clients from "../components/clients";
-import Footer from "../components/footer";
+
 import Switcher from "../components/switcher";
 import FrameWorkFeatures from "../components/agentsFramework/frameWorkFeatures";
+import FrameWorkFooter from "../components/agentsFramework/frameWorkFooter";
 
 
 export default function Framework(){
@@ -109,7 +102,7 @@ export default function Framework(){
             </div> */}
           
         </section>
-        <Footer/>
+<FrameWorkFooter/>
         <Switcher/>
         </>
     )
