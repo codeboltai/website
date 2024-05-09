@@ -21,6 +21,7 @@ import Contact from "./pages/contact";
 import Navbar from "./components/navbar";
 import Features from "./pages/features";
 import AgentOverview from "./pages/agentsOverview";
+import LogicLoom from "./pages/logicloom";
 
 function App() {
   return (
@@ -43,6 +44,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/logicloom" element={<LogicLoom />} />
+
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/error" element={<Error />} />

@@ -206,7 +206,7 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/agentframework" className="sub-menu-item">
+                    <Link to="/logicloom" className="sub-menu-item">
                       LogicLoom - Code Focused LLMs
                     </Link>
                   </li>
