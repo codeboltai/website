@@ -14,6 +14,7 @@ import Faq from "../components/Faq";
 import Blogs from "../components/blogs";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
+import AgentAboutTwo from "../components/agentOverview/agentAboutTwo";
 
 export default function Index(){
     useEffect(() => {
@@ -62,21 +63,21 @@ export default function Index(){
             {/* <Features classlist="container "/> */}
             <BaseExplain classlist="container relative"/>
             <AboutOne/>
-            <AboutTwo/>
+          <AgentAboutTwo/>
             <AiAgents/>
-            <AboutThree/>
+            {/* <AboutThree/> */}
 
-            <div className="container relative md:mt-24 mt-16">
+            {/* <div className="container relative md:mt-24 mt-16">
                 <div className="grid grid-cols-1 pb-6 text-center">
                     <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">The right plans, <br/> <span className="bg-gradient-to-br from-amber-400 to-fuchsia-600 text-transparent bg-clip-text">for the right price</span></h3>
 
                     <p className="text-slate-400 max-w-xl mx-auto">Artificial intelligence makes it fast easy to create content for your blog, social media, website, and more!</p>
                 </div>
                 <Pricing/>
-            </div>
+            </div> */}
 
-            <Faq/>
-            <Blogs/>
+            {/* <Faq/> */}
+            {/* <Blogs/> */}
         </section>
         <Footer/>
         <Switcher/>
