@@ -24,7 +24,7 @@ export default function AboutOne(){
                     </ul>
 
                     <div className="mt-4">
-                        <Link to="https://docs.codebolt.ai" target="_blank" className="hover:text-amber-400 font-medium duration-500 inline-flex items-center">Find Out More <MdKeyboardArrowRight className="ms-1 text-[20px]"/></Link>
+                        <Link to="https://docs.codebolt.ai/?docusaurus-theme=dark" target="_blank" className="hover:text-amber-400 font-medium duration-500 inline-flex items-center">Find Out More <MdKeyboardArrowRight className="ms-1 text-[20px]"/></Link>
                     </div>
                 </div>
             </div>

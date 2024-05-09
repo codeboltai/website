@@ -59,7 +59,7 @@ export default function AgentAboutFive() {
 
             <div className="mt-4">
               <Link
-                to="https://docs.codebolt.ai/"
+                to="https://docs.codebolt.ai/?docusaurus-theme=dark/"
                 target="_blank"
                 className="hover:text-amber-400 font-medium duration-500 inline-flex items-center"
               >

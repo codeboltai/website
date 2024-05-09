@@ -239,7 +239,7 @@ export default function Navbar() {
                   </li>
                   <li>
                     <Link
-                      to="https://docs.codebolt.ai/"
+                      to="https://docs.codebolt.ai/?docusaurus-theme=dark"
                       target="_blank"
                       className="sub-menu-item"
                     >
