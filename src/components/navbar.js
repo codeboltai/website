@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logoDark from "../assets/images/logo-dark.png";
 import logoLight from "../assets/images/logo-light.png";
@@ -9,12 +9,7 @@ export default function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [scroll, setScroll] = useState(false);
 
-  useEffect(() => {
-    activateMenu();
-    window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 50);
-    });
-  }, []);
+
 
   /*********************/
   /*    Menu Active    */
@@ -45,56 +40,53 @@ export default function Navbar() {
     return null;
   }
 
-  function activateMenu() {
-    var menuItems = document.getElementsByClassName("sub-menu-item");
-    if (menuItems) {
-      var matchingMenuItem = null;
-      for (var idx = 0; idx < menuItems.length; idx++) {
-        if (menuItems[idx].href === window.location.href) {
-          matchingMenuItem = menuItems[idx];
-        }
-      }
-
-      if (matchingMenuItem) {
-        matchingMenuItem.classList.add("active");
-
-        var immediateParent = getClosest(matchingMenuItem, "li");
-
-        if (immediateParent) {
-          immediateParent.classList.add("active");
+  const activateMenu = useCallback(() => {
+    const menuItems = document.getElementsByClassName("sub-menu-item");
+    if (menuItems.length > 0) {
+        let matchingMenuItem = null;
+        for (let idx = 0; idx < menuItems.length; idx++) {
+            if (menuItems[idx].href === window.location.href) {
+                matchingMenuItem = menuItems[idx];
+                break;  // Break as soon as a match is found
+            }
         }
 
-        var parent = getClosest(immediateParent, ".child-menu-item");
-        if (parent) {
-          parent.classList.add("active");
+        if (matchingMenuItem) {
+            matchingMenuItem.classList.add("active");
+
+            const immediateParent = getClosest(matchingMenuItem, "li");
+            if (immediateParent) {
+                immediateParent.classList.add("active");
+            }
+
+            let parent = getClosest(immediateParent, ".child-menu-item");
+            if (parent) {
+                parent.classList.add("active");
+            }
+
+            // Reuse 'parent' for a new assignment
+            parent = getClosest(parent || immediateParent, ".parent-menu-item");
+            if (parent) {
+                parent.classList.add("active");
+
+                const parentMenuitem = parent.querySelector(".menu-item");
+                if (parentMenuitem) {
+                    parentMenuitem.classList.add("active");
+                }
+
+                const parentOfParent = getClosest(parent, ".parent-parent-menu-item");
+                if (parentOfParent) {
+                    parentOfParent.classList.add("active");
+                }
+            } else {
+                const parentOfParent = getClosest(matchingMenuItem, ".parent-parent-menu-item");
+                if (parentOfParent) {
+                    parentOfParent.classList.add("active");
+                }
+            }
         }
-
-        var parent = getClosest(parent || immediateParent, ".parent-menu-item");
-
-        if (parent) {
-          parent.classList.add("active");
-
-          var parentMenuitem = parent.querySelector(".menu-item");
-          if (parentMenuitem) {
-            parentMenuitem.classList.add("active");
-          }
-
-          var parentOfParent = getClosest(parent, ".parent-parent-menu-item");
-          if (parentOfParent) {
-            parentOfParent.classList.add("active");
-          }
-        } else {
-          var parentOfParent = getClosest(
-            matchingMenuItem,
-            ".parent-parent-menu-item"
-          );
-          if (parentOfParent) {
-            parentOfParent.classList.add("active");
-          }
-        }
-      }
     }
-  }
+}, []);
   /*********************/
   /*  Clickable manu   */
   /*********************/
@@ -111,7 +103,12 @@ export default function Navbar() {
       };
     }
   }
-
+  useEffect(() => {
+    activateMenu();
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 50);
+    });
+  }, [activateMenu]);
   return (
     <>
       <nav

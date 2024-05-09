@@ -7,7 +7,6 @@ import Switcher from "../components/switcher";
 import Footer from "../components/footer";
 
 import {FiFileText, FiVideo, FiPauseCircle, FiCamera, FiLayout,FiMessageCircle, FiHexagon} from '../assets/icons/vander'
-import NavLight from "../components/navlight";
 
 export default function Services(){
     useEffect(() => {

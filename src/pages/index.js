@@ -3,15 +3,9 @@ import { Link } from "react-router-dom";
 
 import bannerImg from '../assets/images/classic02.png'
 
-import Navbar from "../components/navbar";
 import BaseExplain from "../components/index/baseExplain";
 import AboutOne from "../components/aboutOne";
-import AboutTwo from "../components/aboutTwo";
 import AiAgents from "../components/aiAgents";
-import AboutThree from "../components/aboutThree";
-import Pricing from "../components/pricing";
-import Faq from "../components/Faq";
-import Blogs from "../components/blogs";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
 import AgentAboutTwo from "../components/agentOverview/agentAboutTwo";

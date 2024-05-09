@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import NavLight from "../components/navbar";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
 
-import { MdKeyboardArrowDown } from "../assets/icons/vander";
 
 export default function Terms() {
   useEffect(() => {
@@ -13,29 +11,7 @@ export default function Terms() {
     document.documentElement.classList.add("dark");
     document.documentElement.classList.remove("light");
   }, []);
-  const [activeIndex, setActiveIndex] = useState(1);
-  const accordianData = [
-    {
-      id: 1,
-      title: "How does it generate responses?",
-      desc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
-    },
-    {
-      id: 2,
-      title: "Is AI copywriting more cost-effective than hiring human writers?",
-      desc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
-    },
-    {
-      id: 3,
-      title: "Can AI copywriting be customized to my brand and audience?",
-      desc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
-    },
-    {
-      id: 4,
-      title: "What kind of support is available for AI copywriting tools?",
-      desc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
-    },
-  ];
+
   return (
     <>
       <section className="relative md:pt-44 pt-32 pb-8 bg-gradient-to-b from-amber-400/20 dark:from-amber-400/40 to-transparent">

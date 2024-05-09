@@ -17,7 +17,6 @@ import ClientsTwo from "../components/clientTwo";
 import Blogs from "../components/blogs";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
-import NavLight from "../components/navlight";
 
 import {FiCheckCircle} from "../assets/icons/vander"
 

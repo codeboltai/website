@@ -1,17 +1,8 @@
 import React, { useEffect } from "react";
 
-import Navbar from "../components/navbar";
 import BannerImg from "../assets/images/agentsOverview.png";
-import BrandLogo from "../components/brandLogo";
-import AboutThree from "../components/aboutThree";
-import AiFeatures from "../components/aiFeatures";
-import AboutOne from "../components/aboutOne";
-import AboutTwo from "../components/aboutTwo";
-import Pricing from "../components/pricing";
-import Clients from "../components/clients";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
-import Blogs from "../components/blogs";
 import AgentAboutOne from "../components/agentOverview/agentAboutOne";
 import AgentAboutTwo from "../components/agentOverview/agentAboutTwo";
 import AgentAboutThree from "../components/agentOverview/agentAboutThree";
@@ -24,23 +15,7 @@ export default function AgentOverview() {
     document.documentElement.classList.add("dark");
     document.documentElement.classList.remove("light");
   }, []);
-  const workData = [
-    {
-      icon: "mdi mdi-account-search-outline",
-      title: "Create Agent ",
-      desc: "By going through our CodeBolt documentation you will get to know how to create an agent.And tailor it to your needs.",
-    },
-    {
-      icon: "mdi mdi-wallet-outline",
-      title: "Discribe Content",
-      desc: "If the distribution of letters and words  is random, the reader will not be distracted from making.",
-    },
-    {
-      icon: "mdi mdi-home-plus-outline",
-      title: "Generate Content",
-      desc: "If the distribution of letters and words  is random, the reader will not be distracted from making.",
-    },
-  ];
+
   return (
     <>
       <section className="relative table w-full lg:py-40 md:py-36 pt-36 pb-24 overflow-hidden bg-white dark:bg-slate-900">

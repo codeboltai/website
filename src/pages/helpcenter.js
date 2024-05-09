@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
-import NavLight from "../components/navlight";
 
 import {FiHelpCircle, FiBookmark, FiSettings, FiHexagon,MdKeyboardArrowDown} from '../assets/icons/vander'
 

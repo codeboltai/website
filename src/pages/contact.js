@@ -8,7 +8,7 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Switcher from "../components/switcher";
 
-import {FiHexagon, FiPhone,FiMail, FiMapPin} from "../assets/icons/vander"
+import {FiHexagon, FiPhone,FiMail} from "../assets/icons/vander"
 
 export default function Contact(){
     useEffect(() => {

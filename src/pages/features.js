@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/featuresPage/feature.css";
-import features from "../assets/images/features1.jpg";
 
 import image3 from "../assets/images/3.png";
 import {

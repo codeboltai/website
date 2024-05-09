@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import feature4 from '../assets/images/features4.jpg'
 import Avatar, { genConfig } from 'react-nice-avatar'
 
 
