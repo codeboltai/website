@@ -14,7 +14,16 @@ export const metadata = {
   description: 'Mortal.Ai - Next Js AI Writer & Copywriting Template',
 }
 
-export default function RootLayout({ children }) {
+export async function getStaticProps() {
+  return {
+    props: {
+      figtree: figtree,
+      metadata: metadata
+    },
+  }
+}
+
+export default function RootLayout({ figtree, metadata }) {
   return (
     <html lang="en" className="dark scroll-smooth" dir="ltr">
       <body className={`${figtree.variable} font-figtree text-base text-slate-900 dark:text-white dark:bg-slate-900 `}>{children}</body>

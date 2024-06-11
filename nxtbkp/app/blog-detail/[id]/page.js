@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 const Navbar = dynamic(()=>import('../../components/navbar'))
 const Footer = dynamic(() => import('../../components/footer'))
 const Switcher = dynamic(() => import('../../components/switcher'))
-import { blogData } from "../../data/data";
+import { blogData } from "../../../../src/pages/data/data";
 
 import {FiHeart,FiMessageCircle, FiUser,FiMail} from '../../../pages/assets/icons/vander'
 

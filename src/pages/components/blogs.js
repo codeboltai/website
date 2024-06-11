@@ -5,7 +5,15 @@ import { blogData } from "../data/data";
 
 import {FiClock, FiCalendar} from '../../pages/assets/icons/vander'
 
-export default function Blogs(){
+export async function getStaticProps() {
+    return {
+        props: {
+            blogData
+        }
+    }
+}
+
+export default function Blogs({ blogData }){
     return(
         <>
         <div className="container relative md:mt-24 mt-16">
