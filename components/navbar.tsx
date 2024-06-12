@@ -47,14 +47,13 @@ export default function Navbar({ activePage }: { activePage: string }){
                 <div id="navigation" className={`${toggleMenu ? 'block' : ''}`}>
                     <ul className="navigation-menu">
                        
-                    <li><Link href="/aboutus" className={`sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
+                    <li><Link href="/" className={`sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
 
                 
-                        <li><Link href="/aboutus" className={`sub-menu-item ${activePage === 'aboutus' ? 'active' : ''}`}>About Us</Link></li>
-                        <li><Link href="/pricing" className={`sub-menu-item ${activePage === 'pricing' ? 'active' : ''}`}>Pricing </Link></li>
+                        <li><Link href="/features" className={`sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
                 
                         <li className={`has-submenu parent-parent-menu-item ${activePage === 'pages' ? 'active' : ''}`}>
-                            <Link href="#">Pages</Link><span className="menu-arrow"></span>
+                            <Link href="#">AI Agents</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
                                 <li><Link href="/services" className={`sub-menu-item ${activePage === 'services' ? 'active' : ''}`}>Services</Link></li>
                         
@@ -84,8 +83,20 @@ export default function Navbar({ activePage }: { activePage: string }){
                                 <li><Link href="/error" className={`sub-menu-item ${activePage === 'error' ? 'active' : ''}`}> 404!</Link></li>
                             </ul>
                         </li>
+                        <li className={`has-submenu parent-parent-menu-item ${activePage === 'pages' ? 'active' : ''}`}>
+                            <Link href="#">Developers</Link><span className="menu-arrow"></span>
+                            <ul className="submenu">
+                                <li><Link href="/services" className={`sub-menu-item ${activePage === 'services' ? 'active' : ''}`}>Get Started</Link></li>
+                        
+                             
+                        
+                                <li><Link href="/helpcenter" className={`sub-menu-item ${activePage === 'helpcenter' ? 'active' : ''}`}>Documentation</Link></li>
+
+                        
+                                <li><Link href="/error" className={`sub-menu-item ${activePage === 'error' ? 'active' : ''}`}>Blog</Link></li>
+                            </ul>
+                        </li>
                 
-                        <li><Link href="/contact" className={`sub-menu-item ${activePage === 'contact' ? 'active' : ''}`}>Contact</Link></li>
                     </ul>
                 </div>
             </div>
