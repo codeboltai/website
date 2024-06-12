@@ -5,7 +5,7 @@ import Image from "next/image";
 import {FiCheckCircle} from '../assets/icons/vander'
 
 import ModalVideo from 'react-modal-video';
-import '../../../node_modules/react-modal-video/css/modal-video.css'
+import '../node_modules/react-modal-video/css/modal-video.css'
 
 export default function AboutThree(){
     const [isOpen, setOpen] = useState(false);
