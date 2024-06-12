@@ -14,6 +14,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0",
     "react-modal-video": "^2.0.1",
+    "react-nice-avatar": "^1.5.0",
     "react-scroll": "^1.8.9",
     "react-type-animation": "^3.1.0"
   },

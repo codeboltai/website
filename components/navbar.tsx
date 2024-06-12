@@ -46,15 +46,8 @@ export default function Navbar({ activePage }: { activePage: string }){
                 </ul>
                 <div id="navigation" className={`${toggleMenu ? 'block' : ''}`}>
                     <ul className="navigation-menu">
-                        <li className={`has-submenu parent-menu-item ${activePage === 'home' ? 'active' : ''}`}>
-                            <Link href="#">Home</Link><span className="menu-arrow"></span>
-                            <ul className="submenu">
-                                <li><Link href="/" className={`sub-menu-item ${activePage === 'hero-one' ? 'active' : ''}`}>Hero One</Link></li>
-                                <li><Link href="/index-two" className={`sub-menu-item ${activePage === 'hero-two' ? 'active' : ''}`}>Hero Two</Link></li>
-                                <li><Link href="/index-three" className={`sub-menu-item ${activePage === 'hero-three' ? 'active' : ''}`}>Hero Three</Link></li>
-                                <li><Link href="/index-light" className={`sub-menu-item ${activePage === 'hero-light' ? 'active' : ''}`} passHref>Hero Light <span className="bg-gray-50 dark:bg-slate-800 text-[10px] shadow shadow-gray-300 dark:shadow-gray-700 font-bold px-2.5 py-0.5 rounded h-5 ms-1">Light</span></Link></li>
-                            </ul>
-                        </li>
+                       
+                    <li><Link href="/aboutus" className={`sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
 
                 
                         <li><Link href="/aboutus" className={`sub-menu-item ${activePage === 'aboutus' ? 'active' : ''}`}>About Us</Link></li>
