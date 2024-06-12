@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["nxtbkp2/src/*"],
+      "lib": ["./es2018", "./dom"]
+    }
+}
+}

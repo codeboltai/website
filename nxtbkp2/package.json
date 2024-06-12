@@ -1,7 +1,7 @@
 {
-  "name": "codebolt",
-  "private": true,
-  "description": "Next Js AI Writer & Copywriting Template",
+  "name": "codeboltai",
+  "version": "1.0.0",
+  "description": "Codebolt.ai - AI powered Code Editor",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,23 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^14.2.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
     "react-icons": "^4.11.0",
     "react-modal-video": "^2.0.1",
     "react-scroll": "^1.8.9",
     "react-type-animation": "^3.1.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.18",
-    "@types/react": "^18.3.3",
-    "@types/react-modal-video": "^1.2.3",
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "postcss": "latest",
-    "tailwindcss": "latest",
-    "typescript": "4.5.5"
+    "tailwindcss": "latest"
   }
 }
