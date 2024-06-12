@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { CiLink } from "react-icons/ci";
 
 export default function Navbar({ activePage }: { activePage: string }){
     const [toggleMenu, setToggleMenu] = useState(false)
@@ -52,37 +53,42 @@ export default function Navbar({ activePage }: { activePage: string }){
                 
                         <li><Link href="/features" className={`sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
                 
-                        <li className={`has-submenu parent-parent-menu-item ${activePage === 'pages' ? 'active' : ''}`}>
-                            <Link href="#">AI Agents</Link><span className="menu-arrow"></span>
-                            <ul className="submenu">
-                                <li><Link href="/services" className={`sub-menu-item ${activePage === 'services' ? 'active' : ''}`}>Services</Link></li>
-                        
-                                <li className={`has-submenu parent-menu-item ${activePage === 'blog' ? 'active' : ''}`}><Link href="#"> Blog </Link><span className="submenu-arrow"></span>
-                                    <ul className="submenu">
-                                        <li><Link href="/blog" className={`sub-menu-item ${activePage === 'blogs' ? 'active' : ''}`}> Blogs</Link></li>
-                                        <li><Link href="/blog-detail" className={`sub-menu-item ${activePage === 'blog-detail' ? 'active' : ''}`}> Blog Detail</Link></li>
-                                    </ul> 
-                                </li>
-                        
-                                <li><Link href="/helpcenter" className={`sub-menu-item ${activePage === 'helpcenter' ? 'active' : ''}`}>Helpcenter</Link></li>
+                        <li className="has-submenu parent-parent-menu-item">
+                <Link href="#">AI Agents</Link>
+                <span className="menu-arrow"></span>
+                <ul className="submenu">
+                  <li>
+                    <Link href="/agentsOverview" className="sub-menu-item">
+                      Agents Overview
+                    </Link>
+                  </li>
 
-                                <li className={`has-submenu parent-menu-item ${activePage === 'auth-pages' ? 'active' : ''}`}><Link href="#"> Auth Pages </Link><span className="submenu-arrow"></span>
-                                    <ul className="submenu">
-                                        <li><Link href="/login" className={`sub-menu-item ${activePage === 'login' ? 'active' : ''}`}> Login</Link></li>
-                                        <li><Link href="/signup" className={`sub-menu-item ${activePage === 'signup' ? 'active' : ''}`}> Signup</Link></li>
-                                        <li><Link href="/reset-password" className={`sub-menu-item ${activePage === 'forgot-password' ? 'active' : ''}`}> Forgot Password</Link></li>
-                                    </ul> 
-                                </li>
-                                <li className={`has-submenu parent-menu-item ${activePage === 'utility' ? 'active' : ''}`}><Link href="#"> Utility </Link><span className="submenu-arrow"></span>
-                                    <ul className="submenu">
-                                        <li><Link href="/terms" className={`sub-menu-item ${activePage === 'terms' ? 'active' : ''}`}>Terms of Services</Link></li>
-                                        <li><Link href="/privacy" className={`sub-menu-item ${activePage === 'privacy' ? 'active' : ''}`}>Privacy Policy</Link></li>
-                                    </ul>  
-                                </li>
-                        
-                                <li><Link href="/error" className={`sub-menu-item ${activePage === 'error' ? 'active' : ''}`}> 404!</Link></li>
-                            </ul>
-                        </li>
+                  <li>
+                    <Link href="/agentframework" className="sub-menu-item">
+                      CodeSquad - AI Agent Framework
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/logicloom" className="sub-menu-item">
+                      LogicLoom - Code Focused LLMs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="https://codeboltai.web.app/registry"
+                      target="_blank"
+                      className="sub-menu-item"
+                      style={{ display: "flex", items: "center",gap:"10px" }}
+                    >
+                      <span> Agents MarketPlace </span>
+
+                      <span className="badge rounded-full  bg-gray-20 text-white ">
+                        <CiLink className="h-4 w-4" />
+                      </span>
+                    </Link>
+                  </li>
+                </ul>
+              </li>
                         <li className={`has-submenu parent-parent-menu-item ${activePage === 'pages' ? 'active' : ''}`}>
                             <Link href="#">Developers</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
