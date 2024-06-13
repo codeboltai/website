@@ -23,7 +23,7 @@ export default function Switcher(){
         
     };
 
-    function changeMode(mode, event) {
+    function changeMode(mode:any, event:any) {
         switch (mode) {
             case 'mode':
                 if (document.documentElement.className.includes("dark")) {

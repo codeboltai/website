@@ -81,8 +81,8 @@ export default function Navbar({ activePage }: { activePage: string }){
                       href="https://codeboltai.web.app/registry"
                       target="_blank"
                       className="sub-menu-item"
-                      style={{ display: "flex", items: "center",gap:"10px" }}
-                    >
+                      style={{ display: "flex", alignItems: "center", gap:"10px" }}
+                    passHref>
                       <span> Agents MarketPlace </span>
 
                       <span className="badge rounded-full  bg-gray-20 text-white ">

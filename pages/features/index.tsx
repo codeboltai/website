@@ -243,9 +243,12 @@ export default function Features() {
               <li key={index} className="py-2">
                 <a href={`#section${index}`} onClick={(e) => {
                   e.preventDefault();
-                  document.getElementById(`section${index}`).scrollIntoView({
-                    behavior: 'smooth'
-                  });
+                  const element = document.getElementById(`section${index}`);
+                  if(element) {
+                    element.scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                  }
                 }} className="hover:text-amber-400">
                   {item.heading}
                 </a>

@@ -25,7 +25,7 @@ export default function AgentAboutThree() {
             </h3>
             <p className="text-slate-300 max-w-xl">
               Browse our diverse marketplace to find the AI agent that best fits
-              your needs. Whether you're looking for advanced natural language
+              your needs. Whether you are looking for advanced natural language
               processing, efficient code optimization, or open-source
               flexibility, our platform offers a variety of specialized agents
               tailored to enhance and streamline your operations.
