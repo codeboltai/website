@@ -92,14 +92,14 @@ export default function Navbar({ activePage }: { activePage: string }){
                         <li className={`has-submenu parent-parent-menu-item ${activePage === 'pages' ? 'active' : ''}`}>
                             <Link href="#">Developers</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link href="/services" className={`sub-menu-item ${activePage === 'services' ? 'active' : ''}`}>Get Started</Link></li>
+                                <li><Link href="/gettingStarted" className={`sub-menu-item ${activePage === 'services' ? 'active' : ''}`}>Get Started</Link></li>
                         
                              
                         
-                                <li><Link href="/helpcenter" className={`sub-menu-item ${activePage === 'helpcenter' ? 'active' : ''}`}>Documentation</Link></li>
+                                <li><Link href="https://docs.codebolt.ai/?docusaurus-theme=dark" target="_blank" className={`sub-menu-item ${activePage === 'helpcenter' ? 'active' : ''}`}>Documentation</Link></li>
 
                         
-                                <li><Link href="/error" className={`sub-menu-item ${activePage === 'error' ? 'active' : ''}`}>Blog</Link></li>
+                                <li><Link href="/helpcenter" className={`sub-menu-item ${activePage === 'error' ? 'active' : ''}`}>Blog</Link></li>
                             </ul>
                         </li>
                 
