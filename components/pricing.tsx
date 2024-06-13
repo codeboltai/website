@@ -8,9 +8,9 @@ export default function Pricing(){
     const [professionalPrice, setProfessionalPrice] = useState(40)
 
 
-    let businessUpdate = (parseFloat(businessPrice * 0.05).toFixed(1))
+    // let businessUpdate = (parseFloat(businessPrice * 0.05).toFixed(1))
 
-    let professionalUpdate = (parseFloat(professionalPrice * 0.025).toFixed(1))
+    // let professionalUpdate = (parseFloat(professionalPrice * 0.025).toFixed(1))
 
     return(
         <>
@@ -62,11 +62,11 @@ export default function Pricing(){
 
                             <div className="relative mt-4">
                                 <label htmlFor="business-price" className="form-label"></label>
-                                <input id="business-price" type="range" defaultValue="20" min={20} max={200} onChange={(e) => setBusinessPrice(e.target.value)} className="w-full h-1 bg-gray-50 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer"/>
+                                <input id="business-price" type="range" defaultValue="20" min={20} max={200}  className="w-full h-1 bg-gray-50 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer"/>
                                 <span className="font-semibold text-lg absolute end-0 -top-5">
                                     <input type="hidden"  id="business-update" className="form-control"/>
                                     <span className=""></span>
-                                    <p className="inline-block" id="busi-update">{businessUpdate}</p>
+                                    <p className="inline-block" id="busi-update">123 Rs</p>
                                     <span>X</span>
                                 </span>
                             </div>
@@ -106,11 +106,11 @@ export default function Pricing(){
 
                             <div className="relative mt-4">
                                 <label htmlFor="professional-price" className="form-label"></label>
-                                <input id="professional-price" type="range" defaultValue="40"   min={40} max={400} onChange={(e) => setProfessionalPrice(e.target.value)} className="w-full h-1 bg-gray-50 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer"/>
+                                <input id="professional-price" type="range" defaultValue="40"   min={40} max={400}  className="w-full h-1 bg-gray-50 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer"/>
                                 <span className="font-semibold text-lg absolute end-0 -top-5">
                                     <input type="hidden" id="professional-update" className="form-control"/>
                                     <span className=""></span>
-                                    <p className="inline-block" id="pro-update">{professionalUpdate}</p>
+                                    <p className="inline-block" id="pro-update">234</p>
                                     <span>X</span>
                                 </span>
                             </div>
