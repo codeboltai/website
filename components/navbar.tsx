@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { CiLink } from "react-icons/ci";
+import { FiDownload } from "react-icons/fi";
 
 export default function Navbar({ activePage }: { activePage: string }){
     const [toggleMenu, setToggleMenu] = useState(false)
@@ -42,7 +43,9 @@ export default function Navbar({ activePage }: { activePage: string }){
                     </li>
             
                     <li className="md:inline hidden ps-1 mb-0 ">
-                        <Link href="/signup" target="_blank" className="py-[6px] px-4 inline-block items-center justify-center tracking-wider align-middle duration-500 text-sm text-center rounded bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white font-semibold">Signup</Link>
+                        <Link href="/signup" target="_blank" className="py-[6px] px-4 inline-block items-center justify-center tracking-wider align-middle duration-500 text-sm text-center rounded bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white font-semibold"><span className="inline-flex items-center">
+                  Download <FiDownload className="ml-2" />
+                </span></Link>
                     </li>
                 </ul>
                 <div id="navigation" className={`${toggleMenu ? 'block' : ''}`}>
