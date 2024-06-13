@@ -16,7 +16,7 @@ export default function AboutOne(){
 
                 <div className="">
                     <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Unleash the Power of AI Agents with Ease</h3>
-                    <p className="text-slate-400 max-w-xl">"Empower users to effortlessly create AI agents by simply reading our comprehensive documentation, streamlining the agent creation process."</p>
+                    <p className="text-slate-400 max-w-xl">Empower users to effortlessly create AI agents by simply reading our comprehensive documentation, streamlining the agent creation process.</p>
 
                     <ul className="list-none text-slate-400 mt-4">
                         <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div>Seamless Integration: Seamlessly integrate AI agent creation into your workflow by following our clear and concise documentation.</li>
