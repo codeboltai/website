@@ -3,7 +3,7 @@ import '../assets/css/tailwind.css'
 import "../assets/css/materialdesignicons.min.css"
 import type { AppProps } from 'next/app'
 import { Figtree } from 'next/font/google'
-
+import GoogleAnalytics from '../components/GoogleAnalytics'
 const figtree = Figtree({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
@@ -13,6 +13,7 @@ const figtree = Figtree({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className={`${figtree.variable} font-figtree`}>
+      <GoogleAnalytics/>
       <Component {...pageProps} />
     </div>
   )
