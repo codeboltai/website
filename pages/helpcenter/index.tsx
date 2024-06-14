@@ -6,6 +6,7 @@ import {FiBookmark, FiHelpCircle, FiHexagon, FiSettings} from "react-icons/fi";
 import Link from "next/link";
 import {MdKeyboardArrowDown} from "react-icons/md";
 import Head from "next/head";
+import Navbar from "../../components/navbar";
 
 export default function Helpcenter() {
 	useEffect(() => {
@@ -78,6 +79,8 @@ export default function Helpcenter() {
 				<link rel="icon" href="/favicon.ico"/>
 
 			</Head>
+			<Navbar activePage="helpcenter"/>
+
 			<section className="relative md:py-44 py-32 bg-[url('../../assets/images/bg/bg-pages.jpg')] bg-no-repeat bg-bottom bg-cover">
 				<div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-900/70"></div>
 				<div className="container relative">

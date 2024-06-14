@@ -7,6 +7,7 @@ import FrameWorkFeatures from "../../components/logicloom/frameWorkFeatures";
 import FrameWorkFooter from "../../components/logicloom/frameWorkFooter";
 import Image from "next/image";
 import Head from "next/head";
+import Navbar from "../../components/navbar";
 
 export default function LogicLoom() {
 	useEffect(() => {
@@ -59,6 +60,8 @@ export default function LogicLoom() {
 				<link rel="icon" href="/favicon.ico"/>
 
 			</Head>
+			<Navbar activePage="logicloom"/>
+
 
 			<section className="relative table w-full lg:py-40 md:py-36 pt-36 pb-24 overflow-hidden bg-white dark:bg-slate-900">
 				<div className="container relative z-1">

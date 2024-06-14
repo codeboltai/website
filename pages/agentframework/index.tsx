@@ -6,6 +6,7 @@ import Switcher from "../../components/switcher";
 import FrameWorkFeatures from "../../components/agentsFramework/frameWorkFeatures";
 import FrameWorkFooter from "../../components/agentsFramework/frameWorkFooter";
 import Image from "next/image";
+import Navbar from "../../components/navbar";
 
 
 export default function Framework() {
@@ -58,7 +59,7 @@ export default function Framework() {
 				<link rel="icon" href="/favicon.ico"/>
 
 			</Head>
-
+			<Navbar activePage="agentframework"/>
 			<section className="relative table w-full lg:py-40 md:py-36 pt-36 pb-24 overflow-hidden bg-white dark:bg-slate-900">
 				<div className="container relative z-1">
 					<div className="relative grid lg:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">

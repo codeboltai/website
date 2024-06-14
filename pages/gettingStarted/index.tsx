@@ -16,6 +16,7 @@ import {
 	FiVideo
 } from "react-icons/fi";
 import Head from "next/head";
+import Navbar from "../../components/navbar";
 export default function Services() {
 	useEffect(() => {
 		document.documentElement.setAttribute("dir", "ltr");
@@ -82,7 +83,7 @@ export default function Services() {
 				<link rel="icon" href="/favicon.ico"/>
 
 			</Head>
-
+			<Navbar activePage="gettingStarted"/>
 			<section className="relative md:py-44 py-32 bg-[url('../../assets/images/bg/bg-pages.jpg')] bg-no-repeat bg-bottom bg-cover">
 				<div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-900/70"></div>
 				<div className="container relative">

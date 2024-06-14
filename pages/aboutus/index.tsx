@@ -13,6 +13,7 @@ import {FiCheckCircle} from "../../assets/icons/vander"
 
 import ModalVideo from 'react-modal-video';
 import '../../node_modules/react-modal-video/css/modal-video.css'
+import Navbar from "../../components/navbar";
 
 
 export default function AboutUs(){
@@ -85,7 +86,7 @@ export default function AboutUs(){
         <link rel="icon" href="/favicon.ico" />
 
       </Head>
-
+      <Navbar activePage="aboutus"/>
         <section className="relative md:py-44 py-32 bg-no-repeat bg-bottom bg-cover" style={{backgroundImage:"url('/images/bg/bg-pages.jpg')"}}>
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-900/70"></div>
             <div className="container relative">
