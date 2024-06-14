@@ -4,6 +4,7 @@ import Footer from "../../components/footer";
 import Switcher from "../../components/switcher";
 import Link from "next/link";
 import Head from "next/head";
+import Navbar from "../../components/navbar";
 
 export default function Terms() {
   useEffect(() => {
@@ -14,6 +15,7 @@ export default function Terms() {
 
   return (
     <>
+    <Navbar activePage="terms"/>
       <section className="relative md:pt-44 pt-32 pb-8 bg-gradient-to-b from-amber-400/20 dark:from-amber-400/40 to-transparent">
         <div className="container relative">
           <div className="grid grid-cols-1 text-center mt-6">
