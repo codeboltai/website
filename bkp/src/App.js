@@ -35,7 +35,7 @@ function App() {
         <Route path="/index-light" element={<IndexLight />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/features" element={<Features />} />
+        <Route path="/features" element={<Features />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/services" element={<Services />} />
         <Route path="/blog-detail" element={<BlogDetails />} />

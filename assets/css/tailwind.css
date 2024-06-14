@@ -4120,3 +4120,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     width: 56rem !important;
   }
 }
+
+
+.features{
+  background-image: url('/images/bg/bg-pages.jpg');
+}
