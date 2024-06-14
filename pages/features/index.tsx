@@ -15,7 +15,6 @@ import local from "../../public/images/featuresPage/local.png";
 import install from "../../public/images/featuresPage/install.png";
 import "../../node_modules/react-modal-video/css/modal-video.css";
 import Image from "next/image";
-import BgImage from './bg-pages.jpg'
 
 
 export default function Features() {
@@ -86,7 +85,7 @@ export default function Features() {
 
 			</Head>
 
-      <section className="relative md:py-44 py-32 features bg-no-repeat bg-bottom bg-cover">
+      <section className="relative md:py-44 py-32 bg-no-repeat bg-bottom bg-cover" style={{backgroundImage:"url('/images/bg/bg-pages.jpg')"}}>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-900/70"></div>
         <div className="container relative">
           <div className="grid grid-cols-1 text-center mt-6">
