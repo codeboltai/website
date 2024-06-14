@@ -3,24 +3,28 @@
 import React from 'react';
 import Script from 'next/script';
 
+const GA_TRACKING_ID = 'G-JPJFN4RHD4';
 const GoogleAnalytics = () => {
   return (
     <>
       <Script
-        strategy='lazyOnload'
-        src={`https://www.googletagmanager.com/gtag/js?id=G-JPJFN4RHD4`}
-      />
-
-      <Script id='' strategy='lazyOnload'>
-        {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-JPJFN4RHD4', {
-            page_path: window.location.pathname,
-            });
-          `}
-      </Script>
+           strategy="afterInteractive"
+           src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+         />
+         <Script
+           id="google-analytics"
+           strategy="afterInteractive"
+           dangerouslySetInnerHTML={{
+             __html: `
+               window.dataLayer = window.dataLayer || [];
+               function gtag(){dataLayer.push(arguments);}
+               gtag('js', new Date());
+               gtag('config', '${GA_TRACKING_ID}', {
+                 page_path: window.location.pathname,
+               });
+             `,
+           }}
+         />
     </>
   );
 };
