@@ -1,3 +1,5 @@
+# THis will not be used as auto deployment is already setup from vercel
+
 name: Vercel Production Deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -6,7 +8,7 @@ on:
   release:
     types: [created]
   workflow_dispatch:
-  
+
 jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
