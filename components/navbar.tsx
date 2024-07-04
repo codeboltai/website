@@ -52,7 +52,6 @@ export default function Navbar({ activePage }: { activePage: string }){
                     <ul className="navigation-menu">
                        
                     <li><Link href="/" className={`sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
-
                 
                         <li><Link href="/features" className={`sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
                 
@@ -78,16 +77,15 @@ export default function Navbar({ activePage }: { activePage: string }){
                   </li>
                   <li>
                     <Link
-                      href="https://codeboltai.web.app/registry"
-                      target="_blank"
+                      href="/agents"
                       className="sub-menu-item"
                       style={{ display: "flex", alignItems: "center", gap:"10px" }}
                     passHref>
                       <span> Agents MarketPlace </span>
 
-                      <span className="badge rounded-full  bg-gray-20 text-white ">
+                      {/* <span className="badge rounded-full  bg-gray-20 text-white ">
                         <CiLink className="h-4 w-4" />
-                      </span>
+                      </span> */}
                     </Link>
                   </li>
                 </ul>

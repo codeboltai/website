@@ -97,8 +97,8 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className="relative mt-8 z-3 mx-auto  ">
-                        <Image     src={classic02}  width={1000} height={800}  alt="Image" className="mover"/>
-                    </div>
+                  <Image     src={classic02}  width={1000} height={800}  alt="Image" className="mover"/>
+              </div>
           </div>
         </div>
 
