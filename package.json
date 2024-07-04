@@ -1,7 +1,7 @@
 {
   "name": "codebolt",
   "private": true,
-  "description": "Next Js AI Writer & Copywriting Template",
+  "description": "Codebolt AI Agent",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
