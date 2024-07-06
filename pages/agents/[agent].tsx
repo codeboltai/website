@@ -7,11 +7,13 @@ import {FiDownload} from "react-icons/fi";
 import Footer from '../../components/footer';
 import Switcher from '../../components/switcher';
 import ReactMarkdown from 'react-markdown';
+import { Agent } from './types';
+
 export async function getStaticPaths() {
 	const res = await fetch('https://codeboltai.web.app/api/agents/list');
-	const agents = await res.json();
+	const agents: Agent[] = await res.json();
 
-	const paths = agents.map((agent) => ({
+	const paths = agents.map((agent:Agent) => ({
 		params: {
 			agent: agent.slug
 		}
@@ -20,23 +22,21 @@ export async function getStaticPaths() {
 	return {paths, fallback: false};
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({params}: {params: {agent: string}}) {
 	const res = await fetch('https://codeboltai.web.app/api/agents/list');
 	const agents = await res.json();
-	const agent = agents.find((a) => a.slug === params.agent);
+	const agent = agents.find((a: Agent) => a.slug === params.agent);
 
 	return {props: {
 			agent
 		}};
 }
-
-const AgentPage = ({agent}) => {
+const AgentPage = ({agent}: {agent: Agent}) => {
 	const config = genConfig(agent.title);
 
 	return (
 		<>
 			<Head>
-
 				<link rel="icon" href="/favicon.ico"/>
 
 				<meta name="description" content="Codebolt is a next-gen Code Editor, designed with an AI Agents-first approach. It natively supports AI Code Generation Workflows and can run multiple AI agents tailored to specific coding languages or tasks."/>
