@@ -7,7 +7,7 @@ import {FiDownload} from "react-icons/fi";
 import Footer from '../../components/footer';
 import Switcher from '../../components/switcher';
 import ReactMarkdown from 'react-markdown';
-import { Agent } from './types';
+import {Agent} from '../../types/types';
 
 export async function getStaticPaths() {
 	const res = await fetch('https://codeboltai.web.app/api/agents/list');

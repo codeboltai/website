@@ -5,7 +5,7 @@ import Navbar from "../../components/navbar";
 import Avatar, { genConfig } from 'react-nice-avatar'
 import Footer from '../../components/footer';
 import Switcher from '../../components/switcher';
-import { Agent } from './types';
+import {Agent} from '../../types/types';
 export async function getServerSideProps() {
 	const res = await fetch('https://codeboltai.web.app/api/agents/list');
 	const agents = await res.json();
