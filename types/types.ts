@@ -17,4 +17,5 @@ export type Agent = {
 	zipFilePath: string;
 	featured?: boolean;
 	recommended?: boolean;
+	category?: string;
 };

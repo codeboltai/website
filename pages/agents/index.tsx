@@ -6,16 +6,20 @@ import Avatar, { genConfig } from 'react-nice-avatar'
 import Footer from '../../components/footer';
 import Switcher from '../../components/switcher';
 import {Agent} from '../../types/types';
+import {additionalAgents} from '../../data/data';
+
 export async function getStaticProps() {
 	const res = await fetch('https://codeboltai.web.app/api/agents/list');
 	const agents = await res.json();
 
+
 	return {props: {
-			agents
+			agents,
+      additionalAgents
 		}};
 }
 
-const AgentsPage = ({agents}: {agents: Agent[]}) => {
+const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgents: Agent[]}) => {
 	return (
 		<>
 			<Head>
