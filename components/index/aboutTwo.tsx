@@ -53,8 +53,7 @@ export default function AgentAboutTwo() {
 
             <div className="mt-4">
               <Link
-                href="https://codeboltai.web.app/registry"
-                target="_blank"
+                href="/agents"
                 className="hover:text-amber-400 font-medium duration-500 inline-flex items-center"
               >
                 Find Out More{" "}

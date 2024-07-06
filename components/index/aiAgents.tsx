@@ -73,11 +73,10 @@ export default function AiAgents() {
         </div>
         <div className="text-center mt-6">
           <Link
-            href="https://codeboltai.web.app/"
-            target="_blank"
+            href="/agents"
             className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-amber-400 hover:bg-amber-500 border-amber-400 hover:border-amber-500 text-white rounded-md"
           >
-            Explore AI Agent Marketplace
+            Explore Agents Marketplace
           </Link>
         </div>
       </div>

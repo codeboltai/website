@@ -48,7 +48,7 @@ const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgen
 
 			</Head>
         <Navbar activePage="features"/>
-        <section className="relative md:py-44 py-32 bg-no-repeat bg-bottom bg-cover" style={{backgroundImage:"url('/images/bg/bg-pages.jpg')"}}>
+        {/* <section className="relative md:py-44 py-32 bg-no-repeat bg-bottom bg-cover" style={{backgroundImage:"url('/images/bg/bg-pages.jpg')"}}>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-900/70"></div>
         <div className="container relative">
           <div className="grid grid-cols-1 text-center mt-6">
@@ -74,8 +74,8 @@ const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgen
             </ul>
           </div>
         </div>
-      </section>
-      <div className="relative">
+      </section> */}
+      {/* <div className="relative">
         <div className="shape absolute sm:-bottom-px -bottom-[2px] start-0 end-0 overflow-hidden z-1 text-white dark:text-slate-900">
           <svg
             className="w-full h-auto scale-[2.0] origin-top"
@@ -89,47 +89,65 @@ const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgen
             ></path>
           </svg>
         </div>
-      </div>
-<div className='container mb-5'>
-  <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
+      </div> */}
+      <div className="relative md:py-20 py-16">
+				<div className="shape absolute sm:-bottom-px -bottom-[2px] start-0 end-0 overflow-hidden z-1 text-white dark:text-slate-900">
+					<svg className="w-full h-auto scale-[2.0] origin-top" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+					</svg>
+				</div>
+			</div>
+ 
+  <div className='container mb-6'> 
+    <h2 className='text-lg font-bold'>Trending</h2>
+  <p className='text-md text-slate-300'>Discover the most popular agents in the Marketplace </p>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-2 mt-6 gap-6">
     {agents.map((item, index) => {
       const config = genConfig(item.title);
       return (
-        <Link
-          href={`/agents/${item.slug}`}
-          className="px-6 py-10 shadow hover:shadow-md dark:shadow-gray-800 dark:hover:shadow-gray-700 duration-500 rounded-lg bg-white dark:bg-slate-900 border-white border-[3px]"
-          key={index}
-        >
-          <div className="w-14 h-14 rounded-full">
-            <Avatar style={{ width: '3.5rem', height: '3.5rem' }} {...config} />
+        <Link className="flex flex-col overflow-hidden bg-white dark:bg-slate-900" key={index} href={`/agents/${item.slug}`} >
+          <div className="rounded-md">
+            <Avatar style={{ width: '4.3rem', height: '4.2rem' }} {...config} />
           </div>
-
-          <div className="content mt-7">
-            <div
-              className="title h5 text-lg font-medium hover:text-amber-400 duration-500"
-            >
-              {item.title}
-            </div>
-            <p className="text-slate-400 mt-3">
-              {item.description}
-            </p>
-            <div className="mt-6 w-full flex flex-wrap space-x-2 space-y-2">
-              {item.tags.map((tag, index) => (
-                  <span
-                      key={index}
-                      className="rounded-full border text-amber-200 justify-center m-1 px-3 py-1"
-                      style={{ whiteSpace: 'nowrap', marginRight: "10px", marginTop: "10px"}}
-                  >
-                      {tag}
-                  </span>
-              ))}
+          <div className="py-5 px-3 pt-3">
+              <h3 className="text-xl font-semibold">{item.title}</h3>
+              <h3 className="text-xs" style={{ 
+                overflow: "hidden", 
+                display: "-webkit-box", 
+                WebkitBoxOrient: "vertical", 
+                WebkitLineClamp: 2 
+              }}>{item.description}</h3>
           </div>
-          </div>
-        </Link>
+        </Link>  
       );
     })}
   </div>
-</div>
+
+  <h2 className='text-lg font-bold' style={{paddingTop: "64px"}}>Additional Agents <span className='text-sm font-semibold'>Comming Soon...</span> </h2>
+  <p className='text-md text-slate-300'>Discover the most popular agents in the Marketplace </p>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-2 mt-6 gap-6">
+    {agents.map((item, index) => {
+      const config = genConfig(item.title);
+      return (
+        <div className="flex flex-col overflow-hidden bg-white dark:bg-slate-900" key={index}>
+          <div className="rounded-md">
+            <Avatar style={{ width: '4.3rem', height: '4.2rem' }} {...config} />
+          </div>
+          <div className="py-5 px-3 pt-3">
+              <h3 className="text-xl font-semibold">{item.title}</h3>
+              <h3 className="text-xs" style={{ 
+                overflow: "hidden", 
+                display: "-webkit-box", 
+                WebkitBoxOrient: "vertical", 
+                WebkitLineClamp: 2 
+              }}>{item.description}</h3>
+          </div>
+    </div>  
+      );
+    })}
+  </div>
+  </div>
+
 <Footer/>
 <Switcher />
 		</>

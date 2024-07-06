@@ -8,6 +8,7 @@ import Footer from '../../components/footer';
 import Switcher from '../../components/switcher';
 import ReactMarkdown from 'react-markdown';
 import {Agent} from '../../types/types';
+import { CiLink } from "react-icons/ci";
 
 export async function getStaticPaths() {
 	const res = await fetch('https://codeboltai.web.app/api/agents/list');
@@ -90,8 +91,9 @@ const AgentPage = ({agent}: {agent: Agent}) => {
 						<div>
 							<Link href="https://codeboltai.web.app/sign-up" target="_blank" className="py-[6px] px-4 inline-block items-center justify-center tracking-wider align-middle duration-500 text-sm text-center rounded bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white font-semibold">
 								<span className="inline-flex items-center">
-									Download
-									<FiDownload className="ml-2"/>
+									View in Registry
+									{/* <FiDownload className="ml-2"/> */}
+									<CiLink className="h-4 w-4" />
 								</span>
 							</Link>
 						</div>
