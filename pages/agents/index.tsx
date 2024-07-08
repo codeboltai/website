@@ -12,8 +12,6 @@ import Image from 'next/image';
 export async function getStaticProps() {
 	const res = await fetch('https://codeboltai.web.app/api/agents/list');
 	const agents = await res.json();
-
-
 	return {props: {
 			agents,
       additionalAgents
@@ -131,11 +129,11 @@ const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgen
     {additionalAgents.map((item, index) => {
       const config = genConfig(item.title);
       return (
-        <div className="flex flex-col overflow-hidden bg-white dark:bg-slate-900" key={index}>
+        <Link className="flex flex-col overflow-hidden bg-white dark:bg-slate-900" key={index} href={`/agents/agentsDetails/${item.slug}`}>
           <div className=" bg-white rounded-full "  style={{ "width":"80px","height":"80px" ,"display":"flex","alignItems":"center","justifyContent":"center" ,borderRadius:"9999px"}}>
            
             {/* <Avatar style={{ width: '4.3rem', height: '4.2rem' }} {...config} /> */}
-            <Image width={70} height={70} src={item.avatarSrc} alt='Logo' className='rounded-full'  />
+            <Image width={70} height={70} src={item.avatarSrc} alt='Logo' className='rounded-full' />
           </div>
           <div className="py-5 px-3 pt-3 " style={{  "width": "70%"}}>
               <h3 className="text-xl font-semibold">{item.title}</h3>
@@ -146,7 +144,7 @@ const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgen
                 WebkitLineClamp: 2 
               }}>{item.description}</h3>
           </div>
-    </div>  
+    </Link>  
       );
     })}
   </div>
