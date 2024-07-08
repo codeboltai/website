@@ -33,7 +33,7 @@ export const additionalAgents:Agent[] = [
     {
         longDescription: "This agent assists with Cloudflare Workers by providing code snippets, best practices, and debugging tips.",
         createdByUser: "alice_smith",
-        avatarSrc: "/images/avatars/cloudflare.png",
+        avatarSrc: "/images/avatars/cloudeflare.png",
         action: [
             {
                 detailDescription: "Generates a new Cloudflare Worker with the specified name.",
@@ -59,69 +59,10 @@ export const additionalAgents:Agent[] = [
         recommended: true,
         category: "Serverless"
     },
-    {
-        longDescription: "This agent assists with Google Cloud Functions by providing code snippets, best practices, and debugging tips.",
-        createdByUser: "bob_jones",
-        avatarSrc: "/images/avatars/googlecloud.png",
-        action: [
-            {
-                detailDescription: "Generates a new Google Cloud Function with the specified name.",
-                name: "Generate Function",
-                description: "Creates a new Google Cloud Function.",
-                actionPrompt: "Please provide the name of the function."
-            },
-            {
-                detailDescription: "Provides best practices for Google Cloud Functions development.",
-                name: "Best Practices",
-                description: "Lists best practices for Google Cloud Functions development.",
-                actionPrompt: "Would you like to see best practices for Google Cloud Functions development?"
-            }
-        ],
-        description: "Google Cloud Functions development assistant",
-        id: "googlecloud-agent-001",
-        title: "Google Cloud Functions Agent",
-        avatarFallback: "G",
-        slug: "googlecloud-agent",
-        tags: ["Google Cloud", "JavaScript", "Serverless", "Web Development"],
-        zipFilePath: "/downloads/googlecloud-agent.zip",
-        featured: true,
-        recommended: true,
-        category: "Serverless"
-    },
-    {
-			"longDescription": "React Agent is designed to facilitate and enhance development workflows within React applications. It provides tools and automations to improve productivity and efficiency.",
-			"createdByUser": "adminUser",
-			"avatarSrc": "https://example.com/avatar/react_agent.png",
-			"action": [
-				{
-					"detailDescription": "Generates boilerplate code for new components and hooks.",
-					"name": "Code Generator",
-					"description": "Automates the creation of standard code templates for React components and hooks.",
-					"actionPrompt": "Generate new component"
-				}, {
-					"detailDescription": "Monitors and optimizes the performance of React applications.",
-					"name": "Performance Optimizer",
-					"description": "Analyzes and suggests improvements for React app performance.",
-					"actionPrompt": "Start performance analysis"
-				}
-			],
-			"description": "An essential agent for streamlining development and performance optimization in React applications.",
-			"id": "react-agent-001",
-			"title": "React Development Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
-			"slug": "react-development-agent",
-			"tags": [
-				"React", "Development", "Automation"
-			],
-			"zipFilePath": "/path/to/react-agent.zip",
-			"featured": true,
-			"recommended": true,
-			"category": "Development Tools"
-		},
 		{
 			"longDescription": "Angular Agent specializes in automating data entry tasks within Angular applications. Utilizing Angular's robust framework, it enhances efficiency and accuracy in data entry processes.",
 			"createdByUser": "adminUser",
-			"avatarSrc": "https://example.com/avatar/angular_agent.png",
+			"avatarSrc": "/images/avatars/angular.png",
 			"action": [
 				{
 					"detailDescription": "Automatically fills in forms using predefined schemas and user data.",
@@ -138,7 +79,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An efficient agent for automating data entry tasks in Angular applications.",
 			"id": "angular-agent-001",
 			"title": "Angular Data Entry Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "angular-data-entry-agent",
 			"tags": [
 				"Angular", "Data Entry", "Automation"
@@ -151,7 +92,7 @@ export const additionalAgents:Agent[] = [
 		{
 			"longDescription": "Next.js Agent facilitates seamless data entry automation in Next.js applications, leveraging server-side rendering and static site generation capabilities.",
 			"createdByUser": "adminUser",
-			"avatarSrc": "https://example.com/avatar/nextjs_agent.png",
+			"avatarSrc": "/images/avatars/nextjs_agent.png",
 			"action": [
 				{
 					"detailDescription": "Automates form submissions and data handling processes within Next.js applications.",
@@ -168,7 +109,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An efficient agent designed for automating data entry tasks in Next.js applications.",
 			"id": "nextjs-agent-001",
 			"title": "Next.js Data Entry Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "nextjs-data-entry-agent",
 			"tags": [
 				"Next.js", "Data Entry", "Automation"
@@ -181,7 +122,7 @@ export const additionalAgents:Agent[] = [
 		{
 			"longDescription": "Stack AI Agent enhances productivity by automating data analysis and decision-making processes. It leverages advanced AI algorithms to process complex datasets and provide actionable insights.",
 			"createdByUser": "adminUser",
-			"avatarSrc": "https://example.com/avatar/stack_ai_agent.png",
+			"avatarSrc": "/images/avatars/stack_ai_agent.png",
 			"action": [
 				{
 					"detailDescription": "Analyzes large datasets to identify patterns and trends.",
@@ -198,7 +139,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An intelligent agent for automated data analysis and decision-making using AI.",
 			"id": "stack-ai-agent-001",
 			"title": "Stack AI Decision Support Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "stack-ai-decision-support-agent",
 			"tags": [
 				"AI", "Data Analysis", "Decision Support"
@@ -211,7 +152,7 @@ export const additionalAgents:Agent[] = [
     {
 			"longDescription": "The Typescript Agent facilitates streamlined integration of TypeScript into existing web applications, enhancing code robustness and developer productivity.",
 			"createdByUser": "typescriptUser",
-			"avatarSrc": "https://example.com/avatar/typescript_agent.png",
+			"avatarSrc": "/images/avatars/typescript_agent.png",
 			"action": [
 				{
 					"detailDescription": "Converts JavaScript code to TypeScript to leverage TypeScript's static typing features.",
@@ -228,7 +169,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An agent designed to facilitate TypeScript integration and improve development efficiency.",
 			"id": "typescript-agent-001",
 			"title": "TypeScript Integration Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "typescript-integration-agent",
 			"tags": [
 				"TypeScript", "JavaScript", "Integration"
@@ -240,7 +181,7 @@ export const additionalAgents:Agent[] = [
 		}, {
 			"longDescription": "Pandas Agent facilitates data manipulation and analysis using the powerful pandas library in Python. It enables efficient handling of large datasets, providing tools for data cleaning, transformation, and analysis.",
 			"createdByUser": "dataScientist01",
-			"avatarSrc": "https://example.com/avatar/pandas_agent.png",
+			"avatarSrc": "/images/avatars/pandas_agent.jpeg",
 			"action": [
 				{
 					"detailDescription": "Cleans data by handling missing values, duplicates, and data type conversions.",
@@ -262,7 +203,7 @@ export const additionalAgents:Agent[] = [
 			"description": "A comprehensive agent for data manipulation and analysis using pandas.",
 			"id": "pandas-agent-001",
 			"title": "Pandas Data Manipulation Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "pandas-data-manipulation-agent",
 			"tags": [
 				"Pandas", "Data Manipulation", "Data Analysis", "Python"
@@ -274,7 +215,7 @@ export const additionalAgents:Agent[] = [
 		}, {
 			"longDescription": "The Shopify API Agent facilitates seamless integration with Shopify's APIs, enabling efficient data retrieval and management for e-commerce applications.",
 			"createdByUser": "adminUser",
-			"avatarSrc": "https://example.com/avatar/shopify_api_agent.png",
+			"avatarSrc": "/images/avatars/shopify_api_agent.png",
 			"action": [
 				{
 					"detailDescription": "Fetches product data from Shopify including details like pricing, inventory, and descriptions.",
@@ -291,7 +232,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An efficient agent for integrating with Shopify's APIs to manage e-commerce data.",
 			"id": "shopify-api-agent-001",
 			"title": "Shopify API Integration Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "shopify-api-integration-agent",
 			"tags": [
 				"Shopify", "API", "E-commerce", "Integration"
@@ -304,7 +245,7 @@ export const additionalAgents:Agent[] = [
         {
 			"longDescription": "The Facebook Marketing Assistant helps manage and optimize advertising campaigns on Facebook's platform. It provides tools to analyze ad performance, target specific audiences, and improve ROI.",
 			"createdByUser": "adminUser",
-			"avatarSrc": "https://example.com/avatar/facebook_marketing_assistant.png",
+			"avatarSrc": "/images/avatars/facebook.png",
 			"action": [
 				{
 					"detailDescription": "Creates and manages Facebook ad campaigns from start to finish.",
@@ -321,7 +262,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An essential tool for managing Facebook advertising campaigns effectively.",
 			"id": "facebook-marketing-assistant-001",
 			"title": "Facebook Marketing Assistant",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "facebook-marketing-assistant",
 			"tags": [
 				"Facebook", "Advertising", "Marketing", "Campaign Management"
@@ -334,7 +275,7 @@ export const additionalAgents:Agent[] = [
 		{
 			"longDescription": "LinkedIn Agent helps manage and automate LinkedIn tasks such as posting updates, managing connections, and tracking engagement. It is designed to enhance productivity and maintain a strong LinkedIn presence.",
 			"createdByUser": "adminUser",
-			"avatarSrc": "https://example.com/avatar/linkedin_agent.png",
+			"avatarSrc": "/images/avatars/linkedin_agent.png",
 			"action": [
 				{
 					"detailDescription": "Automates the process of posting updates and articles on LinkedIn.",
@@ -356,7 +297,7 @@ export const additionalAgents:Agent[] = [
 			"description": "A comprehensive agent for automating and managing LinkedIn activities.",
 			"id": "linkedin-agent-001",
 			"title": "LinkedIn Management Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "linkedin-management-agent",
 			"tags": [
 				"LinkedIn", "Social Media", "Automation"
@@ -369,7 +310,7 @@ export const additionalAgents:Agent[] = [
 		{
 			"longDescription": "Codium AI Agent aids in the development and deployment of AI models within coding environments. It integrates seamlessly with popular coding platforms to enhance AI-driven functionalities.",
 			"createdByUser": "devTeam",
-			"avatarSrc": "https://example.com/avatar/codium_ai.png",
+			"avatarSrc": "/images/avatars/codium_ai.jpeg",
 			"action": [
 				{
 					"detailDescription": "Generates AI models based on user-provided datasets and parameters.",
@@ -386,7 +327,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An advanced agent for developing and deploying AI models within coding environments.",
 			"id": "codium-ai-agent-002",
 			"title": "Codium AI Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "codium-ai-agent",
 			"tags": [
 				"AI", "Model Generation", "Deployment"
@@ -399,7 +340,7 @@ export const additionalAgents:Agent[] = [
 		{
 			"longDescription": "Sisense Agent automates data analysis and visualization tasks within Sisense. It helps users efficiently create dashboards and reports by leveraging Sisense's powerful analytics capabilities.",
 			"createdByUser": "dataAnalyst",
-			"avatarSrc": "https://example.com/avatar/sisense_agent.png",
+			"avatarSrc": "/images/avatars/sisense.png",
 			"action": [
 				{
 					"detailDescription": "Generates interactive dashboards based on user-defined parameters.",
@@ -416,7 +357,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An advanced agent for automating data analysis and reporting tasks in Sisense.",
 			"id": "sisense-agent-002",
 			"title": "Sisense Data Analysis Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "sisense-data-analysis-agent",
 			"tags": [
 				"Sisense", "Data Analysis", "Automation"
@@ -428,7 +369,7 @@ export const additionalAgents:Agent[] = [
 		}, {
 			"longDescription": "TikTok Marketing Assistant helps businesses and influencers create, manage, and optimize their marketing campaigns on TikTok. It provides insights, scheduling, and content suggestions tailored to boost engagement and reach.",
 			"createdByUser": "marketingExpert",
-			"avatarSrc": "https://example.com/avatar/tiktok_marketing_assistant.png",
+			"avatarSrc": "/images/avatars/tiktok.png",
 			"action": [
 				{
 					"detailDescription": "Generates content ideas based on trending topics and user interests.",
@@ -450,7 +391,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An intelligent assistant for managing and optimizing TikTok marketing campaigns.",
 			"id": "tiktok-marketing-assistant-001",
 			"title": "TikTok Marketing Assistant",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "tiktok-marketing-assistant",
 			"tags": [
 				"TikTok", "Marketing", "Social Media", "Automation"
@@ -462,7 +403,7 @@ export const additionalAgents:Agent[] = [
 		}, {
 			"longDescription": "Data Analyst Assistant Agent helps in analyzing and visualizing data. It offers a variety of tools to assist data analysts in making data-driven decisions by providing insights and detailed reports.",
 			"createdByUser": "adminUser",
-			"avatarSrc": "https://example.com/avatar/data_analyst_assistant.png",
+			"avatarSrc": "/images/avatars/data_analyst_assistant.png",
 			"action": [
 				{
 					"detailDescription": "Analyzes datasets to identify patterns and trends.",
@@ -479,7 +420,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An intelligent agent designed to assist data analysts with data analysis and visualization.",
 			"id": "data-analyst-assistant-001",
 			"title": "Data Analyst Assistant Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "data-analyst-assistant-agent",
 			"tags": [
 				"Data Analysis", "Visualization", "Reports"
@@ -491,7 +432,7 @@ export const additionalAgents:Agent[] = [
 		}, {
 			"longDescription": "SAP Assistant Agent aids in automating routine tasks within SAP environments. It helps streamline workflows, automate repetitive tasks, and enhance productivity by integrating seamlessly with SAP systems.",
 			"createdByUser": "adminUser",
-			"avatarSrc": "https://example.com/avatar/sap_assistant.png",
+			"avatarSrc": "/images/avatars/SAP.jpeg",
 			"action": [
 				{
 					"detailDescription": "Automates data entry processes in SAP modules such as finance, HR, and logistics.",
@@ -508,7 +449,7 @@ export const additionalAgents:Agent[] = [
 			"description": "An efficient agent for automating tasks and generating insights within SAP systems.",
 			"id": "sap-assistant-001",
 			"title": "SAP Assistant Agent",
-			"avatarFallback": "https://example.com/avatar/default.png",
+			"avatarFallback": "/images/avatars/default.png",
 			"slug": "sap-assistant-agent",
 			"tags": [
 				"SAP", "Automation", "Data Entry", "Reporting"

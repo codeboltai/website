@@ -7,6 +7,7 @@ import Footer from '../../components/footer';
 import Switcher from '../../components/switcher';
 import {Agent} from '../../types/types';
 import {additionalAgents} from '../../data/data';
+import Image from 'next/image';
 
 export async function getStaticProps() {
 	const res = await fetch('https://codeboltai.web.app/api/agents/list');
@@ -131,7 +132,8 @@ const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgen
       return (
         <div className="flex flex-col overflow-hidden bg-white dark:bg-slate-900" key={index}>
           <div className="rounded-md">
-            <Avatar style={{ width: '4.3rem', height: '4.2rem' }} {...config} />
+            {/* <Avatar style={{ width: '4.3rem', height: '4.2rem' }} {...config} /> */}
+            <Image width={64} height={64} src={item.avatarSrc} />
           </div>
           <div className="py-5 px-3 pt-3">
               <h3 className="text-xl font-semibold">{item.title}</h3>
