@@ -555,7 +555,37 @@ export const additionalAgents:Agent[] = [
 		"featured": true,
 		"recommended": true,
 		"category": "Productivity"
+	},
+	{
+		"longDescription": "Pilot Agents are designed to assist with navigating and piloting tasks, offering comprehensive support for various transportation and navigation scenarios. They are equipped with advanced algorithms to optimize routes and ensure efficient travel.",
+		"createdByUser": "user123",
+		"avatarSrc": "/images/avatars/Pilot.png",
+		"action": [
+			{
+				"detailDescription": "Provides real-time navigation and routing information based on current traffic and weather conditions.",
+				"name": "Navigation Assistance",
+				"description": "Assists with real-time navigation.",
+				"actionPrompt": "Get current route and navigation details."
+			},
+			{
+				"detailDescription": "Offers safety checks and tips for pilots before and during flights to ensure safety protocols are followed.",
+				"name": "Safety Checks",
+				"description": "Conducts safety checks and provides tips.",
+				"actionPrompt": "Perform a safety check for the upcoming flight."
+			}
+		],
+		"description": "Agents specialized in piloting and navigation tasks, providing comprehensive support for efficient and safe travel.",
+		"id": "pilot-agents-001",
+		"title": "Pilot Agents",
+		"avatarFallback": "https://example.com/avatars/fallback-pilot.png",
+		"slug": "pilot-agents",
+		"tags": ["navigation", "piloting", "safety"],
+		"zipFilePath": "/path/to/pilot-agents.zip",
+		"featured": true,
+		"recommended": true,
+		"category": "Transportation"
 	}
+	
 	
 	  
 	

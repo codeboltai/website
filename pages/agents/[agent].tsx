@@ -122,7 +122,7 @@ const AgentPage = ({agent}: {agent: Agent}) => {
 					} </div>
 					<p className='mt-6 mb-6'>
 						<ReactMarkdown>{
-							agent.longDescription
+							agent?.longDescription
 						}</ReactMarkdown>
 					</p>
 				</div>
