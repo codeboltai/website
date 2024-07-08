@@ -181,7 +181,7 @@ export const additionalAgents:Agent[] = [
 		}, {
 			"longDescription": "Pandas Agent facilitates data manipulation and analysis using the powerful pandas library in Python. It enables efficient handling of large datasets, providing tools for data cleaning, transformation, and analysis.",
 			"createdByUser": "dataScientist01",
-			"avatarSrc": "/images/avatars/pandas_agent.jpeg",
+			"avatarSrc": "/images/avatars/pandas_agent.png",
 			"action": [
 				{
 					"detailDescription": "Cleans data by handling missing values, duplicates, and data type conversions.",
@@ -246,7 +246,7 @@ export const additionalAgents:Agent[] = [
 		{
 			"longDescription": "Codium AI Agent aids in the development and deployment of AI models within coding environments. It integrates seamlessly with popular coding platforms to enhance AI-driven functionalities.",
 			"createdByUser": "devTeam",
-			"avatarSrc": "/images/avatars/codium_ai.jpeg",
+			"avatarSrc": "/images/avatars/codium.png",
 			"action": [
 				{
 					"detailDescription": "Generates AI models based on user-provided datasets and parameters.",
@@ -335,7 +335,7 @@ export const additionalAgents:Agent[] = [
 		}, {
 			"longDescription": "SAP Assistant Agent aids in automating routine tasks within SAP environments. It helps streamline workflows, automate repetitive tasks, and enhance productivity by integrating seamlessly with SAP systems.",
 			"createdByUser": "adminUser",
-			"avatarSrc": "/images/avatars/SAP.jpeg",
+			"avatarSrc": "/images/avatars/SAP.png",
 			"action": [
 				{
 					"detailDescription": "Automates data entry processes in SAP modules such as finance, HR, and logistics.",

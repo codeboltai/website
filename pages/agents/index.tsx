@@ -109,6 +109,7 @@ const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgen
         <Link className="flex flex-col overflow-hidden bg-white dark:bg-slate-900" key={index} href={`/agents/${item.slug}`} >
           <div className="rounded-md">
             <Avatar style={{ width: '4.3rem', height: '4.2rem' }} {...config} />
+
           </div>
           <div className="py-5 px-3 pt-3">
               <h3 className="text-xl font-semibold">{item.title}</h3>
@@ -131,11 +132,12 @@ const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgen
       const config = genConfig(item.title);
       return (
         <div className="flex flex-col overflow-hidden bg-white dark:bg-slate-900" key={index}>
-          <div className="rounded-md">
-            <Avatar style={{ width: '4.3rem', height: '4.2rem' }} {...config} />
-            {/* <Image width={64} height={64} src={item.avatarSrc} /> */}
+          <div className="rounded-md "  style={{ "width":"80px","height":"80px" ,"display":"flex","alignItems":"center","justifyContent":"center" }}>
+           
+            {/* <Avatar style={{ width: '4.3rem', height: '4.2rem' }} {...config} /> */}
+            <Image width={80} height={80} src={item.avatarSrc} alt='Logo'   />
           </div>
-          <div className="py-5 px-3 pt-3">
+          <div className="py-5 px-3 pt-3 " style={{  "width": "70%"}}>
               <h3 className="text-xl font-semibold">{item.title}</h3>
               <h3 className="text-xs" style={{ 
                 overflow: "hidden", 
