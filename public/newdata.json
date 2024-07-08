@@ -119,7 +119,8 @@
 			"featured": true,
 			"recommended": true,
 			"category": "Artificial Intelligence"
-		}, {
+		},
+    {
 			"longDescription": "The Typescript Agent facilitates streamlined integration of TypeScript into existing web applications, enhancing code robustness and developer productivity.",
 			"createdByUser": "typescriptUser",
 			"avatarSrc": "https://example.com/avatar/typescript_agent.png",

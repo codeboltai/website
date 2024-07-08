@@ -69,7 +69,7 @@ const AgentPage = ({agent}: {agent: Agent}) => {
 					</svg>
 				</div>
 			</div>
-			<section className="flex flex-col w-full min-h-screen/3">
+			<section className="flex flex-col w-full min-h-screen">
 				<div className='container'>
 					<div className='flex flex-row w-full justify-between'>
 						<div className='flex flex-col gap-6'>
