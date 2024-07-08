@@ -116,8 +116,8 @@ const AgentPage = ({agent}: {agent: Agent}) => {
 						))
 					} </div>
 
-					<div className='mt-6 flex flex-col w-full justify-between'>
-						<div className='w-full'>
+					<div className='mt-6 grid gap-4 grid-cols-2 '>
+						<div>
 							<h1 className='text-lg text-slate-300'>Action</h1>
 					{agent?.action?.map((item, index) => (
 						<div key={index}>
@@ -126,18 +126,16 @@ const AgentPage = ({agent}: {agent: Agent}) => {
 							<p className='text-sm' style={{padding: '10px 10px 10px 30px'}}>{item.actionPrompt}</p>
 							<p className='text-sm' style={{padding: '10px 10px 10px 30px'}}>{item.detailDescription}</p>
 						</div>
-					))}
-					</div>
-					<p className='w-full pt-6'>
-					
+						))}
+						</div>
+					<div>
+					<h1 className='text-lg text-slate-300'>About</h1>
 						<ReactMarkdown className='mt-6'>{
 							agent?.longDescription
 						}</ReactMarkdown>
-					</p>
-
+					</div>
 					</div>
 				</div>
-				
 			</div>
 			</section>
 			<Footer/>
