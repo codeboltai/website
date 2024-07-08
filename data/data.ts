@@ -33,7 +33,7 @@ export const additionalAgents:Agent[] = [
     {
         longDescription: "This agent assists with Cloudflare Workers by providing code snippets, best practices, and debugging tips.",
         createdByUser: "alice_smith",
-        avatarSrc: "/images/avatars/cloudeflare.png",
+        avatarSrc: "/images/avatars/cloudflare.png",
         action: [
             {
                 detailDescription: "Generates a new Cloudflare Worker with the specified name.",
