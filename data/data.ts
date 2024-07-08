@@ -212,7 +212,8 @@ export const additionalAgents:Agent[] = [
 			"featured": true,
 			"recommended": true,
 			"category": "Data Science"
-		}, {
+		},
+        {
 			"longDescription": "The Shopify API Agent facilitates seamless integration with Shopify's APIs, enabling efficient data retrieval and management for e-commerce applications.",
 			"createdByUser": "adminUser",
 			"avatarSrc": "/images/avatars/shopify_api_agent.png",
@@ -241,71 +242,6 @@ export const additionalAgents:Agent[] = [
 			"featured": true,
 			"recommended": true,
 			"category": "E-commerce"
-		},
-        {
-			"longDescription": "The Facebook Marketing Assistant helps manage and optimize advertising campaigns on Facebook's platform. It provides tools to analyze ad performance, target specific audiences, and improve ROI.",
-			"createdByUser": "adminUser",
-			"avatarSrc": "/images/avatars/facebook.png",
-			"action": [
-				{
-					"detailDescription": "Creates and manages Facebook ad campaigns from start to finish.",
-					"name": "Ad Campaign Manager",
-					"description": "Handles the creation, monitoring, and optimization of Facebook ad campaigns.",
-					"actionPrompt": "Manage ad campaigns"
-				}, {
-					"detailDescription": "Analyzes ad performance metrics to refine targeting and improve campaign effectiveness.",
-					"name": "Performance Analyzer",
-					"description": "Provides insights into ad performance metrics such as CTR, CPC, and conversions.",
-					"actionPrompt": "Analyze ad performance"
-				}
-			],
-			"description": "An essential tool for managing Facebook advertising campaigns effectively.",
-			"id": "facebook-marketing-assistant-001",
-			"title": "Facebook Marketing Assistant",
-			"avatarFallback": "/images/avatars/default.png",
-			"slug": "facebook-marketing-assistant",
-			"tags": [
-				"Facebook", "Advertising", "Marketing", "Campaign Management"
-			],
-			"zipFilePath": "/path/to/facebook-marketing-assistant.zip",
-			"featured": true,
-			"recommended": true,
-			"category": "Marketing"
-		},
-		{
-			"longDescription": "LinkedIn Agent helps manage and automate LinkedIn tasks such as posting updates, managing connections, and tracking engagement. It is designed to enhance productivity and maintain a strong LinkedIn presence.",
-			"createdByUser": "adminUser",
-			"avatarSrc": "/images/avatars/linkedin_agent.png",
-			"action": [
-				{
-					"detailDescription": "Automates the process of posting updates and articles on LinkedIn.",
-					"name": "Post Scheduler",
-					"description": "Schedules and posts updates to your LinkedIn profile or page.",
-					"actionPrompt": "Schedule a LinkedIn post"
-				}, {
-					"detailDescription": "Manages connections by sending connection requests and messages.",
-					"name": "Connection Manager",
-					"description": "Automates sending and managing connection requests and messages.",
-					"actionPrompt": "Manage LinkedIn connections"
-				}, {
-					"detailDescription": "Tracks engagement metrics such as likes, comments, and shares on your posts.",
-					"name": "Engagement Tracker",
-					"description": "Monitors and reports on the engagement of your LinkedIn posts.",
-					"actionPrompt": "Track LinkedIn engagement"
-				}
-			],
-			"description": "A comprehensive agent for automating and managing LinkedIn activities.",
-			"id": "linkedin-agent-001",
-			"title": "LinkedIn Management Agent",
-			"avatarFallback": "/images/avatars/default.png",
-			"slug": "linkedin-management-agent",
-			"tags": [
-				"LinkedIn", "Social Media", "Automation"
-			],
-			"zipFilePath": "/path/to/linkedin-agent.zip",
-			"featured": true,
-			"recommended": true,
-			"category": "Social Media Management"
 		},
 		{
 			"longDescription": "Codium AI Agent aids in the development and deployment of AI models within coding environments. It integrates seamlessly with popular coding platforms to enhance AI-driven functionalities.",
@@ -366,41 +302,8 @@ export const additionalAgents:Agent[] = [
 			"featured": true,
 			"recommended": true,
 			"category": "Data Analysis"
-		}, {
-			"longDescription": "TikTok Marketing Assistant helps businesses and influencers create, manage, and optimize their marketing campaigns on TikTok. It provides insights, scheduling, and content suggestions tailored to boost engagement and reach.",
-			"createdByUser": "marketingExpert",
-			"avatarSrc": "/images/avatars/tiktok.png",
-			"action": [
-				{
-					"detailDescription": "Generates content ideas based on trending topics and user interests.",
-					"name": "Content Generator",
-					"description": "Provides suggestions for engaging and relevant TikTok content.",
-					"actionPrompt": "Generate content ideas"
-				}, {
-					"detailDescription": "Schedules and publishes posts at optimal times for maximum engagement.",
-					"name": "Post Scheduler",
-					"description": "Automates the scheduling and posting of TikTok content.",
-					"actionPrompt": "Schedule and publish posts"
-				}, {
-					"detailDescription": "Analyzes the performance of TikTok campaigns and provides detailed reports.",
-					"name": "Performance Analyzer",
-					"description": "Tracks and reports on the success metrics of TikTok marketing efforts.",
-					"actionPrompt": "Analyze campaign performance"
-				}
-			],
-			"description": "An intelligent assistant for managing and optimizing TikTok marketing campaigns.",
-			"id": "tiktok-marketing-assistant-001",
-			"title": "TikTok Marketing Assistant",
-			"avatarFallback": "/images/avatars/default.png",
-			"slug": "tiktok-marketing-assistant",
-			"tags": [
-				"TikTok", "Marketing", "Social Media", "Automation"
-			],
-			"zipFilePath": "/path/to/tiktok-marketing-assistant.zip",
-			"featured": true,
-			"recommended": true,
-			"category": "Marketing"
-		}, {
+		}, 
+        {
 			"longDescription": "Data Analyst Assistant Agent helps in analyzing and visualizing data. It offers a variety of tools to assist data analysts in making data-driven decisions by providing insights and detailed reports.",
 			"createdByUser": "adminUser",
 			"avatarSrc": "/images/avatars/data_analyst_assistant.png",
