@@ -69,7 +69,7 @@ const AgentPage = ({agent}: {agent: Agent}) => {
 					</svg>
 				</div>
 			</div>
-			<section className="flex flex-col w-full">
+			<section className="flex flex-col w-full min-h-screen/3">
 				<div className='container'>
 					<div className='flex flex-row w-full justify-between'>
 						<div className='flex flex-col gap-6'>
@@ -93,7 +93,7 @@ const AgentPage = ({agent}: {agent: Agent}) => {
 								<span className="inline-flex items-center">
 									View in Registry
 									{/* <FiDownload className="ml-2"/> */}
-									<CiLink className="h-4 w-4" />
+									<CiLink className="h-4 w-4 " />
 								</span>
 							</Link>
 						</div>

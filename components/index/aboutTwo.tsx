@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import feature4 from "../../public/images/features4.jpg";
+import feature4 from "../../public/images/agents_icons.png";
 
 import { MdKeyboardArrowRight } from "../../assets/icons/vander";
 import Image from "next/image";
@@ -61,13 +61,13 @@ export default function AgentAboutTwo() {
               </Link>
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-lg border border-amber-400/5 bg-gradient-to-tl to-amber-400/30  from-fuchsia-600/30 dark:to-amber-400/50 dark:from-fuchsia-600/50 ps-6 pt-6 lg:me-8">
+          <div className="relative overflow-hidden rounded-lg border border-amber-400/5 bg-gradient-to-tl to-amber-400/30  from-fuchsia-600/30 dark:to-amber-400/50 dark:from-fuchsia-600/50">
             <Image
             height={800}
             width={800}
-              src={feature4}
-              className="ltr:rounded-tl-lg rtl:rounded-tr-lg"
-              alt=""
+            src={feature4}
+            className="ltr:rounded-tl-lg rtl:rounded-tr-lg"
+            alt=""
             />
           </div>
         </div>

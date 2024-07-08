@@ -126,7 +126,7 @@ const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgen
   <h2 className='text-lg font-bold' style={{paddingTop: "64px"}}>Additional Agents <span className='text-sm font-semibold'>Comming Soon...</span> </h2>
   <p className='text-md text-slate-300'>Discover the most popular agents in the Marketplace </p>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-2 mt-6 gap-6">
-    {agents.map((item, index) => {
+    {additionalAgents.map((item, index) => {
       const config = genConfig(item.title);
       return (
         <div className="flex flex-col overflow-hidden bg-white dark:bg-slate-900" key={index}>
