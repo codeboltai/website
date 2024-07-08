@@ -82,10 +82,17 @@ const AgentPage = ({agent}: {agent: Agent}) => {
 									}
 									{...config}/>
 							</div>
-							<h1 className="text-3xl font-bold mt-4">
+							<div className='mt-1'>
+							<h1 className="text-3xl font-bold ">
 								{
 								agent ?. title.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ')
 							}</h1>
+							<h1 className="text-sm">
+								{
+								agent ?.description
+							}</h1>
+							</div>
+							
 						</div>
 
 						<div>
