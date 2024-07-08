@@ -116,20 +116,21 @@ const AgentPage = ({agent}: {agent: Agent}) => {
 						))
 					} </div>
 
-					<div className='mt-6 flex flex-row w-full justify-between'>
+					<div className='mt-6 flex flex-col w-full justify-between'>
 						<div className='w-full'>
+							<h1 className='text-lg text-slate-300'>Action</h1>
 					{agent?.action?.map((item, index) => (
-						<div key={index} >
-							<h2 className='text-lg font-bold pt-6'>{item.name}</h2>
-							<p className='text-sm' style={{paddingLeft: '30px', paddingTop: '10px'}}>{item.description}</p>
-							<p className='text-sm' style={{paddingLeft: '30px', paddingTop: '10px'}}>{item.actionPrompt}</p>
-							<p className='text-sm' style={{paddingLeft: '30px', paddingTop: '10px'}}>{item.detailDescription}</p>
-
+						<div key={index}>
+							<h2 className='text-lg font-bold'>{item.name}</h2>
+							<p className='text-sm' style={{padding: '10px 10px 10px 30px'}} >{item.description}</p>
+							<p className='text-sm' style={{padding: '10px 10px 10px 30px'}}>{item.actionPrompt}</p>
+							<p className='text-sm' style={{padding: '10px 10px 10px 30px'}}>{item.detailDescription}</p>
 						</div>
 					))}
 					</div>
-					<p className='w-full'>
-						<ReactMarkdown>{
+					<p className='w-full pt-6'>
+					
+						<ReactMarkdown className='mt-6'>{
 							agent?.longDescription
 						}</ReactMarkdown>
 					</p>
