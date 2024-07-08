@@ -59,6 +59,35 @@ export const additionalAgents:Agent[] = [
         recommended: true,
         category: "Serverless"
     },
+	{
+        longDescription: "This agent assists with Google Cloud Functions by providing code snippets, best practices, and debugging tips.",
+        createdByUser: "bob_jones",
+        avatarSrc: "/images/avatars/googlecloud.png",
+        action: [
+            {
+                detailDescription: "Generates a new Google Cloud Function with the specified name.",
+                name: "Generate Function",
+                description: "Creates a new Google Cloud Function.",
+                actionPrompt: "Please provide the name of the function."
+            },
+            {
+                detailDescription: "Provides best practices for Google Cloud Functions development.",
+                name: "Best Practices",
+                description: "Lists best practices for Google Cloud Functions development.",
+                actionPrompt: "Would you like to see best practices for Google Cloud Functions development?"
+            }
+        ],
+        description: "Google Cloud Functions development assistant",
+        id: "googlecloud-agent-001",
+        title: "Google Cloud Functions Agent",
+        avatarFallback: "G",
+        slug: "googlecloud-agent",
+        tags: ["Google Cloud", "JavaScript", "Serverless", "Web Development"],
+        zipFilePath: "/downloads/googlecloud-agent.zip",
+        featured: true,
+        recommended: true,
+        category: "Serverless"
+    },
 		{
 			"longDescription": "Angular Agent specializes in automating data entry tasks within Angular applications. Utilizing Angular's robust framework, it enhances efficiency and accuracy in data entry processes.",
 			"createdByUser": "adminUser",
