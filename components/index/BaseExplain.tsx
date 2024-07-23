@@ -21,22 +21,22 @@ export default function BaseExplain({classlist}:any){
         {
             icon:FiCreditCard,
             title:'Payment Gateways',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            desc:'Securely integrate multiple payment gateways for seamless transactions and hassle-free billing.'
         },
         {
             icon:FiGlobe,
             title:'Multi-Lingual',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            desc:"Easily code in different programming languages with Codebolt's, providing flexibility for your projects."
         },
         {
             icon:FiLayout,
             title:'Custom Templates',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            desc:"Customize your coding environment effortlessly with Codebolt's custom templates."
         },
         {
             icon:FiLifeBuoy,
             title:'Support Platform',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            desc:'Explore our support platform for quick and reliable assistance whenever you need it.'
         },
     ]
     return(
