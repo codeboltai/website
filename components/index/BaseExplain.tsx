@@ -11,12 +11,12 @@ export default function BaseExplain({classlist}:any){
         {
             icon:FiEdit2,
             title:'AI Generator',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            desc:'Effortlessly generate code snippets and entire functions with intelligent AI.'
         },
         {
             icon:FiAirplay,
             title:'Advanced Dashboard',
-            desc:'One disadvantage of Lorum Ipsum is that in Latin frequently than others'
+            desc:'Monitor and manage your AI agents and workflows with a user-friendly, intuitive dashboard.'
         },
         {
             icon:FiCreditCard,
