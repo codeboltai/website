@@ -12,6 +12,7 @@ import {
   FiMail,
   FiFileText,
   FaGithub,
+  FiGithub,
 } from '../assets/icons/vander'
 
 export default function Footer() {
@@ -42,7 +43,7 @@ export default function Footer() {
                   Get Started Now
                 </h4>
                 <p className="text-white/70 text-lg max-w-xl mx-auto">
-                  Artificial intelligence makes it fast easy to create content
+                  AI makes it fast easy to create content
                   for your blog, social media, website, and more!
                 </p>
 
@@ -52,7 +53,7 @@ export default function Footer() {
                     target="_blank"
                     className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-transparent hover:bg-amber-400 border-gray-800 dark:border-slate-800 hover:border-amber-400 dark:hover:border-amber-400 text-white rounded-md"
                   >
-                    Join Now!
+                    Join Now
                   </Link>
                 </div>
               </div>
@@ -87,12 +88,47 @@ export default function Footer() {
                   <ul className="list-none footer-list md:text-end text-center mt-6 md:mt-0 space-x-1">
                     <li className="inline">
                       <Link
-                        href="https://github.com/codeboltai"
+                        href=" https://www.facebook.com/codeboltai"
                         target="_blank"
                         className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"
                       >
-                        <FaGithub className="h-4 w-4 align-middle" />
+                        <  FiFacebook className="h-4 w-4 align-middle" />
                       </Link>
+
+                      <Link
+                        href="https://www.instagram.com/codebolt_ai/"
+                        target="_blank"
+                        className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"
+                      >
+                        <  FiInstagram className="h-4 w-4 align-middle" />
+                      </Link>
+
+                      <Link
+                        href="https://x.com/Codebolt_ai "
+                        target="_blank"
+                        className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"
+                      >
+                        <  FiTwitter className="h-4 w-4 align-middle" />
+                      </Link>
+
+                      <Link
+                        href=""
+                        target="_blank"
+                        className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"
+                      >
+                        <  FiLinkedin className="h-4 w-4 align-middle" />
+                      </Link>
+
+                      <Link
+                        href=""
+                        target="_blank"
+                        className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"
+                      >
+                        <  FiGithub className="h-4 w-4 align-middle" />
+                      </Link>
+
+
+
                     </li>
                   </ul>
                   <div className="mt-6 flex justify-end space-x-4">

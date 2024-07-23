@@ -26,7 +26,7 @@ export default function AiAgents() {
   return (
     <>
       <div className="container  md:mt-24 mt-16  ">
-        <div className="grid grid-cols-1 pb-6 text-center relative">
+        <div className="grid grid-cols-1 pb-6 text-center relative place-content-center">
           <span className="absolute blur-[200px] w-[300px] h-[300px] rounded-full top-[800px]  bg-gradient-to-tl to-amber-400  from-fuchsia-600 z-0"></span>
 
           <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">
@@ -34,21 +34,19 @@ export default function AiAgents() {
           </h3>
 
           <p className="text-slate-400 max-w-xl mx-auto">
-            Find Various AI Agents in the Codebolt Marketplace. Codebolt Editor
-            also supports creating custom AI Agents. You can also Publish the AI
-            Agents in the Marketplace.
+          Explore a variety of AI agents in the Codebolt Marketplace. Use the Codebolt’s Editor to create and publish your own custom AI agents.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6 place-content-center">
           {featureData.map((item, index) => {
               const config = genConfig(item.title)
             return (
               <div
-                className="px-6 py-10 shadow hover:shadow-md  dark:shadow-gray-800 dark:hover:shadow-gray-700 duration-500 rounded-lg bg-white dark:bg-slate-900 border-white border-[3px]"
+                className="px-6 py-10 shadow hover:shadow-md  dark:shadow-gray-800 dark:hover:shadow-gray-700 duration-500 rounded-lg bg-white dark:bg-slate-900 border-white border-[3px] place-items-center"
                 key={index}
               >
-                <div className="w-14 h-14 rounded-full ">
+                <div className="w-14 h-14 rounded-full items-center">
                 <Avatar style={{ width: '3.5rem', height: '3.5rem' }} {...config} />
                 </div>
 
