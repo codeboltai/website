@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Avatar, { genConfig } from 'react-nice-avatar'
+import { Agent } from "../../types/types";
 
+export default function AiAgents({ agents }: { agents: Agent[] }) {
 
-export default function AiAgents() {
+  // console.log(agents)
   const featureData = [
     {
     
@@ -39,7 +41,7 @@ export default function AiAgents() {
         </div>
 
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6 place-content-center">
-          {featureData.map((item, index) => {
+          {agents?.slice(0, 6).map((item, index) => {
               const config = genConfig(item.title)
             return (
               <div
@@ -58,12 +60,12 @@ export default function AiAgents() {
                     {item.title}
                   </Link>
                   <p className="text-slate-400 mt-3">
-                  {item.desc}
+                  {item.description}
                   </p>
 
-                  {/* <div className="mt-5">
-                                        <Link to="" className="hover:text-amber-400 font-medium duration-500">Read More <i className="mdi mdi-arrow-right align-middle"></i></Link>
-                                    </div> */}
+                  <div className="mt-5">
+                                        <Link href={`/agents/${item.slug}`}  className="hover:text-amber-400 font-medium duration-500">Read More <i className="mdi mdi-arrow-right align-middle"></i></Link>
+                                    </div>
                 </div>
               </div>
             );

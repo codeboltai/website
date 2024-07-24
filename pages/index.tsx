@@ -22,7 +22,17 @@ import classic02 from '/public/images/classic02.png';
 import BaseExplain from '../components/index/BaseExplain'
 import AgentAboutTwo from '../components/index/aboutTwo'
 import AiAgents from '../components/index/aiAgents'
-const Home: NextPage = () => {
+import { Agent } from '../types/types'
+
+export async function getStaticProps() {
+	const res = await fetch('https://codeboltai.web.app/api/agents/list');
+	const agents = await res.json();
+	return {props: {
+			agents
+		}};
+}
+
+const Home: NextPage = ({agents}: {agents: Agent[]}) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -109,7 +119,7 @@ const Home: NextPage = () => {
             <BaseExplain classlist="container relative"/>
             <AboutOne/>
             <AgentAboutTwo/>
-            <AiAgents/>
+            <AiAgents agents={agents}/>
      
         </section>
       {/* <main className={styles.main}>
