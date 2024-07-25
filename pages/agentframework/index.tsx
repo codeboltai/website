@@ -67,9 +67,9 @@ export default function Framework() {
 								<h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl ">CodeSquad:
 								</h1>
 								<h1 className="font-bold lg:leading-normal leading-normal text-2xl lg:text-4xl mb-5">
-									Makes Developing Coding Agent Easy
+								Solution for Effortless Coding Agent Development
 								</h1>
-								<p className="text-lg max-w-xl lg:ms-0 mx-auto">Codebolt Ai Agent Framework makes it easy for anyone to write their custom AI Agents</p>
+								<p className="text-lg max-w-xl lg:ms-0 mx-auto"></p>
 
 								<div className="subcribe-form mt-6 mb-3  w-full">
 									<button type="submit" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center  h-[46px] bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white rounded-md">Get Started</button>

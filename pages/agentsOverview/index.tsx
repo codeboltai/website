@@ -57,8 +57,7 @@ export default function AgentOverview() {
 									Agents Write Code
 								</h1>
 								<p className="text-lg max-w-xl lg:ms-0 mx-auto">
-									Codebolt Ai Agent Framework makes it easy for anyone to write
-									                  their custom AI Agents
+								Craft custom AI Agents effortlessly with Codebolt's Framework.
 								</p>
 
 								<div className="subcribe-form mt-6 mb-3">
