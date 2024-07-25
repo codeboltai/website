@@ -44,7 +44,7 @@ export default function Navbar({ activePage }: { activePage: string }){
             
                     <li className="md:inline hidden ps-1 mb-0 ">
                         <Link href="/signin" target="_blank" className="py-[6px] px-4 inline-block items-center justify-center tracking-wider align-middle duration-500 text-sm text-center rounded bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white font-semibold"><span className="inline-flex items-center">
-                    Download
+                  Download
                 </span></Link>
                     </li>
                 </ul>
