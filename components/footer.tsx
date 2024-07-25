@@ -120,7 +120,7 @@ export default function Footer() {
                       </Link>
 
                       <Link
-                        href=""
+                        href="https://github.com/codeboltai"
                         target="_blank"
                         className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"
                       >

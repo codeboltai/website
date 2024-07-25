@@ -5,25 +5,7 @@ import { Agent } from "../../types/types";
 
 export default function AiAgents({ agents }: { agents: Agent[] }) {
 
-  // console.log(agents)
-  const featureData = [
-    {
-    
-      title: "Agent 1",
-      desc: "Agent for Writing Documentation",
-    },
-    {
-
-      title: "Agent 2",
-      desc: "Agent for Writing Code",
-    },
-    {
-   
-      title: "Agent 3",
-      desc: "Agent for Writing Blog",
-    },
-
-  ];
+  
 
   return (
     <>
@@ -41,7 +23,7 @@ export default function AiAgents({ agents }: { agents: Agent[] }) {
         </div>
 
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6 place-content-center">
-          {agents?.slice(0, 6).map((item, index) => {
+          {agents?.slice(0, 3).map((item, index) => {
               const config = genConfig(item.title)
             return (
               <div

@@ -30,7 +30,7 @@ export default function Features() {
     {
       heading: "Connect Local LLM Provider ",
       description:
-        " Integrate CodeBolt with local LLM providers Ollama and LMStudio for   enhanced coding experiences, enabling access to a wide range of language models. ",
+        " Integrate CodeBolt with Ollama and LMStudio for enhanced coding experiences, accessing a wide range of language models.",
       image: local,
       icon: VscDebugDisconnect,
     },

@@ -4,7 +4,8 @@ import BannerImg from "../../public/images/classic02.png"
 
 import Switcher from "../../components/switcher";
 import FrameWorkFeatures from "../../components/logicloom/frameWorkFeatures";
-import FrameWorkFooter from "../../components/logicloom/frameWorkFooter";
+// import FrameWorkFooter from "../../components/logicloom/frameWorkFooter";
+import Footer from "../../components/footer";
 import Image from "next/image";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
@@ -147,7 +148,7 @@ export default function LogicLoom() {
                 </div>
                
             </div> */} </section>
-			<FrameWorkFooter/>
+			<Footer/>
 			<Switcher/>
 		</>
 	)

@@ -4,7 +4,8 @@ import BannerImg from "../../public/images/classic02.png"
 
 import Switcher from "../../components/switcher";
 import FrameWorkFeatures from "../../components/agentsFramework/frameWorkFeatures";
-import FrameWorkFooter from "../../components/agentsFramework/frameWorkFooter";
+import Footer from "../../components/footer";
+// import FrameWorkFooter from "../../components/agentsFramework/frameWorkFooter";
 import Image from "next/image";
 import Navbar from "../../components/navbar";
 
@@ -144,7 +145,7 @@ export default function Framework() {
                 </div>
                
             </div> */} </section>
-			<FrameWorkFooter/>
+			<Footer/>
 			<Switcher/>
 		</>
 	)
