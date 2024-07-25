@@ -25,14 +25,25 @@ import AiAgents from '../components/index/aiAgents'
 import { Agent } from '../types/types'
 
 export async function getStaticProps() {
-	const res = await fetch('https://codeboltai.web.app/api/agents/list');
-	const agents = await res.json();
-	return {props: {
-			agents
-		}};
+	try {
+		const res = await fetch('https://codeboltai.web.app/api/agents/list');
+		const agents = await res.json();
+		return {
+			props: {
+				agents
+			}
+		};
+	} catch (error) {
+		console.error('Failed to fetch agents:', error);
+		return {
+			props: {
+				agents: []
+			}
+		};
+	}
 }
 
-const Home: NextPage = ({agents}: {agents: Agent[]}) => {
+const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
   return (
     <div className={styles.container}>
       <Head>
