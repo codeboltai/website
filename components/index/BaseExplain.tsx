@@ -1,5 +1,5 @@
 import React from "react";
-import {FiEdit2, FiAirplay, FiCreditCard, FiGlobe, FiLayout,FiLifeBuoy} from "../../assets/icons/vander"
+import {FiEdit2, FiAirplay, FiCreditCard, FiGlobe, FiLayout,FiLifeBuoy,FaBrain,FaHeadset} from "../../assets/icons/vander"
 
 // import feature2 from '../../assets/images/features2.jpg'
 // import feature3 from '../../assets/images/features3.jpg'
@@ -9,7 +9,7 @@ import {FiEdit2, FiAirplay, FiCreditCard, FiGlobe, FiLayout,FiLifeBuoy} from "..
 export default function BaseExplain({classlist}:any){
     const featureData = [
         {
-            icon:FiEdit2,
+            icon:FaBrain,
             title:'AI Generator',
             desc:'Effortlessly generate code snippets and entire functions with intelligent AI.'
         },
@@ -34,7 +34,7 @@ export default function BaseExplain({classlist}:any){
             desc:"Customize your coding environment effortlessly with Codebolt's custom templates."
         },
         {
-            icon:FiLifeBuoy,
+            icon:FaHeadset,
             title:'Support Platform',
             desc:'Explore our support platform for quick and reliable assistance whenever you need it.'
         },

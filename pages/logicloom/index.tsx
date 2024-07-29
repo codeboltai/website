@@ -67,10 +67,10 @@ export default function LogicLoom() {
 					<div className="relative grid lg:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
 						<div className="lg:col-span-7">
 							<div className="lg:me-6 lg:text-start text-center">
-								<h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl ">LogicLoom:
+								<h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl ">
 								</h1>
 								<h1 className="font-bold lg:leading-normal leading-normal text-2xl lg:text-4xl mb-5">
-									Makes Developing Coding Agent Easy
+									Codebolt  Focussed llm
 								</h1>
 								<p className="text-lg max-w-xl lg:ms-0 mx-auto">Codebolt Ai Agent Framework makes it easy for anyone to write their custom AI Agents</p>
 

@@ -15,7 +15,7 @@ export default function AgentAboutTwo() {
               CodeBolt Supports Multiple Agents
             </h3>
             <p className="text-slate-300 max-w-xl">
-            CodeBolt supports various AI agents like Devin, Devika, and Open Devin, each designed for specific tasks. It helps with complex conversations, software development, and community-driven ideas. With strong multi-agent support, CodeBolt integrates and manages AI functions, making it ideal for advanced solutions in different settings.
+             CodeBolt supports various AI agents like Devin, Devika, and Open Devin, each designed for specific tasks. It helps with complex conversations, software development, and community-driven ideas. With strong multi-agent support, CodeBolt integrates and manages AI functions, making it ideal for advanced solutions in different settings.
 
             </p>
 
