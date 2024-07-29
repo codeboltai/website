@@ -79,7 +79,7 @@ export default function Navbar({ activePage }: { activePage: string }) {
                   </li>
                   <li>
                     <Link href="/logicloom" className="sub-menu-item">
-                      Codebolt Focused llm
+                      Codebolt Focused LLM
                     </Link>
                   </li>
                   <li>
