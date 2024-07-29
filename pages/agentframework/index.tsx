@@ -18,15 +18,15 @@ export default function Framework() {
 	}, []);
 	const workData = [
 		{
-			icon: 'mdi mdi-account-search-outline',
+			icon: 'mdi mdi-brain',
 			title: 'Intelligent AI Agents Integration',
 			desc: 'The Intelligent AI Agents Integration in Codebolt involves deploying specialized AI agents, each designed for distinct tasks like code completion, syntax checking, and error detection. These agents operate collaboratively, sharing insights and coordinating efforts to provide a seamless development experience.'
 		}, {
-			icon: 'mdi mdi-wallet-outline',
+			icon: 'mdi mdi-clock-time-four-outline',
 			title: ' Real-Time Code Assistance and Debugging',
 			desc: 'Real-Time Code Assistance and Debugging in Codebolt leverage AI-driven tools to enhance the coding process by providing immediate, context-aware suggestions for code completion, fixes, and optimizations. As developers write code, the AI agents analyze it in real-time, offering relevant recommendations and corrections to improve code quality.'
 		}, {
-			icon: 'mdi mdi-home-plus-outline',
+			icon: 'mdi mdi-xml',
 			title: 'Code Improvement and Learning',
 			desc: 'Codebolt enhances code quality through automated refactoring, where AI agents suggest and apply improvements to optimize performance and maintainability. Additionally, the framework generates inline documentation to clarify code functionality and provides relevant learning resources to support ongoing developer education and skill enhancement.'
 		},

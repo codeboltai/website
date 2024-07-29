@@ -70,7 +70,7 @@ export default function LogicLoom() {
 								<h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl ">
 								</h1>
 								<h1 className="font-bold lg:leading-normal leading-normal text-2xl lg:text-4xl mb-5">
-									Codebolt  Focussed llm
+									Codebolt  Focussed LLM
 								</h1>
 								<p className="text-lg max-w-xl lg:ms-0 mx-auto">Codebolt Ai Agent Framework makes it easy for anyone to write their custom AI Agents</p>
 

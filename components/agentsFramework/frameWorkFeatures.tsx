@@ -1,34 +1,34 @@
 import React from "react";
-import {FiEdit2, FiAirplay, FiCreditCard, FiGlobe, FiLayout,FiLifeBuoy} from "../../assets/icons/vander"
+import {FiEdit2, FiAirplay, FiCreditCard, FiGlobe, FiLayout,FiLifeBuoy,FaBuilding,FaClock,CgDebug,FaChartBar,FaMagic,GoVersions} from "../../assets/icons/vander"
 export default function FrameWorkFeatures(){
     const featureData = [
         {
-            icon:FiEdit2,
+            icon:FaBuilding,
             title:' Modular AI Agents',
             desc:' This specializes in tasks such as code completion, syntax checking, and error detection, working together to provide a cohesive and efficient development experience.'
         },
         {
-            icon:FiAirplay,
+            icon:FaClock,
             title:'Real-Time Assistance',
             desc:'Provides context-aware code completions and dynamic error detection, continuously enhancing code quality as developers work.'
         },
         {
-            icon:FiCreditCard,
+            icon:CgDebug,
             title:'Advanced Debugging Tools',
             desc:'Offers sophisticated, AI-powered debugging capabilities that swiftly identify and resolve issues with step-by-step guidance.'
         },
         {
-            icon:FiGlobe,
+            icon:FaChartBar,
             title:'Scalability',
             desc:'Easily scale your AI solutions to match your business growth without compromising performance, thanks to the robust infrastructure of CodeSquad.'
         },
         {
-            icon:FiLayout,
+            icon:FaMagic,
             title:'No Coding Required',
             desc:'Adjust and deploy AI agents without any need for deep technical knowledge, making advanced AI accessible to all users.'
         },
         {
-            icon:FiLifeBuoy,
+            icon: GoVersions,
             title:'Collaboration and Version Control Integration',
             desc:'Codebolt seamlessly integrates with version control systems like Git and facilitates collaborative development by providing AI-assisted code reviews and feedback.'
         },
