@@ -67,12 +67,12 @@ export default function Navbar({ activePage }: { activePage: string }) {
 
                   <li>
                     <Link href="/agentframework" className="sub-menu-item">
-                      CodeSquad - AI Agent Framework
+                      Codebolt AI Agent Framework
                     </Link>
                   </li>
                   <li>
                     <Link href="/logicloom" className="sub-menu-item">
-                      LogicLoom - Code Focused LLMs
+                      Codebolt Focused llm
                     </Link>
                   </li>
                   <li>

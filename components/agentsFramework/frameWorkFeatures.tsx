@@ -5,17 +5,17 @@ export default function FrameWorkFeatures(){
         {
             icon:FiEdit2,
             title:' Modular AI Agents',
-            desc:'Jumpstart your AI implementation with a broad selection of ready-made agents suited for various industries and tasks.'
+            desc:' This specializes in tasks such as code completion, syntax checking, and error detection, working together to provide a cohesive and efficient development experience.'
         },
         {
             icon:FiAirplay,
-            title:'Customization Made Simple',
-            desc:'Effortlessly modify agent behaviors and functionalities using intuitive customization tools provided by the Codebolt Framework.'
+            title:'Real-Time Assistance',
+            desc:'Provides context-aware code completions and dynamic error detection, continuously enhancing code quality as developers work.'
         },
         {
             icon:FiCreditCard,
-            title:'Efficient Deployment',
-            desc:'Deploy your AI agents smoothly into any system with Codebolt Framework’s versatile integration capabilities, ensuring compatibility and minimal disruption.'
+            title:'Advanced Debugging Tools',
+            desc:'Offers sophisticated, AI-powered debugging capabilities that swiftly identify and resolve issues with step-by-step guidance.'
         },
         {
             icon:FiGlobe,
@@ -29,8 +29,8 @@ export default function FrameWorkFeatures(){
         },
         {
             icon:FiLifeBuoy,
-            title:'Continuous Support',
-            desc:'Benefit from ongoing support and enhancements through the Codebolt Framework, which includes a rich library of utility functions and continuous updates.'
+            title:'Collaboration and Version Control Integration',
+            desc:'Codebolt seamlessly integrates with version control systems like Git and facilitates collaborative development by providing AI-assisted code reviews and feedback.'
         },
     ]
     return(
