@@ -4,7 +4,7 @@ export default function FrameWorkFeatures(){
     const featureData = [
         {
             icon:FiEdit2,
-            title:'Prebuilt AI Agents',
+            title:' Modular AI Agents',
             desc:'Jumpstart your AI implementation with a broad selection of ready-made agents suited for various industries and tasks.'
         },
         {
@@ -37,9 +37,10 @@ export default function FrameWorkFeatures(){
         <>
         <div className="container relative md:mt-24 mt-16">
                 <div className="grid grid-cols-1 pb-6 text-center">
-                    <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Features of CodeSquad.</h3>
+                    <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Features of Codebolt AI Agent Framework</h3>
 
-                    <p className="text-slate-400 max-w-xl mx-auto">Artificial intelligence makes it fast easy to create content for your blog, social media, website, and more!</p>
+                    <p className="text-slate-400 max-w-xl mx-auto">Explore the key features that make CodeSquad a powerful tool for AI agent development
+                    </p>
                 </div>
 
                 <div className="grid md:grid-cols-3 grid-cols-1 mt-6 gap-6">

@@ -15,11 +15,7 @@ export default function AgentAboutFour() {
               Create and Upload Your Custom Agent
             </h3>
             <p className="text-slate-300 max-w-xl">
-              Craft your own AI agent using the CodeBolt Documentation and directly
-              upload it to our platform. This feature empowers you to design
-              customized solutions that specifically address your unique
-              requirements and challenges, enhancing your operational efficiency
-              with tailor-made automation.
+            Craft your own AI agent with the help of CodeBolt Documentation and upload it directly to our platform. This feature empowers you to design customized solutions that address your unique requirements and challenges, enhancing your operational efficiency with tailor-made automation.
             </p>
 
             {/* <ul className="list-none text-slate-400 mt-4">

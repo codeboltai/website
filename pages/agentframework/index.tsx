@@ -19,16 +19,16 @@ export default function Framework() {
 	const workData = [
 		{
 			icon: 'mdi mdi-account-search-outline',
-			title: ' Access Ready-to-Use AI Agents',
-			desc: 'Discover a wide range of prebuilt AI agents in CodeSquad, powered by the Codebolt Framework. Avoid the complexities of building AI agents from scratch. Choose from our diverse library tailored to various tasks and industries, ensuring you find an agent that aligns with your business needs right from the start.'
+			title: 'Intelligent AI Agents Integration',
+			desc: 'The Intelligent AI Agents Integration in Codebolt involves deploying specialized AI agents, each designed for distinct tasks like code completion, syntax checking, and error detection. These agents operate collaboratively, sharing insights and coordinating efforts to provide a seamless development experience.'
 		}, {
 			icon: 'mdi mdi-wallet-outline',
-			title: 'Customize Effortlessly with Codebolt Tools',
-			desc: 'Leverage the Codebolt Frameworks advanced tools to easily customize your chosen AI agent. Adapt its behavior, responses, and overall functionality to meet your specific requirements. With intuitive controls and no need for deep coding skills, you can personalize the agent quickly and efficiently.'
+			title: ' Real-Time Code Assistance and Debugging',
+			desc: 'Real-Time Code Assistance and Debugging in Codebolt leverage AI-driven tools to enhance the coding process by providing immediate, context-aware suggestions for code completion, fixes, and optimizations. As developers write code, the AI agents analyze it in real-time, offering relevant recommendations and corrections to improve code quality.'
 		}, {
 			icon: 'mdi mdi-home-plus-outline',
-			title: 'Deploy Smoothly and Scale Effectively',
-			desc: 'Implement your customized AI agent into your business systems without hassle, thanks to the robust integration features of the Codebolt Framework. This framework facilitates not only easy deployment but also ensures that your AI solutions are scalable, capable of handling varying interaction volumes to grow with your business needs.'
+			title: 'Code Improvement and Learning',
+			desc: 'Codebolt enhances code quality through automated refactoring, where AI agents suggest and apply improvements to optimize performance and maintainability. Additionally, the framework generates inline documentation to clarify code functionality and provides relevant learning resources to support ongoing developer education and skill enhancement.'
 		},
 	]
 	return (
@@ -64,18 +64,20 @@ export default function Framework() {
 					<div className="relative grid lg:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
 						<div className="lg:col-span-7">
 							<div className="lg:me-6 lg:text-start text-center">
-								<h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl ">CodeSquad:
+								<h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl ">Codebolt AI Agent Framework:
 								</h1>
-								<h1 className="font-bold lg:leading-normal leading-normal text-2xl lg:text-4xl mb-5">
-								Solution for Effortless Coding Agent Development
-								</h1>
-								<p className="text-lg max-w-xl lg:ms-0 mx-auto"></p>
+								<h2 className="font-bold lg:leading-normal leading-normal text-2xl lg:text-4xl mb-5">
+								
+								</h2>
+								<p className="text-lg max-w-xl lg:ms-0 mx-auto">
+									Revolutionizing Software Development with Intelligent AI Assistants
+								</p>
 
-								<div className="subcribe-form mt-6 mb-3  w-full">
+								{/* <div className="subcribe-form mt-6 mb-3  w-full">
 									<button type="submit" className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center  h-[46px] bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white rounded-md">Get Started</button>
 
 
-								</div>
+								</div> */}
 							</div>
 						</div>
 
@@ -100,9 +102,9 @@ export default function Framework() {
 
 				<div className="container relative md:mt-24 mt-16">
 					<div className="grid grid-cols-1 pb-6 text-center">
-						<h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">So, how does it works?</h3>
+						<h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">So, how codebolt ai agent framework works?</h3>
 
-						<p className="text-slate-400 max-w-xl mx-auto">Codebolt Framework provides a library interface for the Codebolt App API as well as a lot of Utility Functions and Framework
+						<p className="text-slate-400 max-w-xl mx-auto">The Codebolt Framework offers a library interface for the Codebolt App API, along with numerous utility functions and a comprehensive framework to simplify development.
 						</p>
 					</div>
 

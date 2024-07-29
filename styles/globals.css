@@ -26,12 +26,18 @@
 }
 
 .sidebar {
-  color: black;
-}
+  color: black;}
 
 :is(.dark) .sidebar {
   color: white;
 }
+
+.navigation-menu li Link{
+  color:rgb(214, 26, 26)
+}
+/* .logo Image {
+  src: "/images/image.png";
+} */
 
 
 @media (min-width: 768px) {

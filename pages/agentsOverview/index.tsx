@@ -11,6 +11,8 @@ import Footer from "../../components/footer";
 import Switcher from "../../components/switcher";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
+
+
 export default function AgentOverview() {
 	useEffect(() => {
 		document.documentElement.setAttribute("dir", "ltr");

@@ -15,12 +15,8 @@ export default function AgentAboutOne() {
               What is an AI agent ?
             </h3>
             <p className="text-slate-300 max-w-xl">
-              AI agents efficiently manage complex tasks by coordinating
-              multiple specialized models, such as natural language processing,
-              image recognition, and decision-making algorithms. Among these,
-              Devin and Devika are examples of such agents, where Devin focuses
-              on natural language interactions and Devika specializes in
-              optimizing software engineering processes.
+            An AI agent is a sophisticated tool that efficiently manages complex tasks by coordinating multiple specialized models, including natural language processing, image recognition, and decision-making algorithms. Examples include Devin, which focuses on natural language interactions, and Devika, which specializes in optimizing software engineering processes.
+
             </p>
 
             {/* <ul className="list-none text-slate-400 mt-4">

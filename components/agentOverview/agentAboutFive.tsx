@@ -1,9 +1,10 @@
 import React from "react";
-import feature4 from "../../public/images/features4.jpg";
+import advantage from "../../public/images/advantage.png";
 
 import { MdKeyboardArrowRight } from "../../assets/icons/vander";
 import Link from "next/link";
 import Image from "next/image";
+import { FiCheckCircle } from "react-icons/fi";
 
 export default function AgentAboutFive() {
   return (
@@ -11,10 +12,10 @@ export default function AgentAboutFive() {
       <div className="container relative md:mt-24 mt-16">
         <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
           <div className="relative overflow-hidden rounded-lg border border-amber-400/5 bg-gradient-to-tl to-amber-400/30  from-fuchsia-600/30 dark:to-amber-400/50 dark:from-fuchsia-600/50 ps-6 pt-6 lg:me-8">
-          <Image
-            height={800}
-            width={800}
-              src={feature4}
+            <Image
+              height={800}
+              width={800}
+              src={advantage}
               className="ltr:rounded-tl-lg rtl:rounded-tr-lg"
               alt=""
             />
@@ -24,14 +25,22 @@ export default function AgentAboutFive() {
               Advantages of Creating Your Own AI Agent
             </h3>
             <p className="text-slate-300 max-w-xl">
-              Creating your own AI agent offers several advantages, including
-              precise customization to your specific operational requirements,
-              the ability to innovate without constraints, and direct control
-              over the integration and scalability of the solution. This
-              approach ensures that the agent is perfectly aligned with your
-              workflow, providing efficiency improvements and a competitive edge
-              in your industry.
+              Creating your own AI agent offers several advantages:
             </p>
+
+            <ul className="list-none text-slate-400 mt-4">
+                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div><>Precise Customization:</> Tailor the agent to your specific operational requirements.
+                        </li>
+                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div><>Innovation Freedom:</> Innovate without constraints, ensuring the agent meets your unique needs.</li>
+                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div> <>Direct Control: </> Manage the integration and scalability of your solution directly.
+                        </li>
+                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div> <>Workflow Alignment: </> Ensure the agent is perfectly aligned with your workflow for maximum efficiency.
+
+                        </li>
+                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div> <>Competitive Edge: </>  Gain a competitive advantage in your industry through improved efficiency and tailored solutions.
+
+                        </li>
+            </ul>
 
             {/* <ul className="list-none text-slate-400 mt-4">
               <li className="mb-2 flex items-center">
