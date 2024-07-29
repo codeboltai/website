@@ -11,9 +11,9 @@ export default function AgentAboutThree() {
       <div className="container relative md:mt-24 mt-16">
         <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
           <div className="relative overflow-hidden rounded-lg border border-amber-400/5 bg-gradient-to-tl to-amber-400/30  from-fuchsia-600/30 dark:to-amber-400/50 dark:from-fuchsia-600/50 ps-6 pt-6 lg:me-8">
-          <Image
-            height={800}
-            width={800}
+            <Image
+              height={800}
+              width={800}
               src={feature4}
               className="ltr:rounded-tl-lg rtl:rounded-tr-lg"
               alt=""
@@ -24,9 +24,9 @@ export default function AgentAboutThree() {
               Discover Your Ideal AI Agent
             </h3>
             <p className="text-slate-300 max-w-xl">
-            Browse our diverse marketplace to find the perfect AI agent for your needs. Whether you're looking for advanced natural language processing, efficient code optimization, or open-source flexibility, our platform offers specialized agents to enhance and streamline your operations.
-
+              Browse our diverse marketplace to find the perfect AI agent for your needs. Whether you&apos;re looking for advanced natural language processing, efficient code optimization, or open-source flexibility, our platform offers specialized agents to enhance and streamline your operations.
             </p>
+
 
             {/* <ul className="list-none text-slate-400 mt-4">
               <li className="mb-2 flex items-center">
