@@ -58,32 +58,33 @@ export default function Navbar({ activePage }: { activePage: string }) {
           <div id="navigation" className={`${toggleMenu ? 'block' : ''}`}>
             <ul className="navigation-menu">
 
-              <li><Link href="/" className={` w sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
+              <li><Link style={{color: "white"}} href="/" className={` w sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
 
-              <li><Link href="/features" className={`w sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
+              <li><Link style={{color: "white"}} href="/features" className={`w sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
 
               <li className="has-submenu parent-parent-menu-item">
-                <Link href="#">AI Agents</Link>
+                <Link style={{color: "white"}}  href="#">AI Agents</Link>
                 <span className="menu-arrow"></span>
                 <ul className="submenu">
                   <li>
-                    <Link href="/agentsOverview" className=" w sub-menu-item">
+                    <Link  href="/agentsOverview" className=" w sub-menu-item">
                       Agents Overview
                     </Link>
                   </li>
 
                   <li>
-                    <Link href="/agentframework" className="sub-menu-item">
+                    <Link   href="/agentframework" className="sub-menu-item">
                       Codebolt AI Agent Framework
                     </Link>
                   </li>
                   <li>
-                    <Link href="/logicloom" className="sub-menu-item">
+                    <Link   href="/logicloom" className="sub-menu-item">
                       Codebolt Focused LLM
                     </Link>
                   </li>
                   <li>
                     <Link
+                      
                       href="/agents"
                       className="sub-menu-item"
                       style={{ display: "flex", alignItems: "center", gap: "10px" }}
@@ -98,7 +99,7 @@ export default function Navbar({ activePage }: { activePage: string }) {
                 </ul>
               </li>
               <li className={`has-submenu parent-parent-menu-item ${activePage === 'pages' ? 'active' : ''}`}>
-                <Link href="#">Developers</Link><span className="menu-arrow"></span>
+                <Link style={{color: "white"}}  href="#">Developers</Link><span className="menu-arrow"></span>
                 <ul className="submenu">
                   <li><Link href="/gettingStarted" className={`sub-menu-item ${activePage === 'services' ? 'active' : ''}`}>Get Started</Link></li>
 
