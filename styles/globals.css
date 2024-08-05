@@ -32,13 +32,18 @@
   color: white;
 }
 
-.navigation-menu li Link{
-  color:rgb(214, 26, 26)
+.navigation-menu li {
+  /* color:rgb(214, 26, 26)
+  
+  */
+  background-color: aqua;
 }
 /* .logo Image {
   src: "/images/image.png";
 } */
-
+/* :is(.dark) .w{
+  color: white;
+} */
 
 @media (min-width: 768px) {
   .sidebar {
@@ -51,4 +56,7 @@
 .sidebarContent{
   display: flex;
   flex-direction: column;
+}
+.t{
+  color: black;
 }

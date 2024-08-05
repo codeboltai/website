@@ -58,16 +58,16 @@ export default function Navbar({ activePage }: { activePage: string }) {
           <div id="navigation" className={`${toggleMenu ? 'block' : ''}`}>
             <ul className="navigation-menu">
 
-              <li><Link href="/" className={`sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
+              <li><Link href="/" className={` w sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
 
-              <li><Link href="/features" className={`sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
+              <li><Link href="/features" className={`w sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
 
               <li className="has-submenu parent-parent-menu-item">
                 <Link href="#">AI Agents</Link>
                 <span className="menu-arrow"></span>
                 <ul className="submenu">
                   <li>
-                    <Link href="/agentsOverview" className="sub-menu-item">
+                    <Link href="/agentsOverview" className=" w sub-menu-item">
                       Agents Overview
                     </Link>
                   </li>
