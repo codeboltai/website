@@ -20,7 +20,7 @@ export default function Navbar({ activePage }: { activePage: string }) {
         <div className="container">
           <Link className="logo" href="/" passHref>
             <Image src="/images/logo-light.png" width={110} height={300} className="h-6 inline-block dark:hidden" alt="" />
-            <Image src="/images/logo-light.png" width={110} height={300} className="h-6 hidden dark:inline-block" alt="" />
+            <Image src="/images/logo-light.png" width={110} height={300} className="h-6 hidden dark:inline-block " alt="" />
           </Link>
 
           <div className="menu-extras">
@@ -58,12 +58,12 @@ export default function Navbar({ activePage }: { activePage: string }) {
           <div id="navigation" className={`${toggleMenu ? 'block' : ''}`}>
             <ul className="navigation-menu">
 
-              <li><Link style={{color: "white"}} href="/" className={` w sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
+              <li><Link  href="/" className={` w sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
 
-              <li><Link style={{color: "white"}} href="/features" className={`w sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
+              <li><Link  href="/features" className={`w sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
 
               <li className="has-submenu parent-parent-menu-item">
-                <Link style={{color: "white"}}  href="#">AI Agents</Link>
+                <Link   href="#">AI Agents</Link>
                 <span className="menu-arrow"></span>
                 <ul className="submenu">
                   <li>
@@ -99,11 +99,9 @@ export default function Navbar({ activePage }: { activePage: string }) {
                 </ul>
               </li>
               <li className={`has-submenu parent-parent-menu-item ${activePage === 'pages' ? 'active' : ''}`}>
-                <Link style={{color: "white"}}  href="#">Developers</Link><span className="menu-arrow"></span>
+                <Link href="#">Developers</Link><span className="menu-arrow"></span>
                 <ul className="submenu">
                   <li><Link href="/gettingStarted" className={`sub-menu-item ${activePage === 'services' ? 'active' : ''}`}>Get Started</Link></li>
-
-
 
                   <li><Link href="https://docs.codebolt.ai/?docusaurus-theme=dark" target="_blank" className={`sub-menu-item ${activePage === 'helpcenter' ? 'active' : ''}`}>Documentation</Link></li>
 
