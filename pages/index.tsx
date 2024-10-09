@@ -79,55 +79,54 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
       <section className="relative overflow-hidden pt-48 after:content-[''] after:absolute after:inset-0 after:mx-auto after:w-[56rem] after:h-[56rem] after:bg-gradient-to-tl after:to-amber-400/30  after:from-fuchsia-600/30 dark:after:to-amber-400/50 dark:after:from-fuchsia-600/50 after:blur-[200px] after:rounded-full after:-z-1">
         <div className="container relative z-2">
           <div className="grid grid-cols-1 text-center">
-            <div className="">
+            {/* <div className=""> */}
               {/* <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5">Code Editor Reimagined For<br/>  
                             <span className="typewrite bg-gradient-to-br from-amber-400 to-fuchsia-600 text-transparent bg-clip-text ms-4">AI Agents</span> to Code
                         </h4> */}
-              <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5">
+              {/* <h4 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-6xl mb-5">
                 Not Human, but
                 <br />
                 <span className="typewrite bg-gradient-to-br from-amber-400 to-fuchsia-600 text-transparent bg-clip-text ms-4">
                   AI Centric
                 </span>{' '}
                 Code Editor
-              </h4>
+              </h4> */}
               {/* <p className="text-slate-400 dark:text-white/60 text-lg max-w-xl mx-auto">An AI Agent First Code Editor with focus on providing Easy AI Code generation based workflows by utilizing various AI Agents or even provides a simple api to create your own agents</p> */}
               {/* <p className="text-slate-400 dark:text-white/60 text-lg max-w-xl mx-auto">Codebolt is a new Generation of Code Editor that is built from ground up with AI Agents First approach and has native core support for AI Code Generation Workflows</p> */}
-              <p className="text-slate-400 dark:text-white/60 text-lg max-w-xl mx-auto">
-                Codebolt is an advanced code editor that adopts an AI Agents-first strategy, enabling native support for AI-driven code generation workflows and the execution of multiple specialized AI agents tailored to specific programming languages or tasks.
-              </p>
+              {/* <p className="text-slate-400 dark:text-white/60 text-lg max-w-xl mx-auto">
+              CodeBolt is an innovative AI-powered code editor that empowers enterprises and individuals to customize software effortlessly. Through the use of custom AI agent playbooks, CodeBolt enables end-users to modify and adapt software to their unique needs, without extensive coding knowledge. This revolutionary approach streamlines the development process, enhances personalization, and fosters greater user satisfaction.
+              </p> */}
 
-              <div className="mt-6">
-                <Link
-                  href="/request"
-                  className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-amber-400 hover:bg-amber-500 border-amber-400 hover:border-amber-500 text-white rounded-md"
-                >
-                  Download Codebolt
-                </Link>{' '}
-                &nbsp;
-                {/* <Link
-                  href="/about-agents"
-                  className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center border-amber-400 hover:border-amber-500 text-amber-400 hover:text-white rounded-md"
-                >
-                  Codebolt Agent Framework
-                </Link> */}
-                {/* <p className="text-slate-400 dark:text-white/60 text-sm mt-3">No credit card required. Free 14-days trial</p> */}
-              </div>
-            </div>
-            <div className="relative mt-8 z-3 mx-auto  ">
+              
+            {/* </div> */}
+
+
+            
+             <div className="grid grid-cols-1 pb-6 text-center">
+                    <h1 className="mb-4 md:text-4xl md:leading-normal text-3xl leading-normal font-bold"> What is CodeBolt </h1>
+                    <p className="text-slate-300 max-w-xl mx-auto">
+                    CodeBolt is an AI-powered code editor that allows customization of software by enterprises or individuals. It uses custom AI agent playbooks for each software to adapt it to specific needs, streamlining development and driving revenue.
+                    </p>
+                </div>
+                <div className="relative mt-8 z-3 mx-auto  ">
               <Image src={classic02} width={1000} height={800} alt="Image" className="mover" />
             </div>
           </div>
+          
+         
         </div>
 
         <div className="relative after:content-[''] after:absolute lg:after:-bottom-40 after:-bottom-28 after:end-0 after:start-0 after:mx-auto xl:after:w-[56rem] lg:after:w-[48rem] md:after:w-[32rem] after:w-[22rem] xl:after:h-[56rem] lg:after:h-[48rem] md:after:h-[32rem] after:h-[22rem] after:border-2 after:border-dashed after:border-slate-700/10 dark:after:border-slate-200/10 after:rounded-full after:-z-1 before:content-[''] before:absolute lg:before:-bottom-72 before:-bottom-56 before:end-0 before:start-0 before:mx-auto xl:before:w-[72rem] lg:before:w-[64rem] md:before:w-[48rem] before:w-[24rem] xl:before:h-[72rem] lg:before:h-[64rem] md:before:h-[48rem] before:h-[24rem] before:border-2 before:border-dashed before:border-slate-700/10 dark:before:border-slate-200/10 before:rounded-full before:-z-1"></div>
       </section>
-      <section className="relative md:py-24 py-16">
+      <section className="relative md:py-24 py-16 ">
         {/* <Features classlist="container "/> */}
-        <BaseExplain classlist="container relative" />
+        {/* <BaseExplain classlist="container relative" /> */}
+      <div className='text-center'>
+        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold ">What does it help you do</h3>
+        </div>
         <AboutOne />
-        <AgentAboutTwo />
-        <AiAgents agents={agents} />
+        {/* <AgentAboutTwo /> */}
+        {/* <AiAgents agents={agents} /> */}
 
       </section>
       {/* <main className={styles.main}>
