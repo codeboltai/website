@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import feature4 from "../../public/images/agents_icons.png";
+// import feature4 from "../../public/images/agents_icons.png";
+import feature4 from "../../public/images/crm.jpg";
 
 import { MdKeyboardArrowRight } from "../../assets/icons/vander";
 import Image from "next/image";
@@ -8,14 +9,14 @@ import Image from "next/image";
 export default function AgentAboutTwo() {
   return (
     <>
-      <div className="container relative md:mt-24 mt-16">
-        <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
+      <div className="container relative md:mt-16 mt-16">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
           <div className="">
             <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">
-              CodeBolt Supports Multiple Agents
+            CRM
             </h3>
             <p className="text-slate-300 max-w-xl">
-             CodeBolt supports various AI agents like Devin, Devika, and Open Devin, each designed for specific tasks. It helps with complex conversations, software development, and community-driven ideas. With strong multi-agent support, CodeBolt integrates and manages AI functions, making it ideal for advanced solutions in different settings.
+            CRM stands for customer relationship management, which is a process and system that businesses use to manage their interactions with customers. The goal of CRM is to improve relationships with customers to grow a business.
 
             </p>
 
@@ -46,7 +47,7 @@ export default function AgentAboutTwo() {
               </li>
             </ul> */}
 
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <Link
                 href="/agents"
                 className="hover:text-amber-400 font-medium duration-500 inline-flex items-center"
@@ -54,7 +55,7 @@ export default function AgentAboutTwo() {
                 Find Out More{" "}
                 <MdKeyboardArrowRight className="ms-1 text-[20px]" />
               </Link>
-            </div>
+            </div> */}
           </div>
           <div className="relative overflow-hidden rounded-lg border border-amber-400/5 bg-gradient-to-tl to-amber-400/30  from-fuchsia-600/30 dark:to-amber-400/50 dark:from-fuchsia-600/50 ps-6 pt-6 lg:me-8">
             <Image

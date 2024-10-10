@@ -10,43 +10,45 @@ export default function BaseExplain({classlist}:any){
     const featureData = [
         {
             icon:FaBrain,
-            title:'AI Generator',
+            title:'Integration',
             desc:'Effortlessly generate code snippets and entire functions with intelligent AI.'
         },
         {
             icon:FiAirplay,
-            title:'Advanced Dashboard',
+            title:'Programming language agnostic',
             desc:'Monitor and manage your AI agents and workflows with a user-friendly, intuitive dashboard.'
         },
-        {
-            icon:FiCreditCard,
-            title:'Payment Gateways',
-            desc:'Securely integrate multiple payment gateways for seamless transactions and hassle-free billing.'
-        },
-        {
-            icon:FiGlobe,
-            title:'Multi-Lingual',
-            desc:"Easily code in different programming languages with Codebolt's, providing flexibility for your projects."
-        },
-        {
-            icon:FiLayout,
-            title:'Custom Templates',
-            desc:"Customize your coding environment effortlessly with Codebolt's custom templates."
-        },
-        {
-            icon:FaHeadset,
-            title:'Support Platform',
-            desc:'Explore our support platform for quick and reliable assistance whenever you need it.'
-        },
+        // {
+        //     icon:FiCreditCard,
+        //     title:'Payment Gateways',
+        //     desc:'Securely integrate multiple payment gateways for seamless transactions and hassle-free billing.'
+        // },
+        // {
+        //     icon:FiGlobe,
+        //     title:'Multi-Lingual',
+        //     desc:"Easily code in different programming languages with Codebolt's, providing flexibility for your projects."
+        // },
+        // {
+        //     icon:FiLayout,
+        //     title:'Custom Templates',
+        //     desc:"Customize your coding environment effortlessly with Codebolt's custom templates."
+        // },
+        // {
+        //     icon:FaHeadset,
+        //     title:'Support Platform',
+        //     desc:'Explore our support platform for quick and reliable assistance whenever you need it.'
+        // },
     ]
     return(
         <>
             <div className={classlist}>
-                <div className="grid grid-cols-1 pb-6 text-center">
-                    <h1 className="mb-4 md:text-4xl md:leading-normal text-3xl leading-normal font-bold"> More than just a Code Editor <br/> but a  <span className="bg-gradient-to-br from-amber-400 to-fuchsia-600 text-transparent bg-clip-text">[[Code Powerhouse]]</span></h1>
-                    <p className="text-slate-400 max-w-xl mx-auto">
+                <div className="grid grid-cols-1 pb-6 text-center mt-16">
+                    <h1 className="mb-4 md:text-4xl md:leading-normal text-3xl leading-normal font-bold">Features
+                         {/* <br/> but a  <span className="bg-gradient-to-br from-amber-400 to-fuchsia-600 text-transparent bg-clip-text">[[Code Powerhouse]]</span> */}
+                    </h1>
+                    {/* <p className="text-slate-400 max-w-xl mx-auto">
                     Imagine the intelligence of AI code generation combined with the versatility of agent-based workflow,welcome to Codebolt, where innovation meets efficiency!
-                    </p>
+                    </p> */}
                 </div>
 
                 {/* <div className="grid grid-cols-1 pb-6 text-center">

@@ -104,6 +104,10 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
             
              <div className="grid grid-cols-1 pb-6 text-center">
                     <h1 className="mb-4 md:text-4xl md:leading-normal text-3xl leading-normal font-bold"> What is CodeBolt </h1>
+
+                    <p className="text-slate-300 max-w-xl mx-auto mb-5">CodeBolt: Supercharge your business with AI-powered software customization
+                    </p>
+
                     <p className="text-slate-300 max-w-xl mx-auto">
                     CodeBolt is an AI-powered code editor that allows customization of software by enterprises or individuals. It uses custom AI agent playbooks for each software to adapt it to specific needs, streamlining development and driving revenue.
                     </p>
@@ -118,17 +122,32 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
 
         <div className="relative after:content-[''] after:absolute lg:after:-bottom-40 after:-bottom-28 after:end-0 after:start-0 after:mx-auto xl:after:w-[56rem] lg:after:w-[48rem] md:after:w-[32rem] after:w-[22rem] xl:after:h-[56rem] lg:after:h-[48rem] md:after:h-[32rem] after:h-[22rem] after:border-2 after:border-dashed after:border-slate-700/10 dark:after:border-slate-200/10 after:rounded-full after:-z-1 before:content-[''] before:absolute lg:before:-bottom-72 before:-bottom-56 before:end-0 before:start-0 before:mx-auto xl:before:w-[72rem] lg:before:w-[64rem] md:before:w-[48rem] before:w-[24rem] xl:before:h-[72rem] lg:before:h-[64rem] md:before:h-[48rem] before:h-[24rem] before:border-2 before:border-dashed before:border-slate-700/10 dark:before:border-slate-200/10 before:rounded-full before:-z-1"></div>
       </section>
-      <section className="relative md:py-24 py-16 ">
+      <section className="md:py-16 py-16 ">
         {/* <Features classlist="container "/> */}
-        {/* <BaseExplain classlist="container relative" /> */}
+     
       <div className='text-center'>
         <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold ">What does it help you do</h3>
         </div>
         <AboutOne />
-        {/* <AgentAboutTwo /> */}
+        
         {/* <AiAgents agents={agents} /> */}
 
       </section>
+
+
+      <section className=" ">
+        {/* <Features classlist="container "/> */}
+        {/* <BaseExplain classlist="container relative" /> */}
+      <div className='text-center'>
+        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold ">Use Cases
+        </h3>
+
+        </div>
+        <AgentAboutTwo />
+          <BaseExplain classlist="container relative" />
+      </section> 
+
+
       {/* <main className={styles.main}>
         <AboutOne></AboutOne>
         <AboutThree></AboutThree>
