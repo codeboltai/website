@@ -68,7 +68,7 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
 
         <meta property="og:image" content="/public/images/classic02.png" />
 
-        <meta property="og:url" content="https://www.codebolt.com" />
+        <meta property="og:url" content="https://www.codebolt.ai" />
 
         <meta property="og:type" content="website" />
 

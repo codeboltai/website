@@ -88,7 +88,7 @@ export default function Footer() {
                   <ul className="list-none footer-list md:text-end text-center mt-6 md:mt-0 space-x-1">
                     <li className="inline">
                       <Link
-                        href=" https://www.facebook.com/codeboltai"
+                        href="https://www.facebook.com/codeboltai"
                         target="_blank"
                         className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center border border-gray-800 dark:border-slate-800 rounded-md hover:border-amber-400 dark:hover:border-amber-400 hover:bg-amber-400 dark:hover:bg-amber-400 text-slate-300 hover:text-white"
                       >
