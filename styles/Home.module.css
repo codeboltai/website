@@ -116,3 +116,9 @@
     flex-direction: column;
   }
 }
+
+.mover{
+  width: 100%;
+  height: 800px;
+}
+
