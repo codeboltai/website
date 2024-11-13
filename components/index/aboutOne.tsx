@@ -17,22 +17,12 @@ export default function AboutOne(){
 
                 <div className="">
                     <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Use Or Create Custom AI Agents Right For Your Task</h3>
-                   <p className="text-slate-400 max-w-xl">
+                   <p className="text-md max-w-xl lg:ms-0">
 
                     With CodeBolt, developers can easily create AI-driven solutions tailored to specific use cases, integrating deep knowledge of the application, code generation processes, deployment workflows, and security best practices. This powerful platform simplifies the complexities of AI development, empowering teams to build smarter, more efficient tools with greater speed and confidence, all while maintaining robust security standards throughout the lifecycle.
                     </p>
-                    {/*
-                    <ul className="list-none text-slate-400 mt-4">
-                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div>Easily add AI agents to your workflow with our simple, clear documentation.</li>
-                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div>Save time and resources with a simple process. No complex coding or special training needed.</li>
-                        <li className="mb-2 flex items-center"><div className="h-5 w-5 me-2"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  </div> <>Customization: </> Customize AI agents for your needs with our easy step-by-step guide.
-                        </li>
-                    </ul> */}
-
-                    
-
-                    <div className="mt-4">
-                        <Link href="/agents" className="hover:text-amber-400 font-medium duration-500 inline-flex items-center">Find Out More <MdKeyboardArrowRight className="ms-1 text-[20px]"/></Link>
+                  <div className="mt-4">
+                        <Link href="/agents" className="hover:text-amber-400 font-medium duration-500 inline-flex items-center text-md">Find Out More <MdKeyboardArrowRight className="ms-1 text-[20px]"/></Link>
                     </div>
                 </div>
             </div>

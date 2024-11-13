@@ -25,7 +25,7 @@ export default function Action(){
         <>
           <div className="container relative md:py-16 py-16 ">
           <div className="grid grid-cols-1 pb-6 text-center">
-          <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold justify-center"> Watch it in Action</h3>
+          <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold justify-center lg:ms-0"> Watch it in Action</h3>
           </div>
              <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
                     {featuresData.map((item,index) => {
@@ -37,7 +37,7 @@ export default function Action(){
 
                             <div className="p-6">
                                 <h5 className="text-lg font-semibold">{item.title}</h5>
-                                <p className="text-slate-400 mt-3">{item.desc}</p>
+                                <p className="mt-3 text-md max-w-xl lg:ms-0">{item.desc}</p>
                             </div>
                         </div>
                         )

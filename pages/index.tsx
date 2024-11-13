@@ -14,6 +14,7 @@ import Customize from '../components/index/Customise'
 import Features from '../components/index/features'
 import Cards from '../components/index/Cards'
 import Action from '../components/index/Action'
+import Switcher from '../components/switcher'
 
 
 export async function getStaticProps() {
@@ -139,6 +140,7 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
         </p>
       </main> */}
       <Footer></Footer>
+      <Switcher/>
       {/* <footer className={styles.footer}>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"

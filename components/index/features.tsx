@@ -33,7 +33,7 @@ export default function Features() {
  <div className="grid grid-cols-1 pb-6 text-center">
                     <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Features</h3>
 
-                    <p className="text-slate-400 max-w-xl mx-auto">What makes Codebolt Different!</p>
+                    <p className="text-md max-w-xl mx-auto">What makes Codebolt Different!</p>
                 </div>
       <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
           <div  className="mt-6">
@@ -48,7 +48,7 @@ export default function Features() {
                                     </h2>
                                     <div className={activeIndex === item.id ? "" : "hidden"}>
                                     <div className="p-5">
-                                            <p className="text-slate-400 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: item.desc }}></p>
+                                            <p className="text-md max-w-xl lg:ms-0" dangerouslySetInnerHTML={{ __html: item.desc }}></p>
                                         </div>
                                     </div>
                                 </div>

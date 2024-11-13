@@ -22,7 +22,7 @@ export default function AgentAboutTwo() {
               {/* CodeBolt Supports Multiple Agents */}
               Build Software Using  Robust AI Code Editor
             </h4>
-            <p className="text-slate-300 max-w-xl">
+            <p className="text-md max-w-xl lg:ms-0">
             
 
 
@@ -45,7 +45,7 @@ export default function AgentAboutTwo() {
             <div className="mt-4">
               <button
                onClick={handleToggle}
-                className="hover:text-amber-400 font-medium duration-500 inline-flex items-center"
+                className="hover:text-amber-400 font-medium duration-500 inline-flex items-center text-md"
               >
                  {isExpanded ? 'View Less' : 'View More'}
                 {/* Find Out More{" "} */}

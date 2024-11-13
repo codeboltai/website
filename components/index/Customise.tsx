@@ -21,7 +21,7 @@ export default function Customize() {
             <h4 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">
             Enable Your Team Or Even Your  <br/> Users To Customise Your Software
             </h4>
-            <p className="text-slate-300 max-w-xl">
+            <p className="text-lg max-w-xl lg:ms-0">
 
              {isExpanded ? (
           `Our platform empowers users to easily customize software through simple text prompts, eliminating the need for complex coding or developer intervention. This intuitive approach allows businesses and individuals to make quick adjustments, implement new features, and personalize their experience without relying on technical expertise. By putting the power of innovation in the hands of the end users, we foster greater agility, creativity, and efficiency across all levels of your organization.`

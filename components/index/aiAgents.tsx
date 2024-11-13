@@ -17,7 +17,7 @@ export default function AiAgents({ agents }: { agents: Agent[] }) {
             Featured AI Agents
           </h3>
 
-          <p className="text-slate-400 max-w-xl mx-auto">
+          <p className="text-md max-w-xl lg:ms-0">
           Explore a variety of AI agents in the Codebolt Marketplace. Use the Codebolt’s Editor to create and publish your own custom AI agents.
           </p>
         </div>

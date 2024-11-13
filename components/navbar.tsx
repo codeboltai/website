@@ -19,7 +19,7 @@ export default function Navbar({ activePage }: { activePage: string }) {
       <nav id="topnav" className={`${scroll ? "nav-sticky" : ""} defaultscroll is-sticky`}>
         <div className="container">
           <Link className="logo" href="/" passHref>
-            <Image src="/images/logo-light.png" width={110} height={300} className="h-6 inline-block dark:hidden" alt="" />
+            <Image src="/images/image.png" width={110} height={300} className="h-6 inline-block dark:hidden" alt="" />
             <Image src="/images/logo-light.png" width={110} height={300} className="h-6 hidden dark:inline-block " alt="" />
           </Link>
 
