@@ -1,3 +1,5 @@
+import {FiCheckCircle} from '../../assets/icons/vander'
+
 export default function Cards () {
     return(
         <>
@@ -11,19 +13,15 @@ export default function Cards () {
                                     <p className="font-semibold text-xl hover:text-amber-400 flex justify-center items-center">Codebolt For Developers</p>
                                     <div style={{marginTop: '20px', marginBottom: '20px', marginLeft: '50px', marginRight: '50px'}}>
 
-                                    
-                                    <p className="text-slate-400 mt-3 md:py-4">
-                                    Streamlined Development Process
-                                    </p>
-                                    <p className="text-slate-400 mt-3">
-                                    Improved Accuracy
-                                    </p>
-                                    <p className="text-slate-400 mt-3">
-                                    Integrated Knowledge Base
-                                    </p>
-                                    <p className="text-slate-400 mt-3">
-                                    Easier Collaboration and Knowledge Sharing
-                                    </p>
+
+                                    <ul className="list-none text-slate-400 mt-4">
+                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/> Streamlined Development Process</li>
+                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/> Improved Accuracy</li>
+                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  Integrated Knowledge Base</li>
+
+                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>   Easier Collaboration and Knowledge Sharing </li>
+                        </ul>      
+                                
                                     </div>
 
                                 </div>
@@ -36,18 +34,15 @@ export default function Cards () {
                             <div className="content mt-6">
                                 <p className="font-semibold text-xl hover:text-amber-400 flex justify-center items-center">Codebolt For Businesses</p>
                                 <div style={{marginTop: '20px', marginBottom: '20px', marginLeft: '50px', marginRight: '50px'}}>
-                                <p className="text-slate-400 mt-3">
-                                Cost and Time Efficiency
-                                </p>
-                                <p className="text-slate-400 mt-3">
-                                Adaptability to Changing Needs
-                                </p>
-                                <p className="text-slate-400 mt-3">
-                                Reduced Developer Dependency
-                                </p>
-                                <p className="text-slate-400 mt-3">
-                                Enhanced Security and Compliance
-                                </p>
+
+
+                                <ul className="list-none text-slate-400 mt-4">
+                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>   Cost and Time Efficiency</li>
+                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>   Adaptability to Changing Needs</li>
+                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>   Reduced Developer Dependency</li>
+
+                            <li className="mb-2 flex items-center"><FiCheckCircle className="text-amber-400 h-5 w-5 me-2"/>  Enhanced Security and Compliance</li>
+                        </ul> 
                                 </div>
                             </div>
                         </div>
