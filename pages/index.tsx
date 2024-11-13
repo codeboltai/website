@@ -80,8 +80,9 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
                         
                             <div className="subcribe-form mt-6 mb-3">
                             <Link
-                              href="#"
+                              href="https://github.com/codeboltai/codebolt/releases"
                                 className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-amber-400 hover:bg-amber-500 border-amber-400 hover:border-amber-500 text-white rounded-md"
+                                target="_blank"
                             >
                               Download Codebolt{" "}
                               {/* <MdKeyboardArrowRight className="ms-1 text-[20px]" /> */}
