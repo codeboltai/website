@@ -8,27 +8,22 @@ import feature from '../../public/images/features1.jpg'
 export default function Features() {
   
     const [activeIndex, setActiveIndex] = useState(1)
-    const accordianData = [
+    const featureData = [
         {
             id:1,
-            title:'How does it generate responses?',
-            desc:'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.'
+            title:'Ctrl K',
+            desc:'To edit part of your code, select it and press Ctrl+K or Cmd+K. Describe your intended change, and the AI will suggest edits to that part. Review the diff, and if satisfied, press Ctrl+Enter or Cmd+Enter to accept the changes.'
         },
         {
             id:2,
-            title:'Is AI copywriting more cost-effective than hiring human writers?',
-            desc:'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.'
+            title:'Layouts',
+            desc:'Choose the layout that best fits your development style and requirements. The Basic layout is perfect for quick updates and iterations, while the Dev and Power Dev layouts offer progressively more powerful tools for comprehensive development workflows.'
         },
         {
             id:3,
-            title:'Can AI copywriting be customized to my brand and audience?',
-            desc:'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.'
-        },
-        {
-            id:4,
-            title:'What kind of support is available for AI copywriting tools?',
-            desc:'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.'
-        },
+            title:'LLMs',
+            desc:'The LLMs feature provides the flexibility to select from multiple AI providers, each offering a variety of language models to suit different needs. Available providers include: <b>CodeBolt AI </b>,  <b>OpenAI</b> ,      <b>LM Studio </b> Additionally, you can explore and choose from the Available Models within each provider.'
+        }
     ]
 
   return (
@@ -42,7 +37,7 @@ export default function Features() {
                 </div>
       <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
           <div  className="mt-6">
-                            {accordianData.map((item,index)=>{
+                            {featureData.map((item,index)=>{
                             return(
                                 <div className="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4" key={index}>
                                     <h2 className="text-base font-semibold" >
@@ -52,8 +47,8 @@ export default function Features() {
                                         </button>
                                     </h2>
                                     <div className={activeIndex === item.id ? "" : "hidden"}>
-                                        <div className="p-5">
-                                            <p className="text-slate-400 dark:text-gray-400">{item.desc}</p>
+                                    <div className="p-5">
+                                            <p className="text-slate-400 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: item.desc }}></p>
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +57,7 @@ export default function Features() {
             </div>
 
             <div className=" overflow-hidden rounded-lg border border-amber-400/5 bg-gradient-to-tl to-amber-400/30  from-fuchsia-600/30 dark:to-amber-400/50 dark:from-fuchsia-600/50 ps-6 pt-6 lg:me-8">
-                    <Image src={feature} className="ltr:rounded-tl-lg rtl:rounded-tr-lg w-full" alt=""/>
+                    <Image src={feature} height={300} className="ltr:rounded-tl-lg rtl:rounded-tr-lg w-full" alt="" style={{height: "400px"}}/>
                 </div>
 
         </div>

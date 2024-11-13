@@ -12,7 +12,7 @@ export default function AboutOne(){
         <div className="container  md:mt-24 mt-16">
             <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
                 <div className=" overflow-hidden rounded-lg border border-amber-400/5 bg-gradient-to-tl to-amber-400/30  from-fuchsia-600/30 dark:to-amber-400/50 dark:from-fuchsia-600/50 ps-6 pt-6 lg:me-8">
-                    <Image src={feature5} className="ltr:rounded-tl-lg rtl:rounded-tr-lg w-full" alt=""/>
+                    <Image src={feature5} className="ltr:rounded-tl-lg rtl:rounded-tr-lg w-full" alt="" style={{height: "400px"}}/>
                 </div>
 
                 <div className="">

@@ -88,6 +88,7 @@ export default function AgentAboutTwo() {
             src={feature4}
             className="ltr:rounded-tl-lg rtl:rounded-tr-lg w-full"
             alt=""
+            style={{height: "300px"}}
             />
           </div>
         </div>
