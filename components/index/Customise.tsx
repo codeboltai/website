@@ -19,7 +19,7 @@ export default function Customize() {
         <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
           <div className="">
             <h4 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">
-            Enable your Team or Even Your  <br/> Users to Customise your Software
+            Enable Your Team Or Even Your  <br/> Users To Customise Your Software
             </h4>
             <p className="text-slate-300 max-w-xl">
 

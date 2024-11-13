@@ -16,7 +16,7 @@ export default function AboutOne(){
                 </div>
 
                 <div className="">
-                    <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Use or Create Custom AI Agents right for your Task</h3>
+                    <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Use Or Create Custom AI Agents Right For Your Task</h3>
                    <p className="text-slate-400 max-w-xl">
 
                     With CodeBolt, developers can easily create AI-driven solutions tailored to specific use cases, integrating deep knowledge of the application, code generation processes, deployment workflows, and security best practices. This powerful platform simplifies the complexities of AI development, empowering teams to build smarter, more efficient tools with greater speed and confidence, all while maintaining robust security standards throughout the lifecycle.

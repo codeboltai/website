@@ -12,6 +12,8 @@ import AiAgents from '../components/index/aiAgents'
 import { Agent } from '../types/types'
 import Customize from '../components/index/Customise'
 import Features from '../components/index/features'
+import Cards from '../components/index/Cards'
+import Action from '../components/index/Action'
 
 
 export async function getStaticProps() {
@@ -72,7 +74,7 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
                 <div className="relative grid lg:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
                     <div className="lg:col-span-7">
                         <div className="lg:me-6 lg:text-start text-center">
-                            <h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-4xl mb-5">Effortless Software Customization with specialised AI agents</h1>
+                            <h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-4xl mb-5">Effortless Software Customization With Specialised AI Agents</h1>
                             <p className="text-lg max-w-xl lg:ms-0 mx-auto"> Codebolt is a code editor enabling developers to build and use adaptable use-case specific AI agent toolkits. This gives more accurate software generation, allowing developers and even end users to customise complex softwares using text prompts.</p>
                         
                             <div className="subcribe-form mt-6 mb-3">
@@ -106,6 +108,9 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
         <AboutOne />
         <Customize />
         <Features/>
+        <Cards/>
+        <Action/>
+
         {/* <AiAgents agents={agents} /> */}
 
       </section>

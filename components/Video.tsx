@@ -6,7 +6,7 @@ const Video = () =>{
 return (
         <div className="container md:mt-10 mt-10">
                 <div className="grid grid-cols-1 pb-6 text-center">
-                    <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold"> How does it works?</h3>
+                    <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold"> How Does It Work?</h3>
                     <div className="">
                                 <video controls autoPlay loop muted>
                                     <source src="/videos/onboarding.mp4" type="video/mp4"/>

@@ -31,7 +31,7 @@ export default function Features() {
  
  <div className="container relative md:mt-24 mt-16">
  <div className="grid grid-cols-1 pb-6 text-center">
-                    <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Major Features</h3>
+                    <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Features</h3>
 
                     <p className="text-slate-400 max-w-xl mx-auto">What makes Codebolt Different!</p>
                 </div>
