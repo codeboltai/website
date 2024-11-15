@@ -75,7 +75,7 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
                 <div className="relative grid lg:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
                     <div className="lg:col-span-7">
                         <div className="lg:me-6 lg:text-start text-center">
-                            <h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-4xl mb-5">Code Editor with App Specific AI Agent</h1>
+                            <h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-4xl mb-5">Code Editor with <br/> App Specific AI Agents</h1>
                             <p className="text-lg max-w-xl lg:ms-0 mx-auto"> Codebolt is a code editor enabling developers to build and use adaptable use-case specific AI agent toolkits. This gives more accurate software generation, allowing developers and even end users to customise complex softwares using text prompts.</p>
                         
                             <div className="subcribe-form mt-6 mb-3">
