@@ -15,28 +15,37 @@ import Features from '../components/index/features'
 import Cards from '../components/index/Cards'
 import Action from '../components/index/Action'
 import Switcher from '../components/switcher'
-
+import LeftLayout from '../components/index/LeftLayout'
+import RightLayout from "../components/index/RightLayout"
 
 export async function getStaticProps() {
   try {
+    const apiUrl = process.env.STRAPI; 
     const res = await fetch('https://codeboltai.web.app/api/agents/list');
+    const res2 = await fetch(`${apiUrl}/api/mainpagedata?populate=*`);
+    const MainContent = await res2.json();
     const agents = await res.json();
     return {
       props: {
-        agents
+        agents,
+        MainContent: MainContent,
+        apiUrl:apiUrl
       }
     };
   } catch (error) {
     console.error('Failed to fetch agents:', error);
     return {
       props: {
-        agents: []
+        agents: [],
+        MainContent: [],
+        apiUrl:''
       }
     };
   }
 }
 
-const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
+const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any }> = ({ agents, MainContent, apiUrl }) => {
+
   return (
     <div className={styles.container}>
       <Head>
@@ -75,8 +84,14 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
                 <div className="relative grid lg:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
                     <div className="lg:col-span-7">
                         <div className="lg:me-6 lg:text-start text-center">
-                            <h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-4xl mb-5">Code Editor with  App  <br/> Specific AI Agents</h1>
-                            <p className="text-lg max-w-xl lg:ms-0 mx-auto"> Codebolt is a code editor enabling developers to build and use adaptable use-case specific AI agent toolkits. This gives more accurate software generation, allowing developers and even end users to customise complex softwares using text prompts.</p>
+                            <h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-4xl mb-5">
+                              {MainContent?.data?.title}
+                              {/* Code Editor with  App  <br/> Specific AI Agents */}
+                              </h1>
+                            <p className="text-lg max-w-xl lg:ms-0 mx-auto">
+                               {/* Codebolt is a code editor enabling developers to build and use adaptable use-case specific AI agent toolkits. This gives more accurate software generation, allowing developers and even end users to customise complex softwares using text prompts. */}
+                               {MainContent?.data?.description}
+                               </p>
                         
                             <div className="subcribe-form mt-6 mb-3">
                             <Link
@@ -106,10 +121,35 @@ const Home: NextPage<{ agents: Agent[] }> = ({ agents }) => {
       <section className="relative ">
         <Video/>
         {/* <BaseExplain classlist="container relative" /> */}
-        <AgentAboutTwo />
+        {MainContent?.data?.features.map((feature: any) => {
+        const { id, title, description, leftRightStatus, images } = feature;
+        if (leftRightStatus === "Left") {
+          return (
+            <LeftLayout
+              key={id}
+              title={title}
+              description={description}
+              apiUrl={apiUrl}
+              image={images}
+            />
+          );
+        } else if (leftRightStatus === "Right") {
+          return (
+            <RightLayout
+              key={id}
+              title={title}
+              description={description}
+              apiUrl={apiUrl}
+              image={images}
+            />
+          );
+        }
+        return null;
+      })}
+        {/* <AgentAboutTwo />
         <AboutOne />
-        <Customize />
-        <Features/>
+        <Customize /> */}
+        <Features featureData={MainContent?.data?.codeboltfeature}/>
         <Cards/>
         <Action/>
 

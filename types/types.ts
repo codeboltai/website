@@ -48,3 +48,17 @@ export type AgentsData = {
     Libraries: additionalAgents[];
     Assistants: additionalAgents[];
 }
+
+
+export type Blog = {
+    title: string;
+    description: string;
+    slug: string;
+    documentId: string;
+}
+
+export type Feature = {
+    title: string;
+    description: string;
+    id: number;
+}

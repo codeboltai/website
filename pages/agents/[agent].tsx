@@ -3,7 +3,6 @@ import Head from "next/head";
 import Navbar from "../../components/navbar";
 import Link from 'next/link';
 import Avatar, {genConfig} from 'react-nice-avatar'
-import {FiDownload} from "react-icons/fi";
 import Footer from '../../components/footer';
 import Switcher from '../../components/switcher';
 import ReactMarkdown from 'react-markdown';
