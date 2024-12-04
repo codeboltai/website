@@ -3,10 +3,14 @@ import Image from "next/image";
 import { MdKeyboardArrowRight } from "../../assets/icons/vander";
 import feature4 from "../../public/images/codebolt.png";
 
+type image = {
+  url: string;
+};
+
 type LeftLayoutProps = {
     title: string;
     description: string; 
-    image: string;
+    image: image;
     apiUrl: string;
   };
 
@@ -39,7 +43,7 @@ const LeftLayout: React.FC<LeftLayoutProps> = ({ title, description, image, apiU
         </div>
         <div className="relative overflow-hidden rounded-lg border border-amber-400/5 bg-gradient-to-tl to-amber-400/30 from-fuchsia-600/30 dark:to-amber-400/50 dark:from-fuchsia-600/50 ps-6 pt-6 lg:me-8">
         <Image 
-        src={`${apiUrl}/${image}`} 
+        src={image?.url} 
         className="ltr:rounded-tl-lg rtl:rounded-tr-lg w-full" 
         alt="" 
         style={{ height: "400px" }} 

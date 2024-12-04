@@ -5,10 +5,17 @@ import feature5 from "../../public/images/agents_icons.png";
 
 import {FiCheckCircle, MdKeyboardArrowRight} from '../../assets/icons/vander'
 import Image from "next/image";
+
+
+
+type image = {
+    url: string;
+  };
+
 type RightLayoutProps = {
     title: string;
     description: string;
-    image: string;
+    image: image;
     apiUrl: string;
   };
 
@@ -20,7 +27,7 @@ const RightLayout: React.FC<RightLayoutProps> = ({ title, description, image, ap
             <div className="grid md:grid-cols-2 grid-cols-1 items-center gap-6">
                 <div className=" overflow-hidden rounded-lg border border-amber-400/5 bg-gradient-to-tl to-amber-400/30  from-fuchsia-600/30 dark:to-amber-400/50 dark:from-fuchsia-600/50 ps-6 pt-6 lg:me-8">
                 <Image 
-                src={`${apiUrl}/${image}`} 
+                src={image?.url} 
                 className="ltr:rounded-tl-lg rtl:rounded-tr-lg w-full" 
                 alt="" 
                 style={{ height: "400px" }} 

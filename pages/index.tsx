@@ -22,14 +22,19 @@ export async function getStaticProps() {
   try {
     const apiUrl = process.env.STRAPI; 
     const res = await fetch('https://codeboltai.web.app/api/agents/list');
-    const res2 = await fetch(`${apiUrl}/api/mainpagedata?populate=*`);
+    const res2 = await fetch(`${apiUrl}/api/mainpagedata?pLevel`);
+
+    const res3 = await fetch(`${apiUrl}/api/head`);
+    const HeadContent = await res3.json();
+
     const MainContent = await res2.json();
     const agents = await res.json();
     return {
       props: {
         agents,
         MainContent: MainContent,
-        apiUrl:apiUrl
+        apiUrl:apiUrl,
+        HeadContent: HeadContent
       }
     };
   } catch (error) {
@@ -38,47 +43,41 @@ export async function getStaticProps() {
       props: {
         agents: [],
         MainContent: [],
-        apiUrl:''
+        apiUrl:'',
+        HeadContent: []
       }
     };
   }
 }
 
-const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any }> = ({ agents, MainContent, apiUrl }) => {
+const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any, HeadContent: any }> = ({ agents, MainContent, apiUrl , HeadContent}) => {
 
   return (
     <div className={styles.container}>
       <Head>
 
-        <title>CodeBolt AI</title>
+        <title>{HeadContent?.title}</title>
+        <meta name="description" content={HeadContent?.description} />
 
-        <meta name="description" content="Codebolt.ai - AI powered Code Editor" />
+        <meta name="keywords" content={HeadContent?.keywords} />
 
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="author" content={HeadContent?.author} />
 
-        <meta name="description" content="Codebolt is a next-gen Code Editor, designed with an AI Agents-first approach. It natively supports AI Code Generation Workflows and can run multiple AI agents tailored to specific coding languages or tasks." />
+        <meta name="robots" content={HeadContent?.robots} />
 
-        <meta name="keywords" content="Code Editor, AI Code Generation, AI Agents, Codebolt, Programming, Software Development" />
+        <meta property="og:title" content={HeadContent?.ogtitle} />
 
-        <meta name="author" content="Codebolt Team" />
+        <meta property="og:description" content={HeadContent?.ogdescription} />
 
-        <meta name="robots" content="index, follow" />
+        <meta property="og:image" content={HeadContent?.ogimage?.url} />
 
-        <meta property="og:title" content="Codebolt - AI-Centric Code Editor" />
+        <meta property="og:url" content={HeadContent?.url}/>
 
-        <meta property="og:description" content="Codebolt is a next-gen Code Editor, designed with an AI Agents-first approach. It natively supports AI Code Generation Workflows and can run multiple AI agents tailored to specific coding languages or tasks." />
+        <meta property="og:type" content={HeadContent?.type} />
 
-        <meta property="og:image" content="/public/images/classic02.png" />
-
-        <meta property="og:url" content="https://www.codebolt.ai" />
-
-        <meta property="og:type" content="website" />
-
-        <link rel="icon" href="/favicon.ico" />
-
+        <link rel="icon" href={HeadContent?.icon?.url} />
       </Head>
       <Navbar activePage="home"></Navbar>
-  
         <section className="relative table w-full lg:py-40 md:py-36 pt-36 pb-24 overflow-hidden bg-white dark:bg-slate-900">
             <div className="container relative z-1">
                 <div className="relative grid lg:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
@@ -86,13 +85,10 @@ const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any }> = ({ ag
                         <div className="lg:me-6 lg:text-start text-center">
                             <h1 className="font-bold lg:leading-normal leading-normal text-4xl lg:text-4xl mb-5">
                               {MainContent?.data?.title}
-                              {/* Code Editor with  App  <br/> Specific AI Agents */}
                               </h1>
                             <p className="text-lg max-w-xl lg:ms-0 mx-auto">
-                               {/* Codebolt is a code editor enabling developers to build and use adaptable use-case specific AI agent toolkits. This gives more accurate software generation, allowing developers and even end users to customise complex softwares using text prompts. */}
                                {MainContent?.data?.description}
                                </p>
-                        
                             <div className="subcribe-form mt-6 mb-3">
                             <Link
                               href="https://github.com/codeboltai/codebolt/releases"
@@ -100,7 +96,6 @@ const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any }> = ({ ag
                                 target="_blank"
                             >
                               Download Codebolt{" "}
-                              {/* <MdKeyboardArrowRight className="ms-1 text-[20px]" /> */}
                             </Link>
                             </div>
                         </div>
@@ -116,13 +111,11 @@ const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any }> = ({ ag
                 </div>
             </div>
         </section> 
-
         {/* <Main /> */}
       <section className="relative ">
         <Video/>
-        {/* <BaseExplain classlist="container relative" /> */}
         {MainContent?.data?.features.map((feature: any) => {
-        const { id, title, description, leftRightStatus, images } = feature;
+        const { id, title, description, leftRightStatus, image } = feature;
         if (leftRightStatus === "Left") {
           return (
             <LeftLayout
@@ -130,7 +123,7 @@ const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any }> = ({ ag
               title={title}
               description={description}
               apiUrl={apiUrl}
-              image={images}
+              image={image}
             />
           );
         } else if (leftRightStatus === "Right") {
@@ -140,60 +133,18 @@ const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any }> = ({ ag
               title={title}
               description={description}
               apiUrl={apiUrl}
-              image={images}
+              image={image}
             />
           );
         }
         return null;
       })}
-        {/* <AgentAboutTwo />
-        <AboutOne />
-        <Customize /> */}
         <Features featureData={MainContent?.data?.codeboltfeature}/>
-        <Cards/>
-        <Action/>
-
-        {/* <AiAgents agents={agents} /> */}
-
+        <Cards  developerData={MainContent?.data?.developers} BusinessData={MainContent?.data?.Businesses}/>
+        <Action actionData={MainContent?.data?.Actions}/>
       </section>
-      {/* <main className={styles.main}>
-        <AboutOne></AboutOne>
-        <AboutThree></AboutThree>
-        <AboutTwo></AboutTwo>
-        <AiFeatures></AiFeatures>
-        <AmazingFeatures></AmazingFeatures>
-        <Blogs></Blogs>
-        <BrandLogo></BrandLogo>
-        <Clients></Clients>
-        <ClientsTwo></ClientsTwo>
-        <Faq></Faq>
-        <Features></Features>
-     
-        <Pricing></Pricing>
-        <Switcher></Switcher>
-
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Let&apos;s check our <Link href="dogs/">doggos</Link>.
-        </p>
-      </main> */}
       <Footer></Footer>
       <Switcher/>
-      {/* <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
     </div>
   )
 }

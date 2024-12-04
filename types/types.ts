@@ -62,3 +62,8 @@ export type Feature = {
     description: string;
     id: number;
 }
+
+export type CardProps = {
+    BusinessData: { title: string }[];
+    developerData: { title: string }[];
+  }
