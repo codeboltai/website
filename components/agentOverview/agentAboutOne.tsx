@@ -1,51 +1,25 @@
 import React from "react";
-
 import {  MdKeyboardArrowRight } from "../../assets/icons/vander";
 import Link from "next/link";
 
-export default function AgentAboutOne() {
+
+type AgentAboutProps = {
+  title: string;
+  description: string; 
+};
+
+
+const AgentAboutOne: React.FC<AgentAboutProps> = ({ title, description  }) => {
   return (
     <>
       <div className="container relative md:mt-24 mt-16">
-    
-         
-
           <div style={{display: 'flex', flexDirection:"column", alignItems:"center"}}>
             <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">
-              What is an AI agent ?
+             {title}
             </h3>
             <p className="text-slate-300 max-w-xl">
-            An AI agent is a sophisticated tool that efficiently manages complex tasks by coordinating multiple specialized models, including natural language processing, image recognition, and decision-making algorithms. Examples include Devin, which focuses on natural language interactions, and Devika, which specializes in optimizing software engineering processes.
-
+            {description}
             </p>
-
-            {/* <ul className="list-none text-slate-400 mt-4">
-              <li className="mb-2 flex items-center">
-                <div className="h-5 w-5 me-2">
-                  <FiCheckCircle className="text-amber-400 h-5 w-5 me-2" />{" "}
-                </div>
-                Seamless Integration: Seamlessly integrate AI agent creation
-                into your workflow by following our clear and concise
-                documentation.
-              </li>
-              <li className="mb-2 flex items-center">
-                <div className="h-5 w-5 me-2">
-                  <FiCheckCircle className="text-amber-400 h-5 w-5 me-2" />{" "}
-                </div>
-                Efficiency Boost: Save time and resources with a straightforward
-                process that eliminates the need for complex coding or
-                specialized training.
-              </li>
-              <li className="mb-2 flex items-center">
-                <div className="h-5 w-5 me-2">
-                  <FiCheckCircle className="text-amber-400 h-5 w-5 me-2" />{" "}
-                </div>{" "}
-                <>Customization: </> Tailor AI agents to your specific needs by
-                following our step-by-step instructions, ensuring your agents
-                are perfectly suited to your tasks.
-              </li>
-            </ul> */}
-
             <div className="mt-4">
               <Link
                 href="https://codeboltai.web.app/registry"
@@ -62,3 +36,5 @@ export default function AgentAboutOne() {
     </>
   );
 }
+
+export default AgentAboutOne;

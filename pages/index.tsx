@@ -122,7 +122,6 @@ const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any, HeadConte
               key={id}
               title={title}
               description={description}
-              apiUrl={apiUrl}
               image={image}
             />
           );
@@ -132,7 +131,6 @@ const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any, HeadConte
               key={id}
               title={title}
               description={description}
-              apiUrl={apiUrl}
               image={image}
             />
           );

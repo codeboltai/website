@@ -1,10 +1,9 @@
 import React, {useEffect} from "react";
-
+import type { NextPage } from 'next'
 import Features from "../../components/features";
 import AboutThree from "../../components/aboutThree";
 import Switcher from "../../components/switcher";
 import Footer from "../../components/footer";
-
 import Link from "next/link";
 import {
 	FiCamera,
@@ -17,7 +16,33 @@ import {
 } from "react-icons/fi";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
-export default function Services() {
+
+
+export async function getStaticProps() {
+	try {
+	  const apiUrl = process.env.STRAPI; 
+	  const res2 = await fetch(`${apiUrl}/api/getstarted?pLevel`);
+	  const res3 = await fetch(`${apiUrl}/api/head`);
+	  const HeadContent = await res3.json();
+	  const featureData = await res2.json();
+	  return {
+		props: {
+		  featureData: featureData?.data,
+		  HeadContent: HeadContent
+		}
+	  };
+	} catch (error) {
+	  console.error('Failed to fetch agents:', error);
+	  return {
+		props: {
+		  featureData: [],
+		  HeadContent: []
+		}
+	  };
+	}
+  }
+  
+const Services: NextPage<{ featureData: any, HeadContent: any }> = ({ featureData, HeadContent}) => {
 	useEffect(() => {
 		document.documentElement.setAttribute("dir", "ltr");
 		document.documentElement.classList.add('dark');
@@ -110,26 +135,27 @@ export default function Services() {
 				</div>
 			</div>
 			<section className="relative md:py-24 py-16">
-				<Features classlist="container relative"/>
-				<AboutThree/>
+				<Features classlist="container relative" features={featureData?.features} title={featureData?.title} description={featureData?.description}/>
+				<AboutThree language={featureData?.country} about={featureData?.getstartedabout} media={featureData?.media}/>
 				<div className="container relative md:mt-24 mt-16">
 					<div className="grid grid-cols-1 pb-6 text-center">
-						<h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Use Cases</h3>
+						<h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">{featureData?.usecasetitle}</h3>
 
-						<p className="text-slate-400 max-w-xl mx-auto">Artificial intelligence makes it fast easy to create content for your blog, social media, website, and more!</p>
+						<p className="text-slate-400 max-w-xl mx-auto">
+							{featureData?.usecasedescription}
+						</p>
 					</div>
 
 					<div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
-						{
-						casesData.map((item, index) => {
-							const Icon = item.icon
+						{featureData?.usecase?.map((item: any, index: number) => {
+							// const Icon = item?.icon
 							return (
 								<div className="p-6 rounded-md shadow dark:shadow-gray-800 group bg-white dark:bg-slate-900 hover:bg-amber-400/5 dark:hover:bg-amber-400/5 duration-500"
 									key={index}>
 									<div className="relative overflow-hidden text-transparent -m-3">
 										<FiHexagon className="h-24 w-24 fill-amber-400/10 group-hover:fill-amber-400/20 duration-500"/>
 										<div className="absolute top-2/4 -translate-y-2/4 start-9 text-amber-400 rounded-xl text-2xl flex align-middle justify-center items-center">
-											<Icon/>
+											{/* <Icon/> */}
 										</div>
 									</div>
 
@@ -140,7 +166,7 @@ export default function Services() {
 										}</Link>
 										<p className="text-slate-400 mt-3">
 											{
-											item.desc
+											item.description
 										}</p>
 										<div className="mt-4">
 											<Link href="" className="hover:text-amber-400 font-medium duration-500">Read More
@@ -159,3 +185,5 @@ export default function Services() {
 		</>
 	)
 }
+
+export default Services;

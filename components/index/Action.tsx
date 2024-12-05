@@ -2,8 +2,6 @@ import Image from "next/image"
 
 export default function Action({actionData}:any) {
 
-    console.log("actionData---",actionData)
-
     return(
         <>
           <div className="container relative md:py-16 py-16 ">

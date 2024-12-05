@@ -11,10 +11,9 @@ type LeftLayoutProps = {
     title: string;
     description: string; 
     image: image;
-    apiUrl: string;
   };
 
-const LeftLayout: React.FC<LeftLayoutProps> = ({ title, description, image, apiUrl }) => {
+const LeftLayout: React.FC<LeftLayoutProps> = ({ title, description, image  }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggle = () => {

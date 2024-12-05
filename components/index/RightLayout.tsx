@@ -16,10 +16,9 @@ type RightLayoutProps = {
     title: string;
     description: string;
     image: image;
-    apiUrl: string;
   };
 
-const RightLayout: React.FC<RightLayoutProps> = ({ title, description, image, apiUrl }) => {
+const RightLayout: React.FC<RightLayoutProps> = ({ title, description, image }) => {
 
     return(
         <>

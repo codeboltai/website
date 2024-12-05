@@ -74,7 +74,7 @@ export default function Pricings() {
 			</div>
 
 			<section className="relative md:pb-24 pb-16">
-				<AboutThree/>
+				{/* <AboutThree/> */}
 				<div className="container relative md:mt-24 mt-16">
 					<div className="grid grid-cols-1 pb-6 text-center">
 						<h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">You dont have to choose between cost, time and quality</h3>
