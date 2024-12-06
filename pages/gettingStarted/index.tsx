@@ -83,28 +83,26 @@ const Services: NextPage<{ featureData: any, HeadContent: any }> = ({ featureDat
 
 			<Head>
 
-				<link rel="icon" href="/favicon.ico"/>
+			<title>{HeadContent?.title}</title>
+			<meta name="description" content={HeadContent?.description} />
 
-				<meta name="description" content="Codebolt is a next-gen Code Editor, designed with an AI Agents-first approach. It natively supports AI Code Generation Workflows and can run multiple AI agents tailored to specific coding languages or tasks."/>
+			<meta name="keywords" content={HeadContent?.keywords} />
 
-				<meta name="keywords" content="Code Editor, AI Code Generation, AI Agents, Codebolt, Programming, Software Development"/>
+			<meta name="author" content={HeadContent?.author} />
 
-				<meta name="author" content="Codebolt Team"/>
+			<meta name="robots" content={HeadContent?.robots} />
 
-				<meta name="robots" content="index, follow"/>
+			<meta property="og:title" content={HeadContent?.ogtitle} />
 
-				<meta property="og:title" content="Codebolt - AI-Centric Code Editor"/>
+			<meta property="og:description" content={HeadContent?.ogdescription} />
 
-				<meta property="og:description" content="Codebolt is a next-gen Code Editor, designed with an AI Agents-first approach. It natively supports AI Code Generation Workflows and can run multiple AI agents tailored to specific coding languages or tasks."/>
+			<meta property="og:image" content={HeadContent?.ogimage?.url} />
 
-				<meta property="og:image" content="/public/images/classic02.png"/>
+			<meta property="og:url" content={HeadContent?.url}/>
 
-				<meta property="og:url" content="https://www.codebolt.com"/>
+			<meta property="og:type" content={HeadContent?.type} />
 
-				<meta property="og:type" content="website"/>
-
-				<link rel="icon" href="/favicon.ico"/>
-
+			<link rel="icon" href={HeadContent?.icon?.url} />
 			</Head>
 			<Navbar activePage="gettingStarted"/>
 			<section className="relative md:py-44 py-32 bg-[url('../../assets/images/bg/bg-pages.jpg')] bg-no-repeat bg-bottom bg-cover">

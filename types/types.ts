@@ -49,12 +49,17 @@ export type AgentsData = {
     Assistants: additionalAgents[];
 }
 
+interface Image {
+    url: string
+}
+
 
 export type Blog = {
     title: string;
     description: string;
     slug: string;
     documentId: string;
+    image: Image
 }
 
 export type Feature = {

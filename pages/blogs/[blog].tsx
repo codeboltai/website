@@ -11,11 +11,11 @@ import { useRouter } from 'next/router';
 
 // For dynamic routing, use getStaticPaths along with getStaticProps
 export async function getStaticPaths() {
-  const res = await fetch('http://localhost:1337/api/blogs');
-  const blogs = await res.json();
+  const res = await fetch('http://localhost:1337/api/blogs?pLevel');
 
+  const blogs = await res.json();
   // Generate paths for each blog post
-  const paths = blogs.data.map((blog: Blog) => ({
+  const paths = blogs.data?.map((blog: Blog) => ({
     params: { blog: blog.slug }
   }));
 
@@ -23,9 +23,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { blog: string } }) {
-  const res = await fetch(`http://localhost:1337/api/blogs`);
+  const res = await fetch('http://localhost:1337/api/blogs?pLevel');
   const blogs = await res.json();
-	const blog = blogs?.data.find((a: Blog) => a.slug === params.blog);
+	const blog = blogs?.data?.find((a: Blog) => a.slug === params.blog);
 
   return {
     props: {
