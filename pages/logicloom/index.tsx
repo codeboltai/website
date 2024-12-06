@@ -9,8 +9,6 @@ import Image from "next/image";
 import Head from "next/head";
 import Navbar from "../../components/navbar";
 
-
-
 export async function getStaticProps() {
 	try {
 	  const apiUrl = process.env.STRAPI; 
@@ -33,7 +31,7 @@ export async function getStaticProps() {
 		}
 	  };
 	}
-  }
+}
   
 const LogicLoom: NextPage<{ featureData: any, HeadContent: any }> = ({ featureData, HeadContent}) => {
 	useEffect(() => {

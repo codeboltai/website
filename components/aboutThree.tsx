@@ -8,7 +8,7 @@ import ModalVideo from "react-modal-video";
 
 interface Image {
   url: string;
-}
+} 
 interface Video {
   url: string;
 }
