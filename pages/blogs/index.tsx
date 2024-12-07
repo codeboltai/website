@@ -8,41 +8,82 @@ import Switcher from '../../components/switcher';
 import {Blog} from '../../types/types';
 import Image from 'next/image';
 import {FiClock, FiCalendar} from '../../assets/icons/vander'
+import type {NextPage} from 'next';
 
 export async function getStaticProps() {
-	const res = await fetch('http://localhost:1337/api/blogs?pLevel');
-	const blogs = await res.json();
-	return {props: {
+    const apiUrl = process.env.STRAPI;
+    const res = await fetch(`${apiUrl}/api/blogs?pLevel`);
+    const res3 = await fetch(`${apiUrl}/api/head`);
+    const HeadContent = await res3.json();
+    const blogs = await res.json();
+    return {
+      props: {
         blogs: blogs.data,
-	}};
+        HeadContent: HeadContent
+      }
+    };
 }
 
-const BlogPage = ({blogs}: {blogs: Blog[]}) => {
+const BlogPage: NextPage < {
+    blogs: any,
+        HeadContent: any
+    } > = ({blogs, HeadContent}) => {
+
 	return (
 		<>
 			<Head>
-				<link rel="icon" href="/favicon.ico"/>
+				<title>{
+					HeadContent ?. title
+				}</title>
+				<meta name="description"
+					content={
+						HeadContent ?. description
+					}/>
 
-				<meta name="description" content="Codebolt is a next-gen Code Editor, designed with an AI Agents-first approach. It natively supports AI Code Generation Workflows and can run multiple AI agents tailored to specific coding languages or tasks."/>
+				<meta name="keywords"
+					content={
+						HeadContent ?. keywords
+					}/>
 
-				<meta name="keywords" content="Code Editor, AI Code Generation, AI Agents, Codebolt, Programming, Software Development"/>
+				<meta name="author"
+					content={
+						HeadContent ?. author
+					}/>
 
-				<meta name="author" content="Codebolt Team"/>
+				<meta name="robots"
+					content={
+						HeadContent ?. robots
+					}/>
 
-				<meta name="robots" content="index, follow"/>
+				<meta property="og:title"
+					content={
+						HeadContent ?. ogtitle
+					}/>
 
-				<meta property="og:title" content="Codebolt - AI-Centric Code Editor"/>
+				<meta property="og:description"
+					content={
+						HeadContent ?. ogdescription
+					}/>
 
-				<meta property="og:description" content="Codebolt is a next-gen Code Editor, designed with an AI Agents-first approach. It natively supports AI Code Generation Workflows and can run multiple AI agents tailored to specific coding languages or tasks."/>
+				<meta property="og:image"
+					content={
+						HeadContent ?. ogimage ?. url
+					}/>
 
-				<meta property="og:image" content="/public/images/classic02.png"/>
+				<meta property="og:url"
+					content={
+						HeadContent ?. url
+					}/>
 
-				<meta property="og:url" content="https://www.codebolt.com"/>
+				<meta property="og:type"
+					content={
+						HeadContent ?. type
+					}/>
 
-				<meta property="og:type" content="website"/>
-
-				<link rel="icon" href="/favicon.ico"/>
-
+				<link rel="icon"
+					href={
+						HeadContent ?. icon ?. url
+					}/>
 			</Head>
         <Navbar activePage="blog"/>
        
@@ -55,7 +96,7 @@ const BlogPage = ({blogs}: {blogs: Blog[]}) => {
                     </div>
 
                     <ul className="tracking-[0.5px] mb-0 inline-block mt-5">
-                        <li className="inline-block capitalize text-[15px] font-medium duration-500 ease-in-out text-white/50 hover:text-white"><Link href="/">Mortal.Ai</Link></li>
+                        <li className="inline-block capitalize text-[15px] font-medium duration-500 ease-in-out text-white/50 hover:text-white"><Link href="/">Codebolt</Link></li>
                         <li className="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180"><i className="mdi mdi-chevron-right"></i></li>
                         <li className="inline-block capitalize text-[15px] font-medium duration-500 ease-in-out text-white" aria-current="page">Blogs</li>
                     </ul>
@@ -73,7 +114,7 @@ const BlogPage = ({blogs}: {blogs: Blog[]}) => {
         <section className="relative md:py-24 py-16">
             <div className="container relative">
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-                    {blogs.map((item,index) => {
+                    {blogs.map((item: any,index: number) => {
                         return(
                             <div className="relative bg-white dark:bg-slate-900 p-4 rounded-md shadow dark:shadow-gray-700" key={index}>
                                 <Image src={item.image?.url} width={0} height={0} sizes="100vw" style={{width:"100%", height:"auto"}} className="rounded-md shadow dark:shadow-gray-700" alt=""
@@ -107,7 +148,7 @@ const BlogPage = ({blogs}: {blogs: Blog[]}) => {
                     })}
                 </div>
 
-                <div className="grid md:grid-cols-12 grid-cols-1 mt-8">
+                {/* <div className="grid md:grid-cols-12 grid-cols-1 mt-8">
                     <div className="md:col-span-12 text-center">
                         <nav aria-label="Page navigation example">
                             <ul className="inline-flex items-center -space-x-px">
@@ -139,7 +180,7 @@ const BlogPage = ({blogs}: {blogs: Blog[]}) => {
                             </ul>
                         </nav>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
 

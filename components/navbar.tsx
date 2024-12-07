@@ -58,12 +58,14 @@ export default function Navbar({ activePage }: { activePage: string }) {
           <div id="navigation" className={`${toggleMenu ? 'block' : ''}`}>
             <ul className="navigation-menu">
 
-              <li><Link  href="/" className={` w sub-menu-item ${activePage === 'index' ? 'active' : ''}`}>Code Editor</Link></li>
+              <li><Link  href="/" className={`w sub-menu-item ${activePage === '' || activePage === undefined ? 'active' : ''}`}>Code Editor</Link></li>
 
               <li><Link  href="/features" className={`w sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
 
+              <li><Link  href="/blogs" className={`w sub-menu-item ${activePage === 'blogs' ? 'active' : ''}`}>Blogs</Link></li>
+
               <li className="has-submenu parent-parent-menu-item">
-                <Link   href="#">AI Agents</Link>
+                <Link   href="#" className={`${activePage === 'agentai' ? 'active' : ''}`} >AI Agents</Link>
                 <span className="menu-arrow"></span>
                 <ul className="submenu">
                   <li>
@@ -106,7 +108,7 @@ export default function Navbar({ activePage }: { activePage: string }) {
                   <li><Link href="https://docs.codebolt.ai/?docusaurus-theme=dark" target="_blank" className={`sub-menu-item ${activePage === 'helpcenter' ? 'active' : ''}`}>Documentation</Link></li>
 
 
-                  <li><Link href="/helpcenter" className={`sub-menu-item ${activePage === 'error' ? 'active' : ''}`}>Blog</Link></li>
+                  <li><Link href="/comparison" className={`sub-menu-item ${activePage === 'comparison' ? 'active' : ''}`}>Comparison</Link></li>
                 </ul>
               </li>
 

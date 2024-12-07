@@ -46,7 +46,7 @@ const AgentsPage = ({agents, additionalAgents}: {agents: Agent[], additionalAgen
 				<link rel="icon" href="/favicon.ico"/>
 
 			</Head>
-        <Navbar activePage="features"/>
+        <Navbar activePage="agentai"/>
       <div className="relative md:py-20 py-16">
 				<div className="shape absolute sm:-bottom-px -bottom-[2px] start-0 end-0 overflow-hidden z-1 text-white dark:text-slate-900">
 					<svg className="w-full h-auto scale-[2.0] origin-top" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">

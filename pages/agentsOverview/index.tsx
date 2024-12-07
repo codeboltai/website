@@ -106,7 +106,7 @@ const AgentOverview: NextPage < {
 						HeadContent ?. icon ?. url
 					}/>
 			</Head>
-			<Navbar activePage="agentOverview"/>
+			<Navbar activePage="agentai"/>
 			<section className="relative table w-full lg:py-40 md:py-36 pt-36 pb-24 overflow-hidden bg-white dark:bg-slate-900">
 				<div className="container relative z-1">
 					<div className="relative grid lg:grid-cols-12 grid-cols-1 items-center mt-10 gap-[30px]">
@@ -185,27 +185,7 @@ const AgentOverview: NextPage < {
 					return null;
 				})
 			}
-
-				
-				{/* <AgentAboutTwo />
-				<AgentAboutThree />
-				<AgentAboutFour />
-				<AgentAboutFive /> */} 
 			</section>
-
-			<section className="relative md:pb-24 pb-16">
-				{/* <AboutThree/> */}
-				<div className="container relative">
-					{/* <div className="grid grid-cols-1 pb-6 text-center">
-						<h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">You dont have to choose between cost, time and quality</h3>
-
-						<p className="text-slate-400 max-w-xl mx-auto">Artificial intelligence makes it fast easy to create content for your blog, social media, website, and more!</p>
-					</div> */}
-					<Comparison/>
-				</div>
-				{/* <ClientsTwo/> */}
-			</section>
-
 
 			<Footer/>
 			<Switcher/>

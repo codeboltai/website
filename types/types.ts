@@ -62,9 +62,21 @@ export type Blog = {
     image: Image
 }
 
+export type ComparisonProps = {
+    title: string;
+    description: string;
+    features: ComparisonFeatures[];
+}
+
 export type Feature = {
     title: string;
     description: string;
+    id: number;
+}
+
+export type ComparisonFeatures = {
+    title: string;
+    action: string;
     id: number;
 }
 

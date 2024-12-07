@@ -20,41 +20,77 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { agent: string } }) {
+	const apiUrl = process.env.STRAPI;
     const agent = additionalAgents.find((a: Agent) => a.slug === params.agent);
-
-    return { props: { agent } };
+	const res3 = await fetch(`${apiUrl}/api/head`);
+	const HeadContent = await res3.json();
+	
+    return { props: { 
+		agent,
+		HeadContent
+	 } };
 }
 
-const AgentPage = ({agent}: {agent: Agent}) => {
+const AgentPage = ({agent, HeadContent}: {agent: Agent, HeadContent: any}) => {
 	const config = genConfig();
 
 	return (
 		<>
 			<Head>
-				<link rel="icon" href="/favicon.ico"/>
+				<title>{
+					HeadContent ?. title
+				}</title>
+				<meta name="description"
+					content={
+						HeadContent ?. description
+					}/>
 
-				<meta name="description" content="Codebolt is a next-gen Code Editor, designed with an AI Agents-first approach. It natively supports AI Code Generation Workflows and can run multiple AI agents tailored to specific coding languages or tasks."/>
+				<meta name="keywords"
+					content={
+						HeadContent ?. keywords
+					}/>
 
-				<meta name="keywords" content="Code Editor, AI Code Generation, AI Agents, Codebolt, Programming, Software Development"/>
+				<meta name="author"
+					content={
+						HeadContent ?. author
+					}/>
 
-				<meta name="author" content="Codebolt Team"/>
+				<meta name="robots"
+					content={
+						HeadContent ?. robots
+					}/>
 
-				<meta name="robots" content="index, follow"/>
+				<meta property="og:title"
+					content={
+						HeadContent ?. ogtitle
+					}/>
 
-				<meta property="og:title" content="Codebolt - AI-Centric Code Editor"/>
+				<meta property="og:description"
+					content={
+						HeadContent ?. ogdescription
+					}/>
 
-				<meta property="og:description" content="Codebolt is a next-gen Code Editor, designed with an AI Agents-first approach. It natively supports AI Code Generation Workflows and can run multiple AI agents tailored to specific coding languages or tasks."/>
+				<meta property="og:image"
+					content={
+						HeadContent ?. ogimage ?. url
+					}/>
 
-				<meta property="og:image" content="/public/images/classic02.png"/>
+				<meta property="og:url"
+					content={
+						HeadContent ?. url
+					}/>
 
-				<meta property="og:url" content="https://www.codebolt.com"/>
+				<meta property="og:type"
+					content={
+						HeadContent ?. type
+					}/>
 
-				<meta property="og:type" content="website"/>
-
-				<link rel="icon" href="/favicon.ico"/>
-
+				<link rel="icon"
+					href={
+						HeadContent ?. icon ?. url
+					}/>
 			</Head>
-			<Navbar activePage="ai Agents"/>
+			<Navbar activePage="agentai"/>
 			<div className="relative md:py-20 py-16">
 				<div className="shape absolute sm:-bottom-px -bottom-[2px] start-0 end-0 overflow-hidden z-1 text-white dark:text-slate-900">
 					<svg className="w-full h-auto scale-[2.0] origin-top" viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
