@@ -66,6 +66,7 @@ export type ComparisonProps = {
     title: string;
     description: string;
     features: ComparisonFeatures[];
+    id: string;
 }
 
 export type Feature = {
