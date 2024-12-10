@@ -85,7 +85,7 @@ const BlogPage: NextPage < {
 						HeadContent ?. icon ?. url
 					}/>
 			</Head>
-        <Navbar activePage="blog"/>
+        <Navbar activePage="blogs"/>
        
         <section className="relative md:py-44 py-32  bg-no-repeat bg-bottom bg-cover" style={{backgroundImage:"url('/images/bg/bg-pages.jpg')"}}>
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-900/70"></div>

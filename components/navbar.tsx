@@ -41,7 +41,7 @@ export default function Navbar({ activePage }: { activePage: string }) {
                 <span className="py-[6px] px-4 inline md:hidden items-center justify-center tracking-wider align-middle duration-500 text-sm text-center rounded bg-amber-400 hover:bg-amber-500 border border-amber-400 hover:border-amber-500 text-white font-semibold">Login</span>
               </Link> */}
 
-<Link
+                <Link
                   href="https://portal.codebolt.ai/"
                   className="py-1 px-4 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-amber-400 hover:bg-amber-500 border-amber-400 hover:border-amber-500 text-white rounded-md"
                 >
@@ -58,13 +58,17 @@ export default function Navbar({ activePage }: { activePage: string }) {
           <div id="navigation" className={`${toggleMenu ? 'block' : ''}`}>
             <ul className="navigation-menu">
 
-              <li><Link  href="/" className={`w sub-menu-item ${activePage === '' || activePage === undefined ? 'active' : ''}`}>Code Editor</Link></li>
+            <li className={activePage === 'home' ? 'active' : ''}>
+              <Link href="/" className={`w sub-menu-item ${activePage === 'home' ? 'active' : ''}`}>
+                Code Editor
+              </Link>
+            </li>
 
-              <li><Link  href="/features" className={`w sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
+              <li  className={activePage === 'features' ? 'active' : ''}><Link  href="/features" className={`w sub-menu-item ${activePage === 'features' ? 'active' : ''}`}>Features</Link></li>
 
-              <li><Link  href="/blogs" className={`w sub-menu-item ${activePage === 'blogs' ? 'active' : ''}`}>Blogs</Link></li>
+              <li  className={activePage === 'blogs' ? 'active' : ''}><Link  href="/blogs" className={`w sub-menu-item ${activePage === 'blogs' ? 'active' : ''}`}>Blogs</Link></li>
 
-              <li className="has-submenu parent-parent-menu-item">
+              <li className={`has-submenu parent-parent-menu-item ${activePage === 'agentai' ? 'active' : ''}`}>
                 <Link   href="#" className={`${activePage === 'agentai' ? 'active' : ''}`} >AI Agents</Link>
                 <span className="menu-arrow"></span>
                 <ul className="submenu">
@@ -86,7 +90,6 @@ export default function Navbar({ activePage }: { activePage: string }) {
                   </li>
                   <li>
                     <Link
-                      
                       href="/agents"
                       className="sub-menu-item"
                       style={{ display: "flex", alignItems: "center", gap: "10px" }}
@@ -100,7 +103,7 @@ export default function Navbar({ activePage }: { activePage: string }) {
                   </li>
                 </ul>
               </li>
-              <li className={`has-submenu parent-parent-menu-item ${activePage === 'pages' ? 'active' : ''}`}>
+              <li className={`has-submenu parent-parent-menu-item ${activePage === 'gettingStarted' ? 'active' : ''}`}>
                 <Link href="#">Developers</Link><span className="menu-arrow"></span>
                 <ul className="submenu">
                   <li><Link href="/gettingStarted" className={`sub-menu-item ${activePage === 'services' ? 'active' : ''}`}>Get Started</Link></li>

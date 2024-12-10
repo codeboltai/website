@@ -85,7 +85,7 @@ const ComparisonPage = ({comparison, HeadContent} : {
 						HeadContent ?. icon ?. url
 					}/>
 			</Head>
-			<Navbar activePage="comparison"/>
+			<Navbar activePage="gettingStarted"/>
 
 			<section className="relative md:py-44 py-32  bg-no-repeat bg-bottom bg-cover"
 				style={

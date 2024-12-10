@@ -15,7 +15,7 @@ export default function Terms() {
 
   return (
     <>
-    <Navbar activePage="terms"/>
+    <Navbar activePage="gettingStarted"/>
       <section className="relative md:pt-44 pt-32 pb-8 bg-gradient-to-b from-amber-400/20 dark:from-amber-400/40 to-transparent">
         <div className="container relative">
           <div className="grid grid-cols-1 text-center mt-6">
