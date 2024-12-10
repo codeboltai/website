@@ -39,21 +39,6 @@ const LogicLoom: NextPage<{ featureData: any, HeadContent: any }> = ({ featureDa
 		document.documentElement.classList.add('dark');
 		document.documentElement.classList.remove('light');
 	}, []);
-	const workData = [
-		{
-			icon: 'mdi mdi-account-search-outline',
-			title: ' Access Ready-to-Use AI Agents',
-			desc: 'Discover a wide range of prebuilt AI agents in CodeSquad, powered by the Codebolt Framework. Avoid the complexities of building AI agents from scratch. Choose from our diverse library tailored to various tasks and industries, ensuring you find an agent that aligns with your business needs right from the start.'
-		}, {
-			icon: 'mdi mdi-wallet-outline',
-			title: 'Customize Effortlessly with Codebolt Tools',
-			desc: 'Leverage the Codebolt Frameworks advanced tools to easily customize your chosen AI agent. Adapt its behavior, responses, and overall functionality to meet your specific requirements. With intuitive controls and no need for deep coding skills, you can personalize the agent quickly and efficiently.'
-		}, {
-			icon: 'mdi mdi-home-plus-outline',
-			title: 'Deploy Smoothly and Scale Effectively',
-			desc: 'Implement your customized AI agent into your business systems without hassle, thanks to the robust integration features of the Codebolt Framework. This framework facilitates not only easy deployment but also ensures that your AI solutions are scalable, capable of handling varying interaction volumes to grow with your business needs.'
-		},
-	]
 	return (
 		<>
 

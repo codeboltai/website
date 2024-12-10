@@ -48,60 +48,20 @@ const Services: NextPage<{ featureData: any, HeadContent: any }> = ({ featureDat
 		document.documentElement.classList.add('dark');
 		document.documentElement.classList.remove('light');
 	}, []);
-	const casesData = [
-		{
-			icon: FiFileText,
-			title: 'Post & Stories',
-			desc: 'The phrasal sequence of the is now so that many campaign and benefit'
-		},
-		{
-			icon: FiVideo,
-			title: 'Ai Videos',
-			desc: 'The phrasal sequence of the is now so that many campaign and benefit'
-		},
-		{
-			icon: FiPauseCircle,
-			title: 'Ai Audios',
-			desc: 'The phrasal sequence of the is now so that many campaign and benefit'
-		},
-		{
-			icon: FiCamera,
-			title: 'Ai Photos',
-			desc: 'The phrasal sequence of the is now so that many campaign and benefit'
-		}, {
-			icon: FiLayout,
-			title: 'Blogs & News',
-			desc: 'The phrasal sequence of the is now so that many campaign and benefit'
-		}, {
-			icon: FiMessageCircle,
-			title: 'Ai Chatboat',
-			desc: 'The phrasal sequence of the is now so that many campaign and benefit'
-		},
-	]
+	
 	return (
 		<>
-
 			<Head>
-
 			<title>{HeadContent?.title}</title>
 			<meta name="description" content={HeadContent?.description} />
-
 			<meta name="keywords" content={HeadContent?.keywords} />
-
 			<meta name="author" content={HeadContent?.author} />
-
 			<meta name="robots" content={HeadContent?.robots} />
-
 			<meta property="og:title" content={HeadContent?.ogtitle} />
-
 			<meta property="og:description" content={HeadContent?.ogdescription} />
-
 			<meta property="og:image" content={HeadContent?.ogimage?.url} />
-
 			<meta property="og:url" content={HeadContent?.url}/>
-
 			<meta property="og:type" content={HeadContent?.type} />
-
 			<link rel="icon" href={HeadContent?.icon?.url} />
 			</Head>
 			<Navbar activePage="gettingStarted"/>
@@ -154,6 +114,7 @@ const Services: NextPage<{ featureData: any, HeadContent: any }> = ({ featureDat
 										<FiHexagon className="h-24 w-24 fill-amber-400/10 group-hover:fill-amber-400/20 duration-500"/>
 										<div className="absolute top-2/4 -translate-y-2/4 start-9 text-amber-400 rounded-xl text-2xl flex align-middle justify-center items-center">
 											{/* <Icon/> */}
+											<i className={item.icon}></i>
 										</div>
 									</div>
 
