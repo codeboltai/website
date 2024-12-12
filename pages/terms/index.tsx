@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-
 import Footer from "../../components/footer";
 import Switcher from "../../components/switcher";
 import Link from "next/link";
