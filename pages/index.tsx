@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/navbar'
 import AboutOne from '../components/index/aboutOne'
@@ -51,6 +52,26 @@ export async function getStaticProps() {
 }
 
 const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any, HeadContent: any }> = ({ agents, MainContent, apiUrl , HeadContent}) => {
+  const [downloadText, setDownloadText] = useState('Download Codebolt');
+
+  useEffect(() => {
+    const detectOS = () => {
+      const platform = window.navigator.platform;
+      console.log(platform);
+      const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'];
+      const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
+
+      if (macosPlatforms.indexOf(platform) !== -1) {
+        setDownloadText('Download for Mac');
+      } else if (windowsPlatforms.indexOf(platform) !== -1) {
+        setDownloadText('Download for Windows');
+      } else {
+        setDownloadText('Download Codebolt');
+      }
+    };
+
+    detectOS();
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -95,7 +116,7 @@ const Home: NextPage<{ agents: Agent[], MainContent: any, apiUrl: any, HeadConte
                                 className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-amber-400 hover:bg-amber-500 border-amber-400 hover:border-amber-500 text-white rounded-md"
                                 target="_blank"
                             >
-                              Download Codebolt{" "}
+                              {downloadText}{" "}
                             </Link>
                             </div>
                         </div>
