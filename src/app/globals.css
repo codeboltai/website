@@ -1,0 +1,406 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Audiowide&family=Michroma&display=swap');
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 5%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 5%;
+  --primary: 262 83% 58%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 0 0% 5%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 0 0% 5%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 262 83% 58%;
+  --radius: 0.5rem;
+}
+
+body {
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: 'Rajdhani', 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Cyberpunk Typography */
+.font-cyber {
+  font-family: 'Orbitron', 'Audiowide', monospace;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.font-cyber-alt {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.font-mono-cyber {
+  font-family: 'Space Mono', 'Michroma', monospace;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.font-cyber-heavy {
+  font-family: 'Audiowide', 'Orbitron', monospace;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Thread Background Pattern */
+.thread-bg {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 2px,
+      transparent 1px,
+      transparent 72px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 2px,
+      transparent 1px,
+      transparent 72px
+    );
+  background-size: 72px 72px;
+}
+
+.thread-bg-dense {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.02) 0px,
+      rgba(0, 0, 0, 0.02) 1px,
+      transparent 1px,
+      transparent 16px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.02) 0px,
+      rgba(0, 0, 0, 0.02) 1px,
+      transparent 1px,
+      transparent 16px
+    );
+  background-size: 16px 16px;
+}
+
+/* Subtle Grid Background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.grid-bg-dense {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Clean Gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+}
+
+.gradient-footer {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gaming/Cyberpunk Button Shapes */
+.cut-corner-button {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.clipped-button {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+}
+
+.gaming-button {
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.cyber-button {
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 4px), calc(100% - 4px) 100%, 4px 100%, 0 calc(100% - 12px));
+}
+
+/* Minimal Shadows */
+.shadow-minimal {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-medium {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Clean Animations */
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cyber-glow {
+  0%, 100% { text-shadow: 0 0 5px rgba(220, 38, 38, 0.3); }
+  50% { text-shadow: 0 0 20px rgba(220, 38, 38, 0.6), 0 0 30px rgba(220, 38, 38, 0.3); }
+}
+
+@keyframes tech-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes border-draw {
+  0% { 
+    stroke-dasharray: 0 100%;
+    stroke-dashoffset: 0;
+  }
+  100% { 
+    stroke-dasharray: 100% 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes border-trace {
+  0% { 
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  }
+  25% { 
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  50% { 
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  75% { 
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100% { 
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.float-subtle {
+  animation: float-subtle 4s ease-in-out infinite;
+}
+
+.cyber-glow {
+  animation: cyber-glow 3s ease-in-out infinite;
+}
+
+.tech-scan {
+  animation: tech-scan 2s ease-in-out infinite;
+}
+
+.border-animate {
+  animation: border-trace 0.6s ease-out forwards;
+}
+
+/* Clean Typography */
+.text-hero {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  font-family: 'Orbitron', 'Audiowide', monospace;
+}
+
+.text-large {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #6b7280;
+}
+
+/* Subtle Borders */
+.border-subtle {
+  border-color: #f3f4f6;
+}
+
+/* Glass Effect */
+.glass-subtle {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Remove all isometric and boxy styles */
+.clean-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.clean-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Clean scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Futuristic diagonal lines */
+.diagonal-lines {
+  position: relative;
+  overflow: hidden;
+}
+
+.diagonal-lines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.1) 2px,
+      rgba(255, 255, 255, 0.1) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Edge diagonal lines - only on left and right sides */
+.diagonal-lines-edges {
+  position: relative;
+  overflow: hidden;
+}
+
+.diagonal-lines-edges::before,
+.diagonal-lines-edges::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.05) 2px,
+      rgba(0, 0, 0, 0.05) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.diagonal-lines-edges::before {
+  left: 0;
+}
+
+.diagonal-lines-edges::after {
+  right: 0;
+}
+
+.diagonal-lines-dense::before {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.08) 1px,
+      rgba(255, 255, 255, 0.08) 2px
+    );
+}
+
+.diagonal-lines-subtle::before {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 4px,
+      rgba(255, 255, 255, 0.05) 4px,
+      rgba(255, 255, 255, 0.05) 8px
+    );
+}
+
+/* Dark diagonal lines for light backgrounds */
+.diagonal-lines-dark {
+  position: relative;
+  overflow: hidden;
+}
+
+.diagonal-lines-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Cyberpunk grid lines */
+.cyber-grid {
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 1;
+}
