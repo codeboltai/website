@@ -60,24 +60,24 @@ export default function SearchAndSort({
       {/* Search */}
       <form onSubmit={handleSearch} className="relative">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
           <input
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search agents..."
-            className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-64"
+            className="pl-10 pr-4 py-2 border border-input rounded-lg focus:ring-2 focus:ring-ring focus:border-ring w-64 bg-background text-foreground"
           />
         </div>
       </form>
 
       {/* Sort */}
       <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-700">Sort by:</span>
+        <span className="text-sm text-foreground">Sort by:</span>
         <select
           value={currentSortBy}
           onChange={(e) => handleSortChange(e.target.value)}
-          className="text-sm border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-sm border border-input rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground"
           disabled={isPending}
         >
           <option value="rating">Highest Rating</option>
@@ -88,11 +88,11 @@ export default function SearchAndSort({
 
       {/* Per Page */}
       <div className="flex items-center gap-2">
-        <span className="text-sm text-gray-700">Show:</span>
+        <span className="text-sm text-foreground">Show:</span>
         <select
           value={currentPerPage}
           onChange={(e) => handlePerPageChange(e.target.value)}
-          className="text-sm border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-sm border border-input rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground"
           disabled={isPending}
         >
           <option value="12">12</option>

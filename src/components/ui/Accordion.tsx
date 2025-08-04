@@ -30,17 +30,17 @@ export default function Accordion({ items, className = '' }: AccordionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: index * 0.1 }}
-          className="bg-white rounded-lg border border-gray-200 overflow-hidden"
+          className="bg-card rounded-lg overflow-hidden"
         >
           <button
             onClick={() => toggleAccordion(index)}
-            className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-inset"
+            className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-accent/50 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-inset"
           >
-            <h3 className="text-lg font-semibold text-gray-900 font-cyber">
+            <h3 className="text-lg font-semibold text-foreground font-cyber">
               {item.question}
             </h3>
             <ChevronDown 
-              className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
+              className={`w-5 h-5 text-muted-foreground transition-transform duration-200 ${
                 openIndex === index ? 'rotate-180' : ''
               }`}
             />
@@ -56,7 +56,7 @@ export default function Accordion({ items, className = '' }: AccordionProps) {
                 className="overflow-hidden"
               >
                 <div className="px-6 pb-4">
-                  <p className="text-gray-600 font-cyber-alt leading-relaxed">
+                  <p className="text-muted-foreground font-cyber-alt leading-relaxed">
                     {item.answer}
                   </p>
                 </div>

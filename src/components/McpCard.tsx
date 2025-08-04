@@ -1,6 +1,7 @@
 import { MCP } from '@/types';
 import Image from 'next/image';
 import { Star, ExternalLink, Shield } from 'lucide-react';
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card';
 
 interface McpCardProps {
   mcp: MCP;
@@ -34,9 +35,8 @@ export default function McpCard({ mcp }: McpCardProps) {
   const tags = getTags(mcp.tags);
   
   return (
-    <div className="h-full bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
-      {/* Header */}
-      <div className="p-4 border-b border-gray-100">
+    <Card className="h-full hover:shadow-md transition-all duration-200">
+      <CardHeader className="border-b">
         <div className="flex items-start gap-3">
           <div className="w-12 h-12 flex-shrink-0">
             <Image
@@ -44,13 +44,13 @@ export default function McpCard({ mcp }: McpCardProps) {
               alt={`${mcp.name} avatar`}
               width={48}
               height={48}
-              className="w-full h-full rounded-lg border border-gray-200"
+              className="w-full h-full rounded-lg border border-border"
             />
           </div>
           
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <h3 className="text-base font-semibold text-gray-900 truncate">
+              <h3 className="text-base font-semibold text-card-foreground truncate">
                 {mcp.name}
               </h3>
               {mcp.isVerified === 1 && (
@@ -60,25 +60,24 @@ export default function McpCard({ mcp }: McpCardProps) {
               )}
             </div>
             
-            <p className="text-sm text-gray-600 truncate">
+            <p className="text-sm text-muted-foreground truncate">
               By {mcp.author}
             </p>
             
             {/* GitHub Stars */}
             <div className="flex items-center gap-1 mt-1">
               <Star className="w-3 h-3 text-yellow-500" />
-              <span className="text-xs text-gray-500">
+              <span className="text-xs text-muted-foreground">
                 {mcp.githubStars?.toLocaleString() || 0}
               </span>
             </div>
           </div>
         </div>
-      </div>
+      </CardHeader>
       
-      {/* Content */}
-      <div className="p-4 flex-1 flex flex-col">
+      <CardContent className="flex-1 flex flex-col">
         {/* Description */}
-        <p className="text-sm text-gray-700 mb-3 flex-1">
+        <p className="text-sm text-card-foreground mb-3 flex-1">
           {truncateText(mcp.description || 'No description available', 120)}
         </p>
         
@@ -88,43 +87,39 @@ export default function McpCard({ mcp }: McpCardProps) {
             {tags.slice(0, 3).map((tag: string, index: number) => (
               <span 
                 key={index}
-                className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700"
+                className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
               >
                 {tag}
               </span>
             ))}
             {tags.length > 3 && (
-              <span className="text-xs text-gray-500">+{tags.length - 3} more</span>
+              <span className="text-xs text-muted-foreground">+{tags.length - 3} more</span>
             )}
           </div>
         )}
         
-        {/* Footer */}
-        <div className="flex items-center justify-between mt-auto pt-2">
-          <div className="text-xs text-gray-500">
-            {mcp.category?.name}
-          </div>
-          
-          {mcp.githubUrl && (
-            <a
-              href={mcp.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-gray-600 transition-colors"
-            >
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          )}
-        </div>
-        
         {/* API Key Required Indicator */}
         {mcp.requiresApiKey === 1 && (
-          <div className="mt-2 inline-flex items-center gap-1 text-xs text-amber-600 bg-amber-50 px-2 py-1 rounded">
+          <div className="mt-2 inline-flex items-center gap-1 text-xs text-amber-600 dark:text-amber-300 bg-amber-50 dark:bg-amber-900/30 px-2 py-1 rounded">
             <span>🔑</span>
             API Key Required
           </div>
         )}
-      </div>
-    </div>
+      </CardContent>
+
+      <CardFooter className="pt-2">
+        <div className="flex items-center justify-between w-full">
+          <div className="text-xs text-muted-foreground">
+            {mcp.category?.name}
+          </div>
+          
+          {mcp.githubUrl && (
+            <div className="text-muted-foreground" title="View on GitHub">
+              <ExternalLink className="w-4 h-4" />
+            </div>
+          )}
+        </div>
+      </CardFooter>
+    </Card>
   );
 }

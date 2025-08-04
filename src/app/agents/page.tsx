@@ -5,10 +5,19 @@ import SearchAndSort from '@/components/SearchAndSort';
 
 async function fetchAgents(): Promise<Agent[]> {
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+    
     const res = await fetch('https://api.codebolt.ai/api/agents/list', {
-      cache: 'no-store', // Ensure fresh data for SEO
-      next: { revalidate: 300 }, // Revalidate every 5 minutes
+      next: { revalidate: 600 }, // Cache for 10 minutes
+      signal: controller.signal,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
     });
+    
+    clearTimeout(timeoutId);
     
     if (!res.ok) {
       console.error('Failed to fetch agents:', res.status, res.statusText);
@@ -16,9 +25,13 @@ async function fetchAgents(): Promise<Agent[]> {
     }
     
     const data = await res.json();
-    return data as Agent[];
+    return Array.isArray(data) ? data : [];
   } catch (error) {
-    console.error('Error fetching agents:', error);
+    if (error instanceof Error) {
+      console.error('Error fetching agents:', error.message);
+    } else {
+      console.error('Unknown error fetching agents:', error);
+    }
     return []; // Return empty array on error instead of throwing
   }
 }
@@ -103,14 +116,14 @@ export default async function AgentsPage({ searchParams }: AgentsPageProps) {
   const { startPage, endPage } = generatePaginationNumbers();
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="pt-16 pb-8">
+    <div className="min-h-screen bg-background">
+      <div className="pt-24 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-2">Agent Marketplace</h1>
-              <p className="text-lg text-gray-600">
+              <h1 className="text-4xl font-bold text-foreground mb-2">Agent Marketplace</h1>
+              <p className="text-lg text-muted-foreground">
                 Discover and deploy AI agents for your development workflow
               </p>
             </div>
@@ -126,11 +139,11 @@ export default async function AgentsPage({ searchParams }: AgentsPageProps) {
 
           {/* No results message */}
           {paginatedAgents.length === 0 && (
-            <div className="flex flex-col justify-center items-center py-20 bg-white rounded-lg shadow mb-6">
+            <div className="flex flex-col justify-center items-center py-20 bg-card rounded-lg shadow mb-6">
               <svg className="w-12 h-12 text-gray-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
-              <p className="text-lg text-gray-500 mb-4">No agents found matching your search criteria.</p>
+              <p className="text-lg text-muted-foreground mb-4">No agents found matching your search criteria.</p>
               <Link 
                 href="/agents" 
                 className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
@@ -159,7 +172,7 @@ export default async function AgentsPage({ searchParams }: AgentsPageProps) {
           {paginatedAgents.length > 0 && totalPages > 1 && (
             <div className="mt-8 mb-6">
               <div className="flex flex-wrap justify-between items-center mb-4">
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-muted-foreground">
                   Showing {startIndex + 1}-{endIndex} of {totalItems} agents
                 </div>
               </div>
@@ -171,7 +184,7 @@ export default async function AgentsPage({ searchParams }: AgentsPageProps) {
                   {currentPage > 1 && (
                     <Link 
                       href={`/agents?query=${encodeURIComponent(query)}&page=${currentPage - 1}&perPage=${perPage}&sortBy=${sortBy}`}
-                      className="px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 flex items-center"
+                      className="px-3 py-2 rounded-md text-muted-foreground hover:bg-accent flex items-center"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -187,7 +200,7 @@ export default async function AgentsPage({ searchParams }: AgentsPageProps) {
                       className={`px-3 py-2 rounded-md ${
                         currentPage === num 
                           ? 'bg-blue-600 text-white' 
-                          : 'text-gray-600 hover:bg-gray-100'
+                          : 'text-muted-foreground hover:bg-accent'
                       }`}
                     >
                       {num}
@@ -198,7 +211,7 @@ export default async function AgentsPage({ searchParams }: AgentsPageProps) {
                   {currentPage < totalPages && (
                     <Link 
                       href={`/agents?query=${encodeURIComponent(query)}&page=${currentPage + 1}&perPage=${perPage}&sortBy=${sortBy}`}
-                      className="px-3 py-2 rounded-md text-gray-600 hover:bg-gray-100 flex items-center"
+                      className="px-3 py-2 rounded-md text-muted-foreground hover:bg-accent flex items-center"
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />

@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { Check, Star, Zap, Crown } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import Accordion from '@/components/ui/Accordion'
@@ -8,62 +7,51 @@ import CTASection from '@/components/ui/CTASection'
 
 const pricingPlans = [
   {
-    name: 'Starter',
+    name: 'Free',
     icon: Zap,
     price: 'Free',
     period: 'Forever',
-    description: 'Perfect for individual developers getting started with AI agents',
+    description: 'For individual developers and hobbyists.',
     features: [
-      '1 AI Agent',
+      'Bring your own AI Connection',
       'Basic Code Editor',
       'Community Support',
-      '5 Projects',
-      'Standard Execution Speed',
-      'Basic Templates'
+      'Up to 3 projects'
     ],
-    buttonText: 'Get Started Free',
+    buttonText: 'Get Started',
     buttonVariant: 'outline' as const,
     popular: false
   },
   {
-    name: 'Professional',
+    name: 'Pro',
     icon: Star,
-    price: '$29',
+    price: '$2',
     period: '/month',
-    description: 'Ideal for professional developers and small teams',
+    description: 'For professional developers and power users.',
     features: [
-      '5 AI Agents',
+      'Bring your own AI Connection',
+      'All features of Free plan',
       'Advanced Code Editor',
       'Priority Support',
       'Unlimited Projects',
-      'Fast Execution Speed',
-      'Premium Templates',
-      'Git Integration',
-      'Real-time Collaboration'
+      'Access to exclusive features'
     ],
-    buttonText: 'Start Free Trial',
+    buttonText: 'Upgrade to Pro',
     buttonVariant: 'primary' as const,
     popular: true
   },
   {
     name: 'Enterprise',
     icon: Crown,
-    price: '$99',
-    period: '/month',
-    description: 'Built for large teams and enterprise organizations',
+    price: 'Custom',
+    period: '',
+    description: 'For large teams and businesses requiring advanced features.',
     features: [
-      'Unlimited AI Agents',
-      'Enterprise Code Editor',
-      '24/7 Premium Support',
-      'Unlimited Projects',
-      'Lightning Execution Speed',
-      'Custom Templates',
-      'Advanced Git Integration',
-      'Team Collaboration',
-      'SSO & Security',
-      'Custom Integrations',
-      'Dedicated Account Manager',
-      'SLA Guarantee'
+      'All features of Pro plan',
+      'Integrated Team Dashboard',
+      'SSO & Advanced Security',
+      'Dedicated Support & Onboarding',
+      'Custom Integrations'
     ],
     buttonText: 'Contact Sales',
     buttonVariant: 'secondary' as const,
@@ -81,16 +69,16 @@ const faqs = [
     answer: 'Yes, you can change your plan at any time. Upgrades take effect immediately, and downgrades take effect at the end of your current billing cycle.'
   },
   {
-    question: 'Is there a free trial?',
-    answer: 'Yes! Professional and Enterprise plans come with a 14-day free trial. No credit card required to start.'
+    question: 'How does "Bring your own AI Connection" work?',
+    answer: 'You can connect your own API keys from various AI providers. This allows you to use your preferred models and manage your AI usage costs directly with the provider.'
   },
   {
     question: 'What kind of support do you offer?',
-    answer: 'We offer community support for free users, priority email support for Professional users, and 24/7 premium support with dedicated account management for Enterprise customers.'
+    answer: 'We offer community support for Free users, priority email support for Pro users, and dedicated support with an account manager for Enterprise customers.'
   },
   {
-    question: 'Can I use my own AI models?',
-    answer: 'Enterprise customers can integrate their own AI models and customize agent behavior. Professional users can choose from our library of pre-trained models.'
+    question: 'What are the additional features in the Pro plan?',
+    answer: 'The Pro plan includes an advanced code editor, priority support, unlimited projects, and access to exclusive new features as they are released.'
   }
 ]
 
@@ -100,20 +88,15 @@ export default function PricingPage() {
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 thread-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 font-cyber-heavy">
+          <div className="space-y-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground font-cyber-heavy">
               SIMPLE <span className="text-red-600">PRICING</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-cyber-alt">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-cyber-alt">
               Choose the perfect plan for your AI-powered development journey. 
               Start free and scale as you grow.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -121,17 +104,13 @@ export default function PricingPage() {
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
-            {pricingPlans.map((plan, index) => (
-              <motion.div
+            {pricingPlans.map((plan) => (
+              <div
                 key={plan.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className={`relative p-8 rounded-lg border-2 transition-all duration-300 ${
+                className={`relative p-8 rounded-lg border-2 transition-all duration-300 bg-card ${
                   plan.popular 
                     ? 'border-red-500 shadow-lg scale-105' 
-                    : 'border-gray-200 hover:border-red-300 hover:shadow-lg'
+                    : 'border-border hover:border-red-300 hover:shadow-lg'
                 }`}
               >
                 {plan.popular && (
@@ -148,22 +127,22 @@ export default function PricingPage() {
                       plan.popular ? 'bg-red-500' : 'bg-gray-100'
                     }`}>
                       <plan.icon className={`w-6 h-6 ${
-                        plan.popular ? 'text-white' : 'text-gray-600'
+                        plan.popular ? 'text-white' : 'text-muted-foreground'
                       }`} />
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 font-cyber mb-2">
+                  <h3 className="text-2xl font-bold text-foreground font-cyber mb-2">
                     {plan.name}
                   </h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-gray-900 font-cyber-heavy">
+                    <span className="text-4xl font-bold text-foreground font-cyber-heavy">
                       {plan.price}
                     </span>
-                    <span className="text-gray-500 font-cyber-alt">
+                    <span className="text-muted-foreground font-cyber-alt">
                       {plan.period}
                     </span>
                   </div>
-                  <p className="text-gray-600 font-cyber-alt text-sm">
+                  <p className="text-muted-foreground font-cyber-alt text-sm">
                     {plan.description}
                   </p>
                 </div>
@@ -172,7 +151,7 @@ export default function PricingPage() {
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-center text-sm font-cyber-alt">
                       <Check className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      <span className="text-gray-600">{feature}</span>
+                      <span className="text-muted-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -185,7 +164,7 @@ export default function PricingPage() {
                 >
                   {plan.buttonText}
                 </Button>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -194,20 +173,14 @@ export default function PricingPage() {
       {/* FAQ Section */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-cyber-heavy mb-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-cyber-heavy mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-gray-600 font-cyber-alt">
+            <p className="text-lg text-muted-foreground font-cyber-alt">
               Everything you need to know about CodeboltAI pricing and features.
             </p>
-          </motion.div>
+          </div>
 
           <Accordion items={faqs} />
         </div>
@@ -219,7 +192,7 @@ export default function PricingPage() {
         description="Join thousands of developers already using AI agents to accelerate their development."
         buttons={[
           {
-            text: "Start Free Trial",
+            text: "Get Started",
             variant: "primary",
             shape: "gaming"
           },
@@ -233,4 +206,5 @@ export default function PricingPage() {
       />
     </div>
   )
-} 
+}
+ 

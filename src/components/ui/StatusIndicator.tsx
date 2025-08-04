@@ -15,7 +15,7 @@ export default function StatusIndicator({ status, label, className = '' }: Statu
   return (
     <div className={`flex items-center space-x-2 ${className}`}>
       <div className={`w-1.5 h-1.5 rounded-full ${statusClasses[status]}`}></div>
-      <span className="text-sm text-gray-500 font-cyber-alt">{label}</span>
+      <span className="text-sm text-muted-foreground font-cyber-alt">{label}</span>
     </div>
   )
 } 

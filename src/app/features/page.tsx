@@ -67,10 +67,10 @@ export default function FeaturesPage() {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 font-cyber-heavy">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground font-cyber-heavy">
               POWERFUL <span className="text-red-600">FEATURES</span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-cyber-alt">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-cyber-alt">
               Discover the cutting-edge capabilities that make CodeboltAI the most advanced 
               AI code editor for autonomous development.
             </p>
@@ -89,24 +89,24 @@ export default function FeaturesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group p-6 rounded-lg border border-gray-200 hover:border-red-300 hover:shadow-lg transition-all duration-300"
+                className="group p-6 rounded-lg hover:shadow-lg transition-all duration-300 bg-card"
               >
                 <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-200 transition-colors">
+                  <div className="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center group-hover:bg-red-200 dark:group-hover:bg-red-900/50 transition-colors">
                     <feature.icon className="w-5 h-5 text-red-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 font-cyber">
+                  <h3 className="text-lg font-semibold text-foreground font-cyber">
                     {feature.title}
                   </h3>
                 </div>
                 
-                <p className="text-gray-600 mb-4 font-cyber-alt text-sm">
+                <p className="text-muted-foreground mb-4 font-cyber-alt text-sm">
                   {feature.description}
                 </p>
                 
                 <ul className="space-y-2">
                   {feature.highlights.map((highlight) => (
-                    <li key={highlight} className="flex items-center text-sm text-gray-500 font-cyber-alt">
+                    <li key={highlight} className="flex items-center text-sm text-muted-foreground font-cyber-alt">
                       <div className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></div>
                       {highlight}
                     </li>

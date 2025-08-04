@@ -27,8 +27,8 @@ export default function CTASection({
   className = ''
 }: CTASectionProps) {
   const bgClasses = {
-    white: 'bg-white',
-    gray: 'bg-gray-50',
+    white: 'bg-background',
+    gray: 'bg-muted/30',
     transparent: 'bg-transparent'
   }
 
@@ -42,10 +42,10 @@ export default function CTASection({
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-cyber-heavy">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground font-cyber-heavy">
             {title}
           </h2>
-          <p className="text-lg text-gray-600 font-cyber-alt">
+          <p className="text-lg text-muted-foreground font-cyber-alt">
             {description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

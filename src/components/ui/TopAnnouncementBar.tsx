@@ -18,17 +18,17 @@ const TopAnnouncementBar = ({
   className = '' 
 }: TopAnnouncementBarProps) => {
   const variantClasses = {
-    default: 'bg-amber-50 border-amber-200 text-amber-800',
-    success: 'bg-green-50 border-green-200 text-green-800',
-    warning: 'bg-orange-50 border-orange-200 text-orange-800',
-    info: 'bg-blue-50 border-blue-200 text-blue-800',
+    default: 'bg-amber-50 dark:bg-amber-900 border-amber-200 dark:border-amber-800 text-amber-800 dark:text-amber-200',
+    success: 'bg-green-50 dark:bg-green-900 border-green-200 dark:border-green-800 text-green-800 dark:text-green-200',
+    warning: 'bg-orange-50 dark:bg-orange-900 border-orange-200 dark:border-orange-800 text-orange-800 dark:text-orange-200',
+    info: 'bg-blue-50 dark:bg-blue-900 border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-200',
   }
 
   const iconColors = {
-    default: 'text-amber-600',
-    success: 'text-green-600',
-    warning: 'text-orange-600',
-    info: 'text-blue-600',
+    default: 'text-amber-600 dark:text-amber-400',
+    success: 'text-green-600 dark:text-green-400',
+    warning: 'text-orange-600 dark:text-orange-400',
+    info: 'text-blue-600 dark:text-blue-400',
   }
 
   return (

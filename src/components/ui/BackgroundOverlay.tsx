@@ -16,10 +16,10 @@ const BackgroundOverlay = ({
   className = ''
 }: BackgroundOverlayProps) => {
   const gradientClasses = {
-    'to-b': 'bg-gradient-to-b from-transparent via-white/50 to-white/80',
-    'to-t': 'bg-gradient-to-t from-transparent via-white/50 to-white/80',
-    'to-r': 'bg-gradient-to-r from-transparent via-white/50 to-white/80',
-    'to-l': 'bg-gradient-to-l from-transparent via-white/50 to-white/80',
+    'to-b': 'bg-gradient-to-b from-transparent via-background/50 to-background/80',
+    'to-t': 'bg-gradient-to-t from-transparent via-background/50 to-background/80',
+    'to-r': 'bg-gradient-to-r from-transparent via-background/50 to-background/80',
+    'to-l': 'bg-gradient-to-l from-transparent via-background/50 to-background/80',
   }
 
   return (

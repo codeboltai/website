@@ -14,13 +14,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group'
     
     const variantClasses = {
-      primary: 'bg-black text-white hover:bg-gray-800 focus:ring-black border-2 border-black',
+      primary: 'bg-foreground text-background hover:bg-foreground/80 focus:ring-foreground border-2 border-foreground',
       secondary: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-600 border-2 border-red-600',
-      outline: 'bg-transparent text-black border-2 border-black hover:bg-red-50 hover:text-red-600 hover:border-red-600 focus:ring-black',
+      outline: 'bg-transparent text-foreground border-2 border-foreground hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 hover:border-red-600 focus:ring-foreground',
     }
     
     const borderAnimationColors = {
-      primary: 'bg-white',
+      primary: 'bg-background',
       secondary: 'bg-white',
       outline: 'bg-red-600',
     }

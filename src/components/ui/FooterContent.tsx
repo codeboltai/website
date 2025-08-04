@@ -10,20 +10,20 @@ interface FooterContentProps {
 export default function FooterContent({ colorScheme, className = '' }: FooterContentProps) {
   const colors = {
     grey: {
-      background: 'bg-gray-50',
-      border: 'border-gray-200',
-      topBorder: 'border-gray-200',
-      bottomBorder: 'border-gray-200',
-      horizontalLine: 'bg-gray-300',
-      separatorLines: 'from-gray-200 via-gray-300 to-gray-200',
-      logoBackground: 'bg-black',
-      logoIcon: 'text-white',
-      brandName: 'text-gray-900',
-      description: 'text-gray-600',
-      headings: 'text-gray-900',
-      links: 'text-gray-600 hover:text-gray-900',
-      legalLinks: 'text-gray-500 hover:text-gray-900',
-      socialIcons: 'text-gray-400 hover:text-gray-600'
+      background: 'bg-gray-50 dark:bg-gray-900',
+      border: 'border-gray-200 dark:border-gray-700',
+      topBorder: 'border-gray-200 dark:border-gray-700',
+      bottomBorder: 'border-gray-200 dark:border-gray-700',
+      horizontalLine: 'bg-gray-300 dark:bg-gray-600',
+      separatorLines: 'from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700',
+      logoBackground: 'bg-black dark:bg-white',
+      logoIcon: 'text-white dark:text-black',
+      brandName: 'text-gray-900 dark:text-gray-100',
+      description: 'text-gray-600 dark:text-gray-400',
+      headings: 'text-gray-900 dark:text-gray-100',
+      links: 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100',
+      legalLinks: 'text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-100',
+      socialIcons: 'text-gray-500 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300'
     },
     red: {
       background: 'bg-red-600',

@@ -9,8 +9,7 @@ import { formatDistanceToNow } from 'date-fns';
 async function fetchMCPTool(id: string): Promise<MCP | null> {
   try {
     const response = await fetch(`https://api.codebolt.ai/mcp/detail/${id}`, {
-      cache: 'no-store',
-      next: { revalidate: 300 }, // Revalidate every 5 minutes
+      next: { revalidate: 1200 }, // Cache for 20 minutes (details change less frequently)
     });
     
     if (!response.ok) {
@@ -75,14 +74,14 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
   const tags = getTags(mcpTool.tags);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <div className="pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <div className="mb-6">
             <Link 
               href="/mcp-tools" 
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-800 border border-gray-200 rounded-lg px-4 py-2 bg-white hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-gray-800  rounded-lg px-4 py-2 bg-card hover:bg-background transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to MCP Tools
@@ -90,7 +89,7 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
           </div>
 
           {/* MCP Tool Header */}
-          <div className="bg-white rounded-lg border border-gray-200 shadow-sm mb-6">
+          <div className="bg-card rounded-lg  shadow-sm mb-6">
             <div className="p-6">
               <div className="flex flex-col lg:flex-row lg:items-start gap-6">
                 {/* MCP Tool Avatar */}
@@ -100,14 +99,14 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
                     alt={`${mcpTool.name} avatar`}
                     width={96}
                     height={96}
-                    className="w-full h-full rounded-lg border-2 border-gray-200"
+                    className="w-full h-full rounded-lg border-2 border-border"
                   />
                 </div>
                 
                 {/* MCP Tool Info */}
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <h1 className="text-3xl font-bold text-gray-900">
+                    <h1 className="text-3xl font-bold text-foreground">
                       {mcpTool.name}
                     </h1>
                     {mcpTool.isVerified === 1 && (
@@ -117,7 +116,7 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
                     )}
                   </div>
                   
-                  <p className="text-gray-600 mb-3">
+                  <p className="text-muted-foreground mb-3">
                     Created by <span className="text-blue-600 font-medium">{mcpTool.author}</span>
                   </p>
                   
@@ -132,7 +131,7 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
                     {/* GitHub Stars */}
                     <div className="flex items-center gap-2">
                       <Star className="w-4 h-4 text-yellow-500" />
-                      <span className="text-sm text-gray-600">
+                      <span className="text-sm text-muted-foreground">
                         {mcpTool.githubStars?.toLocaleString() || 0} stars
                       </span>
                     </div>
@@ -140,7 +139,7 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
                     {/* Category */}
                     {mcpTool.category && (
                       <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-600">Category:</span>
+                        <span className="text-sm text-muted-foreground">Category:</span>
                         <span className="text-sm font-medium text-blue-600">
                           {mcpTool.category.name}
                         </span>
@@ -151,7 +150,7 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
                     {formattedDate && (
                       <div className="flex items-center gap-2">
                         <Calendar className="w-4 h-4 text-gray-400" />
-                        <span className="text-sm text-gray-600">
+                        <span className="text-sm text-muted-foreground">
                           Updated {formattedDate}
                         </span>
                       </div>
@@ -205,11 +204,11 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             {/* Left Content - README */}
             <div className="lg:col-span-3">
-              <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
+              <div className="bg-card rounded-lg  shadow-sm">
                 <div className="p-6">
                   <h2 className="text-xl font-semibold mb-4">Documentation</h2>
                   <div 
-                    className="prose prose-gray max-w-none prose-pre:bg-gray-50 prose-pre:border prose-pre:border-gray-200"
+                    className="prose prose-gray max-w-none prose-pre:bg-background prose-pre:border prose-pre:border-border"
                     dangerouslySetInnerHTML={{ __html: htmlContent }}
                   />
                 </div>
@@ -220,7 +219,7 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
             <div className="space-y-6">
               {/* Installation */}
               {mcpTool.llmsInstallationContent && (
-                <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+                <div className="bg-card rounded-lg  shadow-sm p-6">
                   <h3 className="text-lg font-semibold mb-3">Installation</h3>
                   <div 
                     className="prose prose-sm prose-gray max-w-none"
@@ -232,18 +231,18 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
               )}
               
               {/* MCP Details */}
-              <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+              <div className="bg-card rounded-lg  shadow-sm p-6">
                 <h3 className="text-lg font-semibold mb-4">Details</h3>
                 <div className="space-y-3">
                   <div>
                     <dt className="text-sm font-medium text-gray-500">MCP ID</dt>
-                    <dd className="text-sm text-gray-900">{mcpTool.mcpId}</dd>
+                    <dd className="text-sm text-foreground">{mcpTool.mcpId}</dd>
                   </div>
                   
                   {mcpTool.createdAt && (
                     <div>
                       <dt className="text-sm font-medium text-gray-500">Created</dt>
-                      <dd className="text-sm text-gray-900">
+                      <dd className="text-sm text-foreground">
                         {formatDistanceToNow(new Date(mcpTool.createdAt), { addSuffix: true })}
                       </dd>
                     </div>
@@ -252,7 +251,7 @@ export default async function McpDetailsPage({ params }: McpDetailsPageProps) {
                   {mcpTool.lastGithubSync && (
                     <div>
                       <dt className="text-sm font-medium text-gray-500">Last Sync</dt>
-                      <dd className="text-sm text-gray-900">
+                      <dd className="text-sm text-foreground">
                         {formatDistanceToNow(new Date(mcpTool.lastGithubSync), { addSuffix: true })}
                       </dd>
                     </div>

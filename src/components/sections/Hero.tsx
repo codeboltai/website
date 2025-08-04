@@ -34,7 +34,7 @@ export default function Hero() {
     }
   }
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white thread-bg">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background thread-bg">
       {/* Animated Grid Overlay */}
       <AnimatedGrid gridSize={72} className="z-0" />
 
@@ -46,13 +46,13 @@ export default function Hero() {
           className="space-y-8"
         >
           {/* Main Heading */}
-          <h1 className="text-hero text-gray-900 font-cyber-heavy">
+          <h1 className="text-hero text-foreground font-cyber-heavy">
             AI CODE EDITOR FOR{' '}
             <span className="text-red-600">AI AGENTS</span>
           </h1>
           
           {/* Subheading */}
-          <p className="text-large max-w-2xl mx-auto font-cyber-alt">
+          <p className="text-large max-w-2xl mx-auto font-cyber-alt text-muted-foreground">
             Create, deploy, and manage multiple AI coding agents in one powerful editor. 
                             Build the future of autonomous development with CodeboltAI.
           </p>
@@ -77,7 +77,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-gray-500 text-sm font-cyber-alt"
+            className="text-muted-foreground text-sm font-cyber-alt"
           >
             Deploy autonomous coding agents • No setup required
           </motion.p>
@@ -90,7 +90,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="pt-20"
         >
-          <p className="text-sm text-gray-500 mb-6 font-cyber-alt">
+          <p className="text-sm text-muted-foreground mb-6 font-cyber-alt">
             POWERING AI DEVELOPMENT WORLDWIDE
           </p>
           

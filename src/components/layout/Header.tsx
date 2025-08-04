@@ -3,14 +3,16 @@
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+
 import { Menu, X, Code2, ChevronDown, ExternalLink } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import TopAnnouncementBar from '@/components/ui/TopAnnouncementBar'
+import ThemeToggle from '@/components/ui/ThemeToggle'
+
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const pathname = usePathname()
   
   // Define routes that should NOT show the top announcement bar
@@ -36,13 +38,7 @@ export default function Header() {
     { name: 'Blog', href: '#blog', description: 'Latest updates and tutorials' },
   ]
 
-  const handleDropdownToggle = (dropdown: string) => {
-    setActiveDropdown(activeDropdown === dropdown ? null : dropdown)
-  }
 
-  const closeDropdowns = () => {
-    setActiveDropdown(null)
-  }
 
   return (
     <>
@@ -52,7 +48,7 @@ export default function Header() {
           variant="default"
         />
       )}
-      <header className={`fixed ${shouldHideTopBar ? 'top-0' : 'top-8 md:top-10'} w-full z-40 glass-subtle border-b border-subtle ${shouldHideTopBar ? 'bg-white/80 backdrop-blur-md' : ''}`}>
+      <header className={`fixed ${shouldHideTopBar ? 'top-0' : 'top-8 md:top-10'} w-full z-40 ${shouldHideTopBar ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-background/80 backdrop-blur-sm'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -62,10 +58,10 @@ export default function Header() {
             className="flex items-center space-x-2"
           >
             <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-foreground rounded-lg flex items-center justify-center">
+                <Code2 className="w-5 h-5 text-background" />
               </div>
-              <span className="text-xl font-bold text-gray-900 font-cyber">
+              <span className="text-xl font-bold text-foreground font-cyber">
                 CodeboltAI
               </span>
             </Link>
@@ -78,99 +74,66 @@ export default function Header() {
 
 
             {/* Regular Navigation Items */}
-            <Link href="/features" className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-cyber-alt">
+            <Link href="/features" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt">
               Features
             </Link>
 
             {/* AI Agents Dropdown */}
-            <div className="relative">
-              <button
-                className="flex items-center space-x-1 text-sm text-gray-600 hover:text-gray-900 transition-colors font-cyber-alt"
-                onClick={() => handleDropdownToggle('ai-agents')}
-                onMouseEnter={() => setActiveDropdown('ai-agents')}
-              >
+            <div className="relative group">
+              <button className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt outline-none">
                 <span>Agents</span>
-                <ChevronDown className={`w-3 h-3 transition-transform ${activeDropdown === 'ai-agents' ? 'rotate-180' : ''}`} />
+                <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
               </button>
-              
-              <AnimatePresence>
-                {activeDropdown === 'ai-agents' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-lg border border-gray-200 py-2"
-                    onMouseLeave={closeDropdowns}
+              <div className="absolute top-full left-0 mt-2 w-80 bg-background text-card-foreground rounded-md border border-border p-1 shadow-md z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {aiAgentItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="flex flex-col items-start py-3 px-2 rounded-sm hover:bg-accent transition-colors"
                   >
-                    {aiAgentItems.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="block px-4 py-3 hover:bg-gray-50 transition-colors"
-                        onClick={closeDropdowns}
-                      >
-                        <div className="text-sm font-medium text-gray-900 font-cyber">{item.name}</div>
-                        <div className="text-xs text-gray-500 font-cyber-alt">{item.description}</div>
-                      </a>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    <div className="text-sm font-medium text-card-foreground font-cyber">{item.name}</div>
+                    <div className="text-xs text-muted-foreground font-cyber-alt">{item.description}</div>
+                  </Link>
+                ))}
+              </div>
             </div>
 
-                        {/* Developers Dropdown */}
-                        <div className="relative">
-              <button
-                className="flex items-center space-x-1 text-sm text-gray-600 hover:text-gray-900 transition-colors font-cyber-alt"
-                onClick={() => handleDropdownToggle('developers')}
-                onMouseEnter={() => setActiveDropdown('developers')}
-              >
+            {/* Developers Dropdown */}
+            <div className="relative group">
+              <button className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt outline-none">
                 <span>Developers</span>
-                <ChevronDown className={`w-3 h-3 transition-transform ${activeDropdown === 'developers' ? 'rotate-180' : ''}`} />
+                <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
               </button>
-              
-              <AnimatePresence>
-                {activeDropdown === 'developers' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-lg border border-gray-200 py-2"
-                    onMouseLeave={closeDropdowns}
+              <div className="absolute top-full left-0 mt-2 w-72 bg-background text-card-foreground rounded-md border border-border p-1 shadow-md z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {developerItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="flex flex-col items-start py-3 px-2 rounded-sm hover:bg-accent transition-colors"
+                    target={item.external ? '_blank' : undefined}
+                    rel={item.external ? 'noopener noreferrer' : undefined}
                   >
-                    {developerItems.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="block px-4 py-3 hover:bg-gray-50 transition-colors"
-                        onClick={closeDropdowns}
-                        target={item.external ? '_blank' : undefined}
-                        rel={item.external ? 'noopener noreferrer' : undefined}
-                      >
-                        <div className="text-sm font-medium text-gray-900 font-cyber flex items-center">
-                          {item.name}
-                          {item.external && <ExternalLink className="w-3 h-3 ml-1 text-gray-400" />}
-                        </div>
-                        <div className="text-xs text-gray-500 font-cyber-alt">{item.description}</div>
-                      </a>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                    <div className="text-sm font-medium text-card-foreground font-cyber flex items-center">
+                      {item.name}
+                      {item.external && <ExternalLink className="w-3 h-3 ml-1 text-muted-foreground" />}
+                    </div>
+                    <div className="text-xs text-muted-foreground font-cyber-alt">{item.description}</div>
+                  </Link>
+                ))}
+              </div>
             </div>
 
-            <Link href="/pricing" className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-cyber-alt">
+            <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt">
               Pricing
             </Link>
-            <a href="#enterprise" className="text-sm text-gray-600 hover:text-gray-900 transition-colors font-cyber-alt">
+            <a href="#enterprise" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt">
               Enterprise
             </a>
           </nav>
 
-          {/* CTA Buttons - Hidden on mobile */}
+          {/* CTA Buttons and Theme Toggle - Hidden on mobile */}
           <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
             <Button variant="secondary" size="sm" className="font-cyber">
               Download
             </Button>
@@ -181,7 +144,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            className="md:hidden p-2 rounded-lg hover:bg-accent transition-colors duration-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? 
@@ -198,23 +161,24 @@ export default function Header() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: '100vh' }}
           exit={{ opacity: 0, height: 0 }}
-          className={`md:hidden fixed inset-0 ${shouldHideTopBar ? 'top-16' : 'top-[72px]'} bg-white z-50 overflow-y-auto`}
+          className={`md:hidden fixed inset-0 ${shouldHideTopBar ? 'top-16' : 'top-[72px]'} bg-background dark:bg-background z-50 overflow-y-auto`}
         >
           <div className="px-4 py-4 space-y-4">
-            {/* Mobile CTA Buttons */}
-            <div className="flex space-x-2 pb-4 border-b border-subtle">
+            {/* Mobile CTA Buttons and Theme Toggle */}
+            <div className="flex space-x-2 pb-4 border-b border-border">
               <Button variant="secondary" size="sm" className="flex-1 font-cyber">
                 Download
               </Button>
               <Button variant="outline" size="sm" className="flex-1 font-cyber">
                 Sign Up
               </Button>
+              <ThemeToggle />
             </div>
 
             {/* Features - First item to match desktop */}
             <Link
               href="/features"
-              className="block text-sm text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 font-cyber-alt"
+              className="block text-sm text-muted-foreground hover:text-foreground font-medium transition-colors duration-200 font-cyber-alt"
               onClick={() => setIsMenuOpen(false)}
             >
               Features
@@ -222,12 +186,12 @@ export default function Header() {
 
             {/* Mobile AI Agents Section */}
             <div>
-              <div className="text-sm font-medium text-gray-900 mb-2 font-cyber">AI Agents</div>
+              <div className="text-sm font-medium text-foreground mb-2 font-cyber">AI Agents</div>
               {aiAgentItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block pl-4 py-2 text-sm text-gray-600 hover:text-gray-900 transition-colors font-cyber-alt"
+                  className="block pl-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -237,12 +201,12 @@ export default function Header() {
 
             {/* Mobile Developers Section */}
             <div>
-              <div className="text-sm font-medium text-gray-900 mb-2 font-cyber">Developers</div>
+              <div className="text-sm font-medium text-foreground mb-2 font-cyber">Developers</div>
               {developerItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block pl-4 py-2 text-sm text-gray-600 hover:text-gray-900 transition-colors font-cyber-alt"
+                  className="block pl-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt"
                   onClick={() => setIsMenuOpen(false)}
                   target={item.external ? '_blank' : undefined}
                   rel={item.external ? 'noopener noreferrer' : undefined}
@@ -258,7 +222,7 @@ export default function Header() {
             {/* Pricing */}
             <Link
               href="/pricing"
-              className="block text-sm text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 font-cyber-alt"
+              className="block text-sm text-muted-foreground hover:text-foreground font-medium transition-colors duration-200 font-cyber-alt"
               onClick={() => setIsMenuOpen(false)}
             >
               Pricing
@@ -267,7 +231,7 @@ export default function Header() {
             {/* Enterprise */}
             <a
               href="#enterprise"
-              className="block text-sm text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200 font-cyber-alt"
+              className="block text-sm text-muted-foreground hover:text-foreground font-medium transition-colors duration-200 font-cyber-alt"
               onClick={() => setIsMenuOpen(false)}
             >
               Enterprise
