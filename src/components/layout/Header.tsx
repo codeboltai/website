@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Code2, ChevronDown, ExternalLink } from 'lucide-react'
@@ -10,6 +11,18 @@ import TopAnnouncementBar from '@/components/ui/TopAnnouncementBar'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const pathname = usePathname()
+  
+  // Define routes that should NOT show the top announcement bar
+  const hideTopBarRoutes = [
+    '/agents',
+    '/mcp-tools'
+  ]
+  
+  // Check if current path should hide the top bar
+  const shouldHideTopBar = hideTopBarRoutes.some(route => 
+    pathname === route || pathname.startsWith(route + '/')
+  )
 
   const aiAgentItems = [
     { name: 'Agent Marketplace', href: '/agents', description: 'Discover and deploy pre-built agents' },
@@ -33,13 +46,13 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Announcement Bar */}
-      <TopAnnouncementBar 
-        text="AI AGENTS • LIVE NOW"
-        variant="default"
-      />
-      
-      <header className="fixed top-8 md:top-10 w-full z-40 glass-subtle border-b border-subtle">
+      {!shouldHideTopBar && (
+        <TopAnnouncementBar 
+          text="AI AGENTS • LIVE NOW"
+          variant="default"
+        />
+      )}
+      <header className={`fixed ${shouldHideTopBar ? 'top-0' : 'top-8 md:top-10'} w-full z-40 glass-subtle border-b border-subtle ${shouldHideTopBar ? 'bg-white/80 backdrop-blur-md' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -185,7 +198,7 @@ export default function Header() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: '100vh' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden fixed inset-0 top-[72px] bg-white z-50 overflow-y-auto"
+          className={`md:hidden fixed inset-0 ${shouldHideTopBar ? 'top-16' : 'top-[72px]'} bg-white z-50 overflow-y-auto`}
         >
           <div className="px-4 py-4 space-y-4">
             {/* Mobile CTA Buttons */}

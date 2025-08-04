@@ -41,7 +41,7 @@ export default async function AgentDetailsPage({ params }: AgentDetailsPageProps
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-32 pb-8">
+      <div className="pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
           <div className="mb-6">

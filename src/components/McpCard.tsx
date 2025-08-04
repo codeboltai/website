@@ -111,7 +111,6 @@ export default function McpCard({ mcp }: McpCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-gray-600 transition-colors"
-              onClick={(e) => e.stopPropagation()}
             >
               <ExternalLink className="w-4 h-4" />
             </a>
