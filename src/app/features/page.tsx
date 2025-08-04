@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Code, Bot, Zap, Users, GitBranch, Terminal, Cpu, Shield } from 'lucide-react'
-import CTASection from '@/components/ui/CTASection'
+// import CTASection from '@/components/ui/CTASection'
 
 const features = [
   {
