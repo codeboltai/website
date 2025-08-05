@@ -1,61 +1,44 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code, Bot, Zap, Users, GitBranch, Terminal, Cpu, Shield } from 'lucide-react'
-// import CTASection from '@/components/ui/CTASection'
+import { BrainCircuit, Palette, Wrench, BookOpenCheck, Component, GitBranch, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
+import Button from '@/components/ui/Button'
 
 const features = [
   {
-    icon: Bot,
-    title: 'AI Agent Builder',
-    description: 'Create specialized AI coding agents with unique personalities and expertise areas. Train agents for specific frameworks, languages, or project types.',
-    highlights: ['Custom Agent Training', 'Personality Configuration', 'Skill Specialization']
+    icon: BrainCircuit,
+    title: 'Skill Specialization',
+    description: 'Train agents on specific libraries, frameworks like React or Django, or programming languages. They become true experts in their domain, providing more accurate and context-aware code.',
   },
   {
-    icon: Code,
-    title: 'Intelligent Code Editor',
-    description: 'Advanced code editor with AI-powered suggestions, real-time collaboration, and seamless integration with your development workflow.',
-    highlights: ['Smart Autocomplete', 'Error Prevention', 'Code Optimization']
+    icon: Palette,
+    title: 'Personality & Coding Style',
+    description: "Define your agent's personality and coding style. Whether you prefer verbose comments or concise code, your agent will adapt to match your team's conventions.",
   },
   {
-    icon: Users,
-    title: 'Multi-Agent Orchestration',
-    description: 'Coordinate multiple AI agents to work together on complex projects. Assign different agents to different tasks and watch them collaborate.',
-    highlights: ['Task Distribution', 'Agent Communication', 'Workflow Automation']
+    icon: Wrench,
+    title: 'Custom Tooling',
+    description: 'Equip your agents with custom tools and scripts. Allow them to interact with your specific APIs, databases, or internal services to automate complex workflows.',
   },
   {
-    icon: Zap,
-    title: 'Real-Time Execution',
-    description: 'Execute code in real-time with instant feedback. See your agents work live and interact with the development process as it happens.',
-    highlights: ['Live Code Execution', 'Instant Feedback', 'Performance Monitoring']
+    icon: BookOpenCheck,
+    title: 'Knowledge Base Integration',
+    description: 'Connect your agent to your private documentation, codebases, or wikis. It will learn from your existing knowledge to provide highly relevant and context-aware assistance.',
+  },
+  {
+    icon: Component,
+    title: 'Visual Builder',
+    description: 'Utilize a user-friendly interface to assemble, configure, and test your agents. No complex setup or steep learning curve required to start building.',
   },
   {
     icon: GitBranch,
-    title: 'Version Control Integration',
-    description: 'Seamlessly integrate with Git workflows. Agents can create branches, commit changes, and manage pull requests automatically.',
-    highlights: ['Git Integration', 'Automated Commits', 'Branch Management']
+    title: 'Version Control & Sharing',
+    description: 'Your agents are version-controlled. Share, reuse, and collaborate on agent development with your team, ensuring consistency and quality.',
   },
-  {
-    icon: Terminal,
-    title: 'Command Interface',
-    description: 'Control your agents through natural language commands. Simply describe what you want to build and watch your agents get to work.',
-    highlights: ['Natural Language', 'Voice Commands', 'Gesture Control']
-  },
-  {
-    icon: Cpu,
-    title: 'Advanced Processing',
-    description: 'Leverage cutting-edge AI models for complex reasoning, pattern recognition, and intelligent decision-making in your development process.',
-    highlights: ['Deep Learning', 'Pattern Recognition', 'Smart Decisions']
-  },
-  {
-    icon: Shield,
-    title: 'Enterprise Security',
-    description: 'Bank-level security with encrypted communications, secure agent deployment, and comprehensive audit trails for enterprise environments.',
-    highlights: ['End-to-End Encryption', 'Audit Trails', 'Compliance Ready']
-  }
 ]
 
-export default function FeaturesPage() {
+export default function CustomCodingAgentsPage() {
   return (
     <div className="pt-24 md:pt-28">
       {/* Hero Section */}
@@ -71,17 +54,28 @@ export default function FeaturesPage() {
               CUSTOM CODING <span className="text-red-600">AGENTS</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-cyber-alt">
-              Discover the cutting-edge capabilities that make CodeboltAI the most advanced 
-              AI code editor for autonomous development.
+              Go beyond generic AI. Create specialized agents tailored to your exact coding style, frameworks, and project requirements.
             </p>
+            <div className="flex justify-center space-x-4 pt-4">
+                <Button size="lg" className="font-cyber">
+                    Build Your First Agent
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Features Grid */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-cyber">Tailor-Made Intelligence</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4 font-cyber-alt">
+              CodeboltAI gives you granular control to build agents that work the way you do.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -89,53 +83,55 @@ export default function FeaturesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group p-6 rounded-lg hover:shadow-lg transition-all duration-300 bg-card"
+                className="group p-6 rounded-lg hover:shadow-lg transition-all duration-300 bg-card border border-transparent hover:border-red-600"
               >
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center group-hover:bg-red-200 dark:group-hover:bg-red-900/50 transition-colors">
-                    <feature.icon className="w-5 h-5 text-red-600" />
+                <div className="flex items-start space-x-4 mb-4">
+                  <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center">
+                    <feature.icon className="w-6 h-6 text-red-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground font-cyber">
+                  <h3 className="text-xl font-semibold text-foreground font-cyber mt-2">
                     {feature.title}
                   </h3>
                 </div>
-                
-                <p className="text-muted-foreground mb-4 font-cyber-alt text-sm">
+                <p className="text-muted-foreground font-cyber-alt text-sm">
                   {feature.description}
                 </p>
-                
-                <ul className="space-y-2">
-                  {feature.highlights.map((highlight) => (
-                    <li key={highlight} className="flex items-center text-sm text-muted-foreground font-cyber-alt">
-                      <div className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></div>
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      {/* <CTASection
-        title="Ready to Build with AI Agents?"
-        description="Experience the future of coding with autonomous AI agents that understand your needs."
-        buttons={[
-          {
-            text: "Start Free Trial",
-            variant: "primary",
-            shape: "gaming"
-          },
-          {
-            text: "Watch Demo",
-            variant: "outline",
-            shape: "cyber"
-          }
-        ]}
-        backgroundColor="gray"
-      /> */}
+      {/* How it works Section */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-cyber">Simple to Build, Powerful to Use</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4 font-cyber-alt">
+              Create a new agent in just a few steps.
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+            <div className="text-center p-6 bg-card rounded-lg">
+                <div className="text-5xl font-bold text-red-600 font-cyber-heavy">1</div>
+                <h3 className="text-xl font-semibold my-2 font-cyber">Define Core Skills</h3>
+                <p className="text-muted-foreground font-cyber-alt">Choose languages, frameworks, and libraries.</p>
+            </div>
+            <div className="text-2xl text-muted-foreground font-sans">&rarr;</div>
+            <div className="text-center p-6 bg-card rounded-lg">
+                <div className="text-5xl font-bold text-red-600 font-cyber-heavy">2</div>
+                <h3 className="text-xl font-semibold my-2 font-cyber">Configure Personality</h3>
+                <p className="text-muted-foreground font-cyber-alt">Set coding style and communication preferences.</p>
+            </div>
+            <div className="text-2xl text-muted-foreground font-sans">&rarr;</div>
+            <div className="text-center p-6 bg-card rounded-lg">
+                <div className="text-5xl font-bold text-red-600 font-cyber-heavy">3</div>
+                <h3 className="text-xl font-semibold my-2 font-cyber">Deploy & Iterate</h3>
+                <p className="text-muted-foreground font-cyber-alt">Use your agent, provide feedback, and refine its skills.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
-} 
+}
