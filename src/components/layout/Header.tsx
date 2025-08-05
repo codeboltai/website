@@ -27,7 +27,8 @@ export default function Header() {
 
   const aiAgentItems = [
     { name: 'Agent Marketplace', href: '/registry/agents', description: 'Discover and deploy pre-built agents' },
-    { name: 'Custom Agents', href: '#custom-agents', description: 'Build and customize your own AI agents' },
+    { name: 'Custom Coding Agents', href: '/custom-coding-agents', description: 'Build and customize your own AI agents' },
+    { name: 'Multi Agent Orchestration', href: '/multi-agent-orchestration', description: 'Run multiple agents together in a swarm' },
   ]
 
   const developerItems = [

@@ -13,23 +13,23 @@ export default function RegistryLayout({ children }: RegistryLayoutProps) {
   
   const tabs = [
     {
-      name: 'MCP Tools',
-      href: '/registry/mcp-tools',
-      description: 'Model Context Protocol servers',
-      isActive: pathname.startsWith('/registry/mcp-tools'),
-    },
-    {
       name: 'AI Agents',
       href: '/registry/agents',
       description: 'Pre-built AI agents',
       isActive: pathname.startsWith('/registry/agents'),
+    },
+    {
+      name: 'MCP Tools',
+      href: '/registry/mcp-tools',
+      description: 'Model Context Protocol servers',
+      isActive: pathname.startsWith('/registry/mcp-tools'),
     },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       {/* Registry Header */}
-      <div className="bg-card border-b border-border">
+      <div className="bg-card border-b border-border pt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-8">
             <div className="text-center mb-8">
