@@ -102,7 +102,8 @@ export default function MDXRenderer({ content, className = '' }: MDXRendererProp
               {children}
             </p>
           ),
-          code: ({ className, children, ...props }: any) => {
+          code: (props: React.ComponentProps<'code'>) => {
+            const { className, children } = props;
             const isInline = !className?.includes('language-');
             return isInline ? (
               <code className="bg-muted text-foreground px-1.5 py-0.5 rounded text-sm font-mono border" {...props}>

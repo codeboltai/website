@@ -17,8 +17,7 @@ export default function Header() {
   
   // Define routes that should NOT show the top announcement bar
   const hideTopBarRoutes = [
-    '/agents',
-    '/mcp-tools'
+    '/registry'
   ]
   
   // Check if current path should hide the top bar
@@ -27,12 +26,13 @@ export default function Header() {
   )
 
   const aiAgentItems = [
-    { name: 'Agent Marketplace', href: '/agents', description: 'Discover and deploy pre-built agents' },
+    { name: 'Agent Marketplace', href: '/registry/agents', description: 'Discover and deploy pre-built agents' },
     { name: 'Custom Agents', href: '#custom-agents', description: 'Build and customize your own AI agents' },
   ]
 
   const developerItems = [
-    { name: 'MCP Tools', href: '/mcp-tools', description: 'Model Context Protocol servers and tools' },
+    { name: 'Registry', href: '/registry', description: 'MCP Tools and AI Agents registry' },
+    { name: 'MCP Tools', href: '/registry/mcp-tools', description: 'Model Context Protocol servers and tools' },
     { name: 'Docs', href: 'https://docs.codebolt.ai', description: 'Technical documentation and guides', external: true },
     { name: 'Forums', href: '#forums', description: 'Community discussions and support' },
     { name: 'Blog', href: '#blog', description: 'Latest updates and tutorials' },
