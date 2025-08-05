@@ -4,22 +4,62 @@ import McpCard from '@/components/McpCard';
 import SearchAndSort from '@/components/SearchAndSort';
 
 async function fetchMCPTools(): Promise<MCP[]> {
-  try {
-    const res = await fetch('https://api.codebolt.ai/mcp/all', {
-      next: { revalidate: 600 }, // Cache for 10 minutes
-    });
-    
-    if (!res.ok) {
-      console.error('Failed to fetch MCP tools:', res.status, res.statusText);
-      return [];
+  const maxRetries = 3;
+  const baseDelay = 1000; // 1 second
+  
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      console.log(`Fetching MCP tools (attempt ${attempt}/${maxRetries})...`);
+      
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+      
+      const res = await fetch('https://api.codebolt.ai/mcp/all/basic', {
+        next: { revalidate: 600 }, // Cache for 10 minutes
+        signal: controller.signal,
+        headers: {
+          'User-Agent': 'CodeboltAI-Website/1.0',
+          'Accept': 'application/json',
+        },
+      });
+      
+      clearTimeout(timeoutId);
+      
+      if (!res.ok) {
+        console.error(`Failed to fetch MCP tools (attempt ${attempt}):`, res.status, res.statusText);
+        
+        // If it's a server error (5xx) and we have retries left, try again
+        if (res.status >= 500 && attempt < maxRetries) {
+          const delay = baseDelay * Math.pow(2, attempt - 1); // Exponential backoff
+          console.log(`Retrying in ${delay}ms...`);
+          await new Promise(resolve => setTimeout(resolve, delay));
+          continue;
+        }
+        
+        return [];
+      }
+      
+      const jsonData = await res.json() as { data: MCP[] };
+      console.log(`Successfully fetched ${jsonData.data?.length || 0} MCP tools`);
+      return jsonData.data || [];
+      
+    } catch (error) {
+      console.error(`Error fetching MCP tools (attempt ${attempt}):`, error);
+      
+      // If this was the last attempt, return empty array
+      if (attempt === maxRetries) {
+        console.error('All retry attempts failed. Returning empty array.');
+        return [];
+      }
+      
+      // Wait before retrying, with exponential backoff
+      const delay = baseDelay * Math.pow(2, attempt - 1);
+      console.log(`Retrying in ${delay}ms...`);
+      await new Promise(resolve => setTimeout(resolve, delay));
     }
-    
-    const jsonData = await res.json() as { data: MCP[] };
-    return jsonData.data || [];
-  } catch (error) {
-    console.error('Error fetching MCP tools:', error);
-    return [];
   }
+  
+  return [];
 }
 
 interface McpToolsPageProps {

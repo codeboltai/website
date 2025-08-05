@@ -35,9 +35,9 @@ export default function McpCard({ mcp }: McpCardProps) {
   const tags = getTags(mcp.tags);
   
   return (
-    <Card className="h-full hover:shadow-md transition-all duration-200">
+    <Card className="h-full hover:shadow-md transition-all duration-200 overflow-hidden">
       <CardHeader className="border-b">
-        <div className="flex items-start gap-3">
+        <div className="flex items-start gap-3 min-w-0">
           <div className="w-12 h-12 flex-shrink-0">
             <Image
               src={`https://hono-avatars.pages.dev/?name=${mcp.name}`}
@@ -49,13 +49,13 @@ export default function McpCard({ mcp }: McpCardProps) {
           </div>
           
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1">
-              <h3 className="text-base font-semibold text-card-foreground truncate">
+            <div className="flex items-start gap-2 mb-1">
+              <h3 className="text-base font-semibold text-card-foreground leading-tight break-words flex-1 min-w-0">
                 {mcp.name}
               </h3>
               {mcp.isVerified === 1 && (
-                <div title="Verified by CodeboltAI">
-                  <Shield className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                <div title="Verified by CodeboltAI" className="flex-shrink-0 mt-0.5">
+                  <Shield className="w-4 h-4 text-blue-500" />
                 </div>
               )}
             </div>
@@ -87,7 +87,7 @@ export default function McpCard({ mcp }: McpCardProps) {
             {tags.slice(0, 3).map((tag: string, index: number) => (
               <span 
                 key={index}
-                className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300"
+                className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors"
               >
                 {tag}
               </span>
@@ -100,7 +100,7 @@ export default function McpCard({ mcp }: McpCardProps) {
         
         {/* API Key Required Indicator */}
         {mcp.requiresApiKey === 1 && (
-          <div className="mt-2 inline-flex items-center gap-1 text-xs text-amber-600 dark:text-amber-300 bg-amber-50 dark:bg-amber-900/30 px-2 py-1 rounded">
+          <div className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 px-2 py-1 rounded">
             <span>🔑</span>
             API Key Required
           </div>
