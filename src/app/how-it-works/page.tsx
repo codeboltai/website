@@ -109,7 +109,7 @@ const Agent = React.forwardRef<THREE.Group, { position: [number, number, number]
 });
 
 // WebSocket Connection Line
-const WebSocketConnection = ({ start, end, visible = false }) => {
+const WebSocketConnection = ({ start, end, visible = false, dotted = false }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.MeshStandardMaterial>(null);
 
@@ -132,6 +132,36 @@ const WebSocketConnection = ({ start, end, visible = false }) => {
   const direction = new THREE.Vector3().subVectors(endVec, startVec).normalize();
   const up = new THREE.Vector3(0, 1, 0);
   const quaternion = new THREE.Quaternion().setFromUnitVectors(up, direction);
+
+  if (dotted) {
+    // Create dotted line with multiple small segments
+    const segments = Math.floor(distance / 0.3); // One segment every 0.3 units
+    const dashLength = 0.15;
+    const gapLength = 0.15;
+    
+    return (
+      <group ref={meshRef}>
+        {Array.from({ length: Math.floor(segments / 2) }, (_, i) => {
+          const segmentDistance = (dashLength + gapLength) * i + dashLength / 2;
+          const segmentPosition = new THREE.Vector3().lerpVectors(startVec, endVec, segmentDistance / distance);
+          
+          return (
+            <mesh key={i} position={segmentPosition.toArray()} quaternion={quaternion.toArray()}>
+              <cylinderGeometry args={[0.015, 0.015, dashLength, 6]} />
+              <meshStandardMaterial 
+                ref={i === 0 ? materialRef : undefined}
+                color="#64748B" 
+                transparent 
+                opacity={0} 
+                emissive="#475569" 
+                emissiveIntensity={0.2} 
+              />
+            </mesh>
+          );
+        })}
+      </group>
+    );
+  }
 
   return (
     <mesh ref={meshRef} position={midpoint.toArray()} quaternion={quaternion.toArray()}>
@@ -464,8 +494,8 @@ const CodeEditor3D = () => {
         <group ref={chatWindowRef} position={[-1.2, 0, 0.35]}>
           <RoundedBox args={[1.8, 1.8, 0.35]} radius={0.15} smoothness={4}>
             <meshStandardMaterial 
-              color={animationStep >= 1 ? "#3B82F6" : "#475569"} 
-              emissive={animationStep >= 1 ? "#1D4ED8" : "#334155"}
+              color={animationStep === 1 ? "#3B82F6" : (animationStep > 1 ? "#6B7280" : "#475569")} 
+              emissive={animationStep === 1 ? "#1D4ED8" : (animationStep > 1 ? "#4B5563" : "#334155")}
               emissiveIntensity={0.4}
             />
           </RoundedBox>
@@ -530,8 +560,8 @@ const CodeEditor3D = () => {
         <group ref={apiBlockRef} position={[-1.2, 0, 0.35]}>
           <RoundedBox args={[1.8, 1.8, 0.35]} radius={0.15} smoothness={4}>
             <meshStandardMaterial 
-              color={animationStep >= 2 ? "#3B82F6" : "#475569"} 
-              emissive={animationStep >= 2 ? "#1D4ED8" : "#334155"}
+              color={animationStep === 2 ? "#3B82F6" : (animationStep > 2 ? "#6B7280" : "#475569")} 
+              emissive={animationStep === 2 ? "#1D4ED8" : (animationStep > 2 ? "#4B5563" : "#334155")}
               emissiveIntensity={0.4}
             />
           </RoundedBox>
@@ -553,8 +583,8 @@ const CodeEditor3D = () => {
         <group ref={processManagerRef} position={[1.2, 0, 0.35]}>
           <RoundedBox args={[1.8, 1.8, 0.35]} radius={0.15} smoothness={4}>
             <meshStandardMaterial 
-              color={animationStep >= 3 ? "#3B82F6" : "#475569"}
-              emissive={animationStep >= 3 ? "#1D4ED8" : "#334155"}
+              color={animationStep === 3 ? "#3B82F6" : (animationStep > 3 ? "#6B7280" : "#475569")}
+              emissive={animationStep === 3 ? "#1D4ED8" : (animationStep > 3 ? "#4B5563" : "#334155")}
               emissiveIntensity={0.4}
             />
           </RoundedBox>
@@ -580,8 +610,8 @@ const CodeEditor3D = () => {
       <group position={[0, -4, 0]}>
         <RoundedBox args={[2.5, 1.5, 0.5]} radius={0.2} smoothness={4}>
           <meshStandardMaterial 
-            color={animationStep >= 7 ? "#3B82F6" : "#475569"}
-            emissive={animationStep >= 7 ? "#1D4ED8" : "#334155"}
+            color={animationStep === 7 || animationStep === 8 ? "#3B82F6" : (animationStep > 8 ? "#6B7280" : "#475569")}
+            emissive={animationStep === 7 || animationStep === 8 ? "#1D4ED8" : (animationStep > 8 ? "#4B5563" : "#334155")}
             emissiveIntensity={0.4}
           />
         </RoundedBox>
@@ -605,7 +635,7 @@ const CodeEditor3D = () => {
       <PulsingLight 
         start={[-1.2, 0.35, 0.6]} 
         end={[-1.2, -0.35, 0.6]} 
-        active={animationStep >= 2} 
+        active={animationStep === 2} 
         speed={2}
       />
 
@@ -613,14 +643,15 @@ const CodeEditor3D = () => {
       <WebSocketConnection 
         start={[-0.3, -1.25, 0.6]} 
         end={[0.3, -1.25, 0.6]} 
-        visible={animationStep >= 2} 
+        visible={animationStep >= 2}
+        dotted={animationStep > 2}
       />
       
       {/* Pulsing Light on API to Process connection */}
       <PulsingLight 
         start={[-0.3, -1.25, 0.6]} 
         end={[0.3, -1.25, 0.6]} 
-        active={animationStep >= 2} 
+        active={animationStep === 2} 
         speed={1.5}
       />
 
@@ -628,13 +659,14 @@ const CodeEditor3D = () => {
         start={[2.1, -1.25, 0.7]} 
         end={[4.5, -1.75, 1]} 
         visible={animationStep >= 4}
+        dotted={animationStep > 4}
       />
       
       {/* Pulsing Light on Process to Agent connection */}
       <PulsingLight 
         start={[2.1, -1.25, 0.7]} 
         end={[4.5, -1.75, 1]} 
-        active={animationStep >= 4} 
+        active={animationStep === 4} 
         speed={1.2}
       />
 
@@ -653,6 +685,7 @@ const CodeEditor3D = () => {
         start={[4.2, -1.75, 0.7]} 
         end={[2.1, -1.25, 0.7]} 
         visible={animationStep >= 6}
+        dotted={animationStep !== 6 && animationStep !== 9}
       />
       <PulsingLight 
         start={[4.2, -1.75, 0.7]} 
@@ -666,6 +699,7 @@ const CodeEditor3D = () => {
         start={[1.2, -2.15, 0.7]} 
         end={[0, -3.25, 0.7]} 
         visible={animationStep >= 7}
+        dotted={animationStep !== 7 && animationStep !== 8}
       />
       <PulsingLight 
         start={[1.2, -2.15, 0.7]} 

@@ -33,7 +33,6 @@ export default function Header() {
 
   const developerItems = [
     { name: 'Registry', href: '/registry', description: 'MCP Tools and AI Agents registry' },
-    { name: 'MCP Tools', href: '/registry/mcp-tools', description: 'Model Context Protocol servers and tools' },
     { name: 'Docs', href: 'https://docs.codebolt.ai', description: 'Technical documentation and guides', external: true },
     { name: 'Forums', href: '#forums', description: 'Community discussions and support' },
     { name: 'Blog', href: '#blog', description: 'Latest updates and tutorials' },
