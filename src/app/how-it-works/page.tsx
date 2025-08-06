@@ -62,7 +62,7 @@ const Agent = React.forwardRef<THREE.Group, { position: [number, number, number]
         ease: "elastic.out(1, 0.5)"
       });
       
-      // Add a floating animation when visible
+      // Add a floating animation when visible, stop it when not visible
       if (visible) {
         gsap.to(groupRef.current.position, {
           y: position[1] + 0.1,
@@ -70,6 +70,14 @@ const Agent = React.forwardRef<THREE.Group, { position: [number, number, number]
           repeat: -1,
           yoyo: true,
           ease: "sine.inOut"
+        });
+      } else {
+        // Kill floating animation and reset position when not visible
+        gsap.killTweensOf(groupRef.current.position);
+        gsap.set(groupRef.current.position, {
+          x: position[0],
+          y: position[1],
+          z: position[2]
         });
       }
     }
@@ -209,24 +217,31 @@ const PulsingLight = ({ start, end, active = false, speed = 2 }) => {
   const lightRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
-    if (lightRef.current && active) {
-      const time = state.clock.getElapsedTime() * speed;
-      const progress = (time % 1); // 0 to 1, then reset
-      
-      const startVec = new THREE.Vector3(...start);
-      const endVec = new THREE.Vector3(...end);
-      const currentPos = new THREE.Vector3().lerpVectors(startVec, endVec, progress);
-      
-      lightRef.current.position.copy(currentPos);
-      
-      // Fade in/out effect - brightest in middle of journey, fade at start/end
-      const fadeProgress = 1 - Math.abs(0.5 - progress) * 2; // 0 at start/end, 1 in middle
-      lightRef.current.material.opacity = active ? (0.3 + 0.7 * fadeProgress) : 0;
+    if (lightRef.current) {
+      if (active) {
+        const time = state.clock.getElapsedTime() * speed;
+        const progress = (time % 1); // 0 to 1, then reset
+        
+        const startVec = new THREE.Vector3(...start);
+        const endVec = new THREE.Vector3(...end);
+        const currentPos = new THREE.Vector3().lerpVectors(startVec, endVec, progress);
+        
+        lightRef.current.position.copy(currentPos);
+        
+        // Fade in/out effect - brightest in middle of journey, fade at start/end
+        const fadeProgress = 1 - Math.abs(0.5 - progress) * 2; // 0 at start/end, 1 in middle
+        lightRef.current.material.opacity = 0.3 + 0.7 * fadeProgress;
+        lightRef.current.visible = true;
+      } else {
+        // Completely hide when not active
+        lightRef.current.material.opacity = 0;
+        lightRef.current.visible = false;
+      }
     }
   });
 
   return (
-    <mesh ref={lightRef}>
+    <mesh ref={lightRef} visible={active}>
       <sphereGeometry args={[0.08, 8, 8]} />
       <meshStandardMaterial 
         color="#3B82F6"
@@ -401,22 +416,33 @@ const CodeEditor3D = () => {
     }
     
     if (agentRef.current) {
+      // Add zoom/scale effect for specific agent interaction steps (similar to steps 1-3)
+      const shouldZoomAgent = animationStep === 5 || animationStep === 6 || animationStep === 8 || animationStep === 9;
+      
       // Move agent from inside Process Manager to independent position
+      // Reset to Process Manager position in steps 1-2 (when not visible)
       gsap.to(agentRef.current.position, { 
         x: animationStep >= 4 ? 3.3 : 0, // Move from Process Manager (x: 0) to independent position (x: 3.3)
         y: animationStep >= 4 ? -0.5 : -0.5, // Keep same y position relative to Process Manager
-        z: animationStep >= 4 ? 0.7 : 0.35, // Move slightly forward when independent
+        z: animationStep >= 4 ? (shouldZoomAgent ? 3 : 0.7) : 0.35, // Move forward significantly when zoomed (like other components)
         duration, 
         ease 
       });
-      // Remove zoom for now - will add in later steps
-      gsap.to(agentRef.current.scale, { 
-        x: 1, 
-        y: 1, 
-        z: 1, 
-        duration, 
-        ease 
+      
+      // Scale agent for zoom effect during interaction steps (same as other components)
+      gsap.to(agentRef.current.scale, {
+        x: shouldZoomAgent ? 1.4 : 1,
+        y: shouldZoomAgent ? 1.4 : 1,
+        z: shouldZoomAgent ? 1.4 : 1,
+        duration,
+        ease
       });
+      
+      // Kill any existing animations when going back to steps 1-2
+      if (animationStep < 3) {
+        gsap.killTweensOf(agentRef.current.position);
+        gsap.killTweensOf(agentRef.current.scale);
+      }
     }
 
     // Camera movements based on active step
@@ -448,12 +474,12 @@ const CodeEditor3D = () => {
         gsap.to(camera.position, { x: 3.2, y: -1.5, z: 8, duration, ease, onUpdate: () => camera.updateProjectionMatrix() });
         
       } else if (animationStep === 7) {
-        // Step 7: Focus on Process to LLM
-        gsap.to(camera.position, { x: 0.5, y: -2.5, z: 8, duration, ease, onUpdate: () => camera.updateProjectionMatrix() });
+        // Step 7: Focus on both LLM and Agent (Process to LLM communication)
+        gsap.to(camera.position, { x: 1.8, y: -2.8, z: 10, duration, ease, onUpdate: () => camera.updateProjectionMatrix() });
         
       } else if (animationStep === 8) {
-        // Step 8: Focus on LLM to Process response
-        gsap.to(camera.position, { x: 0.5, y: -2.5, z: 8, duration, ease, onUpdate: () => camera.updateProjectionMatrix() });
+        // Step 8: Focus on both LLM and Agent (LLM response back to Agent)
+        gsap.to(camera.position, { x: 1.8, y: -2.8, z: 10, duration, ease, onUpdate: () => camera.updateProjectionMatrix() });
         
       } else if (animationStep === 9) {
         // Step 9: Focus on Agent to Process file request
@@ -528,17 +554,8 @@ const CodeEditor3D = () => {
             emissiveIntensity={0.4}
           />
         </RoundedBox>
-        <Text position={[1.6, 0.7, 0.6]} fontSize={0.08} color="#FFF" fontWeight="bold">
-          📝 Editor
-        </Text>
-        <Text position={[1.6, 0.2, 0.6]} fontSize={0.05} color="#FFF">
-          function() {'{'}
-        </Text>
-        <Text position={[1.6, 0, 0.6]} fontSize={0.05} color="#FFF">
-          {'  '}code here
-        </Text>
-        <Text position={[1.6, -0.2, 0.6]} fontSize={0.05} color="#FFF">
-          {'}'}
+        <Text position={[1.2, 0, 0.6]} fontSize={0.08} color="#FFF" fontWeight="bold">
+          📝 Editor and Other Interface
         </Text>
       </group>
 
@@ -565,17 +582,8 @@ const CodeEditor3D = () => {
               emissiveIntensity={0.4}
             />
           </RoundedBox>
-          <Text position={[0, 0.7, 0.25]} fontSize={0.08} color="#FFF" fontWeight="bold">
-            🌐 API
-          </Text>
-          <Text position={[0, 0.3, 0.25]} fontSize={0.05} color="#FFF">
-            /chat {animationStep >= 2 ? "✅" : ""}
-          </Text>
-          <Text position={[0, 0.1, 0.25]} fontSize={0.05} color="#FFF">
-            /files
-          </Text>
-          <Text position={[0, -0.1, 0.25]} fontSize={0.05} color="#FFF">
-            /terminal
+          <Text position={[0, 0, 0.25]} fontSize={0.08} color="#FFF" fontWeight="bold">
+            🌐 Backend Execution Engine
           </Text>
         </group>
 
@@ -589,7 +597,7 @@ const CodeEditor3D = () => {
             />
           </RoundedBox>
           <Text position={[0, 0.7, 0.25]} fontSize={0.08} color="#FFF" fontWeight="bold">
-            ⚙️ Process
+            ⚙️ Agent Process Manager
           </Text>
           <Text position={[0, 0.1, 0.25]} fontSize={0.05} color="#FFF">
             {animationStep >= 3 ? "🚀 Spawned!" : "Ready..."}
@@ -628,7 +636,7 @@ const CodeEditor3D = () => {
       <FlowLine 
         start={[-1.2, 0.35, 0.6]} 
         end={[-1.2, -0.35, 0.6]} 
-        active={animationStep >= 2} 
+        active={false} 
       />
       
       {/* Pulsing Light on Frontend to Backend flow */}
@@ -657,7 +665,7 @@ const CodeEditor3D = () => {
 
       <WebSocketConnection 
         start={[2.1, -1.25, 0.7]} 
-        end={[4.5, -1.75, 1]} 
+        end={[4.2, -1.75, 0.7]} 
         visible={animationStep >= 4}
         dotted={animationStep > 4}
       />
@@ -665,17 +673,17 @@ const CodeEditor3D = () => {
       {/* Pulsing Light on Process to Agent connection */}
       <PulsingLight 
         start={[2.1, -1.25, 0.7]} 
-        end={[4.5, -1.75, 1]} 
+        end={[4.2, -1.75, 0.7]} 
         active={animationStep === 4} 
         speed={1.2}
       />
 
       {/* NEW CONNECTIONS FOR EXTENDED STEPS */}
       
-      {/* Step 5: User message flow to Agent */}
+      {/* Step 5: User message flow from Process Manager to Agent */}
       <PulsingLight 
-        start={[-1.2, 0.35, 0.6]} 
-        end={[4.5, -1.75, 1]} 
+        start={[2.1, -1.25, 0.7]} 
+        end={[4.2, -1.75, 0.7]} 
         active={animationStep === 5} 
         speed={1.8}
       />
@@ -690,7 +698,15 @@ const CodeEditor3D = () => {
       <PulsingLight 
         start={[4.2, -1.75, 0.7]} 
         end={[2.1, -1.25, 0.7]} 
-        active={animationStep === 6 || animationStep === 9} 
+        active={animationStep === 6} 
+        speed={1.5}
+      />
+
+      {/* Step 9: Agent to Process (file access request) */}
+      <PulsingLight 
+        start={[4.2, -1.75, 0.7]} 
+        end={[2.1, -1.25, 0.7]} 
+        active={animationStep === 9} 
         speed={1.5}
       />
 
@@ -716,17 +732,33 @@ const CodeEditor3D = () => {
         speed={1.4}
       />
 
+      {/* Step 8: Process forwards LLM response to Agent */}
+      <PulsingLight 
+        start={[2.1, -1.25, 0.7]} 
+        end={[4.2, -1.75, 0.7]} 
+        active={animationStep === 8} 
+        speed={1.6}
+      />
+
       {/* Step 10: Process to Agent (file data) */}
       <PulsingLight 
         start={[2.1, -1.25, 0.7]} 
         end={[4.2, -1.75, 0.7]} 
-        active={animationStep === 8 || animationStep === 10} 
+        active={animationStep === 10} 
         speed={1.6}
       />
 
-      {/* Step 11: Agent response back to user */}
+      {/* Step 11: Agent response back through Process Manager to user */}
       <PulsingLight 
-        start={[4.5, -1.75, 1]} 
+        start={[4.2, -1.75, 0.7]} 
+        end={[2.1, -1.25, 0.7]} 
+        active={animationStep === 11} 
+        speed={2.0}
+      />
+      
+      {/* Step 11: Process Manager forwards response to user */}
+      <PulsingLight 
+        start={[-1.2, -0.35, 0.6]} 
         end={[-1.2, 0.35, 0.6]} 
         active={animationStep === 11} 
         speed={2.0}
