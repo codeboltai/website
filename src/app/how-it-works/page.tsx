@@ -8,6 +8,37 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Simple dark mode hook
+const useDarkMode = () => {
+  const [isDark, setIsDark] = useState(false);
+  
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const checkDarkMode = () => {
+      // Check if html has dark class (Tailwind's dark mode) or system preference
+      const hasDarkClass = document.documentElement.classList.contains('dark');
+      const systemPrefersDark = mediaQuery.matches;
+      setIsDark(hasDarkClass || systemPrefersDark);
+    };
+    
+    checkDarkMode();
+    
+    // Listen for system preference changes
+    mediaQuery.addEventListener('change', checkDarkMode);
+    
+    // Listen for class changes on html element
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    
+    return () => {
+      mediaQuery.removeEventListener('change', checkDarkMode);
+      observer.disconnect();
+    };
+  }, []);
+  
+  return isDark;
+};
+
 // Chat Message Component
 const ChatMessage = ({ position, text, isUser = false, visible = false }) => {
   const meshRef = useRef<THREE.Group>(null);
@@ -256,6 +287,20 @@ const PulsingLight = ({ start, end, active = false, speed = 2 }) => {
 
 const CodeEditor3D = () => {
   const [animationStep, setAnimationStep] = useState(0);
+  const isDark = useDarkMode();
+  
+  // Theme-aware colors
+  const colors = {
+    background: isDark ? "#374151" : "#f3f4f6",
+    backgroundEmissive: isDark ? "#1F2937" : "#e5e7eb",
+    primary: "#3B82F6",
+    primaryEmissive: "#1D4ED8",
+    secondary: isDark ? "#475569" : "#9ca3af", 
+    secondaryEmissive: isDark ? "#334155" : "#6b7280",
+    active: isDark ? "#6B7280" : "#d1d5db",
+    activeEmissive: isDark ? "#4B5563" : "#9ca3af",
+    text: isDark ? "#FFF" : "#111827"
+  };
   const frontendRef = useRef<THREE.Group>(null);
   const backendRef = useRef<THREE.Group>(null);
   const agentRef = useRef<THREE.Group>(null);
@@ -498,21 +543,21 @@ const CodeEditor3D = () => {
         gsap.to(camera.position, { x: 0, y: 0, z: 8, duration, ease, onUpdate: () => camera.updateProjectionMatrix() });
       }
     }
-  }, [animationStep, camera]);
+  }, [animationStep, camera, colors]);
 
   return (
     <group>
       {/* FRONTEND SECTION */}
       <group ref={frontendRef} position={[0, 1.25, 0]}>
         {/* Frontend Container - Background */}
-        <RoundedBox args={[5.5, 2.2, 0.5]} radius={0.2} smoothness={4}>
+        <RoundedBox args={[5.5, 2.45, 0.5]} radius={0.2} smoothness={4}>
           <meshStandardMaterial 
-            color="#374151" 
-            emissive="#1F2937"
+            color={colors.background}
+            emissive={colors.backgroundEmissive}
             emissiveIntensity={0.4}
           />
         </RoundedBox>
-        <Text position={[0, 1, 0.35]} fontSize={0.15} color="#FFF" fontWeight="bold">
+        <Text position={[0, 1, 0.35]} fontSize={0.15} color={colors.text} fontWeight="bold">
           FRONTEND
         </Text>
 
@@ -520,12 +565,12 @@ const CodeEditor3D = () => {
         <group ref={chatWindowRef} position={[-1.2, 0, 0.35]}>
           <RoundedBox args={[1.8, 1.8, 0.35]} radius={0.15} smoothness={4}>
             <meshStandardMaterial 
-              color={animationStep === 1 ? "#3B82F6" : (animationStep > 1 ? "#6B7280" : "#475569")} 
-              emissive={animationStep === 1 ? "#1D4ED8" : (animationStep > 1 ? "#4B5563" : "#334155")}
+              color={animationStep === 1 ? colors.primary : (animationStep > 1 ? colors.active : colors.secondary)} 
+              emissive={animationStep === 1 ? colors.primaryEmissive : (animationStep > 1 ? colors.activeEmissive : colors.secondaryEmissive)}
               emissiveIntensity={0.4}
             />
           </RoundedBox>
-          <Text position={[0, 0.7, 0.25]} fontSize={0.08} color="#FFF" fontWeight="bold">
+          <Text position={[0, 0.7, 0.25]} fontSize={0.08} color={colors.text} fontWeight="bold">
             💬 Chat
           </Text>
 
@@ -562,7 +607,7 @@ const CodeEditor3D = () => {
       {/* BACKEND SECTION */}
       <group ref={backendRef} position={[0, -1.25, 0]}>
         {/* Backend Container - Background */}
-        <RoundedBox args={[5.5, 2.2, 0.5]} radius={0.2} smoothness={4}>
+        <RoundedBox args={[5.5, 2.45, 0.5]} radius={0.2} smoothness={4}>
           <meshStandardMaterial 
             color="#374151" 
             emissive="#1F2937"
@@ -769,18 +814,18 @@ const CodeEditor3D = () => {
 
 const HowItWorksPage = () => {
   return (
-    <div className="bg-black">
+    <div className="bg-background">
       
       {/* FULL WIDTH - Hero Section */}
-      <section className="min-h-screen flex items-center justify-center p-8 bg-gradient-to-br from-gray-900 to-black">
+      <section className="min-h-screen flex items-center justify-center p-8 bg-gradient-to-br from-background to-muted">
         <div className="text-center max-w-4xl">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="text-6xl md:text-7xl font-bold text-foreground mb-6">
             How Our Code Editor Works
           </h1>
-          <p className="text-2xl text-gray-300">
+          <p className="text-2xl text-muted-foreground">
             Discover the architecture behind our intelligent code editor with AI-powered agents
           </p>
-          <div className="mt-8 text-gray-400">
+          <div className="mt-8 text-muted-foreground">
             <p className="text-lg">Scroll down to explore each step →</p>
           </div>
         </div>
@@ -792,24 +837,24 @@ const HowItWorksPage = () => {
         {/* LEFT SIDE - Content Sections */}
         <div className="w-1/2">
           {/* Step 1 */}
-          <section className="step-1 min-h-screen flex items-center p-8 bg-gradient-to-br from-blue-900/20 to-black">
+          <section className="step-1 min-h-screen flex items-center p-8 bg-gradient-to-br from-blue-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-blue-400 text-sm font-semibold mb-2">STEP 1</div>
-              <h2 className="text-4xl font-bold text-white mb-6">User Interaction</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-blue-500 text-sm font-semibold mb-2">STEP 1</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">User Interaction</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 When you type "Hi" in the chat window, the message is prepared for processing by our intelligent system.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                   <span>User types message in chat interface</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                   <span>Message is captured by the frontend</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                   <span>Chat window highlights to show activity</span>
                 </div>
               </div>
@@ -817,24 +862,24 @@ const HowItWorksPage = () => {
           </section>
 
           {/* Step 2 */}
-          <section className="step-2 min-h-screen flex items-center p-8 bg-gradient-to-br from-green-900/20 to-black">
+          <section className="step-2 min-h-screen flex items-center p-8 bg-gradient-to-br from-green-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-green-400 text-sm font-semibold mb-2">STEP 2</div>
-              <h2 className="text-4xl font-bold text-white mb-6">Backend Processing</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-green-500 text-sm font-semibold mb-2">STEP 2</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">Backend Processing</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 Your message flows through WebSocket connections to our backend server, where it's processed by our API endpoints.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   <span>WebSocket connection established</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   <span>Message routed to /chat/message endpoint</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   <span>Backend validates and processes request</span>
                 </div>
               </div>
@@ -842,14 +887,14 @@ const HowItWorksPage = () => {
           </section>
 
           {/* Step 3 */}
-          <section className="step-3 min-h-screen flex items-center p-8 bg-gradient-to-br from-purple-900/20 to-black">
+          <section className="step-3 min-h-screen flex items-center p-8 bg-gradient-to-br from-purple-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-purple-400 text-sm font-semibold mb-2">STEP 3</div>
-              <h2 className="text-4xl font-bold text-white mb-6">Agent Creation</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-purple-500 text-sm font-semibold mb-2">STEP 3</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">Agent Creation</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 The backend spawns a dedicated AI agent as a child process, specifically for your conversation thread.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
                   <span>Process Manager receives spawn request</span>
@@ -867,24 +912,24 @@ const HowItWorksPage = () => {
           </section>
 
           {/* Step 4 */}
-          <section className="step-4 min-h-screen flex items-center p-8 bg-gradient-to-br from-cyan-900/20 to-black">
+          <section className="step-4 min-h-screen flex items-center p-8 bg-gradient-to-br from-cyan-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-cyan-400 text-sm font-semibold mb-2">STEP 4</div>
-              <h2 className="text-4xl font-bold text-white mb-6">Independent Agent</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-cyan-500 text-sm font-semibold mb-2">STEP 4</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">Independent Agent</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 The AI agent operates independently, connected to the backend via WebSocket, ready to help with your coding tasks in real-time.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
                   <span>Agent establishes independent WebSocket connection</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
                   <span>Real-time bidirectional communication enabled</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
                   <span>Agent ready to process coding requests</span>
                 </div>
               </div>
@@ -892,24 +937,24 @@ const HowItWorksPage = () => {
           </section>
 
           {/* Step 5 */}
-          <section className="step-5 min-h-screen flex items-center p-8 bg-gradient-to-br from-orange-900/20 to-black">
+          <section className="step-5 min-h-screen flex items-center p-8 bg-gradient-to-br from-orange-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-orange-400 text-sm font-semibold mb-2">STEP 5</div>
-              <h2 className="text-4xl font-bold text-white mb-6">Agent Receives Message</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-orange-500 text-sm font-semibold mb-2">STEP 5</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">Agent Receives Message</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 The independent agent establishes communication with the Process Manager and receives the user's message for processing.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                   <span>Agent connects to Process Manager via WebSocket</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                   <span>User message flows from Chat through API to Agent</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                   <span>Agent begins processing the request</span>
                 </div>
               </div>
@@ -917,24 +962,24 @@ const HowItWorksPage = () => {
           </section>
 
           {/* Step 6 */}
-          <section className="step-6 min-h-screen flex items-center p-8 bg-gradient-to-br from-pink-900/20 to-black">
+          <section className="step-6 min-h-screen flex items-center p-8 bg-gradient-to-br from-pink-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-pink-400 text-sm font-semibold mb-2">STEP 6</div>
-              <h2 className="text-4xl font-bold text-white mb-6">LLM Request</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-pink-500 text-sm font-semibold mb-2">STEP 6</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">LLM Request</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 The agent analyzes the user's request and determines it needs AI assistance, sending a request to the Process Manager to call the LLM.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
                   <span>Agent analyzes user request</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
                   <span>Determines LLM assistance is needed</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-pink-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
                   <span>Sends LLM request to Process Manager</span>
                 </div>
               </div>
@@ -942,24 +987,24 @@ const HowItWorksPage = () => {
           </section>
 
           {/* Step 7 */}
-          <section className="step-7 min-h-screen flex items-center p-8 bg-gradient-to-br from-red-900/20 to-black">
+          <section className="step-7 min-h-screen flex items-center p-8 bg-gradient-to-br from-red-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-red-400 text-sm font-semibold mb-2">STEP 7</div>
-              <h2 className="text-4xl font-bold text-white mb-6">LLM Processing</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-red-500 text-sm font-semibold mb-2">STEP 7</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">LLM Processing</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 The Process Manager forwards the request to the Large Language Model, which processes the query and generates an intelligent response.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                   <span>Process Manager calls LLM API</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                   <span>LLM processes the user query</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-red-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                   <span>AI generates intelligent response</span>
                 </div>
               </div>
@@ -967,24 +1012,24 @@ const HowItWorksPage = () => {
           </section>
 
           {/* Step 8 */}
-          <section className="step-8 min-h-screen flex items-center p-8 bg-gradient-to-br from-yellow-900/20 to-black">
+          <section className="step-8 min-h-screen flex items-center p-8 bg-gradient-to-br from-yellow-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-yellow-400 text-sm font-semibold mb-2">STEP 8</div>
-              <h2 className="text-4xl font-bold text-white mb-6">LLM Response</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-yellow-500 text-sm font-semibold mb-2">STEP 8</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">LLM Response</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 The LLM sends its response back to the Process Manager, which then forwards it to the Agent for further processing.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
                   <span>LLM completes processing</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
                   <span>Response sent back to Process Manager</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
                   <span>Process Manager forwards response to Agent</span>
                 </div>
               </div>
@@ -992,24 +1037,24 @@ const HowItWorksPage = () => {
           </section>
 
           {/* Step 9 */}
-          <section className="step-9 min-h-screen flex items-center p-8 bg-gradient-to-br from-indigo-900/20 to-black">
+          <section className="step-9 min-h-screen flex items-center p-8 bg-gradient-to-br from-indigo-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-indigo-400 text-sm font-semibold mb-2">STEP 9</div>
-              <h2 className="text-4xl font-bold text-white mb-6">File Access Request</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-indigo-500 text-sm font-semibold mb-2">STEP 9</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">File Access Request</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 The agent determines it needs to access files to complete the task and sends a fileRead request to the Process Manager.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-indigo-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
                   <span>Agent analyzes LLM response</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-indigo-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
                   <span>Determines file access is needed</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-indigo-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
                   <span>Calls fileRead tool via Process Manager</span>
                 </div>
               </div>
@@ -1017,24 +1062,24 @@ const HowItWorksPage = () => {
           </section>
 
           {/* Step 10 */}
-          <section className="step-10 min-h-screen flex items-center p-8 bg-gradient-to-br from-teal-900/20 to-black">
+          <section className="step-10 min-h-screen flex items-center p-8 bg-gradient-to-br from-teal-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-teal-400 text-sm font-semibold mb-2">STEP 10</div>
-              <h2 className="text-4xl font-bold text-white mb-6">File Data Retrieval</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-teal-500 text-sm font-semibold mb-2">STEP 10</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">File Data Retrieval</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 The Process Manager accesses the backend file system, reads the requested files, and sends the data back to the Agent.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
                   <span>Process Manager accesses file system</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
                   <span>Files are read from backend storage</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
                   <span>File data sent back to Agent</span>
                 </div>
               </div>
@@ -1042,24 +1087,24 @@ const HowItWorksPage = () => {
           </section>
 
           {/* Step 11 */}
-          <section className="step-11 min-h-screen flex items-center p-8 bg-gradient-to-br from-emerald-900/20 to-black">
+          <section className="step-11 min-h-screen flex items-center p-8 bg-gradient-to-br from-emerald-500/10 to-background">
             <div className="max-w-lg">
-              <div className="text-emerald-400 text-sm font-semibold mb-2">STEP 11</div>
-              <h2 className="text-4xl font-bold text-white mb-6">Complete Response</h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <div className="text-emerald-500 text-sm font-semibold mb-2">STEP 11</div>
+              <h2 className="text-4xl font-bold text-foreground mb-6">Complete Response</h2>
+              <p className="text-xl text-muted-foreground mb-6">
                 The Agent combines the LLM response with file data to create a complete answer, sending it back to the user through the Process Manager, API, and Chat interface.
               </p>
-              <div className="space-y-4 text-gray-400">
+              <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
                   <span>Agent processes all collected data</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
                   <span>Complete response flows back through system</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
                   <span>User receives comprehensive answer</span>
                 </div>
               </div>
@@ -1071,7 +1116,7 @@ const HowItWorksPage = () => {
         <div className="w-1/2 h-screen sticky top-0">
           <Canvas 
             camera={{ position: [0, 0, 12], fov: 75 }}
-            className="bg-gradient-to-b from-gray-900 to-black"
+            className="bg-gradient-to-b from-background to-muted"
           >
             <ambientLight intensity={0.4} />
             <pointLight position={[10, 10, 10]} intensity={0.8} color="#3B82F6" />
@@ -1097,15 +1142,15 @@ const HowItWorksPage = () => {
       </div>
 
       {/* FULL WIDTH - Final Section */}
-      <section className="min-h-screen flex items-center justify-center p-8 bg-gradient-to-br from-gray-900 to-black">
+      <section className="min-h-screen flex items-center justify-center p-8 bg-gradient-to-br from-background to-muted">
         <div className="text-center max-w-4xl">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
             Experience the Future of Coding
           </h2>
-          <p className="text-2xl text-gray-300 mb-8">
+          <p className="text-2xl text-muted-foreground mb-8">
             Our architecture ensures each conversation gets a dedicated, intelligent agent that understands your context and provides personalized assistance.
           </p>
-          <button className="px-12 py-6 bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold rounded-lg transition-colors">
+          <button className="px-12 py-6 bg-primary hover:bg-primary/90 text-primary-foreground text-xl font-semibold rounded-lg transition-colors">
             Try It Now
           </button>
         </div>
