@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Text, RoundedBox } from '@react-three/drei';
 import * as THREE from 'three';
@@ -40,7 +40,12 @@ const useDarkMode = () => {
 };
 
 // Chat Message Component
-const ChatMessage = ({ position, text, isUser = false, visible = false }) => {
+const ChatMessage = ({ position, text, isUser = false, visible = false }: {
+  position: [number, number, number];
+  text: string;
+  isUser?: boolean;
+  visible?: boolean;
+}) => {
   const meshRef = useRef<THREE.Group>(null);
   
   useEffect(() => {
@@ -79,9 +84,9 @@ const ChatMessage = ({ position, text, isUser = false, visible = false }) => {
 };
 
 // Agent Component
-const Agent = React.forwardRef<THREE.Group, { position: [number, number, number], visible?: boolean, color?: string }>(({ position, visible = false, color = "#FF69B4" }, ref) => {
+const Agent = React.forwardRef<THREE.Group, { position: [number, number, number], visible?: boolean, color?: string }>(({ position, visible = false }, ref) => {
   const meshRef = useRef<THREE.Group>(null);
-  const groupRef = ref || meshRef;
+  const groupRef = (ref as React.RefObject<THREE.Group>) || meshRef;
   
   useEffect(() => {
     if (groupRef.current) {
@@ -112,7 +117,7 @@ const Agent = React.forwardRef<THREE.Group, { position: [number, number, number]
         });
       }
     }
-  }, [visible, position]);
+  }, [visible, position, groupRef]);
 
   return (
     <group ref={groupRef} position={position}>
@@ -147,8 +152,15 @@ const Agent = React.forwardRef<THREE.Group, { position: [number, number, number]
   );
 });
 
+Agent.displayName = 'Agent';
+
 // WebSocket Connection Line
-const WebSocketConnection = ({ start, end, visible = false, dotted = false }) => {
+const WebSocketConnection = ({ start, end, visible = false, dotted = false }: {
+  start: [number, number, number];
+  end: [number, number, number];
+  visible?: boolean;
+  dotted?: boolean;
+}) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.MeshStandardMaterial>(null);
 
@@ -211,7 +223,11 @@ const WebSocketConnection = ({ start, end, visible = false, dotted = false }) =>
 };
 
 // Flow Animation Line
-const FlowLine = ({ start, end, active = false }) => {
+const FlowLine = ({ start, end, active = false }: {
+  start: [number, number, number];
+  end: [number, number, number];
+  active?: boolean;
+}) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const materialRef = useRef<THREE.MeshStandardMaterial>(null);
   
@@ -244,7 +260,12 @@ const FlowLine = ({ start, end, active = false }) => {
 };
 
 // Pulsing Light Component
-const PulsingLight = ({ start, end, active = false, speed = 2 }) => {
+const PulsingLight = ({ start, end, active = false, speed = 2 }: {
+  start: [number, number, number];
+  end: [number, number, number];
+  active?: boolean;
+  speed?: number;
+}) => {
   const lightRef = useRef<THREE.Mesh>(null);
   
   useFrame((state) => {
@@ -261,11 +282,11 @@ const PulsingLight = ({ start, end, active = false, speed = 2 }) => {
         
         // Fade in/out effect - brightest in middle of journey, fade at start/end
         const fadeProgress = 1 - Math.abs(0.5 - progress) * 2; // 0 at start/end, 1 in middle
-        lightRef.current.material.opacity = 0.3 + 0.7 * fadeProgress;
+        (lightRef.current.material as THREE.MeshStandardMaterial).opacity = 0.3 + 0.7 * fadeProgress;
         lightRef.current.visible = true;
       } else {
         // Completely hide when not active
-        lightRef.current.material.opacity = 0;
+        (lightRef.current.material as THREE.MeshStandardMaterial).opacity = 0;
         lightRef.current.visible = false;
       }
     }
@@ -290,7 +311,7 @@ const CodeEditor3D = () => {
   const isDark = useDarkMode();
   
   // Theme-aware colors
-  const colors = {
+  const colors = useMemo(() => ({
     background: isDark ? "#374151" : "#f3f4f6",
     backgroundEmissive: isDark ? "#1F2937" : "#e5e7eb",
     primary: "#3B82F6",
@@ -300,14 +321,13 @@ const CodeEditor3D = () => {
     active: isDark ? "#6B7280" : "#d1d5db",
     activeEmissive: isDark ? "#4B5563" : "#9ca3af",
     text: isDark ? "#FFF" : "#111827"
-  };
+  }), [isDark]);
   const frontendRef = useRef<THREE.Group>(null);
   const backendRef = useRef<THREE.Group>(null);
   const agentRef = useRef<THREE.Group>(null);
   const chatWindowRef = useRef<THREE.Group>(null);
   const apiBlockRef = useRef<THREE.Group>(null);
   const processManagerRef = useRef<THREE.Group>(null);
-  const codeEditorRef = useRef<THREE.Group>(null);
   
   // Camera control for focusing
   const { camera } = useThree();
@@ -842,7 +862,7 @@ const HowItWorksPage = () => {
               <div className="text-blue-500 text-sm font-semibold mb-2">STEP 1</div>
               <h2 className="text-4xl font-bold text-foreground mb-6">User Interaction</h2>
               <p className="text-xl text-muted-foreground mb-6">
-                When you type "Hi" in the chat window, the message is prepared for processing by our intelligent system.
+                When you type &ldquo;Hi&rdquo; in the chat window, the message is prepared for processing by our intelligent system.
               </p>
               <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
@@ -867,7 +887,7 @@ const HowItWorksPage = () => {
               <div className="text-green-500 text-sm font-semibold mb-2">STEP 2</div>
               <h2 className="text-4xl font-bold text-foreground mb-6">Backend Processing</h2>
               <p className="text-xl text-muted-foreground mb-6">
-                Your message flows through WebSocket connections to our backend server, where it's processed by our API endpoints.
+                Your message flows through WebSocket connections to our backend server, where it&rsquo;s processed by our API endpoints.
               </p>
               <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
@@ -942,7 +962,7 @@ const HowItWorksPage = () => {
               <div className="text-orange-500 text-sm font-semibold mb-2">STEP 5</div>
               <h2 className="text-4xl font-bold text-foreground mb-6">Agent Receives Message</h2>
               <p className="text-xl text-muted-foreground mb-6">
-                The independent agent establishes communication with the Process Manager and receives the user's message for processing.
+                The independent agent establishes communication with the Process Manager and receives the user&rsquo;s message for processing.
               </p>
               <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">
@@ -967,7 +987,7 @@ const HowItWorksPage = () => {
               <div className="text-pink-500 text-sm font-semibold mb-2">STEP 6</div>
               <h2 className="text-4xl font-bold text-foreground mb-6">LLM Request</h2>
               <p className="text-xl text-muted-foreground mb-6">
-                The agent analyzes the user's request and determines it needs AI assistance, sending a request to the Process Manager to call the LLM.
+                The agent analyzes the user&rsquo;s request and determines it needs AI assistance, sending a request to the Process Manager to call the LLM.
               </p>
               <div className="space-y-4 text-muted-foreground">
                 <div className="flex items-center space-x-2">

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Users, Share2, Zap, GitMerge, ShieldCheck, Scaling, ArrowRight } from 'lucide-react'
-import Link from 'next/link'
+
 import Button from '@/components/ui/Button'
 
 const features = [

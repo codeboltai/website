@@ -5,54 +5,6 @@ import { Check, X } from 'lucide-react'
 import SectionHeader from '@/components/ui/SectionHeader'
 
 export default function Comparison() {
-  const competitorGroups = [
-    {
-      name: 'CODEBOLT',
-      color: 'text-green-400',
-      highlight: true,
-      colspan: 1
-    },
-    {
-      name: 'VS CODE FORKS',
-      subtitle: 'Cursor, Windsurf, VS Code, Kiro, Trae',
-      color: 'text-gray-300',
-      highlight: false,
-      colspan: 5,
-      subColumns: ['Cursor', 'Windsurf', 'VS Code', 'Kiro', 'Trae']
-    },
-    {
-      name: 'BROWSER CODING AGENTS',
-      subtitle: 'Lovable, Replit',
-      color: 'text-gray-300',
-      highlight: false,
-      colspan: 2,
-      subColumns: ['Lovable', 'Replit']
-    },
-    {
-      name: 'VS CODE EXTENSIONS',
-      subtitle: 'Codium, Cline',
-      color: 'text-gray-300',
-      highlight: false,
-      colspan: 2,
-      subColumns: ['Codium', 'Cline']
-    },
-    {
-      name: 'MULTI-AGENT TOOLS',
-      subtitle: 'Vibe-Kanban, Conductor',
-      color: 'text-gray-300',
-      highlight: false,
-      colspan: 2,
-      subColumns: ['Vibe-Kanban', 'Conductor']
-    },
-    {
-      name: 'TERMINAL AGENTS',
-      subtitle: 'Gemini-CLI, Claude Code',
-      color: 'text-gray-300',
-      highlight: false,
-      colspan: 2,
-      subColumns: ['Gemini-CLI', 'Claude Code']
-    }
-  ]
 
   const features = [
     {
