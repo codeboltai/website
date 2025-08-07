@@ -86,13 +86,18 @@ export default function FooterContent({ colorScheme, className = '' }: FooterCon
                 </a>
               </li>
               <li>
-                <a href="#changelog" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
+                <a href="/changelog" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
                   Changelog
                 </a>
               </li>
               <li>
-                <a href="#docs" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
+                <a href="https://docs.codebolt.ai" className={`${scheme.links} text-sm transition-colors font-cyber-alt`} target="_blank" rel="noopener noreferrer">
                   Docs
+                </a>
+              </li>
+              <li>
+                <a href="/comparison" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
+                  Comparison
                 </a>
               </li>
             </ul>
@@ -105,12 +110,12 @@ export default function FooterContent({ colorScheme, className = '' }: FooterCon
             </h3>
             <ul className="space-y-1.5 md:space-y-2">
               <li>
-                <a href="#careers" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
+                <a href="/careers" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
                   Careers
                 </a>
               </li>
               <li>
-                <a href="#partners" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
+                <a href="/partners" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
                   Partner with Us
                 </a>
               </li>
@@ -124,7 +129,7 @@ export default function FooterContent({ colorScheme, className = '' }: FooterCon
             </h3>
             <ul className="space-y-1.5 md:space-y-2">
               <li>
-                <a href="#blog" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
+                <a href="/blog" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
                   Blog
                 </a>
               </li>
@@ -153,10 +158,10 @@ export default function FooterContent({ colorScheme, className = '' }: FooterCon
           <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-screen h-px ${scheme.horizontalLine}`}></div>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
-              <a href="#" className={`${scheme.legalLinks} text-sm transition-colors font-cyber-alt`}>
+              <a href="/privacy" className={`${scheme.legalLinks} text-sm transition-colors font-cyber-alt`}>
                 Privacy policy
               </a>
-              <a href="#" className={`${scheme.legalLinks} text-sm transition-colors font-cyber-alt`}>
+              <a href="/terms" className={`${scheme.legalLinks} text-sm transition-colors font-cyber-alt`}>
                 Terms of Service
               </a>
             </div>

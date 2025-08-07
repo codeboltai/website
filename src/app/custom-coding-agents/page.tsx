@@ -42,7 +42,7 @@ export default function CustomCodingAgentsPage() {
   return (
     <div className="pt-24 md:pt-28">
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 thread-bg">
+      <section className="relative py-6 md:py-12 thread-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -54,82 +54,168 @@ export default function CustomCodingAgentsPage() {
               CUSTOM CODING <span className="text-red-600">AGENTS</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-cyber-alt">
-              Go beyond generic AI. Create specialized agents tailored to your exact coding style, frameworks, and project requirements.
+            {/* Write, customize, and automate with code-based agents */}
+            A Codebolt Agent is a specialized AI agent designed to perform coding tasks. It can write code, debug, and optimize code, and can be trained to perform a wide range of coding tasks.
             </p>
             <div className="flex justify-center space-x-4 pt-4">
-                <Button size="lg" className="font-cyber">
+                <a
+                  href="https://docs.codebolt.ai/docs/developer/agents/agentarchitecture/createagent"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button size="lg" className="font-cyber">
                     Build Your First Agent
                     <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                  </Button>
+                </a>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="py-16 md:py-24 bg-background">
+      {/* How it works Section */}
+      <section className="py-6 md:py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-cyber">Tailor-Made Intelligence</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-cyber">How does it work?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4 font-cyber-alt">
-              CodeboltAI gives you granular control to build agents that work the way you do.
+            Codebolt Agents are built using the Codebolt API. They are trained on a wide range of coding tasks and can be used to perform a wide range of coding tasks.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
+          <motion.div 
+            className="space-y-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* First Row */}
+            <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+              <motion.div 
+                className="text-center p-6 bg-card rounded-lg"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group p-6 rounded-lg hover:shadow-lg transition-all duration-300 bg-card border border-transparent hover:border-red-600"
+                transition={{ duration: 0.6, delay: 0.1 }}
+                whileHover={{ scale: 1.05 }}
               >
-                <div className="flex items-start space-x-4 mb-4">
-                  <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center">
-                    <feature.icon className="w-6 h-6 text-red-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground font-cyber mt-2">
-                    {feature.title}
-                  </h3>
-                </div>
-                <p className="text-muted-foreground font-cyber-alt text-sm">
-                  {feature.description}
-                </p>
+                  <div className="text-5xl font-bold text-red-600 font-cyber-heavy">1</div>
+                  <h3 className="text-xl font-semibold my-2 font-cyber">User Request</h3>
+                  <p className="text-muted-foreground font-cyber-alt">User provides coding requirements and context.</p>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How it works Section */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-cyber">Simple to Build, Powerful to Use</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4 font-cyber-alt">
-              Create a new agent in just a few steps.
-            </p>
-          </div>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8">
-            <div className="text-center p-6 bg-card rounded-lg">
-                <div className="text-5xl font-bold text-red-600 font-cyber-heavy">1</div>
-                <h3 className="text-xl font-semibold my-2 font-cyber">Define Core Skills</h3>
-                <p className="text-muted-foreground font-cyber-alt">Choose languages, frameworks, and libraries.</p>
+              <motion.div 
+                className="text-2xl text-muted-foreground font-sans"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                &rarr;
+              </motion.div>
+              <motion.div 
+                className="text-center p-6 bg-card rounded-lg"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                  <div className="text-5xl font-bold text-red-600 font-cyber-heavy">2</div>
+                  <h3 className="text-xl font-semibold my-2 font-cyber">Agent Understands Intent</h3>
+                  <p className="text-muted-foreground font-cyber-alt">AI analyzes and comprehends the request.</p>
+              </motion.div>
+              <motion.div 
+                className="text-2xl text-muted-foreground font-sans"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                &rarr;
+              </motion.div>
+              <motion.div 
+                className="text-center p-6 bg-card rounded-lg"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                  <div className="text-5xl font-bold text-red-600 font-cyber-heavy">3</div>
+                  <h3 className="text-xl font-semibold my-2 font-cyber">Plans Tasks</h3>
+                  <p className="text-muted-foreground font-cyber-alt">Breaks down work into actionable steps.</p>
+              </motion.div>
             </div>
-            <div className="text-2xl text-muted-foreground font-sans">&rarr;</div>
-            <div className="text-center p-6 bg-card rounded-lg">
-                <div className="text-5xl font-bold text-red-600 font-cyber-heavy">2</div>
-                <h3 className="text-xl font-semibold my-2 font-cyber">Configure Personality</h3>
-                <p className="text-muted-foreground font-cyber-alt">Set coding style and communication preferences.</p>
+            
+            {/* Flow Down Arrow */}
+            <motion.div 
+              className="flex justify-center"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <div className="text-3xl text-muted-foreground font-sans rotate-90">&rarr;</div>
+            </motion.div>
+            
+            {/* Second Row */}
+            <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+              <motion.div 
+                className="text-center p-6 bg-card rounded-lg"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                  <div className="text-5xl font-bold text-red-600 font-cyber-heavy">4</div>
+                  <h3 className="text-xl font-semibold my-2 font-cyber">Uses Tools</h3>
+                  <p className="text-muted-foreground font-cyber-alt">Leverages available development tools.</p>
+              </motion.div>
+              <motion.div 
+                className="text-2xl text-muted-foreground font-sans"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                &rarr;
+              </motion.div>
+              <motion.div 
+                className="text-center p-6 bg-card rounded-lg"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                  <div className="text-5xl font-bold text-red-600 font-cyber-heavy">5</div>
+                  <h3 className="text-xl font-semibold my-2 font-cyber">Modifies Code</h3>
+                  <p className="text-muted-foreground font-cyber-alt">Implements changes to the codebase.</p>
+              </motion.div>
+              <motion.div 
+                className="text-2xl text-muted-foreground font-sans"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 1.0 }}
+              >
+                &rarr;
+              </motion.div>
+              <motion.div 
+                className="text-center p-6 bg-card rounded-lg"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 1.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                  <div className="text-5xl font-bold text-red-600 font-cyber-heavy">6</div>
+                  <h3 className="text-xl font-semibold my-2 font-cyber">Returns Results</h3>
+                  <p className="text-muted-foreground font-cyber-alt">Delivers completed solution to user.</p>
+              </motion.div>
             </div>
-            <div className="text-2xl text-muted-foreground font-sans">&rarr;</div>
-            <div className="text-center p-6 bg-card rounded-lg">
-                <div className="text-5xl font-bold text-red-600 font-cyber-heavy">3</div>
-                <h3 className="text-xl font-semibold my-2 font-cyber">Deploy & Iterate</h3>
-                <p className="text-muted-foreground font-cyber-alt">Use your agent, provide feedback, and refine its skills.</p>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
