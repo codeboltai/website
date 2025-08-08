@@ -134,18 +134,13 @@ export default function FooterContent({ colorScheme, className = '' }: FooterCon
                 </a>
               </li>
               <li>
-                <a href="#forums" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
+                <a href="https://forum.codebolt.ai/" className={`${scheme.links} text-sm transition-colors font-cyber-alt`} target="_blank" rel="noopener noreferrer">
                   Forums
                 </a>
               </li>
               <li>
-                <a href="#github" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
+                <a href="https://github.com/codebolt-ai" className={`${scheme.links} text-sm transition-colors font-cyber-alt`} target="_blank" rel="noopener noreferrer">
                   Github
-                </a>
-              </li>
-              <li>
-                <a href="#status" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
-                  Status
                 </a>
               </li>
             </ul>
