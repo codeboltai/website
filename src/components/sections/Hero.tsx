@@ -48,13 +48,12 @@ export default function Hero() {
           {/* Main Heading */}
           <h1 className="text-hero text-foreground font-cyber-heavy">
             AI CODE EDITOR FOR{' '}
-            <span className="text-red-600">AI AGENTS</span>
+            <span className="text-red-600">LONGER TASKS</span>
           </h1>
           
           {/* Subheading */}
           <p className="text-large max-w-2xl mx-auto font-cyber-alt text-muted-foreground">
-            Create, deploy, and manage multiple AI coding agents in one powerful editor. 
-                            Build the future of autonomous development with CodeboltAI.
+            Create Code Based AI Coding Agents and run them in Multi-Agent Swarm across Local and Remote Systems for Longer Tasks spanning hours over very Large Codebases
           </p>
           
           {/* CTA Button */}
