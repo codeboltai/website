@@ -197,10 +197,10 @@ ${formData.message}
             <div className="space-y-8">
               <div>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-cyber-heavy">
-                  LET'S COLLABORATE
+                  LET&apos;S COLLABORATE
                 </h2>
                 <p className="text-gray-300 text-lg leading-relaxed font-cyber-alt">
-                  Ready to build something amazing together? We're always looking for innovative partners 
+                  Ready to build something amazing together? We&apos;re always looking for innovative partners 
                   who share our vision of transforming software development with AI.
                 </p>
               </div>

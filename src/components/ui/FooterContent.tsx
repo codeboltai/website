@@ -1,6 +1,7 @@
 'use client'
 
 import { Code2, Github, Twitter, Linkedin, Mail } from 'lucide-react'
+import Link from 'next/link'
 
 interface FooterContentProps {
   colorScheme: 'grey' | 'red'
@@ -129,9 +130,9 @@ export default function FooterContent({ colorScheme, className = '' }: FooterCon
             </h3>
             <ul className="space-y-1.5 md:space-y-2">
               <li>
-                <a href="/blog" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
+                <Link href="/blog" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="https://forum.codebolt.ai/" className={`${scheme.links} text-sm transition-colors font-cyber-alt`} target="_blank" rel="noopener noreferrer">

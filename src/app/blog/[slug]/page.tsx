@@ -3,11 +3,10 @@
 import { useState, useEffect, use } from 'react'
 import { Calendar, User, Clock, ArrowLeft, Share2, BookOpen, Tag, Eye, Heart, MessageCircle } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import { getBlogPostBySlug, getRelatedPosts, type BlogPost } from '@/lib/blogData'
+import { getBlogPostBySlug, getRelatedPosts } from '@/lib/blogData'
 import { notFound } from 'next/navigation'
 
 export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const [darkMode, setDarkMode] = useState(false)
   const [liked, setLiked] = useState(false)
 
   // Unwrap the params promise
@@ -30,10 +29,8 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkMode(true)
       document.documentElement.classList.add('dark')
     } else {
-      setDarkMode(false)
       document.documentElement.classList.remove('dark')
     }
   }, [])
@@ -227,7 +224,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                     <span className="text-muted-foreground text-sm font-cyber-alt">2 days ago</span>
                   </div>
                   <p className="text-muted-foreground font-cyber-alt">
-                    Great article! I've been using AI tools in my workflow for the past year and the productivity gains are incredible. 
+                    Great article! I&apos;ve been using AI tools in my workflow for the past year and the productivity gains are incredible. 
                     Looking forward to seeing what CodeboltAI brings to the table.
                   </p>
                 </div>
@@ -245,7 +242,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                     <span className="text-muted-foreground text-sm font-cyber-alt">1 day ago</span>
                   </div>
                   <p className="text-muted-foreground font-cyber-alt">
-                    The points about maintaining coding standards while using AI are spot on. It's important to review and understand 
+                    The points about maintaining coding standards while using AI are spot on. It&apos;s important to review and understand 
                     the generated code rather than blindly accepting it.
                   </p>
                 </div>

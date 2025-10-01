@@ -4,18 +4,14 @@ import { useState, useEffect } from 'react'
 import { Shield, Calendar, Lock, Eye, Database, UserCheck, AlertTriangle, Code2, Zap } from 'lucide-react'
 
 export default function PrivacyPolicyPage() {
-  const [darkMode, setDarkMode] = useState(false)
-
   useEffect(() => {
     // Check for saved theme preference or default to light mode
     const savedTheme = localStorage.getItem('theme')
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkMode(true)
       document.documentElement.classList.add('dark')
     } else {
-      setDarkMode(false)
       document.documentElement.classList.remove('dark')
     }
   }, [])
@@ -55,7 +51,7 @@ export default function PrivacyPolicyPage() {
             {/* Introduction */}
             <div className="mb-8">
               <p className="text-muted-foreground font-cyber-alt text-lg leading-relaxed mb-6">
-                Thank you for choosing to be part of our community at CodeboltAI ("Company," "we," "us," or "our"). We are 
+                Thank you for choosing to be part of our community at CodeboltAI (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). We are 
                 committed to protecting your Personal Information and your right to privacy. If you have any questions or concerns 
                 about this Privacy Policy or our practices with regard to your Personal Information, please contact us at{' '}
                 <a href="mailto:privacy@codebolt.ai" className="text-red-600 hover:text-red-500 underline">
@@ -78,7 +74,7 @@ export default function PrivacyPolicyPage() {
 
               <div className="bg-card rounded-lg p-6 border border-border mb-6">
                 <ul className="space-y-3 text-muted-foreground font-cyber-alt">
-                  <li><strong className="text-foreground">"Personal Information,"</strong> we are referring to information that alone or in combination with other information in our possession could be used to identify you</li>
+                  <li><strong className="text-foreground">&quot;Personal Information,&quot;</strong> we are referring to information that alone or in combination with other information in our possession could be used to identify you</li>
                   <li><strong className="text-foreground">"Website,"</strong> we are referring to any website of ours that references or links to this policy</li>
                   <li><strong className="text-foreground">"Services,"</strong> we are referring to our Website, and other related services, including our AI code editor, application programming interfaces ("APIs"), associated software, tools, developer services, data and documentation</li>
                 </ul>

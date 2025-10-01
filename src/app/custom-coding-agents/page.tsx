@@ -5,39 +5,6 @@ import { BrainCircuit, Palette, Wrench, BookOpenCheck, Component, GitBranch, Arr
 
 import Button from '@/components/ui/Button'
 
-const features = [
-  {
-    icon: BrainCircuit,
-    title: 'Skill Specialization',
-    description: 'Train agents on specific libraries, frameworks like React or Django, or programming languages. They become true experts in their domain, providing more accurate and context-aware code.',
-  },
-  {
-    icon: Palette,
-    title: 'Personality & Coding Style',
-    description: "Define your agent's personality and coding style. Whether you prefer verbose comments or concise code, your agent will adapt to match your team's conventions.",
-  },
-  {
-    icon: Wrench,
-    title: 'Custom Tooling',
-    description: 'Equip your agents with custom tools and scripts. Allow them to interact with your specific APIs, databases, or internal services to automate complex workflows.',
-  },
-  {
-    icon: BookOpenCheck,
-    title: 'Knowledge Base Integration',
-    description: 'Connect your agent to your private documentation, codebases, or wikis. It will learn from your existing knowledge to provide highly relevant and context-aware assistance.',
-  },
-  {
-    icon: Component,
-    title: 'Visual Builder',
-    description: 'Utilize a user-friendly interface to assemble, configure, and test your agents. No complex setup or steep learning curve required to start building.',
-  },
-  {
-    icon: GitBranch,
-    title: 'Version Control & Sharing',
-    description: 'Your agents are version-controlled. Share, reuse, and collaborate on agent development with your team, ensuring consistency and quality.',
-  },
-]
-
 export default function CustomCodingAgentsPage() {
   return (
     <div className="pt-24 md:pt-28">

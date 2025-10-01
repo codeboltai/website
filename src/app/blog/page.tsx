@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Calendar, User, Clock, ArrowRight, BookOpen, Tag, Search, Filter, Zap, Brain, Code2, Rocket, Shield, TrendingUp } from 'lucide-react'
+import { Calendar, User, Clock, ArrowRight, BookOpen, Tag, Search, Zap, Brain, Code2, Rocket, Shield, TrendingUp } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import AnimatedBackground from '@/components/ui/AnimatedBackground'
 
@@ -20,7 +20,6 @@ interface BlogPost {
 }
 
 export default function BlogPage() {
-  const [darkMode, setDarkMode] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -30,10 +29,8 @@ export default function BlogPage() {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkMode(true)
       document.documentElement.classList.add('dark')
     } else {
-      setDarkMode(false)
       document.documentElement.classList.remove('dark')
     }
   }, [])
@@ -190,7 +187,7 @@ export default function BlogPage() {
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {featuredPosts.map((post, index) => {
+              {featuredPosts.map((post) => {
                 const IconComponent = getCategoryIcon(post.category)
                 return (
                   <article 

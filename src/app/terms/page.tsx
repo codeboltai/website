@@ -1,21 +1,17 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { FileText, Calendar, Shield, AlertTriangle } from 'lucide-react'
+import { FileText, Calendar, AlertTriangle } from 'lucide-react'
 
 export default function TermsOfServicePage() {
-  const [darkMode, setDarkMode] = useState(false)
-
   useEffect(() => {
     // Check for saved theme preference or default to light mode
     const savedTheme = localStorage.getItem('theme')
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkMode(true)
       document.documentElement.classList.add('dark')
     } else {
-      setDarkMode(false)
       document.documentElement.classList.remove('dark')
     }
   }, [])
@@ -71,7 +67,7 @@ export default function TermsOfServicePage() {
                 <h2 className="text-2xl font-bold text-foreground font-cyber mb-4">1. Acceptance of Terms</h2>
                 <div className="text-muted-foreground font-cyber-alt space-y-4">
                   <p>
-                    Welcome to CodeboltAI. These Terms of Service ("Terms") govern your use of our AI-powered code editor and related services (the "Service") operated by CodeboltAI ("we", "us", or "our").
+                    Welcome to CodeboltAI. These Terms of Service (&quot;Terms&quot;) govern your use of our AI-powered code editor and related services (the &quot;Service&quot;) operated by CodeboltAI (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
                   </p>
                   <p>
                     By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of these terms, then you may not access the Service.

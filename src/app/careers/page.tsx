@@ -1,39 +1,22 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Calendar, Tag, Users, Briefcase, MapPin, Clock, ArrowRight, Sun, Moon, Globe, Heart, Zap } from 'lucide-react'
+import { Calendar, Tag, Users, Briefcase, MapPin, Clock, ArrowRight, Globe, Heart, Zap } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import GetInTouchForm from '@/components/ui/GetInTouchForm'
 
 export default function CareersPage() {
-  const [darkMode, setDarkMode] = useState(false)
-
   useEffect(() => {
     // Check for saved theme preference or default to light mode
     const savedTheme = localStorage.getItem('theme')
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
     
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setDarkMode(true)
       document.documentElement.classList.add('dark')
     } else {
-      setDarkMode(false)
       document.documentElement.classList.remove('dark')
     }
   }, [])
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode
-    setDarkMode(newDarkMode)
-    
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
-  }
 
   const handleApplyClick = (jobTitle: string, jobId: string) => {
     console.log(`Applying for job: ${jobTitle} with ID: ${jobId}`)
@@ -195,7 +178,7 @@ export default function CareersPage() {
               Why Work With Us
             </h2>
             <p className="text-lg text-muted-foreground font-cyber-alt max-w-2xl mx-auto">
-              We're building something revolutionary and we want amazing people to join us
+              We&apos;re building something revolutionary and we want amazing people to join us
             </p>
           </div>
           
