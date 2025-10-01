@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { BrainCircuit, Palette, Wrench, BookOpenCheck, Component, GitBranch, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 import Button from '@/components/ui/Button'
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Calendar, Tag, Users, Briefcase, MapPin, Clock, ArrowRight, Globe, Heart, Zap } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import GetInTouchForm from '@/components/ui/GetInTouchForm'

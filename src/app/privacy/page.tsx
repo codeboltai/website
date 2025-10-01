@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Shield, Calendar, Lock, Eye, Database, UserCheck, AlertTriangle, Code2, Zap } from 'lucide-react'
 
 export default function PrivacyPolicyPage() {
@@ -75,8 +75,8 @@ export default function PrivacyPolicyPage() {
               <div className="bg-card rounded-lg p-6 border border-border mb-6">
                 <ul className="space-y-3 text-muted-foreground font-cyber-alt">
                   <li><strong className="text-foreground">&quot;Personal Information,&quot;</strong> we are referring to information that alone or in combination with other information in our possession could be used to identify you</li>
-                  <li><strong className="text-foreground">"Website,"</strong> we are referring to any website of ours that references or links to this policy</li>
-                  <li><strong className="text-foreground">"Services,"</strong> we are referring to our Website, and other related services, including our AI code editor, application programming interfaces ("APIs"), associated software, tools, developer services, data and documentation</li>
+                  <li><strong className="text-foreground">&quot;Website,&quot;</strong> we are referring to any website of ours that references or links to this policy</li>
+                  <li><strong className="text-foreground">&quot;Services,&quot;</strong> we are referring to our Website, and other related services, including our AI code editor, application programming interfaces (&quot;APIs&quot;), associated software, tools, developer services, data and documentation</li>
                 </ul>
               </div>
 
@@ -209,7 +209,7 @@ export default function PrivacyPolicyPage() {
                   <li><strong className="text-foreground">To protect our Services.</strong> We may process your information as part of our efforts to keep our Services safe and secure, including fraud monitoring and prevention.</li>
                   <li><strong className="text-foreground">To identify usage trends.</strong> We may process information about how you use our Services to better understand how they are being used so we can improve them.</li>
                   <li><strong className="text-foreground">To determine the effectiveness of our marketing and promotional campaigns.</strong> We may process your information to better understand how to provide marketing and promotional campaigns that are most relevant to you.</li>
-                  <li><strong className="text-foreground">To save or protect an individual's vital interest.</strong> We may process your information when necessary to save or protect an individual's vital interest, such as to prevent harm.</li>
+                  <li><strong className="text-foreground">To save or protect an individual&apos;s vital interest.</strong> We may process your information when necessary to save or protect an individual&apos;s vital interest, such as to prevent harm.</li>
                 </ul>
 
                 <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4 mb-6">

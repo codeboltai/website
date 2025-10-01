@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { FileText, Calendar, AlertTriangle } from 'lucide-react'
 
 export default function TermsOfServicePage() {

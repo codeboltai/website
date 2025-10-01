@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Calendar, GitCommit, Zap, Bug, Plus, ArrowRight } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
