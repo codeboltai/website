@@ -40,8 +40,8 @@ const ACCESS_ROWS: AccessRow[] = [
 
 export default function CollaborativeContext() {
   return (
-    <section className="bg-background w-full py-24 px-6 lg:px-10 border-t border-border">
-      <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+    <section className="bg-background w-full py-24 px-6 lg:px-10 border-t border-border font-sans selection:bg-primary/30 selection:text-primary-foreground dark:bg-[#030303] dark:border-zinc-900 dark:selection:bg-cyan-500/30 dark:selection:text-cyan-200">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
         {/* Left copy */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -49,23 +49,27 @@ export default function CollaborativeContext() {
           viewport={{ once: true }}
           className="lg:col-span-5 flex flex-col pt-4"
         >
-          <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground uppercase tracking-widest mb-8 border-l border-border pl-4">
+          <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground uppercase tracking-widest mb-8 border-l border-border pl-4 dark:text-zinc-500 dark:border-zinc-800">
             <span>sys</span>
-            <span className="text-muted-foreground/40">/</span>
+            <span className="text-muted-foreground/40 dark:text-zinc-700">/</span>
             <span>security</span>
-            <span className="text-muted-foreground/40">/</span>
-            <span className="text-foreground/80">context_policy</span>
+            <span className="text-muted-foreground/40 dark:text-zinc-700">/</span>
+            <span className="text-foreground/80 dark:text-zinc-300">context_policy</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-medium text-foreground tracking-tight mb-6">Collaborative Context</h2>
+          <h2 className="text-3xl md:text-4xl font-medium text-foreground tracking-tight mb-6 dark:text-zinc-100">
+            Collaborative Context
+          </h2>
 
           <div className="space-y-4">
-            <p className="text-muted-foreground font-light text-base leading-relaxed">
-              Engineering is multiplayer. Codebolt synchronizes <span className="text-foreground font-medium">immutable reasoning states</span>{' '}
+            <p className="text-muted-foreground font-light text-base leading-relaxed dark:text-zinc-400">
+              Engineering is multiplayer. Codebolt synchronizes{' '}
+              <span className="text-foreground font-medium dark:text-zinc-200">immutable reasoning states</span>{' '}
               across your team, creating a Directed Acyclic Graph (DAG) of decision history.
             </p>
-            <p className="text-muted-foreground font-light text-base leading-relaxed">
-              Generate ephemeral snapshots for quick feedback or grant persistent <span className="text-foreground font-medium">RBAC access</span>{' '}
+            <p className="text-muted-foreground font-light text-base leading-relaxed dark:text-zinc-400">
+              Generate ephemeral snapshots for quick feedback or grant persistent{' '}
+              <span className="text-foreground font-medium dark:text-zinc-200">RBAC access</span>{' '}
               for deep code review cycles.
             </p>
           </div>
@@ -77,17 +81,19 @@ export default function CollaborativeContext() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.05 }}
-          className="lg:col-span-7 w-full bg-card border border-border relative shadow-2xl"
+          className="lg:col-span-7 w-full bg-card border border-border relative shadow-2xl dark:bg-[#050505] dark:border-zinc-800/60"
         >
           {/* Corner brackets */}
-          <div className="absolute -top-[1px] -left-[1px] w-2 h-2 border-t border-l border-muted-foreground/60" />
-          <div className="absolute -top-[1px] -right-[1px] w-2 h-2 border-t border-r border-muted-foreground/60" />
-          <div className="absolute -bottom-[1px] -left-[1px] w-2 h-2 border-b border-l border-muted-foreground/60" />
-          <div className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b border-r border-muted-foreground/60" />
+          <div className="absolute -top-[1px] -left-[1px] w-2 h-2 border-t border-l border-muted-foreground/60 dark:border-zinc-500" />
+          <div className="absolute -top-[1px] -right-[1px] w-2 h-2 border-t border-r border-muted-foreground/60 dark:border-zinc-500" />
+          <div className="absolute -bottom-[1px] -left-[1px] w-2 h-2 border-b border-l border-muted-foreground/60 dark:border-zinc-500" />
+          <div className="absolute -bottom-[1px] -right-[1px] w-2 h-2 border-b border-r border-muted-foreground/60 dark:border-zinc-500" />
 
           {/* Header */}
-          <div className="px-6 py-4 border-b border-border bg-muted/10 flex justify-between items-center">
-            <span className="text-xs font-mono uppercase text-muted-foreground tracking-widest">Policy :: ws_09_alpha</span>
+          <div className="px-6 py-4 border-b border-border bg-muted/10 flex justify-between items-center dark:border-zinc-800/60 dark:bg-[#050505]">
+            <span className="text-xs font-mono uppercase text-muted-foreground tracking-widest dark:text-zinc-500">
+              Policy :: ws_09_alpha
+            </span>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-emerald-500 rounded-sm" />
               <span className="text-xs font-mono uppercase text-emerald-500/80 tracking-wider">Encrypted</span>
@@ -95,24 +101,24 @@ export default function CollaborativeContext() {
           </div>
 
           {/* Input row */}
-          <div className="p-6 border-b border-border">
+          <div className="p-6 border-b border-border dark:border-zinc-800/60">
             <div className="flex w-full">
-              <div className="relative flex-grow bg-muted/20 border border-border border-r-0 focus-within:border-muted-foreground/60 transition-colors h-12">
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-xs font-mono text-muted-foreground">ID:</div>
+              <div className="relative flex-grow bg-muted/20 border border-border border-r-0 focus-within:border-muted-foreground/60 transition-colors h-12 dark:bg-[#080808] dark:border-zinc-800 dark:focus-within:border-zinc-600">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-xs font-mono text-muted-foreground dark:text-zinc-500">ID:</div>
                 <input
                   placeholder="user_hash or email"
-                  className="w-full h-full bg-transparent text-sm text-foreground pl-12 pr-4 focus:outline-none font-mono placeholder:text-muted-foreground/50"
+                  className="w-full h-full bg-transparent text-sm text-foreground pl-12 pr-4 focus:outline-none font-mono placeholder:text-muted-foreground/50 dark:text-zinc-200 dark:placeholder:text-zinc-700"
                   type="text"
                 />
               </div>
-              <div className="bg-muted/20 border border-border border-r-0 px-4 flex items-center min-w-[120px]">
-                <select className="w-full bg-transparent text-xs font-mono text-foreground/80 focus:outline-none uppercase cursor-pointer">
-                  <option className="bg-background text-foreground">Viewer</option>
-                  <option className="bg-background text-foreground">Editor</option>
-                  <option className="bg-background text-foreground">Admin</option>
+              <div className="bg-muted/20 border border-border border-r-0 px-4 flex items-center min-w-[120px] dark:bg-[#080808] dark:border-zinc-800">
+                <select className="w-full bg-transparent text-xs font-mono text-foreground/80 focus:outline-none uppercase cursor-pointer dark:text-zinc-300">
+                  <option className="bg-background text-foreground dark:bg-[#080808] dark:text-zinc-300">Viewer</option>
+                  <option className="bg-background text-foreground dark:bg-[#080808] dark:text-zinc-300">Editor</option>
+                  <option className="bg-background text-foreground dark:bg-[#080808] dark:text-zinc-300">Admin</option>
                 </select>
               </div>
-              <button className="bg-foreground hover:bg-foreground/90 text-background text-xs font-mono font-bold px-6 transition-colors uppercase border border-foreground tracking-wider">
+              <button className="bg-foreground hover:bg-foreground/90 text-background text-xs font-mono font-bold px-6 transition-colors uppercase border border-foreground tracking-wider dark:bg-zinc-100 dark:text-black dark:border-zinc-100 dark:hover:bg-white">
                 Add
               </button>
             </div>

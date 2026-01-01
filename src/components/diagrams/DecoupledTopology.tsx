@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 
 interface DecoupledTopologyProps {
@@ -9,58 +8,27 @@ interface DecoupledTopologyProps {
 
 export default function DecoupledTopology({ className }: DecoupledTopologyProps) {
   return (
-    <div className={cn('flex flex-col items-center justify-center w-full h-full gap-6', className)}>
-      {/* UI Thread */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="flex items-center gap-3"
-      >
-        <span className="text-[9px] font-mono text-muted-foreground uppercase tracking-wider">
-          UI THREAD
-        </span>
-        <div className="flex gap-2">
-          <div className="w-3 h-3 bg-muted-foreground/30 border border-border" />
-          <div className="w-3 h-3 bg-muted-foreground/30 border border-border" />
-          <div className="w-3 h-3 bg-muted-foreground/30 border border-border" />
-        </div>
-      </motion.div>
+    <div className={cn('flex items-center justify-center w-full h-full', className)}>
+      <svg width="200" height="100" viewBox="0 0 200 100" className="text-muted-foreground dark:text-zinc-500" fill="none">
+        <text x="10" y="25" className="fill-current font-mono uppercase" fontSize="8">
+          UI Thread
+        </text>
+        <line x1="60" y1="22" x2="190" y2="22" stroke="#3f3f46" strokeWidth="1" />
+        <circle cx="100" cy="22" r="2" fill="#f4f4f5" />
+        <circle cx="140" cy="22" r="2" fill="#f4f4f5" />
+        <path d="M100 22 L100 78" stroke="#27272a" strokeWidth="1" strokeDasharray="3 3" />
+        <path d="M140 22 L140 78" stroke="#27272a" strokeWidth="1" strokeDasharray="3 3" />
 
-      {/* Separator with dots */}
-      <div className="flex items-center gap-1">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1 * i }}
-            className="w-1 h-1 rounded-full bg-muted-foreground/50"
-          />
-        ))}
-      </div>
+        <text x="10" y="80" className="fill-current font-mono uppercase" fontSize="8">
+          Worker
+        </text>
+        <line x1="60" y1="78" x2="190" y2="78" stroke="#3f3f46" strokeWidth="1" />
 
-      {/* Worker */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="flex items-center gap-3"
-      >
-        <span className="text-[9px] font-mono text-muted-foreground uppercase tracking-wider">
-          WORKER
-        </span>
-        <div className="px-3 py-1.5 bg-primary/20 border border-primary/50">
-          <motion.div
-            className="flex gap-1"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1, repeat: Infinity }}
-          >
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div key={i} className="w-1 h-1 rounded-full bg-primary" />
-            ))}
-          </motion.div>
-        </div>
-      </motion.div>
+        <rect x="100" y="72" width="40" height="12" rx="2" fill="#18181b" stroke="#0ea5e9" strokeWidth="1" />
+        <path d="M105 78 L135 78" stroke="#0ea5e9" strokeWidth="2" strokeDasharray="2 4">
+          <animate attributeName="stroke-dashoffset" from="0" to="-12" dur="1s" repeatCount="indefinite" />
+        </path>
+      </svg>
     </div>
   )
 }

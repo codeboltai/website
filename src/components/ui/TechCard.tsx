@@ -27,65 +27,48 @@ export default function TechCard({
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       className={cn(
-        'group relative overflow-hidden bg-card border border-border hover:border-primary/50 transition-colors',
+        'group relative flex flex-col h-full overflow-hidden bg-card border border-border transition-all duration-500 hover:bg-muted/10',
+        'dark:bg-[#0A0A0A] dark:border-zinc-900 dark:hover:border-zinc-700 dark:hover:bg-[#0A0A0A]',
         className
       )}
     >
-      {/* Diagram Container with Corner Brackets */}
-      <div className="relative p-6 pb-0">
-        {/* Figure Label */}
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-          <span className="text-[10px] font-mono font-medium uppercase tracking-[0.15em] text-muted-foreground">
-            {figureLabel}
-          </span>
+      {/* Diagram */}
+      <div className="h-56 relative border-b border-border dark:border-zinc-900 bg-muted/20 dark:bg-[#080808] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 dark:bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] dark:bg-[size:20px_20px]" />
+
+        <div className="absolute top-4 left-4 font-mono text-[9px] text-muted-foreground/70 dark:text-zinc-600 uppercase tracking-widest flex items-center gap-2">
+          <div className="w-1 h-1 bg-muted-foreground/60 dark:bg-zinc-600 rounded-full" />
+          {figureLabel}
         </div>
 
-        {/* Diagram Area with Corners */}
-        <div className="relative h-40 md:h-48 bg-muted/30 border border-border flex items-center justify-center overflow-hidden">
-          {/* Corner Brackets */}
-          <div className="absolute top-2 left-2 w-3 h-3 border-l border-t border-muted-foreground/30" />
-          <div className="absolute top-2 right-2 w-3 h-3 border-r border-t border-muted-foreground/30" />
-          <div className="absolute bottom-2 left-2 w-3 h-3 border-l border-b border-muted-foreground/30" />
-          <div className="absolute bottom-2 right-2 w-3 h-3 border-r border-b border-muted-foreground/30" />
-
-          {/* Diagram Content */}
-          {diagram || (
-            <span className="text-muted-foreground font-mono text-xs">
-              [DIAGRAM]
-            </span>
-          )}
+        <div className="relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out">
+          {diagram || <span className="text-muted-foreground font-mono text-xs">[DIAGRAM]</span>}
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        <h3 className="text-lg font-semibold text-foreground mb-2">
-          {title}
-        </h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          {description}
-        </p>
+      <div className="flex-1 p-6 flex flex-col justify-between">
+        <div>
+          <h3 className="text-lg font-medium text-foreground dark:text-zinc-100 tracking-tight mb-3 group-hover:text-foreground dark:group-hover:text-white transition-colors">
+            {title}
+          </h3>
+          <p className="text-sm text-muted-foreground dark:text-zinc-500 leading-relaxed font-light">
+            {description}
+          </p>
+        </div>
 
         {/* Stats Footer */}
         {stats && stats.length > 0 && (
-          <div className="border-t border-border mt-4 pt-4">
-            {stats.map((stat, i) => (
-              <div key={i} className="flex items-center justify-between">
-                <span className="text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground">
-                  {stat.label}
-                </span>
-                <span className="text-sm font-medium text-primary">
-                  {stat.value}
-                </span>
-              </div>
-            ))}
+          <div className="mt-8 pt-4 border-t border-border/50 dark:border-zinc-900/50 flex justify-between items-center">
+            <span className="font-mono text-[10px] text-muted-foreground dark:text-zinc-600 uppercase tracking-wider">
+              {stats[0].label}
+            </span>
+            <span className="font-mono text-xs text-foreground dark:text-zinc-300 bg-muted dark:bg-zinc-900 px-2 py-1 rounded border border-border dark:border-zinc-800">
+              {stats[0].value}
+            </span>
           </div>
         )}
       </div>
-
-      {/* Hover Glow Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
     </motion.div>
   )
 }

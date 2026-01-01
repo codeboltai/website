@@ -25,7 +25,7 @@ export default function DeepDive({
   const titleLines = title.split('\n')
 
   return (
-    <section className="py-24 px-6 border-b border-border bg-background">
+    <section className="py-24 px-6 border-b border-border bg-background font-sans dark:bg-[#050505] dark:border-zinc-900 dark:text-zinc-200">
       <div
         className={`
           max-w-6xl mx-auto
@@ -45,7 +45,7 @@ export default function DeepDive({
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
             </span>
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground dark:text-zinc-500">
               {subtitle}
             </span>
           </div>
@@ -54,14 +54,14 @@ export default function DeepDive({
             {titleLines.map((line, i) => (
               <span
                 key={i}
-                className={`block ${i === 0 ? 'text-foreground' : 'text-muted-foreground'}`}
+                className={`block ${i === 0 ? 'text-foreground dark:text-white' : 'text-muted-foreground dark:text-zinc-500'}`}
               >
                 {line}
               </span>
             ))}
           </h2>
 
-          <div className="text-lg text-muted-foreground font-light leading-relaxed mb-8">
+          <div className="text-lg text-muted-foreground dark:text-zinc-400 font-light leading-relaxed mb-8">
             {typeof description === 'string' ? (
               <p>{description}</p>
             ) : (
@@ -70,7 +70,7 @@ export default function DeepDive({
           </div>
 
           {/* Metrics */}
-          <div className="grid grid-cols-2 gap-8 border-t border-border pt-8">
+          <div className="grid grid-cols-2 gap-8 border-t border-border dark:border-zinc-900 pt-8">
             {metrics.map((m, i) => (
               <motion.div
                 key={i}
@@ -81,11 +81,11 @@ export default function DeepDive({
               >
                 <MetricValue value={m.value} />
                 {m.trend && (
-                  <span className="ml-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
+                  <span className="ml-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground dark:text-zinc-500">
                     {m.trend}
                   </span>
                 )}
-                <span className="block font-mono text-[9px] text-muted-foreground uppercase tracking-widest mt-2">
+                <span className="block font-mono text-[9px] text-muted-foreground dark:text-zinc-500 uppercase tracking-widest mt-2">
                   {m.label}
                 </span>
               </motion.div>
@@ -116,14 +116,14 @@ function MetricValue({ value }: { value: string }) {
   if (trimmed.endsWith('%')) {
     const main = trimmed.slice(0, -1)
     return (
-      <span className="block text-3xl font-light text-foreground mb-1">
+      <span className="block text-3xl font-light text-foreground dark:text-white mb-1">
         {main}
-        <span className="text-sm text-muted-foreground">%</span>
+        <span className="text-sm text-muted-foreground dark:text-zinc-600">%</span>
       </span>
     )
   }
 
-  return <span className="block text-3xl font-light text-foreground mb-1">{trimmed}</span>
+  return <span className="block text-3xl font-light text-foreground dark:text-white mb-1">{trimmed}</span>
 }
 
 // New component for feature detail sections with stats box

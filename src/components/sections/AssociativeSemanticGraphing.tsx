@@ -79,8 +79,8 @@ const CODE_LINES: Array<{ n: number; indent?: number; node: ReactNode }> = [
 
 export default function AssociativeSemanticGraphing() {
   return (
-    <section className="bg-background py-24 px-6 lg:px-10 border-b border-border">
-      <div className="max-w-[1600px] mx-auto">
+    <section className="bg-background py-24 px-6 lg:px-10 border-b border-border selection:bg-indigo-500/10 selection:text-indigo-200 dark:bg-black dark:border-white/5 dark:text-zinc-200 dark:selection:bg-indigo-500/20 dark:selection:text-indigo-200">
+      <div className="max-w-[1400px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,37 +93,41 @@ export default function AssociativeSemanticGraphing() {
                 <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse" />
                 <span className="text-[10px] font-mono uppercase tracking-widest text-indigo-300">Live_Inference</span>
               </div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+              <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground dark:text-zinc-600">
                 SYS_04: ASSOCIATIVE_MEMORY
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-medium text-foreground tracking-tighter mb-6 leading-[1.1]">
+            <h2 className="text-4xl md:text-5xl font-medium text-foreground tracking-tighter mb-6 leading-[1.1] dark:text-white">
               Associative <br />
-              <span className="text-muted-foreground">Semantic Graphing.</span>
+              <span className="text-muted-foreground dark:text-zinc-500">Semantic Graphing.</span>
             </h2>
 
-            <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-2xl">
+            <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-2xl dark:text-zinc-400">
               The system moves beyond static context windows. It utilizes{' '}
-              <strong className="text-foreground font-normal">Recursive Definition Search</strong> to map novel terminology against your codebase
-              architecture, resolving semantic ambiguities before serializing logic into persistent Associative Memory nodes.
+              <strong className="text-foreground font-normal dark:text-zinc-200">Recursive Definition Search</strong> to map novel terminology
+              against your codebase architecture, resolving semantic ambiguities before serializing logic into persistent Associative Memory nodes.
             </p>
           </div>
 
-          <div className="flex gap-8 border-l border-border pl-8 pb-2">
+          <div className="flex gap-8 border-l border-border pl-8 pb-2 dark:border-white/10">
             <div>
-              <div className="text-[9px] font-mono uppercase tracking-widest text-muted-foreground mb-1">Recursion_Depth</div>
-              <div className="text-2xl text-foreground font-light tracking-tight">
-                12 <span className="text-muted-foreground text-[10px] uppercase tracking-tighter">Iterations</span>
+              <div className="text-[9px] font-mono uppercase tracking-widest text-muted-foreground mb-1 dark:text-zinc-600">
+                Recursion_Depth
               </div>
-              <div className="text-[10px] text-muted-foreground mt-1">Latent layers traversed</div>
+              <div className="text-2xl text-foreground font-light tracking-tight dark:text-white">
+                12 <span className="text-muted-foreground text-[10px] uppercase tracking-tighter dark:text-zinc-600">Iterations</span>
+              </div>
+              <div className="text-[10px] text-muted-foreground mt-1 dark:text-zinc-500">Latent layers traversed</div>
             </div>
             <div>
-              <div className="text-[9px] font-mono uppercase tracking-widest text-muted-foreground mb-1">Graph_Insertion</div>
-              <div className="text-2xl text-indigo-400 font-light tracking-tight">
-                180ms<span className="text-muted-foreground text-sm">/node</span>
+              <div className="text-[9px] font-mono uppercase tracking-widest text-muted-foreground mb-1 dark:text-zinc-600">
+                Graph_Insertion
               </div>
-              <div className="text-[10px] text-muted-foreground mt-1">Asynchronous write latency</div>
+              <div className="text-2xl text-indigo-400 font-light tracking-tight">
+                180ms<span className="text-muted-foreground text-sm dark:text-zinc-600">/node</span>
+              </div>
+              <div className="text-[10px] text-muted-foreground mt-1 dark:text-zinc-500">Asynchronous write latency</div>
             </div>
           </div>
         </motion.div>
@@ -133,17 +137,17 @@ export default function AssociativeSemanticGraphing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.05 }}
-          className="w-full h-[720px] bg-card border border-border flex flex-col shadow-2xl relative"
+          className="w-full h-[750px] bg-card border border-border flex flex-col shadow-2xl relative dark:bg-[#050505] dark:border-zinc-800"
         >
           {/* Top bar */}
-          <div className="h-12 border-b border-border flex items-center px-6 justify-between bg-muted/20">
+          <div className="h-12 border-b border-border flex items-center px-6 justify-between bg-muted/20 dark:bg-[#080808] dark:border-zinc-800">
             <div className="flex gap-8">
-              <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                <span className="text-muted-foreground/70">Session:</span>
-                <span className="font-mono text-foreground/80">x99_alpha_reasoning</span>
+              <div className="flex items-center gap-3 text-xs text-muted-foreground dark:text-zinc-400">
+                <span className="text-muted-foreground/70 dark:text-zinc-600">Session:</span>
+                <span className="font-mono text-foreground/80 dark:text-zinc-300">x99_alpha_reasoning</span>
               </div>
-              <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                <span className="text-muted-foreground/70">Mode:</span>
+              <div className="flex items-center gap-3 text-xs text-muted-foreground dark:text-zinc-400">
+                <span className="text-muted-foreground/70 dark:text-zinc-600">Mode:</span>
                 <span className="text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-sm border border-indigo-500/20">
                   Deep_Analysis
                 </span>
@@ -151,20 +155,20 @@ export default function AssociativeSemanticGraphing() {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Live_Connection</span>
+              <span className="text-[10px] uppercase tracking-widest text-muted-foreground dark:text-zinc-500">Live_Connection</span>
             </div>
           </div>
 
           {/* Body grid */}
-          <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-border overflow-hidden">
+          <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-border overflow-hidden dark:divide-zinc-800">
             {/* Source */}
-            <div className="lg:col-span-4 flex flex-col bg-muted/20">
-              <div className="px-5 py-3 border-b border-border bg-card flex justify-between items-center">
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Source :: src/logic.ts</span>
+            <div className="lg:col-span-4 flex flex-col bg-muted/20 dark:bg-[#030303]">
+              <div className="px-5 py-3 border-b border-border bg-card flex justify-between items-center dark:border-zinc-800 dark:bg-[#050505]">
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground dark:text-zinc-500">Source :: src/logic.ts</span>
               </div>
-              <div className="p-5 overflow-y-auto font-mono text-xs leading-6 text-muted-foreground">
+              <div className="p-5 overflow-y-auto font-mono text-xs leading-6 text-muted-foreground dark:text-zinc-400">
                 <div className="flex gap-4">
-                  <div className="flex flex-col text-muted-foreground/40 select-none text-right min-w-[20px]">
+                  <div className="flex flex-col text-muted-foreground/40 select-none text-right min-w-[20px] dark:text-zinc-700">
                     {CODE_LINES.map((l) => (
                       <span key={l.n}>{l.n}</span>
                     ))}
@@ -181,13 +185,13 @@ export default function AssociativeSemanticGraphing() {
             </div>
 
             {/* Execution stack */}
-            <div className="lg:col-span-4 flex flex-col bg-card">
-              <div className="px-5 py-3 border-b border-border bg-card flex justify-between items-center">
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Execution_Stack</span>
+            <div className="lg:col-span-4 flex flex-col bg-card dark:bg-[#050505]">
+              <div className="px-5 py-3 border-b border-border bg-card flex justify-between items-center dark:border-zinc-800 dark:bg-[#050505]">
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground dark:text-zinc-500">Execution_Stack</span>
                 <span className="text-[10px] text-indigo-400 animate-pulse">Processing...</span>
               </div>
               <div className="flex-1 p-6 overflow-hidden relative">
-                <div className="absolute left-6 top-6 bottom-6 w-px bg-border border-l border-dashed border-muted-foreground/50" />
+                <div className="absolute left-6 top-6 bottom-6 w-px bg-border border-l border-dashed border-muted-foreground/50 dark:bg-zinc-800 dark:border-zinc-700" />
                 <div className="space-y-8 relative z-10">
                   <ExecutionStep dim title="Pass_01: Linear_Scan" metaLeft="Result" metaRight="Ambiguous" metaRightClassName="text-orange-400" body="Heuristic match failed." dotClassName="bg-border border-muted-foreground/60" />
                   <ExecutionStep dim title="Pass_02: Divergence" metaLeft="Drift" metaRight="+24%" metaRightClassName="text-foreground" dotClassName="bg-muted-foreground/50 border-muted-foreground/60" />
@@ -205,10 +209,10 @@ export default function AssociativeSemanticGraphing() {
             </div>
 
             {/* Latent space */}
-            <div className="lg:col-span-4 flex flex-col bg-background relative">
-              <div className="px-5 py-3 border-b border-border bg-card flex justify-between items-center z-10">
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Latent_Space</span>
-                <span className="text-[10px] text-muted-foreground/70">t-SNE Projection</span>
+            <div className="lg:col-span-4 flex flex-col bg-background relative dark:bg-[#020202]">
+              <div className="px-5 py-3 border-b border-border bg-card flex justify-between items-center z-10 dark:border-zinc-800 dark:bg-[#050505]">
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground dark:text-zinc-500">Latent_Space</span>
+                <span className="text-[10px] text-muted-foreground/70 dark:text-zinc-600">t-SNE Projection</span>
               </div>
               <div className="flex-1 relative overflow-hidden">
                 <div
@@ -247,7 +251,7 @@ export default function AssociativeSemanticGraphing() {
                   </g>
                 </svg>
                 <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-[10px] text-muted-foreground font-mono bg-background/70 backdrop-blur-sm p-2 border border-border">
+                  <p className="text-[10px] text-muted-foreground font-mono bg-background/70 backdrop-blur-sm p-2 border border-border dark:text-zinc-500 dark:bg-[#020202]/80 dark:border-zinc-800">
                     Visualizing 768-dimensional vector collapse into 2D manifold.
                   </p>
                 </div>

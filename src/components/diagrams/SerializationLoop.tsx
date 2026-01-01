@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'motion/react'
 import { cn } from '@/lib/utils'
 
 interface SerializationLoopProps {
@@ -9,68 +8,41 @@ interface SerializationLoopProps {
 
 export default function SerializationLoop({ className }: SerializationLoopProps) {
   return (
-    <div className={cn('flex items-center justify-center w-full h-full gap-4', className)}>
-      {/* IN node */}
-      <motion.div
-        initial={{ opacity: 0, x: -10 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="flex flex-col items-center"
-      >
-        <div className="w-10 h-10 rounded-full border border-border flex items-center justify-center">
-          <div className="w-2 h-2 rounded-full bg-muted-foreground" />
-        </div>
-        <span className="text-[9px] font-mono text-muted-foreground mt-2 uppercase">IN</span>
-      </motion.div>
+    <div className={cn('flex items-center justify-center w-full h-full', className)}>
+      <svg width="200" height="100" viewBox="0 0 200 100" className="text-muted-foreground dark:text-zinc-600" fill="none">
+        <circle cx="30" cy="50" r="4" fill="#0A0A0A" stroke="currentColor" strokeWidth="1.5" />
+        <text x="25" y="70" className="fill-current font-mono" fontSize="8">
+          IN
+        </text>
 
-      {/* Connector line */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ delay: 0.2 }}
-        className="flex items-center"
-      >
-        <div className="w-6 h-[1px] bg-border" />
-        <div className="w-2 h-2 rounded-full border border-border bg-card" />
-      </motion.div>
+        <rect x="70" y="30" width="60" height="40" rx="2" fill="#0A0A0A" stroke="#3f3f46" strokeWidth="1" />
+        <path d="M85 40 L115 40" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" />
+        <path d="M85 50 L115 50" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" />
+        <path d="M85 60 L115 60" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5" />
 
-      {/* Processing box */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.3 }}
-        className="w-16 h-12 border border-border flex items-center justify-center relative"
-      >
-        {/* Animated pulse line */}
-        <motion.div
-          className="absolute inset-x-2 h-[2px] bg-primary/50"
-          animate={{ opacity: [0.3, 1, 0.3] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+        <circle cx="170" cy="50" r="4" fill="#0A0A0A" stroke="currentColor" strokeWidth="1.5" />
+        <text x="160" y="70" className="fill-current font-mono" fontSize="8">
+          OUT
+        </text>
+
+        <line x1="34" y1="50" x2="70" y2="50" stroke="currentColor" strokeWidth="1" markerEnd="url(#cb-arrow)" />
+        <line x1="130" y1="50" x2="166" y2="50" stroke="currentColor" strokeWidth="1" markerEnd="url(#cb-arrow)" />
+
+        <path
+          d="M170 46 Q 170 10 100 10 Q 30 10 30 46"
+          fill="none"
+          strokeWidth="1"
+          strokeDasharray="4 2"
+          stroke="#10b981"
+          className="opacity-0 group-hover:opacity-60 transition-opacity duration-700"
         />
-      </motion.div>
 
-      {/* Connector line */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ delay: 0.4 }}
-        className="flex items-center"
-      >
-        <div className="w-2 h-2 rounded-full border border-border bg-card" />
-        <div className="w-6 h-[1px] bg-border" />
-      </motion.div>
-
-      {/* OUT node */}
-      <motion.div
-        initial={{ opacity: 0, x: 10 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5 }}
-        className="flex flex-col items-center"
-      >
-        <div className="w-10 h-10 rounded-full border border-primary/50 flex items-center justify-center shadow-[0_0_10px_hsl(var(--primary)/0.3)]">
-          <div className="w-2 h-2 rounded-full bg-primary" />
-        </div>
-        <span className="text-[9px] font-mono text-primary mt-2 uppercase">OUT</span>
-      </motion.div>
+        <defs>
+          <marker id="cb-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#52525b" />
+          </marker>
+        </defs>
+      </svg>
     </div>
   )
 }

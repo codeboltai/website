@@ -123,7 +123,8 @@
 
 .dark {
   /* Dark Mode - Primary Theme (Dropstone aesthetic) */
-  --background: 0 0% 0%;
+  /* Dropstone base surface is slightly above pure black (#050505) */
+  --background: 0 0% 2%;
   --foreground: 0 0% 98%;
   --card: 0 0% 4%;
   --card-foreground: 0 0% 98%;
@@ -139,8 +140,9 @@
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62% 30%;
   --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 15%;
-  --input: 0 0% 15%;
+  /* Slightly dimmer borders match Dropstone's zinc/neutral strokes */
+  --border: 0 0% 10%;
+  --input: 0 0% 10%;
   --ring: 186 100% 42%;
 }
 

@@ -35,26 +35,26 @@ function CTAOverlay() {
 
 export default function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-background text-foreground border-t border-border">
+    <section className="relative overflow-hidden bg-background text-foreground border-t border-border dark:bg-[#050505] dark:border-neutral-900 dark:selection:bg-white dark:selection:text-black">
       <div className="absolute inset-0 z-0 opacity-40 pointer-events-none select-none">
         <CTAOverlay />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-8 py-32 lg:py-48">
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
-          <h2 className="text-5xl md:text-7xl font-medium tracking-tighter mb-10 leading-[1.05]">
+          <h2 className="text-5xl md:text-7xl font-medium tracking-tighter mb-10 leading-[1.05] dark:text-white">
             Stop optimizing for latency. <br />
-            <span className="text-muted-foreground">Optimize for solution space.</span>
+            <span className="text-muted-foreground dark:text-neutral-500">Optimize for solution space.</span>
           </h2>
 
-          <p className="text-sm text-muted-foreground font-mono max-w-lg mb-12 leading-relaxed">
+          <p className="text-sm text-muted-foreground font-mono max-w-lg mb-12 leading-relaxed dark:text-neutral-400">
             Codebolt shifts the paradigm from speed to depth. Deploy the engine that reasons through high-dimensional ambiguity.
           </p>
 
           <div className="flex flex-col items-center w-full max-w-md">
             <Link
               href="/newdownload"
-              className="group relative w-full h-14 bg-primary text-primary-foreground flex items-center justify-between px-6 hover:bg-cyan-400 transition-colors"
+              className="group relative w-full h-14 bg-primary text-primary-foreground flex items-center justify-between px-6 hover:bg-cyan-400 transition-colors dark:bg-cyan-500 dark:text-black dark:hover:bg-cyan-400"
             >
               <span className="text-sm font-mono uppercase tracking-wider font-bold">Download</span>
               <div className="flex items-center gap-2">
@@ -71,12 +71,12 @@ export default function CTASection() {
               </div>
             </Link>
 
-            <div className="w-full flex justify-between items-center px-4 py-3 bg-muted/30 border-x border-b border-border">
+            <div className="w-full flex justify-between items-center px-4 py-3 bg-muted/30 border-x border-b border-border dark:bg-neutral-900/30 dark:border-neutral-800">
               <div className="flex items-center gap-2">
-                <div className="w-1 h-1 bg-muted-foreground rounded-full" />
-                <span className="text-[9px] font-mono text-muted-foreground uppercase tracking-wider">Public Release</span>
+                <div className="w-1 h-1 bg-muted-foreground rounded-full dark:bg-neutral-500" />
+                <span className="text-[9px] font-mono text-muted-foreground uppercase tracking-wider dark:text-neutral-500">Public Release</span>
               </div>
-              <div className="text-[9px] font-mono text-muted-foreground uppercase tracking-wider">Build: 8F4A-22</div>
+              <div className="text-[9px] font-mono text-muted-foreground uppercase tracking-wider dark:text-neutral-600">Build: 8F4A-22</div>
             </div>
           </div>
         </div>
