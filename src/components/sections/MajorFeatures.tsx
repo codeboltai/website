@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Code2, Users, Server, GitBranch, Settings } from 'lucide-react'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Image from 'next/image'

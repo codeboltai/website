@@ -2,12 +2,15 @@ export interface BlogPost {
   id: string
   slug: string
   title: string
+  excerpt: string
   content: string
   author: string
   publishDate: string
   readTime: string
   category: string
   tags: string[]
+  pubId: string
+  image?: string
   views: number
   likes: number
   comments: number
@@ -15,280 +18,259 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: "1",
-    slug: "future-ai-powered-development",
-    title: "The Future of AI-Powered Code Development",
+    id: '1',
+    pubId: 'PUB-301',
+    slug: 'horizon-mode-distributed-reasoning',
+    title: 'Horizon Mode: 24-Hour Reasoning Horizons',
+    excerpt:
+      "Breaking the Linearity Barrier with Recursive Swarm Architecture. How we enable coherent AI reasoning over extended time horizons.",
+    author: 'Blankline Research',
+    publishDate: '2025-12-20',
+    readTime: '14m read',
+    category: 'Research',
+    tags: ['Research', 'Engineering', 'Autonomous', 'Machine Learning'],
+    image: 'https://images.unsplash.com/photo-1614851099511-773084f6911d?q=80&w=1200',
+    views: 2847,
+    likes: 192,
+    comments: 17,
     content: `
-      <p>Artificial Intelligence is fundamentally changing how we approach software development. From intelligent code completion to automated testing, AI tools are becoming indispensable for modern developers.</p>
-      
-      <h2>The Current State of AI in Development</h2>
-      <p>Today's AI-powered development tools offer unprecedented capabilities:</p>
-      <ul>
-        <li>Intelligent code completion and suggestions</li>
-        <li>Automated bug detection and fixing</li>
-        <li>Code optimization recommendations</li>
-        <li>Natural language to code translation</li>
-      </ul>
-      
-      <h2>What's Coming Next</h2>
-      <p>The future holds even more exciting possibilities. We're moving toward a world where AI can understand not just syntax, but the intent behind code, enabling more sophisticated assistance and automation.</p>
-      
-      <blockquote>
-        "AI will not replace developers, but developers who use AI will replace those who don't." - Industry Expert
-      </blockquote>
-      
-      <h2>Best Practices for AI-Assisted Development</h2>
-      <p>To get the most out of AI development tools:</p>
-      <ol>
-        <li>Start with clear, descriptive comments</li>
-        <li>Break complex problems into smaller parts</li>
-        <li>Review and understand AI-generated code</li>
-        <li>Maintain coding standards and best practices</li>
-      </ol>
-      
-      <p>The integration of AI into development workflows is not just a trend—it's the future of software engineering.</p>
+      <div id="introduction"></div>
+      <div class="mb-12">
+        <p class="text-xl text-muted-foreground font-light leading-relaxed mb-8">
+          Current Foundation Models operate fundamentally as linear sequence generators. While effective for generalist tasks, this paradigm suffers from stochastic degradation in high-assurance engineering domains. We introduce Horizon Mode, a distributed reasoning protocol that orchestrates thousands of isolated agents via a Recursive Swarm Architecture. By decoupling reasoning time from fixed context windows, we shift the optimization target from latency to solution space coverage.
+        </p>
+      </div>
+
+      <div>
+        <h2 id="the-linearity-barrier" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">The Linearity Barrier</h2>
+        <p class="text-muted-foreground leading-relaxed mb-8">
+          The probability of maintaining a valid terminal state decays exponentially with the length of the reasoning chain. If the probability of a logic error at any node is ε, the cumulative success rate is P(success) ≈ (1-ε)^L. For a task requiring 500 steps, even with 99% accuracy per step, the success rate drops to less than 1%. Dropstone bypasses this by transitioning from Next-Token Prediction to Trajectory Search Optimization.
+        </p>
+      </div>
+
+      <div>
+        <h2 id="the-recursive-swarm-architecture" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">The Recursive Swarm Architecture</h2>
+        <p class="text-muted-foreground leading-relaxed mb-8">
+          Dropstone redefines the IDE as an intelligent runtime environment. Instead of querying a single endpoint, it instantiates a search tree across thousands of agents. We deploy up to 10,000 isolated agents within ephemeral sandboxes. Divergent Initialization generates thousands of strategic variations, exploring low-probability solution paths (P &lt; 0.05) often pruned by standard models. Agents write, compile, fail, debug, and iterate in real-time using actual compilers.
+        </p>
+
+        <div class="bg-card border border-border rounded-sm p-4 font-mono text-sm overflow-x-auto mb-8">
+          <div class="flex items-center justify-between border-b border-border pb-2 mb-4 text-xs text-muted-foreground">
+            <span>swarm_consensus.py</span>
+            <span>Python 3.10</span>
+          </div>
+<pre class="text-muted-foreground whitespace-pre-wrap">async def flash_gated_consensus(swarm: AgentSwarm):
+    """Flash-Gated Consensus Protocol"""
+
+    while swarm.active:
+        # Parallel execution across all agents
+        results = await asyncio.gather(*[
+            agent.execute_step() for agent in swarm.agents
+        ])
+
+        for agent, result in zip(swarm.agents, results):
+            if result.confidence &gt; 0.95:
+                # Emit flash signal - freeze swarm
+                swarm.freeze()
+
+                # Adversarial verification
+                verified = await verify_solution(result.solution)
+
+                if verified:
+                    return result.solution
+                else:
+                    # Vectorize failure and broadcast
+                    constraint = create_failure_embedding(result)
+                    swarm.broadcast_constraint(constraint)
+                    swarm.prune_similar_paths(constraint)
+
+                swarm.resume()</pre>
+        </div>
+      </div>
+
+      <div>
+        <h2 id="budget-aware-heterogeneous-topology" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Budget-Aware Heterogeneous Topology</h2>
+        <p class="text-muted-foreground leading-relaxed mb-8">
+          To make scaling economically viable, we treat compute as a liquid asset that flows to the most promising solution branches. Layer 1 (Scout Swarm) uses highly optimized 8B parameter models for 98% of exploration at near-zero marginal cost. Scouts tag branches with probability vectors — dead ends are marked in the shared workspace, preventing other agents from wasting compute. Layer 2 (Context Promotion) triggers when a Scout identifies a candidate solution with high confidence (P &gt; 0.85), promoting the state to Frontier Models (Opus/GPT-4 class).
+        </p>
+      </div>
+
+      <div>
+        <h2 id="empirical-results" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Empirical Results</h2>
+        <p class="text-muted-foreground leading-relaxed mb-8">
+          On the Deep-Sec benchmark, Horizon Mode achieved: 24+ hour reasoning horizons (vs. &lt;1 hour for zero-shot), 1.4% hallucination rate (vs. 14.2% baseline), and 0.2% safety violations (vs. 3.8% baseline). The Flash-Gated Consensus Protocol reduced safety violations by 89% compared to zero-shot baselines while enabling continuous operation over multi-day engineering tasks.
+        </p>
+      </div>
+
+      <div class="py-8">
+        <blockquote class="border-l-2 border-primary pl-6 italic text-xl text-foreground font-light leading-relaxed">
+          "By acknowledging the Linearity Barrier, we have moved beyond the 'better prompt' fallacy towards a robust architectural solution."
+        </blockquote>
+      </div>
+
+      <div>
+        <h2 id="conclusion" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Conclusion</h2>
+        <p class="text-muted-foreground leading-relaxed">
+          Horizon Mode represents a paradigm shift in automated reasoning. The synergy between the Budget-Aware Swarm and the Flash-Gated Consensus Protocol creates a system that is economically viable and probabilistically superior to linear reasoning methods. This architecture enables Dropstone to tackle complex engineering projects that require sustained reasoning over days, not hours.
+        </p>
+      </div>
     `,
-    author: "Sarah Chen",
-    publishDate: "2024-01-20",
-    readTime: "8 min read",
-    category: "AI & Technology",
-    tags: ["AI", "Development", "Future", "Automation"],
-    views: 1247,
-    likes: 89,
-    comments: 23
   },
   {
-    id: "2",
-    slug: "debugging-techniques-ai",
-    title: "Advanced Debugging Techniques with AI",
+    id: '2',
+    pubId: 'PUB-300',
+    slug: 'd3-engine-neuro-symbolic-runtime',
+    title: 'The D3 Engine: Neuro-Symbolic Runtime Architecture',
+    excerpt:
+      'Introducing Dynamic Distillation & Deployment — how we reduce compute costs while maintaining engineering-grade accuracy.',
+    author: 'Blankline Research',
+    publishDate: '2025-12-15',
+    readTime: '15m read',
+    category: 'Research',
+    tags: ['Research', 'Architecture', 'Compression', 'Runtime'],
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200',
+    views: 1974,
+    likes: 141,
+    comments: 12,
     content: `
-      <p>Debugging is one of the most time-consuming aspects of software development. With AI-powered debugging tools, developers can identify and fix issues faster than ever before.</p>
-      
-      <h2>Traditional vs AI-Enhanced Debugging</h2>
-      <p>Traditional debugging often involves:</p>
-      <ul>
-        <li>Manual code review and analysis</li>
-        <li>Setting breakpoints and stepping through code</li>
-        <li>Console logging and print statements</li>
-        <li>Trial and error approach</li>
-      </ul>
-      
-      <p>AI-enhanced debugging brings:</p>
-      <ul>
-        <li>Automatic error pattern recognition</li>
-        <li>Intelligent suggestion of potential fixes</li>
-        <li>Root cause analysis</li>
-        <li>Predictive bug detection</li>
-      </ul>
-      
-      <h2>Tools and Techniques</h2>
-      <p>Modern AI debugging tools can analyze stack traces, identify common patterns, and suggest fixes based on millions of similar issues from other developers.</p>
-      
-      <blockquote>
-        "AI debugging tools have reduced our bug resolution time by 60%." - Tech Lead at Major Corp
-      </blockquote>
-      
-      <h2>Implementation Strategy</h2>
-      <p>To effectively integrate AI debugging into your workflow:</p>
-      <ol>
-        <li>Start with AI-powered IDEs and extensions</li>
-        <li>Use automated testing with AI analysis</li>
-        <li>Implement continuous monitoring</li>
-        <li>Train your team on AI debugging tools</li>
-      </ol>
+      <div id="introduction"></div>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        The D3 Engine is a neuro-symbolic runtime designed to virtualize context and preserve logical constraints at scale. This post outlines the architectural primitives and why “infinite context” must be engineered as a system, not a prompt.
+      </p>
+      <h2 id="overview" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Overview</h2>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        Dynamic Distillation &amp; Deployment compresses semantic state while retaining invariants. The result is a persistent memory manifold that stays coherent across long-running refactors.
+      </p>
+      <h2 id="implications" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Implications</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        With D3, the runtime promotes high-confidence states, prunes dead branches, and maintains auditability across iterations.
+      </p>
     `,
-    author: "Alex Thompson",
-    publishDate: "2024-01-15",
-    readTime: "6 min read",
-    category: "Development",
-    tags: ["Debugging", "AI", "Tools", "Productivity"],
-    views: 892,
-    likes: 64,
-    comments: 18
   },
   {
-    id: "3",
-    slug: "security-best-practices-2024",
-    title: "Security Best Practices for Modern Applications",
+    id: '3',
+    pubId: 'PUB-299',
+    slug: 'infinite-context-state-virtualization',
+    title: 'Infinite Context Through State Virtualization',
+    excerpt:
+      'How we achieve large compression ratios while maintaining recall accuracy — a deep dive into memory topology.',
+    author: 'Blankline Research',
+    publishDate: '2025-11-28',
+    readTime: '12m read',
+    category: 'Architecture',
+    tags: ['Architecture', 'Memory', 'Context', 'Virtualization'],
+    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200',
+    views: 1655,
+    likes: 118,
+    comments: 9,
     content: `
-      <p>Application security has never been more critical. As we build increasingly complex applications, understanding and implementing security best practices is essential for protecting user data and maintaining trust.</p>
-      
-      <h2>The Security Landscape in 2024</h2>
-      <p>The threat landscape continues to evolve with new attack vectors emerging regularly:</p>
-      <ul>
-        <li>Supply chain attacks targeting dependencies</li>
-        <li>AI-powered social engineering</li>
-        <li>Cloud misconfigurations</li>
-        <li>API security vulnerabilities</li>
-      </ul>
-      
-      <h2>Essential Security Measures</h2>
-      <p>Every application should implement these fundamental security practices:</p>
-      
-      <h3>Authentication and Authorization</h3>
-      <ul>
-        <li>Multi-factor authentication (MFA)</li>
-        <li>Role-based access control (RBAC)</li>
-        <li>OAuth 2.0 and OpenID Connect</li>
-        <li>Regular access reviews</li>
-      </ul>
-      
-      <h3>Data Protection</h3>
-      <ul>
-        <li>Encryption at rest and in transit</li>
-        <li>Data minimization principles</li>
-        <li>Secure key management</li>
-        <li>Regular security audits</li>
-      </ul>
-      
-      <blockquote>
-        "Security is not a product, but a process. It's about building security into every layer of your application." - Security Expert
-      </blockquote>
-      
-      <h2>Implementation Checklist</h2>
-      <p>Use this checklist to ensure your application follows security best practices:</p>
-      <ol>
-        <li>Implement proper input validation and sanitization</li>
-        <li>Use HTTPS everywhere</li>
-        <li>Keep dependencies up to date</li>
-        <li>Implement proper error handling</li>
-        <li>Use security headers</li>
-        <li>Regular penetration testing</li>
-      </ol>
+      <div id="introduction"></div>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        State virtualization treats context as a structured asset rather than a fixed window. By caching invariants and rehydrating only the necessary frontier, systems can reason far beyond linear token limits.
+      </p>
+      <h2 id="compression" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Compression</h2>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        Compression without losing constraints requires topology-aware distillation — the system must understand which details are safe to discard.
+      </p>
+      <h2 id="retrieval" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Retrieval</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        Retrieval is a scheduling problem: allocate attention to the branch most likely to change outcome, not the branch that’s easiest to summarize.
+      </p>
     `,
-    author: "Maria Rodriguez",
-    publishDate: "2024-01-10",
-    readTime: "10 min read",
-    category: "Security",
-    tags: ["Security", "Best Practices", "Authentication", "Data Protection"],
-    views: 1156,
-    likes: 78,
-    comments: 31
   },
   {
-    id: "4",
-    slug: "productivity-hacks-developers",
-    title: "10 Productivity Hacks Every Developer Should Know",
+    id: '4',
+    pubId: 'PUB-298.5',
+    slug: 'ast-parsing-tree-sitter-40-languages',
+    title: 'AST Parsing at Scale: Tree-sitter Across 40 Languages',
+    excerpt:
+      'How deep code understanding emerges from polyglot parsing pipelines — and why ASTs are the right abstraction layer.',
+    author: 'Blankline Research',
+    publishDate: '2025-11-20',
+    readTime: '11m read',
+    category: 'Architecture',
+    tags: ['Architecture', 'Parsing', 'Tree-sitter', 'Polyglot'],
+    image: 'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?q=80&w=1200',
+    views: 1422,
+    likes: 103,
+    comments: 7,
     content: `
-      <p>Developer productivity isn't just about writing code faster—it's about working smarter, not harder. Here are proven techniques to boost your efficiency and reduce burnout.</p>
-      
-      <h2>Time Management Techniques</h2>
-      
-      <h3>1. The Pomodoro Technique</h3>
-      <p>Work in focused 25-minute intervals followed by 5-minute breaks. This helps maintain concentration and prevents mental fatigue.</p>
-      
-      <h3>2. Time Blocking</h3>
-      <p>Dedicate specific time blocks for different types of work: coding, meetings, code reviews, and learning.</p>
-      
-      <h2>Development Environment Optimization</h2>
-      
-      <h3>3. Master Your IDE</h3>
-      <p>Learn keyboard shortcuts, customize your workspace, and use extensions that automate repetitive tasks.</p>
-      
-      <h3>4. Command Line Proficiency</h3>
-      <p>Become comfortable with terminal commands, aliases, and shell scripting to speed up common tasks.</p>
-      
-      <h2>Code Quality and Maintenance</h2>
-      
-      <h3>5. Test-Driven Development (TDD)</h3>
-      <p>Writing tests first helps you think through requirements and catch bugs early in the development process.</p>
-      
-      <h3>6. Code Reviews</h3>
-      <p>Regular code reviews improve code quality, share knowledge, and catch issues before they reach production.</p>
-      
-      <blockquote>
-        "The best code is no code at all. Every line of code is a liability." - Software Engineering Principle
-      </blockquote>
-      
-      <h2>Learning and Growth</h2>
-      
-      <h3>7. Continuous Learning</h3>
-      <p>Dedicate time each week to learning new technologies, reading documentation, or taking online courses.</p>
-      
-      <h3>8. Documentation</h3>
-      <p>Write clear documentation for your code and processes. Your future self will thank you.</p>
-      
-      <h2>Communication and Collaboration</h2>
-      
-      <h3>9. Effective Communication</h3>
-      <p>Ask questions early, provide clear updates, and document decisions to avoid misunderstandings.</p>
-      
-      <h3>10. Work-Life Balance</h3>
-      <p>Set boundaries, take regular breaks, and maintain hobbies outside of coding to prevent burnout.</p>
+      <div id="introduction"></div>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        Reliable refactoring needs structure. Tree-sitter provides consistent ASTs across ecosystems, enabling transformations that are syntax-aware and language-agnostic.
+      </p>
+      <h2 id="pipeline" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Pipeline</h2>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        The parsing layer normalizes source into a unified IR, so downstream systems can operate on intent rather than text.
+      </p>
+      <h2 id="edge-cases" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Edge Cases</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        Mixed-language repositories require incremental parsing and robust caching to avoid recomputation during iterative edits.
+      </p>
     `,
-    author: "David Kim",
-    publishDate: "2024-01-05",
-    readTime: "7 min read",
-    category: "Productivity",
-    tags: ["Productivity", "Tips", "Workflow", "Best Practices"],
-    views: 2103,
-    likes: 145,
-    comments: 42
   },
   {
-    id: "5",
-    slug: "getting-started-codebolt",
-    title: "Getting Started with CodeboltAI: A Comprehensive Guide",
+    id: '5',
+    pubId: 'PUB-298',
+    slug: 'zero-overhead-runtime-rust',
+    title: 'Fighting the Lag: Designing a Zero-Overhead Runtime',
+    excerpt:
+      'LLMs are slow. The runtime wrapping them should not be. A look at systems-level optimization for agent loops.',
+    author: 'Blankline Research',
+    publishDate: '2025-11-12',
+    readTime: '10m read',
+    category: 'Engineering',
+    tags: ['Engineering', 'Runtime', 'Rust', 'Performance'],
+    image: 'https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=1200',
+    views: 1531,
+    likes: 111,
+    comments: 8,
     content: `
-      <p>Welcome to CodeboltAI! This comprehensive guide will help you get up and running with our AI-powered development platform in no time.</p>
-      
-      <h2>What is CodeboltAI?</h2>
-      <p>CodeboltAI is an intelligent development platform that combines the power of artificial intelligence with modern development tools to enhance your coding experience.</p>
-      
-      <h2>Key Features</h2>
-      <ul>
-        <li>AI-powered code completion and suggestions</li>
-        <li>Intelligent debugging assistance</li>
-        <li>Automated code review and optimization</li>
-        <li>Natural language to code translation</li>
-        <li>Real-time collaboration tools</li>
-      </ul>
-      
-      <h2>Installation and Setup</h2>
-      
-      <h3>Step 1: Download and Install</h3>
-      <p>Visit our download page and choose the version for your operating system. CodeboltAI supports Windows, macOS, and Linux.</p>
-      
-      <h3>Step 2: Create Your Account</h3>
-      <p>Sign up for a CodeboltAI account to sync your settings and access cloud features.</p>
-      
-      <h3>Step 3: Configure Your Workspace</h3>
-      <p>Set up your preferred themes, extensions, and keyboard shortcuts to match your workflow.</p>
-      
-      <h2>Your First AI-Assisted Project</h2>
-      <p>Let's create a simple project to demonstrate CodeboltAI's capabilities:</p>
-      
-      <ol>
-        <li>Create a new project using our project templates</li>
-        <li>Use natural language comments to describe what you want to build</li>
-        <li>Watch as CodeboltAI suggests implementations</li>
-        <li>Refine and iterate with AI assistance</li>
-      </ol>
-      
-      <blockquote>
-        "CodeboltAI has transformed how I approach coding. It's like having a senior developer pair programming with me 24/7." - Early Adopter
-      </blockquote>
-      
-      <h2>Tips for Maximum Productivity</h2>
-      <ul>
-        <li>Be descriptive in your comments and variable names</li>
-        <li>Use the AI chat feature to ask questions about your code</li>
-        <li>Take advantage of automated refactoring suggestions</li>
-        <li>Regularly update to get the latest AI improvements</li>
-      </ul>
-      
-      <h2>Next Steps</h2>
-      <p>Now that you're set up, explore our advanced features like multi-agent orchestration, custom coding agents, and MCP tools integration.</p>
+      <div id="introduction"></div>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        The fastest model call still needs orchestration. This piece covers how we strip overhead from scheduling, I/O, and verification to keep loops tight.
+      </p>
+      <h2 id="why-rust" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Why Rust</h2>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        Predictable latency requires predictable systems. Rust enables zero-cost abstractions without sacrificing safety.
+      </p>
+      <h2 id="profiling" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Profiling</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        Most “AI latency” is coordination latency. Fix the scheduler and the system feels an order of magnitude faster.
+      </p>
     `,
-    author: "Jennifer Walsh",
-    publishDate: "2023-12-28",
-    readTime: "12 min read",
-    category: "Getting Started",
-    tags: ["Tutorial", "Getting Started", "CodeboltAI", "Setup"],
-    views: 3245,
-    likes: 198,
-    comments: 67
-  }
+  },
+  {
+    id: '6',
+    pubId: 'PUB-297',
+    slug: 'introducing-collaborative-sessions',
+    title: 'Introducing Collaborative Sessions',
+    excerpt:
+      'Session forking enables immutable, shareable links to exact reasoning contexts — teammates can fork and continue the thread.',
+    author: 'Blankline Research',
+    publishDate: '2025-11-05',
+    readTime: '6m read',
+    category: 'Feature',
+    tags: ['Feature', 'Collaboration', 'Sessions', 'Sharing'],
+    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200',
+    views: 1189,
+    likes: 87,
+    comments: 5,
+    content: `
+      <div id="introduction"></div>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        Collaborative Sessions let you share an immutable snapshot of state: code, constraints, and reasoning context. Teammates can fork the snapshot and evolve it without stepping on each other.
+      </p>
+      <h2 id="forking" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Forking</h2>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        Forks preserve provenance. You can compare trajectories, diff outcomes, and keep “negative knowledge” shared across the team.
+      </p>
+      <h2 id="access" class="text-2xl text-foreground font-medium tracking-tight mb-6 scroll-mt-24">Access</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        Links can be configured for read-only or fork-only access and can expire automatically to reduce risk.
+      </p>
+    `,
+  },
 ]
 
 // Helper function to get blog post by slug

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Code, Bot, Network, Zap, Terminal, Database, Cloud, Settings } from 'lucide-react'
 
 export default function Showcase() {

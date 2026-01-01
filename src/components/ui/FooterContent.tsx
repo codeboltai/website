@@ -130,7 +130,7 @@ export default function FooterContent({ colorScheme, className = '' }: FooterCon
             </h3>
             <ul className="space-y-1.5 md:space-y-2">
               <li>
-                <Link href="/blog" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
+                <Link href="/newblog" className={`${scheme.links} text-sm transition-colors font-cyber-alt`}>
                   Blog
                 </Link>
               </li>
