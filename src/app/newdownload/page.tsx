@@ -1,4 +1,4 @@
-import NewDownloadClient from './NewDownloadClient'
+import NewDownloadPageSection from '@/components/sections/download/NewDownloadPageSection'
 
 export const metadata = {
   title: 'New Downloads | Codebolt',
@@ -6,6 +6,6 @@ export const metadata = {
 }
 
 export default function NewDownloadPage() {
-  return <NewDownloadClient />
+  return <NewDownloadPageSection />
 }
 

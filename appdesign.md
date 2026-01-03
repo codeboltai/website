@@ -601,6 +601,178 @@ Two-panel diagram showing orchestrator and swarm.
 └─────────────────┘         └─────────────────┘
 ```
 
+### 6.2.1 How to Generate Diagrams (Agent Workflow)
+
+This is the **standard workflow** for creating any new diagram so it matches the Dropstone/Codebolt design language and remains reusable.
+
+1. **Pick a diagram type** (from 6.2) and confirm the story:
+   - What is the diagram explaining in one sentence?
+   - What is the “signal” (highlight) vs the “structure” (monochrome base)?
+2. **Choose a canvas spec** (see 6.2.2):
+   - Prefer a stable `viewBox` so it scales cleanly.
+   - Prefer integer coordinates to avoid blur.
+3. **Design on a grid**:
+   - Layout using an 8px or 10px internal grid.
+   - Align strokes and nodes to grid intersections.
+4. **Build the SVG in layers** (see 6.2.4):
+   - Base grid (optional)
+   - Structural geometry (boxes/edges)
+   - Highlight geometry (accent nodes/flows)
+   - Labels (monospace, uppercase, small)
+5. **Add motion only for data flow** (see 6.2.6):
+   - Animate packets, scanning lines, pulses
+   - Do not animate borders/layout containers
+6. **Wrap it in a consistent container**:
+   - Use existing wrappers (`DiagramContainer`, `DiagramPanel`, etc.) when possible
+   - The wrapper controls chrome: borders, grid bg, corner brackets, captions
+7. **Expose a minimal component API**:
+   - `className?: string`
+   - Optional `variant`, `accent`, `density`, `reducedMotion` (where helpful)
+8. **Validate visually and semantically**:
+   - In both **dark + light mode**
+   - With `prefers-reduced-motion`
+   - At multiple widths (mobile/desktop)
+
+### 6.2.2 Diagram Specification (Required)
+
+Before writing code, every new diagram must have a small “spec” (even if informal):
+
+- **Purpose**: what it communicates
+- **Type**: node grid / mesh / pipeline / routing / chart
+- **Canvas**: `viewBox` and aspect ratio
+- **Legend**: what the dot/line colors mean
+- **Accent token**: `--primary` / semantic accent (emerald/amber/indigo/violet)
+- **Motion**: what moves and why (data flow only)
+- **Caption**: `FIG X.Y — TITLE` (used by the wrapper or section)
+
+Recommended `viewBox` standards:
+
+- **Cards / embedded panels**: `viewBox="0 0 400 240"` or `0 0 480 300`
+- **Wide topology panels**: `viewBox="0 0 800 300"`
+- **Square plots**: `viewBox="0 0 300 300"` (or `200x200` for compact)
+
+### 6.2.3 Layout & Grid Standards
+
+To avoid “soft” SVG rendering:
+
+- **Use integer coordinates** for key geometry (rects, lines, circles).
+- **Prefer even stroke widths** and align to pixel boundaries:
+  - For 1px strokes, align to `0.5` offsets only when needed (`x=10.5`) to hit device pixels.
+- **Use consistent spacing units**:
+  - Small gaps: 8px
+  - Medium gaps: 16px
+  - Major blocks: 24px / 32px
+- **Avoid arbitrary positions** unless the diagram is intentionally “organic”.
+
+### 6.2.4 Stroke / Fill / Opacity Standards (CRITICAL)
+
+The diagram language is *monochrome structure + one accent*.
+
+- **Structure strokes**:
+  - Stroke color: `hsl(var(--border))` or `hsl(var(--muted-foreground) / 0.6)`
+  - Stroke width:
+    - Hairline: `0.5` (secondary grid/aux lines)
+    - Normal: `1` (most edges, boxes)
+    - Emphasis: `1.5` (highlight flow, key edges)
+- **Fills**:
+  - Most shapes: `fill="none"` or `fill="hsl(var(--card))"` if needed
+  - Highlight fill: `hsl(var(--primary) / 0.08)` to `0.15`
+- **Opacity**:
+  - Background grid: `0.06`–`0.12`
+  - Secondary edges: `0.25`–`0.5`
+  - Primary highlight: `0.9`–`1`
+
+Do not hardcode random hex colors unless matching a reference screenshot. Prefer tokens.
+
+### 6.2.5 Labels, Figure IDs, and Legends
+
+All diagram text should follow our “technical label” convention:
+
+- **Font**: monospace
+- **Case**: uppercase
+- **Size**: `8px–10px`
+- **Color**: `hsl(var(--muted-foreground))` (or tinted accent for emphasis)
+- **Tracking**: letter-spaced for labels (CSS `tracking-[0.2em]` equivalent where possible)
+
+Best practice:
+
+- Keep labels **outside dense geometry** when possible.
+- Provide a tiny legend (“Link”, “Packet”, “Node”) if the diagram has multiple marks.
+- Captions belong in the **section wrapper**, not inside the SVG, unless the diagram is standalone.
+
+### 6.2.6 Motion Standards (Data Flow Only)
+
+Motion should communicate **flow, scanning, or liveness**—never decorative chaos.
+
+- **Allowed**:
+  - Packet dots moving along edges
+  - Scanning bars (enterprise “protocol monitor”)
+  - Pulse on active nodes or alerts
+  - Slow rotation only when it conveys a system loop (very subtle)
+- **Avoid**:
+  - Moving borders/frames
+  - Layout shifts
+  - Continuous jitter
+
+Implementation guidance:
+
+- Prefer **CSS keyframes** or simple SVG animations for lightweight motion.
+- If using `motion/react`, keep it localized and honor reduced-motion.
+- Duration guidelines:
+  - Pulse: 1.8s–2.5s
+  - Scan sweep: 2.5s–4.5s
+  - Packet travel: 1.2s–2.0s (staggered)
+
+### 6.2.7 Accessibility & Reduced Motion
+
+- Diagrams are usually **decorative** and should not spam screen readers:
+  - Set `aria-hidden="true"` on purely decorative SVGs.
+  - If informative, add `role="img"` and a short `aria-label`.
+- Respect `prefers-reduced-motion`:
+  - Disable continuous animations when reduced motion is enabled.
+  - Provide a “static” state that still communicates structure.
+
+### 6.2.8 Component Standards for Diagram Files
+
+Where diagrams should live:
+
+- **Diagrams**: `src/components/diagrams/<DiagramName>.tsx`
+- **Wrappers/containers**: `src/components/ui/DiagramContainer.tsx` or `src/templatesections/DiagramPanel.tsx`
+
+Required props:
+
+```tsx
+export default function SomeDiagram({
+  className,
+  ...props
+}: {
+  className?: string
+}) {
+  return (
+    <svg className={className} viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* ... */}
+    </svg>
+  )
+}
+```
+
+Optional props (use sparingly):
+
+- `variant?: 'standalone' | 'embedded'`
+- `accent?: 'primary' | 'violet' | 'indigo' | 'emerald' | 'amber'`
+- `reducedMotion?: boolean`
+
+### 6.2.9 Diagram Review Checklist (Ship Gate)
+
+Before merging a new diagram:
+
+- **Visual**: looks correct in dark + light mode
+- **Scale**: readable at `sm`, `md`, `lg`
+- **Tokens**: uses `hsl(var(--...))` instead of random hex
+- **Motion**: only flow/pulse/scan; reduced-motion supported
+- **Labels**: monospace + uppercase + small; not overlapping key geometry
+- **Wrapper**: uses the standard diagram chrome (border, grid bg, corners) where needed
+
 ### 6.3 SVG Conventions
 
 ```tsx
@@ -1090,7 +1262,12 @@ src/
 ├── app/
 │   ├── globals.css          # Global styles, CSS variables
 │   ├── layout.tsx           # Root layout with fonts
-│   └── page.tsx             # Home page
+│   ├── page.tsx             # Home page (thin composer)
+│   ├── features/page.tsx    # Features page (thin composer)
+│   ├── newpricing/page.tsx  # Pricing page (thin composer)
+│   ├── newdownload/page.tsx # Download page (thin composer)
+│   ├── newblog/page.tsx     # Blog index page (thin composer)
+│   └── enterprise/page.tsx  # Enterprise page (thin composer)
 ├── components/
 │   ├── layout/
 │   │   ├── Header.tsx
@@ -1098,7 +1275,47 @@ src/
 │   ├── sections/
 │   │   ├── Hero.tsx
 │   │   ├── FeatureGrid.tsx
-│   │   └── DeepDive.tsx
+│   │   ├── DeepDive.tsx
+│   │   ├── ProtocolTriptych.tsx
+│   │   ├── ArchitectureDeepDive.tsx
+│   │   ├── DenseFrontierTopology.tsx
+│   │   ├── CollaborativeContext.tsx
+│   │   ├── RecursiveStateConvergence.tsx
+│   │   ├── AssociativeSemanticGraphing.tsx
+│   │   ├── PostLinearParadigm.tsx
+│   │   ├── NaturalLanguageCompilation.tsx
+│   │   ├── CTASection.tsx
+│   │   ├── home/
+│   │   │   ├── RuntimePrimitivesSection.tsx
+│   │   │   ├── DistributedKnowledgeMeshSection.tsx
+│   │   │   └── VerificationStackSection.tsx
+│   │   ├── features/
+│   │   │   ├── FeaturesHero.tsx
+│   │   │   ├── FeatureKicker.tsx
+│   │   │   ├── StateVirtualization.tsx
+│   │   │   ├── EconomicsOfIntelligence.tsx
+│   │   │   ├── TrajectorySearch.tsx
+│   │   │   ├── SignalPropulsion.tsx
+│   │   │   ├── SemanticEntropyTracking.tsx
+│   │   │   ├── HierarchicalVerification.tsx
+│   │   │   ├── LongHorizonTopology.tsx
+│   │   │   └── ScaleDeployment.tsx
+│   │   ├── pricing/
+│   │   │   ├── NewPricingHeroSection.tsx
+│   │   │   ├── NewPricingPlansSection.tsx
+│   │   │   └── NewPricingPageSection.tsx
+│   │   ├── blog/
+│   │   │   └── NewBlogIndexSection.tsx
+│   │   ├── download/
+│   │   │   └── NewDownloadPageSection.tsx
+│   │   └── enterprise/
+│   │       ├── EnterpriseShared.tsx
+│   │       ├── EnterpriseHeroSection.tsx
+│   │       ├── IntegrityMandateSection.tsx
+│   │       ├── ComplianceSecurityPostureSection.tsx
+│   │       ├── ComputeTopologySection.tsx
+│   │       ├── SequenceProtocolSection.tsx
+│   │       └── EnterprisePageSection.tsx
 │   ├── ui/
 │   │   ├── Button.tsx
 │   │   ├── TechCard.tsx
@@ -1112,6 +1329,21 @@ src/
 │       ├── NetworkMesh.tsx
 │       ├── InferenceRouting.tsx
 │       └── VerificationPipeline.tsx
+├── templatesections/
+│   ├── README.md                         # How to use section templates
+│   ├── index.tsx                         # Barrel exports
+│   ├── SectionShell.tsx                  # Layout wrapper
+│   ├── SectionHeader.tsx                 # Kicker + title + description
+│   ├── TwoColumnSection.tsx              # 2-col grid layout
+│   ├── ThreeColumnGrid.tsx               # 3-col grid layout
+│   ├── TextWithDiagramSection.tsx        # Common “text + diagram” section
+│   ├── FeatureGridSection.tsx            # Feature grid section template
+│   ├── ProtocolTriptychSection.tsx       # Protocol triptych template
+│   ├── RuntimePrimitivesSection.tsx      # Runtime primitives template
+│   ├── VerificationStackSection.tsx      # Verification stack template
+│   ├── PricingSection.tsx                # Pricing page template
+│   ├── WorkspacePanelSection.tsx         # Workspace style panels
+│   └── ...                               # More primitives + section templates
 └── contexts/
     └── ThemeContext.tsx     # Theme state management
 ```
@@ -1155,6 +1387,66 @@ border-color: hsl(var(--border));
 // Grid background
 "bg-[linear-gradient(hsl(var(--border))_1px,transparent_1px),linear-gradient(90deg,hsl(var(--border))_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"
 ```
+
+---
+
+## 12. Architecture Rules (CRITICAL for Agents)
+
+These rules exist to keep the codebase modular and reusable across projects while preserving pixel-perfect Dropstone-style output.
+
+### 12.1 “Thin Page” Rule
+
+**Page files in `src/app/**/page.tsx` should be composition-only.**
+
+- **Allowed in pages**:
+  - `export const metadata`
+  - Imports of sections and returning a composition (e.g. `<Hero />`, `<PricingPageSection />`)
+- **Avoid in pages**:
+  - Large JSX blocks for whole sections
+  - Local helper components (`function Card() { ... }`)
+  - Complex layout logic that could be reused elsewhere
+
+**When you see a hardcoded section in a page:** move it to `src/components/sections/...` and make the page call it.
+
+### 12.2 “Sections vs Templates” Rule
+
+We maintain two layers:
+
+- **`src/templatesections/` (reusable templates)**:
+  - Use when the *layout pattern* is likely reusable across projects (e.g., “two-column text+diagram”, “pricing matrix”, “protocol triptych”).
+  - Should be flexible via props: title, kicker, description, items, slots.
+  - Should not contain Codebolt-specific copy unless it’s a “Codebolt product template” you explicitly want to reuse.
+
+- **`src/components/sections/` (concrete site sections)**:
+  - Use when the content is Codebolt-specific but should remain modular.
+  - These components should prefer composing `templatesections` rather than re-implementing layouts.
+  - Organize by page/domain: `home/`, `features/`, `pricing/`, `blog/`, `enterprise/`, etc.
+
+### 12.3 Naming & Placement Rules
+
+- **Section-level components**:
+  - Name: `XxxSection.tsx` (or a page-level wrapper like `NewPricingPageSection.tsx`)
+  - Location: `src/components/sections/<domain>/`
+  - Purpose: a complete drop-in section
+
+- **Shared helpers/icons**:
+  - Put shared helpers for a page/domain under a single file like `EnterpriseShared.tsx`
+  - Avoid duplicating SVG icon components across sections
+
+- **Keep props minimal**:
+  - Prefer slots (`left`, `right`, `children`) for flexible layouts in templates.
+  - Prefer fixed content in concrete sections unless reuse is required.
+
+### 12.4 Consistency Checklist for New Sections
+
+Before shipping a new section:
+
+- **Layout**: uses our standard widths (`max-w-6xl`, `max-w-7xl`, `max-w-[1400px]`) consistent with the page.
+- **Typography**: titles are large, tight tracking; labels are monospace, uppercase, letter-spaced.
+- **Borders**: `border-border` everywhere; no random hex colors unless necessary for Dropstone fidelity.
+- **Backgrounds**: `bg-background` / `bg-card` with subtle grid overlays where needed.
+- **Reusability**: if the layout matches an existing template, use the template.
+
 
 ---
 
