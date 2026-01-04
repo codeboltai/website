@@ -2,94 +2,89 @@
 
 import { motion } from 'motion/react'
 
-type TriptychCard = {
-  code: string
-  title: string
-  description: string
-  leftLabel: string
-  leftValue: string
-  rightLabel: string
-  rightValue: string
-  rightValueClassName?: string
-}
-
-const CARDS: TriptychCard[] = [
-  {
-    code: '01_STATE_MANAGEMENT',
-    title: 'Context Virtualization',
-    description:
-      'To bypass context saturation, the runtime separates "Active Workspace" from "Latent History." This keeps causal logic coherent across extended horizons (24h+) without the degradation seen in sliding-window models.',
-    leftLabel: 'Inference Horizon',
-    leftValue: '24H+',
-    rightLabel: 'Registry Status',
-    rightValue: 'SERIALIZED',
-    rightValueClassName: 'text-primary/80 dark:text-cyan-500/70',
-  },
-  {
-    code: '02_VERIFICATION',
-    title: 'Flash-Gated Consensus',
-    description:
-      'Replace standard generation with an adversarial loop. Agents must pass a "Silent Flash" protocol where peers verify logic in real-time. Failed branches are pruned instantly, preventing hallucination cascades.',
-    leftLabel: 'Verification Protocol',
-    leftValue: 'L4-GATED',
-    rightLabel: 'Max Error Rate',
-    rightValue: '<1.4%',
-    rightValueClassName: 'text-primary/80 dark:text-cyan-500/70',
-  },
-  {
-    code: '03_TOPOLOGY',
-    title: 'Hyper-Parallelized Search',
-    description:
-      'Treat compute as a liquid asset. The system instantiates 10,000+ ephemeral Scout agents to explore divergent solution trees, testing low-probability strategies that linear models discard.',
-    leftLabel: 'Active Scouts',
-    leftValue: '10,000+',
-    rightLabel: 'Exploration Mode',
-    rightValue: 'DIVERGENT',
-    rightValueClassName: 'text-primary/80 dark:text-cyan-500/70',
-  },
+const protocols = [
+    {
+        label: 'Prototype 01',
+        title: 'Swarm Coordination',
+        description: 'Stigmergy-based coordination enables hundreds of agents to work together without a central orchestrator—inspired by biological swarm intelligence.',
+        tags: ['Pheromones', 'Decentralized', 'Self-Organizing'],
+    },
+    {
+        label: 'Prototype 02',
+        title: 'Job Management',
+        description: 'Smart task coordination with locking, bidding, and split proposals. Agents claim work, signal intentions, and avoid conflicts automatically.',
+        tags: ['Locking', 'Bidding', 'Decomposition'],
+    },
+    {
+        label: 'Prototype 03',
+        title: 'Agent Deliberation',
+        description: 'Structured discussion where agents vote on decisions, provide feedback, ask questions, and build collaborative lists for consensus.',
+        tags: ['Voting', 'Feedback', 'Consensus'],
+    },
 ]
 
 export default function ProtocolTriptych() {
-  return (
-    <section className="w-full bg-background text-foreground font-sans dark:bg-[#050505] dark:text-zinc-200">
-      <div className="border-t border-b border-border dark:border-zinc-800 bg-muted/10 dark:bg-[#030303]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border dark:divide-zinc-800">
-          {CARDS.map((card, idx) => (
-            <motion.div
-              key={card.code}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              className="group p-8 md:p-12 hover:bg-muted/20 dark:hover:bg-zinc-900/30 transition-colors duration-500 flex flex-col h-full relative"
-            >
-              <div className="mb-8 flex justify-between items-start">
-                <span className="font-mono text-[10px] text-muted-foreground dark:text-zinc-500 uppercase tracking-[0.2em] border border-border dark:border-zinc-800 px-2 py-1 rounded-sm group-hover:border-primary/50 group-hover:text-primary dark:group-hover:border-cyan-500/50 dark:group-hover:text-cyan-400 transition-colors">
-                  {card.code}
-                </span>
-                <div className="w-1.5 h-1.5 bg-border dark:bg-zinc-800 rounded-full group-hover:bg-primary dark:group-hover:bg-cyan-500 transition-colors shadow-[0_0_10px_hsl(var(--primary))] dark:shadow-[0_0_10px_#06b6d4]" />
-              </div>
+    return (
+        <section className="py-24 px-6 bg-muted/10 dark:bg-zinc-900/10 border-b border-border dark:border-zinc-900">
+            <div className="max-w-6xl mx-auto">
+                {/* Section Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-16 text-center"
+                >
+                    <span className="font-mono text-[10px] text-primary dark:text-cyan-500 uppercase mb-4 block tracking-[0.3em] font-medium">
+                        Coordination Protocols
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-medium text-foreground dark:text-white tracking-tighter">
+                        How Agents Work Together
+                    </h2>
+                </motion.div>
 
-              <h3 className="text-xl font-medium text-foreground dark:text-white mb-4 tracking-tight">{card.title}</h3>
-              <p className="text-sm text-muted-foreground dark:text-zinc-500 font-light leading-relaxed mb-10 flex-grow">
-                {card.description}
-              </p>
+                {/* Protocol Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {protocols.map((protocol, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            className="group bg-card dark:bg-zinc-900/40 border border-border dark:border-zinc-800 p-8 transition-all duration-300 hover:border-primary/50 dark:hover:border-cyan-500/30"
+                        >
+                            {/* Protocol Label */}
+                            <div className="mb-6">
+                                <span className="inline-flex items-center px-3 py-1 border border-border dark:border-zinc-700 text-[9px] font-mono uppercase tracking-wider text-muted-foreground dark:text-zinc-500">
+                                    {protocol.label}
+                                </span>
+                            </div>
 
-              <div className="pt-6 border-t border-border/50 dark:border-zinc-800/50 flex items-center justify-between font-mono text-[9px] text-muted-foreground dark:text-zinc-600 uppercase tracking-widest">
-                <div className="flex flex-col gap-1">
-                  <span className="text-[8px] text-muted-foreground/70 dark:text-zinc-700">{card.leftLabel}</span>
-                  <span className="text-foreground dark:text-zinc-300">{card.leftValue}</span>
+                            {/* Title */}
+                            <h3 className="text-xl font-medium text-foreground dark:text-white mb-4 tracking-tight group-hover:text-primary dark:group-hover:text-cyan-400 transition-colors">
+                                {protocol.title}
+                            </h3>
+
+                            {/* Description */}
+                            <p className="text-sm text-muted-foreground dark:text-zinc-400 font-light leading-relaxed mb-6">
+                                {protocol.description}
+                            </p>
+
+                            {/* Tags */}
+                            <div className="flex flex-wrap gap-2">
+                                {protocol.tags.map((tag, tidx) => (
+                                    <span
+                                        key={tidx}
+                                        className="px-2 py-1 bg-muted/50 dark:bg-zinc-800/50 text-[10px] font-mono uppercase tracking-wider text-muted-foreground dark:text-zinc-500"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
-                <div className="flex flex-col gap-1 text-right">
-                  <span className="text-[8px] text-muted-foreground/70 dark:text-zinc-700">{card.rightLabel}</span>
-                  <span className={card.rightValueClassName ?? 'text-foreground'}>{card.rightValue}</span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+            </div>
+        </section>
+    )
 }
-

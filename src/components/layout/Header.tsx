@@ -61,11 +61,10 @@ export default function Header() {
 
   const navItems = [
     { name: 'Features', href: '/features' },
-    { name: 'Pricing', href: '/newpricing' },
-    { name: 'Downloads', href: '/newdownload' },
-    { name: 'Blog', href: '/newblog' },
-    { name: 'Enterprise', href: '/enterprise' },
-    { name: 'Contact Sales', href: '/contact' },
+    { name: 'Platform', href: '/platform' },
+    { name: 'Use Cases', href: '/use-cases' },
+    { name: 'Comparison', href: '/comparison' },
+    { name: 'Download', href: '/download' },
   ]
 
   return (
@@ -87,11 +86,10 @@ export default function Header() {
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className={`text-sm transition-colors duration-200 ${
-                    pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href + '/'))
+                  className={`text-sm transition-colors duration-200 ${pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href + '/'))
                       ? 'text-primary'
                       : 'text-muted-foreground hover:text-foreground'
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -172,11 +170,10 @@ export default function Header() {
                   >
                     <Link
                       href={item.href}
-                      className={`block text-lg font-medium transition-colors border-b border-border py-4 ${
-                        pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href + '/'))
+                      className={`block text-lg font-medium transition-colors border-b border-border py-4 ${pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href + '/'))
                           ? 'text-primary'
                           : 'text-muted-foreground hover:text-foreground'
-                      }`}
+                        }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.name}
@@ -186,8 +183,8 @@ export default function Header() {
               </nav>
 
               <div className="mt-auto pt-8">
-                <Link 
-                  href="/dashboard" 
+                <Link
+                  href="/dashboard"
                   onClick={() => setIsMenuOpen(false)}
                   className="block"
                 >

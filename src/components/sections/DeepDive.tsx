@@ -1,196 +1,84 @@
 'use client'
 
 import { motion } from 'motion/react'
-import StatusLabel from '@/components/ui/StatusLabel'
-import StatsGrid from '@/components/ui/StatsGrid'
-import InferenceRouting from '@/components/diagrams/InferenceRouting'
+import { cn } from '@/lib/utils'
+import type { ReactNode } from 'react'
 
 interface DeepDiveProps {
-  title: string
-  subtitle: string
-  description: string | React.ReactNode
-  metrics: Array<{ value: string; label: string; trend?: string }>
-  orientation?: 'left' | 'right'
-  children?: React.ReactNode
+    title: string
+    subtitle?: string
+    description: ReactNode
+    metrics?: Array<{ value: string; label: string }>
+    orientation?: 'left' | 'right'
 }
 
-export default function DeepDive({ 
-  title, 
-  subtitle, 
-  description, 
-  metrics, 
-  orientation = 'left',
-  children 
+export default function DeepDive({
+    title,
+    subtitle,
+    description,
+    metrics,
+    orientation = 'left',
 }: DeepDiveProps) {
-  const titleLines = title.split('\n')
+    const titleLines = title.split('\n')
 
-  return (
-    <section className="py-24 px-6 border-b border-border bg-background font-sans dark:bg-[#050505] dark:border-zinc-900 dark:text-zinc-200">
-      <div
-        className={`
-          max-w-6xl mx-auto
-          grid md:grid-cols-12 gap-16 items-center
-        `}
-      >
-
-        {/* Text Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className={orientation === 'right' ? 'md:col-span-6 md:col-start-7' : 'md:col-span-6'}
-        >
-          <div className="flex items-center gap-3 mb-8">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
-            </span>
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground dark:text-zinc-500">
-              {subtitle}
-            </span>
-          </div>
-
-          <h2 className="text-4xl md:text-6xl font-medium tracking-tighter leading-[0.95] mb-8">
-            {titleLines.map((line, i) => (
-              <span
-                key={i}
-                className={`block ${i === 0 ? 'text-foreground dark:text-white' : 'text-muted-foreground dark:text-zinc-500'}`}
-              >
-                {line}
-              </span>
-            ))}
-          </h2>
-
-          <div className="text-lg text-muted-foreground dark:text-zinc-400 font-light leading-relaxed mb-8">
-            {typeof description === 'string' ? (
-              <p>{description}</p>
-            ) : (
-              description
-            )}
-          </div>
-
-          {/* Metrics */}
-          <div className="grid grid-cols-2 gap-8 border-t border-border dark:border-zinc-900 pt-8">
-            {metrics.map((m, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <MetricValue value={m.value} />
-                {m.trend && (
-                  <span className="ml-2 text-[10px] font-mono uppercase tracking-wider text-muted-foreground dark:text-zinc-500">
-                    {m.trend}
-                  </span>
-                )}
-                <span className="block font-mono text-[9px] text-muted-foreground dark:text-zinc-500 uppercase tracking-widest mt-2">
-                  {m.label}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Visual Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className={orientation === 'right' ? 'md:col-span-6 md:col-start-1 md:row-start-1' : 'md:col-span-6'}
-        >
-          <div className="font-sans">
-            {children || <InferenceRouting />}
-          </div>
-        </motion.div>
-
-      </div>
-    </section>
-  )
-}
-
-function MetricValue({ value }: { value: string }) {
-  const trimmed = value.trim()
-  if (trimmed.endsWith('%')) {
-    const main = trimmed.slice(0, -1)
     return (
-      <span className="block text-3xl font-light text-foreground dark:text-white mb-1">
-        {main}
-        <span className="text-sm text-muted-foreground dark:text-zinc-600">%</span>
-      </span>
-    )
-  }
+        <section className="py-32 px-6 bg-background border-b border-border dark:bg-[#050505] dark:border-zinc-900">
+            <div className="max-w-5xl mx-auto">
+                <div className={cn(
+                    'grid md:grid-cols-12 gap-12',
+                    orientation === 'right' && 'md:[&>*:first-child]:order-2'
+                )}>
+                    {/* Text Content */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="md:col-span-7"
+                    >
+                        {subtitle && (
+                            <span className="font-mono text-[10px] text-primary dark:text-cyan-500 uppercase mb-6 block tracking-[0.3em] font-medium">
+                                {subtitle}
+                            </span>
+                        )}
 
-  return <span className="block text-3xl font-light text-foreground dark:text-white mb-1">{trimmed}</span>
-}
+                        <h2 className="text-4xl md:text-5xl font-medium text-foreground dark:text-white mb-8 tracking-tighter leading-[0.95]">
+                            {titleLines.map((line, i) => (
+                                <span key={i} className={i > 0 ? 'block text-muted-foreground dark:text-neutral-500' : 'block'}>
+                                    {line}
+                                </span>
+                            ))}
+                        </h2>
 
-// New component for feature detail sections with stats box
-interface FeatureDetailProps {
-  sectionLabel: string
-  title: string
-  description: string | React.ReactNode
-  stats: Array<{ label: string; value: string; highlight?: boolean }>
-  children?: React.ReactNode
-}
+                        <div className="text-lg text-muted-foreground dark:text-neutral-400 font-light leading-relaxed">
+                            {description}
+                        </div>
+                    </motion.div>
 
-export function FeatureDetail({
-  sectionLabel,
-  title,
-  description,
-  stats,
-  children
-}: FeatureDetailProps) {
-  return (
-    <section className="py-16 md:py-24 px-6 border-t border-border">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-12 gap-8 mb-12">
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="md:col-span-7"
-          >
-            <StatusLabel dotColor="primary" className="mb-6">
-              {sectionLabel}
-            </StatusLabel>
-
-            <h2 className="text-3xl md:text-4xl font-semibold text-foreground tracking-tight mb-6">
-              {title}
-            </h2>
-
-            <div className="text-sm text-muted-foreground leading-relaxed max-w-xl">
-              {description}
+                    {/* Metrics */}
+                    {metrics && metrics.length > 0 && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="md:col-span-5 flex flex-col justify-center"
+                        >
+                            <div className="grid grid-cols-2 gap-6">
+                                {metrics.map((metric, idx) => (
+                                    <div key={idx} className="p-6 border border-border dark:border-zinc-800 bg-card/30 dark:bg-zinc-900/20">
+                                        <span className="font-mono text-3xl md:text-4xl font-medium text-primary dark:text-cyan-400 block mb-2">
+                                            {metric.value}
+                                        </span>
+                                        <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground dark:text-zinc-500">
+                                            {metric.label}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    )}
+                </div>
             </div>
-          </motion.div>
-
-          {/* Stats Box */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="md:col-span-5"
-          >
-            <StatsGrid stats={stats} />
-          </motion.div>
-        </div>
-
-        {/* Diagram */}
-        {children && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex justify-center py-12 border border-border bg-card"
-          >
-            {children}
-          </motion.div>
-        )}
-      </div>
-    </section>
-  )
+        </section>
+    )
 }
