@@ -5,10 +5,9 @@ import { motion } from 'motion/react'
 interface DiagramProps {
     className?: string
     children?: React.ReactNode
-    variant?: 'grid' | 'network' | 'flow'
 }
 
-export default function Diagram({ className = '', children, variant = 'grid' }: DiagramProps) {
+export default function Diagram({ className = '', children }: DiagramProps) {
     return (
         <div className={`relative overflow-hidden bg-card border border-border rounded-sm ${className}`}>
 
@@ -35,7 +34,7 @@ export default function Diagram({ className = '', children, variant = 'grid' }: 
 }
 
 // Sub-components for building diagrams
-export function DiagramNode({ x, y, label, active = false }: { x?: number, y?: number, label?: string, active?: boolean }) {
+export function DiagramNode({ label, active = false }: { label?: string, active?: boolean }) {
     return (
         <motion.div
             initial={{ scale: 0 }}

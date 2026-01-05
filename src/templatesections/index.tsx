@@ -100,6 +100,18 @@ export type { PricingSectionProps, PricingPlan, PricingFeatureSection } from './
 export { CTASection } from './CTASection'
 export type { CTASectionProps } from './CTASection'
 
+export { DeepDiveSection } from './DeepDiveSection'
+export type { DeepDiveSectionProps } from './DeepDiveSection'
+
+export { HighlightBannerSection } from './HighlightBannerSection'
+export type { HighlightBannerSectionProps } from './HighlightBannerSection'
+
+export { StatGridSection } from './StatGridSection'
+export type { StatGridSectionProps, StatItem } from './StatGridSection'
+
+export { IconFeatureGridSection } from './IconFeatureGridSection'
+export type { IconFeatureGridSectionProps, IconFeatureItem } from './IconFeatureGridSection'
+
 // =============================================================================
 // LAYOUT PRIMITIVES
 // =============================================================================

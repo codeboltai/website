@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'motion/react'
-import { ArrowLeft, Code, Workflow, Copy, Globe, Bot, Cpu } from 'lucide-react'
+import { ArrowLeft, Code, Workflow, Copy, Globe } from 'lucide-react'
 
 const agentTypes = [
     {

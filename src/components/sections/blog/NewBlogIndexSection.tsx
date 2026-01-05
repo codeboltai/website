@@ -49,7 +49,7 @@ export default function NewBlogIndexSection() {
 
                   <div className="flex items-center gap-4 text-xs font-mono text-muted-foreground uppercase tracking-widest pt-8 border-t border-border">
                     <span>Auth: {latest.author}</span>
-                    <span>//</span>
+                    <span>/</span>
                     <span>Ref: {latest.id}</span>
                   </div>
                 </div>

@@ -15,8 +15,10 @@ export interface HeroSectionProps {
   primaryCTA?: ReactNode
   /** Secondary CTA */
   secondaryCTA?: ReactNode
-  /** Hero visual content (diagram, preview, etc.) */
+  /** Hero visual content (diagram, preview, etc.) - has glow/float effects */
   visual?: ReactNode
+  /** Bottom content (stats strip, etc.) - no special effects */
+  bottomContent?: ReactNode
   /** Text alignment */
   align?: 'left' | 'center'
   /** Layout variant */
@@ -55,6 +57,7 @@ export function HeroSection({
   primaryCTA,
   secondaryCTA,
   visual,
+  bottomContent,
   align = 'center',
   layout = 'default',
   showGridBg = true,
@@ -200,6 +203,9 @@ export function HeroSection({
               </motion.div>
             </motion.div>
           )}
+
+          {/* Bottom Content (stats strip, etc.) */}
+          {bottomContent}
         </div>
       </div>
     </section>

@@ -1,8 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import { motion } from 'motion/react'
-import { Download, Moon, Users, Code, TestTube, FileText, Clock } from 'lucide-react'
+import { Moon, Users, Code, TestTube, FileText, Clock } from 'lucide-react'
+import { HeroSection, CTASection } from '@/templatesections'
 
 const workflows = [
     {
@@ -86,7 +86,7 @@ const personas = [
     },
     {
         title: 'Enterprise Teams',
-        pain: "Can't scale capacity without headcount",
+        pain: "Cannot scale capacity without headcount",
         solution: '24/7 development with full audit trails',
         highlight: 'Self-hosting for complete data control',
     },
@@ -102,23 +102,12 @@ export default function UseCasesPage() {
     return (
         <div className="min-h-screen bg-background text-foreground">
             {/* Hero */}
-            <section className="pt-32 pb-16 px-6 border-b border-border">
-                <div className="max-w-4xl mx-auto text-center">
-                    <div className="inline-flex items-center justify-center px-3 py-1 rounded-full border border-border bg-muted/30 text-muted-foreground text-xs font-medium uppercase tracking-widest mb-8">
-                        Workflows
-                    </div>
-
-                    <h1 className="text-5xl md:text-6xl font-medium text-foreground tracking-tight mb-6 leading-[1.05]">
-                        How Teams Use <br />
-                        <span className="text-muted-foreground">Codebolt</span>
-                    </h1>
-
-                    <p className="text-xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
-                        Real workflows that transform how development gets done. From overnight automation
-                        to long-horizon features.
-                    </p>
-                </div>
-            </section>
+            <HeroSection
+                showStatus
+                statusText="Workflows"
+                title={"How Teams Use\nCodebolt"}
+                description="Real workflows that transform how development gets done. From overnight automation to long-horizon features."
+            />
 
             {/* Workflows */}
             <section className="py-24 px-6">
@@ -242,23 +231,13 @@ export default function UseCasesPage() {
             </section>
 
             {/* CTA */}
-            <section className="py-24 px-6">
-                <div className="max-w-2xl mx-auto text-center">
-                    <h2 className="text-3xl font-medium text-foreground tracking-tight mb-6">
-                        Transform Your Workflow
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        Start building with multi-agent swarms. See the difference 24/7 development makes.
-                    </p>
-                    <Link
-                        href="/download"
-                        className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground text-sm uppercase rounded-full font-bold hover:bg-cyan-400 transition-colors"
-                    >
-                        Download Codebolt
-                        <Download className="w-4 h-4" />
-                    </Link>
-                </div>
-            </section>
+            <CTASection
+                title={"Transform Your Workflow"}
+                description="Start building with multi-agent swarms. See the difference 24/7 development makes."
+                ctaText="Download Codebolt"
+                ctaHref="/download"
+                showOverlay={false}
+            />
         </div>
     )
 }

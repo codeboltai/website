@@ -51,10 +51,10 @@ export default function RecursiveStateConvergenceTemplated() {
             {/* Stats Box */}
             <MetricStrip
               columns={2}
-              divider
+              variant="divider"
               metrics={[
                 { label: 'Process', value: 'Flash_Verify Loop' },
-                { label: 'Pruning Rate', value: '94.2% / Iteration', highlight: true },
+                { label: 'Pruning Rate', value: '94.2% / Iteration' },
               ]}
               className="mb-4"
             />

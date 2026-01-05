@@ -20,11 +20,11 @@ export default function Home() {
         subtitle="The Multi-Agent Paradigm"
         description={
           <>
-            Today's AI coding tools help one developer write code slightly faster.
+            Today&apos;s AI coding tools help one developer write code slightly faster.
             Codebolt is different. Deploy entire <strong className="text-foreground">swarms of AI agents</strong>—dozens,
             even hundreds—all working simultaneously on different parts of your codebase.
-            While you're in a meeting, agents are building features. While you're sleeping,
-            agents are writing tests. It's not 20% faster development—it's <strong className="text-foreground">10x faster</strong>.
+            While you&apos;re in a meeting, agents are building features. While you&apos;re sleeping,
+            agents are writing tests. It&apos;s not 20% faster development—it&apos;s <strong className="text-foreground">10x faster</strong>.
           </>
         }
         metrics={[
@@ -48,7 +48,7 @@ export default function Home() {
         subtitle="Persistent Memory Architecture"
         description={
           <>
-            No more "starting from scratch" every session. Codebolt agents have <strong className="text-foreground">persistent,
+            No more &quot;starting from scratch&quot; every session. Codebolt agents have <strong className="text-foreground">persistent,
               perfect memory</strong> spanning your entire project history. Knowledge graphs capture relationships.
             Vector databases enable semantic search. Episodic memory tracks what happened, when, and why.
             Agents remember decisions from weeks or months ago—and apply them consistently.

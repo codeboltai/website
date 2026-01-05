@@ -13,7 +13,7 @@ const CODE_LINES: Array<{ n: number; indent?: number; node: ReactNode }> = [
       </>
     ),
   },
-  { n: 2, indent: 1, node: <span className="text-muted-foreground/60">// Mapping inputs to recursive manifold</span> },
+  { n: 2, indent: 1, node: <span className="text-muted-foreground/60">{/* Mapping inputs to recursive manifold */}</span> },
   {
     n: 3,
     indent: 1,
@@ -46,7 +46,7 @@ const CODE_LINES: Array<{ n: number; indent?: number; node: ReactNode }> = [
     indent: 1,
     node: (
       <div className="my-1 bg-indigo-500/5 border-l-2 border-indigo-500 py-1">
-        <div className="pl-4 text-muted-foreground/60">// Ambiguity detected. Recursive expansion.</div>
+        <div className="pl-4 text-muted-foreground/60">{/* Ambiguity detected. Recursive expansion. */}</div>
         <div className="pl-4">
           <span className="text-indigo-300">return</span> <span className="text-blue-300">recursive_manifold</span>(ctx);
         </div>
@@ -63,7 +63,7 @@ const CODE_LINES: Array<{ n: number; indent?: number; node: ReactNode }> = [
       </>
     ),
   },
-  { n: 9, indent: 2, node: <>id: <span className="text-green-300">'0x992'</span>,</> },
+  { n: 9, indent: 2, node: <>id: <span className="text-green-300">&apos;0x992&apos;</span>,</> },
   {
     n: 10,
     indent: 2,

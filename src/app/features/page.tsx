@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { motion } from 'motion/react'
-import { Download, ArrowRight, Bot, Users, Brain, Eye, Workflow, Clock } from 'lucide-react'
+import { ArrowRight, Users, Brain, Eye, Workflow, Clock, Bot } from 'lucide-react'
+import { HeroSection, MetricStrip, CTASection } from '@/templatesections'
 
 const featureCategories = [
   {
@@ -95,35 +96,20 @@ export default function FeaturesPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="bg-background border-b border-border">
-        <div className="relative bg-card pt-32 pb-24 md:pt-48 md:pb-32">
-          <div className="max-w-4xl mx-auto text-center px-6">
-            <div className="inline-flex items-center justify-center px-3 py-1 rounded-full border border-border bg-muted/30 text-muted-foreground text-xs font-medium uppercase tracking-widest mb-8">
-              Platform Capabilities
-            </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium text-foreground tracking-tight mb-8 leading-[1.1]">
-              The Agentic <br />
-              <span className="text-muted-foreground">Development Platform.</span>
-            </h1>
-
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-12 font-light">
-              Everything you need to deploy, coordinate, and manage swarms of AI agents
-              that work together to build software 24/7.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link
-                href="/download"
-                className="px-8 py-4 bg-primary text-primary-foreground text-[11px] font-sans uppercase rounded-full font-bold hover:bg-cyan-400 transition-all duration-300 flex items-center gap-3 group shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]"
-              >
-                Download Codebolt
-                <Download className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" strokeWidth={2.5} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection
+        showStatus
+        statusText="Platform Capabilities"
+        title={"The Agentic\nDevelopment Platform."}
+        description="Everything you need to deploy, coordinate, and manage swarms of AI agents that work together to build software 24/7."
+        primaryCTA={
+          <Link
+            href="/download"
+            className="px-8 py-4 bg-primary text-primary-foreground text-[11px] font-sans uppercase rounded-full font-bold hover:bg-cyan-400 transition-all duration-300 flex items-center gap-3 group shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)]"
+          >
+            Download Codebolt
+          </Link>
+        }
+      />
 
       {/* Feature Categories Grid */}
       <section className="py-24 px-6">
@@ -168,28 +154,20 @@ export default function FeaturesPage() {
                   <div className="absolute -bottom-px -right-px w-4 h-4 border-b border-r border-muted-foreground/40 dark:border-zinc-600" />
 
                   <div className="flex items-start gap-6">
-                    {/* Icon */}
                     <div className="w-12 h-12 border border-border dark:border-zinc-700 flex items-center justify-center bg-background dark:bg-zinc-900/50 group-hover:border-primary/50 transition-colors">
                       <IconComponent className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
                     </div>
 
                     <div className="flex-1">
-                      {/* Label */}
                       <div className="mb-3 font-mono text-[10px] uppercase text-muted-foreground dark:text-zinc-500 tracking-widest">
                         {feature.label}
                       </div>
-
-                      {/* Title */}
                       <h3 className="text-xl font-medium text-foreground dark:text-white mb-3 tracking-tight group-hover:text-primary transition-colors">
                         {feature.title}
                       </h3>
-
-                      {/* Description */}
                       <p className="text-sm text-muted-foreground dark:text-zinc-400 font-light leading-relaxed mb-4">
                         {feature.description}
                       </p>
-
-                      {/* Highlights */}
                       <ul className="space-y-1 mb-6">
                         {feature.highlights.map((highlight, hidx) => (
                           <li key={hidx} className="text-xs text-muted-foreground flex items-center gap-2">
@@ -198,8 +176,6 @@ export default function FeaturesPage() {
                           </li>
                         ))}
                       </ul>
-
-                      {/* Footer */}
                       <div className="flex justify-between items-center pt-4 border-t border-border dark:border-zinc-800">
                         <div>
                           <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground dark:text-zinc-500 block mb-1">
@@ -227,47 +203,27 @@ export default function FeaturesPage() {
       </section>
 
       {/* Quick Stats */}
-      <section className="py-16 px-6 bg-muted/10 dark:bg-zinc-900/20 border-y border-border">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <span className="font-mono text-4xl font-medium text-primary dark:text-cyan-400 block mb-2">100+</span>
-              <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">Parallel Agents</span>
-            </div>
-            <div>
-              <span className="font-mono text-4xl font-medium text-primary dark:text-cyan-400 block mb-2">24/7</span>
-              <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">Operation</span>
-            </div>
-            <div>
-              <span className="font-mono text-4xl font-medium text-primary dark:text-cyan-400 block mb-2">∞</span>
-              <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">Context Window</span>
-            </div>
-            <div>
-              <span className="font-mono text-4xl font-medium text-primary dark:text-cyan-400 block mb-2">100%</span>
-              <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">Visibility</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <MetricStrip
+        asSection
+        sectionTone="muted"
+        variant="centered"
+        columns={4}
+        metrics={[
+          { value: '100+', label: 'Parallel Agents' },
+          { value: '24/7', label: 'Operation' },
+          { value: '∞', label: 'Context Window' },
+          { value: '100%', label: 'Visibility' },
+        ]}
+      />
 
       {/* CTA */}
-      <section className="py-24 px-6">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-medium text-foreground tracking-tight mb-6">
-            Ready to deploy your AI team?
-          </h2>
-          <p className="text-muted-foreground mb-8">
-            Download Codebolt and start building with multi-agent swarms today.
-          </p>
-          <Link
-            href="/download"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground text-sm uppercase rounded-full font-bold hover:bg-cyan-400 transition-colors"
-          >
-            Download Codebolt
-            <Download className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
+      <CTASection
+        title={"Ready to deploy your AI team?"}
+        description="Download Codebolt and start building with multi-agent swarms today."
+        ctaText="Download Codebolt"
+        ctaHref="/download"
+        showOverlay={false}
+      />
     </div>
   )
 }

@@ -23,8 +23,8 @@ const jobFeatures = [
     {
         icon: Vote,
         title: 'Job Bidding',
-        description: 'Agents can bid on tasks they're suited for.Bids include reason, priority, and status.No race conditions.',
-  },
+        description: 'Agents can bid on tasks they are suited for. Bids include reason, priority, and status. No race conditions.',
+    },
     {
         icon: Workflow,
         title: 'Split Proposals',
@@ -46,8 +46,8 @@ const deliberationTypes = [
     {
         type: 'Feedback',
         purpose: 'Collect opinions on proposals',
-        example: '"Here's my implementation plan" → Agents critique and refine',
-  },
+        example: '"Here is my implementation plan" → Agents critique and refine',
+    },
     {
         type: 'Q&A',
         purpose: 'Question and answer sessions',
@@ -99,7 +99,7 @@ export default function StigmergyPage() {
                     <p className="text-lg text-muted-foreground leading-relaxed">
                         Stigmergy is <span className="text-foreground">indirect coordination through environmental signals</span>—the
                         same mechanism that allows ant colonies to build complex structures without a central commander.
-                        In Codebolt, agents leave "pheromone" signals that other agents can sense and respond to,
+                        In Codebolt, agents leave &quot;pheromone&quot; signals that other agents can sense and respond to,
                         creating emergent organization.
                     </p>
                 </div>

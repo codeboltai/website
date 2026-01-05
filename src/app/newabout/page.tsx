@@ -291,8 +291,8 @@ export default function NewAboutPage() {
 
               <div className="pl-6 border-l border-border dark:border-neutral-800 space-y-4">
                 <p className="text-sm text-muted-foreground dark:text-neutral-400 leading-relaxed max-w-md">
-                  By distinguishing between <strong className="text-foreground dark:text-white">"Active Workspace"</strong> (Deterministic) and{' '}
-                  <strong className="text-foreground dark:text-white">"Latent History"</strong> (Probabilistic), it enables long-horizon engineering
+                  By distinguishing between <strong className="text-foreground dark:text-white">&quot;Active Workspace&quot;</strong> (Deterministic) and{' '}
+                  <strong className="text-foreground dark:text-white">&quot;Latent History&quot;</strong> (Probabilistic), it enables long-horizon engineering
                   tasks previously impossible for standard LLMs.
                 </p>
               </div>
@@ -329,7 +329,7 @@ export default function NewAboutPage() {
               </p>
               <p className="text-sm text-muted-foreground dark:text-neutral-400 leading-relaxed">
                 Codebolt is merely the first artifact of our core mission: to solve the alignment problem in autonomous coding agents. We operate
-                with a "Safety-First" charter, meaning our research mandates supersede commercial deployment timelines. We do not answer to
+                with a &quot;Safety-First&quot; charter, meaning our research mandates supersede commercial deployment timelines. We do not answer to
                 shareholders; we answer to the integrity of the codebase.
               </p>
             </div>

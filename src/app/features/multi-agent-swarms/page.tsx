@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { motion } from 'motion/react'
-import { ArrowLeft, Users, UserCheck, Shield, Zap, Plus, Minus } from 'lucide-react'
+import { ArrowLeft, Plus, Minus } from 'lucide-react'
+import { HighlightBannerSection, MetricStrip, CTASection } from '@/templatesections'
 
 const swarmFeatures = [
     {
@@ -33,13 +34,6 @@ const agentStates = [
     { state: 'busy', color: 'bg-amber-500', description: 'Occupied with high-priority work' },
     { state: 'offline', color: 'bg-zinc-500', description: 'Not responding or disconnected' },
     { state: 'error', color: 'bg-red-500', description: 'In error state' },
-]
-
-const scalingBenefits = [
-    { value: '5', label: 'Minimum swarm size' },
-    { value: '100+', label: 'Maximum agents' },
-    { value: 'Instant', label: 'Scale up time' },
-    { value: '$0', label: 'Scaling overhead' },
 ]
 
 export default function MultiAgentSwarmsPage() {
@@ -75,15 +69,16 @@ export default function MultiAgentSwarmsPage() {
             </section>
 
             {/* Key Message */}
-            <section className="py-16 px-6 bg-primary/5 border-b border-border">
-                <div className="max-w-4xl mx-auto text-center">
-                    <p className="text-2xl md:text-3xl text-foreground font-light leading-relaxed">
-                        Today's AI tools give you <span className="text-primary font-medium">one helper</span>.
-                        That's like having a single employee. Codebolt gives you
+            <HighlightBannerSection
+                content={
+                    <>
+                        Today&apos;s AI tools give you <span className="text-primary font-medium">one helper</span>.
+                        That&apos;s like having a single employee. Codebolt gives you
                         <span className="text-primary font-medium"> an entire team</span>.
-                    </p>
-                </div>
-            </section>
+                    </>
+                }
+                tone="accent"
+            />
 
             {/* Swarm Features */}
             <section className="py-24 px-6">
@@ -207,34 +202,27 @@ export default function MultiAgentSwarmsPage() {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                        {scalingBenefits.map((benefit) => (
-                            <div key={benefit.label} className="text-center p-8 border border-border bg-card/30">
-                                <span className="font-mono text-3xl text-primary block mb-2">{benefit.value}</span>
-                                <span className="text-xs text-muted-foreground uppercase tracking-wider">{benefit.label}</span>
-                            </div>
-                        ))}
-                    </div>
+                    <MetricStrip
+                        variant="cards"
+                        columns={4}
+                        metrics={[
+                            { value: '5', label: 'Minimum swarm size' },
+                            { value: '100+', label: 'Maximum agents' },
+                            { value: 'Instant', label: 'Scale up time' },
+                            { value: '$0', label: 'Scaling overhead' },
+                        ]}
+                    />
                 </div>
             </section>
 
             {/* CTA */}
-            <section className="py-24 px-6 border-t border-border">
-                <div className="max-w-2xl mx-auto text-center">
-                    <h2 className="text-3xl font-medium text-foreground tracking-tight mb-6">
-                        Deploy Your First Swarm
-                    </h2>
-                    <p className="text-muted-foreground mb-8">
-                        Go from one AI to a hundred. Scale development capacity without scaling headcount.
-                    </p>
-                    <Link
-                        href="/download"
-                        className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground text-sm uppercase rounded-full font-bold hover:bg-cyan-400 transition-colors"
-                    >
-                        Get Started
-                    </Link>
-                </div>
-            </section>
+            <CTASection
+                title={"Deploy Your First Swarm"}
+                description="Go from one AI to a hundred. Scale development capacity without scaling headcount."
+                ctaText="Get Started"
+                ctaHref="/download"
+                showOverlay={false}
+            />
         </div>
     )
 }

@@ -92,7 +92,7 @@ export default function PersistentMemoryPage() {
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-2xl font-medium text-foreground mb-6">The Infinite Context Paradigm</h2>
                     <p className="text-lg text-muted-foreground leading-relaxed">
-                        LLMs have limited context windows—100-200K tokens. That's a keyhole view of your codebase.
+                        LLMs have limited context windows—100-200K tokens. That&apos;s a keyhole view of your codebase.
                         Codebolt solves this at the <span className="text-foreground">IDE/harness level</span>.
                         Memory lives outside the agent, giving every agent access to
                         <span className="text-foreground"> infinite, persistent context</span>.

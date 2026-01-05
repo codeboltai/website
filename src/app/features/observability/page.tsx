@@ -2,14 +2,14 @@
 
 import Link from 'next/link'
 import { motion } from 'motion/react'
-import { ArrowLeft, Eye, FileText, GitPullRequest, Activity, Bug, Clock } from 'lucide-react'
+import { ArrowLeft, FileText, GitPullRequest, Activity, Bug } from 'lucide-react'
 
 const visibilityFeatures = [
     {
         icon: Activity,
         title: 'Real-Time Monitoring',
-        description: 'Watch your agents work in real-time. See what they're doing, what files they're touching, what decisions they're making—as it happens.',
-    details: ['Live agent status indicators', 'Log streaming', 'Performance metrics', 'Current task visibility'],
+        description: 'Watch your agents work in real-time. See what they are doing, what files they are touching, what decisions they are making—as it happens.',
+        details: ['Live agent status indicators', 'Log streaming', 'Performance metrics', 'Current task visibility'],
     },
     {
         icon: Bug,
@@ -209,7 +209,7 @@ export default function ObservabilityPage() {
                             Intervention & Takeover
                         </h2>
                         <p className="text-lg text-muted-foreground font-light max-w-2xl">
-                            Jump in and take over from any agent at any time. You're always in control.
+                            Jump in and take over from any agent at any time. You&apos;re always in control.
                         </p>
                     </motion.div>
 

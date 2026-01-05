@@ -1,6 +1,8 @@
 'use client'
 
 import { motion } from 'motion/react'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { ReactNode } from 'react'
 
@@ -15,6 +17,8 @@ export interface FeatureGridItem {
   diagram?: ReactNode
   /** Stats */
   stats?: Array<{ label: string; value: string }>
+  /** Link URL for "Learn more" */
+  href?: string
 }
 
 export interface FeatureGridSectionProps {
@@ -164,21 +168,32 @@ export function FeatureGridSection({
                 {feature.description}
               </p>
 
-              {/* Stats */}
-              {feature.stats && feature.stats.length > 0 && (
-                <div className="mt-6 pt-4 border-t border-border dark:border-zinc-800 flex gap-6">
-                  {feature.stats.map((stat, sidx) => (
-                    <div key={sidx}>
-                      <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground dark:text-zinc-500 block mb-1">
-                        {stat.label}
-                      </span>
-                      <span className="font-mono text-sm text-foreground dark:text-zinc-200">
-                        {stat.value}
-                      </span>
-                    </div>
-                  ))}
+              {/* Stats + Link */}
+              {(feature.stats && feature.stats.length > 0) || feature.href ? (
+                <div className="mt-6 pt-4 border-t border-border dark:border-zinc-800 flex justify-between items-center">
+                  <div className="flex gap-6">
+                    {feature.stats?.map((stat, sidx) => (
+                      <div key={sidx}>
+                        <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground dark:text-zinc-500 block mb-1">
+                          {stat.label}
+                        </span>
+                        <span className="font-mono text-sm text-foreground dark:text-zinc-200">
+                          {stat.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  {feature.href && (
+                    <Link
+                      href={feature.href}
+                      className="text-xs text-muted-foreground hover:text-primary dark:hover:text-cyan-400 transition-colors flex items-center gap-1 group/link"
+                    >
+                      Learn more
+                      <ArrowRight className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" />
+                    </Link>
+                  )}
                 </div>
-              )}
+              ) : null}
             </motion.div>
           ))}
         </div>

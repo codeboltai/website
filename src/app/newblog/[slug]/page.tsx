@@ -44,8 +44,9 @@ function XIcon() {
   )
 }
 
-export default function NewBlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getNewBlogPostBySlug(params.slug)
+export default async function NewBlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = getNewBlogPostBySlug(slug)
   if (!post) notFound()
 
   const canonicalUrl = `https://codebolt.ai/newblog/${post.slug}`
