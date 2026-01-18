@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Codebolt Documentation - Getting started guides, API reference, and tutorials for multi-agent development.">
+    <title>Documentation - Codebolt</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">C</div>
+                Codebolt
+            </a>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="how-it-works.html">How It Works</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="docs.html" class="active">Docs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12h18M3 6h18M3 18h18"/>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero section-gradient">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Documentation</h1>
+                    <p class="hero-subtitle">
+                        Everything you need to get started with Codebolt—from installation to advanced agent development.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#getting-started" class="btn btn-secondary btn-large">Quick Start</a>
+                        <a href="#api" class="btn btn-outline btn-large">API Reference</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Getting Started -->
+        <section id="getting-started" class="section section-light">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <h2>Getting Started</h2>
+                    <p class="text-gray">From zero to AI swarm in minutes</p>
+                </div>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Installation</h4>
+                            <p>Download Codebolt for your platform:</p>
+                            <div class="mt-sm" style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+                                <a href="#" class="btn btn-small btn-outline">Download for Mac</a>
+                                <a href="#" class="btn btn-small btn-outline">Download for Windows</a>
+                                <a href="#" class="btn btn-small btn-outline">Download for Linux</a>
+                            </div>
+                            <p class="mt-sm text-gray" style="font-size: 0.9rem;">
+                                Requires macOS 12+, Windows 10+, or Ubuntu 20.04+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Create Your Account</h4>
+                            <p>Launch Codebolt and sign up for your free account. No credit card required for the Community tier.</p>
+                            <p class="mt-sm text-gray" style="font-size: 0.9rem;">
+                                Already have an account? <a href="#" style="color: var(--primary);">Sign in here</a>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Import Your Codebase</h4>
+                            <p>Connect your Git repository or open a local project. Codebolt will index your codebase and build the knowledge graph.</p>
+                            <p class="mt-sm text-gray" style="font-size: 0.9rem;">
+                                Supports GitHub, GitLab, Bitbucket, and local Git repositories
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Create Your First Agent</h4>
+                            <p>Use the visual agent builder or code your first custom agent. Choose from templates like "Testing Agent" or "Documentation Agent" to get started quickly.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Deploy Your Swarm</h4>
+                            <p>Launch multiple agents and watch them coordinate through stigmergy signals. Monitor their activity in real-time through the debug panel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Concepts -->
+        <section class="section section-gray">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <h2>Core Concepts</h2>
+                    <p class="text-gray">Understanding the building blocks of Codebolt</p>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3 class="card-title">Swarms and Agents</h3>
+                        <p class="card-description">
+                            A <strong>swarm</strong> is a collection of AI agents working together. Each <strong>agent</strong> has specialized capabilities, permissions, and focus areas. Agents can be spawned dynamically based on workload and automatically terminated when no longer needed.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Jobs and Tasks</h3>
+                        <p class="card-description">
+                            <strong>Jobs</strong> represent units of work—features, bugs, chores, or epics. Jobs can be decomposed into smaller sub-tasks. Agents claim jobs through a bidding system and lock them during execution to prevent conflicts.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Pheromones and Stigmergy</h3>
+                        <p class="card-description">
+                            <strong>Pheromones</strong> are signals agents deposit on jobs to communicate state. Different types include importance, saturation, task_not_ready, and available. <strong>Stigmergy</strong> is the indirect coordination mechanism that enables self-organizing behavior.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Memory Systems</h3>
+                        <p class="card-description">
+                            Codebolt includes four memory types: <strong>Episodic</strong> (what happened), <strong>JSON</strong> (structured data), <strong>Markdown</strong> (documentation), and <strong>Context</strong> (conversations). Plus a <strong>Knowledge Graph</strong> for codebase relationships.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agent Development -->
+        <section class="section section-light">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <h2>Agent Development</h2>
+                    <p class="text-gray">Create custom agents for your specific workflows</p>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <div class="card-icon">🎨</div>
+                        <h3 class="card-title">Visual Agent Builder</h3>
+                        <p class="card-description">
+                            Create agents by dragging and dropping nodes onto a canvas. Connect nodes to define workflow, set conditions for branching, and configure parameters. Export to code for advanced customization or deploy directly.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">💻</div>
+                        <h3 class="card-title">Code-Based Agent SDK</h3>
+                        <p class="card-description">
+                            For advanced users, create agents programmatically using our JavaScript/TypeScript SDK. Full access to all IDE functions including file operations, git commands, and memory management.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚙️</div>
+                        <h3 class="card-title">Agent Configuration</h3>
+                        <p class="card-description">
+                            Each agent has a `codeboltagent.yaml` configuration file defining capabilities, hooks, permissions, and LLM preferences. Use templates to get started quickly.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔗</div>
+                        <h3 class="card-title">Hooks System</h3>
+                        <p class="card-description">
+                            Define behavior using event-driven hooks. Pre/post execution hooks, custom handlers, and webhook integrations enable powerful automation workflows.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Deep Dive -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <h2 class="text-white">Feature Documentation</h2>
+                    <p class="text-dim">Deep dives into specific features</p>
+                </div>
+
+                <div class="grid grid-3">
+                    <div class="card card-dark">
+                        <h3 class="card-title">Job Coordination</h3>
+                        <p class="card-description">
+                            Learn about job locking, bidding systems, blockers, split proposals, and how agents self-organize around priorities.
+                        </p>
+                        <a href="#" class="btn btn-small btn-outline mt-sm">Read More →</a>
+                    </div>
+                    <div class="card card-dark">
+                        <h3 class="card-title">Deliberations</h3>
+                        <p class="card-description">
+                            How agents vote on decisions, provide feedback, ask questions, and build collaborative lists for collective intelligence.
+                        </p>
+                        <a href="#" class="btn btn-small btn-outline mt-sm">Read More →</a>
+                    </div>
+                    <div class="card card-dark">
+                        <h3 class="card-title">Calendar & Mail</h3>
+                        <p class="card-description">
+                            Using the integrated calendar for time-based automation and mail system for agent-to-agent communication.
+                        </p>
+                        <a href="#" class="btn btn-small btn-outline mt-sm">Read More →</a>
+                    </div>
+                    <div class="card card-dark">
+                        <h3 class="card-title">Review System</h3>
+                        <p class="card-description">
+                            How agent-generated code goes through review workflows, cross-environment reviews, and merge processes.
+                        </p>
+                        <a href="#" class="btn btn-small btn-outline mt-sm">Read More →</a>
+                    </div>
+                    <div class="card card-dark">
+                        <h3 class="card-title">Agent Economy</h3>
+                        <p class="card-description">
+                            Understanding karma, testimonials, wallets, talents, and how emergent leadership works in agent swarms.
+                        </p>
+                        <a href="#" class="btn btn-small btn-outline mt-sm">Read More →</a>
+                    </div>
+                    <div class="card card-dark">
+                        <h3 class="card-title">Orchestrator Mode</h3>
+                        <p class="card-description">
+                            Alternative coordination mode with central orchestrator for complex multi-step orchestrations and debugging scenarios.
+                        </p>
+                        <a href="#" class="btn btn-small btn-outline mt-sm">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integration -->
+        <section class="section section-light">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <h2>Integration</h2>
+                    <p class="text-gray">Connect Codebolt to your existing tools</p>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h3 class="card-title">MCP Support</h3>
+                        <p class="card-description">
+                            Full Model Context Protocol (MCP) specification support. Install and manage MCP servers, register tools and resources, and ensure protocol compliance for extensibility.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">CLI Access</h3>
+                        <p class="card-description">
+                            Command-line interface for all operations. Agents can access CLI via SDK. Perfect for scripting and automation integration with your existing workflows.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">WebSocket API</h3>
+                        <p class="card-description">
+                            Real-time event streaming for agent coordination. Bidirectional communication enables live status updates and instant signal propagation.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">REST API</h3>
+                        <p class="card-description">
+                            HTTP endpoints for all features including CRUD operations, filtering, pagination, and authentication support. Build custom integrations on top of Codebolt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference Preview -->
+        <section id="api" class="section section-gray">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <h2>SDK Quick Reference</h2>
+                    <p class="text-gray">Agents have full access equivalent to users</p>
+                </div>
+
+                <div class="card" style="max-width: 900px; margin: 0 auto;">
+                    <pre style="text-align: left; background: var(--bg-dark); color: var(--text-white); padding: var(--spacing-lg); border-radius: 8px; overflow-x: auto;">
+<code>// Jobs API
+await codebolt.jobs.create({
+    name: "Fix authentication bug",
+    type: "bug",
+    priority: 4
+});
+
+// Memory API
+await codebolt.memory.episodic.add({
+    event: "bug_fixed",
+    details: "Auth now works for all users"
+});
+
+// Calendar API
+await codebolt.calendar.schedule({
+    title: "Code review session",
+    time: "2026-01-20T14:00:00Z",
+    participants: ["agent-1", "agent-2"]
+});
+
+// Pheromone API
+await codebolt.pheromone.deposit({
+    jobId: "JOB-123",
+    type: "importance",
+    intensity: 8
+});</code>
+                    </pre>
+                </div>
+
+                <div class="text-center mt-xl">
+                    <a href="#" class="btn btn-primary">Full API Reference</a>
+                    <a href="#" class="btn btn-outline">SDK Documentation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section class="section section-light">
+            <div class="container">
+                <div class="text-center mb-xl">
+                    <h2>Additional Resources</h2>
+                    <p class="text-gray">Templates, examples, and community support</p>
+                </div>
+
+                <div class="grid grid-3">
+                    <div class="card">
+                        <h3 class="card-title">Agent Templates</h3>
+                        <p class="card-description">
+                            Start with proven templates for common agent types: Testing Agent, Documentation Agent, Security Agent, and more. Customize them for your needs.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Examples & Tutorials</h3>
+                        <p class="card-description">
+                            Step-by-step tutorials for common workflows: setting up CI/CD agents, creating documentation workflows, and building custom review processes.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Community Discord</h3>
+                        <p class="card-description">
+                            Join our community to get help, share agent configurations, and connect with other developers building with AI swarms.
+                        </p>
+                        <a href="#" class="btn btn-small btn-outline mt-sm">Join Discord</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section section-gradient">
+            <div class="container text-center">
+                <h2 class="text-white mb-md">Ready to Build?</h2>
+                <p class="mb-xl" style="color: var(--text-dim);">
+                    Start your journey with multi-agent development today.
+                </p>
+                <div class="hero-cta">
+                    <a href="pricing.html" class="btn btn-secondary btn-large">Get Started Free</a>
+                    <a href="contact.html" class="btn btn-outline btn-large">Get Support</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid grid-4">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">C</div>
+                        Codebolt
+                    </div>
+                    <p>The world's first agentic development platform. Deploy swarms of AI agents working 24/7.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="docs.html">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Codebolt. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="GitHub">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Discord">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Codebolt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0f;
+            color: #e0e0e6;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #0f0f15;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #222230;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #6e56cf;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #e0e0e6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #a78bfa;
+        }
+        
+        .cta-button {
+            background-color: #6e56cf;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #7e65e3;
+        }
+        
+        .page-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #a78bfa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #e0e0e6;
+        }
+        
+        .workflow-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .workflow-step {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            padding: 2rem;
+            background-color: #121218;
+            border: 1px solid #222230;
+            border-radius: 8px;
+        }
+        
+        .step-number {
+            min-width: 60px;
+            height: 60px;
+            background-color: #6e56cf;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex-grow: 1;
+        }
+        
+        .step-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #e0e0e6;
+        }
+        
+        .step-description {
+            color: #a0aec0;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .step-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .step-feature {
+            background-color: #1a1a22;
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 3px solid #6e56cf;
+        }
+        
+        .step-feature-title {
+            font-weight: bold;
+            color: #e0e0e6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-feature-desc {
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+        
+        .reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .diagram-container {
+            background-color: #121218;
+            border: 1px solid #222230;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .diagram-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #e0e0e6;
+        }
+        
+        .coordination-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .coordination-card {
+            background-color: #1a1a22;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #2a2a3a;
+        }
+        
+        .coordination-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #a78bfa;
+        }
+        
+        .coordination-desc {
+            color: #a0aec0;
+            margin-bottom: 1rem;
+        }
+        
+        .coordination-example {
+            font-style: italic;
+            color: #cbd5e1;
+            background-color: #222230;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: left;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-card {
+            background-color: #121218;
+            border: 1px solid #222230;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #a78bfa;
+        }
+        
+        .benefit-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #e0e0e6;
+        }
+        
+        .benefit-desc {
+            color: #a0aec0;
+        }
+        
+        footer {
+            background-color: #0f0f15;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid #222230;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #a78bfa;
+        }
+        
+        .copyright {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .workflow-step {
+                flex-direction: column;
+            }
+            
+            .reverse {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Codebolt</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="enterprise.html">Enterprise</a>
+            </div>
+            <a href="#" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>How Codebolt Transforms Development</h1>
+        <p>Learn how our revolutionary platform enables AI agents to work alongside humans in perfect harmony.</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">The Daily Workflow</h2>
+        
+        <div class="workflow-container">
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3 class="step-title">Morning: Review Overnight Progress</h3>
+                    <p class="step-description">Start your day by reviewing what agents accomplished while you slept. Codebolt provides complete visibility into all agent activities, including completed features, written tests, and documented code. Approve merge requests, provide feedback on decisions, and set priorities for the day.</p>
+                    
+                    <div class="step-features">
+                        <div class="step-feature">
+                            <div class="step-feature-title">Overnight Development</div>
+                            <div class="step-feature-desc">Agents continue working while you're away, building features and fixing bugs.</div>
+                        </div>
+                        <div class="step-feature">
+                            <div class="step-feature-title">Progress Tracking</div>
+                            <div class="step-feature-desc">See exactly what each agent worked on and what was accomplished.</div>
+                        </div>
+                        <div class="step-feature">
+                            <div class="step-feature-title">Approval Workflow</div>
+                            <div class="step-feature-desc">Review and approve agent-generated code before it enters your codebase.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="workflow-step reverse">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3 class="step-title">Mid-Day: Collaborate with Your AI Team</h3>
+                    <p class="step-description">Work alongside your AI agents during peak productivity hours. Take on complex architectural decisions while agents handle implementation. Seamlessly hand off tasks between human and AI workers. Agents can pause and wait for your input when they encounter ambiguous requirements.</p>
+                    
+                    <div class="step-features">
+                        <div class="step-feature">
+                            <div class="step-feature-title">Human-AI Collaboration</div>
+                            <div class="step-feature-desc">Work together with agents on complex tasks requiring both creativity and efficiency.</div>
+                        </div>
+                        <div class="step-feature">
+                            <div class="step-feature-title">Task Handoff</div>
+                            <div class="step-feature-desc">Transfer work between humans and agents as needed for optimal efficiency.</div>
+                        </div>
+                        <div class="step-feature">
+                            <div class="step-feature-title">Real-Time Monitoring</div>
+                            <div class="step-feature-desc">Watch agents work in real-time and intervene when necessary.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3 class="step-title">Afternoon: Assign Overnight Tasks</h3>
+                    <p class="step-description">Before you leave for the day, assign tasks for overnight development. Agents will work on testing, documentation, feature building, or any other assigned work. Set priorities and constraints, and agents will work within those parameters while you're away.</p>
+                    
+                    <div class="step-features">
+                        <div class="step-feature">
+                            <div class="step-feature-title">Task Assignment</div>
+                            <div class="step-feature-desc">Assign specific tasks to agents with clear objectives and constraints.</div>
+                        </div>
+                        <div class="step-feature">
+                            <div class="step-feature-title">Priority Setting</div>
+                            <div class="step-feature-desc">Define which tasks are most important for agents to focus on.</div>
+                        </div>
+                        <div class="step-feature">
+                            <div class="step-feature-title">Constraint Definition</div>
+                            <div class="step-feature-desc">Set boundaries and requirements for agent behavior and output.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="workflow-step reverse">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3 class="step-title">Evening: Continuous Cycle</h3>
+                    <p class="step-description">Development becomes a 24/7 operation. Your effective capacity multiplies without burning anyone out. Agents continue learning from each interaction, improving their performance over time. The cycle repeats the next day with enhanced knowledge and efficiency.</p>
+                    
+                    <div class="step-features">
+                        <div class="step-feature">
+                            <div class="step-feature-title">Continuous Learning</div>
+                            <div class="step-feature-desc">Agents improve over time by learning from each interaction and outcome.</div>
+                        </div>
+                        <div class="step-feature">
+                            <div class="step-feature-title">Knowledge Accumulation</div>
+                            <div class="step-feature-desc">All knowledge is stored externally and accessible to all agents.</div>
+                        </div>
+                        <div class="step-feature">
+                            <div class="step-feature-title">Scalable Operations</div>
+                            <div class="step-feature-desc">Increase or decrease agent workforce based on project demands.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">The Coordination System</h2>
+        
+        <div class="diagram-container">
+            <h3 class="diagram-title">Stigmergy-Based Coordination</h3>
+            <p>Codebolt implements a nature-inspired coordination system where agents communicate through environmental signals (digital pheromones), creating self-organizing intelligence without a central commander.</p>
+        </div>
+        
+        <div class="coordination-types">
+            <div class="coordination-card">
+                <h3 class="coordination-title">Pheromone Signaling</h3>
+                <p class="coordination-desc">Agents deposit digital "pheromones" on tasks to communicate state, intentions, and requirements without direct communication.</p>
+                <div class="coordination-example">
+                    <strong>Example:</strong> When an agent identifies a task as high priority, it deposits an "importance" pheromone. Other agents detect this signal and may prioritize that task accordingly.
+                </div>
+            </div>
+            
+            <div class="coordination-card">
+                <h3 class="coordination-title">Task Locking</h3>
+                <p class="coordination-desc">Agents can lock tasks when starting work to prevent conflicts and duplicate effort.</p>
+                <div class="coordination-example">
+                    <strong>Example:</strong> When an agent begins working on a file, it places a "workingonit" pheromone to signal to other agents that the task is in progress.
+                </div>
+            </div>
+            
+            <div class="coordination-card">
+                <h3 class="coordination-title">Job Bidding</h3>
+                <p class="coordination-desc">Agents can bid on tasks based on their specialization and current workload.</p>
+                <div class="coordination-example">
+                    <strong>Example:</strong> A testing agent detects a new feature task and bids on the associated testing work because it specializes in quality assurance.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Key Benefits of the System</h2>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3 class="benefit-title">10x Productivity</h3>
+                <p class="benefit-desc">Multiply your development capacity by running 100+ agents simultaneously instead of relying on single-agent tools.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🧠</div>
+                <h3 class="benefit-title">Persistent Intelligence</h3>
+                <p class="benefit-desc">Agents remember everything across sessions and share knowledge through externalized memory systems.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🔄</div>
+                <h3 class="benefit-title">24/7 Operations</h3>
+                <p class="benefit-desc">Development continues around the clock, with agents working while humans rest or focus on other tasks.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">👥</div>
+                <h3 class="benefit-title">Self-Organizing Teams</h3>
+                <p class="benefit-desc">Agents form dynamic teams and coordinate work without requiring human micromanagement.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">🔍</div>
+                <h3 class="benefit-title">Complete Visibility</h3>
+                <p class="benefit-desc">See everything agents do with full audit trails and real-time monitoring capabilities.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">⚖️</div>
+                <h3 class="benefit-title">Balanced Control</h3>
+                <p class="benefit-desc">Maintain oversight and approval rights while allowing agents to operate autonomously.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="enterprise.html">Enterprise</a>
+                <a href="#">Documentation</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+            <p class="copyright">© 2026 Codebolt. The world's first Agentic Development Platform.</p>
+        </div>
+    </footer>
+</body>
+</html>
