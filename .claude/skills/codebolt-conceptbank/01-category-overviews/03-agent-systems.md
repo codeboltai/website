@@ -4,7 +4,7 @@ level: 2
 category: "agent-systems"
 estimated_read_time: "10 minutes"
 prerequisites: ["00-core-identity.md", "01-philosophy.md"]
-next_level: ["../features/agent-management/agent-types.md", "../features/agent-management/agent-creation-code.md"]
+next_level: ["../02-concept-details/features/agent-management/agent-types.md", "../02-concept-details/features/agent-management/agent-creation-code.md"]
 related_categories: ["02-swarm-management.md", "04-coordination.md"]
 tags: ["agents", "creation", "lifecycle", "configuration"]
 ---
@@ -36,12 +36,12 @@ CodeBolt Agent Systems solve these through:
 
 | Concept | Description | Deep Dive |
 |---------|-------------|-----------|
-| **Agent Types** | Different categories of agents with specialized capabilities | [Agent Types](../features/agent-management/agent-types.md) |
-| **Agent Creation (Visual)** | Create agents through UI-based builder | [Agent Creation (Visual)](../features/agent-management/agent-creation-visual.md) |
-| **Agent Creation (Code)** | Create agents programmatically | [Agent Creation (Code)](../features/agent-management/agent-creation-code.md) |
-| **Agent Lifecycle** | How agents are created, run, paused, and terminated | [Agent Lifecycle](../features/agent-management/agent-lifecycle.md) |
-| **Agent Configuration** | Settings, capabilities, and constraints | [Agent Configuration](../features/agent-management/agent-configuration.md) |
-| **Agent Templates** | Pre-configured agents for common use cases | [Agent Templates](../features/agent-management/agent-templates.md) |
+| **Agent Types** | Different categories of agents with specialized capabilities | [Agent Types](../02-concept-details/features/agent-management/agent-types.md) |
+| **Agent Creation (Visual)** | Create agents through UI-based builder | [Agent Creation (Visual)](../02-concept-details/features/agent-management/agent-creation-visual.md) |
+| **Agent Creation (Code)** | Create agents programmatically | [Agent Creation (Code)](../02-concept-details/features/agent-management/agent-creation-code.md) |
+| **Agent Lifecycle** | How agents are created, run, paused, and terminated | [Agent Lifecycle](../02-concept-details/features/agent-management/agent-lifecycle.md) |
+| **Agent Configuration** | Settings, capabilities, and constraints | [Agent Configuration](../02-concept-details/features/agent-management/agent-configuration.md) |
+| **Agent Templates** | Pre-configured agents for common use cases | [Agent Templates](../02-concept-details/features/agent-management/agent-templates.md) |
 
 ## When to Use This Category
 
@@ -192,19 +192,19 @@ Agents don't work in isolation - they collaborate through multiple mechanisms:
 ## Quick Start
 
 ### Beginner: Create Your First Agent
-1. [Agent Types](../features/agent-management/agent-types.md) - Understanding agent types
-2. [Agent Creation (Visual)](../features/agent-management/agent-creation-visual.md) - Visual creation guide
-3. [Running Agents](../features/agent-management/running-agents.md) - How to run agents
+1. [Agent Types](../02-concept-details/features/agent-management/agent-types.md) - Understanding agent types
+2. [Agent Creation (Visual)](../02-concept-details/features/agent-management/agent-creation-visual.md) - Visual creation guide
+3. [Running Agents](../02-concept-details/features/agent-management/running-agents.md) - How to run agents
 
 ### Intermediate: Advanced Configuration
-1. [Agent Configuration](../features/agent-management/agent-configuration.md) - Configuration options
-2. [Agent Templates](../features/agent-management/agent-templates.md) - Using templates
-3. [Agent Lifecycle](../features/agent-management/agent-lifecycle.md) - Understanding lifecycle
+1. [Agent Configuration](../02-concept-details/features/agent-management/agent-configuration.md) - Configuration options
+2. [Agent Templates](../02-concept-details/features/agent-management/agent-templates.md) - Using templates
+3. [Agent Lifecycle](../02-concept-details/features/agent-management/agent-lifecycle.md) - Understanding lifecycle
 
 ### Advanced: Custom Agents
-1. [Agent Creation (Code)](../features/agent-management/agent-creation-code.md) - Programmatic creation
-2. [Agent SDK](../features/agent-management/agent-sdk.md) - Custom agent development
-3. [Agent Hooks](../features/agent-management/agent-hooks.md) - Extending agent behavior
+1. [Agent Creation (Code)](../02-concept-details/features/agent-management/agent-creation-code.md) - Programmatic creation
+2. [Agent SDK](../02-concept-details/features/agent-management/agent-sdk.md) - Custom agent development
+3. [Agent Hooks](../02-concept-details/features/agent-management/agent-hooks.md) - Extending agent behavior
 
 ## Common Patterns
 
@@ -220,7 +220,7 @@ Agents don't work in isolation - they collaborate through multiple mechanisms:
 
 - **[Swarm Management](02-swarm-management.md)** - Organizing agents into teams
 - **[Coordination](04-coordination.md)** - How agents communicate via stigmergy
-- **[Agent Economy](../features/agent-economy/)** - Reputation and incentives
+- **[Agent Economy](../02-concept-details/features/agent-economy/)** - Reputation and incentives
 - **[Observability](09-observability.md)** - Debugging and monitoring agents
 
 ## Common Questions
@@ -235,7 +235,7 @@ Agents discover work through multiple mechanisms:
 - **Vacancy system**: Agents apply for specific roles
 - **Human assignment**: Direct human delegation
 
-See [Job Coordination](../features/job-coordination/) for details.
+See [Job Coordination](../02-concept-details/features/job-coordination/) for details.
 
 ### "Can I modify an agent's behavior?"
 Yes, through multiple mechanisms:
@@ -244,7 +244,7 @@ Yes, through multiple mechanisms:
 - **Feedback**: Karma and testimonials shape behavior
 - **Intervention**: Directly redirect agents
 
-See [Agent Configuration](../features/agent-management/agent-configuration.md) for details.
+See [Agent Configuration](../02-concept-details/features/agent-management/agent-configuration.md) for details.
 
 ## Navigation
 
@@ -252,4 +252,4 @@ See [Agent Configuration](../features/agent-management/agent-configuration.md) f
 - [← Previous Category: Swarm Management](02-swarm-management.md)
 - [Next Category: Coordination](04-coordination.md)
 - [Category Index](index.md)
-- [Drill down to concept details](../features/agent-management/)
+- [Drill down to concept details](../02-concept-details/features/agent-management/)

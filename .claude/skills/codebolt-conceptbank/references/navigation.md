@@ -31,9 +31,14 @@ Complete guide for navigating the CodeBolt concept bank using progressive disclo
 8. `07-communication.md` - Deliberation, mail, calendar
 9. `08-tools-integrations.md` - Dev tools, MCP
 10. `09-observability.md` - Debug, monitoring, review
+11. `10-use-cases.md` - Real-world applications
+12. `11-user-personas-journeys.md` - Personas & journeys
+13. `12-business-strategy.md` - Value prop & ROI
+14. `13-showcase-examples.md` - Demos & workflows
+15. `14-technical-internals.md` - Architecture & Backend
 
 **What you get**:
-- 10-minute category summary
+- 10-minute category summary (15 categories available)
 - Key concepts with links to details
 - Quick start paths
 - Related concepts

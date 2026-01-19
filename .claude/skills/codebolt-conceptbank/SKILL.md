@@ -1,6 +1,6 @@
 ---
 name: codebolt-conceptbank
-description: Navigate and query CodeBolt's concept bank using progressive disclosure. Use this skill when you need information about CodeBolt's features, architecture, philosophy, or implementation. The concept bank is organized in 4 levels: (1) Executive Summary (5 min overview), (2) Category Overviews (10 min each), (3) Concept Details (~150 detailed files), (4) Deep Dives (technical internals). Load only the relevant level based on what information is needed. Always start with Level 1 (executive summary) for broad questions, then drill down to specific categories and concepts as needed. For navigation assistance, see references/navigation.md. For specific tasks (writing marketing copy, technical docs, sales materials), see references/by-task.md.
+description: Access CodeBolt's comprehensive knowledge base for information on its features, architecture, philosophy, and implementation. Use this to generate marketing copy, technical documentation, sales materials, or competitive analysis. Contains deep insights into multi-agent coordination, stigmergy, infinite context, swarm management, and agentic IDE concepts.
 ---
 
 # CodeBolt Concept Bank
@@ -25,7 +25,7 @@ Progressive disclosure system for discovering information about CodeBolt.
 ```
 Level 1: Executive Summary (1 file)
     ↓ "Tell me about [category]"
-Level 2: Category Overviews (10 files)
+Level 2: Category Overviews (15 files)
     ↓ "How do I [specific task]?"
 Level 3: Concept Details (~150 files)
     ↓ "Show me technical details"
@@ -56,6 +56,11 @@ Categories:
 8. [07-communication.md](01-category-overviews/07-communication.md) - Deliberation, mail, calendar
 9. [08-tools-integrations.md](01-category-overviews/08-tools-integrations.md) - Dev tools, MCP integration
 10. [09-observability.md](01-category-overviews/09-observability.md) - Debug, monitoring, review
+11. [10-use-cases.md](01-category-overviews/10-use-cases.md) - Real-world applications
+12. [11-user-personas-journeys.md](01-category-overviews/11-user-personas-journeys.md) - Personas & journeys
+13. [12-business-strategy.md](01-category-overviews/12-business-strategy.md) - Value prop & ROI
+14. [13-showcase-examples.md](01-category-overviews/13-showcase-examples.md) - Demos & workflows
+15. [14-technical-internals.md](01-category-overviews/14-technical-internals.md) - Architecture & Backend
 
 **Level 3**: [02-concept-details/](02-concept-details/)
 - User needs specific feature details
@@ -154,7 +159,7 @@ See [references/by-content-type.md](references/by-content-type.md) for:
 ## File Structure Notes
 
 - [00-executive-summary.md](00-executive-summary.md) - Always start here
-- [01-category-overviews/](01-category-overviews/) - 10 category overview files
+- [01-category-overviews/](01-category-overviews/) - 15 category overview files
 - [02-concept-details/](02-concept-details/) - Existing detailed concepts (~150 files)
 - [03-deep-dives/](03-deep-dives/) - Technical deep dives
 - [references/](references/) - Navigation and task guides (load as needed)

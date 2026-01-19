@@ -4,7 +4,7 @@ level: 2
 category: "work-execution"
 estimated_read_time: "10 minutes"
 prerequisites: ["02-swarm-management.md", "04-coordination.md"]
-next_level: ["../features/task-management/task-system-overview.md", "../features/job-coordination/job-system-overview.md"]
+next_level: ["../02-concept-details/features/task-management/task-system-overview.md", "../02-concept-details/features/job-coordination/job-system-overview.md"]
 related_categories: ["03-agent-systems.md", "04-coordination.md"]
 tags: ["tasks", "jobs", "planning", "execution"]
 ---
@@ -36,12 +36,12 @@ CodeBolt's work execution system solves these:
 
 | Concept | Description | Deep Dive |
 |---------|-------------|-----------|
-| **Roadmap System** | Long-term planning and goal tracking | [Roadmap System](../features/planning-roadmap/roadmap-system.md) |
-| **Requirement Planning** | Translate requirements into actionable plans | [Requirement Planning](../features/planning-roadmap/requirement-planning.md) |
-| **Job System Overview** | How jobs are created and distributed | [Job System Overview](../features/job-coordination/job-system-overview.md) |
-| **Job Bidding** | How agents bid on and claim jobs | [Job Bidding](../features/job-coordination/job-bidding.md) |
-| **Task System Overview** | How tasks are tracked and executed | [Task System Overview](../features/task-management/task-system-overview.md) |
-| **Blockers** | How blocked work is identified and resolved | [Blockers](../features/job-coordination/blockers.md) |
+| **Roadmap System** | Long-term planning and goal tracking | [Roadmap System](../02-concept-details/features/planning-roadmap/roadmap-system.md) |
+| **Requirement Planning** | Translate requirements into actionable plans | [Requirement Planning](../02-concept-details/features/planning-roadmap/requirement-planning.md) |
+| **Job System Overview** | How jobs are created and distributed | [Job System Overview](../02-concept-details/features/job-coordination/job-system-overview.md) |
+| **Job Bidding** | How agents bid on and claim jobs | [Job Bidding](../02-concept-details/features/job-coordination/job-bidding.md) |
+| **Task System Overview** | How tasks are tracked and executed | [Task System Overview](../02-concept-details/features/task-management/task-system-overview.md) |
+| **Blockers** | How blocked work is identified and resolved | [Blockers](../02-concept-details/features/job-coordination/blockers.md) |
 
 ## When to Use This Category
 
@@ -281,19 +281,19 @@ Detailed view of individual tasks:
 ## Quick Start
 
 ### Beginner: Understanding Work Execution
-1. [Task System Overview](../features/task-management/task-system-overview.md) - How tasks work
-2. [Job System Overview](../features/job-coordination/job-system-overview.md) - How jobs work
-3. [Task Use Cases](../features/task-management/task-use-cases.md) - Common patterns
+1. [Task System Overview](../02-concept-details/features/task-management/task-system-overview.md) - How tasks work
+2. [Job System Overview](../02-concept-details/features/job-coordination/job-system-overview.md) - How jobs work
+3. [Task Use Cases](../02-concept-details/features/task-management/task-use-cases.md) - Common patterns
 
 ### Intermediate: Planning and Coordination
-1. [Roadmap System](../features/planning-roadmap/roadmap-system.md) - Long-term planning
-2. [Job Bidding](../features/job-coordination/job-bidding.md) - Work distribution
-3. [Blockers](../features/job-coordination/blockers.md) - Handling blocked work
+1. [Roadmap System](../02-concept-details/features/planning-roadmap/roadmap-system.md) - Long-term planning
+2. [Job Bidding](../02-concept-details/features/job-coordination/job-bidding.md) - Work distribution
+3. [Blockers](../02-concept-details/features/job-coordination/blockers.md) - Handling blocked work
 
 ### Advanced: Optimization
-1. [Job Splitting](../features/job-coordination/job-splitting.md) - Parallelization
-2. [Priority System](../features/job-coordination/priority-system.md) - Prioritization
-3. [Planning Workflows](../features/planning-roadmap/planning-workflows.md) - Advanced planning
+1. [Job Splitting](../02-concept-details/features/job-coordination/job-splitting.md) - Parallelization
+2. [Priority System](../02-concept-details/features/job-coordination/priority-system.md) - Prioritization
+3. [Planning Workflows](../02-concept-details/features/planning-roadmap/planning-workflows.md) - Advanced planning
 
 ## Common Patterns
 
@@ -310,7 +310,7 @@ Detailed view of individual tasks:
 - **[Swarm Management](02-swarm-management.md)** - How swarms execute work
 - **[Coordination](04-coordination.md)** - How agents coordinate during execution
 - **[Agent Systems](03-agent-systems.md)** - How individual agents work
-- **[Planning & Roadmap](../features/planning-roadmap/)** - Planning systems
+- **[Planning & Roadmap](../02-concept-details/features/planning-roadmap/)** - Planning systems
 
 ## Common Questions
 
@@ -347,4 +347,4 @@ Blocked jobs are flagged and:
 - [← Previous Category: Memory & Knowledge](05-memory-knowledge.md)
 - [Next Category: Communication](07-communication.md)
 - [Category Index](index.md)
-- [Drill down to concept details](../features/task-management/), ../features/job-coordination/)
+- [Drill down to concept details](../02-concept-details/features/task-management/) and [Job Coordination](../02-concept-details/features/job-coordination/)

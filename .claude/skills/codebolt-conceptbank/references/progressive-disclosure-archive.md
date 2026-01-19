@@ -30,7 +30,7 @@ This concept bank uses a 4-level progressive disclosure architecture to help you
 ```
 Level 1: Executive Summary (1 file, 5 min)
     ↓ "Tell me about [category]"
-Level 2: Category Overviews (~10 files, 10 min each)
+Level 2: Category Overviews (~15 files, 10 min each)
     ↓ "How do I [specific task]?"
 Level 3: Concept Details (~150 files, 5 min each)
     ↓ "Show me the technical details"
@@ -64,7 +64,12 @@ conceptbank/
 │   ├── 06-work-execution.md            # Jobs, tasks, planning
 │   ├── 07-communication.md             # Deliberation, mail, calendar
 │   ├── 08-tools-integrations.md        # Development tools, MCP
-│   └── 09-observability.md             # Debug, monitoring, review
+│   ├── 09-observability.md             # Debug, monitoring, review
+│   ├── 10-use-cases.md                 # Real-world applications
+│   ├── 11-user-personas-journeys.md    # Personas & journeys
+│   ├── 12-business-strategy.md         # Value prop & ROI
+│   ├── 13-showcase-examples.md         # Demos & workflows
+│   └── 14-technical-internals.md       # Architecture & Backend
 │
 ├── 02-concept-details/                 # Level 3: Detailed concepts
 │   ├── core/                           # Core identity, philosophy, terminology
@@ -222,7 +227,7 @@ When updating concept files:
 ### Level 1: Executive Summary
 - `00-executive-summary.md` - Complete overview
 
-### Level 2: Category Overviews (10 files)
+### Level 2: Category Overviews (15 files)
 - `01-category-overviews/index.md` - Category index
 - `01-category-overviews/00-core-identity.md` - Core identity
 - `01-category-overviews/01-philosophy.md` - Philosophy
@@ -234,6 +239,11 @@ When updating concept files:
 - `01-category-overviews/07-communication.md` - Communication
 - `01-category-overviews/08-tools-integrations.md` - Tools & integrations
 - `01-category-overviews/09-observability.md` - Observability
+- `01-category-overviews/10-use-cases.md` - Use cases
+- `01-category-overviews/11-user-personas-journeys.md` - Personas & journeys
+- `01-category-overviews/12-business-strategy.md` - Business strategy
+- `01-category-overviews/13-showcase-examples.md` - Showcase
+- `01-category-overviews/14-technical-internals.md` - Technical internals
 
 ### Level 3: Concept Details (~150 existing files)
 - `core/` - Core concepts (identity, philosophy, terminology)

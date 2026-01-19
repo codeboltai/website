@@ -7,7 +7,7 @@ tags: ["index", "navigation", "overview"]
 
 # Category Overviews Index
 
-This is your guide to the 10 Level 2 category overviews. Each overview provides a 10-minute summary of a major category, with links to detailed concept files for deeper exploration.
+This is your guide to the 15 Level 2 category overviews. Each overview provides a 10-minute summary of a major category, with links to detailed concept files for deeper exploration.
 
 ## All Category Overviews
 
@@ -23,6 +23,11 @@ This is your guide to the 10 Level 2 category overviews. Each overview provides 
 | 8 | [Communication](07-communication.md) | Deliberation, mail, calendar | 8 min | Coordination, agent systems |
 | 9 | [Tools & Integrations](08-tools-integrations.md) | Development tools, MCP | 10 min | Agent systems, work execution |
 | 10 | [Observability](09-observability.md) | Debug, monitoring, review | 10 min | Agent systems, work execution |
+| 11 | [Use Cases](10-use-cases.md) | Real-world applications of agent swarms | 8 min | Work execution, strategy |
+| 12 | [User Personas](11-user-personas-journeys.md) | Target users and adoption journeys | 7 min | Use cases, core identity |
+| 13 | [Business Strategy](12-business-strategy.md) | Value prop, ROI, and market vision | 10 min | Use cases, core identity |
+| 14 | [Showcase](13-showcase-examples.md) | Demos, success stories, and workflows | 5 min | Use cases, tools |
+| 15 | [Technical Internals](14-technical-internals.md) | Architecture, Backend, and AI Integration | 12 min | Philosophy, tools |
 
 ## Quick Navigation
 
@@ -68,6 +73,15 @@ This is your guide to the 10 Level 2 category overviews. Each overview provides 
 - [Tools & Integrations](08-tools-integrations.md)
 - [Observability](09-observability.md)
 
+**Business & Users**:
+- [Use Cases](10-use-cases.md)
+- [User Personas](11-user-personas-journeys.md)
+- [Business Strategy](12-business-strategy.md)
+- [Showcase](13-showcase-examples.md)
+
+**Internals**:
+- [Technical Internals](14-technical-internals.md)
+
 ## Recommended Reading Paths
 
 ### Path 1: Product Understanding (30 min)
@@ -91,8 +105,8 @@ For understanding technical implementation:
 4. [Work Execution](06-work-execution.md) - 10 min
 5. [Observability](09-observability.md) - 10 min
 
-### Path 4: Complete Overview (2 hours)
-Read all 10 category overviews in sequence for comprehensive understanding.
+### Path 4: Complete Overview (2.5 hours)
+Read all 15 category overviews in sequence for comprehensive understanding.
 
 ## Category Relationships
 

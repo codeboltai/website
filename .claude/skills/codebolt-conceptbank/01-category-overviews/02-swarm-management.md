@@ -4,7 +4,7 @@ level: 2
 category: "swarm-management"
 estimated_read_time: "10 minutes"
 prerequisites: ["00-core-identity.md", "01-philosophy.md"]
-next_level: ["../features/swarm-management/swarm-creation.md", "../features/swarm-management/team-management.md"]
+next_level: ["../02-concept-details/features/swarm-management/swarm-creation.md", "../02-concept-details/features/swarm-management/team-management.md"]
 related_categories: ["03-agent-systems.md", "04-coordination.md"]
 tags: ["swarm", "agents", "coordination", "management"]
 ---
@@ -36,12 +36,12 @@ CodeBolt swarms solve these through:
 
 | Concept | Description | Deep Dive |
 |---------|-------------|-----------|
-| **Swarm Creation** | Create and configure multi-agent swarms | [Swarm Creation](../features/swarm-management/swarm-creation.md) |
-| **Team Management** | Organize agents into teams within swarms | [Team Management](../features/swarm-management/team-management.md) |
-| **Role System** | Define roles and responsibilities for agents | [Role System](../features/swarm-management/role-system.md) |
-| **Vacancy System** | Job posting system for agent work allocation | [Vacancy System](../features/swarm-management/vacancy-system.md) |
-| **Activity Monitoring** | Monitor all agent activity in real-time | [Swarm Activity Monitoring](../features/swarm-management/swarm-activity-monitoring.md) |
-| **Execution Control** | Start, stop, pause, and control swarm execution | [Swarm Execution Control](../features/swarm-management/swarm-execution-control.md) |
+| **Swarm Creation** | Create and configure multi-agent swarms | [Swarm Creation](../02-concept-details/features/swarm-management/swarm-creation.md) |
+| **Team Management** | Organize agents into teams within swarms | [Team Management](../02-concept-details/features/swarm-management/team-management.md) |
+| **Role System** | Define roles and responsibilities for agents | [Role System](../02-concept-details/features/swarm-management/role-system.md) |
+| **Vacancy System** | Job posting system for agent work allocation | [Vacancy System](../02-concept-details/features/swarm-management/vacancy-system.md) |
+| **Activity Monitoring** | Monitor all agent activity in real-time | [Swarm Activity Monitoring](../02-concept-details/features/swarm-management/swarm-activity-monitoring.md) |
+| **Execution Control** | Start, stop, pause, and control swarm execution | [Swarm Execution Control](../02-concept-details/features/swarm-management/swarm-execution-control.md) |
 
 ## When to Use This Category
 
@@ -143,19 +143,19 @@ Control swarm lifecycle and execution:
 ## Quick Start
 
 ### Beginner: Create Your First Swarm
-1. [Swarm Creation](../features/swarm-management/swarm-creation.md) - How to create swarms
-2. [Swarm Configuration](../features/swarm-management/swarm-configuration.md) - Configuring swarm behavior
-3. [Swarm Use Cases](../features/swarm-management/swarm-use-cases.md) - Common patterns
+1. [Swarm Creation](../02-concept-details/features/swarm-management/swarm-creation.md) - How to create swarms
+2. [Swarm Configuration](../02-concept-details/features/swarm-management/swarm-configuration.md) - Configuring swarm behavior
+3. [Swarm Use Cases](../02-concept-details/features/swarm-management/swarm-use-cases.md) - Common patterns
 
 ### Intermediate: Advanced Organization
-1. [Team Management](../features/swarm-management/team-management.md) - Organizing agents
-2. [Role System](../features/swarm-management/role-system.md) - Defining roles
-3. [Vacancy System](../features/swarm-management/vacancy-system.md) - Work allocation
+1. [Team Management](../02-concept-details/features/swarm-management/team-management.md) - Organizing agents
+2. [Role System](../02-concept-details/features/swarm-management/role-system.md) - Defining roles
+3. [Vacancy System](../02-concept-details/features/swarm-management/vacancy-system.md) - Work allocation
 
 ### Advanced: Optimizing Performance
-1. [Swarm Activity Monitoring](../features/swarm-management/swarm-activity-monitoring.md) - Monitoring
-2. [Swarm Spawn Management](../features/swarm-management/swarm-spawn-management.md) - Dynamic scaling
-3. [Swarm Execution Control](../features/swarm-management/swarm-execution-control.md) - Control mechanisms
+1. [Swarm Activity Monitoring](../02-concept-details/features/swarm-management/swarm-activity-monitoring.md) - Monitoring
+2. [Swarm Spawn Management](../02-concept-details/features/swarm-management/swarm-spawn-management.md) - Dynamic scaling
+3. [Swarm Execution Control](../02-concept-details/features/swarm-management/swarm-execution-control.md) - Control mechanisms
 
 ## Common Patterns
 
@@ -171,8 +171,8 @@ Control swarm lifecycle and execution:
 
 - **[Agent Systems](03-agent-systems.md)** - How individual agents work
 - **[Coordination](04-coordination.md)** - How agents communicate via stigmergy
-- **[Job Coordination](../features/job-coordination/)** - How work is distributed
-- **[Agent Economy](../features/agent-economy/)** - Reputation and incentives
+- **[Job Coordination](../02-concept-details/features/job-coordination/)** - How work is distributed
+- **[Agent Economy](../02-concept-details/features/agent-economy/)** - Reputation and incentives
 
 ## Integration with Other Systems
 
@@ -211,4 +211,4 @@ Agents coordinate through stigmergy - they leave "pheromone trails" (signals in 
 - [← Previous Category: Philosophy](01-philosophy.md)
 - [Next Category: Agent Systems](03-agent-systems.md)
 - [Category Index](index.md)
-- [Drill down to concept details](../features/swarm-management/)
+- [Drill down to concept details](../02-concept-details/features/swarm-management/)

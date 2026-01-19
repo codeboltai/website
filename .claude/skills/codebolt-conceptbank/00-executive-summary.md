@@ -50,6 +50,11 @@ CodeBolt isn't a single AI with add-on features - it's fundamentally architected
 | **Communication** | Deliberation, mail, calendar | Agent-to-agent communication |
 | **Tools & Integrations** | Development tools, MCP | What tools are available |
 | **Observability** | Debug, monitoring, review | Seeing everything AI does |
+| **Use Cases** | Real-world applications | Planning features & workflows |
+| **User Personas** | Target roles & journeys | Understanding target users |
+| **Business Strategy** | ROI, Vision, Value prop | Strategic decision making |
+| **Showcase** | Demos & success stories | Seeing what's possible |
+| **Technical Internals**| Architecture & Backend | Developing for CodeBolt |
 
 ## Common Starting Points
 
@@ -78,7 +83,7 @@ This concept bank uses a 4-level progressive disclosure architecture:
 ```
 Level 1: Executive Summary (You are here)
     ↓ "Tell me about [category]"
-Level 2: Category Overviews (~10 files, 10 min each)
+Level 2: Category Overviews (~15 files, 10 min each)
     ↓ "How do I [specific task]?"
 Level 3: Concept Details (~150 files, 5 min each)
     ↓ "Show me the technical details"
@@ -134,5 +139,8 @@ Choose your path based on what you need:
 - **Building agents** → [Agent Systems](01-category-overviews/03-agent-systems.md)
 - **Understanding coordination** → [Coordination](01-category-overviews/04-coordination.md)
 - **Technical implementation** → [Tools & Integrations](01-category-overviews/08-tools-integrations.md)
+- **Real-world applications** → [Use Cases](01-category-overviews/10-use-cases.md)
+- **Business value & ROI** → [Business Strategy](01-category-overviews/12-business-strategy.md)
+- **Technical architecture** → [Technical Internals](01-category-overviews/14-technical-internals.md)
 
 Or use the [navigation aids](_navigation/) to find your specific starting point.

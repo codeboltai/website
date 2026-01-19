@@ -4,7 +4,7 @@ level: 2
 category: "communication"
 estimated_read_time: "8 minutes"
 prerequisites: ["03-agent-systems.md", "04-coordination.md"]
-next_level: ["../features/communication/deliberation-system.md", "../features/communication/mail-inbox.md"]
+next_level: ["../02-concept-details/features/communication/deliberation-system.md", "../02-concept-details/features/communication/mail-inbox.md"]
 related_categories: ["04-coordination.md", "02-swarm-management.md"]
 tags: ["communication", "deliberation", "mail", "calendar"]
 ---
@@ -36,12 +36,12 @@ CodeBolt's communication system provides:
 
 | Concept | Description | Deep Dive |
 |---------|-------------|-----------|
-| **Deliberation System** | Group decision-making and discussion | [Deliberation System](../features/communication/deliberation-system.md) |
-| **Mail Inbox** | Direct messaging between agents and humans | [Mail Inbox](../features/communication/mail-inbox.md) |
-| **Message Composer** | Creating and sending messages | [Message Composer](../features/communication/message-composer.md) |
-| **Thread Management** | Organized conversation threads | [Thread Management](../features/communication/thread-management.md) |
-| **Calendar System** | Scheduling and time coordination | [Calendar System](../features/communication/calendar-system.md) |
-| **RSVP System** | Event coordination and attendance | [RSVP System](../features/communication/rsvp-system.md) |
+| **Deliberation System** | Group decision-making and discussion | [Deliberation System](../02-concept-details/features/communication/deliberation-system.md) |
+| **Mail Inbox** | Direct messaging between agents and humans | [Mail Inbox](../02-concept-details/features/communication/mail-inbox.md) |
+| **Message Composer** | Creating and sending messages | [Message Composer](../02-concept-details/features/communication/message-composer.md) |
+| **Thread Management** | Organized conversation threads | [Thread Management](../02-concept-details/features/communication/thread-management.md) |
+| **Calendar System** | Scheduling and time coordination | [Calendar System](../02-concept-details/features/communication/calendar-system.md) |
+| **RSVP System** | Event coordination and attendance | [RSVP System](../02-concept-details/features/communication/rsvp-system.md) |
 
 ## When to Use This Category
 
@@ -64,7 +64,7 @@ CodeBolt agents communicate through multiple channels:
 - Status signaling (completed, blocked, needs review)
 - Discovery (interesting code, questions)
 
-**See**: [Coordination](04-coordination.md), [Stigmergy System](../features/stigmergy-system/)
+**See**: [Coordination](04-coordination.md), [Stigmergy System](../02-concept-details/features/stigmergy-system/)
 
 ### 2. Deliberation (Group Discussion)
 **What it is**: Structured group discussions for decision-making
@@ -75,7 +75,7 @@ CodeBolt agents communicate through multiple channels:
 - Brainstorming
 - Consensus building
 
-**See**: [Deliberation System](../features/communication/deliberation-system.md)
+**See**: [Deliberation System](../02-concept-details/features/communication/deliberation-system.md)
 
 ### 3. Mail (Direct Messaging)
 **What it is**: Direct messages between agents and humans
@@ -86,7 +86,7 @@ CodeBolt agents communicate through multiple channels:
 - Targeted requests
 - Feedback delivery
 
-**See**: [Mail Inbox](../features/communication/mail-inbox.md)
+**See**: [Mail Inbox](../02-concept-details/features/communication/mail-inbox.md)
 
 ### 4. Calendar (Scheduling)
 **What it is**: Scheduling and time-based coordination
@@ -97,7 +97,7 @@ CodeBolt agents communicate through multiple channels:
 - Deadline coordination
 - Event planning
 
-**See**: [Calendar System](../features/communication/calendar-system.md)
+**See**: [Calendar System](../02-concept-details/features/communication/calendar-system.md)
 
 ## Deliberation System
 
@@ -317,19 +317,19 @@ Humans can set preferences:
 ## Quick Start
 
 ### Beginner: Understanding Communication
-1. [Deliberation System](../features/communication/deliberation-system.md) - Group decision-making
-2. [Mail Inbox](../features/communication/mail-inbox.md) - Messaging
-3. [Calendar System](../features/communication/calendar-system.md) - Scheduling
+1. [Deliberation System](../02-concept-details/features/communication/deliberation-system.md) - Group decision-making
+2. [Mail Inbox](../02-concept-details/features/communication/mail-inbox.md) - Messaging
+3. [Calendar System](../02-concept-details/features/communication/calendar-system.md) - Scheduling
 
 ### Intermediate: Effective Communication
-1. [Message Composer](../features/communication/message-composer.md) - Creating messages
-2. [Thread Management](../features/communication/thread-management.md) - Managing conversations
-3. [Communication Patterns](../features/communication/communication-patterns.md) - Common patterns
+1. [Message Composer](../02-concept-details/features/communication/message-composer.md) - Creating messages
+2. [Thread Management](../02-concept-details/features/communication/thread-management.md) - Managing conversations
+3. [Communication Patterns](../02-concept-details/features/communication/communication-patterns.md) - Common patterns
 
 ### Advanced: Optimizing Communication
-1. [RSVP System](../features/communication/rsvp-system.md) - Event coordination
-2. [Deliberation System (Agent Economy)](../features/agent-economy/deliberation-system.md) - Economic aspects
-3. [Communication Patterns](../features/communication/communication-patterns.md) - Advanced patterns
+1. [RSVP System](../02-concept-details/features/communication/rsvp-system.md) - Event coordination
+2. [Deliberation System (Agent Economy)](../02-concept-details/features/agent-economy/deliberation-system.md) - Economic aspects
+3. [Communication Patterns](../02-concept-details/features/communication/communication-patterns.md) - Advanced patterns
 
 ## Common Patterns
 
@@ -346,7 +346,7 @@ Humans can set preferences:
 - **[Coordination](04-coordination.md)** - Stigmergic coordination
 - **[Agent Systems](03-agent-systems.md)** - Agent communication capabilities
 - **[Swarm Management](02-swarm-management.md)** - Managing agent communication
-- **[Agent Economy](../features/agent-economy/)** - Reputation and incentives
+- **[Agent Economy](../02-concept-details/features/agent-economy/)** - Reputation and incentives
 
 ## Common Questions
 
@@ -378,4 +378,4 @@ Several mechanisms:
 - [← Previous Category: Work Execution](06-work-execution.md)
 - [Next Category: Tools & Integrations](08-tools-integrations.md)
 - [Category Index](index.md)
-- [Drill down to concept details](../features/communication/)
+- [Drill down to concept details](../02-concept-details/features/communication/)

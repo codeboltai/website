@@ -4,7 +4,7 @@ level: 2
 category: "memory-knowledge"
 estimated_read_time: "12 minutes"
 prerequisites: ["01-philosophy.md"]
-next_level: ["../features/memory-systems/infinite-context.md", "../features/memory-systems/memory-architecture.md"]
+next_level: ["../02-concept-details/features/memory-systems/infinite-context.md", "../02-concept-details/features/memory-systems/memory-architecture.md"]
 related_categories: ["03-agent-systems.md", "08-tools-integrations.md"]
 tags: ["memory", "context", "knowledge", "retrieval"]
 ---
@@ -36,12 +36,12 @@ CodeBolt's memory system solves these:
 
 | Concept | Description | Deep Dive |
 |---------|-------------|-----------|
-| **Infinite Context** | How six memory types overcome LLM limitations | [Infinite Context](../features/memory-systems/infinite-context.md) |
-| **Memory Architecture** | System design and integration | [Memory Architecture](../features/memory-systems/memory-architecture.md) |
-| **Semantic Memory** | Vector-based code understanding | [Semantic Memory](../features/memory-systems/semantic-memory.md) |
-| **Episodic Memory** | History of changes and decisions | [Episodic Memory](../features/memory-systems/episodic-memory.md) |
-| **Retrieval Patterns** | How to find relevant information | [Retrieval Patterns](../features/memory-systems/retrieval-patterns.md) |
-| **Knowledge Graph** | Explicit representation of relationships | [Knowledge Graph](../features/knowledge-management/knowledge-graph.md) |
+| **Infinite Context** | How six memory types overcome LLM limitations | [Infinite Context](../02-concept-details/features/memory-systems/infinite-context.md) |
+| **Memory Architecture** | System design and integration | [Memory Architecture](../02-concept-details/features/memory-systems/memory-architecture.md) |
+| **Semantic Memory** | Vector-based code understanding | [Semantic Memory](../02-concept-details/features/memory-systems/semantic-memory.md) |
+| **Episodic Memory** | History of changes and decisions | [Episodic Memory](../02-concept-details/features/memory-systems/episodic-memory.md) |
+| **Retrieval Patterns** | How to find relevant information | [Retrieval Patterns](../02-concept-details/features/memory-systems/retrieval-patterns.md) |
+| **Knowledge Graph** | Explicit representation of relationships | [Knowledge Graph](../02-concept-details/features/knowledge-management/knowledge-graph.md) |
 
 ## When to Use This Category
 
@@ -259,19 +259,19 @@ When tasks complete, agents consolidate memory:
 ## Quick Start
 
 ### Beginner: Understanding Memory
-1. [Infinite Context](../features/memory-systems/infinite-context.md) - How memory overcomes context limits
-2. [Memory Architecture](../features/memory-systems/memory-architecture.md) - System overview
-3. [Semantic Memory](../features/memory-systems/semantic-memory.md) - Vector-based understanding
+1. [Infinite Context](../02-concept-details/features/memory-systems/infinite-context.md) - How memory overcomes context limits
+2. [Memory Architecture](../02-concept-details/features/memory-systems/memory-architecture.md) - System overview
+3. [Semantic Memory](../02-concept-details/features/memory-systems/semantic-memory.md) - Vector-based understanding
 
 ### Intermediate: Using Memory Effectively
-1. [Episodic Memory](../features/memory-systems/episodic-memory.md) - Decision history
-2. [Retrieval Patterns](../features/memory-systems/retrieval-patterns.md) - Finding information
-3. [Context Memory](../features/memory-systems/context-memory.md) - Context assembly
+1. [Episodic Memory](../02-concept-details/features/memory-systems/episodic-memory.md) - Decision history
+2. [Retrieval Patterns](../02-concept-details/features/memory-systems/retrieval-patterns.md) - Finding information
+3. [Context Memory](../02-concept-details/features/memory-systems/context-memory.md) - Context assembly
 
 ### Advanced: Memory Optimization
-1. [Memory Ingestion Pipelines](../features/memory-systems/memory-ingestion-pipelines.md) - How information enters memory
-2. [Memory Triggers](../features/memory-systems/memory-triggers.md) - Controlling memory operations
-3. [Vector Database](../features/memory-systems/vector-database.md) - Technical implementation
+1. [Memory Ingestion Pipelines](../02-concept-details/features/memory-systems/memory-ingestion-pipelines.md) - How information enters memory
+2. [Memory Triggers](../02-concept-details/features/memory-systems/memory-triggers.md) - Controlling memory operations
+3. [Vector Database](../02-concept-details/features/memory-systems/vector-database.md) - Technical implementation
 
 ## Common Patterns
 
@@ -287,8 +287,8 @@ When tasks complete, agents consolidate memory:
 
 - **[Philosophy](01-philosophy.md)** - Why infinite context is fundamental
 - **[Agent Systems](03-agent-systems.md)** - How agents use memory
-- **[Context Assembly](../features/context-assembly/)** - Dynamic context gathering
-- **[Knowledge Management](../features/knowledge-management/)** - Knowledge systems
+- **[Context Assembly](../02-concept-details/features/context-assembly/)** - Dynamic context gathering
+- **[Knowledge Management](../02-concept-details/features/knowledge-management/)** - Knowledge systems
 
 ## Common Questions
 
@@ -313,7 +313,7 @@ Agents use context assembly - a smart system that:
 - Retrieves most relevant information
 - Assembles context for LLM
 
-See [Context Assembly](../features/context-assembly/context-assembly.md) for details.
+See [Context Assembly](../02-concept-details/features/context-assembly/context-assembly.md) for details.
 
 ## Navigation
 
@@ -321,4 +321,4 @@ See [Context Assembly](../features/context-assembly/context-assembly.md) for det
 - [← Previous Category: Coordination](04-coordination.md)
 - [Next Category: Work Execution](06-work-execution.md)
 - [Category Index](index.md)
-- [Drill down to concept details](../features/memory-systems/)
+- [Drill down to concept details](../02-concept-details/features/memory-systems/)

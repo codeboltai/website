@@ -4,7 +4,7 @@ level: 2
 category: "tools-integrations"
 estimated_read_time: "10 minutes"
 prerequisites: ["00-core-identity.md"]
-next_level: ["../features/development-tools/", "../features/integrations/"]
+next_level: ["../02-concept-details/features/development-tools/", "../02-concept-details/features/integrations/"]
 related_categories: ["03-agent-systems.md", "06-work-execution.md"]
 tags: ["tools", "integrations", "development", "mcp"]
 ---
@@ -34,12 +34,12 @@ CodeBolt solves these with:
 
 | Concept | Description | Deep Dive |
 |---------|-------------|-----------|
-| **Monaco Editor** | VS Code's editor, AI-enhanced | [Monaco Editor](../features/development-tools/monaco-editor.md) |
-| **AI Shell** | AI-powered terminal and command execution | [AI Shell](../features/development-tools/ai-shell.md) |
-| **Browser Panel** | Built-in browser for preview and testing | [Browser Panel](../features/development-tools/browser-panel.md) |
-| **Git Integration** | Version control with AI assistance | [Git Integration](../features/development-tools/git-integration.md) |
-| **MCP Support** | Model Context Protocol for integrations | [MCP Support](../features/integrations/mcp-support.md) |
-| **Extension Ecosystem** | Third-party extensions and tools | [Extension Ecosystem](../features/integrations/extension-ecosystem.md) |
+| **Monaco Editor** | VS Code's editor, AI-enhanced | [Monaco Editor](../02-concept-details/features/development-tools/monaco-editor.md) |
+| **AI Shell** | AI-powered terminal and command execution | [AI Shell](../02-concept-details/features/development-tools/ai-shell.md) |
+| **Browser Panel** | Built-in browser for preview and testing | [Browser Panel](../02-concept-details/features/development-tools/browser-panel.md) |
+| **Git Integration** | Version control with AI assistance | [Git Integration](../02-concept-details/features/development-tools/git-integration.md) |
+| **MCP Support** | Model Context Protocol for integrations | [MCP Support](../02-concept-details/features/integrations/mcp-support.md) |
+| **Extension Ecosystem** | Third-party extensions and tools | [Extension Ecosystem](../02-concept-details/features/integrations/extension-ecosystem.md) |
 
 ## When to Use This Category
 
@@ -202,7 +202,7 @@ Model Context Protocol for tool integrations:
 - API calls
 - Custom scripts
 
-See [MCP Support](../features/integrations/mcp-support.md) for details.
+See [MCP Support](../02-concept-details/features/integrations/mcp-support.md) for details.
 
 ### MCP Tool Creation
 Creating custom MCP tools:
@@ -220,7 +220,7 @@ Creating custom MCP tools:
 - Workflow automation
 - Data processing
 
-See [MCP Tool Creation](../features/integrations/mcp-tool-creation.md) for details.
+See [MCP Tool Creation](../02-concept-details/features/integrations/mcp-tool-creation.md) for details.
 
 ### Extension Ecosystem
 Third-party extensions and integrations:
@@ -237,7 +237,7 @@ Third-party extensions and integrations:
 - Submit extensions
 - Manage extensions
 
-See [Extension Ecosystem](../features/integrations/extension-ecosystem.md) for details.
+See [Extension Ecosystem](../02-concept-details/features/integrations/extension-ecosystem.md) for details.
 
 ### External Integrations
 Connecting to external services:
@@ -255,7 +255,7 @@ Connecting to external services:
 - Webhooks
 - SDKs
 
-See [External Integrations](../features/integrations/external-integrations.md) for details.
+See [External Integrations](../02-concept-details/features/integrations/external-integrations.md) for details.
 
 ### Language Server Protocol
 LSP for language intelligence:
@@ -272,7 +272,7 @@ LSP for language intelligence:
 - Agents benefit from LSP intelligence
 - Consistent experience across languages
 
-See [Language Server Protocol](../features/integrations/language-server-protocol.md) for details.
+See [Language Server Protocol](../02-concept-details/features/integrations/language-server-protocol.md) for details.
 
 ## Agent Access to Tools
 
@@ -320,19 +320,19 @@ Agents can access all development tools:
 ## Quick Start
 
 ### Beginner: Understanding Tools
-1. [Monaco Editor](../features/development-tools/monaco-editor.md) - Code editor
-2. [AI Shell](../features/development-tools/ai-shell.md) - AI terminal
-3. [Development Workflows](../features/development-tools/development-workflows.md) - Common workflows
+1. [Monaco Editor](../02-concept-details/features/development-tools/monaco-editor.md) - Code editor
+2. [AI Shell](../02-concept-details/features/development-tools/ai-shell.md) - AI terminal
+3. [Development Workflows](../02-concept-details/features/development-tools/development-workflows.md) - Common workflows
 
 ### Intermediate: Integration Basics
-1. [Git Integration](../features/development-tools/git-integration.md) - Version control
-2. [MCP Support](../features/integrations/mcp-support.md) - Integration protocol
-3. [External Integrations](../features/integrations/external-integrations.md) - Connecting services
+1. [Git Integration](../02-concept-details/features/development-tools/git-integration.md) - Version control
+2. [MCP Support](../02-concept-details/features/integrations/mcp-support.md) - Integration protocol
+3. [External Integrations](../02-concept-details/features/integrations/external-integrations.md) - Connecting services
 
 ### Advanced: Custom Tools
-1. [MCP Tool Creation](../features/integrations/mcp-tool-creation.md) - Building tools
-2. [Extension Ecosystem](../features/integrations/extension-ecosystem.md) - Extensions
-3. [Language Server Protocol](../features/integrations/language-server-protocol.md) - LSP integration
+1. [MCP Tool Creation](../02-concept-details/features/integrations/mcp-tool-creation.md) - Building tools
+2. [Extension Ecosystem](../02-concept-details/features/integrations/extension-ecosystem.md) - Extensions
+3. [Language Server Protocol](../02-concept-details/features/integrations/language-server-protocol.md) - LSP integration
 
 ## Common Patterns
 
@@ -349,7 +349,7 @@ Agents can access all development tools:
 - **[Agent Systems](03-agent-systems.md)** - How agents use tools
 - **[Work Execution](06-work-execution.md)** - How tools fit into workflows
 - **[Observability](09-observability.md)** - Monitoring tool usage
-- **[Environment Management](../features/environment-management/)** - Multi-environment support
+- **[Environment Management](../02-concept-details/features/environment-management/)** - Multi-environment support
 
 ## Common Questions
 
@@ -385,4 +385,4 @@ See [MCP Tool Creation](../features/integrations/mcp-tool-creation.md) for detai
 - [← Previous Category: Communication](07-communication.md)
 - [Next Category: Observability](09-observability.md)
 - [Category Index](index.md)
-- [Drill down to concept details](../features/development-tools/), ../features/integrations/)
+- [Drill down to concept details](../02-concept-details/features/development-tools/) and [Integrations](../02-concept-details/features/integrations/)

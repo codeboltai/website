@@ -4,7 +4,7 @@ level: 2
 category: "observability"
 estimated_read_time: "10 minutes"
 prerequisites: ["03-agent-systems.md", "06-work-execution.md"]
-next_level: ["../features/observability/observability-overview.md", "../features/observability/agent-debug-panel.md"]
+next_level: ["../02-concept-details/features/observability/observability-overview.md", "../02-concept-details/features/observability/agent-debug-panel.md"]
 related_categories: ["03-agent-systems.md", "06-work-execution.md"]
 tags: ["observability", "debugging", "monitoring", "review"]
 ---
@@ -36,12 +36,12 @@ CodeBolt's observability solves these:
 
 | Concept | Description | Deep Dive |
 |---------|-------------|-----------|
-| **Observability Overview** | Complete visibility into agent activity | [Observability Overview](../features/observability/observability-overview.md) |
-| **Agent Debug Panel** | Inspect agent state and decisions | [Agent Debug Panel](../features/observability/agent-debug-panel.md) |
-| **Event Logs** | Complete history of agent activity | [Event Logs](../features/observability/event-logs.md) |
-| **Execution History** | Timeline of agent decisions | [Execution History](../features/observability/execution-history.md) |
-| **Review System** | Review and approve agent work | [Review System](../features/review-merge/review-system.md) |
-| **Agent Debugging** | Troubleshoot agent behavior | [Agent Debugging](../features/agent-management/agent-debugging.md) |
+| **Observability Overview** | Complete visibility into agent activity | [Observability Overview](../02-concept-details/features/observability/observability-overview.md) |
+| **Agent Debug Panel** | Inspect agent state and decisions | [Agent Debug Panel](../02-concept-details/features/observability/agent-debug-panel.md) |
+| **Event Logs** | Complete history of agent activity | [Event Logs](../02-concept-details/features/observability/event-logs.md) |
+| **Execution History** | Timeline of agent decisions | [Execution History](../02-concept-details/features/observability/execution-history.md) |
+| **Review System** | Review and approve agent work | [Review System](../02-concept-details/features/review-merge/review-system.md) |
+| **Agent Debugging** | Troubleshoot agent behavior | [Agent Debugging](../02-concept-details/features/agent-management/agent-debugging.md) |
 
 ## When to Use This Category
 
@@ -105,7 +105,7 @@ Real-time inspection of agent activity:
 - Identify bottlenecks or issues
 - Guide agent behavior
 
-See [Agent Debug Panel](../features/observability/agent-debug-panel.md) for details.
+See [Agent Debug Panel](../02-concept-details/features/observability/agent-debug-panel.md) for details.
 
 ### Running Agents Panel
 Monitor all agent activity:
@@ -123,7 +123,7 @@ Monitor all agent activity:
 - Monitor resource usage
 - Track progress across multiple agents
 
-See [Running Agents Panel](../features/observability/running-agents-panel.md) for details.
+See [Running Agents Panel](../02-concept-details/features/observability/running-agents-panel.md) for details.
 
 ### Event Logs
 Complete history of everything that happened:
@@ -148,7 +148,7 @@ Complete history of everything that happened:
 - Analyze agent patterns and behaviors
 - Audit agent actions
 
-See [Event Logs](../features/observability/event-logs.md) for details.
+See [Event Logs](../02-concept-details/features/observability/event-logs.md) for details.
 
 ### Execution History
 Timeline of agent decisions and outcomes:
@@ -173,7 +173,7 @@ Timeline of agent decisions and outcomes:
 - Identify areas for improvement
 - Train and guide agents
 
-See [Execution History](../features/observability/execution-history.md) for details.
+See [Execution History](../02-concept-details/features/observability/execution-history.md) for details.
 
 ## Review Systems
 
@@ -199,7 +199,7 @@ Review and approve agent work before applying:
 - Maintain human control
 - Learn from agent approaches
 
-See [Review System](../features/review-merge/review-system.md) for details.
+See [Review System](../02-concept-details/features/review-merge/review-system.md) for details.
 
 ### Approval Workflow
 Structured approval processes:
@@ -224,7 +224,7 @@ Structured approval processes:
 - Compliance requirements
 - Team coordination
 
-See [Approval Workflow](../features/review-merge/approval-workflow.md) for details.
+See [Approval Workflow](../02-concept-details/features/review-merge/approval-workflow.md) for details.
 
 ### Feedback System
 Provide feedback to agents:
@@ -247,7 +247,7 @@ Provide feedback to agents:
 - Correct mistakes
 - Reinforce good practices
 
-See [Feedback System](../features/review-merge/feedback-system.md) for details.
+See [Feedback System](../02-concept-details/features/review-merge/feedback-system.md) for details.
 
 ## Debugging Agent Behavior
 
@@ -267,7 +267,7 @@ Systematic approach to understanding agent issues:
 - Agent making bad decisions: Check feedback, reputation
 - Agent not learning: Check memory, feedback systems
 
-See [Agent Debugging](../features/agent-management/agent-debugging.md) for details.
+See [Agent Debugging](../02-concept-details/features/agent-management/agent-debugging.md) for details.
 
 ### Debugging Tools
 
@@ -326,19 +326,19 @@ Humans can intervene at any point:
 ## Quick Start
 
 ### Beginner: Understanding Observability
-1. [Observability Overview](../features/observability/observability-overview.md) - Complete overview
-2. [Running Agents Panel](../features/observability/running-agents-panel.md) - Monitor agents
-3. [Event Logs](../features/observability/event-logs.md) - View history
+1. [Observability Overview](../02-concept-details/features/observability/observability-overview.md) - Complete overview
+2. [Running Agents Panel](../02-concept-details/features/observability/running-agents-panel.md) - Monitor agents
+3. [Event Logs](../02-concept-details/features/observability/event-logs.md) - View history
 
 ### Intermediate: Debugging and Review
-1. [Agent Debug Panel](../features/observability/agent-debug-panel.md) - Inspect agents
-2. [Review System](../features/review-merge/review-system.md) - Review work
-3. [Agent Debugging](../features/agent-management/agent-debugging.md) - Debug issues
+1. [Agent Debug Panel](../02-concept-details/features/observability/agent-debug-panel.md) - Inspect agents
+2. [Review System](../02-concept-details/features/review-merge/review-system.md) - Review work
+3. [Agent Debugging](../02-concept-details/features/agent-management/agent-debugging.md) - Debug issues
 
 ### Advanced: Optimization
-1. [Execution History](../features/observability/execution-history.md) - Analyze patterns
-2. [Approval Workflow](../features/review-merge/approval-workflow.md) - Control processes
-3. [Feedback System](../features/review-merge/feedback-system.md) - Shape behavior
+1. [Execution History](../02-concept-details/features/observability/execution-history.md) - Analyze patterns
+2. [Approval Workflow](../02-concept-details/features/review-merge/approval-workflow.md) - Control processes
+3. [Feedback System](../02-concept-details/features/review-merge/feedback-system.md) - Shape behavior
 
 ## Common Patterns
 
@@ -387,4 +387,4 @@ Yes, event logs provide complete history:
 - [← Back to Executive Summary](../00-executive-summary.md)
 - [← Previous Category: Tools & Integrations](08-tools-integrations.md)
 - [Category Index](index.md)
-- [Drill down to concept details](../features/observability/), ../features/review-merge/)
+- [Drill down to concept details](../02-concept-details/features/observability/) and [Reviews](../02-concept-details/features/review-merge/)

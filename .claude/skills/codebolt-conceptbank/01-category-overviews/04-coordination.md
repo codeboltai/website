@@ -4,7 +4,7 @@ level: 2
 category: "coordination"
 estimated_read_time: "12 minutes"
 prerequisites: ["01-philosophy.md"]
-next_level: ["../features/stigmergy-system/stigmergy-explained.md", "../features/stigmergy-system/pheromone-types.md"]
+next_level: ["../02-concept-details/features/stigmergy-system/stigmergy-explained.md", "../02-concept-details/features/stigmergy-system/pheromone-types.md"]
 related_categories: ["02-swarm-management.md", "03-agent-systems.md"]
 tags: ["coordination", "stigmergy", "pheromones", "consensus"]
 ---
@@ -36,12 +36,12 @@ CodeBolt's stigmergy-based coordination solves these:
 
 | Concept | Description | Deep Dive |
 |---------|-------------|-----------|
-| **Stigmergy Explained** | What stigmergy is and how it works | [Stigmergy Explained](../features/stigmergy-system/stigmergy-explained.md) |
-| **Pheromone Types** | Different signals agents can leave | [Pheromone Types](../features/stigmergy-system/pheromone-types.md) |
-| **Pheromone Dynamics** | How pheromones evolve and decay | [Pheromone Dynamics](../features/stigmergy-system/pheromone-dynamics.md) |
-| **Coordination Patterns** | Repeatable interaction patterns | [Coordination Patterns](../features/stigmergy-system/coordination-patterns.md) |
-| **Consensus Mechanisms** | Decision-making without central authority | [Consensus Mechanisms](../features/stigmergy-system/consensus-mechanisms.md) |
-| **Agent Economy** | Reputation, incentives, emergent leadership | [Agent Economy Overview](../features/agent-economy/) |
+| **Stigmergy Explained** | What stigmergy is and how it works | [Stigmergy Explained](../02-concept-details/features/stigmergy-system/stigmergy-explained.md) |
+| **Pheromone Types** | Different signals agents can leave | [Pheromone Types](../02-concept-details/features/stigmergy-system/pheromone-types.md) |
+| **Pheromone Dynamics** | How pheromones evolve and decay | [Pheromone Dynamics](../02-concept-details/features/stigmergy-system/pheromone-dynamics.md) |
+| **Coordination Patterns** | Repeatable interaction patterns | [Coordination Patterns](../02-concept-details/features/stigmergy-system/coordination-patterns.md) |
+| **Consensus Mechanisms** | Decision-making without central authority | [Consensus Mechanisms](../02-concept-details/features/stigmergy-system/consensus-mechanisms.md) |
+| **Agent Economy** | Reputation, incentives, emergent leadership | [Agent Economy Overview](../02-concept-details/features/agent-economy/) |
 
 ## When to Use This Category
 
@@ -212,19 +212,19 @@ Coordination creates an economy of reputation and incentives:
 ## Quick Start
 
 ### Beginner: Understanding Stigmergy
-1. [Stigmergy Explained](../features/stigmergy-system/stigmergy-explained.md) - Complete explanation
-2. [Pheromone Types](../features/stigmergy-system/pheromone-types.md) - Signal types
-3. [Coordination Patterns](../features/stigmergy-system/coordination-patterns.md) - Common patterns
+1. [Stigmergy Explained](../02-concept-details/features/stigmergy-system/stigmergy-explained.md) - Complete explanation
+2. [Pheromone Types](../02-concept-details/features/stigmergy-system/pheromone-types.md) - Signal types
+3. [Coordination Patterns](../02-concept-details/features/stigmergy-system/coordination-patterns.md) - Common patterns
 
 ### Intermediate: Advanced Coordination
-1. [Pheromone Dynamics](../features/stigmergy-system/pheromone-dynamics.md) - How pheromones evolve
-2. [Consensus Mechanisms](../features/stigmergy-system/consensus-mechanisms.md) - Decision making
-3. [Agent Economy](../features/agent-economy/) - Reputation and incentives
+1. [Pheromone Dynamics](../02-concept-details/features/stigmergy-system/pheromone-dynamics.md) - How pheromones evolve
+2. [Consensus Mechanisms](../02-concept-details/features/stigmergy-system/consensus-mechanisms.md) - Decision making
+3. [Agent Economy](../02-concept-details/features/agent-economy/) - Reputation and incentives
 
 ### Advanced: Technical Deep Dives
-1. [Biological Inspiration](../features/stigmergy-system/biological-inspiration.md) - Nature's examples
+1. [Biological Inspiration](../02-concept-details/features/stigmergy-system/biological-inspiration.md) - Nature's examples
 2. [Stigmergy Algorithms](../03-deep-dives/stigmergy-algorithms.md) - Implementation details
-3. [Economic Models](../features/agent-economy/economic-incentives.md) - Agent economics
+3. [Economic Models](../02-concept-details/features/agent-economy/economic-incentives.md) - Agent economics
 
 ## Common Patterns
 
@@ -241,7 +241,7 @@ Coordination creates an economy of reputation and incentives:
 - **[Philosophy](01-philosophy.md)** - Why stigmergy is fundamental
 - **[Swarm Management](02-swarm-management.md)** - How swarms use coordination
 - **[Agent Systems](03-agent-systems.md)** - How individual agents participate
-- **[Job Coordination](../features/job-coordination/)** - How work is distributed
+- **[Job Coordination](../02-concept-details/features/job-coordination/)** - How work is distributed
 
 ## Common Questions
 
@@ -266,4 +266,4 @@ New agents scan the codebase for pheromones. This gives them complete picture of
 - [← Previous Category: Agent Systems](03-agent-systems.md)
 - [Next Category: Memory & Knowledge](05-memory-knowledge.md)
 - [Category Index](index.md)
-- [Drill down to concept details](../features/stigmergy-system/)
+- [Drill down to concept details](../02-concept-details/features/stigmergy-system/)

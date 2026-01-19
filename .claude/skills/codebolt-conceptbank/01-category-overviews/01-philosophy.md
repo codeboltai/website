@@ -4,7 +4,7 @@ level: 2
 category: "philosophy"
 estimated_read_time: "10 minutes"
 prerequisites: ["00-core-identity.md"]
-next_level: ["../core/philosophy/multi-agent-first.md", "../core/philosophy/stigmergy-principles.md"]
+next_level: ["../02-concept-details/core/philosophy/multi-agent-first.md", "../02-concept-details/core/philosophy/stigmergy-principles.md"]
 related_categories: ["02-swarm-management.md", "04-coordination.md"]
 tags: ["philosophy", "principles", "architecture"]
 ---
@@ -30,9 +30,9 @@ CodeBolt's philosophy solves these through emergent, decentralized systems that 
 
 | Concept | Description | Deep Dive |
 |---------|-------------|-----------|
-| **Multi-Agent First** | Why multi-agent is fundamental, not an add-on | [Multi-Agent First](../core/philosophy/multi-agent-first.md) |
-| **Stigmergy Principles** | Nature-inspired coordination without orchestrators | [Stigmergy Principles](../core/philosophy/stigmergy-principles.md) |
-| **Infinite Context Paradigm** | Overcoming LLM limitations through 6 memory types | [Infinite Context Paradigm](../core/philosophy/infinite-context-paradigm.md) |
+| **Multi-Agent First** | Why multi-agent is fundamental, not an add-on | [Multi-Agent First](../02-concept-details/core/philosophy/multi-agent-first.md) |
+| **Stigmergy Principles** | Nature-inspired coordination without orchestrators | [Stigmergy Principles](../02-concept-details/core/philosophy/stigmergy-principles.md) |
+| **Infinite Context Paradigm** | Overcoming LLM limitations through 6 memory types | [Infinite Context Paradigm](../02-concept-details/core/philosophy/infinite-context-paradigm.md) |
 
 ## When to Use This Category
 
@@ -114,25 +114,25 @@ CodeBolt's philosophy solves these through emergent, decentralized systems that 
 ## Quick Start
 
 ### Beginner Path
-1. [Multi-Agent First](../core/philosophy/multi-agent-first.md) - Understand why multi-agent matters
-2. [Stigmergy Principles](../core/philosophy/stigmergy-principles.md) - How nature-inspired coordination works
-3. [Infinite Context Paradigm](../core/philosophy/infinite-context-paradigm.md) - Overcoming context limitations
+1. [Multi-Agent First](../02-concept-details/core/philosophy/multi-agent-first.md) - Understand why multi-agent matters
+2. [Stigmergy Principles](../02-concept-details/core/philosophy/stigmergy-principles.md) - How nature-inspired coordination works
+3. [Infinite Context Paradigm](../02-concept-details/core/philosophy/infinite-context-paradigm.md) - Overcoming context limitations
 
 ### Technical Path
-1. [Stigmergy Principles](../core/philosophy/stigmergy-principles.md) - Coordination foundation
-2. [Stigmergy Explained](../features/stigmergy-system/stigmergy-explained.md) - Detailed explanation
-3. [Pheromone Types](../features/stigmergy-system/pheromone-types.md) - Signal mechanisms
+1. [Stigmergy Principles](../02-concept-details/core/philosophy/stigmergy-principles.md) - Coordination foundation
+2. [Stigmergy Explained](../02-concept-details/features/stigmergy-system/stigmergy-explained.md) - Detailed explanation
+3. [Pheromone Types](../02-concept-details/features/stigmergy-system/pheromone-types.md) - Signal mechanisms
 
 ### Architecture Path
-1. [Multi-Agent First](../core/philosophy/multi-agent-first.md) - Architectural foundation
-2. [Infinite Context Paradigm](../core/philosophy/infinite-context-paradigm.md) - Memory architecture
-3. [Memory Architecture](../features/memory-systems/memory-architecture.md) - Implementation details
+1. [Multi-Agent First](../02-concept-details/core/philosophy/multi-agent-first.md) - Architectural foundation
+2. [Infinite Context Paradigm](../02-concept-details/core/philosophy/infinite-context-paradigm.md) - Memory architecture
+3. [Memory Architecture](../02-concept-details/features/memory-systems/memory-architecture.md) - Implementation details
 
 ## Related Concepts
 
 - **[Core Identity](00-core-identity.md)** - What CodeBolt is and why it exists
 - **[Coordination](04-coordination.md)** - How stigmergy works in practice
-- **[Memory & Knowledge](06-memory-knowledge.md)** - The six memory types in detail
+- **[Memory & Knowledge](05-memory-knowledge.md)** - The six memory types in detail
 - **[Agent Systems](03-agent-systems.md)** - How individual agents implement these principles
 
 ## Common Questions
@@ -152,4 +152,4 @@ Different memory types serve different purposes. Semantic memory provides unders
 - [← Previous Category: Core Identity](00-core-identity.md)
 - [Next Category: Swarm Management](02-swarm-management.md)
 - [Category Index](index.md)
-- [Drill down to concept details](../core/philosophy/)
+- [Drill down to concept details](../02-concept-details/core/philosophy/)
