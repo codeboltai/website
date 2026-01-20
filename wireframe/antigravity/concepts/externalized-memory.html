@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Externalized Memory - Codebolt Concepts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">Codebolt</a>
+            <ul class="nav-links">
+                <li><a href="../features/index.html">Features</a></li>
+                <li class="dropdown">
+                    <a href="index.html">Concepts</a>
+                    <div class="dropdown-content">
+                        <a href="stigmergy.html">Stigmergy</a>
+                        <a href="externalized-memory.html">Externalized Memory</a>
+                        <a href="multi-agent-modes.html">Multi-Agent Modes</a>
+                        <a href="human-participation.html">Human Participation</a>
+                    </div>
+                </li>
+                <li><a href="../use-cases.html">Use Cases</a></li>
+                <li><a href="../download.html" class="btn btn-primary" style="padding: 10px 20px;">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 160px 24px 80px;">
+        <div class="hero-content">
+            <div class="hero-badge">Core Concept</div>
+            <h1>Memory Belongs to<br>the Environment</h1>
+            <p class="hero-subtitle">
+                When agents are ephemeral, memory must be external. The Memoria architecture achieves 87% knowledge survival across agent generations.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Problem -->
+    <section class="section">
+        <div class="container">
+            <div class="split">
+                <div class="visual-block dark">
+                    [Traditional Memory Lost]<br><br>
+                    Agent with internal memory → Terminates<br>
+                    All knowledge lost 💀<br>
+                    New agent starts from scratch
+                </div>
+                <div>
+                    <span class="section-label">The Problem</span>
+                    <h2 class="section-title">Knowledge Death</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        In traditional systems, agents hold their knowledge internally. When an agent terminates—whether planned or unexpected—all that accumulated intelligence vanishes.
+                    </p>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        Each new agent starts from scratch. No learning compounds. No wisdom accumulates. The swarm has collective amnesia.
+                    </p>
+                    <p class="section-desc">
+                        <strong>Result:</strong> Scaling beyond ~50 agents becomes impractical because re-learning overhead exceeds new agent value.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">The Solution</span>
+                <h2 class="section-title">Externalized Memory</h2>
+                <p class="section-desc">Memory is a feature of the environment, not the agent. Agents read and write to persistent storage layers.</p>
+            </div>
+            <div class="bento-grid" style="margin-top: 48px;">
+                <div class="bento-card span-12 featured">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                        <div>
+                            <h3 class="bento-title" style="font-size: 1.5rem; margin-bottom: 20px;">3-Layer Memoria Architecture</h3>
+                            <div class="feature-list" style="gap: 20px;">
+                                <div class="feature-item" style="gap: 16px;">
+                                    <div class="feature-bullet" style="background: rgba(255,255,255,0.1); color: white;">1</div>
+                                    <div>
+                                        <h4 style="color: white;">Logical Storage Layer</h4>
+                                        <p style="color: rgba(255,255,255,0.7);">5 memory types: Persistent, Vector DB, Knowledge Graph, KV Store, Episodic.</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item" style="gap: 16px;">
+                                    <div class="feature-bullet" style="background: rgba(255,255,255,0.1); color: white;">2</div>
+                                    <div>
+                                        <h4 style="color: white;">Memory Orchestration Layer</h4>
+                                        <p style="color: rgba(255,255,255,0.7);">Event-driven ingestion and multi-modal retrieval with "memory stitching."</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item" style="gap: 16px;">
+                                    <div class="feature-bullet" style="background: rgba(255,255,255,0.1); color: white;">3</div>
+                                    <div>
+                                        <h4 style="color: white;">Context Assembly Layer</h4>
+                                        <p style="color: rgba(255,255,255,0.7);">Rule-based context preparation based on agent state variables.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="visual-block" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); aspect-ratio: 4/3;">
+                            [3-Layer Architecture Diagram]<br><br>
+                            Context Assembly Layer ↑<br>
+                            Memory Orchestration Layer<br>
+                            ↓ Logical Storage Layer
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 Memory Types -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Storage</span>
+                <h2 class="section-title">5 Memory Types</h2>
+            </div>
+            <div class="bento-grid" style="margin-top: 48px;">
+                <div class="bento-card span-4">
+                    <div class="bento-icon">📊</div>
+                    <h3 class="bento-title">Persistent</h3>
+                    <p class="bento-desc">Facts, outcomes, validated knowledge. Exact-match queries. Never expires.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <div class="bento-icon">🔍</div>
+                    <h3 class="bento-title">Vector DB</h3>
+                    <p class="bento-desc">Semantic search over embeddings. Find conceptually similar content.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <div class="bento-icon">🕸️</div>
+                    <h3 class="bento-title">Knowledge Graph</h3>
+                    <p class="bento-desc">Relationships between entities. Navigate dependencies and connections.</p>
+                </div>
+                <div class="bento-card span-6">
+                    <div class="bento-icon">⚡</div>
+                    <h3 class="bento-title">KV Store</h3>
+                    <p class="bento-desc">Real-time state tracking. Locks, configurations, active variables. Fast key lookups.</p>
+                </div>
+                <div class="bento-card span-6">
+                    <div class="bento-icon">📜</div>
+                    <h3 class="bento-title">Episodic</h3>
+                    <p class="bento-desc">Historical interaction traces. Session history. Temporal queries across time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Context Assembly Engine -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="split">
+                <div>
+                    <span class="section-label">Intelligence</span>
+                    <h2 class="section-title">Context Assembly Engine</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        Agents don't fetch their own context—the environment prepares it for them. Agents simply declare their state variables (task, role, etc.), and the Context Assembly Engine delivers optimal context.
+                    </p>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        <strong>Result:</strong> Intelligence is centrally managed. Assembly Rules ensure all agents in similar states get the same relevant knowledge automatically.
+                    </p>
+                    <p class="section-desc">
+                        Example: An agent working on "refactoring auth" automatically receives past auth patterns, failure histories, and related specs—without knowing to ask for them.
+                    </p>
+                </div>
+                <div class="visual-block">
+                    [Context Assembly Flow]<br><br>
+                    Agent declares state →<br>
+                    CAE matches rules →<br>
+                    Multi-layer query →<br>
+                    Ranked, trimmed context delivered
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Results</span>
+                <h2 class="section-title">87% Knowledge Survival</h2>
+            </div>
+            <div class="stats-bar" style="background: transparent; border-top: none; padding: 48px 0;">
+                <div class="stat">
+                    <div class="stat-value">87%</div>
+                    <div class="stat-label" style="color: var(--text-muted);">Knowledge Survival</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">38%</div>
+                    <div class="stat-label" style="color: var(--text-muted);">Faster Problem-Solving</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">67%</div>
+                    <div class="stat-label" style="color: var(--text-muted);">Faster Adaptation</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">47</div>
+                    <div class="stat-label" style="color: var(--text-muted);">Agent-Created Memory Types</div>
+                </div>
+            </div>
+            <p style="text-align: center; color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+                Production deployment over 50 generations demonstrates persistent collective intelligence. Agents don't just store data—they evolve the memory architecture itself.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Memory That Persists</h2>
+            <p>See externalized memory in action.</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="../download.html" class="btn btn-primary">Download Free</a>
+                <a href="human-participation.html" class="btn btn-secondary">Next: Human Participation →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                © 2026 Codebolt. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Codebolt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">Codebolt</a>
+            <ul class="nav-links">
+                <li><a href="features/index.html">Features</a></li>
+                <li><a href="concepts/index.html">Concepts</a></li>
+                <li><a href="use-cases.html">Use Cases</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="download.html" class="btn btn-primary" style="padding: 10px 20px;">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 160px 24px 80px;">
+        <div class="hero-content">
+            <div class="hero-badge">Simple Pricing</div>
+            <h1>Free to Start.<br>Scale as You Grow.</h1>
+            <p class="hero-subtitle">
+                No hidden fees. No per-agent pricing. Pay for what you need.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+                <!-- Free -->
+                <div class="bento-card" style="display: flex; flex-direction: column;">
+                    <h3 style="margin-bottom: 8px;">Free</h3>
+                    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">For individuals exploring multi-agent development.</p>
+                    <div style="font-size: 48px; font-weight: 800; margin-bottom: 24px;">$0</div>
+                    <ul style="list-style: none; flex-grow: 1; margin-bottom: 32px;">
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Up to 10 concurrent agents
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> All core features
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Local environments
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Community support
+                        </li>
+                    </ul>
+                    <a href="download.html" class="btn btn-secondary" style="text-align: center;">Download Free</a>
+                </div>
+
+                <!-- Pro -->
+                <div class="bento-card" style="display: flex; flex-direction: column; border: 2px solid var(--accent); position: relative;">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 4px 16px; border-radius: 100px; font-size: 12px; font-weight: 600;">Most Popular</div>
+                    <h3 style="margin-bottom: 8px;">Pro</h3>
+                    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">For professionals and small teams.</p>
+                    <div style="font-size: 48px; font-weight: 800; margin-bottom: 4px;">$49<span style="font-size: 18px; font-weight: 400; color: var(--text-muted);">/mo</span></div>
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 24px;">per user</p>
+                    <ul style="list-style: none; flex-grow: 1; margin-bottom: 32px;">
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Up to 100 concurrent agents
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Multi-environment support
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Advanced observability
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Priority support
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Team collaboration
+                        </li>
+                    </ul>
+                    <a href="download.html" class="btn btn-primary" style="text-align: center;">Start Pro Trial</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="bento-card" style="display: flex; flex-direction: column;">
+                    <h3 style="margin-bottom: 8px;">Enterprise</h3>
+                    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">For organizations at scale.</p>
+                    <div style="font-size: 48px; font-weight: 800; margin-bottom: 24px;">Custom</div>
+                    <ul style="list-style: none; flex-grow: 1; margin-bottom: 32px;">
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> 200+ concurrent agents
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Self-hosted deployment
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> SSO / SAML
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Audit logs & compliance
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Dedicated support
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px; padding: 10px 0; color: var(--text-muted); font-size: 14px;">
+                            <span style="color: var(--accent);">✓</span> Custom integrations
+                        </li>
+                    </ul>
+                    <a href="enterprise.html" class="btn btn-secondary" style="text-align: center;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Questions</span>
+                <h2 class="section-title">Frequently Asked</h2>
+            </div>
+            <div style="max-width: 700px; margin: 48px auto 0;">
+                <div style="padding: 24px 0; border-bottom: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 12px;">Do I need to pay for each agent?</h4>
+                    <p style="color: var(--text-muted); font-size: 15px;">No. Our pricing is per-user, not per-agent. Run as many agents as your plan allows within the concurrent limit.</p>
+                </div>
+                <div style="padding: 24px 0; border-bottom: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 12px;">Can I use my own LLM API keys?</h4>
+                    <p style="color: var(--text-muted); font-size: 15px;">Yes. Bring your own API keys for OpenAI, Anthropic, or any supported provider. You pay your LLM costs directly.</p>
+                </div>
+                <div style="padding: 24px 0; border-bottom: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 12px;">What counts as a "concurrent agent"?</h4>
+                    <p style="color: var(--text-muted); font-size: 15px;">Agents that are actively running at the same time. Terminated agents don't count against your limit.</p>
+                </div>
+                <div style="padding: 24px 0;">
+                    <h4 style="margin-bottom: 12px;">Can I self-host?</h4>
+                    <p style="color: var(--text-muted); font-size: 15px;">Enterprise plans include self-hosted deployment options. Contact sales for details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start for Free</h2>
+            <p>Download Codebolt and deploy your first swarm today.</p>
+            <a href="download.html" class="btn btn-primary">Download Free</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                © 2026 Codebolt. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
