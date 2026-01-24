@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { ThemeProvider } from '@/contexts/ThemeContext'
+import DevTools from '@/components/DevTools'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <DevTools />
       </body>
     </html>
   );
