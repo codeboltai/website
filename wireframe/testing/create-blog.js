@@ -15,7 +15,7 @@ function findAvailablePort(startPort = 4096) {
   });
 }
 
-const port = await findAvailablePort(5043);
+const port = await findAvailablePort(5056);
 console.log(`Using available port: ${port}`);
 
 const { client, server } = await createOpencode({
@@ -45,14 +45,14 @@ async function createBlog(topic) {
     const providers = providersResult.data?.providers || []
     const defaults = providersResult.data?.default || {}
 
-    console.log("\n=== Available Providers ===");
-    providers.forEach(p => {
-      console.log(`Provider: ${p.id}`);
-      console.log(`  Models: ${Array.isArray(p.models) ? p.models.join(", ") : JSON.stringify(p.models) || "none"}`);
-    });
-    console.log("\n=== Defaults ===");
-    console.log(JSON.stringify(defaults, null, 2));
-    console.log("===========================\n");
+    // console.log("\n=== Available Providers ===");
+    // providers.forEach(p => {
+    //   console.log(`Provider: ${p.id}`);
+    //   console.log(`  Models: ${Array.isArray(p.models) ? p.models.join(", ") : JSON.stringify(p.models) || "none"}`);
+    // });
+    // console.log("\n=== Defaults ===");
+    // console.log(JSON.stringify(defaults, null, 2));
+    // console.log("===========================\n");
 
     console.log("Sending prompt...");
 
@@ -119,6 +119,7 @@ async function createBlog(topic) {
   } finally {
     server.close();
     console.log("Server closed");
+    // process.exit(0);
   }
 }
 
