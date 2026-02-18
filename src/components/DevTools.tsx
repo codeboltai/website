@@ -7,5 +7,10 @@ export default function DevTools() {
     return null;
   }
 
-  return <Agentation />;
+  return <Agentation 
+    endpoint="http://localhost:4747"
+    onSessionCreated={(sessionId) => {
+      console.log("Session started:", sessionId);
+    }}
+  />;
 }

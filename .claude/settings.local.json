@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__agentation__agentation_list_sessions",
+      "Bash(curl:*)",
+      "Skill(agent-browser)",
+      "Bash(npm ls:*)",
+      "Bash(npm view:*)",
+      "mcp__agentation__agentation_get_all_pending",
+      "mcp__agentation__agentation_resolve",
+      "Skill(agentation-self-driving)",
+      "Bash(command -v:*)",
+      "Bash(npx agent-browser:*)"
+    ]
+  }
+}
