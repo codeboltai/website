@@ -1,0 +1,78 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import '../styles/global.css';
+
+const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+</head>
+<body>
+  <Navbar
+    variant={navbarVariant}
+    links={navigation.navbar.links}
+    cta={navigation.navbar.cta}
+    logo={site.logo}
+  />
+  <MobileMenu links={navigation.navbar.links} />
+
+  <slot />
+
+  <Footer
+    brand={navigation.footer.brand}
+    columns={navigation.footer.columns}
+    bottom={navigation.footer.bottom}
+    logo={site.logo}
+  />
+
+  <script>
+    // Navbar scroll behavior
+    document.addEventListener('DOMContentLoaded', () => {
+      const navbar = document.querySelector('.navbar');
+      if (navbar && navbar.classList.contains('transparent')) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+      }
+
+      // Mobile menu toggle
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+          mobileMenu.classList.toggle('open');
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+          });
+        });
+      }
+
+      // Accordion
+      document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const item = trigger.parentElement;
+          const wasOpen = item.classList.contains('open');
+          item.closest('.accordion').querySelectorAll('.accordion-item').forEach(i => {
+            i.classList.remove('open');
+          });
+          if (!wasOpen) {
+            item.classList.add('open');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

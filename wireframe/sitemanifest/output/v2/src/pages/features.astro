@@ -1,0 +1,98 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import FeatureBlock from '../components/FeatureBlock.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+---
+<BaseLayout title="Features — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="What the environment handles."
+    subtitle="Every capability exists because it solves a real problem at scale."
+  />
+  <FeatureBlock
+    heading="Agents coordinate. They don't collide."
+    body="Traditional multi-agent setups are parallel LLM calls sharing a context buffer. Codebolt uses stigmergy-based coordination — agents communicate through structured shared state, not fragile message passing. The environment manages sequencing, dependencies, and resource allocation."
+    diagram="┌──────────────────────┐
+│  Agent Coordination  │
+│         Flow         │
+├──────────────────────┤
+│ Agent A → shared state│
+│ Agent B → shared state│
+│ Agent C → shared state│
+├──────────────────────┤
+│ sequencing │ deps    │
+│ resource allocation  │
+└──────────────────────┘
+"
+  />
+  <FeatureBlock
+    heading="Drift tracking catches what code review can't."
+    body="The drift engine evaluates structural, scope, constraint, and coverage drift at two levels: local assessment within Rust engine instances and global coordination in JavaScript. When agents deviate from the original intent, the system flags it before the deviation compounds."
+    reverse={true}
+    diagram="Intent
+  ↓
+Plan → [drift check]
+  ↓
+Code → [drift check]
+  ↓
+Output
+
+Rust (local) + JS (global)
+"
+  />
+  <FeatureBlock
+    heading="One codebase. Multiple environments. Zero manual merging."
+    body="Agents operate across local, staging, feature branches, and production contexts simultaneously. The narrative versioning system tracks what changed, why, and by which agent — then reconciles across environments automatically."
+    diagram="local ─────┐
+staging ────┤
+feature/a ──┤→ reconciliation
+feature/b ──┤   engine
+production ─┘
+"
+  />
+  <FeatureBlock
+    heading="Agent conflicts are a system problem. The system solves them."
+    body="When two agents make incompatible changes to the same file, the environment resolves it using structured arbitration. No merge conflicts in your terminal. No manual intervention. The system handles disagreements the way a well-run engineering team would — with clear rules and traceable decisions."
+    reverse={true}
+    diagram="conflict detected
+      ↓
+structured arbitration
+      ↓
+resolution applied
+      ↓
+decision logged
+"
+  />
+  <FeatureBlock
+    heading="Every agent decision is traceable and replayable."
+    body="The execution trace graph captures the full reasoning chain for every agent action. You can replay any decision, audit any change, and understand exactly why your codebase looks the way it does. This is what makes enterprise deployment possible."
+    diagram="t0 → t1 → t2 → t3
+│    │    │    │
+decision trace graph
+
+[replay any point]
+[audit any change]
+"
+  />
+  <FeatureBlock
+    heading="Structured intelligence modules. Not prompt templates."
+    body="AI Playbooks encode domain knowledge, architectural constraints, and decision patterns into structured modules that agents consume. They're how you give agents context without giving them your entire codebase. Reusable, composable, versionable."
+    reverse={true}
+    diagram="┌─ Playbook ──────────┐
+│ domain knowledge    │
+│ constraints         │
+│ decision patterns   │
+├──────────────────────┤
+│ composable          │
+│ versionable         │
+│ reusable            │
+└──────────────────────┘
+"
+  />
+  <CtaBlock
+    heading="See how it's built."
+    buttons={[{"label":"Explore Architecture","href":"/architecture","variant":"primary"},{"label":"Get Started","href":"/pricing","variant":"secondary"}]}
+  />
+</BaseLayout>

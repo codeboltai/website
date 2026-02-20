@@ -1,0 +1,16 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import Timeline from '../components/Timeline.astro';
+---
+<BaseLayout title="Changelog — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Changelog"
+    subtitle="What shipped, when."
+  />
+  <Timeline
+    entries={[{"date":"2026-02-15","version":"v0.9.0","summary":"Cross-environment reconciliation engine. Agents now coordinate across local, staging, and feature branches with automatic conflict resolution."},{"date":"2026-02-01","version":"v0.8.0","summary":"AI Playbooks — structured intelligence modules for encoding domain knowledge, constraints, and decision patterns. Composable and versionable."},{"date":"2026-01-18","version":"v0.7.0","summary":"Execution trace graph with full replay capability. Every agent decision is now traceable and auditable."},{"date":"2026-01-05","version":"v0.6.0","summary":"Drift engine v2 — two-level architecture with local Rust assessment and global JavaScript coordination. Tracks structural, scope, constraint, and coverage drift."},{"date":"2025-12-20","version":"v0.5.0","summary":"Stigmergy-based coordination replaces message-passing architecture. Significant scaling improvements for 10+ concurrent agents."},{"date":"2025-12-01","version":"v0.4.0","summary":"Narrative versioning with git tree-based snapshots. Agent attribution for every change — what changed, why, and by which agent."}]}
+  />
+</BaseLayout>

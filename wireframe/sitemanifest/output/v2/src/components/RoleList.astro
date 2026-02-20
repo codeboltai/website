@@ -1,0 +1,20 @@
+---
+const { heading, roles = [], empty_message } = Astro.props;
+---
+<section>
+  <div class="container">
+    {heading && <h2 class="text-center mb-48">{heading}</h2>}
+    <div class="role-list">
+      {roles.length > 0 ? (
+        roles.map(role => (
+          <div class="role-item">
+            <span class="role-title">{role.title}</span>
+            {role.location && <span class="role-location">{role.location}</span>}
+          </div>
+        ))
+      ) : empty_message ? (
+        <p class="text-muted" style="text-align: center; font-size: 15px; padding: 40px 0;" set:html={empty_message} />
+      ) : null}
+    </div>
+  </div>
+</section>

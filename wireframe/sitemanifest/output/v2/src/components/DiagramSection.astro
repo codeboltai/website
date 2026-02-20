@@ -1,0 +1,27 @@
+---
+import Button from './Button.astro';
+const { heading, layers = [], annotation, buttons = [] } = Astro.props;
+---
+<section>
+  <div class="container">
+    <div class="diagram-section">
+      <h2 class="mb-32">{heading}</h2>
+      <div class="layer-stack">
+        {layers.map(layer => (
+          <div class={`layer ${layer.style}`}>
+            <span>{layer.label}</span>
+            <span class="tag">{layer.tag}</span>
+          </div>
+        ))}
+      </div>
+      {annotation && <p class="diagram-annotation">{annotation}</p>}
+      {buttons.length > 0 && (
+        <div style="margin-top: 32px;">
+          {buttons.map(btn => (
+            <Button label={btn.label} href={btn.href} variant={btn.variant} external={btn.external} />
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+---
+import Button from './Button.astro';
+const { heading, subheading, buttons = [] } = Astro.props;
+---
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <h1>{heading}</h1>
+    <p class="subheading">{subheading}</p>
+    <div class="btn-group" style="justify-content: center;">
+      {buttons.map(btn => (
+        <Button label={btn.label} href={btn.href} variant={btn.variant} external={btn.external} />
+      ))}
+    </div>
+  </div>
+</section>

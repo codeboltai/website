@@ -1,0 +1,472 @@
+site:
+  name: "Codebolt"
+  tagline: "The High-Performance Environment for AI Agents."
+  logo:
+    text: "Code"
+    highlight: "bolt"
+
+navigation:
+  navbar:
+    links:
+      - { label: "Features", href: "/features" }
+      - { label: "Architecture", href: "/architecture" }
+      - { label: "Pricing", href: "/pricing" }
+      - { label: "Docs", href: "https://docs.codebolt.ai", external: true }
+      - { label: "Blog", href: "/blog" }
+    cta: { label: "Get Started", href: "/pricing" }
+  footer:
+    brand:
+      tagline: "The High-Performance Environment for AI Agents."
+    columns:
+      - heading: "Product"
+        links:
+          - { label: "Features", href: "/features" }
+          - { label: "Architecture", href: "/architecture" }
+          - { label: "Pricing", href: "/pricing" }
+          - { label: "Changelog", href: "/changelog" }
+      - heading: "Resources"
+        links:
+          - { label: "Docs", href: "https://docs.codebolt.ai", external: true }
+          - { label: "Blog", href: "/blog" }
+          - { label: "GitHub", href: "https://github.com/codebolt", external: true }
+      - heading: "Company"
+        links:
+          - { label: "About", href: "/about" }
+          - { label: "Careers", href: "/careers" }
+          - { label: "Contact", href: "mailto:contact@codebolt.ai" }
+    bottom:
+      copyright: "2026 Codebolt"
+      links:
+        - { label: "Privacy", href: "/privacy" }
+        - { label: "Terms", href: "/terms" }
+
+# ─────────────────────────────────────────────
+# PAGES
+# ─────────────────────────────────────────────
+
+pages:
+
+  # ── Homepage ────────────────────────────────
+  - slug: ""
+    title: "Codebolt — The High-Performance Environment for AI Agents"
+    navbar_variant: "transparent"
+    sections:
+
+      - type: hero
+        heading: "The High-Performance Environment for AI Agents."
+        subheading: "Precision-engineered so agents align better, conflict less, and scale further."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "Read the Architecture", href: "/architecture", variant: "secondary" }
+
+      - type: centered-text
+        variant: "thesis"
+        text: "Scaling agents is an engineering problem, not a prompting problem. Agents don't need better models — they need a better environment."
+
+      - type: comparison-columns
+        problem:
+          heading: "Without a proper environment"
+          items:
+            - "Agents conflict over shared files"
+            - "Changes drift from original intent"
+            - "Multi-environment work creates merge chaos"
+            - "Scaling past 2-3 agents breaks everything"
+            - "You spend more time debugging agents than building"
+        solution:
+          heading: "With Codebolt"
+          items:
+            - "Conflicts resolve at the system level"
+            - "Drift tracking catches misalignment early"
+            - "Cross-environment coordination is built in"
+            - "The architecture handles hundreds of agents"
+            - "You direct the vision. Agents build the system."
+
+      - type: card-grid
+        heading: "Core Capabilities"
+        cards:
+          - title: "Multi-Agent Coordination"
+            body: "Agents work as a coordinated team, not independent processes fighting over shared state. The environment manages communication, sequencing, and dependencies."
+            visual: |
+              Agent A ──┐
+              Agent B ──┤ Environment
+              Agent C ──┘ (coordinated)
+          - title: "Drift Tracking"
+            body: "The system evaluates structural, scope, and coverage drift continuously. When agents deviate from intent, you know before the damage compounds."
+            visual: |
+              Intent → Plan → Code
+                    ↑ drift detected
+          - title: "Cross-Environment Execution"
+            body: "Agents operate across branches, staging, local, and production environments simultaneously. The system reconciles their work automatically."
+            visual: |
+              local ──┐
+              staging ┤→ reconciled
+              prod ───┘
+          - title: "Conflict Resolution"
+            body: "When agents make incompatible changes, the environment resolves it. Not the user. Conflicts are handled as a system-level primitive."
+            visual: "conflict → arbitration → resolved"
+          - title: "Ground-Up Architecture"
+            body: "Not a VS Code fork. Not a wrapper. Built from scratch with agent coordination as the foundation, not a feature bolted on later."
+            visual: |
+              ┌─ Governance ─┐
+              │ Drift Engine │
+              │ Agent Runtime│
+              └─ Editor ─────┘
+          - title: "Model-Agnostic"
+            body: "The environment amplifies whatever model you put in it. As models improve, your agents improve automatically. No vendor lock-in."
+            visual: |
+              GPT ──┐
+              Claude┤→ Codebolt
+              Gemini┘  Environment
+
+      - type: diagram-section
+        heading: "The Architecture"
+        layers:
+          - { label: "Layer 1 — Editor Interface", tag: "surface", style: "surface" }
+          - { label: "Layer 2 — Agent Runtime", tag: "runtime", style: "runtime" }
+          - { label: "Layer 3 — Drift Engine", tag: "Rust", style: "drift" }
+          - { label: "Layer 4 — Narrative Versioning", tag: "git-tree", style: "versioning" }
+          - { label: "Layer 5 — Governance & Coordination", tag: "core", style: "governance" }
+        annotation: "Most tools stop at Layer 2. Codebolt is Layers 3–5."
+        buttons:
+          - { label: "Explore the full architecture", href: "/architecture", variant: "secondary" }
+
+      - type: blockquote
+        text: "A brilliant engineer in a company with no version control, no CI/CD, and no communication tools would be ineffective. Not because they lack skill — because the environment doesn't support good work. The same is true for AI agents today."
+
+      - type: persona-grid
+        personas:
+          - label: "Infrastructure Engineers"
+            body: "You've hit the coordination wall. You know the problem isn't the model — it's the environment. This is what you've been looking for."
+          - label: "Teams Scaling AI"
+            body: "Moving from 2 agents to 50. You need a system that handles the complexity so you can focus on the product."
+          - label: "Enterprise & Production"
+            body: "You won't put agents in production without governance, traceability, and deterministic replay. Neither would we."
+
+      - type: centered-text
+        variant: "identity"
+        text: "Designed for engineers who treat AI as infrastructure — not just assistance."
+
+      - type: cta-block
+        heading: "Ready to scale your agents."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "Read the Docs", href: "https://docs.codebolt.ai", variant: "secondary", external: true }
+
+  # ── Features ────────────────────────────────
+  - slug: "features"
+    title: "Features — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "What the environment handles."
+        subtitle: "Every capability exists because it solves a real problem at scale."
+
+      - type: feature-block
+        heading: "Agents coordinate. They don't collide."
+        body: "Traditional multi-agent setups are parallel LLM calls sharing a context buffer. Codebolt uses stigmergy-based coordination — agents communicate through structured shared state, not fragile message passing. The environment manages sequencing, dependencies, and resource allocation."
+        diagram: |
+          ┌──────────────────────┐
+          │  Agent Coordination  │
+          │         Flow         │
+          ├──────────────────────┤
+          │ Agent A → shared state│
+          │ Agent B → shared state│
+          │ Agent C → shared state│
+          ├──────────────────────┤
+          │ sequencing │ deps    │
+          │ resource allocation  │
+          └──────────────────────┘
+
+      - type: feature-block
+        heading: "Drift tracking catches what code review can't."
+        body: "The drift engine evaluates structural, scope, constraint, and coverage drift at two levels: local assessment within Rust engine instances and global coordination in JavaScript. When agents deviate from the original intent, the system flags it before the deviation compounds."
+        reverse: true
+        diagram: |
+          Intent
+            ↓
+          Plan → [drift check]
+            ↓
+          Code → [drift check]
+            ↓
+          Output
+
+          Rust (local) + JS (global)
+
+      - type: feature-block
+        heading: "One codebase. Multiple environments. Zero manual merging."
+        body: "Agents operate across local, staging, feature branches, and production contexts simultaneously. The narrative versioning system tracks what changed, why, and by which agent — then reconciles across environments automatically."
+        diagram: |
+          local ─────┐
+          staging ────┤
+          feature/a ──┤→ reconciliation
+          feature/b ──┤   engine
+          production ─┘
+
+      - type: feature-block
+        heading: "Agent conflicts are a system problem. The system solves them."
+        body: "When two agents make incompatible changes to the same file, the environment resolves it using structured arbitration. No merge conflicts in your terminal. No manual intervention. The system handles disagreements the way a well-run engineering team would — with clear rules and traceable decisions."
+        reverse: true
+        diagram: |
+          conflict detected
+                ↓
+          structured arbitration
+                ↓
+          resolution applied
+                ↓
+          decision logged
+
+      - type: feature-block
+        heading: "Every agent decision is traceable and replayable."
+        body: "The execution trace graph captures the full reasoning chain for every agent action. You can replay any decision, audit any change, and understand exactly why your codebase looks the way it does. This is what makes enterprise deployment possible."
+        diagram: |
+          t0 → t1 → t2 → t3
+          │    │    │    │
+          decision trace graph
+
+          [replay any point]
+          [audit any change]
+
+      - type: feature-block
+        heading: "Structured intelligence modules. Not prompt templates."
+        body: "AI Playbooks encode domain knowledge, architectural constraints, and decision patterns into structured modules that agents consume. They're how you give agents context without giving them your entire codebase. Reusable, composable, versionable."
+        reverse: true
+        diagram: |
+          ┌─ Playbook ──────────┐
+          │ domain knowledge    │
+          │ constraints         │
+          │ decision patterns   │
+          ├──────────────────────┤
+          │ composable          │
+          │ versionable         │
+          │ reusable            │
+          └──────────────────────┘
+
+      - type: cta-block
+        heading: "See how it's built."
+        buttons:
+          - { label: "Explore Architecture", href: "/architecture", variant: "primary" }
+          - { label: "Get Started", href: "/pricing", variant: "secondary" }
+
+  # ── Architecture ────────────────────────────
+  - slug: "architecture"
+    title: "Architecture — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Architecture"
+        subtitle: "Codebolt is built from the ground up. Here's how."
+
+      - type: diagram-section
+        heading: "The 5-Layer Stack"
+        layers:
+          - { label: "Layer 1 — Editor Interface", tag: "surface", style: "surface" }
+          - { label: "Layer 2 — Agent Runtime", tag: "runtime", style: "runtime" }
+          - { label: "Layer 3 — Drift Engine", tag: "Rust", style: "drift" }
+          - { label: "Layer 4 — Narrative Versioning", tag: "git-tree", style: "versioning" }
+          - { label: "Layer 5 — Governance & Coordination Loop", tag: "core", style: "governance" }
+        annotation: "Most competitors stop at Layer 2."
+
+      - type: accordion
+        heading: "Technical Deep-Dives"
+        items:
+          - question: "Stigmergy-Based Coordination"
+            answer: "Traditional multi-agent systems rely on direct message passing — agents send instructions to each other, creating fragile coupling and scaling bottlenecks. Codebolt uses stigmergy: agents communicate indirectly through structured shared state. Each agent reads from and writes to a shared environment, allowing coordination to emerge without explicit messaging. This is how biological swarms scale to millions of agents — and it's how Codebolt scales beyond the limits of message-passing architectures."
+          - question: "The Narrative Engine"
+            answer: "The narrative engine is a Rust-based system that maintains a complete record of agent actions, decisions, and reasoning. It uses git trees for snapshot versioning, enabling agent attribution (which agent changed what and why), cross-environment coordination (reconciling work across branches and contexts), and full replay capability. Every change carries its narrative — the intent behind it, not just the diff."
+          - question: "Drift Tracking Architecture"
+            answer: "Drift tracking operates at two levels. The local Rust engine instances assess drift within individual agent contexts — structural drift (architecture diverging from plan), scope drift (features expanding beyond intent), constraint drift (violations of specified rules), and coverage drift (gaps in implementation). The global JavaScript coordination layer aggregates these signals across all agents, detecting systemic drift patterns that no single agent would catch alone."
+          - question: "SCAAB Bundles"
+            answer: "SCAAB (Structured Context for Agent-Addressable Bundles) packages encode domain knowledge, architectural decisions, and operational constraints into portable bundles that agents can consume. They provide structured context without requiring agents to process an entire codebase. Bundles are composable, versionable, and designed for cross-agent knowledge sharing."
+          - question: "IntentGraph & PlanGraph"
+            answer: "IntentGraph captures what should happen — a directed graph of goals, constraints, and success criteria. PlanGraph captures how it should happen — a dependency-ordered execution plan derived from the IntentGraph. Together, they provide the reference frame for drift detection: as agents execute, the system continuously compares actual outcomes against the IntentGraph to catch deviation early."
+
+      - type: accordion
+        heading: "Published Research"
+        items:
+          - question: "Swarm Versioning"
+            icon: "→"
+            answer: "A framework for versioning agent-generated code at scale, using narrative-preserving git tree structures."
+          - question: "IntentGraph"
+            icon: "→"
+            answer: "Modeling developer intent as a directed graph for drift detection in multi-agent software engineering."
+          - question: "StigmergySwarm"
+            icon: "→"
+            answer: "Applying stigmergic coordination patterns from biological swarm intelligence to multi-agent code generation."
+
+      - type: cta-block
+        heading: "Convinced by the engineering."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "Read the Docs", href: "https://docs.codebolt.ai", variant: "secondary", external: true }
+
+  # ── Pricing ─────────────────────────────────
+  - slug: "pricing"
+    title: "Pricing — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Pricing"
+        subtitle: "Start building. Scale when you're ready."
+
+      - type: pricing-grid
+        cards:
+          - tier: "Community"
+            price: "Free"
+            for: "Individual engineers exploring multi-agent workflows"
+            features:
+              - "Core IDE"
+              - "Up to 3 concurrent agents"
+              - "Basic drift tracking"
+              - "Community support"
+            cta: { label: "Start Free", href: "#", variant: "secondary" }
+          - tier: "Pro"
+            price: "$49"
+            price_sub: "/mo"
+            for: "Engineers and teams scaling agent coordination"
+            featured: true
+            badge: "Most popular"
+            features:
+              - "Everything in Community"
+              - "Unlimited agents"
+              - "Full drift engine"
+              - "Cross-environment coordination"
+              - "AI Playbooks"
+              - "Priority support"
+            cta: { label: "Start Pro", href: "#", variant: "primary" }
+          - tier: "Enterprise"
+            price: "Custom"
+            for: "Organizations deploying agents in production"
+            features:
+              - "Everything in Pro"
+              - "Deterministic replay"
+              - "Full audit trails"
+              - "SSO / SAML"
+              - "Dedicated support & SLA"
+              - "Custom governance rules"
+            cta: { label: "Talk to Engineering", href: "mailto:eng@codebolt.ai", variant: "secondary" }
+
+      - type: accordion
+        heading: "FAQ"
+        items:
+          - question: "Is Codebolt a VS Code fork?"
+            answer: "No. Codebolt is built from the ground up. The architecture starts with agent coordination, not an editor."
+          - question: "Which AI models does Codebolt support?"
+            answer: "Codebolt is model-agnostic. The environment amplifies whatever model you connect. As models improve, your agents improve."
+          - question: "I'm currently using one agent. Is this for me?"
+            answer: "If you're planning to scale, yes. Codebolt is built for where AI development is going. Start with one agent and grow."
+          - question: "Can I use this for non-coding agents?"
+            answer: "The architecture supports general agent coordination. We're focused on software development first, with broader applications coming."
+
+  # ── Blog ────────────────────────────────────
+  - slug: "blog"
+    title: "Blog — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Blog"
+        subtitle: "Engineering decisions, architecture deep-dives, and what we're learning."
+
+      - type: blog-grid
+        posts:
+          - date: "2026-02-18"
+            title: "Why We Built a New IDE From Scratch"
+            excerpt: "The origin story behind Codebolt — why we chose to build from the ground up instead of forking an existing editor, and what that decision enables."
+            tag: "Engineering"
+          - date: "2026-02-12"
+            title: "Scaling Agents Is an Engineering Problem"
+            excerpt: "The core thesis expanded. Why better models alone won't solve multi-agent coordination, and what infrastructure needs to exist."
+            tag: "Architecture"
+          - date: "2026-02-05"
+            title: "How Drift Tracking Works Under the Hood"
+            excerpt: "A technical deep-dive into the two-level drift engine — local Rust assessment and global JavaScript coordination working together."
+            tag: "Engineering"
+          - date: "2026-01-28"
+            title: "Stigmergy vs Message Passing for Agent Coordination"
+            excerpt: "A research-backed comparison of coordination strategies. Why indirect communication through shared state scales better than direct messaging."
+            tag: "Research"
+          - date: "2026-01-20"
+            title: "What Breaks When You Run 50 Agents on One Repo"
+            excerpt: "Real problems we encountered scaling agent coordination, and the system-level solutions we built to handle them."
+            tag: "Engineering"
+
+  # ── About ───────────────────────────────────
+  - slug: "about"
+    title: "About — Codebolt"
+    sections:
+
+      - type: centered-text
+        variant: "thesis"
+        text: "We saw the gap between what AI agents promise and what they can actually deliver. The bottleneck isn't intelligence. It's infrastructure. We built the infrastructure."
+
+      - type: two-column-text
+        columns:
+          - heading: "What everyone is building"
+            body: "Smarter models. Better prompts. Faster autocomplete. More agents running in parallel."
+          - heading: "What's actually missing"
+            body: "An environment where agents can coordinate, resolve conflicts, track drift, and scale without collapsing into chaos."
+        conclusion: "Codebolt is the environment."
+
+      - type: value-list
+        heading: "What We Believe"
+        values:
+          - "The environment is the multiplier, not the model."
+          - "Depth over breadth. Solve the hard problem well."
+          - "Honesty over hype. Show benchmarks, not adjectives."
+          - "Earned complexity. The system grows with your ambition."
+
+      - type: centered-text
+        heading: "The Engineering"
+        text: "Codebolt is built from scratch — not forked, not wrapped. The architecture is grounded in research on stigmergic coordination, narrative versioning, and drift tracking. Every layer exists because the problem demanded it."
+
+      - type: cta-block
+        heading: "We're building the infrastructure for the AI agent era."
+        buttons:
+          - { label: "See Open Roles", href: "/careers", variant: "primary" }
+          - { label: "Read the Architecture", href: "/architecture", variant: "secondary" }
+
+  # ── Careers ─────────────────────────────────
+  - slug: "careers"
+    title: "Careers — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Build with us."
+        subtitle: "We're solving the hardest coordination problems in AI. If that excites you, we should talk."
+
+      - type: centered-text
+        text: "Engineering-first culture. Small team. Hard problems. Real impact on how AI development works. We care about depth, craftsmanship, and building things that hold up under pressure. Remote-friendly."
+
+      - type: role-list
+        heading: "Open Roles"
+        roles: []
+        empty_message: 'No open roles right now. But if you think you should be here, email <a href="mailto:eng@codebolt.ai">eng@codebolt.ai</a>.'
+
+  # ── Changelog ───────────────────────────────
+  - slug: "changelog"
+    title: "Changelog — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Changelog"
+        subtitle: "What shipped, when."
+
+      - type: timeline
+        entries:
+          - date: "2026-02-15"
+            version: "v0.9.0"
+            summary: "Cross-environment reconciliation engine. Agents now coordinate across local, staging, and feature branches with automatic conflict resolution."
+          - date: "2026-02-01"
+            version: "v0.8.0"
+            summary: "AI Playbooks — structured intelligence modules for encoding domain knowledge, constraints, and decision patterns. Composable and versionable."
+          - date: "2026-01-18"
+            version: "v0.7.0"
+            summary: "Execution trace graph with full replay capability. Every agent decision is now traceable and auditable."
+          - date: "2026-01-05"
+            version: "v0.6.0"
+            summary: "Drift engine v2 — two-level architecture with local Rust assessment and global JavaScript coordination. Tracks structural, scope, constraint, and coverage drift."
+          - date: "2025-12-20"
+            version: "v0.5.0"
+            summary: "Stigmergy-based coordination replaces message-passing architecture. Significant scaling improvements for 10+ concurrent agents."
+          - date: "2025-12-01"
+            version: "v0.4.0"
+            summary: "Narrative versioning with git tree-based snapshots. Agent attribution for every change — what changed, why, and by which agent."

@@ -1,0 +1,9 @@
+---
+const { text, variant = '', heading } = Astro.props;
+---
+<section>
+  <div class="container">
+    {heading && <h2 class="text-center mb-24">{heading}</h2>}
+    <p class={`centered-text ${variant}`}>{text}</p>
+  </div>
+</section>
