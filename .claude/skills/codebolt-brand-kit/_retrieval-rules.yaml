@@ -1,0 +1,128 @@
+## _retrieval-rules.yaml
+## Task-to-chunk mappings for agent retrieval
+## Codebolt Brand System v1.0
+
+# When an agent needs brand guidance for a specific task,
+# load the chunks listed under always_load first, then
+# conditionally load from load_if_relevant based on context.
+# Token budgets are approximate guidance for context management.
+
+task_profiles:
+
+  website_copy:
+    description: "Writing or editing copy for codebolt.ai"
+    always_load:
+      - "voice-core"
+      - "positioning-core"
+      - "brand-about"
+      - "terminology"
+    load_if_relevant:
+      - "voice-translations"
+      - "messaging-framework"
+      - "guardrails-messaging"
+    token_budget: 2000
+
+  blog_post:
+    description: "Writing a blog post or technical article"
+    always_load:
+      - "voice-core"
+      - "positioning-core"
+      - "brand-about"
+    load_if_relevant:
+      - "voice-translations"
+      - "persona-*"
+      - "terminology"
+    token_budget: 1800
+
+  social_media:
+    description: "Social media posts, tweets, LinkedIn content"
+    always_load:
+      - "voice-core"
+      - "voice-translations"
+      - "terminology"
+    load_if_relevant:
+      - "positioning-core"
+      - "guardrails-messaging"
+      - "messaging-framework"
+    token_budget: 1200
+
+  technical_docs:
+    description: "Product documentation, API docs, guides"
+    always_load:
+      - "terminology"
+      - "brand-about"
+    load_if_relevant:
+      - "voice-core"
+      - "guardrails-messaging"
+    token_budget: 1000
+
+  investor_pitch:
+    description: "Pitch deck, investor memo, fundraising materials"
+    always_load:
+      - "positioning-core"
+      - "brand-about"
+      - "brand-values"
+      - "messaging-framework"
+    load_if_relevant:
+      - "persona-enterprise-cto"
+      - "terminology"
+      - "guardrails-messaging"
+    token_budget: 2400
+
+  sales_enterprise:
+    description: "Enterprise sales materials, case studies, proposals"
+    always_load:
+      - "positioning-core"
+      - "persona-enterprise-cto"
+      - "brand-about"
+      - "terminology"
+    load_if_relevant:
+      - "voice-core"
+      - "messaging-framework"
+      - "guardrails-messaging"
+    token_budget: 2000
+
+  onboarding_copy:
+    description: "In-product onboarding, tooltips, guides"
+    always_load:
+      - "voice-core"
+      - "terminology"
+      - "brand-about"
+    load_if_relevant:
+      - "persona-ambitious-scaler"
+      - "voice-translations"
+    token_budget: 1200
+
+  press_release:
+    description: "Press releases, media statements, PR"
+    always_load:
+      - "positioning-core"
+      - "brand-about"
+      - "voice-core"
+      - "terminology"
+    load_if_relevant:
+      - "guardrails-messaging"
+      - "messaging-framework"
+    token_budget: 2000
+
+  design_review:
+    description: "Reviewing visual assets, UI designs, marketing collateral"
+    always_load:
+      - "visual-system"
+      - "guardrails-visual"
+    load_if_relevant:
+      - "positioning-core"
+      - "terminology"
+    token_budget: 1200
+
+  competitive_response:
+    description: "Responding to competitive comparisons or questions"
+    always_load:
+      - "positioning-core"
+      - "guardrails-messaging"
+      - "terminology"
+    load_if_relevant:
+      - "voice-core"
+      - "voice-translations"
+      - "brand-values"
+    token_budget: 1600

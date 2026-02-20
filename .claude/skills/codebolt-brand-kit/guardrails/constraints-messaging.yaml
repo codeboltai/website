@@ -1,0 +1,90 @@
+## constraints-messaging.yaml
+## Codebolt Brand System v1.0
+## What never to say — messaging guardrails
+
+metadata:
+  chunk_id: "guardrails-messaging"
+  category: "guardrails"
+  subcategory: "messaging"
+  context_tags:
+    - "constraints"
+    - "what-not-to-say"
+    - "brand-protection"
+    - "messaging-guardrails"
+  token_count: ~380
+  last_updated: "2026-02-19"
+  description: >
+    Hard constraints on messaging. Things Codebolt should never say,
+    claim, or imply. Protects brand credibility and trust.
+
+---
+
+never_claim:
+
+  - claim: "AI that replaces developers"
+    reason: >
+      Codebolt augments and scales engineering capability. It does not
+      position as a developer replacement. The human directs the vision.
+
+  - claim: "Fully autonomous software creation"
+    reason: >
+      While the architecture supports increasing autonomy, claiming full
+      autonomy before the product delivers it creates expectation gaps
+      that destroy trust.
+
+  - claim: "Works with any model perfectly"
+    reason: >
+      Model-agnostic means the environment amplifies any model. It does
+      not mean every model performs equally well for every task.
+
+  - claim: "Bug-free" or "production-hardened" (until proven)
+    reason: >
+      The product is in active development. Claiming perfection before
+      earning it is the fastest way to lose engineering credibility.
+
+  - claim: "Better than [specific competitor]"
+    reason: >
+      Naming competitors invites feature-by-feature comparison. Codebolt
+      competes on a different axis. Let the architecture speak.
+
+  - claim: "500 agents" or specific agent counts as a guarantee
+    reason: >
+      Specific numbers become benchmarks people hold you to. Discuss
+      scale capability without making falsifiable numerical claims.
+
+never_imply:
+
+  - "That using Codebolt is easy or beginner-friendly"
+    correction: "Codebolt rewards investment. It's built for engineers willing to learn a professional tool."
+
+  - "That other approaches are stupid"
+    correction: "Traditional approaches work for their intended scale. Codebolt is for when you need to go further."
+
+  - "That bigger models don't matter at all"
+    correction: "Better models help. But the environment is the multiplier that determines how much they help."
+
+  - "That Codebolt is finished"
+    correction: "The architecture is sound. The product is in active development. We ship and improve continuously."
+
+  - "Exclusivity or artificial scarcity"
+    correction: "Codebolt is open to anyone. Complexity is the natural filter, not gatekeeping."
+
+tone_guardrails:
+
+  - "Never open with 'We're excited to announce...'"
+  - "Never use exclamation marks in product copy"
+  - "Never use emoji in technical or product communications"
+  - "Never be sycophantic toward the audience"
+  - "Never apologize excessively for product limitations"
+  - "Never use urgency tactics (limited time, FOMO, countdown timers)"
+  - "Never use superlatives without evidence (fastest, most powerful, best)"
+  - "Never compare pricing to competitors"
+  - "Never use 'AI-powered' as a differentiator — everything is AI-powered now"
+
+competitive_guardrails:
+
+  - "Never name a specific competitor in negative context"
+  - "Never screenshot competitor failures"
+  - "Never claim superiority without benchmarks to back it"
+  - "Differentiate through what Codebolt does, not what others don't"
+  - "If asked directly about a competitor, acknowledge their strengths before explaining Codebolt's different approach"

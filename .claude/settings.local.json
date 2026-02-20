@@ -10,7 +10,8 @@
       "mcp__agentation__agentation_resolve",
       "Skill(agentation-self-driving)",
       "Bash(command -v:*)",
-      "Bash(npx agent-browser:*)"
+      "Bash(npx agent-browser:*)",
+      "Bash(surf gemini:*)"
     ]
   }
 }

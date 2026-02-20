@@ -1,0 +1,55 @@
+## persona-enterprise-cto.yaml
+## Codebolt Brand System v1.0
+## Tertiary persona: Enterprise technical leadership
+
+metadata:
+  chunk_id: "persona-enterprise-cto"
+  category: "audience"
+  subcategory: "persona"
+  context_tags:
+    - "target-audience"
+    - "tertiary-persona"
+    - "enterprise"
+    - "decision-maker"
+  token_count: ~320
+  last_updated: "2026-02-19"
+  description: >
+    Tertiary persona. Enterprise CTO or VP Engineering evaluating
+    AI agent infrastructure for production deployment.
+
+---
+
+persona_name: "The Enterprise Evaluator"
+priority: "Tertiary — future revenue, longer sales cycle"
+
+demographics:
+  role: "CTO, VP Engineering, or Head of AI/Platform"
+  experience: "10+ years, responsible for production infrastructure decisions"
+  environment: "Series C+ startup or established enterprise with AI initiatives"
+  tools_used: "Evaluating multiple AI development platforms for team adoption"
+
+psychographics:
+  mindset: >
+    Needs AI agents in production but will not deploy without governance,
+    traceability, and reliability guarantees. Thinks in systems, risk,
+    and organizational scale.
+  frustration: >
+    Every AI tool promises the world but none can answer: what happens
+    when agents drift? How do we trace what changed and why? How do
+    we reconcile work across environments?
+  aspiration: >
+    Wants to deploy AI agent teams with the same confidence they deploy
+    microservices — with observability, governance, and rollback capability.
+  trigger_phrase: "We can't put agents in production without governance."
+
+what_they_value:
+  - "Deterministic execution and replayability"
+  - "Audit trails and traceability"
+  - "Multi-environment reconciliation"
+  - "Architecture documentation and security posture"
+  - "Enterprise support and SLAs"
+
+messaging_priority:
+  lead_with: "The control plane for AI agents in production."
+  support_with: "Deterministic execution. Drift governance. Full traceability."
+  close_with: "Enterprise-grade coordination infrastructure."

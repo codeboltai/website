@@ -1,0 +1,75 @@
+## brand-values.yaml
+## Codebolt Brand System v1.0
+## Internal principles and customer-facing values
+
+metadata:
+  chunk_id: "brand-values"
+  category: "positioning"
+  subcategory: "values"
+  context_tags:
+    - "brand-principles"
+    - "company-values"
+    - "engineering-philosophy"
+  token_count: ~380
+  last_updated: "2026-02-19"
+  description: >
+    Codebolt's internal engineering principles and customer-facing values.
+    These guide every product decision, communication, and interaction.
+
+---
+
+engineering_philosophy: >
+  The environment is the multiplier. We don't chase model intelligence —
+  we engineer the harness that makes any model perform better. Every
+  decision we make optimizes the system agents operate in, not the
+  agents themselves.
+
+core_values:
+
+  - name: "Precision over polish"
+    internal: >
+      Every architectural decision has a reason. We don't add features
+      for marketing — we solve engineering problems that compound.
+    external: >
+      Codebolt is engineered, not assembled. Every capability exists
+      because it solves a real problem at scale.
+
+  - name: "Environment over model"
+    internal: >
+      We invest in coordination primitives, state management, and
+      conflict resolution — not in wrapping the latest LLM release.
+    external: >
+      Your agents perform better here because the environment is
+      better — regardless of which model powers them.
+
+  - name: "Honesty over hype"
+    internal: >
+      We state what the product does. We don't claim production-grade
+      perfection before we've earned it. We show benchmarks, not adjectives.
+    external: >
+      We tell you what Codebolt does well and where it's still evolving.
+      Engineering credibility is built through evidence, not claims.
+
+  - name: "Depth over breadth"
+    internal: >
+      We solve the hard coordination problems deeply rather than shipping
+      shallow integrations across many use cases.
+    external: >
+      Codebolt does fewer things, but does them at a level nobody
+      else has reached.
+
+  - name: "Earned complexity"
+    internal: >
+      Power users unlock depth progressively. The system rewards
+      investment without punishing newcomers.
+    external: >
+      Start simple. Scale as far as you need. The system grows
+      with your ambition.
+
+product_principles:
+  - "Ground-up architecture beats bolted-on features"
+  - "Agent coordination is a systems problem, not a prompt problem"
+  - "Reliability at scale is more valuable than speed at small scale"
+  - "The user directs the vision; agents build the system"
+  - "Complexity should be the filter, not artificial gatekeeping"
+  - "Model-agnostic infrastructure outlasts model-specific tooling"
