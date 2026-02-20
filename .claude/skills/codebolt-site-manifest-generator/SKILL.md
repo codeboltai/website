@@ -1,5 +1,5 @@
 ---
-name: update-site-content
+name: codebolt-site-manifest-generator
 description: Edit the Codebolt website content via YAML and regenerate the Astro site
 ---
 

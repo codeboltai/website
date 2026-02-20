@@ -1,7 +1,7 @@
 // Auto-generated from site.yaml — do not edit directly
 export const site = {
   "name": "Codebolt",
-  "tagline": "The High-Performance Environment for AI Agents.",
+  "tagline": "The High-Performance IDE for AI Agents.",
   "logo": {
     "text": "Code",
     "highlight": "bolt"
@@ -40,7 +40,7 @@ export const navigation = {
   },
   "footer": {
     "brand": {
-      "tagline": "The High-Performance Environment for AI Agents."
+      "tagline": "The High-Performance IDE for AI Agents."
     },
     "columns": [
       {

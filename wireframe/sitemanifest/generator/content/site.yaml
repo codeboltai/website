@@ -1,6 +1,6 @@
 site:
   name: "Codebolt"
-  tagline: "The High-Performance Environment for AI Agents."
+  tagline: "The High-Performance IDE for AI Agents."
   logo:
     text: "Code"
     highlight: "bolt"
@@ -16,7 +16,7 @@ navigation:
     cta: { label: "Get Started", href: "/pricing" }
   footer:
     brand:
-      tagline: "The High-Performance Environment for AI Agents."
+      tagline: "The High-Performance IDE for AI Agents."
     columns:
       - heading: "Product"
         links:
@@ -48,12 +48,12 @@ pages:
 
   # ── Homepage ────────────────────────────────
   - slug: ""
-    title: "Codebolt — The High-Performance Environment for AI Agents"
+    title: "Codebolt — The High-Performance IDE for AI Agents"
     navbar_variant: "transparent"
     sections:
 
       - type: hero
-        heading: "The High-Performance Environment for AI Agents."
+        heading: "The High-Performance IDE for AI Agents."
         subheading: "Precision-engineered so agents align better, conflict less, and scale further."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
