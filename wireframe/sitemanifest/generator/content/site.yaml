@@ -57,7 +57,6 @@ pages:
         subheading: "Precision-engineered so agents align better, conflict less, and scale further."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
-          - { label: "Read the Architecture", href: "/architecture", variant: "secondary" }
 
       - type: centered-text
         variant: "thesis"
