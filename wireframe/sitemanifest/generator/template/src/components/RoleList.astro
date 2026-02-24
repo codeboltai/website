@@ -1,19 +1,31 @@
 ---
 const { heading, roles = [], empty_message } = Astro.props;
 ---
-<section>
-  <div class="container">
-    {heading && <h2 class="text-center mb-48">{heading}</h2>}
-    <div class="role-list">
+<section class="py-24 px-6 bg-background dark:bg-[#050505] border-b border-border dark:border-zinc-900">
+  <div class="max-w-5xl mx-auto">
+    {heading && (
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tight text-foreground dark:text-white mb-12">
+        {heading}
+      </h2>
+    )}
+    <div class="border border-border dark:border-zinc-800 bg-card/30 divide-y divide-border dark:divide-zinc-800">
       {roles.length > 0 ? (
-        roles.map(role => (
-          <div class="role-item">
-            <span class="role-title">{role.title}</span>
-            {role.location && <span class="role-location">{role.location}</span>}
+        roles.map((role) => (
+          <div class="p-6 flex items-center justify-between">
+            <span class="text-sm font-medium text-foreground dark:text-white">
+              {role.title}
+            </span>
+            {role.location && (
+              <span class="text-xs font-mono text-muted-foreground dark:text-zinc-500 uppercase tracking-widest">
+                {role.location}
+              </span>
+            )}
           </div>
         ))
       ) : empty_message ? (
-        <p class="text-muted" style="text-align: center; font-size: 15px; padding: 40px 0;" set:html={empty_message} />
+        <div class="p-10">
+          <p class="text-sm text-muted-foreground text-center" set:html={empty_message} />
+        </div>
       ) : null}
     </div>
   </div>

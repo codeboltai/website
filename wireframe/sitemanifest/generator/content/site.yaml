@@ -58,6 +58,20 @@ pages:
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
 
+      - type: highlight-banner
+        tone: "accent"
+        content: |
+          Scaling agents is an <span class="text-primary">engineering problem</span>, not a prompting problem.
+
+      - type: stat-grid
+        tone: "muted"
+        columns: 4
+        stats:
+          - { label: "Concurrent Agents", value: "100+" }
+          - { label: "Drift Signals", value: "4D" }
+          - { label: "Environments", value: "Multi" }
+          - { label: "Replay", value: "Deterministic" }
+
       - type: centered-text
         variant: "thesis"
         text: "Scaling agents is an engineering problem, not a prompting problem. Agents don't need better models — they need a better environment."
@@ -117,6 +131,34 @@ pages:
               Claude┤→ Codebolt
               Gemini┘  Environment
 
+      - type: icon-grid
+        tone: "muted"
+        kicker: "SYSTEM MODULES"
+        title: |
+          Designed for scale
+          Built for governance
+        description: "The primitives you need when agents become infrastructure."
+        columns: 3
+        features:
+          - icon: "layers"
+            title: "Five-Layer Stack"
+            description: "Layered architecture that keeps coordination and governance out of your prompt."
+          - icon: "git-branch"
+            title: "Narrative Versioning"
+            description: "Track what changed, why it changed, and who changed it across environments."
+          - icon: "shield"
+            title: "Governance First"
+            description: "Constraints, auditability, and deterministic replay are built into the system."
+          - icon: "cpu"
+            title: "Runtime Coordination"
+            description: "Agents coordinate through structured shared state, not fragile message passing."
+          - icon: "code"
+            title: "Model-Agnostic"
+            description: "Swap models without rewriting workflows. The environment does the heavy lifting."
+          - icon: "zap"
+            title: "Conflict Arbitration"
+            description: "Conflicts get resolved as a system primitive, not a manual merge task."
+
       - type: diagram-section
         heading: "The Architecture"
         layers:
@@ -129,8 +171,11 @@ pages:
         buttons:
           - { label: "Explore the full architecture", href: "/architecture", variant: "secondary" }
 
-      - type: blockquote
-        text: "A brilliant engineer in a company with no version control, no CI/CD, and no communication tools would be ineffective. Not because they lack skill — because the environment doesn't support good work. The same is true for AI agents today."
+      - type: quote-block
+        variant: "muted"
+        align: "center"
+        quote: "A brilliant engineer in a company with no version control, no CI/CD, and no communication tools would be ineffective. Not because they lack skill — because the environment doesn't support good work. The same is true for AI agents today."
+        attribution: "Codebolt Research"
 
       - type: persona-grid
         personas:
@@ -469,3 +514,106 @@ pages:
           - date: "2025-12-01"
             version: "v0.4.0"
             summary: "Narrative versioning with git tree-based snapshots. Agent attribution for every change — what changed, why, and by which agent."
+
+  # ── Components (New Design Demo) ─────────────
+  - slug: "components"
+    title: "Components — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Component Library"
+        subtitle: "New design system components available to the generator."
+
+      - type: highlight-banner
+        tone: "accent"
+        content: |
+          Use these sections as building blocks for the <span class="text-primary">Dropstone-inspired</span> layout system.
+
+      - type: section-header
+        kicker: "METRICS"
+        kickerDot: "emerald"
+        kickerPulse: true
+        title: |
+          Instrumentation
+          exposed as UI primitives
+        description: "MetricStrip and MetricBar are available for dashboards and system pages."
+
+      - type: metric-strip
+        divider: true
+        columns: 4
+        metrics:
+          - { label: "Compression Rate", value: "50:1", meta: "Token/Vector" }
+          - { label: "Recall Accuracy", value: "99.9%", meta: "P-Value < 0.01", highlight: true }
+          - { label: "Inference Horizon", value: "24H+", meta: "Projected" }
+          - { label: "Registry Status", value: "SERIALIZED", meta: "Stable", highlight: true }
+
+      - type: metric-bar
+        label: "Semantic_Depth"
+        value: 98
+        variant: "primary"
+        showMarker: true
+
+      - type: section-header
+        kicker: "GRID"
+        kickerDot: "primary"
+        title: |
+          Three column layouts
+          for triptychs and cards
+        description: "ThreeColumnGrid supports divider lines and HTML column content."
+
+      - type: three-column-grid
+        divider: true
+        columnsHtml:
+          - |
+            <div class="p-8 md:p-12">
+              <div class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">01_STATE_MANAGEMENT</div>
+              <h3 class="text-xl font-medium text-foreground mb-3 tracking-tight">Context Virtualization</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">Separate short-term attention from durable memory through structured state.</p>
+            </div>
+          - |
+            <div class="p-8 md:p-12">
+              <div class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">02_VERSIONING</div>
+              <h3 class="text-xl font-medium text-foreground mb-3 tracking-tight">Narrative Snapshots</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">Preserve intent alongside diffs across multiple environments.</p>
+            </div>
+          - |
+            <div class="p-8 md:p-12">
+              <div class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">03_GOVERNANCE</div>
+              <h3 class="text-xl font-medium text-foreground mb-3 tracking-tight">Deterministic Replay</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">Replay agent decisions with full traceability for audit and safety.</p>
+            </div>
+
+      - type: section-header
+        kicker: "DIAGRAM"
+        kickerDot: "muted"
+        title: |
+          Diagram panels
+          for technical visuals
+        description: "DiagramPanel renders diagramHtml with optional labels."
+
+      - type: diagram-panel
+        title: "Topology_View"
+        subtitle: "Mesh_04 :: Active_Sync"
+        figureLabel: "FIG 3.0: P2P State Synchronization"
+        showGrid: true
+        aspectRatio: "16/9"
+        diagramHtml: |
+          <div class="w-full h-full flex items-center justify-center">
+            <svg viewBox="0 0 300 160" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="20" width="260" height="120" stroke="currentColor" stroke-opacity="0.25" />
+              <circle cx="70" cy="60" r="6" fill="currentColor" fill-opacity="0.7" />
+              <circle cx="150" cy="40" r="6" fill="currentColor" fill-opacity="0.7" />
+              <circle cx="230" cy="70" r="6" fill="currentColor" fill-opacity="0.7" />
+              <circle cx="110" cy="110" r="6" fill="currentColor" fill-opacity="0.7" />
+              <circle cx="200" cy="115" r="6" fill="currentColor" fill-opacity="0.7" />
+              <path d="M70 60L150 40L230 70L200 115L110 110L70 60" stroke="currentColor" stroke-opacity="0.35" />
+              <path d="M150 40L110 110" stroke="currentColor" stroke-opacity="0.35" />
+              <path d="M230 70L110 110" stroke="currentColor" stroke-opacity="0.35" />
+            </svg>
+          </div>
+
+      - type: quote-block
+        variant: "muted"
+        align: "center"
+        quote: "These are generator-first components: deterministic props, stable typography, and clear hierarchy."
+        attribution: "Design System"

@@ -12,6 +12,14 @@ const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
+  <script>
+    (() => {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const useDark = saved ? saved === 'dark' : prefersDark;
+      document.documentElement.classList.toggle('dark', useDark);
+    })();
+  </script>
 </head>
 <body>
   <Navbar
@@ -32,34 +40,34 @@ const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
   />
 
   <script>
-    // Navbar scroll behavior
     document.addEventListener('DOMContentLoaded', () => {
       const navbar = document.querySelector('.navbar');
-      if (navbar && navbar.classList.contains('transparent')) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-          } else {
-            navbar.classList.remove('scrolled');
-          }
-        });
-      }
+      const isTransparent = navbar && navbar.classList.contains('transparent');
+      const applyNavbarState = () => {
+        if (!navbar || !isTransparent) return;
+        const scrolled = window.scrollY > 50;
+        navbar.classList.toggle('bg-background/80', scrolled);
+        navbar.classList.toggle('backdrop-blur-xl', scrolled);
+        navbar.classList.toggle('border-border', scrolled);
+      };
+      applyNavbarState();
+      window.addEventListener('scroll', applyNavbarState);
 
-      // Mobile menu toggle
       const hamburger = document.querySelector('.hamburger');
       const mobileMenu = document.querySelector('.mobile-menu');
       if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', () => {
           mobileMenu.classList.toggle('open');
+          hamburger.classList.toggle('open');
         });
         mobileMenu.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
+            hamburger.classList.remove('open');
           });
         });
       }
 
-      // Accordion
       document.querySelectorAll('.accordion-trigger').forEach(trigger => {
         trigger.addEventListener('click', () => {
           const item = trigger.parentElement;
