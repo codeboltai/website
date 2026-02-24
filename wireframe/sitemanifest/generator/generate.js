@@ -169,13 +169,9 @@ function main() {
   const raw = fs.readFileSync(yamlPath, 'utf-8');
   const config = yaml.load(raw);
 
-  // 2. Copy template → output (skip if version already exists)
-  if (fs.existsSync(outputDir)) {
-    console.log(`Version "${version}" already exists — regenerating content only (skipping template copy).`);
-  } else {
-    console.log(`Copying template → output/${version}/`);
-    copyDirSync(templateDir, outputDir);
-  }
+  // 2. Copy template → output (always copy to ensure template files are present)
+  console.log(`Copying template → output/${version}/`);
+  copyDirSync(templateDir, outputDir);
 
   // 3. Generate site-data.js
   const dataDir = path.join(outputDir, 'src', 'data');

@@ -1,0 +1,21 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import PricingGrid from '../components/PricingGrid.astro';
+import Accordion from '../components/Accordion.astro';
+---
+<BaseLayout title="Pricing — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Pricing"
+    subtitle="Start building. Scale when you're ready."
+  />
+  <PricingGrid
+    cards={[{"tier":"Community","price":"Free","for":"Individual engineers exploring multi-agent workflows","features":["Core IDE","Up to 3 concurrent agents","Basic drift tracking","Community support"],"cta":{"label":"Start Free","href":"#","variant":"secondary"}},{"tier":"Pro","price":"$49","price_sub":"/mo","for":"Engineers and teams scaling agent coordination","featured":true,"badge":"Most popular","features":["Everything in Community","Unlimited agents","Full drift engine","Cross-environment coordination","AI Playbooks","Priority support"],"cta":{"label":"Start Pro","href":"#","variant":"primary"}},{"tier":"Enterprise","price":"Custom","for":"Organizations deploying agents in production","features":["Everything in Pro","Deterministic replay","Full audit trails","SSO / SAML","Dedicated support & SLA","Custom governance rules"],"cta":{"label":"Talk to Engineering","href":"mailto:eng@codebolt.ai","variant":"secondary"}}]}
+  />
+  <Accordion
+    heading="FAQ"
+    items={[{"question":"Is Codebolt a VS Code fork?","answer":"No. Codebolt is built from the ground up. The architecture starts with agent coordination, not an editor."},{"question":"Which AI models does Codebolt support?","answer":"Codebolt is model-agnostic. The environment amplifies whatever model you connect. As models improve, your agents improve."},{"question":"I'm currently using one agent. Is this for me?","answer":"If you're planning to scale, yes. Codebolt is built for where AI development is going. Start with one agent and grow."},{"question":"Can I use this for non-coding agents?","answer":"The architecture supports general agent coordination. We're focused on software development first, with broader applications coming."}]}
+  />
+</BaseLayout>
