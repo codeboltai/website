@@ -1,6 +1,6 @@
 site:
   name: "Codebolt"
-  tagline: "The High-Performance IDE for AI Agents."
+  tagline: "The Agentic Development Platform"
   logo:
     text: "Code"
     highlight: "bolt"
@@ -10,18 +10,20 @@ navigation:
     links:
       - { label: "Features", href: "/features" }
       - { label: "Architecture", href: "/architecture" }
+      - { label: "Use Cases", href: "/use-cases" }
       - { label: "Pricing", href: "/pricing" }
       - { label: "Docs", href: "https://docs.codebolt.ai", external: true }
       - { label: "Blog", href: "/blog" }
     cta: { label: "Get Started", href: "/pricing" }
   footer:
     brand:
-      tagline: "The High-Performance IDE for AI Agents."
+      tagline: "The Agentic Development Platform"
     columns:
       - heading: "Product"
         links:
           - { label: "Features", href: "/features" }
           - { label: "Architecture", href: "/architecture" }
+          - { label: "Use Cases", href: "/use-cases" }
           - { label: "Pricing", href: "/pricing" }
           - { label: "Changelog", href: "/changelog" }
       - heading: "Resources"
@@ -48,128 +50,119 @@ pages:
 
   # ── Homepage ────────────────────────────────
   - slug: ""
-    title: "Codebolt — The High-Performance IDE for AI Agents"
+    title: "Codebolt — The Agentic Development Platform"
     navbar_variant: "transparent"
     sections:
 
       - type: hero
-        heading: "The High-Performance IDE for AI Agents."
-        subheading: "Precision-engineered so agents align better, conflict less, and scale further."
+        heading: "Build agents. Build applications. Scale without limits."
+        subheading: "Codebolt is the platform where you write custom agents, build autonomous applications as plugins, and coordinate everything across multiple environments. One agent or one hundred."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "See How It Works", href: "/features", variant: "secondary" }
 
       - type: highlight-banner
         tone: "accent"
         content: |
-          Scaling agents is an <span class="text-primary">engineering problem</span>, not a prompting problem.
+          Coding copilots help you write code. Personal assistants manage your inbox. <span class="text-primary">Codebolt is where agents build software.</span>
 
       - type: stat-grid
         tone: "muted"
         columns: 4
         stats:
-          - { label: "Concurrent Agents", value: "100+" }
-          - { label: "Drift Signals", value: "4D" }
-          - { label: "Environments", value: "Multi" }
-          - { label: "Replay", value: "Deterministic" }
+          - { label: "SDK Modules", value: "63+" }
+          - { label: "LLM Providers", value: "17+" }
+          - { label: "Communication Channels", value: "3" }
+          - { label: "Environments", value: "Unlimited" }
 
       - type: centered-text
         variant: "thesis"
-        text: "Scaling agents is an engineering problem, not a prompting problem. Agents don't need better models — they need a better environment."
+        text: "The industry has coding assistants and personal AI agents. What's missing is a platform — one where custom agents run, autonomous applications execute as plugins, and scaling across environments is built in."
 
       - type: comparison-columns
         problem:
-          heading: "Without a proper environment"
+          heading: "What exists today"
           items:
-            - "Agents conflict over shared files"
-            - "Changes drift from original intent"
-            - "Multi-environment work creates merge chaos"
-            - "Scaling past 2-3 agents breaks everything"
-            - "You spend more time debugging agents than building"
+            - "Coding copilots (Cursor, Copilot) — you USE an agent, you can't build one"
+            - "Personal AI (OpenClaw, Manus) — great for your inbox, not your codebase"
+            - "Agent frameworks (LangChain) — libraries, not execution environments"
+            - "Running 3 independent agents ≠ 3 coordinated agents"
+            - "No tool handles conflict resolution, drift tracking, or multi-environment state"
         solution:
-          heading: "With Codebolt"
+          heading: "What Codebolt provides"
           items:
-            - "Conflicts resolve at the system level"
-            - "Drift tracking catches misalignment early"
-            - "Cross-environment coordination is built in"
-            - "The architecture handles hundreds of agents"
-            - "You direct the vision. Agents build the system."
+            - "Write custom agents with a 63-module SDK — filesystem, git, terminal, browser, LLM, memory"
+            - "Build applications as plugins that run inside the agentic environment"
+            - "Coordinate agents with stigmergy, pheromones, and deliberation councils"
+            - "Scale across local, Docker, cloud, and hierarchical environments"
+            - "Built-in review/merge, guardrails, audit trails, and deterministic replay"
 
       - type: card-grid
-        heading: "Core Capabilities"
+        heading: "Three Pillars"
         cards:
-          - title: "Multi-Agent Coordination"
-            body: "Agents work as a coordinated team, not independent processes fighting over shared state. The environment manages communication, sequencing, and dependencies."
+          - title: "Custom Agent Platform"
+            body: "Write your own agents with full SDK access — filesystem, git, terminal, browser, LLM, vector DB, memory, and 50+ more modules. Full control over the agentic loop. Not prompts. Code."
             visual: |
-              Agent A ──┐
-              Agent B ──┤ Environment
-              Agent C ──┘ (coordinated)
-          - title: "Drift Tracking"
-            body: "The system evaluates structural, scope, and coverage drift continuously. When agents deviate from intent, you know before the damage compounds."
+              import { codebolt } from 'codeboltjs';
+              codebolt.onMessage(async (msg) => {
+                const files = await codebolt.fs.readDir('/');
+                const analysis = await codebolt.llm.chat(…);
+                await codebolt.git.commit(analysis);
+              });
+          - title: "Agentic Application Runtime"
+            body: "Build applications as plugins that run inside the platform. Unlike other SDKs, plugins don't need their own agent instances — they execute within the agentic environment. This is how you build CI/CD pipelines, review systems, and entire software factories."
             visual: |
-              Intent → Plan → Code
-                    ↑ drift detected
-          - title: "Cross-Environment Execution"
-            body: "Agents operate across branches, staging, local, and production environments simultaneously. The system reconciles their work automatically."
+              Plugin connects via 3 channels:
+              ┌─ WS (actions) ────────┐
+              │ Multiplexed (events)   │
+              │ HTTP (CRUD)            │
+              └─ No separate agent ───┘
+          - title: "Multi-Environment Infrastructure"
+            body: "Scale agents across local, Docker, cloud, and hierarchical environments. Built-in coordination, drift tracking, conflict resolution, and state transfer. The provider system lets one Codebolt instance treat another as a coordinated environment."
             visual: |
-              local ──┐
-              staging ┤→ reconciled
-              prod ───┘
-          - title: "Conflict Resolution"
-            body: "When agents make incompatible changes, the environment resolves it. Not the user. Conflicts are handled as a system-level primitive."
-            visual: "conflict → arbitration → resolved"
-          - title: "Ground-Up Architecture"
-            body: "Not a VS Code fork. Not a wrapper. Built from scratch with agent coordination as the foundation, not a feature bolted on later."
-            visual: |
-              ┌─ Governance ─┐
-              │ Drift Engine │
-              │ Agent Runtime│
-              └─ Editor ─────┘
-          - title: "Model-Agnostic"
-            body: "The environment amplifies whatever model you put in it. As models improve, your agents improve automatically. No vendor lock-in."
-            visual: |
-              GPT ──┐
-              Claude┤→ Codebolt
-              Gemini┘  Environment
+              local ─────┐
+              docker ─────┤→ reconciled
+              cloud ──────┤  by platform
+              remote ─────┘
 
       - type: icon-grid
         tone: "muted"
-        kicker: "SYSTEM MODULES"
+        kicker: "PLATFORM CAPABILITIES"
         title: |
-          Designed for scale
-          Built for governance
-        description: "The primitives you need when agents become infrastructure."
+          Everything agents need
+          Nothing they don't
+        description: "The infrastructure that makes autonomous development possible."
         columns: 3
         features:
           - icon: "layers"
-            title: "Five-Layer Stack"
-            description: "Layered architecture that keeps coordination and governance out of your prompt."
+            title: "Full Agent SDK"
+            description: "63+ modules — filesystem, git, browser, terminal, LLM, vector DB, memory, knowledge graph, and more."
           - icon: "git-branch"
-            title: "Narrative Versioning"
-            description: "Track what changed, why it changed, and who changed it across environments."
+            title: "Multi-Environment Scaling"
+            description: "Run agents across local, Docker, cloud, and remote environments with automatic state reconciliation."
           - icon: "shield"
-            title: "Governance First"
-            description: "Constraints, auditability, and deterministic replay are built into the system."
+            title: "Governance & Guardrails"
+            description: "Policy engine with LLM risk classification. Scope by agent role, environment, and execution phase."
           - icon: "cpu"
-            title: "Runtime Coordination"
-            description: "Agents coordinate through structured shared state, not fragile message passing."
+            title: "Plugin System"
+            description: "Build applications inside the platform. Three communication channels. No separate agent instance needed."
           - icon: "code"
             title: "Model-Agnostic"
-            description: "Swap models without rewriting workflows. The environment does the heavy lifting."
+            description: "17+ cloud providers plus local models (Ollama, LM Studio). Per-agent, per-task model selection."
           - icon: "zap"
-            title: "Conflict Arbitration"
-            description: "Conflicts get resolved as a system primitive, not a manual merge task."
+            title: "Built-in Review & Merge"
+            description: "Automatic code review at the application level. No GitHub PR bottleneck. Agents merge their own work."
 
       - type: diagram-section
-        heading: "The Architecture"
+        heading: "The Three Communication Channels"
         layers:
-          - { label: "Layer 1 — Editor Interface", tag: "surface", style: "surface" }
-          - { label: "Layer 2 — Agent Runtime", tag: "runtime", style: "runtime" }
-          - { label: "Layer 3 — Drift Engine", tag: "Rust", style: "drift" }
-          - { label: "Layer 4 — Narrative Versioning", tag: "git-tree", style: "versioning" }
-          - { label: "Layer 5 — Governance & Coordination", tag: "core", style: "governance" }
-        annotation: "Most tools stop at Layer 2. Codebolt is Layers 3–5."
+          - { label: "Agent Channel — codeboltjs SDK", tag: "agents", style: "runtime" }
+          - { label: "Plugin Channel — plugin SDK (WS + HTTP)", tag: "plugins", style: "surface" }
+          - { label: "Client Channel — client SDK (UI/TUI/Web)", tag: "clients", style: "versioning" }
+          - { label: "Core Engine — coordination, drift, versioning", tag: "core", style: "governance" }
+        annotation: "Agents perform work. Plugins connect the platform to the world. Clients give you control."
         buttons:
-          - { label: "Explore the full architecture", href: "/architecture", variant: "secondary" }
+          - { label: "Explore the architecture", href: "/architecture", variant: "secondary" }
 
       - type: quote-block
         variant: "muted"
@@ -177,21 +170,54 @@ pages:
         quote: "A brilliant engineer in a company with no version control, no CI/CD, and no communication tools would be ineffective. Not because they lack skill — because the environment doesn't support good work. The same is true for AI agents today."
         attribution: "Codebolt Research"
 
+      - type: card-grid
+        heading: "The Progression"
+        cards:
+          - title: "Day 1 — Better coding environment"
+            body: "Use built-in agents to code. Like your current tool, but open. Any model. Full IDE, CLI, TUI, or web — your choice."
+            visual: |
+              Download → Open → Start coding
+              Agent assists, you direct
+          - title: "Month 1 — Write your first custom agent"
+            body: "Install codeboltjs. Write 10 lines of code. You now have an agent with full filesystem, git, browser, terminal, and LLM access. No other free tool gives you this."
+            visual: |
+              npm i codeboltjs
+              → Full 63-module SDK
+              → Your agent, your logic
+          - title: "Month 3 — Build workflows with plugins"
+            body: "Create plugins that run inside the platform. Connect to external services. Automate review, testing, deployment. Multiple agents coordinating."
+            visual: |
+              Plugin connects to:
+              GitHub, Jira, Sentry, Slack
+              Agents coordinate via platform
+          - title: "Year 1 — Build an autonomous company"
+            body: "Scale across environments. Run 50 agents in Docker containers. Deliberation councils review work. Automatic merge. Your infrastructure, not your bottleneck."
+            visual: |
+              50 agents → 5 environments
+              Automatic review & merge
+              You direct the vision
+
       - type: persona-grid
         personas:
-          - label: "Infrastructure Engineers"
-            body: "You've hit the coordination wall. You know the problem isn't the model — it's the environment. This is what you've been looking for."
+          - label: "Individual Developers"
+            body: "Write your own agents with a full SDK. Use one or one hundred. More power than any free coding tool — because you control the agent, not just the prompt."
           - label: "Teams Scaling AI"
-            body: "Moving from 2 agents to 50. You need a system that handles the complexity so you can focus on the product."
+            body: "Moving from 2 agents to 50. You need coordination, conflict resolution, and multi-environment management. This handles the complexity so you focus on the product."
+          - label: "AI Startup Founders"
+            body: "Build your company on Codebolt. Plugins run inside the platform — no separate agent instances needed. Scale across environments as you grow."
           - label: "Enterprise & Production"
-            body: "You won't put agents in production without governance, traceability, and deterministic replay. Neither would we."
+            body: "Governance, audit trails, deterministic replay, and guardrails. You won't put agents in production without these. Neither would we."
+          - label: "Platform & DevOps Engineers"
+            body: "Run headless in CI/CD. Spawn Docker environments. Transfer state between them. Monitor with real-time events. Built for infrastructure-minded people."
+          - label: "AI Researchers"
+            body: "Stigmergy-based coordination. Pheromone systems. Narrative versioning. A platform grounded in research, with the depth to back it up."
 
       - type: centered-text
         variant: "identity"
-        text: "Designed for engineers who treat AI as infrastructure — not just assistance."
+        text: "Not a personal assistant. Not a coding copilot. The platform where autonomous development happens."
 
       - type: cta-block
-        heading: "Ready to scale your agents."
+        heading: "Start building. Scale when you're ready."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
           - { label: "Read the Docs", href: "https://docs.codebolt.ai", variant: "secondary", external: true }
@@ -202,28 +228,115 @@ pages:
     sections:
 
       - type: page-header
-        title: "What the environment handles."
-        subtitle: "Every capability exists because it solves a real problem at scale."
+        title: "What the platform handles."
+        subtitle: "Every feature solves a real problem that emerges when agents work together at scale."
+
+      - type: feature-block
+        heading: "Write custom agents. Not prompts."
+        body: "Most tools give you a prompt box. Codebolt gives you a 63-module SDK. Write agents in JavaScript with full access to filesystem, git, browser automation, terminal, LLM, vector database, memory systems, knowledge graphs, and more. Your agent connects as a child process, performs actions through the platform, and results appear in your workspace. This is agent programming, not prompt engineering."
+        diagram: |
+          codebolt.onMessage(async (msg) => {
+            // Your agent logic
+            const files = await codebolt.fs.readDir('/src');
+            const code = await codebolt.fs.readFile('main.ts');
+            const review = await codebolt.llm.chat(
+              `Review: ${code}`
+            );
+            await codebolt.chat.sendMessage(review);
+          });
+          // 63+ modules available
+
+      - type: feature-block
+        heading: "Build applications as plugins. No separate agent needed."
+        body: "Plugins connect to the platform through three communication channels — WebSocket actions, multiplexed events, and HTTP REST. Unlike other SDKs, plugins run inside the agentic environment. They don't need to start their own agent instance. This means your CI/CD pipeline, code review system, or deployment automation runs natively inside the platform with full access to agentic capabilities."
+        reverse: true
+        diagram: |
+          ┌──────────────────────────────┐
+          │  Your Plugin                 │
+          ├──────────────────────────────┤
+          │ WS channel → fs, git, llm    │
+          │ Mux channel → events, tasks  │
+          │ HTTP → CRUD, projects        │
+          ├──────────────────────────────┤
+          │ Runs inside the platform.    │
+          │ No separate agent instance.  │
+          └──────────────────────────────┘
 
       - type: feature-block
         heading: "Agents coordinate. They don't collide."
-        body: "Traditional multi-agent setups are parallel LLM calls sharing a context buffer. Codebolt uses stigmergy-based coordination — agents communicate through structured shared state, not fragile message passing. The environment manages sequencing, dependencies, and resource allocation."
+        body: "Traditional multi-agent setups are parallel LLM calls fighting over shared state. Codebolt uses stigmergy-based coordination — agents communicate through structured shared state, not fragile message passing. Pheromone-based task ownership prevents agents from stepping on each other's work. The environment manages sequencing, dependencies, and resource allocation."
         diagram: |
-          ┌──────────────────────┐
-          │  Agent Coordination  │
-          │         Flow         │
-          ├──────────────────────┤
-          │ Agent A → shared state│
-          │ Agent B → shared state│
-          │ Agent C → shared state│
-          ├──────────────────────┤
-          │ sequencing │ deps    │
-          │ resource allocation  │
-          └──────────────────────┘
+          ┌──────────────────────────┐
+          │  Stigmergy Coordination  │
+          ├──────────────────────────┤
+          │ Agent A → shared state   │
+          │ Agent B → shared state   │
+          │ Agent C → shared state   │
+          ├──────────────────────────┤
+          │ Pheromones: ownership     │
+          │ Sequencing: dependencies  │
+          │ Resources: allocation     │
+          └──────────────────────────┘
+
+      - type: feature-block
+        heading: "Multi-environment scaling. One platform, many worlds."
+        body: "Agents operate across local, Docker, cloud, and hierarchical environments simultaneously. The provider system lets one Codebolt instance treat another as a coordinated environment — spawning, monitoring, and transferring state between them. Each environment runs its own agent instances with heartbeat monitoring and full lifecycle management. Build once, deploy everywhere."
+        reverse: true
+        diagram: |
+          Main Codebolt Instance
+                │
+          ┌─────┼──────┐
+          ↓     ↓      ↓
+          local docker  cloud
+          env    env    env
+          │      │      │
+          └──────┼──────┘
+           reconciled by platform
+           state transfer via git bundles
+
+      - type: feature-block
+        heading: "Agent conflicts are a system problem. The system solves them."
+        body: "When two agents make incompatible changes to the same file, the platform resolves it using structured arbitration. No merge conflicts in your terminal. No manual intervention. The system handles disagreements with clear rules and traceable decisions. This is what makes running 50 agents on one codebase possible."
+        diagram: |
+          conflict detected
+                ↓
+          structured arbitration
+                ↓
+          resolution applied
+                ↓
+          decision logged + traceable
+
+      - type: feature-block
+        heading: "Automatic review and merge. No GitHub PR bottleneck."
+        body: "Agents create review-merge requests for their changes. Other agents provide feedback — approve, request changes, or comment. Conflict detection runs before merge. Pheromone-based coordination prevents overlapping work. This enables agents to do long tasks in parallel, review each other's output, and merge without human intervention. Autonomous software development requires autonomous code review."
+        reverse: true
+        diagram: |
+          Agent A: implements feature
+                ↓
+          Review request created
+                ↓
+          Agent B: reviews, approves
+                ↓
+          Agent C: checks conflicts
+                ↓
+          Auto-merged. No human needed.
+
+      - type: feature-block
+        heading: "Agent Deliberation Council"
+        body: "Agents can propose options, debate, vote, and reach consensus. The deliberation system supports decision, review, brainstorm, approval, and vote types. This is how agents make architectural decisions together — not by one agent guessing, but by multiple agents reasoning and agreeing. The system logs every deliberation for full traceability."
+        diagram: |
+          Agent A proposes option 1
+          Agent B proposes option 2
+                ↓
+          Agents discuss tradeoffs
+                ↓
+          Vote: 3 for option 1, 2 for option 2
+                ↓
+          Consensus reached. Decision logged.
 
       - type: feature-block
         heading: "Drift tracking catches what code review can't."
-        body: "The drift engine evaluates structural, scope, constraint, and coverage drift at two levels: local assessment within Rust engine instances and global coordination in JavaScript. When agents deviate from the original intent, the system flags it before the deviation compounds."
+        body: "The drift engine evaluates structural, scope, constraint, and coverage drift at two levels: local Rust assessment within each agent context, and global JavaScript coordination across all agents. When agents deviate from the original intent, the system flags it before the deviation compounds. This is how you maintain coherence across 50 agents working simultaneously."
         reverse: true
         diagram: |
           Intent
@@ -233,63 +346,75 @@ pages:
           Code → [drift check]
             ↓
           Output
-
           Rust (local) + JS (global)
+          4 dimensions: structure, scope,
+          constraints, coverage
 
       - type: feature-block
-        heading: "One codebase. Multiple environments. Zero manual merging."
-        body: "Agents operate across local, staging, feature branches, and production contexts simultaneously. The narrative versioning system tracks what changed, why, and by which agent — then reconciles across environments automatically."
-        diagram: |
-          local ─────┐
-          staging ────┤
-          feature/a ──┤→ reconciliation
-          feature/b ──┤   engine
-          production ─┘
-
-      - type: feature-block
-        heading: "Agent conflicts are a system problem. The system solves them."
-        body: "When two agents make incompatible changes to the same file, the environment resolves it using structured arbitration. No merge conflicts in your terminal. No manual intervention. The system handles disagreements the way a well-run engineering team would — with clear rules and traceable decisions."
-        reverse: true
-        diagram: |
-          conflict detected
-                ↓
-          structured arbitration
-                ↓
-          resolution applied
-                ↓
-          decision logged
-
-      - type: feature-block
-        heading: "Every agent decision is traceable and replayable."
-        body: "The execution trace graph captures the full reasoning chain for every agent action. You can replay any decision, audit any change, and understand exactly why your codebase looks the way it does. This is what makes enterprise deployment possible."
+        heading: "Every decision is traceable and replayable."
+        body: "The Rust-based Narrative Engine captures the full reasoning chain for every agent action. Per-thread git history with snapshot versioning. Agent attribution for every change — what changed, why, and by which agent. You can replay any decision, audit any change, and understand exactly why your codebase looks the way it does. This is what makes enterprise deployment possible."
         diagram: |
           t0 → t1 → t2 → t3
           │    │    │    │
-          decision trace graph
-
+          Full decision trace graph
+          Per-thread git refs
+          Intent + diff + attribution
           [replay any point]
-          [audit any change]
 
       - type: feature-block
-        heading: "Structured intelligence modules. Not prompt templates."
-        body: "AI Playbooks encode domain knowledge, architectural constraints, and decision patterns into structured modules that agents consume. They're how you give agents context without giving them your entire codebase. Reusable, composable, versionable."
+        heading: "Governance, guardrails, and guardrails for guardrails."
+        body: "The policy engine evaluates rules and LLM classification for agent tool permissions. Scoped by agent role, agent ID, environment, provider, and execution phase. Decisions: allow, deny, or ask (require human approval). Per-agent and per-task LLM selection. Local model support including fine-tuned models. This is how you let agents run autonomously without losing control."
         reverse: true
         diagram: |
-          ┌─ Playbook ──────────┐
-          │ domain knowledge    │
-          │ constraints         │
-          │ decision patterns   │
-          ├──────────────────────┤
-          │ composable          │
-          │ versionable         │
-          │ reusable            │
-          └──────────────────────┘
+          Agent wants to: delete production DB
+                ↓
+          Guardrail engine evaluates:
+          - Agent role: junior
+          - Environment: production
+          - Risk classification: HIGH
+                ↓
+          Decision: DENY
+          Escalate to human: ASK
+                ↓
+          All decisions logged + auditable
+
+      - type: feature-block
+        heading: "Three-tier memory. Because context is everything."
+        body: "Episodic memory provides time-based recall of past interactions. Persistent memory stores structured knowledge with chunking, embedding, and retrieval pipelines. The Context Assembly Engine assembles optimal context from all memory types using rules, pipelines, and token budgets. Agents don't just remember — they know what to remember."
+        diagram: |
+          ┌────────────────────────────┐
+          │  Context Assembly Engine   │
+          ├────────────────────────────┤
+          │ Episodic → time-based      │
+          │ Persistent → structured    │
+          │ Rules → what to include    │
+          │ Pipelines → how to process │
+          │ Token budget → constraints │
+          ├────────────────────────────┤
+          │ Optimal context to LLM     │
+          └────────────────────────────┘
+
+      - type: feature-block
+        heading: "One platform. Every interface."
+        body: "Desktop IDE (Electron with Monaco editor). Web interface. Go-based TUI with sidebar panels. Full CLI with headless server mode. All backed by the same core engine through the HostBridge abstraction. Use the interface that fits your workflow — the platform stays the same."
+        reverse: true
+        diagram: |
+          ┌─ Electron IDE ──────┐
+          │ Web UI              │
+          │ Go TUI              │
+          │ CLI / Headless      │
+          ├─────────────────────┤
+          │ HostBridge           │
+          │ (portability layer)  │
+          ├─────────────────────┤
+          │ Core Engine          │
+          └─────────────────────┘
 
       - type: cta-block
         heading: "See how it's built."
         buttons:
           - { label: "Explore Architecture", href: "/architecture", variant: "primary" }
-          - { label: "Get Started", href: "/pricing", variant: "secondary" }
+          - { label: "View Use Cases", href: "/use-cases", variant: "secondary" }
 
   # ── Architecture ────────────────────────────
   - slug: "architecture"
@@ -298,31 +423,45 @@ pages:
 
       - type: page-header
         title: "Architecture"
-        subtitle: "Codebolt is built from the ground up. Here's how."
+        subtitle: "Codebolt is built from the ground up as an agent platform, not an editor with agents bolted on."
 
       - type: diagram-section
-        heading: "The 5-Layer Stack"
+        heading: "The Platform Stack"
         layers:
-          - { label: "Layer 1 — Editor Interface", tag: "surface", style: "surface" }
-          - { label: "Layer 2 — Agent Runtime", tag: "runtime", style: "runtime" }
-          - { label: "Layer 3 — Drift Engine", tag: "Rust", style: "drift" }
-          - { label: "Layer 4 — Narrative Versioning", tag: "git-tree", style: "versioning" }
-          - { label: "Layer 5 — Governance & Coordination Loop", tag: "core", style: "governance" }
-        annotation: "Most competitors stop at Layer 2."
+          - { label: "Interface Layer — IDE, TUI, CLI, Web", tag: "surface", style: "surface" }
+          - { label: "Communication Layer — Agent, Plugin, Client SDKs", tag: "runtime", style: "runtime" }
+          - { label: "Coordination Layer — Stigmergy, Deliberation, Pheromones", tag: "coordination", style: "drift" }
+          - { label: "Intelligence Layer — Drift Engine, Narrative Versioning (Rust)", tag: "Rust", style: "versioning" }
+          - { label: "Infrastructure Layer — Governance, Environments, Providers", tag: "core", style: "governance" }
+        annotation: "Other tools are Layer 1-2. Agent frameworks are Layer 2 only. Codebolt is all five."
 
       - type: accordion
-        heading: "Technical Deep-Dives"
+        heading: "Platform Architecture"
+        items:
+          - question: "Three Communication Channels"
+            answer: "Codebolt exposes three communication paths. The Agent Channel (codeboltjs) lets external agents connect as child processes with 63+ API modules. The Plugin Channel (plugin SDK) provides three sub-channels — WebSocket for actions, multiplexed events for real-time updates, and HTTP REST for CRUD — enabling applications to run inside the platform without separate agent instances. The Client Channel (client SDK) connects UIs (Electron, Web, TUI) with 72 REST modules and 33 WebSocket modules. Each channel serves a distinct purpose: agents do work, plugins connect the platform to the world, clients give you control."
+          - question: "HostBridge: Run Anywhere"
+            answer: "The core engine never calls platform APIs directly. Instead, it defines a HostBridge interface for process spawning, SQLite, Kuzu graph DB, and ONNX inference. Each runtime implements its own bridge: Electron uses UtilityProcess and TypeORM, CLI uses child_process and better-sqlite3, TUI connects via WebSocket proxy. This is how one codebase powers a desktop IDE, a CLI tool, and a headless server with identical capabilities."
+          - question: "The Provider/Environment System"
+            answer: "Providers manage compute environments. The built-in Docker provider creates containers running a dockerserver that connects back to the main instance. Each environment has a full lifecycle — CREATED, STARTING, RUNNING, STOPPING, STOPPED — with heartbeat monitoring. The Narrative Engine snapshots workspace state per-environment, and git bundles transfer state between them. The main system controls environment spawning and closing, and even agents have access to environment management. This enables hierarchical setups where one Codebolt instance orchestrates many others."
+          - question: "Agent Lifecycle"
+            answer: "Agents are discovered from a marketplace API, cached locally, and spawned as child processes. They connect via codeboltjs, call waitForReady(), then handle messages and invoke API modules. The platform manages agent registration, status tracking, and lifecycle events. Agents can spawn child agents, participate in swarms, join deliberation councils, create review-merge requests, and manage other agents — all through the SDK."
+          - question: "Plugin Lifecycle"
+            answer: "Plugins are discovered from project .codeboltPlugins/ directories and global ~/.codebolt/plugins/. Each plugin declares itself in package.json with a codebolt.plugin key. The PluginProcessManager handles loading, starting, stopping, and trigger-based auto-start. Plugins receive a PluginContext with their ID, directory, and manifest. They can perform any action an agent can, plus subscribe to real-time events and make HTTP API calls."
+
+      - type: accordion
+        heading: "Research Foundations"
         items:
           - question: "Stigmergy-Based Coordination"
             answer: "Traditional multi-agent systems rely on direct message passing — agents send instructions to each other, creating fragile coupling and scaling bottlenecks. Codebolt uses stigmergy: agents communicate indirectly through structured shared state. Each agent reads from and writes to a shared environment, allowing coordination to emerge without explicit messaging. This is how biological swarms scale to millions of agents — and it's how Codebolt scales beyond the limits of message-passing architectures."
-          - question: "The Narrative Engine"
-            answer: "The narrative engine is a Rust-based system that maintains a complete record of agent actions, decisions, and reasoning. It uses git trees for snapshot versioning, enabling agent attribution (which agent changed what and why), cross-environment coordination (reconciling work across branches and contexts), and full replay capability. Every change carries its narrative — the intent behind it, not just the diff."
-          - question: "Drift Tracking Architecture"
-            answer: "Drift tracking operates at two levels. The local Rust engine instances assess drift within individual agent contexts — structural drift (architecture diverging from plan), scope drift (features expanding beyond intent), constraint drift (violations of specified rules), and coverage drift (gaps in implementation). The global JavaScript coordination layer aggregates these signals across all agents, detecting systemic drift patterns that no single agent would catch alone."
-          - question: "SCAAB Bundles"
-            answer: "SCAAB (Structured Context for Agent-Addressable Bundles) packages encode domain knowledge, architectural decisions, and operational constraints into portable bundles that agents can consume. They provide structured context without requiring agents to process an entire codebase. Bundles are composable, versionable, and designed for cross-agent knowledge sharing."
-          - question: "IntentGraph & PlanGraph"
-            answer: "IntentGraph captures what should happen — a directed graph of goals, constraints, and success criteria. PlanGraph captures how it should happen — a dependency-ordered execution plan derived from the IntentGraph. Together, they provide the reference frame for drift detection: as agents execute, the system continuously compares actual outcomes against the IntentGraph to catch deviation early."
+          - question: "Pheromone-Based Task Ownership"
+            answer: "Inspired by ant colony optimization, agents deposit 'pheromones' on tasks and files to signal interest and ownership. Pheromone types are configurable. The aggregation system handles conflict resolution when multiple agents show interest in the same work. Lock/unlock mechanisms provide exclusive access when needed. This prevents the coordination breakdown that happens when agents independently decide to work on the same code."
+          - question: "The Narrative Engine (Rust)"
+            answer: "A Rust-based 'flight recorder' that maintains a complete record of agent actions, decisions, and reasoning. It uses shadow git for snapshot versioning with a narrative hierarchy: Objective → Thread → Agent Run → Snapshot. Per-thread commit branches (refs/threads/<thread_id>) provide agent-specific history. Git bundles transfer snapshots between environments. Every change carries its narrative — the intent behind it, not just the diff."
+          - question: "Drift Tracking: Two-Level Architecture"
+            answer: "Drift tracking operates at two levels. Local Rust engine instances assess drift within individual agent contexts — structural drift (architecture diverging from plan), scope drift (features expanding beyond intent), constraint drift (violations of specified rules), and coverage drift (gaps in implementation). The global JavaScript coordination layer aggregates these signals across all agents, detecting systemic drift patterns that no single agent would catch alone."
+          - question: "Agent Deliberation Council"
+            answer: "Agents participate in structured deliberations: propose options, respond, vote, and reach consensus. Deliberation types include decision, review, brainstorm, approval, and vote. All deliberations are stored per-project and fully traceable. This enables agents to make architectural decisions collectively rather than having one agent guess at the right approach."
 
       - type: accordion
         heading: "Published Research"
@@ -343,6 +482,99 @@ pages:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
           - { label: "Read the Docs", href: "https://docs.codebolt.ai", variant: "secondary", external: true }
 
+  # ── Use Cases ───────────────────────────────
+  - slug: "use-cases"
+    title: "Use Cases — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Built for how you work."
+        subtitle: "Different teams. Different scales. Same platform."
+
+      - type: card-grid
+        heading: "Custom Agent Harnesses"
+        cards:
+          - title: "Write Agents That Understand Your Stack"
+            body: "Use the 63-module SDK to build agents that know your architecture, follow your conventions, and work within your constraints. Full filesystem, git, browser, terminal, LLM, and memory access. Your agent logic, not a vendor's prompt template."
+            visual: |
+              Your conventions → Your agent
+              Your stack → Your SDK calls
+              Your rules → Your guardrails
+          - title: "Model Freedom"
+            body: "Use GPT for planning, Claude for coding, Gemini for review, and a local fine-tuned model for repetitive tasks. Per-agent and per-task model selection. 17+ cloud providers plus Ollama and LM Studio. No vendor lock-in."
+            visual: |
+              GPT → planning
+              Claude → coding
+              Local → repetitive tasks
+              All in one platform
+          - title: "Full Control Over the Agent Loop"
+            body: "Unlike prompt-only tools, you control what the agent does at every step. Custom decision logic. Custom tool selection. Custom memory management. The agent is your program, not a black box."
+            visual: |
+              Step 1: analyze codebase
+              Step 2: check conventions
+              Step 3: implement changes
+              Step 4: run tests
+              Step 5: create review
+              (your logic at every step)
+
+      - type: card-grid
+        heading: "Autonomous Development"
+        cards:
+          - title: "Build Your Company on Codebolt"
+            body: "Plugins run inside the platform — no separate agent instances needed. Build your CI/CD pipeline as a plugin. Build your code review system as a plugin. Build your deployment automation as a plugin. Each one runs with full agentic capabilities inside the environment."
+            visual: |
+              Plugin: CI/CD pipeline
+              Plugin: code review
+              Plugin: deployment
+              Plugin: monitoring
+              All running inside Codebolt
+          - title: "Scale Across Environments"
+            body: "Start local. Add Docker containers. Scale to cloud. The provider system lets your main instance treat other Codebolt instances as coordinated environments. Transfer state via git bundles. Monitor with heartbeats. Scale from 1 to 100 agents without changing your architecture."
+            visual: |
+              Day 1: 1 agent, local
+              Month 3: 10 agents, Docker
+              Month 6: 50 agents, cloud
+              Year 1: autonomous company
+          - title: "Agents Reviewing Agents"
+            body: "The built-in review-merge system lets agents create review requests, provide feedback, detect conflicts, and merge their own work. No GitHub PR bottleneck. Agents do long tasks in parallel, review each other's output, and resolve conflicts autonomously."
+            visual: |
+              Agent A implements
+              Agent B reviews
+              Agent C tests
+              Agent D merges
+              Zero human intervention
+
+      - type: card-grid
+        heading: "Enterprise & Teams"
+        cards:
+          - title: "Governance for Production Agents"
+            body: "The guardrail engine evaluates agent actions against configurable policies scoped by role, environment, and execution phase. LLM-based risk classification. Allow, deny, or require human approval. Every decision is logged for audit."
+            visual: |
+              Policy: production access
+              Role: senior agents only
+              Risk: LLM-classified
+              Decision: logged + auditable
+          - title: "Audit Trails & Deterministic Replay"
+            body: "Every agent decision is captured in the Narrative Engine's execution trace graph. Replay any point in time. Audit any change. Understand why the codebase looks the way it does. This is what compliance teams need before approving AI in production."
+            visual: |
+              t0 → t1 → t2 → t3
+              Full trace for every agent
+              Replay any decision
+              Audit any change
+          - title: "Team Coordination at Scale"
+            body: "When multiple engineers use AI on the same codebase, you need coordination. Pheromone-based ownership prevents conflicting work. Drift tracking catches misalignment. Deliberation councils help agents make collective decisions. The platform handles the complexity so your team doesn't have to."
+            visual: |
+              Engineer A + Agent 1
+              Engineer B + Agent 2
+              Engineer C + Agent 3
+              → coordinated by platform
+
+      - type: cta-block
+        heading: "Whatever you're building, Codebolt scales with you."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "Explore Features", href: "/features", variant: "secondary" }
+
   # ── Pricing ─────────────────────────────────
   - slug: "pricing"
     title: "Pricing — Codebolt"
@@ -350,17 +582,19 @@ pages:
 
       - type: page-header
         title: "Pricing"
-        subtitle: "Start building. Scale when you're ready."
+        subtitle: "Start with one agent. Scale when you're ready."
 
       - type: pricing-grid
         cards:
           - tier: "Community"
             price: "Free"
-            for: "Individual engineers exploring multi-agent workflows"
+            for: "Individual developers and tinkerers building custom agents"
             features:
-              - "Core IDE"
-              - "Up to 3 concurrent agents"
-              - "Basic drift tracking"
+              - "Full IDE + CLI + TUI + Web"
+              - "3 concurrent agents"
+              - "Full Agent SDK (63+ modules)"
+              - "Plugin system"
+              - "All 17+ LLM providers"
               - "Community support"
             cta: { label: "Start Free", href: "#", variant: "secondary" }
           - tier: "Pro"
@@ -371,35 +605,45 @@ pages:
             badge: "Most popular"
             features:
               - "Everything in Community"
-              - "Unlimited agents"
-              - "Full drift engine"
-              - "Cross-environment coordination"
-              - "AI Playbooks"
+              - "Unlimited concurrent agents"
+              - "Full drift engine (4D tracking)"
+              - "Multi-environment coordination"
+              - "Agent deliberation councils"
+              - "Automatic review & merge"
+              - "Full memory system"
               - "Priority support"
             cta: { label: "Start Pro", href: "#", variant: "primary" }
           - tier: "Enterprise"
             price: "Custom"
-            for: "Organizations deploying agents in production"
+            for: "Organizations deploying autonomous agents in production"
             features:
               - "Everything in Pro"
               - "Deterministic replay"
               - "Full audit trails"
               - "SSO / SAML"
+              - "Custom guardrail policies"
               - "Dedicated support & SLA"
-              - "Custom governance rules"
+              - "Environment templates"
+              - "On-premise deployment"
             cta: { label: "Talk to Engineering", href: "mailto:eng@codebolt.ai", variant: "secondary" }
 
       - type: accordion
         heading: "FAQ"
         items:
+          - question: "How is Codebolt different from Cursor or Claude Code?"
+            answer: "Cursor and Claude Code are agents you use. Codebolt is a platform you build on. You can write custom agents with a full 63-module SDK, build applications as plugins, and coordinate multiple agents across environments. They're tools. Codebolt is infrastructure."
+          - question: "How is Codebolt different from OpenClaw or personal AI assistants?"
+            answer: "OpenClaw is a great personal assistant for your inbox, calendar, and daily tasks. Codebolt is a development platform for building, running, and coordinating AI agents that write software. Different purpose, different architecture. You might use both — OpenClaw for personal automation, Codebolt for development."
+          - question: "How is Codebolt different from LangChain or CrewAI?"
+            answer: "LangChain and CrewAI are libraries for building agents. Codebolt is a complete platform — IDE, execution environment, coordination engine, and deployment infrastructure. Frameworks give you tools to build agents. Codebolt gives you a place for them to run, coordinate, and scale."
+          - question: "I'm using one agent today. Is this for me?"
+            answer: "Yes. Start with one agent and the full SDK. You get more power than any free coding tool because you control the agent loop, not just the prompt. When you're ready to add more agents, the platform scales with you."
+          - question: "Can I run this headless in CI/CD?"
+            answer: "Yes. Codebolt runs as a headless server via the CLI. Spawn Docker environments, run agents, transfer state, and monitor progress — all without a GUI."
           - question: "Is Codebolt a VS Code fork?"
-            answer: "No. Codebolt is built from the ground up. The architecture starts with agent coordination, not an editor."
+            answer: "No. Codebolt is built from the ground up. The architecture starts with agent coordination as the foundation. The editor uses Monaco (the same editor component as VS Code) but the platform, runtime, and coordination layers are entirely original."
           - question: "Which AI models does Codebolt support?"
-            answer: "Codebolt is model-agnostic. The environment amplifies whatever model you connect. As models improve, your agents improve."
-          - question: "I'm currently using one agent. Is this for me?"
-            answer: "If you're planning to scale, yes. Codebolt is built for where AI development is going. Start with one agent and grow."
-          - question: "Can I use this for non-coding agents?"
-            answer: "The architecture supports general agent coordination. We're focused on software development first, with broader applications coming."
+            answer: "All of them. 17+ cloud providers (OpenAI, Anthropic, Google, Mistral, Groq, DeepSeek, etc.) plus local models via Ollama and LM Studio. Per-agent and per-task model selection. Use GPT for planning, Claude for coding, and a local model for repetitive tasks — all in the same workflow."
 
   # ── Blog ────────────────────────────────────
   - slug: "blog"
@@ -408,30 +652,34 @@ pages:
 
       - type: page-header
         title: "Blog"
-        subtitle: "Engineering decisions, architecture deep-dives, and what we're learning."
+        subtitle: "Engineering decisions, architecture deep-dives, and what we're learning about agents at scale."
 
       - type: blog-grid
         posts:
           - date: "2026-02-18"
-            title: "Why We Built a New IDE From Scratch"
-            excerpt: "The origin story behind Codebolt — why we chose to build from the ground up instead of forking an existing editor, and what that decision enables."
+            title: "Why We Built an Agent Platform, Not Another Copilot"
+            excerpt: "The origin story — why we chose to build a platform where you write custom agents, not another AI-assisted editor. And why that distinction matters."
             tag: "Engineering"
           - date: "2026-02-12"
-            title: "Scaling Agents Is an Engineering Problem"
-            excerpt: "The core thesis expanded. Why better models alone won't solve multi-agent coordination, and what infrastructure needs to exist."
-            tag: "Architecture"
+            title: "Coding Copilots, Personal AI, and Agent Platforms: Three Categories Explained"
+            excerpt: "The AI tool landscape has settled into three distinct categories. Here's what each one does, where they overlap, and why we chose the hardest one."
+            tag: "Strategy"
           - date: "2026-02-05"
-            title: "How Drift Tracking Works Under the Hood"
-            excerpt: "A technical deep-dive into the two-level drift engine — local Rust assessment and global JavaScript coordination working together."
-            tag: "Engineering"
+            title: "How the Plugin System Enables Autonomous Applications"
+            excerpt: "Why plugins in Codebolt don't need separate agent instances, how the three communication channels work, and what this means for building autonomous companies."
+            tag: "Architecture"
           - date: "2026-01-28"
             title: "Stigmergy vs Message Passing for Agent Coordination"
             excerpt: "A research-backed comparison of coordination strategies. Why indirect communication through shared state scales better than direct messaging."
             tag: "Research"
           - date: "2026-01-20"
             title: "What Breaks When You Run 50 Agents on One Repo"
-            excerpt: "Real problems we encountered scaling agent coordination, and the system-level solutions we built to handle them."
+            excerpt: "Real problems we encountered scaling agent coordination — conflicts, drift, memory exhaustion — and the system-level solutions we built."
             tag: "Engineering"
+          - date: "2026-01-12"
+            title: "Agent Deliberation: How Agents Make Decisions Together"
+            excerpt: "Inside the deliberation council system — proposing, debating, voting, and reaching consensus without human intervention."
+            tag: "Architecture"
 
   # ── About ───────────────────────────────────
   - slug: "about"
@@ -440,30 +688,31 @@ pages:
 
       - type: centered-text
         variant: "thesis"
-        text: "We saw the gap between what AI agents promise and what they can actually deliver. The bottleneck isn't intelligence. It's infrastructure. We built the infrastructure."
+        text: "We saw the gap between what AI agents promise and what they can actually deliver. The bottleneck isn't intelligence — it's infrastructure. We built the infrastructure."
 
       - type: two-column-text
         columns:
           - heading: "What everyone is building"
-            body: "Smarter models. Better prompts. Faster autocomplete. More agents running in parallel."
+            body: "Smarter models. Better prompts. Faster autocomplete. Personal assistants that manage your calendar. Copilots that finish your sentences."
           - heading: "What's actually missing"
-            body: "An environment where agents can coordinate, resolve conflicts, track drift, and scale without collapsing into chaos."
-        conclusion: "Codebolt is the environment."
+            body: "A platform where custom agents run, applications execute as plugins, and multi-agent coordination is built in. Not a tool — infrastructure."
+        conclusion: "Codebolt is the infrastructure."
 
       - type: value-list
         heading: "What We Believe"
         values:
           - "The environment is the multiplier, not the model."
-          - "Depth over breadth. Solve the hard problem well."
-          - "Honesty over hype. Show benchmarks, not adjectives."
-          - "Earned complexity. The system grows with your ambition."
+          - "Agents are programs, not prompts. Give developers the SDK."
+          - "Scale is an engineering problem. Solve it with architecture, not hope."
+          - "Depth over breadth. Solve the hard coordination problem well."
+          - "Honesty over hype. Show the architecture, not the adjectives."
 
       - type: centered-text
         heading: "The Engineering"
-        text: "Codebolt is built from scratch — not forked, not wrapped. The architecture is grounded in research on stigmergic coordination, narrative versioning, and drift tracking. Every layer exists because the problem demanded it."
+        text: "Codebolt is built from scratch — not forked, not wrapped. 73 controllers, 134 services, a Rust-based Narrative Engine, three communication channels, and a HostBridge abstraction that runs identically on desktop, CLI, and headless server. Every layer exists because the problem demanded it."
 
       - type: cta-block
-        heading: "We're building the infrastructure for the AI agent era."
+        heading: "We're building the infrastructure for autonomous development."
         buttons:
           - { label: "See Open Roles", href: "/careers", variant: "primary" }
           - { label: "Read the Architecture", href: "/architecture", variant: "secondary" }
@@ -478,7 +727,7 @@ pages:
         subtitle: "We're solving the hardest coordination problems in AI. If that excites you, we should talk."
 
       - type: centered-text
-        text: "Engineering-first culture. Small team. Hard problems. Real impact on how AI development works. We care about depth, craftsmanship, and building things that hold up under pressure. Remote-friendly."
+        text: "Engineering-first culture. Small team. Hard problems. Real impact on how autonomous development works. We care about depth, craftsmanship, and building things that hold up under pressure. Remote-friendly."
 
       - type: role-list
         heading: "Open Roles"
@@ -498,31 +747,34 @@ pages:
         entries:
           - date: "2026-02-15"
             version: "v0.9.0"
-            summary: "Cross-environment reconciliation engine. Agents now coordinate across local, staging, and feature branches with automatic conflict resolution."
+            summary: "Provider system for multi-environment scaling. Codebolt instances now coordinate with each other via git bundle state transfer and heartbeat monitoring."
           - date: "2026-02-01"
             version: "v0.8.0"
-            summary: "AI Playbooks — structured intelligence modules for encoding domain knowledge, constraints, and decision patterns. Composable and versionable."
+            summary: "Plugin SDK with three communication channels. Build applications that run inside the platform without separate agent instances."
           - date: "2026-01-18"
             version: "v0.7.0"
-            summary: "Execution trace graph with full replay capability. Every agent decision is now traceable and auditable."
+            summary: "Agent deliberation councils — propose, debate, vote, consensus. Automatic review-merge system with pheromone-based coordination."
           - date: "2026-01-05"
             version: "v0.6.0"
             summary: "Drift engine v2 — two-level architecture with local Rust assessment and global JavaScript coordination. Tracks structural, scope, constraint, and coverage drift."
           - date: "2025-12-20"
             version: "v0.5.0"
-            summary: "Stigmergy-based coordination replaces message-passing architecture. Significant scaling improvements for 10+ concurrent agents."
+            summary: "Stigmergy-based coordination replaces message-passing architecture. Pheromone task ownership. Significant scaling improvements for 10+ concurrent agents."
           - date: "2025-12-01"
             version: "v0.4.0"
-            summary: "Narrative versioning with git tree-based snapshots. Agent attribution for every change — what changed, why, and by which agent."
+            summary: "Narrative Engine (Rust) with shadow git snapshots. Agent attribution for every change. Execution trace graph with replay capability."
+          - date: "2025-11-15"
+            version: "v0.3.0"
+            summary: "HostBridge abstraction layer. One codebase now powers desktop IDE, CLI, and headless server with identical capabilities."
 
-  # ── Components (New Design Demo) ─────────────
+  # ── Components (Design Demo) ─────────────────
   - slug: "components"
     title: "Components — Codebolt"
     sections:
 
       - type: page-header
         title: "Component Library"
-        subtitle: "New design system components available to the generator."
+        subtitle: "Design system components available to the generator."
 
       - type: highlight-banner
         tone: "accent"
@@ -542,13 +794,13 @@ pages:
         divider: true
         columns: 4
         metrics:
-          - { label: "Compression Rate", value: "50:1", meta: "Token/Vector" }
-          - { label: "Recall Accuracy", value: "99.9%", meta: "P-Value < 0.01", highlight: true }
-          - { label: "Inference Horizon", value: "24H+", meta: "Projected" }
-          - { label: "Registry Status", value: "SERIALIZED", meta: "Stable", highlight: true }
+          - { label: "SDK Modules", value: "63+", meta: "Agent APIs" }
+          - { label: "LLM Providers", value: "17+", meta: "Cloud + Local", highlight: true }
+          - { label: "Comm Channels", value: "3", meta: "Agent/Plugin/Client" }
+          - { label: "Platform Status", value: "ACTIVE", meta: "Stable", highlight: true }
 
       - type: metric-bar
-        label: "Semantic_Depth"
+        label: "Coordination_Depth"
         value: 98
         variant: "primary"
         showMarker: true
@@ -566,21 +818,21 @@ pages:
         columnsHtml:
           - |
             <div class="p-8 md:p-12">
-              <div class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">01_STATE_MANAGEMENT</div>
-              <h3 class="text-xl font-medium text-foreground mb-3 tracking-tight">Context Virtualization</h3>
-              <p class="text-sm text-muted-foreground leading-relaxed">Separate short-term attention from durable memory through structured state.</p>
+              <div class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">01_AGENT_SDK</div>
+              <h3 class="text-xl font-medium text-foreground mb-3 tracking-tight">Custom Agent Platform</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">Write agents with full SDK access — filesystem, git, browser, terminal, LLM, and 50+ more modules.</p>
             </div>
           - |
             <div class="p-8 md:p-12">
-              <div class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">02_VERSIONING</div>
-              <h3 class="text-xl font-medium text-foreground mb-3 tracking-tight">Narrative Snapshots</h3>
-              <p class="text-sm text-muted-foreground leading-relaxed">Preserve intent alongside diffs across multiple environments.</p>
+              <div class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">02_PLUGIN_RUNTIME</div>
+              <h3 class="text-xl font-medium text-foreground mb-3 tracking-tight">Agentic Application Runtime</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">Build applications as plugins. Three communication channels. No separate agent needed.</p>
             </div>
           - |
             <div class="p-8 md:p-12">
-              <div class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">03_GOVERNANCE</div>
-              <h3 class="text-xl font-medium text-foreground mb-3 tracking-tight">Deterministic Replay</h3>
-              <p class="text-sm text-muted-foreground leading-relaxed">Replay agent decisions with full traceability for audit and safety.</p>
+              <div class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4">03_MULTI_ENV</div>
+              <h3 class="text-xl font-medium text-foreground mb-3 tracking-tight">Multi-Environment Infrastructure</h3>
+              <p class="text-sm text-muted-foreground leading-relaxed">Scale across local, Docker, cloud, and hierarchical environments with automatic state reconciliation.</p>
             </div>
 
       - type: section-header
@@ -592,9 +844,9 @@ pages:
         description: "DiagramPanel renders diagramHtml with optional labels."
 
       - type: diagram-panel
-        title: "Topology_View"
-        subtitle: "Mesh_04 :: Active_Sync"
-        figureLabel: "FIG 3.0: P2P State Synchronization"
+        title: "Platform_Topology"
+        subtitle: "Core :: Active_Coordination"
+        figureLabel: "FIG 3.0: Three-Channel Communication Architecture"
         showGrid: true
         aspectRatio: "16/9"
         diagramHtml: |
