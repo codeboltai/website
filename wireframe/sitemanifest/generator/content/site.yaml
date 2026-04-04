@@ -9,7 +9,15 @@ navigation:
   navbar:
     links:
       - { label: "Engine", href: "/engine" }
-      - { label: "Formats", href: "/formats" }
+      - label: "Formats"
+        href: "/formats"
+        children:
+          - { label: "All Formats", href: "/formats" }
+          - { label: "Codebolt as CLI", href: "/formats/cli" }
+          - { label: "Codebolt as IDE", href: "/formats/ide" }
+          - { label: "Codebolt as Personal Agent", href: "/formats/personal-agent" }
+          - { label: "Codebolt as Orchestration", href: "/formats/orchestration" }
+          - { label: "Codebolt as Autonomous Company", href: "/formats/autonomous-company" }
       - { label: "Use Cases", href: "/use-cases" }
       - { label: "Architecture", href: "/architecture" }
       - { label: "Pricing", href: "/pricing" }
@@ -23,6 +31,11 @@ navigation:
         links:
           - { label: "Engine", href: "/engine" }
           - { label: "Formats", href: "/formats" }
+          - { label: "Codebolt CLI", href: "/formats/cli" }
+          - { label: "Codebolt IDE", href: "/formats/ide" }
+          - { label: "Codebolt Personal Agent", href: "/formats/personal-agent" }
+          - { label: "Codebolt Orchestration", href: "/formats/orchestration" }
+          - { label: "Codebolt Autonomous Company", href: "/formats/autonomous-company" }
           - { label: "Use Cases", href: "/use-cases" }
           - { label: "Architecture", href: "/architecture" }
           - { label: "Pricing", href: "/pricing" }
@@ -79,6 +92,28 @@ pages:
       - type: centered-text
         variant: "thesis"
         text: "Claude Code is an agent. OpenClaw is an assistant. Cursor is an editor. Codebolt is the engine that can become any of them — and scale beyond all of them."
+
+      # ── Scale Spectrum ──
+      - type: progression-strip
+        kicker: "THE SCALE SPECTRUM"
+        heading: "One Engine. Every Scale."
+        description: "The same engine powers every level. Start anywhere. Scale without rebuilding."
+        steps:
+          - label: "CLI"
+            description: "A coding agent in your terminal. One agent, full SDK."
+            reference: "Like Claude Code"
+          - label: "IDE"
+            description: "Desktop editor with agent workspace and plugin panel."
+            reference: "Like Cursor"
+          - label: "Personal Agent"
+            description: "24/7 agent with persistent memory and plugin integrations."
+            reference: "Like OpenClaw / Hermes"
+          - label: "Orchestration"
+            description: "50-100+ agents coordinated across environments."
+            reference: "Beyond any single tool"
+          - label: "Autonomous Company"
+            description: "Business domains as plugins. Agents coordinate across all of them."
+            reference: "Like Paperclip, but built-in"
 
       # ── Codebolt in Multiple Formats ──
       - type: card-grid
@@ -153,6 +188,46 @@ pages:
             - "Multi-environment scaling across local, Docker, cloud, and hierarchical setups"
             - "Everything carries forward. Agents, plugins, memory, workflows — nothing gets rebuilt."
 
+      # ── Competitive Landscape ──
+      - type: comparison-table
+        kicker: "COMPETITIVE LANDSCAPE"
+        heading: "How Codebolt compares"
+        description: "Every tool does one thing. Codebolt is the engine that does all of them."
+        highlightColumn: 1
+        columns:
+          - "Capability"
+          - "Codebolt"
+          - "Claude Code"
+          - "OpenClaw"
+          - "Paperclip"
+          - "Hermes"
+          - "Letta"
+          - "Cursor"
+        rows:
+          - label: "What it is"
+            values:
+              - "Agent engine (CLI → autonomous company)"
+              - "CLI coding agent"
+              - "Personal AI assistant"
+              - "Company orchestrator (manages agents, doesn't run them)"
+              - "Self-improving agent framework"
+              - "Stateful agent platform"
+              - "AI-enhanced IDE"
+          - label: "Runs agents"
+            values: ["Yes — custom agents via 63-module SDK", "Built-in only", "Built-in only", "No — orchestrates external agents", "Yes — function-calling", "Yes — stateful agents", "Built-in only"]
+          - label: "Multi-agent orchestration"
+            values: ["Yes — stigmergy, deliberation, 100+ agents", "No", "No", "Yes — org charts, roles, budgets", "No", "Limited", "No"]
+          - label: "Scales to"
+            values: ["1 to 100+ agents, multi-environment", "1 agent", "1 agent", "Depends on agents you bring", "1 agent (subagents)", "1-10 agents", "1 agent"]
+          - label: "Memory system"
+            values: ["3-tier (episodic, persistent, context assembly)", "Session only", "Persistent", "None", "Persistent + learning loop", "Persistent (core feature)", "Session only"]
+          - label: "Plugin system"
+            values: ["Yes — 3 channels (WS, Mux, HTTP)", "Skills (limited)", "Skills/integrations", "Agent adapters", "Skills (agentskills.io)", "No", "VS Code extensions"]
+          - label: "Formats"
+            values: ["CLI + IDE + TUI + Web + headless", "CLI + IDE extensions", "Web + chat apps", "Web dashboard", "CLI + chat apps", "CLI + API", "IDE only"]
+          - label: "Self-improving"
+            values: ["Yes — memory compounds, context optimizes", "No", "Yes — writes own skills", "No", "Yes — learning loop", "Yes — background subagents", "No"]
+
       - type: icon-grid
         tone: "muted"
         kicker: "ENGINE CAPABILITIES"
@@ -180,6 +255,33 @@ pages:
           - icon: "zap"
             title: "Built-in Review & Merge"
             description: "Agents review each other's work. Conflict detection. Pheromone coordination. No GitHub PR bottleneck."
+
+      # ── Reach Everywhere ──
+      - type: connectivity-grid
+        kicker: "REACH"
+        heading: "Reachable from everywhere"
+        description: "The engine connects to your entire workflow through its plugin system. Native interfaces plus anything plugins can reach."
+        columns: 4
+        items:
+          - { label: "Terminal / CLI", category: "interface" }
+          - { label: "Desktop IDE", category: "interface" }
+          - { label: "Web UI", category: "interface" }
+          - { label: "TUI", category: "interface" }
+          - { label: "WhatsApp", category: "messaging" }
+          - { label: "Telegram", category: "messaging" }
+          - { label: "Slack", category: "messaging" }
+          - { label: "Discord", category: "messaging" }
+          - { label: "Email", category: "communication" }
+          - { label: "Webhooks", category: "automation" }
+          - { label: "CI/CD Pipelines", category: "automation" }
+          - { label: "REST API", category: "automation" }
+
+      # ── Grows With You ──
+      - type: quote-block
+        variant: "muted"
+        align: "center"
+        quote: "The engine doesn't just run agents — it learns. Three-tier memory compounds knowledge across sessions. Skills improve through use. Context assembly optimizes what each agent sees. The longer you run Codebolt, the smarter it gets."
+        attribution: "Codebolt Engineering"
 
       - type: card-grid
         heading: "The Progression"
@@ -396,6 +498,7 @@ pages:
           - { label: "See All Formats", href: "/formats", variant: "secondary" }
 
   # ── Formats ────────────────────────────────
+  # ── Formats Overview ────────────────────────
   - slug: "formats"
     title: "Formats — Codebolt"
     sections:
@@ -408,69 +511,45 @@ pages:
         variant: "thesis"
         text: "Most tools force you to choose: CLI or IDE, personal agent or team tool, simple or powerful. Codebolt is one engine that runs in every format. Everything you build in one format works in all others."
 
-      - type: feature-block
-        heading: "Codebolt as CLI"
-        body: "Install globally, run in your terminal. Use built-in agents or bring your own. Headless server mode for CI/CD. Single prompt mode for automation. Full agent and plugin SDK available. Like Claude Code but with model freedom (17+ providers), custom agents, and a growth path to multi-agent."
-        diagram: |
-          $ npm i -g codebolt
-          $ codebolt                    # TUI mode
-          $ codebolt --server           # headless
-          $ codebolt --prompt "..."     # single task
-          $ codebolt --agent my-agent   # custom agent
-          $ codebolt --web              # browser UI
+      - type: progression-strip
+        heading: "The Spectrum"
+        description: "Pick your starting point. Scale when you're ready."
+        steps:
+          - label: "CLI"
+            description: "Terminal coding agent with full SDK."
+            reference: "Like Claude Code"
+          - label: "IDE"
+            description: "Desktop editor with agent workspace."
+            reference: "Like Cursor"
+          - label: "Personal Agent"
+            description: "24/7 agent with persistent memory."
+            reference: "Like OpenClaw"
+          - label: "Orchestration"
+            description: "100+ agents, multi-environment."
+            reference: "Beyond any tool"
+          - label: "Autonomous Company"
+            description: "Business domains as plugins."
+            reference: "Built-in, not bolted on"
 
-      - type: feature-block
-        heading: "Codebolt as IDE"
-        body: "Full Electron desktop application with Monaco editor (VS Code-compatible), integrated terminal, file explorer, and dockview panels. Agent workspace shows real-time agent activity. Plugin panel for extensions. Not a VS Code fork — built from scratch with agent coordination as the foundation. 40+ file type associations, codebolt:// protocol, cross-platform."
-        reverse: true
-        diagram: |
-          ┌─────────────────────────────────┐
-          │ Monaco Editor    │ Agent Panel  │
-          │ (VS Code engine) │ (real-time)  │
-          ├─────────────────────────────────┤
-          │ Terminal  │ File Explorer       │
-          │ (xterm)   │ Plugins │ Excalidraw│
-          └─────────────────────────────────┘
-          Cross-platform: macOS, Windows, Linux
-
-      - type: feature-block
-        heading: "Codebolt as Personal Agent"
-        body: "Run the engine 24/7. Three-tier persistent memory means your agent remembers everything across sessions. Plugins connect to email, calendar, monitoring, external services — anything. Proactive scheduling via hooks and cron. Like OpenClaw but backed by a platform with 63+ SDK modules, multi-environment support, and a plugin system designed for extensibility."
-        diagram: |
-          Always-on engine
-                │
-          ┌─────┼─────────────┐
-          │ Memory (3-tier)    │
-          │ Plugins (external) │
-          │ Hooks (proactive)  │
-          │ Any LLM provider   │
-          └───────────────────┘
-          Your personal agent, your rules
-
-      - type: feature-block
-        heading: "Codebolt as Orchestration Engine"
-        body: "Run 50-100+ agents across Docker, cloud, and hierarchical environments simultaneously. Stigmergy-based coordination. Agent deliberation councils for collective decisions. Automatic review and merge without GitHub PR bottleneck. Drift tracking across all agents. Guardrail engine with per-role, per-environment policies. The HostBridge abstraction means identical capabilities whether running on desktop, CLI, or headless server."
-        reverse: true
-        diagram: |
-          ┌── Orchestration Layer ──────────┐
-          │ 50+ agents                      │
-          │ 5+ environments                 │
-          │ Stigmergy coordination          │
-          │ Deliberation councils            │
-          │ Auto review & merge             │
-          │ Drift tracking (Rust + JS)      │
-          │ Guardrails + audit trails       │
-          └─────────────────────────────────┘
-
-      - type: feature-block
-        heading: "Codebolt as Autonomous Company"
-        body: "Build entire business domains as plugins that run inside the engine. Engineering, QA, deployment, monitoring — each is a plugin with full access to agentic capabilities. Agents coordinate across all plugins. The provider system scales environments as demand grows. No other system lets you build autonomous companies without requiring each application to run its own agent instances."
-        diagram: |
-          Plugin: Engineering ──┐
-          Plugin: QA Testing ───┤
-          Plugin: Deployment ───┤→ One Engine
-          Plugin: Monitoring ───┤   All coordinated
-          Plugin: Custom ───────┘   Scales horizontally
+      - type: card-grid
+        heading: "Explore Each Format"
+        columns: 3
+        cards:
+          - title: "Codebolt as CLI"
+            body: "A coding agent in your terminal. Like Claude Code but with model freedom, custom agents, and a growth path to multi-agent."
+            href: "/formats/cli"
+          - title: "Codebolt as IDE"
+            body: "Full desktop IDE with Monaco editor, agent workspace, and plugin panel. Built from scratch for agent coordination."
+            href: "/formats/ide"
+          - title: "Codebolt as Personal Agent"
+            body: "24/7 agent with persistent memory, plugin integrations, and proactive scheduling. Like OpenClaw on a scalable engine."
+            href: "/formats/personal-agent"
+          - title: "Codebolt as Orchestration Engine"
+            body: "50-100+ agents across Docker, cloud, and hierarchical environments. Stigmergy coordination, deliberation councils, auto review & merge."
+            href: "/formats/orchestration"
+          - title: "Codebolt as Autonomous Company"
+            body: "Business domains as plugins inside the engine. Engineering, QA, deployment, monitoring — all coordinated. No separate agent instances needed."
+            href: "/formats/autonomous-company"
 
       - type: centered-text
         variant: "identity"
@@ -481,6 +560,345 @@ pages:
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
           - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
+
+  # ── Format: CLI ────────────────────────────
+  - slug: "formats/cli"
+    title: "Codebolt CLI — Terminal Coding Agent"
+    sections:
+
+      - type: page-header
+        title: "Codebolt as CLI"
+        subtitle: "A coding agent in your terminal. Like Claude Code, but with an engine behind it."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "Install globally. Run in your terminal. Use a built-in agent or write your own. Headless mode for CI/CD. Any LLM provider. Full 63-module SDK. And when you need more than one agent — the engine is already there."
+
+      - type: feature-block
+        heading: "Everything you'd expect from a coding CLI"
+        body: "Interactive terminal mode with a modern Go-based TUI. Agent assists, you direct. Use any of the 17+ LLM providers or local models via Ollama and LM Studio. Per-agent and per-task model selection. Full filesystem, git, browser, terminal, and LLM access through the SDK."
+        diagram: |
+          $ npm i -g codebolt
+          $ codebolt                    # TUI mode
+          $ codebolt --prompt "..."     # single task
+          $ codebolt --agent my-agent   # custom agent
+          $ codebolt --provider claude  # choose model
+          $ codebolt --model opus       # specific model
+
+      - type: feature-block
+        heading: "What Claude Code can't do"
+        body: "Write custom agents in JavaScript with full control over the agentic loop. Install plugins that connect to external services. Run in headless server mode for CI/CD automation. Spawn Docker environments and transfer state between them. Scale to multi-agent when you're ready — without switching tools."
+        reverse: true
+        diagram: |
+          Claude Code:
+          ✗ Custom agents
+          ✗ Plugin system
+          ✗ Headless CI/CD
+          ✗ Multi-agent
+          ✗ Multi-environment
+
+          Codebolt CLI:
+          ✓ All of the above
+          + Same engine as IDE/orchestration
+
+      - type: feature-block
+        heading: "Headless mode for infrastructure"
+        body: "Run Codebolt as a headless server — no GUI, no TUI. Perfect for CI/CD pipelines, Docker containers, cloud VMs, and automated workflows. Spawn environments, run agents, transfer state, monitor progress. The same engine that powers the IDE runs headless in your infrastructure."
+        diagram: |
+          $ codebolt --server --port 8080
+          # Headless mode
+          # REST API + WebSocket
+          # Run in Docker, CI/CD, cloud
+          # Full agent + plugin capabilities
+
+      - type: comparison-columns
+        problem:
+          heading: "Claude Code"
+          items:
+            - "Great CLI agent, but single agent only"
+            - "Can't customize the agentic loop"
+            - "No plugin system for extensions"
+            - "No headless mode for CI/CD"
+            - "If you outgrow it, start over with a different tool"
+        solution:
+          heading: "Codebolt CLI"
+          items:
+            - "Same great CLI experience, plus custom agents"
+            - "Full control — write agents in code, not prompts"
+            - "Plugin system with 3 communication channels"
+            - "Headless server mode for infrastructure"
+            - "Scale to IDE, orchestration, autonomous company — same engine"
+
+      - type: cta-block
+        heading: "Start in the terminal. Scale without limits."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "See All Formats", href: "/formats", variant: "secondary" }
+
+  # ── Format: IDE ────────────────────────────
+  - slug: "formats/ide"
+    title: "Codebolt IDE — Desktop Agent Environment"
+    sections:
+
+      - type: page-header
+        title: "Codebolt as IDE"
+        subtitle: "A full desktop editor built for agent coordination. Not a VS Code fork — built from scratch."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "Monaco editor (the engine behind VS Code). Integrated terminal. File explorer. Agent workspace showing real-time activity. Plugin panel. Excalidraw canvas. Dockview panels. Cross-platform. 40+ file type associations. And the same agent engine that powers CLI and orchestration."
+
+      - type: feature-block
+        heading: "A proper IDE with agents at the center"
+        body: "The agent workspace shows real-time agent activity — what they're doing, what files they're touching, what decisions they're making. Multiple agents visible simultaneously. Plugin panel for extensions. Not an afterthought sidebar — agents are the primary interface."
+        diagram: |
+          ┌─────────────────────────────────┐
+          │ Monaco Editor    │ Agent Panel  │
+          │ (VS Code engine) │ (real-time)  │
+          ├─────────────────────────────────┤
+          │ Terminal  │ File Explorer       │
+          │ (xterm)   │ Plugins │ Excalidraw│
+          └─────────────────────────────────┘
+          macOS (arm64/x64) + Windows + Linux
+
+      - type: feature-block
+        heading: "What Cursor can't do"
+        body: "Write custom agents that run inside the IDE. Install plugins with three communication channels. Coordinate multiple agents on the same codebase with pheromone-based ownership. Scale to multi-environment. Switch to CLI or headless without losing anything."
+        reverse: true
+        diagram: |
+          Cursor:
+          ✗ Custom agents
+          ✗ Plugin SDK (3 channels)
+          ✗ Multi-agent coordination
+          ✗ Multi-environment
+          ✗ CLI/headless mode
+
+          Codebolt IDE:
+          ✓ All of the above
+          + Same engine as CLI/orchestration
+
+      - type: feature-block
+        heading: "Built from scratch, not forked"
+        body: "Codebolt isn't a VS Code fork with agents bolted on. The architecture starts with the agent engine — 73 controllers, 134 services, the HostBridge abstraction. The IDE is one interface to that engine. The same codebase powers the CLI, TUI, web interface, and headless server with identical capabilities."
+        diagram: |
+          ┌── Interface (Electron) ──────┐
+          │ Monaco + xterm + dockview    │
+          ├── HostBridge ────────────────┤
+          │ Same engine as CLI/headless  │
+          ├── Core Engine ───────────────┤
+          │ 73 controllers               │
+          │ 134 services                 │
+          │ 3 communication channels     │
+          └──────────────────────────────┘
+
+      - type: cta-block
+        heading: "An IDE built for the agent era."
+        buttons:
+          - { label: "Download", href: "/pricing", variant: "primary" }
+          - { label: "See All Formats", href: "/formats", variant: "secondary" }
+
+  # ── Format: Personal Agent ─────────────────
+  - slug: "formats/personal-agent"
+    title: "Codebolt Personal Agent — 24/7 AI That Grows With You"
+    sections:
+
+      - type: page-header
+        title: "Codebolt as Personal Agent"
+        subtitle: "A 24/7 agent with persistent memory, plugin integrations, and proactive capabilities. Like OpenClaw — on a scalable engine."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "Run the engine always-on. Three-tier persistent memory means your agent remembers everything — across sessions, across tasks, across days. Plugins connect it to email, calendar, monitoring, messaging apps, and anything with an API. The engine grows with you."
+
+      - type: feature-block
+        heading: "Persistent memory that compounds"
+        body: "Episodic memory for time-based recall of past interactions. Persistent memory with chunking, embedding, and retrieval pipelines. The Context Assembly Engine assembles optimal context using rules, pipelines, and token budgets. Your agent doesn't just remember — it knows what to remember and when to use it. The longer it runs, the smarter it gets."
+        diagram: |
+          ┌─────────────────────────┐
+          │ Context Assembly Engine │
+          ├─────────────────────────┤
+          │ Episodic → time-based   │
+          │ Persistent → structured │
+          │ Rules → what to include │
+          │ Token budget → limits   │
+          ├─────────────────────────┤
+          │ Compounds over time     │
+          └─────────────────────────┘
+
+      - type: feature-block
+        heading: "Plugins connect it to your world"
+        body: "Plugins connect through three communication channels — WebSocket, multiplexed events, and HTTP REST. Build or install plugins for email, calendar, GitHub, Jira, Slack, monitoring, home automation, and anything with an API. Plugins run inside the engine — they don't need separate agent instances."
+        reverse: true
+        diagram: |
+          Engine
+            │
+          ┌─┼─────────────────────┐
+          │ Plugin: Email         │
+          │ Plugin: Calendar      │
+          │ Plugin: GitHub        │
+          │ Plugin: Monitoring    │
+          │ Plugin: Custom        │
+          └───────────────────────┘
+          All running inside the engine
+
+      - type: feature-block
+        heading: "What OpenClaw and Hermes can't do"
+        body: "OpenClaw is a great personal agent. Hermes has an impressive learning loop. But neither can scale to multi-agent orchestration, multi-environment coordination, or autonomous company infrastructure. Codebolt can. Start as a personal agent — scale to running your entire business when you're ready. Same engine, same memory, same plugins."
+        diagram: |
+          OpenClaw / Hermes:
+          ✓ Personal agent
+          ✓ Persistent memory
+          ✓ Skills/plugins
+          ✗ Multi-agent coordination
+          ✗ Multi-environment
+          ✗ Enterprise governance
+
+          Codebolt Personal Agent:
+          ✓ All of the above
+          + Scales to orchestration
+          + Same engine as IDE/CLI
+
+      - type: cta-block
+        heading: "Your personal agent. On an engine that scales."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "See All Formats", href: "/formats", variant: "secondary" }
+
+  # ── Format: Orchestration ──────────────────
+  - slug: "formats/orchestration"
+    title: "Codebolt Orchestration — Multi-Agent at Scale"
+    sections:
+
+      - type: page-header
+        title: "Codebolt as Orchestration Engine"
+        subtitle: "50-100+ agents across multiple environments. Coordination, governance, and scaling — built into the engine."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "When you need more than one agent, you need orchestration. Not a layer on top of 5 different tools — an engine that runs agents AND coordinates them. Stigmergy-based coordination, agent deliberation councils, automatic review and merge, drift tracking, and guardrails."
+
+      - type: feature-block
+        heading: "Stigmergy-based coordination"
+        body: "Traditional multi-agent systems use direct message passing — fragile and doesn't scale. Codebolt uses stigmergy: agents communicate through structured shared state. Pheromone-based task ownership prevents conflicts. The engine manages sequencing, dependencies, and resource allocation."
+        diagram: |
+          Agent A → shared state ← Agent B
+                         ↕
+          Agent C → shared state ← Agent D
+          Pheromones: ownership signals
+          No direct messaging needed
+          Scales: 2 agents → 200 agents
+
+      - type: feature-block
+        heading: "Multi-environment scaling"
+        body: "The provider system lets one Codebolt instance treat another as a coordinated environment. Run agents across local, Docker, cloud, and hierarchical setups. Each environment has full lifecycle management with heartbeat monitoring. Git bundles transfer state between environments."
+        reverse: true
+        diagram: |
+          Main Instance
+                │
+          ┌─────┼──────┐
+          ↓     ↓      ↓
+          local docker  cloud
+          │      │      │
+          └──────┼──────┘
+           git bundle state transfer
+           heartbeat monitoring
+
+      - type: feature-block
+        heading: "What Paperclip can't do"
+        body: "Paperclip orchestrates agents but doesn't run them. You need to bring Claude Code, OpenClaw, Cursor, and wire them together. Codebolt IS the engine — it runs agents AND orchestrates them. One system instead of five tools stitched together. And every agent has access to the full 63-module SDK, not just whatever each external tool exposes."
+        diagram: |
+          Paperclip:
+          ✓ Org charts, budgets, governance
+          ✗ Doesn't run agents
+          ✗ Requires external tools
+          ✗ Limited by each tool's API
+
+          Codebolt Orchestration:
+          ✓ Runs agents (63-module SDK)
+          ✓ Coordinates (stigmergy)
+          ✓ Governance (guardrails)
+          ✓ One engine, not five tools
+
+      - type: feature-block
+        heading: "Agent deliberation and automatic review"
+        body: "Agents propose options, debate tradeoffs, vote, and reach consensus. Review-merge requests let agents review each other's work without GitHub PR bottleneck. Conflict detection runs before merge. Drift tracking catches deviation across all agents. Every decision is logged and traceable."
+        reverse: true
+        diagram: |
+          Agent A: implements feature
+          Agent B: reviews code
+          Agent C: checks for conflicts
+          Agent D: runs tests
+                ↓
+          Auto-merged. Decision logged.
+          No human bottleneck needed.
+
+      - type: cta-block
+        heading: "Orchestration built into the engine."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "See All Formats", href: "/formats", variant: "secondary" }
+
+  # ── Format: Autonomous Company ─────────────
+  - slug: "formats/autonomous-company"
+    title: "Codebolt Autonomous Company — Build a Business on Agents"
+    sections:
+
+      - type: page-header
+        title: "Codebolt as Autonomous Company"
+        subtitle: "Build entire business domains as plugins. Agents coordinate across all of them. The engine that powers autonomous companies."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "Every other tool is a single employee. Codebolt is the company. Build engineering, QA, deployment, and monitoring as plugins inside the engine. Each plugin has full access to agentic capabilities. Agents coordinate across all plugins. The provider system scales environments as demand grows."
+
+      - type: feature-block
+        heading: "Business domains as plugins"
+        body: "Each business function — engineering, testing, deployment, monitoring, customer support — becomes a plugin running inside the engine. Plugins don't need their own agent instances. They execute within the agentic environment with full access to the 63-module SDK, three communication channels, and all coordination primitives."
+        diagram: |
+          ┌── The Engine ──────────────────┐
+          │ Plugin: Engineering            │
+          │ Plugin: QA & Testing           │
+          │ Plugin: Deployment             │
+          │ Plugin: Monitoring             │
+          │ Plugin: Customer Support       │
+          │ Plugin: Content & Marketing    │
+          ├────────────────────────────────┤
+          │ Coordinated by stigmergy       │
+          │ Governed by guardrails         │
+          │ Scaled by provider system      │
+          └────────────────────────────────┘
+
+      - type: feature-block
+        heading: "Why one engine, not five tools"
+        body: "Paperclip orchestrates external agents — Claude Code for coding, OpenClaw for tasks, Cursor for editing. Each tool has its own API limits, its own memory, its own quirks. Codebolt runs everything in one engine. All agents share the same SDK, the same coordination system, the same memory. No integration tax. No tool-switching overhead."
+        reverse: true
+        diagram: |
+          Five tools stitched together:
+          Claude Code + OpenClaw + Cursor
+          + Paperclip + custom scripts
+          = integration nightmare
+
+          One engine:
+          Codebolt
+          = everything built in
+          = everything coordinated
+          = everything scales
+
+      - type: feature-block
+        heading: "Scale horizontally"
+        body: "Start with one local environment. Add Docker containers. Spin up cloud VMs. The provider system treats each as a coordinated environment with full lifecycle management. Git bundles transfer state. Heartbeat monitoring tracks health. As your autonomous company grows, the engine grows with it."
+        diagram: |
+          Month 1:  1 env, 5 agents
+          Month 3:  3 envs, 20 agents
+          Month 6:  5 envs, 50 agents
+          Year 1:   10 envs, 100+ agents
+          All from the same engine
+
+      - type: cta-block
+        heading: "Build an autonomous company. On one engine."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "See All Formats", href: "/formats", variant: "secondary" }
 
   # ── Use Cases ──────────────────────────────
   - slug: "use-cases"
@@ -689,6 +1107,12 @@ pages:
             answer: "Cursor is an IDE with built-in AI agents. Great editor, fixed agents. Codebolt is an engine with a built-in IDE — plus CLI, TUI, and headless modes. You write custom agents, install plugins, and scale to multi-agent. Same quality editor (Monaco), far more flexibility."
           - question: "How is Codebolt different from OpenClaw?"
             answer: "OpenClaw is a personal AI assistant — it manages your inbox, calendar, and daily tasks. Codebolt can do the same thing (run 24/7 with persistent memory and plugins), but the engine also scales to multi-agent orchestration, team coordination, and autonomous companies. OpenClaw is one format. Codebolt is the engine that powers every format."
+          - question: "How is Codebolt different from Paperclip?"
+            answer: "Paperclip orchestrates agents but doesn't run them — you still need Claude Code, OpenClaw, Cursor, etc. as the actual agents. Codebolt IS the engine. It runs agents AND orchestrates them. One system instead of five tools stitched together."
+          - question: "How is Codebolt different from Hermes Agent?"
+            answer: "Hermes is a self-improving personal agent by Nous Research — great learning loop and multi-platform messaging. Codebolt can do the same (persistent memory, plugins, always-on), but the engine also scales to multi-agent orchestration and autonomous companies. Hermes is one agent. Codebolt is the engine that can run hundreds."
+          - question: "How is Codebolt different from Letta?"
+            answer: "Letta is a stateful agent platform — memory-first agents that persist across sessions. Codebolt has the same (3-tier memory, context assembly), plus multi-agent coordination, plugin system, multi-environment scaling, and multiple interface formats (CLI, IDE, TUI, Web). Letta is a great memory system. Codebolt is a complete engine."
           - question: "How is Codebolt different from LangChain or CrewAI?"
             answer: "LangChain and CrewAI are libraries — you import them into your code. Codebolt is a complete engine — IDE, execution environment, coordination system, and infrastructure. Frameworks give you tools to build agents. Codebolt gives them a place to run, coordinate, and scale."
           - question: "I'm using one agent today. Is this for me?"
