@@ -1604,10 +1604,10 @@ pages:
       # ─────────────────────────────────────────
       - type: subsystem-diagram
         kicker: "SUBSYSTEM MAP"
-        title: "CODEBOLT SERVER — SUBSYSTEM PLANES"
-        subtitle: "control · execution · delegation · bus · state — how 73 controllers and 134 services compose"
+        title: "CODEBOLT SERVER — 9 SUBSYSTEM PLANES"
+        subtitle: "73 controllers · 134 services · 6 managers · 66 tool modules — how every subsystem composes"
         planes:
-          - label: "CONTROL PLANE"
+          - label: "TRANSPORT & GATEWAY"
             meta: "external commands enter the engine"
             accent: "cyan"
             cards:
@@ -1615,86 +1615,344 @@ pages:
                 subtitle: "rest · 85+ endpoints"
                 tags: ["controllers/", "routes/"]
                 lines:
-                  - "Domain controllers across 73 areas"
-                  - "Auth, CORS, request lifecycle"
+                  - "74 domain controllers — every subsystem exposed"
+                  - "Auth, CORS, request lifecycle, error mapping"
                   - "Resolves a waiting run on human input"
-              - title: "WS Gateway"
+              - title: "WebSocket Gateway"
                 subtitle: "sockets · 40+ streams"
-                tags: ["sockets/", "gateway/"]
+                tags: ["sockets/", "gateway/", "channels/"]
                 lines:
-                  - "Multiplexes shell, chat, editor, LSP"
-                  - "Dispatches via message-router"
-                  - "Streams agent + plugin events back"
-              - title: "Capability Control"
-                subtitle: "lease / claim"
-                tags: ["CapabilityManager", "providerRegistry"]
+                  - "Multiplexes shell, chat, editor, LSP, agent events"
+                  - "Dispatches via message-router per channel"
+                  - "Streams agent + plugin events back to clients"
+              - title: "CLI & Host Bridge"
+                subtitle: "cliLib · hostBridge"
+                tags: ["cliLib/", "hostBridge.ts", "proxyHostBridge.ts"]
                 lines:
-                  - "Acquire run_claim — exclusive lock"
-                  - "Renew on heartbeat (lease TTL)"
-                  - "Release on completion or expiry"
-          - label: "EXECUTIVE PLANE"
-            meta: "agents and tools actually run"
+                  - "HostBridge abstraction — never calls platform APIs directly"
+                  - "Electron → UtilityProcess, CLI → child_process, TUI → WS proxy"
+                  - "One engine, three runtimes, identical capabilities"
+          - label: "FILE & CODE INTELLIGENCE"
+            meta: "read · write · search · analyze codebases"
+            accent: "cyan"
+            cards:
+              - title: "Filesystem"
+                subtitle: "13 tools"
+                tags: ["fileController", "filereadController", "fileReadService"]
+                lines:
+                  - "readFile · createFile · updateFile · deleteFile"
+                  - "searchFiles · grepSearch · listCodeDefinitions"
+                  - "readManyFiles for batch operations"
+              - title: "Git & Shadow Git"
+                subtitle: "11 + narrative tools"
+                tags: ["gitController", "gitService", "shadowGitService"]
+                lines:
+                  - "init · status · add · commit · diff · push · pull"
+                  - "Shadow git for narrative snapshot versioning"
+                  - "Git bundles for cross-environment state transfer"
+              - title: "Codebase Index & Codemap"
+                subtitle: "9 tools"
+                tags: ["codebaseIndexService", "codemapDataService", "treeSitterService"]
+                lines:
+                  - "Semantic code search via embeddings"
+                  - "Codemap create · get · list · update · save"
+                  - "Tree-sitter powered AST analysis"
+              - title: "Code Utils"
+                subtitle: "4 tools"
+                tags: ["codeUtilsService", "languageServerService"]
+                lines:
+                  - "parseCode · analyzeCode · refactorCode · formatCode"
+                  - "LSP integration for diagnostics + hover"
+                  - "Scaffold service for project templates"
+          - label: "EXECUTION & AUTOMATION"
+            meta: "run code · control browsers · call tools"
             accent: "emerald"
             cards:
-              - title: "Run Driver"
-                subtitle: "agent runtime"
-                tags: ["AgentProcessManager", "agentFlowRuntime"]
+              - title: "Agent Run Driver"
+                subtitle: "lifecycle · 4 tools"
+                tags: ["AgentProcessManager", "agentService"]
                 lines:
                   - "Spawns and supervises agent processes"
-                  - "Drives deliberation + execution phases"
+                  - "find · start · list · details"
                   - "Emits agentExecutionPhase events"
-              - title: "Tool Executor"
-                subtitle: "mcp · tools · plugins"
-                tags: ["mcpService", "toolService", "PluginProcessManager"]
+              - title: "Terminal & Browser"
+                subtitle: "PTY · 12 browser tools"
+                tags: ["terminalService", "portScannerService"]
                 lines:
-                  - "Tool registry, MCP availability"
-                  - "Validated tool calls + retries"
-                  - "Function call results back to driver"
-              - title: "Swarm Coordinator"
-                subtitle: "multi-agent"
-                tags: ["swarmManager", "coordinationService"]
+                  - "executeCommand · interrupt — streaming PTY"
+                  - "browser.navigate · click · type · screenshot"
+                  - "HostBridge PTY — Electron / CLI / TUI"
+              - title: "MCP & Tools"
+                subtitle: "4 MCP tools · tool registry"
+                tags: ["mcpService", "toolService", "MCPServers/"]
                 lines:
-                  - "Topology, role + team assignment"
-                  - "Message bus between child agents"
-                  - "Aggregates child results"
-          - label: "WAIT & DELEGATION"
-            meta: "hand-off, queues, side-execution"
+                  - "mcp.execute · configure · listServers · connectServer"
+                  - "Tool registry — all 625+ tools discoverable"
+                  - "ToolSearchEngine for dynamic tool discovery"
+              - title: "Side Execution"
+                subtitle: "5 tools"
+                tags: ["SideExecutionManager", "actionBlockRegistry"]
+                lines:
+                  - "start · stop · status · listActionBlocks"
+                  - "actionBlock.create · execute · list"
+                  - "Parent delegates, child resumes on completion"
+          - label: "INTELLIGENCE & RETRIEVAL"
+            meta: "reason · embed · query · retrieve"
             accent: "amber"
             cards:
-              - title: "Wait Mechanics"
-                subtitle: "pending input"
-                tags: ["agentEventQueue", "HeartbeatManager"]
+              - title: "LLM Inference"
+                subtitle: "17+ providers"
+                tags: ["llmService", "inference/", "tokenizerService"]
                 lines:
-                  - "Pending on tool result, MCP confirm, human"
-                  - "Heartbeat keeps lease alive"
-                  - "Stored in run_dependencies"
-              - title: "Delegation"
-                subtitle: "side execution"
-                tags: ["SideExecutionManager", "agentDeliberation"]
+                  - "llm.inference · getModelConfig"
+                  - "OpenAI · Anthropic · Google · Mistral · Groq · DeepSeek"
+                  - "Local models via Ollama / LM Studio"
+              - title: "Embedding & Local Models"
+                subtitle: "vector generation"
+                tags: ["embeddingService", "localEmbeddingService", "localModelManager"]
                 lines:
-                  - "Parent run delegates to child runs"
-                  - "Child resumes parent on completion"
-                  - "Parent un-waits if other waits cleared"
-          - label: "BUS & EVENTS"
-            meta: "everything observable flows here"
+                  - "Remote + local embedding generation"
+                  - "ONNX inference via HostBridge"
+                  - "Local model lifecycle management"
+              - title: "Vector DB"
+                subtitle: "sqlite-vec · 4 tools"
+                tags: ["vectordbService", "vectordbDataService", "vectordb/"]
+                lines:
+                  - "addVectorItem · queryVectorItem · queryVectorItems"
+                  - "SQLite-vec backed, runs everywhere"
+                  - "Powers codebase search and RAG pipeline"
+              - title: "Knowledge Graph"
+                subtitle: "Kuzu · 28 tools"
+                tags: ["kgDataService", "kgInstanceService", "kuzuDbService"]
+                lines:
+                  - "createInstance · addMemoryRecord · addEdge"
+                  - "executeView for complex graph queries"
+                  - "Kuzu DB for structured relationship storage"
+              - title: "Knowledge Base"
+                subtitle: "12 tools"
+                tags: ["knowledgeService", "knowledgeDataService", "knowledgeChunkingService"]
+                lines:
+                  - "createCollection · addDocument · queryKnowledge"
+                  - "Chunking service for document processing"
+                  - "RAG pipeline: retrieve · augment"
+          - label: "MEMORY & CONTEXT"
+            meta: "remember · persist · assemble · retrieve"
             accent: "purple"
             cards:
-              - title: "Event Surface"
-                subtitle: "log · stream · subscribe"
-                tags: ["applicationEventBus", "eventLogDataService"]
+              - title: "Basic Memory"
+                subtitle: "25 tools · JSON / Todo / Markdown"
+                tags: ["jsonMemoryService", "markdownMemoryService", "memoryController"]
                 lines:
-                  - "realtime stream over WS"
-                  - "Persisted via eventLog query compiler"
-                  - "Plugins + UI subscribe by topic"
+                  - "jsonSave · jsonUpdate · jsonDelete · jsonList"
+                  - "todoSave · todoUpdate · todoDelete · todoList"
+                  - "markdownSave · markdownUpdate · markdownDelete"
+              - title: "Episodic Memory"
+                subtitle: "append-only event logs · 11 tools"
+                tags: ["episodicMemoryDataService"]
+                lines:
+                  - "createMemory · appendEvent · queryEvents"
+                  - "listMemories · archiveMemory"
+                  - "Time-series event storage per agent"
+              - title: "Persistent Memory"
+                subtitle: "structured · 8 tools"
+                tags: ["persistentMemoryDataService", "persistentMemoryInstanceService", "persistentMemoryPipelineService"]
+                lines:
+                  - "createMemory · getMemory · retrieveMemory"
+                  - "Instance + pipeline management"
+                  - "Cross-session agent knowledge retention"
+              - title: "KV Store"
+                subtitle: "3 tools"
+                tags: ["kvStoreDataService", "kvStoreInstanceService", "kvStoreQueryCompiler"]
+                lines:
+                  - "createInstance · set · get"
+                  - "Query compiler for structured lookups"
+                  - "Lightweight key-value persistence"
+              - title: "Context Assembly"
+                subtitle: "CAE · 5 tools"
+                tags: ["contextAssemblyService", "contextRuleEngineService", "contextRuleEngineDataService"]
+                lines:
+                  - "assemble · validate · evaluateRules"
+                  - "Context rule engine — 7 rule operations"
+                  - "Selects relevant memory for each agent turn"
               - title: "Memory Ingestion"
-                subtitle: "drift · narrative"
-                tags: ["memoryIngestionEventBridge", "narrativeService"]
+                subtitle: "pipelines · drift · narrative"
+                tags: ["memoryIngestionEventBridge", "memoryIngestionExecutionService", "narrativeService"]
                 lines:
+                  - "createPipeline · executePipeline"
                   - "Events feed episodic + persistent memory"
                   - "Drift detection + summarization"
-                  - "Context Assembly Engine reads downstream"
+          - label: "AGENT COORDINATION"
+            meta: "spawn · coordinate · deliberate · review"
+            accent: "red"
+            cards:
+              - title: "Agent Lifecycle"
+                subtitle: "4 tools · process management"
+                tags: ["agentController", "backgroundAgentController", "localAgents/"]
+                lines:
+                  - "find · start · list · details"
+                  - "Marketplace discovery → cache → spawn"
+                  - "Connect via codeboltjs, call waitForReady()"
+              - title: "Swarm & Teams"
+                subtitle: "26 tools"
+                tags: ["swarmManager", "swarmDataService", "swarmValidation"]
+                lines:
+                  - "createSwarm · registerAgent · createTeam"
+                  - "createRole · assignRole · createVacancy"
+                  - "Topology, role + team assignment"
+              - title: "Deliberation Council"
+                subtitle: "8 tools"
+                tags: ["agentDeliberationService", "coordinationService"]
+                lines:
+                  - "createDeliberation · respondDeliberation"
+                  - "voteDeliberation · getWinner"
+                  - "Types: decision · review · brainstorm · approval"
+              - title: "Agent Portfolio"
+                subtitle: "14 tools · reputation"
+                tags: ["agentPortfolioService", "roleManager", "teamManager"]
+                lines:
+                  - "getPortfolio · addKarma · getKarmaHistory"
+                  - "addTalent · endorseTalent · getRanking"
+                  - "addTestimonial · getConversations"
+              - title: "Review Merge"
+                subtitle: "16 tools"
+                tags: ["reviewMergeRequestService", "reviewModeService", "problemMatchService"]
+                lines:
+                  - "createRequest · addFeedback · listRequests"
+                  - "Problem matcher seeder for validation"
+                  - "Automatic review + merge with pheromones"
+              - title: "Event Queue & Wait"
+                subtitle: "6 tools"
+                tags: ["agentEventQueueDataService", "agentEventQueueInternal", "HeartbeatManager"]
+                lines:
+                  - "addEvent · sendAgentMessage · getPendingEvents"
+                  - "waitNextEvent · acknowledgeEvent"
+                  - "Heartbeat keeps lease alive, detects failure"
+          - label: "WORKFLOW & PLANNING"
+            meta: "structured work · timing · execution"
+            accent: "cyan"
+            cards:
+              - title: "Jobs"
+                subtitle: "13 tools · parallel work"
+                tags: ["jobController", "jobService"]
+                lines:
+                  - "createJob · updateJob · deleteJob · listJobs"
+                  - "addDependency · removeDependency"
+                  - "addBid · bidWithdraw · bidAccept · lockJob"
+              - title: "Tasks & Activity"
+                subtitle: "7 + activity tools"
+                tags: ["taskController", "tasksSevices", "TaskManager", "taskActivityService"]
+                lines:
+                  - "createTask · updateTask · assignTask · executeTask"
+                  - "Task activity tracking and status"
+                  - "Task planner for decomposition"
+              - title: "Action Plans & Blocks"
+                subtitle: "6 + block tools"
+                tags: ["actionPlanService", "actionBlockRegistry", "taskPlannerService"]
+                lines:
+                  - "actionPlan: create · addTask · startTask · getPlanDetails"
+                  - "Requirement plans: 9 tools with sections"
+                  - "Requirement → Roadmap → Plan → Block → Todo"
+              - title: "Todos & Specs"
+                subtitle: "6 + spec tools"
+                tags: ["todoService", "specsService", "skillService"]
+                lines:
+                  - "createTodo · updateTodo · completeTodo"
+                  - "Specs service for requirement tracking"
+                  - "Skill registry for agent capabilities"
+              - title: "Roadmap & Calendar"
+                subtitle: "10 + 8 tools"
+                tags: ["roadmapService", "calendarService", "calendarSchedulerService"]
+                lines:
+                  - "roadmap: phases · features · ideas"
+                  - "calendar: events · RSVP · upcoming"
+                  - "Long-term planning + scheduling"
+              - title: "Hooks"
+                subtitle: "8 tools · lifecycle triggers"
+                tags: ["hooksController", "hooks/"]
+                lines:
+                  - "createHook · listHooks · getHook · deleteHook"
+                  - "hook.initialize for setup"
+                  - "Lifecycle triggers for automated workflows"
+          - label: "COMMUNICATION"
+            meta: "chat · mail · channels · notifications"
+            accent: "emerald"
+            cards:
+              - title: "Chat"
+                subtitle: "7 tools · user-facing"
+                tags: ["chatController", "chatService"]
+                lines:
+                  - "sendMessage · notify · askQuestion · confirm"
+                  - "getHistory · waitForReply · stopProcess"
+                  - "User-facing agent messaging"
+              - title: "Mail"
+                subtitle: "23 tools · agent-to-agent"
+                tags: ["mailController", "mailService"]
+                lines:
+                  - "sendMessage · replyMessage · fetchInbox"
+                  - "createThread · getThread · summarizeThread"
+                  - "registerAgent · listAgents"
+              - title: "Inbox & Channels"
+                subtitle: "integrations"
+                tags: ["inboxController", "inboxService", "dynamicPanelService"]
+                lines:
+                  - "Inbox for agent message routing"
+                  - "Dynamic panel service for UI"
+                  - "Slack · Discord · Teams · Telegram · WhatsApp"
+              - title: "Notifications"
+                subtitle: "17 domain services"
+                tags: ["applicationEventBus", "eventDataResolverService"]
+                lines:
+                  - "17 domains: agent · browser · chat · llm · mcp · ..."
+                  - "Dispatched via notification handler"
+                  - "Broadcasts to UI · plugins · event log"
+          - label: "EXTENSIBILITY & GOVERNANCE"
+            meta: "environments · capabilities · testing · guardrails"
+            accent: "purple"
+            cards:
+              - title: "Project & Workspace"
+                subtitle: "29 tools"
+                tags: ["projectService", "projectStructureService", "workspaceService"]
+                lines:
+                  - "projectStructure: packages · routes · tables · dependencies"
+                  - "fileUpdateIntent: create · checkOverlap"
+                  - "Workspace lifecycle + state management"
+              - title: "Environments"
+                subtitle: "13 tools · compute lifecycle"
+                tags: ["environmentsServices", "environmentRestartService"]
+                lines:
+                  - "createEnv · startEnv · stopEnv · restartEnv"
+                  - "CREATED → RUNNING → STOPPED lifecycle"
+                  - "Docker provider + heartbeat monitoring"
+              - title: "Capabilities & Extensions"
+                subtitle: "8 + extension tools"
+                tags: ["capabilityRegistry", "CapabilityManager", "extensionService", "pluginService"]
+                lines:
+                  - "listCapabilities · startCapability · stopCapability"
+                  - "Provider registry for capability providers"
+                  - "Extension + plugin lifecycle management"
+              - title: "Guardrails & Eval"
+                subtitle: "rule + LLM evaluation"
+                tags: ["guardrailEngine", "guardrailLLMEvaluator", "guardrailRuleEvaluator", "evalService"]
+                lines:
+                  - "Rule-based + LLM-based guardrail evaluation"
+                  - "Eval service for quality assessment"
+                  - "Guardrail data service for persistence"
+              - title: "Auto Testing"
+                subtitle: "18 tools"
+                tags: ["autoTestingService", "diagnosticService"]
+                lines:
+                  - "createTestSuite · createTestCase · createTestRun"
+                  - "Diagnostic service for issue detection"
+                  - "Problem matcher seeder for validation rules"
+              - title: "Apps & State"
+                subtitle: "orchestrator · settings · themes"
+                tags: ["appService", "appStateService", "rootAppStateService", "OrchestratorDataService"]
+                lines:
+                  - "App lifecycle + published state"
+                  - "Orchestrator: create · update · settings"
+                  - "Theme · template · global settings"
         stateRail:
-          label: "CORE TABLES — STATE THE PLANES SHARE"
+          label: "CORE TABLES — STATE ALL PLANES SHARE"
           items:
             - { name: "jobs", desc: "durable work" }
             - { name: "job_dependencies", desc: "job edges" }
@@ -1708,7 +1966,7 @@ pages:
             - { name: "context_assembly", desc: "CAE state" }
             - { name: "event_log", desc: "bus history" }
             - { name: "memory.*", desc: "3-tier memory" }
-        footnote: "job is durable work · run is one executor attempt · waits hold a job idle until dependencies clear"
+        footnote: "job is durable work · run is one executor attempt · waits hold a job idle until dependencies clear · 9 planes · 46 cards · 625+ tools"
 
       # ─────────────────────────────────────────
       # Server Execution Model
