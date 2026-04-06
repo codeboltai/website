@@ -1,0 +1,150 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import CenteredText from '../components/CenteredText.astro';
+import DiagramSection from '../components/DiagramSection.astro';
+import FeatureBlock from '../components/FeatureBlock.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+---
+<BaseLayout title="The Engine — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="The Codebolt Engine"
+    subtitle="An advanced agent execution engine. As simple as a coding CLI. As powerful as autonomous company infrastructure."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Codebolt is not an agent — it's the engine that runs agents. Not a framework — it's the execution environment where agents, plugins, and applications operate. Every other tool is one thing. Codebolt is the engine that becomes what you need."
+  />
+  <DiagramSection
+    heading="Engine Architecture"
+    layers={[{"label":"Interface Layer — IDE, TUI, CLI, Web","tag":"surface","style":"surface"},{"label":"Communication Layer — Agent SDK, Plugin SDK, Client SDK","tag":"runtime","style":"runtime"},{"label":"Coordination Layer — Stigmergy, Deliberation, Pheromones","tag":"coordination","style":"drift"},{"label":"Intelligence Layer — Drift Engine, Narrative Versioning (Rust)","tag":"intelligence","style":"versioning"},{"label":"Infrastructure Layer — Governance, Environments, Providers","tag":"core","style":"governance"}]}
+    annotation="Other tools operate at Layer 1-2. Agent frameworks at Layer 2. Codebolt is all five layers — a complete engine."
+  />
+  <FeatureBlock
+    heading="Custom Agents — Full Control"
+    body="Write agents in JavaScript using the 63-module SDK. Agents connect as child processes via codeboltjs, with full access to filesystem, git, terminal, browser, LLM, vector DB, memory systems, knowledge graphs, and more. You control every step of the agent loop — not prompts, code. This is what separates an engine from a tool."
+    diagram={`codebolt.onMessage(async (msg) => {
+  const code = await codebolt.fs.readFile('main.ts');
+  const review = await codebolt.llm.chat(\`Review: \${code}\`);
+  await codebolt.git.commit(review.summary);
+  await codebolt.chat.sendMessage(review);
+});
+// 63+ modules available
+`}
+  />
+  <FeatureBlock
+    heading="Plugin System — Applications Inside the Engine"
+    body="Plugins connect through three communication channels — WebSocket actions, multiplexed events, and HTTP REST. Unlike every other SDK, plugins run inside the agentic environment. They don't need separate agent instances. This means your CI/CD pipeline, code review system, deployment automation, or monitoring dashboard runs natively inside the engine with full access to agentic capabilities."
+    reverse={true}
+    diagram="┌──────────────────────────────┐
+│  Your Plugin                 │
+├──────────────────────────────┤
+│ WS channel → fs, git, llm   │
+│ Mux channel → events, tasks │
+│ HTTP → CRUD, projects        │
+├──────────────────────────────┤
+│ Runs inside the engine.      │
+│ No separate agent instance.  │
+└──────────────────────────────┘
+"
+  />
+  <FeatureBlock
+    heading="Multi-Environment Scaling"
+    body="The provider system lets one Codebolt instance treat another as a coordinated environment — spawning, monitoring, and transferring state between them. Run agents across local, Docker, cloud, and hierarchical setups. Each environment has full lifecycle management with heartbeat monitoring. Git bundles transfer state between environments. This is how you go from one machine to a hundred."
+    diagram="Main Codebolt Instance
+      │
+┌─────┼──────┐
+↓     ↓      ↓
+local docker  cloud
+env    env    env
+│      │      │
+└──────┼──────┘
+ state transfer via git bundles
+ heartbeat monitoring
+"
+  />
+  <FeatureBlock
+    heading="Stigmergy-Based Coordination"
+    body="Traditional multi-agent systems use direct message passing — fragile and doesn't scale. Codebolt uses stigmergy: agents communicate through structured shared state. Pheromone-based task ownership prevents conflicts. The environment manages sequencing, dependencies, and resources. This is how biological swarms scale to millions — and how Codebolt scales beyond what message-passing architectures can handle."
+    reverse={true}
+    diagram="Agent A → shared state ← Agent B
+               ↕
+Agent C → shared state ← Agent D
+Pheromones: ownership signals
+No direct messaging needed
+Scales: 2 agents → 200 agents
+"
+  />
+  <FeatureBlock
+    heading="Agent Deliberation Council"
+    body="Agents propose options, debate tradeoffs, vote, and reach consensus. Deliberation types include decision, review, brainstorm, approval, and vote. Every deliberation is stored and fully traceable. This is how agents make architectural decisions together — not by one agent guessing, but by multiple agents reasoning collectively."
+    diagram="Agent A: proposes option 1
+Agent B: proposes option 2
+      ↓
+Discussion + tradeoff analysis
+      ↓
+Vote: consensus reached
+      ↓
+Decision logged + traceable
+"
+  />
+  <FeatureBlock
+    heading="Drift Tracking — Two Levels"
+    body="Local Rust engine instances assess drift within each agent context — structural, scope, constraint, and coverage drift. The global JavaScript coordination layer aggregates signals across all agents, detecting systemic drift that no single agent would catch. When agents deviate from intent, the system flags it before it compounds."
+    reverse={true}
+    diagram="Intent → Plan → Code → Output
+  ↓        ↓       ↓
+[drift]  [drift]  [drift]
+Rust (local) + JS (global)
+4 dimensions tracked
+"
+  />
+  <FeatureBlock
+    heading="Narrative Engine (Rust)"
+    body="A Rust-based flight recorder that captures the full reasoning chain for every agent action. Shadow git for snapshot versioning. Per-thread commit history. Agent attribution for every change. Git bundle export for cross-environment transfer. Deterministic replay of any decision point."
+    diagram="t0 → t1 → t2 → t3
+│    │    │    │
+Full decision trace graph
+Per-thread git refs
+Intent + diff + attribution
+[replay any point]
+"
+  />
+  <FeatureBlock
+    heading="Governance & Guardrails"
+    body="The policy engine evaluates agent actions against configurable rules. Scoped by agent role, agent ID, environment, provider, and execution phase. LLM-based risk classification. Decisions: allow, deny, or escalate to human. Every decision logged for audit. This is how you let agents run autonomously without losing control."
+    reverse={true}
+    diagram="Agent action requested
+      ↓
+Guardrail evaluation:
+- Role: junior agent
+- Environment: production
+- Risk: HIGH (LLM classified)
+      ↓
+Decision: ESCALATE
+→ Human approves/denies
+→ Logged + auditable
+"
+  />
+  <FeatureBlock
+    heading="Three-Tier Memory"
+    body="Episodic memory for time-based recall. Persistent memory with chunking, embedding, and retrieval pipelines. The Context Assembly Engine assembles optimal context from all memory types using rules, pipelines, and token budgets. Agents don't just remember — they know what to remember and when."
+    diagram="┌─────────────────────────┐
+│ Context Assembly Engine │
+├─────────────────────────┤
+│ Episodic → time-based   │
+│ Persistent → structured │
+│ Rules → what to include │
+│ Token budget → limits   │
+├─────────────────────────┤
+│ Optimal context → LLM   │
+└─────────────────────────┘
+"
+  />
+  <CtaBlock
+    heading="The engine that scales with your ambition."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"See All Formats","href":"/formats","variant":"secondary"}]}
+  />
+</BaseLayout>

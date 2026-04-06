@@ -1,0 +1,91 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import CenteredText from '../components/CenteredText.astro';
+import FeatureBlock from '../components/FeatureBlock.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+---
+<BaseLayout title="Formats — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="One Engine. Every Format."
+    subtitle="Same engine, same SDK, same plugins. Different interface for different needs."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Most tools force you to choose: CLI or IDE, personal agent or team tool, simple or powerful. Codebolt is one engine that runs in every format. Everything you build in one format works in all others."
+  />
+  <FeatureBlock
+    heading="Codebolt as CLI"
+    body="Install globally, run in your terminal. Use built-in agents or bring your own. Headless server mode for CI/CD. Single prompt mode for automation. Full agent and plugin SDK available. Like Claude Code but with model freedom (17+ providers), custom agents, and a growth path to multi-agent."
+    diagram={`\$ npm i -g codebolt
+\$ codebolt                    # TUI mode
+\$ codebolt --server           # headless
+\$ codebolt --prompt "..."     # single task
+\$ codebolt --agent my-agent   # custom agent
+\$ codebolt --web              # browser UI
+`}
+  />
+  <FeatureBlock
+    heading="Codebolt as IDE"
+    body="Full Electron desktop application with Monaco editor (VS Code-compatible), integrated terminal, file explorer, and dockview panels. Agent workspace shows real-time agent activity. Plugin panel for extensions. Not a VS Code fork — built from scratch with agent coordination as the foundation. 40+ file type associations, codebolt:// protocol, cross-platform."
+    reverse={true}
+    diagram="┌─────────────────────────────────┐
+│ Monaco Editor    │ Agent Panel  │
+│ (VS Code engine) │ (real-time)  │
+├─────────────────────────────────┤
+│ Terminal  │ File Explorer       │
+│ (xterm)   │ Plugins │ Excalidraw│
+└─────────────────────────────────┘
+Cross-platform: macOS, Windows, Linux
+"
+  />
+  <FeatureBlock
+    heading="Codebolt as Personal Agent"
+    body="Run the engine 24/7. Three-tier persistent memory means your agent remembers everything across sessions. Plugins connect to email, calendar, monitoring, external services — anything. Proactive scheduling via hooks and cron. Like OpenClaw but backed by a platform with 63+ SDK modules, multi-environment support, and a plugin system designed for extensibility."
+    diagram="Always-on engine
+      │
+┌─────┼─────────────┐
+│ Memory (3-tier)    │
+│ Plugins (external) │
+│ Hooks (proactive)  │
+│ Any LLM provider   │
+└───────────────────┘
+Your personal agent, your rules
+"
+  />
+  <FeatureBlock
+    heading="Codebolt as Orchestration Engine"
+    body="Run 50-100+ agents across Docker, cloud, and hierarchical environments simultaneously. Stigmergy-based coordination. Agent deliberation councils for collective decisions. Automatic review and merge without GitHub PR bottleneck. Drift tracking across all agents. Guardrail engine with per-role, per-environment policies. The HostBridge abstraction means identical capabilities whether running on desktop, CLI, or headless server."
+    reverse={true}
+    diagram="┌── Orchestration Layer ──────────┐
+│ 50+ agents                      │
+│ 5+ environments                 │
+│ Stigmergy coordination          │
+│ Deliberation councils            │
+│ Auto review & merge             │
+│ Drift tracking (Rust + JS)      │
+│ Guardrails + audit trails       │
+└─────────────────────────────────┘
+"
+  />
+  <FeatureBlock
+    heading="Codebolt as Autonomous Company"
+    body="Build entire business domains as plugins that run inside the engine. Engineering, QA, deployment, monitoring — each is a plugin with full access to agentic capabilities. Agents coordinate across all plugins. The provider system scales environments as demand grows. No other system lets you build autonomous companies without requiring each application to run its own agent instances."
+    diagram="Plugin: Engineering ──┐
+Plugin: QA Testing ───┤
+Plugin: Deployment ───┤→ One Engine
+Plugin: Monitoring ───┤   All coordinated
+Plugin: Custom ───────┘   Scales horizontally
+"
+  />
+  <CenteredText
+    variant="identity"
+    text="Same engine. Same SDK. Same plugins. Same memory. Whatever you build in one format carries forward to the next."
+  />
+  <CtaBlock
+    heading="Pick your format. Start building."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Explore the Engine","href":"/engine","variant":"secondary"}]}
+  />
+</BaseLayout>

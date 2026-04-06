@@ -15,7 +15,22 @@
       "Bash(npm install)",
       "Bash(node:*)",
       "Bash(npm run build:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(python3 -c \"import json,sys,base64; d=json.load\\(sys.stdin\\); print\\(base64.b64decode\\(d.get\\('content',''\\)\\).decode\\('utf-8'\\)\\)\")",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(f['name']\\) for f in data]\")",
+      "Bash(grep -oP '\\(?:pricing|plan|free|pro|enterprise|month|\\\\$|price|tier|credit\\)[^<\"]*')",
+      "Bash(grep -oiP '\\(?:pricing|plan|free|pro|enterprise|month|\\\\$|price|tier|open.source|license|sponsor\\)[^<\"]*')",
+      "Bash(grep -oE '\\(Free|Pro|Enterprise|Team|Starter|\\\\$[0-9]+|month|year|plan|feature|credit|unlimited|included|usage\\)[^<\"]{0,200}')",
+      "Bash(grep -E '\\(Free|Pro|Max|Team|Enterprise|Hobby|Starter|\\\\$[0-9]+|month|BYOK|agent|tool|memory|unlimited|included|credit|request|limit|quota|per \\)')",
+      "Bash(npx astro:*)",
+      "Bash(xargs -I {} cat {})",
+      "Bash(grep \"\\\\.ts$\")",
+      "Bash(grep \"\\\\.cli\\\\.ts$\")",
+      "Read(//d/Codeboltapps/CodeBolt/packages/server/src/**)",
+      "Read(//d/Codeboltapps/CodeBolt/packages/server/**)",
+      "Bash(npm install:*)",
+      "Bash(npx playwright:*)",
+      "Read(//c/Users/utksh/AppData/Local/ms-playwright/**)"
     ]
   }
 }

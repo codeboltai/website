@@ -1,0 +1,31 @@
+---
+import { cn } from '../lib/utils';
+
+const { href, variant = 'primary', size = 'md', external = false, iconHtml, label, className } = Astro.props;
+
+const variants = {
+  primary: 'bg-primary text-primary-foreground hover:bg-cyan-400',
+  secondary: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
+  ghost: 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
+};
+
+const sizes = {
+  sm: 'h-10 px-4',
+  md: 'h-12 px-6',
+  lg: 'h-14 px-8',
+};
+---
+
+<a
+  href={href}
+  class={cn(
+    'inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring',
+    sizes[size] ?? sizes.md,
+    variants[variant] ?? variants.primary,
+    className
+  )}
+  {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+>
+  {label ? label : <slot />}
+  {iconHtml && <span class="w-4 h-4" set:html={iconHtml} />}
+</a>

@@ -9,9 +9,13 @@ const __dirname = path.dirname(__filename);
 
 // --- Helpers ---
 
+// Directories/files to skip when copying the template
+const SKIP_COPY = new Set(['node_modules', '.astro', 'dist', '.cache']);
+
 function copyDirSync(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
   for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+    if (SKIP_COPY.has(entry.name)) continue;
     const srcPath = path.join(src, entry.name);
     const destPath = path.join(dest, entry.name);
     if (entry.isDirectory()) {
@@ -67,6 +71,16 @@ const TYPE_TO_COMPONENT = {
   'topo-card': 'TopoCard',
   'feature-card': 'FeatureCard',
   'comparison-grid': 'ComparisonGrid',
+  'comparison-table': 'ComparisonTable',
+  'progression-strip': 'ProgressionStrip',
+  'connectivity-grid': 'ConnectivityGrid',
+  'bento-grid': 'BentoGrid',
+  'showcase-strip': 'ShowcaseStrip',
+  'feature-showcase': 'FeatureShowcase',
+  'engine-architecture-diagram': 'EngineArchitectureDiagram',
+  'structure-diagram': 'StructureDiagram',
+  'subsystem-diagram': 'SubsystemDiagram',
+  'tool-registry': 'ToolRegistry',
 };
 
 function getComponentName(sectionType) {
@@ -115,13 +129,18 @@ function generatePage(page, config) {
     usedComponents.add(comp);
   }
 
+  // Calculate relative import prefix based on slug depth
+  const slug = page.slug === '' || page.slug === undefined ? 'index' : page.slug;
+  const depth = slug.split('/').length; // "formats/cli" = 2, "index" = 1
+  const prefix = '../'.repeat(depth);   // "../" for top-level, "../../" for nested
+
   // Build frontmatter
   let frontmatter = `// Auto-generated from site.yaml — edit site.yaml and regenerate
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { site, navigation } from '../data/site-data.js';`;
+import BaseLayout from '${prefix}layouts/BaseLayout.astro';
+import { site, navigation } from '${prefix}data/site-data.js';`;
 
   for (const comp of usedComponents) {
-    frontmatter += `\nimport ${comp} from '../components/${comp}.astro';`;
+    frontmatter += `\nimport ${comp} from '${prefix}components/${comp}.astro';`;
   }
 
   // Build template body
@@ -187,8 +206,11 @@ function main() {
   for (const page of pages) {
     const slug = page.slug === '' || page.slug === undefined ? 'index' : page.slug;
     const filename = `${slug}.astro`;
+    const filePath = path.join(pagesDir, filename);
+    // Ensure parent directory exists for nested slugs like "formats/cli"
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
     const content = generatePage(page, config);
-    fs.writeFileSync(path.join(pagesDir, filename), content);
+    fs.writeFileSync(filePath, content);
   }
 
   console.log(`Generated ${pages.length} pages in output/${version}/`);
