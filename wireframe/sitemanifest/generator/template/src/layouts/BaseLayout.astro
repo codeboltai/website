@@ -80,6 +80,14 @@ const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
           }
         });
       });
+
+      // Theme toggle — flips .dark on <html>, persists to localStorage
+      document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.toggle('dark');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+      });
     });
   </script>
 </body>

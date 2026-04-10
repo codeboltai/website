@@ -30,7 +30,20 @@
       "Read(//d/Codeboltapps/CodeBolt/packages/server/**)",
       "Bash(npm install:*)",
       "Bash(npx playwright:*)",
-      "Read(//c/Users/utksh/AppData/Local/ms-playwright/**)"
+      "Read(//c/Users/utksh/AppData/Local/ms-playwright/**)",
+      "Read(//d/Codeboltapps/CodeBolt/packages/**)",
+      "Read(//d/Codeboltapps/CodeBolt/documentation/**)",
+      "Read(//d/Codeboltapps/CodeBolt/old/featuredocs/manualpaper/AgentBlocks/sections/**)",
+      "Read(//d/Codeboltapps/CodeBolt/old/featuredocs/manualpaper/AgentBlocks/plans/**)",
+      "Bash(grep -l -i \"pheromone\\\\|bid\\\\|lock\\\\|vacancy\" D:/Codeboltapps/CodeBolt/packages/server/src/services/*.ts D:/Codeboltapps/CodeBolt/packages/server/src/sharedTypes/*.ts)",
+      "Bash(python _fix_relative.py)",
+      "Bash(npm run:*)",
+      "Bash(cmd //c \"taskkill /F /IM node.exe\")",
+      "Read(//d/Codeboltapps/codeboltai.github.io/docs/05_reference/10_api-access/browser//**)",
+      "Read(//d/Codeboltapps/codeboltai.github.io/docs/05_reference/10_api-access/browser/**)",
+      "Read(//d/Codeboltapps/codeboltai.github.io/scripts//**)",
+      "Read(//d/Codeboltapps/codeboltai.github.io/.github/**)",
+      "Bash(python _fix_reference_links.py)"
     ]
   }
 }
