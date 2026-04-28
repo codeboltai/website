@@ -1,5 +1,6 @@
 ---
-const { variant = 'solid', links = [], cta = {}, logo = {} } = Astro.props;
+const { variant = 'solid', links = [], cta = [], logo = {} } = Astro.props;
+const ctaList = Array.isArray(cta) ? cta : (cta && cta.label ? [cta] : []);
 ---
 <header class="fixed top-0 left-0 w-full z-50">
   <nav
@@ -63,14 +64,14 @@ const { variant = 'solid', links = [], cta = {}, logo = {} } = Astro.props;
       </nav>
 
       <div class="hidden md:flex items-center gap-3 z-50">
-        {cta.label && (
-          <a
-            href={cta.href}
-            class="text-sm bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium hover:bg-cyan-400 transition-all duration-300"
-          >
-            {cta.label}
-          </a>
-        )}
+        {ctaList.map((c) => {
+          const isPrimary = c.variant !== 'secondary';
+          const cls = isPrimary
+            ? "text-sm bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium hover:bg-cyan-400 transition-all duration-300"
+            : "text-sm text-foreground border border-border px-5 py-2 rounded-full font-medium hover:border-muted-foreground/60 transition-colors";
+          const extra = c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+          return <a href={c.href} class={cls} {...extra}>{c.label}</a>;
+        })}
       </div>
 
       <button class="hamburger md:hidden z-50 flex flex-col gap-1.5 p-2" aria-label="Menu">

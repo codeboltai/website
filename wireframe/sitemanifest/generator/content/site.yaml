@@ -28,7 +28,9 @@ navigation:
       - { label: "Architecture", href: "/architecture" }
       - { label: "Pricing", href: "/pricing" }
       - { label: "Docs", href: "https://docs.codebolt.ai", external: true }
-    cta: { label: "Get Started", href: "/pricing" }
+    cta:
+      - { label: "Download", href: "/download", variant: "secondary" }
+      - { label: "Login", href: "https://portal.codebolt.ai", variant: "primary", external: true }
   footer:
     brand:
       tagline: "One engine. Every scale."
@@ -73,13 +75,16 @@ pages:
 
   # ── Homepage ────────────────────────────────
   - slug: ""
-    title: "Codebolt — The engine for agent-native software"
+    title: "Codebolt — AI Engine for Agent-Native Software"
     navbar_variant: "transparent"
     sections:
 
       - type: hero
-        heading: "The engine for agent-native software."
-        subheading: "Build agents. Run them autonomously. Watch them improve themselves. Ship products on top. Editor · CLI · Cloud · SDK."
+        heading: "The AI engine for agent-native software."
+        subheading: "Build agents. Run them autonomously. Ship products on top. Scale from CLI to cloud, SDK, and multi-agent orchestration."
+        media:
+          alt: "Codebolt product demo"
+          placeholder: "Product GIF space"
 
       - type: start-tabs
         heading: "START WITH"
@@ -98,7 +103,7 @@ pages:
               ├─ macOS  (Apple Silicon · Intel)
               ├─ Windows (x64)
               └─ Linux  (x64 · arm64)
-            primary: { label: "Download Editor", href: "#download" }
+            primary: { label: "Download Editor", href: "/download" }
             more: { label: "View Editor", href: "/products/editor" }
           - label: "Cloud"
             body: "Hosted engine in your browser. No install. Spawn workspaces, run agents on managed sandboxes, share state with your team."
@@ -178,7 +183,7 @@ pages:
         kicker: "ENGINE · SURFACES"
         heading: "One engine. Every surface."
         subtitle: "Same engine, same SDK, same plugins — different interface for different needs."
-        columns: 5
+        columns: 4
         items:
           - title: "CLI"
             description: "Terminal client. Like Claude Code, but with custom agents and a growth path to multi-agent."
@@ -215,14 +220,17 @@ pages:
               ├─ Managed sandboxes
               ├─ Shared workspaces
               └─ Same engine inside
-          - title: "SDK"
-            description: "Embed the engine in your own product. Build custom clients, ship agent-native apps, or run headless inside your infrastructure."
-            href: "/products/sdk"
-            visual: |
-              Agent SDK   → custom agents
-              Plugin SDK  → apps inside engine
-              Client SDK  → any interface
-              Self-host   → your infrastructure
+
+      - type: sdk-callout
+        kicker: "BUILD YOUR OWN SURFACE"
+        heading: "SDK for products that need the engine inside."
+        description: "Use the Agent SDK, Plugin SDK, and Client SDK to embed Codebolt in your own product, ship agent-native apps, or run the engine headless on your infrastructure."
+        features:
+          - "Agent SDK"
+          - "Plugin SDK"
+          - "Client SDK"
+          - "Self-hosted engine"
+        cta: { label: "Explore the SDK", href: "/products/sdk" }
 
       # ── Engine Pillars (Feature Showcase — Windsurf style) ──
       - type: feature-showcase
@@ -3687,6 +3695,76 @@ pages:
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
           - { label: "Read the Docs", href: "https://docs.codebolt.ai", variant: "secondary", external: true }
+
+  # ── Download ───────────────────────────────
+  - slug: "download"
+    title: "Download Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Download Codebolt"
+        subtitle: "Pick a surface. Same engine inside all of them."
+
+      - type: card-grid
+        heading: "Codebolt Editor — Desktop"
+        columns: 3
+        cards:
+          - title: "macOS"
+            body: "Apple Silicon and Intel. Universal binary. Requires macOS 12 or later."
+            href: "#download-macos"
+            visual: |
+              codebolt.dmg
+              ├─ Apple Silicon
+              └─ Intel x64
+          - title: "Windows"
+            body: "x64 installer. Windows 10 and later. Auto-updates included."
+            href: "#download-windows"
+            visual: |
+              codebolt-setup.exe
+              └─ Windows x64
+          - title: "Linux"
+            body: ".deb, .rpm, and AppImage. x64 and arm64. Includes desktop integration."
+            href: "#download-linux"
+            visual: |
+              codebolt.deb
+              codebolt.rpm
+              codebolt.AppImage
+
+      - type: feature-block
+        heading: "Codebolt CLI — Terminal"
+        body: "Install globally with npm and run the engine in your terminal. Headless server mode for CI/CD. Works inside the Editor or standalone — same SDK, same plugins."
+        diagram: |
+          $ npm i -g codebolt
+          $ codebolt                    # interactive TUI
+          $ codebolt --prompt "..."     # one-shot
+          $ codebolt --server --port 3100
+        reverse: false
+
+      - type: feature-block
+        heading: "Codebolt Cloud — Browser"
+        body: "No install. Open a workspace in your browser, drop in agents and plugins, and run them on managed sandboxes. Same engine as the desktop Editor — just running on our infrastructure."
+        diagram: |
+          → cloud.codebolt.ai
+          ├─ Browser portal
+          ├─ Managed sandboxes
+          └─ Shared workspaces
+        reverse: true
+
+      - type: feature-block
+        heading: "Codebolt SDK — Embed"
+        body: "Building your own product on top of the engine? The SDK lets you embed the runtime in your app or self-host it on your own infrastructure. Three SDKs (Agent, Plugin, Client) cover every layer."
+        diagram: |
+          # Self-host the engine
+          $ docker run codebolt/engine:latest
+
+          # Or install the SDK package
+          $ npm i codeboltjs
+
+      - type: cta-block
+        heading: "Need help getting started?"
+        buttons:
+          - { label: "Read the Docs", href: "https://docs.codebolt.ai", variant: "primary", external: true }
+          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
 
   # ── Pricing ────────────────────────────────
   - slug: "pricing"

@@ -10,6 +10,7 @@ import CenteredText from '../components/CenteredText.astro';
 import IconGrid from '../components/IconGrid.astro';
 import ProgressionStrip from '../components/ProgressionStrip.astro';
 import ShowcaseStrip from '../components/ShowcaseStrip.astro';
+import SdkCallout from '../components/SdkCallout.astro';
 import FeatureShowcase from '../components/FeatureShowcase.astro';
 import QuoteBlock from '../components/QuoteBlock.astro';
 import BentoGrid from '../components/BentoGrid.astro';
@@ -20,14 +21,15 @@ import CardGrid from '../components/CardGrid.astro';
 import PersonaGrid from '../components/PersonaGrid.astro';
 import CtaBlock from '../components/CtaBlock.astro';
 ---
-<BaseLayout title="Codebolt — The engine for agent-native software" navbarVariant="transparent" site={site} navigation={navigation}>
+<BaseLayout title="Codebolt — AI Engine for Agent-Native Software" navbarVariant="transparent" site={site} navigation={navigation}>
   <Hero
-    heading="The engine for agent-native software."
-    subheading="Build agents. Run them autonomously. Watch them improve themselves. Ship products on top. Editor · CLI · Cloud · SDK."
+    heading="The AI engine for agent-native software."
+    subheading="Build agents. Run them autonomously. Ship products on top. Scale from CLI to cloud, SDK, and multi-agent orchestration."
+    media={{"alt":"Codebolt product demo","placeholder":"Product GIF space"}}
   />
   <StartTabs
     heading="START WITH"
-    tabs={[{"label":"CLI","body":"Install globally with npm. Run in your terminal. Use a built-in agent or write your own — full SDK access, any LLM provider.","code":"$ npm i -g codebolt\n$ codebolt\n","primary":{"label":"Install Guide","href":"/products/cli"},"more":{"label":"View CLI","href":"/products/cli"}},{"label":"Editor","body":"Polished desktop IDE with the engine running locally. Monaco editor, agent workspace, plugin panel. Available for macOS, Windows, and Linux.","code":"Codebolt Editor\n├─ macOS  (Apple Silicon · Intel)\n├─ Windows (x64)\n└─ Linux  (x64 · arm64)\n","primary":{"label":"Download Editor","href":"#download"},"more":{"label":"View Editor","href":"/products/editor"}},{"label":"Cloud","body":"Hosted engine in your browser. No install. Spawn workspaces, run agents on managed sandboxes, share state with your team.","code":"cloud.codebolt.ai\n├─ Browser portal\n├─ Managed sandboxes\n└─ Shared workspaces\n","primary":{"label":"Open Cloud","href":"https://cloud.codebolt.ai"},"more":{"label":"View Cloud","href":"/products/cloud"}}]}
+    tabs={[{"label":"CLI","body":"Install globally with npm. Run in your terminal. Use a built-in agent or write your own — full SDK access, any LLM provider.","code":"$ npm i -g codebolt\n$ codebolt\n","primary":{"label":"Install Guide","href":"/products/cli"},"more":{"label":"View CLI","href":"/products/cli"}},{"label":"Editor","body":"Polished desktop IDE with the engine running locally. Monaco editor, agent workspace, plugin panel. Available for macOS, Windows, and Linux.","code":"Codebolt Editor\n├─ macOS  (Apple Silicon · Intel)\n├─ Windows (x64)\n└─ Linux  (x64 · arm64)\n","primary":{"label":"Download Editor","href":"/download"},"more":{"label":"View Editor","href":"/products/editor"}},{"label":"Cloud","body":"Hosted engine in your browser. No install. Spawn workspaces, run agents on managed sandboxes, share state with your team.","code":"cloud.codebolt.ai\n├─ Browser portal\n├─ Managed sandboxes\n└─ Shared workspaces\n","primary":{"label":"Open Cloud","href":"https://cloud.codebolt.ai"},"more":{"label":"View Cloud","href":"/products/cloud"}}]}
   />
   <HighlightBanner
     tone="accent"
@@ -63,8 +65,15 @@ distributes itself, and composes with other software like it.
     kicker="ENGINE · SURFACES"
     heading="One engine. Every surface."
     subtitle="Same engine, same SDK, same plugins — different interface for different needs."
-    columns={5}
-    items={[{"title":"CLI","description":"Terminal client. Like Claude Code, but with custom agents and a growth path to multi-agent.","href":"/products/cli","visual":"$ codebolt\n$ codebolt --agent my-agent\n$ codebolt --server\n$ codebolt --prompt \"...\"\n"},{"title":"Editor","description":"Desktop editor with Monaco, agent workspace, and plugin panel. Not a fork.","href":"/products/editor","visual":"┌──────────┬──────────┐\n│ Editor   │ Agents   │\n├──────────┴──────────┤\n│ Terminal │ Plugins  │\n└─────────────────────┘\n"},{"title":"24/7 Autonomous Agent","description":"Always-on agent with persistent memory and plugin integrations. Reaches your customers wherever they are.","href":"/products/autonomous-agent","visual":"Always-on engine\n├─ Memory (3-tier)\n├─ Plugins (external)\n├─ Hooks (proactive)\n└─ Any LLM provider\n"},{"title":"Cloud","description":"Hosted engine with a browser portal. Sandbox runs, shared workspaces, no install.","href":"/products/cloud","visual":"cloud.codebolt.ai\n├─ Browser portal\n├─ Managed sandboxes\n├─ Shared workspaces\n└─ Same engine inside\n"},{"title":"SDK","description":"Embed the engine in your own product. Build custom clients, ship agent-native apps, or run headless inside your infrastructure.","href":"/products/sdk","visual":"Agent SDK   → custom agents\nPlugin SDK  → apps inside engine\nClient SDK  → any interface\nSelf-host   → your infrastructure\n"}]}
+    columns={4}
+    items={[{"title":"CLI","description":"Terminal client. Like Claude Code, but with custom agents and a growth path to multi-agent.","href":"/products/cli","visual":"$ codebolt\n$ codebolt --agent my-agent\n$ codebolt --server\n$ codebolt --prompt \"...\"\n"},{"title":"Editor","description":"Desktop editor with Monaco, agent workspace, and plugin panel. Not a fork.","href":"/products/editor","visual":"┌──────────┬──────────┐\n│ Editor   │ Agents   │\n├──────────┴──────────┤\n│ Terminal │ Plugins  │\n└─────────────────────┘\n"},{"title":"24/7 Autonomous Agent","description":"Always-on agent with persistent memory and plugin integrations. Reaches your customers wherever they are.","href":"/products/autonomous-agent","visual":"Always-on engine\n├─ Memory (3-tier)\n├─ Plugins (external)\n├─ Hooks (proactive)\n└─ Any LLM provider\n"},{"title":"Cloud","description":"Hosted engine with a browser portal. Sandbox runs, shared workspaces, no install.","href":"/products/cloud","visual":"cloud.codebolt.ai\n├─ Browser portal\n├─ Managed sandboxes\n├─ Shared workspaces\n└─ Same engine inside\n"}]}
+  />
+  <SdkCallout
+    kicker="BUILD YOUR OWN SURFACE"
+    heading="SDK for products that need the engine inside."
+    description="Use the Agent SDK, Plugin SDK, and Client SDK to embed Codebolt in your own product, ship agent-native apps, or run the engine headless on your infrastructure."
+    features={["Agent SDK","Plugin SDK","Client SDK","Self-hosted engine"]}
+    cta={{"label":"Explore the SDK","href":"/products/sdk"}}
   />
   <FeatureShowcase
     kicker="THE ENGINE"

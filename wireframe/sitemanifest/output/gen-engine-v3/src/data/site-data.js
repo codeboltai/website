@@ -81,10 +81,19 @@ export const navigation = {
         "external": true
       }
     ],
-    "cta": {
-      "label": "Get Started",
-      "href": "/pricing"
-    }
+    "cta": [
+      {
+        "label": "Download",
+        "href": "/download",
+        "variant": "secondary"
+      },
+      {
+        "label": "Login",
+        "href": "https://portal.codebolt.ai",
+        "variant": "primary",
+        "external": true
+      }
+    ]
   },
   "footer": {
     "brand": {

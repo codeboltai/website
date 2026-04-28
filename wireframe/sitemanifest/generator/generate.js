@@ -76,6 +76,7 @@ const TYPE_TO_COMPONENT = {
   'connectivity-grid': 'ConnectivityGrid',
   'bento-grid': 'BentoGrid',
   'showcase-strip': 'ShowcaseStrip',
+  'sdk-callout': 'SdkCallout',
   'feature-showcase': 'FeatureShowcase',
   'start-tabs': 'StartTabs',
   'engine-architecture-diagram': 'EngineArchitectureDiagram',

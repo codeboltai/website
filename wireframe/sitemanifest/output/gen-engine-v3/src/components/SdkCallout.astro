@@ -1,0 +1,59 @@
+---
+interface Props {
+  kicker?: string;
+  heading: string;
+  description?: string;
+  features?: string[];
+  cta?: {
+    label: string;
+    href: string;
+  };
+}
+
+const {
+  kicker,
+  heading,
+  description,
+  features = [],
+  cta,
+} = Astro.props;
+---
+
+<section class="px-6 py-12 border-b border-border bg-muted/10 dark:bg-zinc-950/40 dark:border-zinc-900">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-center">
+    <div>
+      {kicker && (
+        <div class="font-mono text-[10px] text-primary uppercase tracking-widest mb-4">
+          {kicker}
+        </div>
+      )}
+      <h3 class="text-2xl md:text-3xl font-medium text-foreground dark:text-white tracking-tight mb-3">
+        {heading}
+      </h3>
+      {description && (
+        <p class="text-sm md:text-base text-muted-foreground dark:text-zinc-400 leading-relaxed max-w-3xl">
+          {description}
+        </p>
+      )}
+    </div>
+
+    <div class="flex flex-col sm:flex-row lg:flex-col gap-5 sm:items-center lg:items-end">
+      {features.length > 0 && (
+        <div class="flex flex-wrap gap-x-4 gap-y-2 text-xs font-mono text-muted-foreground dark:text-zinc-500 lg:justify-end">
+          {features.map((feature: string) => (
+            <span>{feature}</span>
+          ))}
+        </div>
+      )}
+
+      {cta && (
+        <a
+          href={cta.href}
+          class="inline-flex h-11 items-center justify-center border border-border px-5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary dark:border-zinc-800 dark:text-zinc-100 dark:hover:border-cyan-500 dark:hover:text-cyan-400"
+        >
+          {cta.label} &rarr;
+        </a>
+      )}
+    </div>
+  </div>
+</section>
