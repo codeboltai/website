@@ -23,6 +23,11 @@ import CtaBlock from '../components/CtaBlock.astro';
     heading="Enterprise & Teams"
     cards={[{"title":"Governance for Production Agents","body":"The guardrail engine evaluates agent actions against configurable policies scoped by role, environment, and execution phase. LLM-based risk classification. Allow, deny, or require human approval. Every decision is logged for audit.","visual":"Policy: production access\nRole: senior agents only\nRisk: LLM-classified\nDecision: logged + auditable\n"},{"title":"Audit Trails & Deterministic Replay","body":"Every agent decision is captured in the Narrative Engine's execution trace graph. Replay any point in time. Audit any change. Understand why the codebase looks the way it does.","visual":"t0 → t1 → t2 → t3\nFull trace for every agent\nReplay any decision\nAudit any change\n"},{"title":"Team Coordination at Scale","body":"Multiple engineers using AI on the same codebase need coordination. Pheromone-based ownership prevents conflicting work. Drift tracking catches misalignment. Deliberation councils help agents make collective decisions.","visual":"Engineer A + Agent 1\nEngineer B + Agent 2\nEngineer C + Agent 3\n→ coordinated by the engine\n"}]}
   />
+  <CardGrid
+    heading="Multi-Agent at Scale"
+    columns={2}
+    cards={[{"title":"Orchestration — 100+ agents, multi-environment","body":"Stigmergy-based coordination, agent deliberation councils, automatic review and merge, drift tracking. When one agent isn't enough — and an org chart of external tools doesn't cut it.","href":"/use-cases/orchestration"},{"title":"Autonomous Company — business domains as plugins","body":"Engineering, QA, deployment, monitoring — each domain runs as a plugin inside the engine. Agents coordinate across all of them. The engine that powers an autonomous company.","href":"/use-cases/autonomous-company"}]}
+  />
   <CtaBlock
     heading="Whatever you're building, the engine scales with you."
     buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Explore the Engine","href":"/engine","variant":"secondary"}]}

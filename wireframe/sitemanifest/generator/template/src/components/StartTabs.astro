@@ -1,0 +1,110 @@
+---
+import { cn } from '../lib/utils';
+
+interface Action {
+  label: string;
+  href: string;
+}
+
+interface Tab {
+  label: string;
+  body?: string;
+  code?: string;
+  primary?: Action;
+  more?: Action;
+}
+
+interface Props {
+  heading?: string;
+  tabs: Tab[];
+}
+
+const { heading, tabs = [] } = Astro.props;
+---
+
+<section class={cn(
+  "relative bg-background text-foreground border-b border-border font-sans antialiased",
+  "dark:bg-[#050505] dark:border-neutral-900"
+)}>
+  <div class="max-w-4xl mx-auto px-6 -mt-16 pb-24 relative z-20">
+    <div class="start-tabs border border-border dark:border-zinc-800 bg-card/80 dark:bg-[#080808]/90 backdrop-blur-xl shadow-2xl shadow-primary/10">
+
+      {heading && (
+        <div class="px-6 pt-5 pb-3 border-b border-border dark:border-zinc-800/60">
+          <span class="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">{heading}</span>
+        </div>
+      )}
+
+      <div class="flex border-b border-border dark:border-zinc-800/60" role="tablist">
+        {tabs.map((tab, idx) => (
+          <button
+            type="button"
+            role="tab"
+            data-tab-index={idx}
+            aria-selected={idx === 0 ? 'true' : 'false'}
+            class={cn(
+              "start-tab-trigger flex-1 px-5 py-4 text-sm font-medium transition-colors border-r last:border-r-0 border-border dark:border-zinc-800/60",
+              "hover:text-foreground hover:bg-muted/30 dark:hover:bg-zinc-900/50",
+              idx === 0
+                ? "text-foreground bg-muted/40 dark:bg-zinc-900/60 border-b-2 border-b-primary -mb-px"
+                : "text-muted-foreground"
+            )}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {tabs.map((tab, idx) => (
+        <div
+          role="tabpanel"
+          data-tab-panel={idx}
+          class={cn(
+            "start-tab-panel px-6 py-6 grid gap-5 md:grid-cols-[1fr_auto] items-center",
+            idx === 0 ? "" : "hidden"
+          )}
+        >
+          <div>
+            {tab.body && (
+              <p class="text-sm text-muted-foreground leading-relaxed mb-3 font-light">
+                {tab.body}
+              </p>
+            )}
+            {tab.code && (
+              <pre class="font-mono text-xs leading-relaxed text-foreground/90 dark:text-zinc-300 bg-muted/40 dark:bg-black/40 border border-border dark:border-zinc-800/60 px-4 py-3 overflow-x-auto whitespace-pre">
+                {tab.code}
+              </pre>
+            )}
+          </div>
+          <div class="flex flex-row md:flex-col items-stretch gap-2 md:min-w-[180px]">
+            {tab.primary && (
+              <a
+                href={tab.primary.href}
+                class={cn(
+                  "h-10 px-5 rounded-md inline-flex items-center justify-center text-sm font-medium transition-colors",
+                  "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20"
+                )}
+              >
+                {tab.primary.label}
+              </a>
+            )}
+            {tab.more && (
+              <a
+                href={tab.more.href}
+                class={cn(
+                  "h-10 px-5 rounded-md inline-flex items-center justify-center text-sm font-medium transition-colors",
+                  "text-muted-foreground hover:text-foreground border border-border dark:border-zinc-800 hover:border-muted-foreground/60"
+                )}
+              >
+                {tab.more.label}
+                <svg class="ml-2 h-3 w-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M 0 6 H 12 M 9 3 L 12 6 L 9 9" />
+                </svg>
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

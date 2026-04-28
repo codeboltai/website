@@ -1,7 +1,7 @@
 // Auto-generated from site.yaml — do not edit directly
 export const site = {
   "name": "Codebolt",
-  "tagline": "The Most Powerful Agent Engine Ever Built",
+  "tagline": "The engine for agent-native software",
   "logo": {
     "text": "Code",
     "highlight": "bolt"
@@ -12,7 +12,7 @@ export const navigation = {
   "navbar": {
     "links": [
       {
-        "label": "Engine",
+        "label": "Features",
         "href": "/engine",
         "children": [
           {
@@ -38,32 +38,28 @@ export const navigation = {
         ]
       },
       {
-        "label": "Formats",
-        "href": "/formats",
+        "label": "Products",
+        "href": "/products/editor",
         "children": [
           {
-            "label": "All Formats",
-            "href": "/formats"
+            "label": "Codebolt Editor",
+            "href": "/products/editor"
           },
           {
-            "label": "Codebolt as CLI",
-            "href": "/formats/cli"
+            "label": "Codebolt CLI",
+            "href": "/products/cli"
           },
           {
-            "label": "Codebolt as IDE",
-            "href": "/formats/ide"
+            "label": "Codebolt Cloud",
+            "href": "/products/cloud"
           },
           {
-            "label": "Codebolt as Personal Agent",
-            "href": "/formats/personal-agent"
+            "label": "Codebolt 24/7 Autonomous Agent",
+            "href": "/products/autonomous-agent"
           },
           {
-            "label": "Codebolt as Orchestration",
-            "href": "/formats/orchestration"
-          },
-          {
-            "label": "Codebolt as Autonomous Company",
-            "href": "/formats/autonomous-company"
+            "label": "Codebolt SDK",
+            "href": "/products/sdk"
           }
         ]
       },
@@ -119,28 +115,24 @@ export const navigation = {
             "href": "/engine/multi-environment"
           },
           {
-            "label": "Formats",
-            "href": "/formats"
+            "label": "Codebolt Editor",
+            "href": "/products/editor"
           },
           {
             "label": "Codebolt CLI",
-            "href": "/formats/cli"
+            "href": "/products/cli"
           },
           {
-            "label": "Codebolt IDE",
-            "href": "/formats/ide"
+            "label": "Codebolt Cloud",
+            "href": "/products/cloud"
           },
           {
-            "label": "Codebolt Personal Agent",
-            "href": "/formats/personal-agent"
+            "label": "Codebolt 24/7 Autonomous Agent",
+            "href": "/products/autonomous-agent"
           },
           {
-            "label": "Codebolt Orchestration",
-            "href": "/formats/orchestration"
-          },
-          {
-            "label": "Codebolt Autonomous Company",
-            "href": "/formats/autonomous-company"
+            "label": "Codebolt SDK",
+            "href": "/products/sdk"
           },
           {
             "label": "Use Cases",

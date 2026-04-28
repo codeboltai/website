@@ -77,6 +77,7 @@ const TYPE_TO_COMPONENT = {
   'bento-grid': 'BentoGrid',
   'showcase-strip': 'ShowcaseStrip',
   'feature-showcase': 'FeatureShowcase',
+  'start-tabs': 'StartTabs',
   'engine-architecture-diagram': 'EngineArchitectureDiagram',
   'structure-diagram': 'StructureDiagram',
   'subsystem-diagram': 'SubsystemDiagram',

@@ -1,0 +1,68 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import ComparisonColumns from '../../components/ComparisonColumns.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Codebolt Cloud — Hosted Engine, Browser Portal" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Codebolt Cloud"
+    subtitle="The engine, hosted. A browser portal, sandboxed runs, and shared workspaces — no local install required."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Codebolt Cloud spins up the engine for you. Open a workspace in your browser, drop in agents and plugins, and run them on managed sandboxes. Same SDK, same plugins, same memory as the desktop Editor — just managed infrastructure underneath."
+  />
+  <FeatureBlock
+    heading="The engine, managed for you"
+    body="Every Cloud workspace is a full Codebolt engine running on a managed sandbox. Spawn it, run agents, transfer state, tear it down. No daemon to install, no ports to expose. The same engine that powers the desktop Editor — just running on our infrastructure instead of yours."
+    diagram="Browser Portal
+      │
+      ↓ HTTPS + WebSocket
+┌── Managed Sandbox ──┐
+│ Codebolt Engine     │
+│ Agents · Plugins    │
+│ Memory · Storage    │
+└─────────────────────┘
+Same engine. Hosted.
+"
+  />
+  <FeatureBlock
+    heading="Share workspaces. Hand off context."
+    body="A Cloud workspace is a URL. Share it with a teammate and they pick up exactly where you left off — same agents, same memory, same state. Hand off long-running tasks to the cloud and let them keep working while your laptop sleeps."
+    reverse={true}
+    diagram="Local Editor ──→ push state
+                  ↓
+             Cloud workspace
+                  ↓
+Teammate's Editor ←── pull state
+
+Git bundle state transfer
+Engine state, not just code
+"
+  />
+  <FeatureBlock
+    heading="Headless, scheduled, and webhook-driven"
+    body="Cloud workspaces don't need a person watching them. Schedule agents on cron. Wire them to webhooks. Run them on demand from the API. The engine runs autonomously and reaches you when it has something to say — over Slack, Telegram, email, or whatever channel your plugin connects to."
+    diagram={`\$ curl -X POST cloud.codebolt.ai/run \\
+    -H "Authorization: Bearer ..." \\
+    -d '{"agent": "triage", ...}'
+
+# Webhook · Cron · Manual trigger
+# All through the engine
+# All under the same SDK
+`}
+  />
+  <ComparisonColumns
+    problem={{"heading":"Local-only tools","items":["Engine dies when you close your laptop","Long-running tasks block your machine","No way to hand off a workspace to a teammate","Webhooks and cron need a server you operate","Onboarding requires installing software locally"]}}
+    solution={{"heading":"Codebolt Cloud","items":["Engine runs on managed infrastructure, 24/7","Long tasks run in the cloud while you do other work","A workspace is a URL — share, fork, or hand off","Webhooks, cron, and API triggers built in","Open a browser. You're in. Same engine as desktop."]}}
+  />
+  <CtaBlock
+    heading="The engine, hosted. Open a workspace and start."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Explore the Engine","href":"/engine","variant":"secondary"}]}
+  />
+</BaseLayout>

@@ -1,6 +1,6 @@
 site:
   name: "Codebolt"
-  tagline: "The Most Powerful Agent Engine Ever Built"
+  tagline: "The engine for agent-native software"
   logo:
     text: "Code"
     highlight: "bolt"
@@ -8,7 +8,7 @@ site:
 navigation:
   navbar:
     links:
-      - label: "Engine"
+      - label: "Features"
         href: "/engine"
         children:
           - { label: "Engine Overview", href: "/engine" }
@@ -16,15 +16,14 @@ navigation:
           - { label: "Agent Extensibility", href: "/engine/agent-extensibility" }
           - { label: "Multi-Agent Scaling", href: "/engine/multi-agent" }
           - { label: "Multi-Environment Scaling", href: "/engine/multi-environment" }
-      - label: "Formats"
-        href: "/formats"
+      - label: "Products"
+        href: "/products/editor"
         children:
-          - { label: "All Formats", href: "/formats" }
-          - { label: "Codebolt as CLI", href: "/formats/cli" }
-          - { label: "Codebolt as IDE", href: "/formats/ide" }
-          - { label: "Codebolt as Personal Agent", href: "/formats/personal-agent" }
-          - { label: "Codebolt as Orchestration", href: "/formats/orchestration" }
-          - { label: "Codebolt as Autonomous Company", href: "/formats/autonomous-company" }
+          - { label: "Codebolt Editor", href: "/products/editor" }
+          - { label: "Codebolt CLI", href: "/products/cli" }
+          - { label: "Codebolt Cloud", href: "/products/cloud" }
+          - { label: "Codebolt 24/7 Autonomous Agent", href: "/products/autonomous-agent" }
+          - { label: "Codebolt SDK", href: "/products/sdk" }
       - { label: "Use Cases", href: "/use-cases" }
       - { label: "Architecture", href: "/architecture" }
       - { label: "Pricing", href: "/pricing" }
@@ -41,12 +40,11 @@ navigation:
           - { label: "Agent Extensibility", href: "/engine/agent-extensibility" }
           - { label: "Multi-Agent Scaling", href: "/engine/multi-agent" }
           - { label: "Multi-Environment Scaling", href: "/engine/multi-environment" }
-          - { label: "Formats", href: "/formats" }
-          - { label: "Codebolt CLI", href: "/formats/cli" }
-          - { label: "Codebolt IDE", href: "/formats/ide" }
-          - { label: "Codebolt Personal Agent", href: "/formats/personal-agent" }
-          - { label: "Codebolt Orchestration", href: "/formats/orchestration" }
-          - { label: "Codebolt Autonomous Company", href: "/formats/autonomous-company" }
+          - { label: "Codebolt Editor", href: "/products/editor" }
+          - { label: "Codebolt CLI", href: "/products/cli" }
+          - { label: "Codebolt Cloud", href: "/products/cloud" }
+          - { label: "Codebolt 24/7 Autonomous Agent", href: "/products/autonomous-agent" }
+          - { label: "Codebolt SDK", href: "/products/sdk" }
           - { label: "Use Cases", href: "/use-cases" }
           - { label: "Architecture", href: "/architecture" }
           - { label: "Pricing", href: "/pricing" }
@@ -75,16 +73,42 @@ pages:
 
   # ── Homepage ────────────────────────────────
   - slug: ""
-    title: "Codebolt — The Most Powerful Agent Engine Ever Built"
+    title: "Codebolt — The engine for agent-native software"
     navbar_variant: "transparent"
     sections:
 
       - type: hero
-        heading: "The Most Powerful Agent Engine Ever Built"
-        subheading: "One engine that can be a coding CLI, an IDE, a personal agent, a large-scale orchestration system, or the infrastructure for an autonomous company. Start simple. Scale without limits."
-        buttons:
-          - { label: "Get Started", href: "/pricing", variant: "primary" }
-          - { label: "See the Engine", href: "/engine", variant: "secondary" }
+        heading: "The engine for agent-native software."
+        subheading: "Build agents. Run them autonomously. Watch them improve themselves. Ship products on top. Editor · CLI · Cloud · SDK."
+
+      - type: start-tabs
+        heading: "START WITH"
+        tabs:
+          - label: "CLI"
+            body: "Install globally with npm. Run in your terminal. Use a built-in agent or write your own — full SDK access, any LLM provider."
+            code: |
+              $ npm i -g codebolt
+              $ codebolt
+            primary: { label: "Install Guide", href: "/products/cli" }
+            more: { label: "View CLI", href: "/products/cli" }
+          - label: "Editor"
+            body: "Polished desktop IDE with the engine running locally. Monaco editor, agent workspace, plugin panel. Available for macOS, Windows, and Linux."
+            code: |
+              Codebolt Editor
+              ├─ macOS  (Apple Silicon · Intel)
+              ├─ Windows (x64)
+              └─ Linux  (x64 · arm64)
+            primary: { label: "Download Editor", href: "#download" }
+            more: { label: "View Editor", href: "/products/editor" }
+          - label: "Cloud"
+            body: "Hosted engine in your browser. No install. Spawn workspaces, run agents on managed sandboxes, share state with your team."
+            code: |
+              cloud.codebolt.ai
+              ├─ Browser portal
+              ├─ Managed sandboxes
+              └─ Shared workspaces
+            primary: { label: "Open Cloud", href: "https://cloud.codebolt.ai" }
+            more: { label: "View Cloud", href: "/products/cloud" }
 
       - type: highlight-banner
         tone: "accent"
@@ -93,7 +117,7 @@ pages:
 
       - type: stat-grid
         tone: "muted"
-        columns: 4
+        columns: 3
         stats:
           - { label: "SDK Modules", value: "63+" }
           - { label: "LLM Providers", value: "17+" }
@@ -104,6 +128,29 @@ pages:
         variant: "thesis"
         text: "Claude Code is an agent. OpenClaw is an assistant. Cursor is an editor. Codebolt is the engine that can become any of them — and scale beyond all of them."
 
+      # ── What is Agent-Native Software? ──
+      - type: icon-grid
+        tone: "muted"
+        kicker: "WHAT IS AGENT-NATIVE SOFTWARE"
+        title: |
+          Software that runs itself, improves itself,
+          distributes itself, and composes with other software like it.
+        description: "Agent-native software has properties traditional software doesn't. Codebolt is the engine that makes them possible."
+        columns: 5
+        features:
+          - icon: "zap"
+            title: "Runs itself"
+            description: "Autonomous loops, hooks, schedules, webhooks. The agent stays in motion without you driving it. You don't have to be in the loop for work to happen."
+          - icon: "git-branch"
+            title: "Improves itself"
+            description: "Define what good looks like with eval tasks. The optimizer iterates on prompts, tools, and configs across runs. Your agents get measurably better with use, not worse."
+          - icon: "layers"
+            title: "Distributes itself"
+            description: "Lives where customers already are — Slack, Telegram, Discord, email, web. The Routing Gateway carries the same agent to every surface, no glue code."
+          - icon: "cpu"
+            title: "Composes"
+            description: "Agents call agents. Multi-agent by default. Stigmergy, deliberation councils, review-merge — coordination is built in, not bolted on."
+
       # ── Scale Spectrum ──
       - type: progression-strip
         kicker: "THE SCALE SPECTRUM"
@@ -113,11 +160,11 @@ pages:
           - label: "CLI"
             description: "A coding agent in your terminal. One agent, full SDK."
             reference: "Like Claude Code"
-          - label: "IDE"
+          - label: "Editor"
             description: "Desktop editor with agent workspace and plugin panel."
             reference: "Like Cursor"
-          - label: "Personal Agent"
-            description: "24/7 agent with persistent memory and plugin integrations."
+          - label: "24/7 Agent"
+            description: "Always-on agent with persistent memory and plugin integrations."
             reference: "Like OpenClaw / Hermes"
           - label: "Orchestration"
             description: "50-100+ agents coordinated across environments."
@@ -126,53 +173,62 @@ pages:
             description: "Business domains as plugins. Agents coordinate across all of them."
             reference: "Like Paperclip, but built-in"
 
-      # ── Codebolt in Multiple Formats (Showcase Strip) ──
+      # ── Codebolt Surfaces (Showcase Strip) ──
       - type: showcase-strip
-        kicker: "EVERY FORMAT"
+        kicker: "ENGINE · SURFACES"
         heading: "One engine. Every surface."
         subtitle: "Same engine, same SDK, same plugins — different interface for different needs."
-        columns: 4
+        columns: 5
         items:
           - title: "CLI"
-            description: "Terminal agent. Like Claude Code, but with custom agents and a growth path to multi-agent."
-            href: "/formats/cli"
+            description: "Terminal client. Like Claude Code, but with custom agents and a growth path to multi-agent."
+            href: "/products/cli"
             visual: |
               $ codebolt
               $ codebolt --agent my-agent
               $ codebolt --server
               $ codebolt --prompt "..."
-          - title: "IDE"
+          - title: "Editor"
             description: "Desktop editor with Monaco, agent workspace, and plugin panel. Not a fork."
-            href: "/formats/ide"
+            href: "/products/editor"
             visual: |
               ┌──────────┬──────────┐
               │ Editor   │ Agents   │
               ├──────────┴──────────┤
               │ Terminal │ Plugins  │
               └─────────────────────┘
-          - title: "Personal Agent"
-            description: "24/7 agent with persistent memory and plugin integrations. Like OpenClaw on a scalable engine."
-            href: "/formats/personal-agent"
+          - title: "24/7 Autonomous Agent"
+            description: "Always-on agent with persistent memory and plugin integrations. Reaches your customers wherever they are."
+            href: "/products/autonomous-agent"
             visual: |
               Always-on engine
               ├─ Memory (3-tier)
               ├─ Plugins (external)
               ├─ Hooks (proactive)
               └─ Any LLM provider
-          - title: "Orchestration"
-            description: "50-100+ agents. Multi-environment. Stigmergy, deliberation, auto review & merge."
-            href: "/formats/orchestration"
+          - title: "Cloud"
+            description: "Hosted engine with a browser portal. Sandbox runs, shared workspaces, no install."
+            href: "/products/cloud"
             visual: |
-              50+ agents
-              5+ environments
-              Stigmergy coordination
-              Auto review & merge
+              cloud.codebolt.ai
+              ├─ Browser portal
+              ├─ Managed sandboxes
+              ├─ Shared workspaces
+              └─ Same engine inside
+          - title: "SDK"
+            description: "Embed the engine in your own product. Build custom clients, ship agent-native apps, or run headless inside your infrastructure."
+            href: "/products/sdk"
+            visual: |
+              Agent SDK   → custom agents
+              Plugin SDK  → apps inside engine
+              Client SDK  → any interface
+              Self-host   → your infrastructure
 
       # ── Engine Pillars (Feature Showcase — Windsurf style) ──
       - type: feature-showcase
         kicker: "THE ENGINE"
-        heading: "Four pillars of power"
-        subtitle: "Extensible at every layer. Scalable at every level."
+        heading: "The pillars of the engine"
+        subtitle: "Extensible at every layer. Self-improving by design. Moldable at the surface."
         heroFeatures:
           - title: "System Extensibility"
             description: "Three SDKs. Agent SDK (63+ modules), Plugin SDK (3 channels), Client SDK (72 REST + 33 WS). The system is open at every layer."
@@ -192,16 +248,25 @@ pages:
               Flow:  Visual graph editor
               Custom: Full SDK access (code)
               Skills: 675+ across 72 domains
+          - title: "Self-Improving by Design"
+            description: "Define what good looks like with eval tasks. The optimizer iterates on prompts, tools, and configs across runs. Your agents get measurably better with use, not worse."
+            tag: "EVAL · OPTIMIZE"
+            visual: |
+              eval task → score
+                ↓
+              optimizer → tweak prompt/tools
+                ↓
+              re-run → new score
+                ↓
+              keep winners. Forever loop.
+        compactFeatures:
+          - title: "Dynamic Interface Generation"
+            description: "Panels and plugins compose into the surface your customers see. Ship a vertical IDE, a domain-specific UI, or a SaaS — assembled from the engine's parts."
+            tag: "MOLDABLE"
           - title: "Multi-Agent Scaling"
             description: "Sub-agents, parallel execution, stigmergy coordination, pheromone ownership, deliberation councils, auto review & merge — within one environment."
             href: "/engine/multi-agent"
-            tag: "SINGLE ENVIRONMENT"
-            visual: |
-              Parent → [Child 1, Child 2, Child 3]
-              Stigmergy: shared state coordination
-              Pheromones: ownership signals
-              Deliberation: collective decisions
-        compactFeatures:
+            tag: "COORDINATION"
           - title: "Multi-Environment Scaling"
             description: "Proxy execution chains environments. Env A → B → C. Any topology. Git bundle state transfer."
             href: "/engine/multi-environment"
@@ -209,9 +274,6 @@ pages:
           - title: "Narrative Engine"
             description: "Rust-based flight recorder. Shadow git snapshots. Per-thread history. Deterministic replay."
             tag: "RUST"
-          - title: "Drift Tracking"
-            description: "Two-level: Rust (per-agent) + JavaScript (global). 4 dimensions. Catches deviation before it compounds."
-            tag: "INTELLIGENCE"
           - title: "Guardrails"
             description: "Policy engine with LLM risk classification. Per-role, per-environment, per-phase. Allow, deny, escalate."
             tag: "GOVERNANCE"
@@ -325,8 +387,8 @@ pages:
             values: ["3-tier (episodic, persistent, context assembly)", "Session only", "Persistent", "None", "Persistent + learning loop", "Persistent (core feature)", "Session only"]
           - label: "Plugin system"
             values: ["Yes — 3 channels (WS, Mux, HTTP)", "Skills (limited)", "Skills/integrations", "Agent adapters", "Skills (agentskills.io)", "No", "VS Code extensions"]
-          - label: "Formats"
-            values: ["CLI + IDE + TUI + Web + headless", "CLI + IDE extensions", "Web + chat apps", "Web dashboard", "CLI + chat apps", "CLI + API", "IDE only"]
+          - label: "Surfaces"
+            values: ["CLI + Editor + TUI + Cloud + headless", "CLI + IDE extensions", "Web + chat apps", "Web dashboard", "CLI + chat apps", "CLI + API", "IDE only"]
           - label: "Self-improving"
             values: ["Yes — memory compounds, context optimizes", "No", "Yes — writes own skills", "No", "Yes — learning loop", "Yes — background subagents", "No"]
 
@@ -388,12 +450,12 @@ pages:
       - type: card-grid
         heading: "The Progression"
         cards:
-          - title: "Day 1 — Coding CLI"
+          - title: "Day 1 — CLI in your terminal"
             body: "Install Codebolt. Run it in your terminal. Use a built-in agent or bring your own. Like Claude Code but with any model, full SDK access, and room to grow."
             visual: |
               $ npm i -g codebolt
               $ codebolt
-              → Start coding with AI
+              → Start with the engine
           - title: "Week 2 — Custom Agents"
             body: "Write your first agent in 10 lines of JavaScript. Full access to 63+ SDK modules. Your logic, your tools, your rules. No other tool gives you this for free."
             visual: |
@@ -401,19 +463,19 @@ pages:
               codebolt.onMessage(async (msg) => {
                 // your agent, your logic
               });
-          - title: "Month 2 — IDE + Plugins"
-            body: "Switch to the desktop IDE. Install plugins that connect to GitHub, Jira, Slack. Build custom plugins. Multiple agents coordinating on your codebase."
+          - title: "Month 2 — Editor + Plugins"
+            body: "Switch to the desktop Editor. Install plugins that connect to GitHub, Jira, Slack. Build custom plugins. Multiple agents coordinating on your codebase."
             visual: |
-              IDE + Monaco Editor
+              Editor + Monaco
               Plugins: CI/CD, review, deploy
               3+ agents coordinating
-          - title: "Month 6 — Personal Agent"
-            body: "Your agent runs 24/7. Persistent memory. Proactive scheduling. Plugin integrations handle email, calendar, monitoring. Like OpenClaw but on a platform that scales."
+          - title: "Month 6 — 24/7 Autonomous Agent"
+            body: "Your agent runs always-on. Persistent memory. Proactive scheduling. Plugin integrations handle email, calendar, monitoring. Like OpenClaw, but on an engine that scales."
             visual: |
-              Always-on agent
+              Always-on engine
               Memory persists across sessions
               Plugins handle the world
-          - title: "Year 1 — Orchestration Engine"
+          - title: "Year 1 — Orchestration"
             body: "50+ agents across Docker and cloud environments. Stigmergy coordination. Deliberation councils. Automatic review and merge. Drift tracking. Your infrastructure, not your bottleneck."
             visual: |
               50+ agents → 5 environments
@@ -669,7 +731,7 @@ pages:
         heading: "The engine that scales with your ambition."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
-          - { label: "See All Formats", href: "/formats", variant: "secondary" }
+          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
 
   # ── Engine: System Extensibility ───────────
   - slug: "engine/system-extensibility"
@@ -1089,77 +1151,13 @@ pages:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
           - { label: "Back to Engine", href: "/engine", variant: "secondary" }
 
-  # ── Formats ────────────────────────────────
-  # ── Formats Overview ────────────────────────
-  - slug: "formats"
-    title: "Formats — Codebolt"
-    sections:
-
-      - type: page-header
-        title: "One Engine. Every Format."
-        subtitle: "Same engine, same SDK, same plugins. Different interface for different needs."
-
-      - type: centered-text
-        variant: "thesis"
-        text: "Most tools force you to choose: CLI or IDE, personal agent or team tool, simple or powerful. Codebolt is one engine that runs in every format. Everything you build in one format works in all others."
-
-      - type: progression-strip
-        heading: "The Spectrum"
-        description: "Pick your starting point. Scale when you're ready."
-        steps:
-          - label: "CLI"
-            description: "Terminal coding agent with full SDK."
-            reference: "Like Claude Code"
-          - label: "IDE"
-            description: "Desktop editor with agent workspace."
-            reference: "Like Cursor"
-          - label: "Personal Agent"
-            description: "24/7 agent with persistent memory."
-            reference: "Like OpenClaw"
-          - label: "Orchestration"
-            description: "100+ agents, multi-environment."
-            reference: "Beyond any tool"
-          - label: "Autonomous Company"
-            description: "Business domains as plugins."
-            reference: "Built-in, not bolted on"
-
-      - type: card-grid
-        heading: "Explore Each Format"
-        columns: 3
-        cards:
-          - title: "Codebolt as CLI"
-            body: "A coding agent in your terminal. Like Claude Code but with model freedom, custom agents, and a growth path to multi-agent."
-            href: "/formats/cli"
-          - title: "Codebolt as IDE"
-            body: "Full desktop IDE with Monaco editor, agent workspace, and plugin panel. Built from scratch for agent coordination."
-            href: "/formats/ide"
-          - title: "Codebolt as Personal Agent"
-            body: "24/7 agent with persistent memory, plugin integrations, and proactive scheduling. Like OpenClaw on a scalable engine."
-            href: "/formats/personal-agent"
-          - title: "Codebolt as Orchestration Engine"
-            body: "50-100+ agents across Docker, cloud, and hierarchical environments. Stigmergy coordination, deliberation councils, auto review & merge."
-            href: "/formats/orchestration"
-          - title: "Codebolt as Autonomous Company"
-            body: "Business domains as plugins inside the engine. Engineering, QA, deployment, monitoring — all coordinated. No separate agent instances needed."
-            href: "/formats/autonomous-company"
-
-      - type: centered-text
-        variant: "identity"
-        text: "Same engine. Same SDK. Same plugins. Same memory. Whatever you build in one format carries forward to the next."
-
-      - type: cta-block
-        heading: "Pick your format. Start building."
-        buttons:
-          - { label: "Get Started", href: "/pricing", variant: "primary" }
-          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
-
-  # ── Format: CLI ────────────────────────────
-  - slug: "formats/cli"
+  # ── Product: CLI ───────────────────────────
+  - slug: "products/cli"
     title: "Codebolt CLI — Terminal Coding Agent"
     sections:
 
       - type: page-header
-        title: "Codebolt as CLI"
+        title: "Codebolt CLI"
         subtitle: "A coding agent in your terminal. Like Claude Code, but with an engine behind it."
 
       - type: centered-text
@@ -1225,15 +1223,15 @@ pages:
         heading: "Start in the terminal. Scale without limits."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
-          - { label: "See All Formats", href: "/formats", variant: "secondary" }
+          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
 
-  # ── Format: IDE ────────────────────────────
-  - slug: "formats/ide"
-    title: "Codebolt IDE — Desktop Agent Environment"
+  # ── Product: Editor ────────────────────────
+  - slug: "products/editor"
+    title: "Codebolt Editor — Desktop Agent Environment"
     sections:
 
       - type: page-header
-        title: "Codebolt as IDE"
+        title: "Codebolt Editor"
         subtitle: "A full desktop editor built for agent coordination. Not a VS Code fork — built from scratch."
 
       - type: centered-text
@@ -1265,7 +1263,7 @@ pages:
           ✗ Multi-environment
           ✗ CLI/headless mode
 
-          Codebolt IDE:
+          Codebolt Editor:
           ✓ All of the above
           + Same engine as CLI/orchestration
 
@@ -1287,16 +1285,16 @@ pages:
         heading: "An IDE built for the agent era."
         buttons:
           - { label: "Download", href: "/pricing", variant: "primary" }
-          - { label: "See All Formats", href: "/formats", variant: "secondary" }
+          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
 
-  # ── Format: Personal Agent ─────────────────
-  - slug: "formats/personal-agent"
-    title: "Codebolt Personal Agent — 24/7 AI That Grows With You"
+  # ── Product: 24/7 Autonomous Agent ─────────
+  - slug: "products/autonomous-agent"
+    title: "Codebolt 24/7 Autonomous Agent — Always-On AI That Grows With You"
     sections:
 
       - type: page-header
-        title: "Codebolt as Personal Agent"
-        subtitle: "A 24/7 agent with persistent memory, plugin integrations, and proactive capabilities. Like OpenClaw — on a scalable engine."
+        title: "Codebolt 24/7 Autonomous Agent"
+        subtitle: "An always-on agent with persistent memory, plugin integrations, and proactive capabilities. Reaches your customers wherever they already are."
 
       - type: centered-text
         variant: "thesis"
@@ -1345,19 +1343,174 @@ pages:
           ✗ Multi-environment
           ✗ Enterprise governance
 
-          Codebolt Personal Agent:
+          Codebolt 24/7 Autonomous Agent:
           ✓ All of the above
           + Scales to orchestration
-          + Same engine as IDE/CLI
+          + Same engine as Editor/CLI
 
       - type: cta-block
-        heading: "Your personal agent. On an engine that scales."
+        heading: "Your 24/7 agent. On an engine that scales."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
-          - { label: "See All Formats", href: "/formats", variant: "secondary" }
+          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
 
-  # ── Format: Orchestration ──────────────────
-  - slug: "formats/orchestration"
+  # ── Product: Cloud ─────────────────────────
+  - slug: "products/cloud"
+    title: "Codebolt Cloud — Hosted Engine, Browser Portal"
+    sections:
+
+      - type: page-header
+        title: "Codebolt Cloud"
+        subtitle: "The engine, hosted. A browser portal, sandboxed runs, and shared workspaces — no local install required."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "Codebolt Cloud spins up the engine for you. Open a workspace in your browser, drop in agents and plugins, and run them on managed sandboxes. Same SDK, same plugins, same memory as the desktop Editor — just managed infrastructure underneath."
+
+      - type: feature-block
+        heading: "The engine, managed for you"
+        body: "Every Cloud workspace is a full Codebolt engine running on a managed sandbox. Spawn it, run agents, transfer state, tear it down. No daemon to install, no ports to expose. The same engine that powers the desktop Editor — just running on our infrastructure instead of yours."
+        diagram: |
+          Browser Portal
+                │
+                ↓ HTTPS + WebSocket
+          ┌── Managed Sandbox ──┐
+          │ Codebolt Engine     │
+          │ Agents · Plugins    │
+          │ Memory · Storage    │
+          └─────────────────────┘
+          Same engine. Hosted.
+
+      - type: feature-block
+        heading: "Share workspaces. Hand off context."
+        body: "A Cloud workspace is a URL. Share it with a teammate and they pick up exactly where you left off — same agents, same memory, same state. Hand off long-running tasks to the cloud and let them keep working while your laptop sleeps."
+        reverse: true
+        diagram: |
+          Local Editor ──→ push state
+                            ↓
+                       Cloud workspace
+                            ↓
+          Teammate's Editor ←── pull state
+
+          Git bundle state transfer
+          Engine state, not just code
+
+      - type: feature-block
+        heading: "Headless, scheduled, and webhook-driven"
+        body: "Cloud workspaces don't need a person watching them. Schedule agents on cron. Wire them to webhooks. Run them on demand from the API. The engine runs autonomously and reaches you when it has something to say — over Slack, Telegram, email, or whatever channel your plugin connects to."
+        diagram: |
+          $ curl -X POST cloud.codebolt.ai/run \
+              -H "Authorization: Bearer ..." \
+              -d '{"agent": "triage", ...}'
+
+          # Webhook · Cron · Manual trigger
+          # All through the engine
+          # All under the same SDK
+
+      - type: comparison-columns
+        problem:
+          heading: "Local-only tools"
+          items:
+            - "Engine dies when you close your laptop"
+            - "Long-running tasks block your machine"
+            - "No way to hand off a workspace to a teammate"
+            - "Webhooks and cron need a server you operate"
+            - "Onboarding requires installing software locally"
+        solution:
+          heading: "Codebolt Cloud"
+          items:
+            - "Engine runs on managed infrastructure, 24/7"
+            - "Long tasks run in the cloud while you do other work"
+            - "A workspace is a URL — share, fork, or hand off"
+            - "Webhooks, cron, and API triggers built in"
+            - "Open a browser. You're in. Same engine as desktop."
+
+      - type: cta-block
+        heading: "The engine, hosted. Open a workspace and start."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
+
+  # ── Product: SDK ───────────────────────────
+  - slug: "products/sdk"
+    title: "Codebolt SDK — Embed the Engine in Your Product"
+    sections:
+
+      - type: page-header
+        title: "Codebolt SDK"
+        subtitle: "Embed the engine in your own product. Build a custom client, ship an agent-native app, or run the engine inside your infrastructure."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "The Editor is one client of the engine. The CLI is another. With the SDK, you can build your own — a vertical IDE for your domain, an agent-powered SaaS for your customers, or a headless deployment running inside your CI. Same engine. Your interface."
+
+      - type: feature-block
+        heading: "Three SDKs, three layers of access"
+        body: "Agent SDK (codeboltjs, 63+ modules): write the agent loop in code. Plugin SDK (3 channels: WebSocket, Mux, HTTP): extend the engine itself. Client SDK (72 REST + 33 WS): build any front-end you want. The engine is open at every layer — you choose where to plug in."
+        diagram: |
+          Agent SDK    → write custom agents
+          Plugin SDK   → extend the engine
+          Client SDK   → build your own UI
+
+          63+ modules · 3 channels
+          72 REST + 33 WS endpoints
+          All open. All documented.
+
+      - type: feature-block
+        heading: "Ship agent-native software"
+        body: "If your product needs agents at the core — not as a chat sidebar — the SDK is the foundation. The engine handles the agentic loop, memory, plugins, and coordination. You build the surface your customers see. Cursor and Claude Code can't be embedded; the Codebolt engine can."
+        reverse: true
+        diagram: |
+          Your product:
+          ├── Your UI / brand
+          ├── Your auth / billing
+          ├── Your domain logic
+          └── Codebolt Engine ← embedded
+              ├── Agents
+              ├── Plugins
+              └── Memory
+
+          You own the product.
+          The engine does the work.
+
+      - type: feature-block
+        heading: "Self-host the engine"
+        body: "Run the engine on your own infrastructure — bare metal, Docker, Kubernetes, your VPC. The Client SDK connects any front-end to a self-hosted engine instance the same way it connects to Cloud. Compliance teams get a deployment model they can audit."
+        diagram: |
+          $ docker run codebolt/engine:latest
+          $ codebolt serve --port 3100
+
+          # Engine running on your infra
+          # Connect any client (Editor, CLI,
+          # custom UI) to the same engine
+          # Self-host = full control
+
+      - type: comparison-columns
+        problem:
+          heading: "Closed agent products"
+          items:
+            - "Cursor, Claude Code, Devin — you can use them, you can't embed them"
+            - "No way to ship an agent-native product on their engine"
+            - "No self-host story for compliance-heavy environments"
+            - "Front-end is fixed; you can't build a vertical UX"
+            - "Lock-in to one vendor's surface"
+        solution:
+          heading: "Codebolt SDK"
+          items:
+            - "Engine is embeddable — build a product on top of it"
+            - "Three SDKs let you plug in at agent, plugin, or client layer"
+            - "Self-host on your infra, your VPC, your terms"
+            - "Build any front-end — vertical IDE, SaaS, internal tool"
+            - "The engine is yours to deploy as you see fit"
+
+      - type: cta-block
+        heading: "Embed the engine. Ship your own product."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
+
+  # ── Use Case: Orchestration ────────────────
+  - slug: "use-cases/orchestration"
     title: "Codebolt Orchestration — Multi-Agent at Scale"
     sections:
 
@@ -1428,10 +1581,10 @@ pages:
         heading: "Orchestration built into the engine."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
-          - { label: "See All Formats", href: "/formats", variant: "secondary" }
+          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
 
-  # ── Format: Autonomous Company ─────────────
-  - slug: "formats/autonomous-company"
+  # ── Use Case: Autonomous Company ───────────
+  - slug: "use-cases/autonomous-company"
     title: "Codebolt Autonomous Company — Build a Business on Agents"
     sections:
 
@@ -1490,7 +1643,7 @@ pages:
         heading: "Build an autonomous company. On one engine."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
-          - { label: "See All Formats", href: "/formats", variant: "secondary" }
+          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
 
   # ── Use Cases ──────────────────────────────
   - slug: "use-cases"
@@ -1578,6 +1731,17 @@ pages:
               Engineer B + Agent 2
               Engineer C + Agent 3
               → coordinated by the engine
+
+      - type: card-grid
+        heading: "Multi-Agent at Scale"
+        columns: 2
+        cards:
+          - title: "Orchestration — 100+ agents, multi-environment"
+            body: "Stigmergy-based coordination, agent deliberation councils, automatic review and merge, drift tracking. When one agent isn't enough — and an org chart of external tools doesn't cut it."
+            href: "/use-cases/orchestration"
+          - title: "Autonomous Company — business domains as plugins"
+            body: "Engineering, QA, deployment, monitoring — each domain runs as a plugin inside the engine. Agents coordinate across all of them. The engine that powers an autonomous company."
+            href: "/use-cases/autonomous-company"
 
       - type: cta-block
         heading: "Whatever you're building, the engine scales with you."

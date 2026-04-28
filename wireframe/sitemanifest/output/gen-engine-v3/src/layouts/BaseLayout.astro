@@ -7,19 +7,12 @@ import '../styles/global.css';
 const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark" style="color-scheme: dark;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
   <title>{title}</title>
-  <script>
-    (() => {
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const useDark = saved ? saved === 'dark' : prefersDark;
-      document.documentElement.classList.toggle('dark', useDark);
-    })();
-  </script>
 </head>
 <body>
   <Navbar
@@ -81,11 +74,31 @@ const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
         });
       });
 
-      // Theme toggle — flips .dark on <html>, persists to localStorage
-      document.querySelectorAll('.theme-toggle').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const isDark = document.documentElement.classList.toggle('dark');
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.querySelectorAll('.start-tabs').forEach(group => {
+        const triggers = group.querySelectorAll('.start-tab-trigger');
+        const panels = group.querySelectorAll('.start-tab-panel');
+        triggers.forEach(trigger => {
+          trigger.addEventListener('click', () => {
+            const target = trigger.getAttribute('data-tab-index');
+            triggers.forEach(t => {
+              const isActive = t.getAttribute('data-tab-index') === target;
+              t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+              if (isActive) {
+                t.classList.add('text-foreground', 'bg-muted/40', 'dark:bg-zinc-900/60', 'border-b-2', 'border-b-primary', '-mb-px');
+                t.classList.remove('text-muted-foreground');
+              } else {
+                t.classList.remove('text-foreground', 'bg-muted/40', 'dark:bg-zinc-900/60', 'border-b-2', 'border-b-primary', '-mb-px');
+                t.classList.add('text-muted-foreground');
+              }
+            });
+            panels.forEach(panel => {
+              if (panel.getAttribute('data-tab-panel') === target) {
+                panel.classList.remove('hidden');
+              } else {
+                panel.classList.add('hidden');
+              }
+            });
+          });
         });
       });
     });

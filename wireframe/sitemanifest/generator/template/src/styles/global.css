@@ -4,39 +4,9 @@
 
 @layer base {
   :root {
-    /* Light Mode */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
-    --primary: 186 100% 42%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 186 100% 42%;
-    --radius: 0.375rem;
-    
-    /* Semantic Colors */
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
-    --info: 199 89% 48%;
+    color-scheme: dark;
 
-    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-    --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", Consolas, monospace;
-  }
-
-  .dark {
-    /* Dark Mode */
+    /* Dark Mode (default and only theme) */
     --background: 0 0% 2%;
     --foreground: 0 0% 98%;
     --card: 0 0% 4%;
@@ -56,6 +26,15 @@
     --border: 0 0% 10%;
     --input: 0 0% 10%;
     --ring: 186 100% 42%;
+    --radius: 0.375rem;
+
+    /* Semantic Colors */
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --info: 199 89% 48%;
+
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", Consolas, monospace;
   }
 }
 
