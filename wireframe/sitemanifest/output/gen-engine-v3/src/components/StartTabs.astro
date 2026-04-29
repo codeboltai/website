@@ -6,43 +6,45 @@ interface Action {
   href: string;
 }
 
+interface Media {
+  src?: string;
+  alt?: string;
+  label?: string;
+  placeholder?: string;
+}
+
 interface Tab {
   label: string;
   body?: string;
   code?: string;
   primary?: Action;
   more?: Action;
+  media?: Media;
 }
 
 interface Props {
   eyebrow?: string;
   heading?: string;
-  media?: {
-    src?: string;
-    alt?: string;
-    label?: string;
-    placeholder?: string;
-  };
   tabs: Tab[];
 }
 
-const { eyebrow, heading, media, tabs = [] } = Astro.props;
+const { eyebrow, heading, tabs = [] } = Astro.props;
 ---
 
 <section class={cn(
   "relative bg-background text-foreground border-b border-border font-sans antialiased",
   "dark:bg-[#050505] dark:border-neutral-900"
 )}>
-  <div class="start-tabs max-w-6xl mx-auto px-6 -mt-10 pb-20 relative z-20">
-    <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-center">
+  <div class="start-tabs max-w-6xl mx-auto px-6 pt-12 pb-20 relative z-20">
+    <div class="mb-8 flex flex-col items-center gap-4 text-center">
       {(eyebrow || heading) && (
-        <div class="text-sm font-medium text-foreground dark:text-white md:min-w-[260px]">
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
           {eyebrow || heading}
         </div>
       )}
 
       <div
-        class="flex w-fit max-w-full items-center justify-start overflow-x-auto border border-border bg-muted/30 p-1 dark:border-zinc-800 dark:bg-zinc-900/70"
+        class="flex w-fit max-w-full items-center justify-center overflow-x-auto border border-border bg-muted/30 p-1 dark:border-zinc-800 dark:bg-zinc-900/70"
         role="tablist"
       >
         {tabs.map((tab, idx) => (
@@ -71,23 +73,39 @@ const { eyebrow, heading, media, tabs = [] } = Astro.props;
           role="tabpanel"
           data-tab-panel={idx}
           class={cn(
-            "start-tab-panel mx-auto grid max-w-5xl gap-6 px-0 pb-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-start",
+            "start-tab-panel mx-auto grid max-w-5xl gap-8 md:gap-10 md:grid-cols-2 md:items-center",
             idx === 0 ? "" : "hidden"
           )}
         >
-          <div>
-            <h2 class="mb-3 text-3xl font-semibold tracking-tight text-foreground dark:text-white">
-              {tab.label}
-            </h2>
-            {tab.body && (
-              <p class="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base dark:text-zinc-400">
-                {tab.body}
-              </p>
-            )}
-          </div>
+          <div class="flex flex-col gap-5">
+            <div>
+              <h3 class="mb-3 text-2xl md:text-3xl font-semibold tracking-tight text-foreground dark:text-white">
+                {tab.label}
+              </h3>
+              {tab.body && (
+                <p class="text-sm leading-relaxed text-muted-foreground md:text-[15px] dark:text-zinc-400">
+                  {tab.body}
+                </p>
+              )}
+            </div>
 
-          <div class="flex min-w-0 flex-col gap-3 md:min-w-[360px] md:items-end">
-            <div class="flex flex-wrap items-center gap-2 md:justify-end">
+            {tab.code && (
+              <div class="flex min-w-0 items-center border border-border bg-muted/70 dark:border-zinc-700 dark:bg-black/80 shadow-inner">
+                <code class="min-w-0 flex-1 overflow-x-auto whitespace-nowrap px-4 py-3 font-mono text-xs text-foreground dark:text-zinc-100">
+                  {tab.code}
+                </code>
+                <button
+                  type="button"
+                  class="start-tab-copy h-full shrink-0 border-l border-border px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground dark:border-zinc-700"
+                  data-copy-text={tab.code}
+                  aria-label="Copy command"
+                >
+                  Copy
+                </button>
+              </div>
+            )}
+
+            <div class="flex flex-wrap items-center gap-2">
               {tab.primary && (
                 <a
                   href={tab.primary.href}
@@ -114,64 +132,51 @@ const { eyebrow, heading, media, tabs = [] } = Astro.props;
                 </a>
               )}
             </div>
-
-            {tab.code && (
-              <div class="mt-3 flex min-w-0 items-center border border-border bg-muted/70 dark:border-zinc-700 dark:bg-black/80 shadow-inner">
-                <code class="min-w-0 flex-1 overflow-x-auto whitespace-nowrap px-4 py-3 font-mono text-xs text-foreground dark:text-zinc-100">
-                  {tab.code}
-                </code>
-                <button
-                  type="button"
-                  class="start-tab-copy h-full shrink-0 border-l border-border px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground dark:border-zinc-700"
-                  data-copy-text={tab.code}
-                  aria-label="Copy command"
-                >
-                  Copy
-                </button>
-              </div>
-            )}
           </div>
+
+          {tab.media && (
+            <div class="relative">
+              <div class="overflow-hidden border border-border bg-background shadow-2xl shadow-black/20 dark:border-zinc-800 dark:bg-[#0a0a0a]">
+                <div class="flex h-8 items-center gap-2 border-b border-border bg-muted/30 px-4 dark:border-zinc-800 dark:bg-zinc-950">
+                  <span class="h-2.5 w-2.5 rounded-full bg-red-500/70"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-yellow-500/70"></span>
+                  <span class="h-2.5 w-2.5 rounded-full bg-green-500/70"></span>
+                  {tab.media.label && (
+                    <span class="ml-3 truncate font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      {tab.media.label}
+                    </span>
+                  )}
+                </div>
+
+                <div class="relative aspect-[16/10] bg-background dark:bg-[#030303]">
+                  {tab.media.src ? (
+                    <img
+                      src={tab.media.src}
+                      alt={tab.media.alt || `${tab.label} demo`}
+                      class="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <>
+                      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+                      <div class="relative h-full flex items-center justify-center">
+                        <div class="text-center">
+                          <div class="mb-2 font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
+                            {tab.media.placeholder || `${tab.label} demo`}
+                          </div>
+                          <div class="text-3xl font-semibold text-foreground/40 dark:text-white/30">
+                            {tab.label}
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       ))}
-
-      {media && (
-        <div class="relative">
-          <div class="mx-auto max-w-5xl overflow-hidden border border-border bg-background shadow-2xl shadow-black/20 dark:border-zinc-800 dark:bg-[#101010]">
-            <div class="flex h-8 items-center gap-2 border-b border-border bg-muted/30 px-4 dark:border-zinc-800 dark:bg-zinc-950">
-              <span class="h-2.5 w-2.5 rounded-full bg-red-500/70"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-yellow-500/70"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-green-500/70"></span>
-              {media.label && (
-                <span class="ml-3 truncate font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  {media.label}
-                </span>
-              )}
-            </div>
-
-            <div class="relative aspect-[16/9] bg-background dark:bg-[#030303]">
-              {media.src ? (
-                <img
-                  src={media.src}
-                  alt={media.alt || 'Product demo'}
-                  class="h-full w-full object-cover"
-                  loading="eager"
-                />
-              ) : (
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-center">
-                    <div class="mb-3 font-mono text-xs uppercase tracking-widest text-primary">
-                      {media.placeholder || 'Product GIF'}
-                    </div>
-                    <div class="mx-auto h-2 w-48 overflow-hidden rounded-full bg-muted dark:bg-zinc-900">
-                      <div class="h-full w-1/2 bg-primary/70"></div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   </div>
 </section>

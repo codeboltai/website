@@ -6,7 +6,7 @@
   :root {
     color-scheme: dark;
 
-    /* Dark Mode (default and only theme) */
+    /* Dark Mode (default theme) */
     --background: 0 0% 2%;
     --foreground: 0 0% 98%;
     --card: 0 0% 4%;
@@ -35,6 +35,31 @@
 
     --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
     --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", Consolas, monospace;
+  }
+
+  html.light {
+    color-scheme: light;
+
+    /* Light Mode (opt-in) */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 186 100% 35%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 186 100% 35%;
   }
 }
 
@@ -125,6 +150,24 @@
     border-color: hsl(var(--primary));
     background-color: hsl(var(--primary) / 0.1);
     box-shadow: 0 0 15px hsl(var(--primary) / 0.3);
+  }
+
+  /* Inline Tag — soft pill embedded in body text */
+  .inline-tag {
+    display: inline-block;
+    padding: 0.05em 0.45em;
+    margin: 0 0.05em;
+    background-color: hsl(var(--primary) / 0.12);
+    color: hsl(var(--primary));
+    border-radius: 0.25rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+  }
+  .inline-tag:hover {
+    background-color: hsl(var(--primary) / 0.22);
+    color: hsl(var(--primary));
   }
 
   /* Status Indicators */

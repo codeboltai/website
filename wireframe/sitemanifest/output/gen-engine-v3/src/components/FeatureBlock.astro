@@ -1,20 +1,36 @@
 ---
 import { cn } from '../lib/utils';
 
-const { heading, body, diagram, reverse = false } = Astro.props;
+const { heading, kicker, body, diagram, reverse = false, cta } = Astro.props;
 ---
 
 <section class="py-24 lg:py-32 px-6 lg:px-10 border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505]">
   <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-    
+
     {/* Text Content */}
     <div class={cn('col-span-1 lg:col-span-5 flex flex-col', reverse && 'lg:order-last')}>
+      {kicker && (
+        <div class="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
+          {kicker}
+        </div>
+      )}
       <h3 class="text-3xl md:text-5xl font-medium text-foreground tracking-tight leading-[1.1] mb-6 dark:text-zinc-100">
         {heading}
       </h3>
       <div class="space-y-4 text-muted-foreground font-light leading-relaxed dark:text-zinc-400">
-        <p>{body}</p>
+        <p set:html={body}></p>
       </div>
+      {cta && cta.href && (
+        <a
+          href={cta.href}
+          class="mt-8 inline-flex w-fit items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors dark:text-zinc-100"
+        >
+          {cta.label}
+          <svg class="h-3 w-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M 0 6 H 12 M 9 3 L 12 6 L 9 9" />
+          </svg>
+        </a>
+      )}
     </div>
 
     {/* Diagram Content */}

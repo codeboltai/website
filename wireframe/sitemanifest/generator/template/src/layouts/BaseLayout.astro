@@ -7,12 +7,22 @@ import '../styles/global.css';
 const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="en" class="dark" style="color-scheme: dark;">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="dark light">
   <title>{title}</title>
+  <script is:inline>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light') {
+          document.documentElement.classList.add('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
   <Navbar
@@ -34,6 +44,22 @@ const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const applyThemeIcons = () => {
+        const isLight = document.documentElement.classList.contains('light');
+        document.querySelectorAll('.theme-icon-sun').forEach(el => el.classList.toggle('hidden', !isLight));
+        document.querySelectorAll('.theme-icon-moon').forEach(el => el.classList.toggle('hidden', isLight));
+      };
+      applyThemeIcons();
+      document.querySelectorAll('.theme-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const root = document.documentElement;
+          const nowLight = !root.classList.contains('light');
+          root.classList.toggle('light', nowLight);
+          try { localStorage.setItem('theme', nowLight ? 'light' : 'dark'); } catch (e) {}
+          applyThemeIcons();
+        });
+      });
+
       const navbar = document.querySelector('.navbar');
       const isTransparent = navbar && navbar.classList.contains('transparent');
       const applyNavbarState = () => {
@@ -97,6 +123,30 @@ const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
               } else {
                 panel.classList.add('hidden');
               }
+            });
+          });
+        });
+      });
+
+      document.querySelectorAll('.feature-accordion').forEach(group => {
+        const items = group.querySelectorAll('.feature-accordion-item');
+        const panels = group.querySelectorAll('.feature-accordion-visual');
+        items.forEach(item => {
+          item.addEventListener('click', () => {
+            const target = item.getAttribute('data-acc-index');
+            items.forEach(i => {
+              const isActive = i.getAttribute('data-acc-index') === target;
+              i.setAttribute('aria-selected', isActive ? 'true' : 'false');
+              i.classList.toggle('open', isActive);
+              i.classList.toggle('border-l-2', isActive);
+              i.classList.toggle('border-l-primary', isActive);
+              i.classList.toggle('bg-primary/5', isActive);
+            });
+            panels.forEach(panel => {
+              const isActive = panel.getAttribute('data-acc-panel') === target;
+              panel.classList.toggle('opacity-100', isActive);
+              panel.classList.toggle('opacity-0', !isActive);
+              panel.classList.toggle('pointer-events-none', !isActive);
             });
           });
         });

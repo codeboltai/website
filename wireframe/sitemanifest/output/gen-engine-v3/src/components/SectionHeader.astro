@@ -24,14 +24,15 @@ const dotColors = {
 const titleLines = (title ?? '').split('\n').filter(Boolean);
 ---
 
-<div
-  class={cn(
-    'flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12',
-    align === 'center' && 'md:flex-col md:items-center text-center',
-    className
-  )}
->
-  <div class={cn('max-w-3xl', align === 'center' && 'mx-auto')}>
+<section class="border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505] py-16 md:py-24 px-6 lg:px-10">
+  <div
+    class={cn(
+      'max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8',
+      align === 'center' && 'md:flex-col md:items-center text-center',
+      className
+    )}
+  >
+    <div class={cn('max-w-3xl', align === 'center' && 'mx-auto')}>
     {kicker && (
       <div class="flex items-center gap-3 mb-6">
         <div class="relative flex h-2 w-2">
@@ -57,9 +58,10 @@ const titleLines = (title ?? '').split('\n').filter(Boolean);
     )}
 
     {description && (
-      <div class="text-lg text-muted-foreground dark:text-zinc-400 font-light leading-relaxed max-w-2xl">
+      <div class={cn('text-lg text-muted-foreground dark:text-zinc-400 font-light leading-relaxed max-w-2xl', align === 'center' && 'mx-auto')}>
         <p>{description}</p>
       </div>
     )}
+    </div>
   </div>
-</div>
+</section>

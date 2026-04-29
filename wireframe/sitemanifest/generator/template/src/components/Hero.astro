@@ -1,24 +1,58 @@
 ---
 import { cn } from '../lib/utils';
 
-const { heading, subheading, buttons = [], media } = Astro.props;
+const { heading, subheading, eyebrow, headingAccent = [], buttons = [], media } = Astro.props;
 
-const primaryBtn = buttons.find(b => b.variant === 'primary') || buttons[0];
-const secondaryBtn = buttons.find(b => b.variant === 'secondary') || buttons[1];
+let primaryBtn = buttons.find(b => b.variant === 'primary');
+let secondaryBtn = buttons.find(b => b.variant === 'secondary');
+const hasExplicitVariants = buttons.some(b => b.variant);
+if (!hasExplicitVariants) {
+  primaryBtn = buttons[0];
+  secondaryBtn = buttons[1];
+}
 const hasMedia = Boolean(media);
+
+let headingParts = null;
+if (heading && Array.isArray(headingAccent) && headingAccent.length > 0) {
+  const escaped = headingAccent.map(a => a.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const regex = new RegExp(`(${escaped.join('|')})`, 'g');
+  headingParts = heading.split(regex).filter(p => p.length > 0).map(part => ({
+    isAccent: headingAccent.includes(part),
+    value: part,
+  }));
+}
 ---
 
 <section class={cn(
-  "relative bg-background text-foreground min-h-[80vh] border-b border-border font-sans antialiased overflow-hidden flex items-center",
+  "relative bg-background text-foreground border-b border-border font-sans antialiased overflow-hidden",
   "dark:bg-[#050505] dark:border-neutral-900"
 )}>
   <div class="absolute inset-0 bg-grid opacity-20 dark:opacity-10 pointer-events-none"></div>
 
+  <div
+    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] pointer-events-none blur-3xl"
+    style="background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.22), transparent 60%);"
+    aria-hidden="true"
+  ></div>
+
   <div class="w-full pt-32 pb-16 md:pb-24 px-6 relative z-10">
     <div class="max-w-4xl mx-auto text-center">
-      
+
+      {eyebrow && (
+        <div class="mb-8 inline-flex items-center gap-2 rounded-full border border-border/80 bg-muted/30 px-4 py-1.5 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/40 animate-fade-in-up">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></span>
+          <span class="text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground">
+            {eyebrow}
+          </span>
+        </div>
+      )}
+
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-medium text-foreground dark:text-white tracking-tight mb-8 leading-[1.1] animate-fade-in-up">
-        {heading}
+        {headingParts ? headingParts.map(p => (
+          p.isAccent
+            ? <span class="inline-block whitespace-nowrap bg-gradient-to-r from-cyan-300 via-primary to-cyan-500 bg-clip-text text-transparent">{p.value}</span>
+            : <span>{p.value}</span>
+        )) : heading}
       </h1>
 
       {subheading && (

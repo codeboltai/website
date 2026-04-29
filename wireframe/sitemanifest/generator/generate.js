@@ -83,6 +83,7 @@ const TYPE_TO_COMPONENT = {
   'structure-diagram': 'StructureDiagram',
   'subsystem-diagram': 'SubsystemDiagram',
   'tool-registry': 'ToolRegistry',
+  'feature-accordion': 'FeatureAccordion',
 };
 
 function getComponentName(sectionType) {
