@@ -1,0 +1,66 @@
+## persona-ambitious-scaler.yaml
+## Codebolt Brand System v1.0
+## Secondary persona: The ambitious developer scaling up
+
+metadata:
+  chunk_id: "persona-ambitious-scaler"
+  category: "audience"
+  subcategory: "persona"
+  context_tags:
+    - "target-audience"
+    - "secondary-persona"
+    - "aspirational-user"
+  token_count: ~350
+  last_updated: "2026-02-19"
+  description: >
+    Secondary persona. The developer currently using 1-3 agents
+    who wants to scale to serious multi-agent workflows.
+
+---
+
+persona_name: "The Ambitious Scaler"
+priority: "Secondary — growth audience, aspirational adopter"
+
+demographics:
+  role: "Mid-to-senior developer, early-stage founder, or technical PM"
+  experience: "3+ years engineering, currently using AI coding assistants"
+  environment: "Startup, freelance, or innovation team within larger org"
+  tools_used: "Active Cursor/Copilot user. May have experimented with agent frameworks."
+
+psychographics:
+  mindset: >
+    Sees where AI development is heading. Knows single-agent workflows
+    won't be enough. Wants to get ahead of the curve.
+  frustration: >
+    Current tools feel like they're hitting a ceiling. Can do one thing
+    at a time with AI, but can't orchestrate multiple agents on a real
+    project. Feels the gap between demo and production.
+  aspiration: >
+    Wants to be the person on the team who knows how to run AI at scale.
+    Sees Codebolt the way early Kubernetes adopters saw container
+    orchestration — complex, but clearly the future.
+  trigger_phrase: "I want to run more agents but everything breaks."
+
+what_they_value:
+  - "Clear path from simple to advanced usage"
+  - "Learning resources and progressive complexity"
+  - "Community of serious practitioners"
+  - "The feeling of using a professional-grade tool"
+  - "Being early to something that will become important"
+
+what_they_reject:
+  - "Tools that feel like toys"
+  - "Dumbed-down interfaces that cap capability"
+  - "Communities full of hype and no substance"
+
+how_to_reach_them:
+  - "Twitter/X engineering threads on multi-agent challenges"
+  - "YouTube technical walkthroughs"
+  - "Comparison content: 'When to graduate from Cursor'"
+  - "Showcase projects built with multi-agent coordination"
+  - "Developer community and Discord"
+
+messaging_priority:
+  lead_with: "The system you'll need when you're ready to scale past single-agent workflows."
+  support_with: "Progressive complexity. Start simple, unlock depth."
+  close_with: "Built for where AI development is going, not where it's been."

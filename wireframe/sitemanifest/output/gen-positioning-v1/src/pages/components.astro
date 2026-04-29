@@ -1,0 +1,91 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import HighlightBanner from '../components/HighlightBanner.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import MetricStrip from '../components/MetricStrip.astro';
+import MetricBar from '../components/MetricBar.astro';
+import ThreeColumnGrid from '../components/ThreeColumnGrid.astro';
+import DiagramPanel from '../components/DiagramPanel.astro';
+import QuoteBlock from '../components/QuoteBlock.astro';
+---
+<BaseLayout title="Components — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Component Library"
+    subtitle="Design system components available to the generator."
+  />
+  <HighlightBanner
+    tone="accent"
+    content={`Use these sections as building blocks for the <span class="text-primary">Dropstone-inspired</span> layout system.
+`}
+  />
+  <SectionHeader
+    kicker="METRICS"
+    kickerDot="emerald"
+    kickerPulse={true}
+    title="Instrumentation
+exposed as UI primitives
+"
+    description="MetricStrip and MetricBar are available for dashboards and system pages."
+  />
+  <MetricStrip
+    divider={true}
+    columns={4}
+    metrics={[{"label":"SDK Modules","value":"63+","meta":"Agent APIs"},{"label":"LLM Providers","value":"17+","meta":"Cloud + Local","highlight":true},{"label":"Comm Channels","value":"3","meta":"Agent/Plugin/Client"},{"label":"Platform Status","value":"ACTIVE","meta":"Stable","highlight":true}]}
+  />
+  <MetricBar
+    label="Coordination_Depth"
+    value={98}
+    variant="primary"
+    showMarker={true}
+  />
+  <SectionHeader
+    kicker="GRID"
+    kickerDot="primary"
+    title="Three column layouts
+for triptychs and cards
+"
+    description="ThreeColumnGrid supports divider lines and HTML column content."
+  />
+  <ThreeColumnGrid
+    divider={true}
+    columnsHtml={["<div class=\"p-8 md:p-12\">\n  <div class=\"text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4\">01_AGENT_SDK</div>\n  <h3 class=\"text-xl font-medium text-foreground mb-3 tracking-tight\">Custom Agent Platform</h3>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">Write agents with full SDK access — filesystem, git, browser, terminal, LLM, and 50+ more modules.</p>\n</div>\n","<div class=\"p-8 md:p-12\">\n  <div class=\"text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4\">02_PLUGIN_RUNTIME</div>\n  <h3 class=\"text-xl font-medium text-foreground mb-3 tracking-tight\">Agentic Application Runtime</h3>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">Build applications as plugins. Three communication channels. No separate agent needed.</p>\n</div>\n","<div class=\"p-8 md:p-12\">\n  <div class=\"text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-4\">03_MULTI_ENV</div>\n  <h3 class=\"text-xl font-medium text-foreground mb-3 tracking-tight\">Multi-Environment Infrastructure</h3>\n  <p class=\"text-sm text-muted-foreground leading-relaxed\">Scale across local, Docker, cloud, and hierarchical environments with automatic state reconciliation.</p>\n</div>\n"]}
+  />
+  <SectionHeader
+    kicker="DIAGRAM"
+    kickerDot="muted"
+    title="Diagram panels
+for technical visuals
+"
+    description="DiagramPanel renders diagramHtml with optional labels."
+  />
+  <DiagramPanel
+    title="Platform_Topology"
+    subtitle="Core :: Active_Coordination"
+    figureLabel="FIG 3.0: Three-Channel Communication Architecture"
+    showGrid={true}
+    aspectRatio="16/9"
+    diagramHtml={`<div class="w-full h-full flex items-center justify-center">
+  <svg viewBox="0 0 300 160" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="20" y="20" width="260" height="120" stroke="currentColor" stroke-opacity="0.25" />
+    <circle cx="70" cy="60" r="6" fill="currentColor" fill-opacity="0.7" />
+    <circle cx="150" cy="40" r="6" fill="currentColor" fill-opacity="0.7" />
+    <circle cx="230" cy="70" r="6" fill="currentColor" fill-opacity="0.7" />
+    <circle cx="110" cy="110" r="6" fill="currentColor" fill-opacity="0.7" />
+    <circle cx="200" cy="115" r="6" fill="currentColor" fill-opacity="0.7" />
+    <path d="M70 60L150 40L230 70L200 115L110 110L70 60" stroke="currentColor" stroke-opacity="0.35" />
+    <path d="M150 40L110 110" stroke="currentColor" stroke-opacity="0.35" />
+    <path d="M230 70L110 110" stroke="currentColor" stroke-opacity="0.35" />
+  </svg>
+</div>
+`}
+  />
+  <QuoteBlock
+    variant="muted"
+    align="center"
+    quote="These are generator-first components: deterministic props, stable typography, and clear hierarchy."
+    attribution="Design System"
+  />
+</BaseLayout>

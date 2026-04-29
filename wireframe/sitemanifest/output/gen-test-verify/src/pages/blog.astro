@@ -1,0 +1,16 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import BlogGrid from '../components/BlogGrid.astro';
+---
+<BaseLayout title="Blog — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Blog"
+    subtitle="Engineering decisions, architecture deep-dives, and what we're learning about agents at scale."
+  />
+  <BlogGrid
+    posts={[{"date":"2026-02-18","title":"Why We Built an Agent Platform, Not Another Copilot","excerpt":"The origin story — why we chose to build a platform where you write custom agents, not another AI-assisted editor. And why that distinction matters.","tag":"Engineering"},{"date":"2026-02-12","title":"Coding Copilots, Personal AI, and Agent Platforms: Three Categories Explained","excerpt":"The AI tool landscape has settled into three distinct categories. Here's what each one does, where they overlap, and why we chose the hardest one.","tag":"Strategy"},{"date":"2026-02-05","title":"How the Plugin System Enables Autonomous Applications","excerpt":"Why plugins in Codebolt don't need separate agent instances, how the three communication channels work, and what this means for building autonomous companies.","tag":"Architecture"},{"date":"2026-01-28","title":"Stigmergy vs Message Passing for Agent Coordination","excerpt":"A research-backed comparison of coordination strategies. Why indirect communication through shared state scales better than direct messaging.","tag":"Research"},{"date":"2026-01-20","title":"What Breaks When You Run 50 Agents on One Repo","excerpt":"Real problems we encountered scaling agent coordination — conflicts, drift, memory exhaustion — and the system-level solutions we built.","tag":"Engineering"},{"date":"2026-01-12","title":"Agent Deliberation: How Agents Make Decisions Together","excerpt":"Inside the deliberation council system — proposing, debating, voting, and reaching consensus without human intervention.","tag":"Architecture"}]}
+  />
+</BaseLayout>

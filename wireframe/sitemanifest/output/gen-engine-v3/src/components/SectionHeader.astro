@@ -1,0 +1,67 @@
+---
+import { cn } from '../lib/utils';
+
+const {
+  kicker,
+  kickerDot = 'primary',
+  kickerPulse = false,
+  title,
+  description,
+  align = 'left',
+  className,
+} = Astro.props;
+
+const dotColors = {
+  primary: 'bg-primary dark:bg-cyan-500',
+  emerald: 'bg-emerald-500',
+  amber: 'bg-amber-500',
+  indigo: 'bg-indigo-500',
+  purple: 'bg-purple-500',
+  red: 'bg-red-500',
+  muted: 'bg-muted-foreground dark:bg-zinc-500',
+};
+
+const titleLines = (title ?? '').split('\n').filter(Boolean);
+---
+
+<section class="border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505] py-16 md:py-24 px-6 lg:px-10">
+  <div
+    class={cn(
+      'max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8',
+      align === 'center' && 'md:flex-col md:items-center text-center',
+      className
+    )}
+  >
+    <div class={cn('max-w-3xl', align === 'center' && 'mx-auto')}>
+    {kicker && (
+      <div class={cn('inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-primary/30 bg-primary/5', align === 'center' && 'mx-auto')}>
+        <div class="relative flex h-1.5 w-1.5">
+          {kickerPulse && (
+            <span class={cn('absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping', dotColors[kickerDot] ?? dotColors.primary)} />
+          )}
+          <span class={cn('relative inline-flex rounded-full h-1.5 w-1.5', dotColors[kickerDot] ?? dotColors.primary)} />
+        </div>
+        <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-primary">
+          {kicker}
+        </span>
+      </div>
+    )}
+
+    {titleLines.length > 0 && (
+      <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-6 leading-[1.1]">
+        {titleLines.map((line, i) => (
+          <span class={cn('block', i === 0 ? 'text-foreground dark:text-white' : 'text-muted-foreground dark:text-zinc-500')}>
+            {line}
+          </span>
+        ))}
+      </h2>
+    )}
+
+    {description && (
+      <div class={cn('text-base md:text-lg text-muted-foreground dark:text-zinc-400 leading-relaxed max-w-2xl', align === 'center' && 'mx-auto')}>
+        <p>{description}</p>
+      </div>
+    )}
+    </div>
+  </div>
+</section>

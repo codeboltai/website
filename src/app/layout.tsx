@@ -1,16 +1,27 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { ThemeProvider } from '@/contexts/ThemeContext'
+import DevTools from '@/components/DevTools'
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: "CodeboltAI - Futuristic Code Editor for AI and Agents",
-  description: "Create your own AI agents with CodeboltAI, the futuristic code editor that exposes editor functionalities as APIs and MCP for automation.",
-  keywords: ["AI", "Code Editor", "Agents", "Automation", "API", "MCP"],
+  title: "Codebolt - The Intelligent Runtime for Autonomous Engineering",
+  description: "Codebolt is an agentic IDE that goes beyond simple code completion. Powered by Horizon Mode architecture and D3 Engine for infinite context, agentic reasoning, and autonomous refactoring.",
+  keywords: ["AI", "Code Editor", "Agents", "Automation", "IDE", "Autonomous Engineering", "Agentic IDE"],
 };
 
 export default function RootLayout({
@@ -20,14 +31,37 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  if (theme === 'light') {
+                    document.documentElement.classList.remove('dark');
+                  } else {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <ThemeProvider>
-          <Header />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
+          <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground transition-colors duration-300">
+            <Header />
+            <main>
+              {children}
+            </main>
+            <Footer />
+          </div>
         </ThemeProvider>
+        <DevTools />
       </body>
     </html>
   );

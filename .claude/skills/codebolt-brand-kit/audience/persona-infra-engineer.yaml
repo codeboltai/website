@@ -1,0 +1,66 @@
+## persona-infra-engineer.yaml
+## Codebolt Brand System v1.0
+## Primary persona: Infrastructure-minded AI engineer
+
+metadata:
+  chunk_id: "persona-infra-engineer"
+  category: "audience"
+  subcategory: "persona"
+  context_tags:
+    - "target-audience"
+    - "primary-persona"
+    - "power-user"
+    - "early-adopter"
+  token_count: ~350
+  last_updated: "2026-02-19"
+  description: >
+    Primary persona. The infrastructure-minded engineer who already
+    works with AI agents and has hit the coordination wall.
+
+---
+
+persona_name: "The Infrastructure Engineer"
+priority: "Primary — early adopter, highest signal value"
+
+demographics:
+  role: "Senior/Staff engineer, Tech Lead, or solo technical founder"
+  experience: "5+ years engineering, 1+ years working with AI agents"
+  environment: "Startup (Series A–C) or AI-forward enterprise team"
+  tools_used: "Has tried Cursor, Claude Code, or similar. Familiar with orchestration patterns."
+
+psychographics:
+  mindset: "Systems thinker. Sees agents as infrastructure, not magic."
+  frustration: >
+    Has tried scaling past 2-3 agents and hit coordination problems.
+    Context conflicts, merge explosions, drift from intent. Knows the
+    problem is environmental, not model-level, but has no tool built
+    for it.
+  aspiration: >
+    Wants to run real multi-agent workflows reliably. Wants the
+    environment to handle coordination so they can focus on architecture.
+  trigger_phrase: "My agents keep stepping on each other."
+
+what_they_value:
+  - "Architecture transparency — show me how it works"
+  - "Benchmarks and evidence over marketing claims"
+  - "Depth over breadth — solve the hard problem well"
+  - "Configurability — let me tune the system"
+  - "Honest communication about maturity and limitations"
+
+what_they_reject:
+  - "Hype language and vague claims"
+  - "Artificial gatekeeping or exclusivity theater"
+  - "Products that hide complexity behind 'magic'"
+  - "Feature lists without architectural explanation"
+
+how_to_reach_them:
+  - "Technical blog posts on coordination challenges"
+  - "Architecture deep-dives and benchmark comparisons"
+  - "GitHub presence and open technical discourse"
+  - "Conference talks on multi-agent systems engineering"
+  - "Word of mouth from other infrastructure engineers"
+
+messaging_priority:
+  lead_with: "The environment handles agent coordination at the system level."
+  support_with: "Ground-up architecture, drift tracking, conflict resolution."
+  close_with: "Model-agnostic. Built for scale. Evidence in the docs."

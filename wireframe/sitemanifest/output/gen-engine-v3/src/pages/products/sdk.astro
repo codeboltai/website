@@ -1,0 +1,69 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import ComparisonColumns from '../../components/ComparisonColumns.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Codebolt SDK — Embed the Engine in Your Product" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Codebolt SDK"
+    subtitle="Embed the engine in your own product. Build a custom client, ship an agent-native app, or run the engine inside your infrastructure."
+  />
+  <CenteredText
+    variant="thesis"
+    text="The Editor is one client of the engine. The CLI is another. With the SDK, you can build your own — a vertical IDE for your domain, an agent-powered SaaS for your customers, or a headless deployment running inside your CI. Same engine. Your interface."
+  />
+  <FeatureBlock
+    heading="Three SDKs, three layers of access"
+    body="Agent SDK (codeboltjs, 63+ modules): write the agent loop in code. Plugin SDK (3 channels: WebSocket, Mux, HTTP): extend the engine itself. Client SDK (72 REST + 33 WS): build any front-end you want. The engine is open at every layer — you choose where to plug in."
+    diagram="Agent SDK    → write custom agents
+Plugin SDK   → extend the engine
+Client SDK   → build your own UI
+
+63+ modules · 3 channels
+72 REST + 33 WS endpoints
+All open. All documented.
+"
+  />
+  <FeatureBlock
+    heading="Ship agent-native software"
+    body="If your product needs agents at the core — not as a chat sidebar — the SDK is the foundation. The engine handles the agentic loop, memory, plugins, and coordination. You build the surface your customers see. Cursor and Claude Code can't be embedded; the Codebolt engine can."
+    reverse={true}
+    diagram="Your product:
+├── Your UI / brand
+├── Your auth / billing
+├── Your domain logic
+└── Codebolt Engine ← embedded
+    ├── Agents
+    ├── Plugins
+    └── Memory
+
+You own the product.
+The engine does the work.
+"
+  />
+  <FeatureBlock
+    heading="Self-host the engine"
+    body="Run the engine on your own infrastructure — bare metal, Docker, Kubernetes, your VPC. The Client SDK connects any front-end to a self-hosted engine instance the same way it connects to Cloud. Compliance teams get a deployment model they can audit."
+    diagram="$ docker run codebolt/engine:latest
+$ codebolt serve --port 3100
+
+# Engine running on your infra
+# Connect any client (Editor, CLI,
+# custom UI) to the same engine
+# Self-host = full control
+"
+  />
+  <ComparisonColumns
+    problem={{"heading":"Closed agent products","items":["Cursor, Claude Code, Devin — you can use them, you can't embed them","No way to ship an agent-native product on their engine","No self-host story for compliance-heavy environments","Front-end is fixed; you can't build a vertical UX","Lock-in to one vendor's surface"]}}
+    solution={{"heading":"Codebolt SDK","items":["Engine is embeddable — build a product on top of it","Three SDKs let you plug in at agent, plugin, or client layer","Self-host on your infra, your VPC, your terms","Build any front-end — vertical IDE, SaaS, internal tool","The engine is yours to deploy as you see fit"]}}
+  />
+  <CtaBlock
+    heading="Embed the engine. Ship your own product."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Explore the Engine","href":"/engine","variant":"secondary"}]}
+  />
+</BaseLayout>

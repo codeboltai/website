@@ -1,0 +1,30 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import CardGrid from '../components/CardGrid.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+---
+<BaseLayout title="Use Cases — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Built for how you work."
+    subtitle="Different teams. Different scales. Same engine."
+  />
+  <CardGrid
+    heading="Custom Agent Development"
+    cards={[{"title":"Write Agents That Understand Your Stack","body":"Use the 63-module SDK to build agents that know your architecture, follow your conventions, and work within your constraints. Full filesystem, git, browser, terminal, LLM, and memory access. Your agent logic, not a vendor's prompt template.","visual":"Your conventions → Your agent\nYour stack → Your SDK calls\nYour rules → Your guardrails\n"},{"title":"Model Freedom","body":"Use GPT for planning, Claude for coding, Gemini for review, and a local fine-tuned model for repetitive tasks. Per-agent and per-task model selection. 17+ cloud providers plus Ollama and LM Studio.","visual":"GPT → planning\nClaude → coding\nLocal → repetitive tasks\nAll in one engine\n"},{"title":"Full Control Over the Agent Loop","body":"Unlike prompt-only tools, you control what the agent does at every step. Custom decision logic. Custom tool selection. Custom memory management. The agent is your program, not a black box.","visual":"Step 1: analyze codebase\nStep 2: check conventions\nStep 3: implement changes\nStep 4: run tests\nStep 5: create review\n(your logic at every step)\n"}]}
+  />
+  <CardGrid
+    heading="Autonomous Development"
+    cards={[{"title":"Build Your Company on Codebolt","body":"Plugins run inside the engine — no separate agent instances needed. Build your CI/CD pipeline as a plugin. Build your code review system as a plugin. Build your deployment automation as a plugin. Each one runs with full agentic capabilities.","visual":"Plugin: CI/CD pipeline\nPlugin: code review\nPlugin: deployment\nPlugin: monitoring\nAll running inside the engine\n"},{"title":"Scale Across Environments","body":"Start local. Add Docker containers. Scale to cloud. The provider system lets your main instance treat other Codebolt instances as coordinated environments. Transfer state via git bundles. Scale from 1 to 100 agents without changing architecture.","visual":"Day 1: 1 agent, local\nMonth 3: 10 agents, Docker\nMonth 6: 50 agents, cloud\nYear 1: autonomous company\n"},{"title":"Agents Reviewing Agents","body":"The built-in review-merge system lets agents create review requests, provide feedback, detect conflicts, and merge their own work. No GitHub PR bottleneck. Agents do long tasks in parallel, review each other's output, and resolve conflicts autonomously.","visual":"Agent A implements\nAgent B reviews\nAgent C tests\nAgent D merges\nZero human bottleneck\n"}]}
+  />
+  <CardGrid
+    heading="Enterprise & Teams"
+    cards={[{"title":"Governance for Production Agents","body":"The guardrail engine evaluates agent actions against configurable policies scoped by role, environment, and execution phase. LLM-based risk classification. Allow, deny, or require human approval. Every decision is logged for audit.","visual":"Policy: production access\nRole: senior agents only\nRisk: LLM-classified\nDecision: logged + auditable\n"},{"title":"Audit Trails & Deterministic Replay","body":"Every agent decision is captured in the Narrative Engine's execution trace graph. Replay any point in time. Audit any change. Understand why the codebase looks the way it does.","visual":"t0 → t1 → t2 → t3\nFull trace for every agent\nReplay any decision\nAudit any change\n"},{"title":"Team Coordination at Scale","body":"Multiple engineers using AI on the same codebase need coordination. Pheromone-based ownership prevents conflicting work. Drift tracking catches misalignment. Deliberation councils help agents make collective decisions.","visual":"Engineer A + Agent 1\nEngineer B + Agent 2\nEngineer C + Agent 3\n→ coordinated by the engine\n"}]}
+  />
+  <CtaBlock
+    heading="Whatever you're building, the engine scales with you."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Explore the Engine","href":"/engine","variant":"secondary"}]}
+  />
+</BaseLayout>

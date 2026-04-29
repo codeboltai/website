@@ -1,0 +1,31 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import CenteredText from '../components/CenteredText.astro';
+import TwoColumnText from '../components/TwoColumnText.astro';
+import ValueList from '../components/ValueList.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+---
+<BaseLayout title="About — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <CenteredText
+    variant="thesis"
+    text="We saw the gap between what AI agents promise and what they can actually deliver. The bottleneck isn't intelligence — it's the engine. We built the engine."
+  />
+  <TwoColumnText
+    columns={[{"heading":"What everyone is building","body":"Smarter models. Better prompts. Faster autocomplete. Personal assistants for your inbox. Copilots that finish your sentences. Each tool does one thing."},{"heading":"What's actually missing","body":"An engine that can be any of those things — and scale beyond all of them. A single system where your agents, plugins, memory, and workflows carry across every format and every scale."}]}
+    conclusion="Codebolt is that engine."
+  />
+  <ValueList
+    heading="What We Believe"
+    values={["The engine is the multiplier, not the model.","Agents are programs, not prompts. Give developers the SDK.","One engine should handle every scale — CLI to autonomous company.","Everything you build should carry forward as you grow.","Depth over breadth. Solve the hard coordination problem well.","Honesty over hype. Show the architecture, not the adjectives."]}
+  />
+  <CenteredText
+    heading="The Engineering"
+    text="Codebolt is built from scratch — not forked, not wrapped. 73 controllers, 134 services, a Rust-based Narrative Engine, three communication channels, and a HostBridge abstraction that runs identically on desktop, CLI, and headless server. Every layer exists because the problem demanded it."
+  />
+  <CtaBlock
+    heading="We're building the engine for the agent era."
+    buttons={[{"label":"See Open Roles","href":"/careers","variant":"primary"},{"label":"Explore the Engine","href":"/engine","variant":"secondary"}]}
+  />
+</BaseLayout>

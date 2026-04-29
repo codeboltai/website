@@ -1,0 +1,105 @@
+---
+import { cn } from '../lib/utils';
+
+interface Item {
+  title: string;
+  description?: string;
+  icon?: string;
+  visual?: string;
+  visualHtml?: string;
+  href?: string;
+}
+
+interface Props {
+  kicker?: string;
+  heading?: string;
+  description?: string;
+  items: Item[];
+}
+
+const { kicker, heading, description, items = [] } = Astro.props;
+---
+
+<section class="py-24 lg:py-32 px-6 lg:px-10 border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505]">
+  <div class="max-w-[1200px] mx-auto">
+
+    {(kicker || heading || description) && (
+      <div class="mb-12 max-w-3xl">
+        {kicker && (
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+            <span class="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]">{kicker}</span>
+          </div>
+        )}
+        {heading && <h2 class="text-3xl md:text-5xl font-medium text-foreground tracking-tight mb-4 leading-[1.1] dark:text-white">{heading}</h2>}
+        {description && <p class="text-lg text-muted-foreground font-light leading-relaxed">{description}</p>}
+      </div>
+    )}
+
+    <div class="feature-accordion grid md:grid-cols-2 gap-8 lg:gap-12">
+
+      <div class="flex flex-col">
+        {items.map((item, idx) => (
+          <button
+            type="button"
+            data-acc-index={idx}
+            aria-selected={idx === 0 ? 'true' : 'false'}
+            class={cn(
+              'feature-accordion-item group w-full px-5 py-4 text-left border-b border-border dark:border-zinc-800/60 transition-colors',
+              idx === 0 && 'open border-l-2 border-l-primary bg-primary/5'
+            )}
+          >
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex items-center gap-3 min-w-0">
+                {item.icon && (
+                  <span class="font-mono text-[10px] uppercase tracking-widest text-primary/80 shrink-0">
+                    {item.icon}
+                  </span>
+                )}
+                <span class="text-base font-medium text-foreground dark:text-white truncate">
+                  {item.title}
+                </span>
+              </div>
+              <span class="font-mono text-[11px] text-muted-foreground tabular-nums shrink-0">
+                {String(idx + 1).padStart(2, '0')}
+              </span>
+            </div>
+            {item.description && (
+              <div class="feature-accordion-desc overflow-hidden max-h-0">
+                <p class="mt-3 text-sm leading-relaxed text-muted-foreground dark:text-zinc-400 min-h-[3.5rem]">
+                  {item.description}
+                </p>
+              </div>
+            )}
+          </button>
+        ))}
+      </div>
+
+      <div class="relative min-h-[400px] border border-border dark:border-zinc-800/60 bg-card dark:bg-[#050505] overflow-hidden">
+        <div class="absolute inset-0 opacity-30 dark:opacity-100 pointer-events-none bg-grid"></div>
+        {items.map((item, idx) => (
+          <div
+            data-acc-panel={idx}
+            class={cn(
+              'feature-accordion-visual absolute inset-0 flex items-center justify-center p-8 transition-opacity duration-300',
+              idx === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            )}
+          >
+            {item.visualHtml ? (
+              <div class="relative z-10 w-full" set:html={item.visualHtml} />
+            ) : (
+              <pre class="relative z-10 text-xs md:text-sm font-mono text-muted-foreground whitespace-pre overflow-auto max-w-full">
+                {item.visual}
+              </pre>
+            )}
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-accordion-item.open .feature-accordion-desc { max-height: 6rem; }
+</style>

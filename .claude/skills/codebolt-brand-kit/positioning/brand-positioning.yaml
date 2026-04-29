@@ -1,0 +1,85 @@
+## brand-positioning.yaml
+## Codebolt Brand System v1.0
+## Core positioning and value proposition
+
+metadata:
+  chunk_id: "positioning-core"
+  category: "positioning"
+  subcategory: "foundation"
+  context_tags:
+    - "value-proposition"
+    - "positioning-statement"
+    - "what-codebolt-is"
+    - "market-category"
+  token_count: ~400
+  last_updated: "2026-02-19"
+  description: >
+    Core positioning and value proposition. Codebolt as a precision-engineered
+    high-performance environment for AI agents operating at scale.
+
+---
+
+brand_name: "Codebolt"
+
+tagline: "The High-Performance Environment for AI Agents."
+
+subtitle: "Precision-engineered so agents align better, conflict less, and scale further."
+
+category: "High-Performance AI Development Environment"
+
+market_position: >
+  Codebolt is the IDE built for the era where AI agents don't just assist
+  development — they perform it. A precision-engineered environment where
+  agents coordinate, resolve conflicts, and scale reliably across codebases
+  and environments.
+
+core_thesis:
+  primary: "Scaling agents is an engineering problem, not a prompting problem."
+  secondary: "Agents don't need better models. They need a better environment."
+  combined: >
+    The environment is the multiplier, not the model. A well-engineered
+    harness makes any agent faster, more aligned, and more reliable.
+    Codebolt is that harness.
+
+vision: >
+  A world where AI doesn't just assist in writing code — AI builds software.
+  Hundreds of agents constructing systems together, the way a team of
+  engineers would, except it happens in minutes.
+
+mission: >
+  To engineer the environment that makes reliable, large-scale AI agent
+  coordination possible — so that the future of AI-driven development
+  actually works.
+
+value_proposition: >
+  Codebolt is a ground-up IDE precision-engineered for AI agents at scale.
+  It handles what breaks every other multi-agent system: coordination drift,
+  cross-environment conflicts, agent misalignment, and state fragmentation.
+  The result is agents that work together reliably — not agents that
+  step on each other. Designed for engineers who treat AI as infrastructure,
+  not just assistance.
+
+positioning_statement: >
+  For engineers and teams scaling AI agent workflows, Codebolt is the
+  high-performance development environment that makes multi-agent,
+  multi-environment execution reliable. Unlike traditional IDEs with
+  bolted-on AI features, Codebolt is built from the ground up with
+  agent coordination, drift tracking, and conflict resolution as
+  first-class primitives.
+
+key_differentiators:
+  - "Ground-up architecture: not a VS Code fork, not a wrapper — built from scratch for agents"
+  - "Multi-environment coordination: agents work across branches, environments, and contexts simultaneously"
+  - "Conflict resolution at the system level: the environment handles agent disagreements, not the user"
+  - "Drift tracking: the system detects when agents deviate from intent before damage is done"
+  - "Stigmergy-based coordination: agents communicate through structured shared state, not message passing"
+  - "Model-agnostic by design: the environment amplifies whatever model you put in it"
+
+competitive_frame:
+  what_others_optimize: "Model intelligence, prompt quality, single-agent UX"
+  what_codebolt_optimizes: "Environment quality, agent coordination, system-level reliability at scale"
+  analogy: >
+    A brilliant engineer in a company with no version control, no CI/CD, and
+    no communication tools is useless. Not because they're not smart, but
+    because the environment doesn't support good work. The same is true
+    for AI agents today. Codebolt is the environment that makes agents effective.

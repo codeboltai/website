@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Code2, Github, Twitter, Linkedin, Mail, ArrowRight, Zap, Users, Globe } from 'lucide-react'
 import Button from '@/components/ui/Button'
 

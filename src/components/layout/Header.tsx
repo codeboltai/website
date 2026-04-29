@@ -1,247 +1,202 @@
 'use client'
 
 import { useState } from 'react'
-import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import { motion, AnimatePresence } from 'motion/react'
+import { Sun, Moon } from 'lucide-react'
+import { useTheme } from '@/contexts/ThemeContext'
 
-import { Menu, X, Code2, ChevronDown, ExternalLink } from 'lucide-react'
-import Button from '@/components/ui/Button'
-import TopAnnouncementBar from '@/components/ui/TopAnnouncementBar'
-import ThemeToggle from '@/components/ui/ThemeToggle'
-
+// 3D Cube Logo matching Dropstone style
+function CubeLogo() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="text-foreground"
+    >
+      {/* Front face */}
+      <path
+        d="M12 2L3 7V17L12 22L21 17V7L12 2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+        fill="none"
+      />
+      {/* Top edge to center */}
+      <path
+        d="M12 2V12"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      {/* Left edge to center */}
+      <path
+        d="M3 7L12 12"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      {/* Right edge to center */}
+      <path
+        d="M21 7L12 12"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      {/* Center to bottom */}
+      <path
+        d="M12 12V22"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+    </svg>
+  )
+}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
   const pathname = usePathname()
-  
-  // Define routes that should NOT show the top announcement bar
-  const hideTopBarRoutes = [
-    '/registry'
+
+  const navItems = [
+    { name: 'Features', href: '/features' },
+    { name: 'Platform', href: '/platform' },
+    { name: 'Use Cases', href: '/use-cases' },
+    { name: 'Comparison', href: '/comparison' },
+    { name: 'Download', href: '/download' },
   ]
-  
-  // Check if current path should hide the top bar
-  const shouldHideTopBar = hideTopBarRoutes.some(route => 
-    pathname === route || pathname.startsWith(route + '/')
-  )
-
-  const aiAgentItems = [
-    { name: 'Agent Marketplace', href: '/registry/agents', description: 'Discover and deploy pre-built agents' },
-    { name: 'Custom Coding Agents', href: '/custom-coding-agents', description: 'Build and customize your own AI agents' },
-    { name: 'Multi Agent Orchestration', href: '/multi-agent-orchestration', description: 'Run multiple agents together in a swarm' },
-  ]
-
-  const developerItems = [
-    { name: 'Registry', href: '/registry', description: 'MCP Tools and AI Agents registry' },
-    { name: 'Docs', href: 'https://docs.codebolt.ai', description: 'Technical documentation and guides', external: true },
-    { name: 'Forums', href: 'https://forum.codebolt.ai/', description: 'Community discussions and support' , external: true},
-    { name: 'Blog', href: '/blog', description: 'Latest updates and tutorials' },
-  ]
-
-
 
   return (
-    <>
-      {!shouldHideTopBar && (
-        <TopAnnouncementBar 
-          text="AI AGENTS • LIVE NOW"
-          variant="default"
-        />
-      )}
-      <header className={`fixed ${shouldHideTopBar ? 'top-0' : 'top-8 md:top-10'} w-full z-40 ${shouldHideTopBar ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-background/80 backdrop-blur-sm'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center space-x-2"
-          >
-            <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-              <div className="w-8 h-8 bg-foreground rounded-lg flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-background" />
-              </div>
-              <span className="text-xl font-bold text-foreground font-cyber">
-                CodeboltAI
-              </span>
-            </Link>
-          </motion.div>
+    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b bg-background/80 backdrop-blur-xl border-border">
+      <div className="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
 
-                      {/* Navigation */}
-            <nav className="hidden md:flex items-center space-x-4">
-            
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2.5 z-50 relative group">
+          <CubeLogo />
+          <span className="font-medium text-foreground text-sm tracking-tight group-hover:text-primary transition-colors">
+            Codebolt
+          </span>
+        </Link>
 
+        {/* Desktop Navigation - Centered */}
+        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2">
+          <ul className="flex items-center gap-8">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  className={`text-sm transition-colors duration-200 ${pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href + '/'))
+                      ? 'text-primary'
+                      : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-
-            {/* Regular Navigation Items */}
-            <Link href="/features" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt">
-              Features
-            </Link>
-
-            {/* AI Agents Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt outline-none">
-                <span>Agents</span>
-                <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
-              </button>
-              <div className="absolute top-full left-0 mt-2 w-80 bg-background text-card-foreground rounded-md border border-border p-1 shadow-md z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                {aiAgentItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="flex flex-col items-start py-3 px-2 rounded-sm hover:bg-accent transition-colors"
-                  >
-                    <div className="text-sm font-medium text-card-foreground font-cyber">{item.name}</div>
-                    <div className="text-xs text-muted-foreground font-cyber-alt">{item.description}</div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Developers Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center space-x-1 text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt outline-none">
-                <span>Developers</span>
-                <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
-              </button>
-              <div className="absolute top-full left-0 mt-2 w-72 bg-background text-card-foreground rounded-md border border-border p-1 shadow-md z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                {developerItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="flex flex-col items-start py-3 px-2 rounded-sm hover:bg-accent transition-colors"
-                    target={item.external ? '_blank' : undefined}
-                    rel={item.external ? 'noopener noreferrer' : undefined}
-                  >
-                    <div className="text-sm font-medium text-card-foreground font-cyber flex items-center">
-                      {item.name}
-                      {item.external && <ExternalLink className="w-3 h-3 ml-1 text-muted-foreground" />}
-                    </div>
-                    <div className="text-xs text-muted-foreground font-cyber-alt">{item.description}</div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <Link href="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt">
-              Pricing
-            </Link>
-            <a href="#enterprise" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt">
-              Enterprise
-            </a>
-          </nav>
-
-          {/* CTA Buttons and Theme Toggle - Hidden on mobile */}
-          <div className="hidden md:flex items-center space-x-4">
-            <ThemeToggle />
-            <Button variant="secondary" size="sm" className="font-cyber">
-              Download
-            </Button>
-            <Button variant="outline" size="sm" className="font-cyber">
-              Sign Up
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
+        {/* Right side - Theme Toggle & CTA */}
+        <div className="hidden md:flex items-center gap-4 z-50">
+          {/* Theme Toggle */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-accent transition-colors duration-200"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            aria-label="Toggle theme"
           >
-            {isMenuOpen ? 
-              <X className="w-6 h-6 text-gray-600" /> : 
-              <Menu className="w-6 h-6 text-gray-600" />
-            }
+            {theme === 'dark' ? (
+              <Sun className="w-5 h-5" />
+            ) : (
+              <Moon className="w-5 h-5" />
+            )}
+          </button>
+
+          {/* CTA Button - Cyan pill */}
+          <Link
+            href="/dashboard"
+            className="text-sm bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium hover:bg-cyan-400 transition-all duration-300"
+          >
+            Dashboard
+          </Link>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center gap-3">
+          {/* Theme Toggle Mobile */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-5 h-5" />
+            ) : (
+              <Moon className="w-5 h-5" />
+            )}
+          </button>
+
+          <button
+            className="z-50 flex flex-col gap-1.5 p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span className={`w-5 h-[1.5px] bg-foreground transition-transform duration-200 ${isMenuOpen ? 'rotate-45 translate-y-[4px]' : ''}`} />
+            <span className={`w-5 h-[1.5px] bg-foreground transition-opacity duration-200 ${isMenuOpen ? 'opacity-0' : ''}`} />
+            <span className={`w-5 h-[1.5px] bg-foreground transition-transform duration-200 ${isMenuOpen ? '-rotate-45 -translate-y-[4px]' : ''}`} />
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: '100vh' }}
-          exit={{ opacity: 0, height: 0 }}
-          className={`md:hidden fixed inset-0 ${shouldHideTopBar ? 'top-16' : 'top-[72px]'} bg-background dark:bg-background z-50 overflow-y-auto`}
-        >
-          <div className="px-4 py-4 space-y-4">
-            {/* Mobile CTA Buttons and Theme Toggle */}
-            <div className="flex space-x-2 pb-4 border-b border-border">
-              <Button variant="secondary" size="sm" className="flex-1 font-cyber">
-                Download
-              </Button>
-              <Button variant="outline" size="sm" className="flex-1 font-cyber">
-                Sign Up
-              </Button>
-              <ThemeToggle />
-            </div>
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: '100vh' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="md:hidden fixed inset-0 top-16 bg-background z-40 overflow-y-auto"
+          >
+            <div className="px-6 py-8 flex flex-col h-full">
+              <nav className="flex flex-col space-y-1">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className={`block text-lg font-medium transition-colors border-b border-border py-4 ${pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href + '/'))
+                          ? 'text-primary'
+                          : 'text-muted-foreground hover:text-foreground'
+                        }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
 
-            {/* Features - First item to match desktop */}
-            <Link
-              href="/features"
-              className="block text-sm text-muted-foreground hover:text-foreground font-medium transition-colors duration-200 font-cyber-alt"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Features
-            </Link>
-
-            {/* Mobile AI Agents Section */}
-            <div>
-              <div className="text-sm font-medium text-foreground mb-2 font-cyber">AI Agents</div>
-              {aiAgentItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block pl-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt"
+              <div className="mt-auto pt-8">
+                <Link
+                  href="/dashboard"
                   onClick={() => setIsMenuOpen(false)}
+                  className="block"
                 >
-                  {item.name}
-                </a>
-              ))}
+                  <button className="w-full py-4 bg-primary text-primary-foreground font-medium rounded-full hover:bg-cyan-400 transition-colors">
+                    Dashboard
+                  </button>
+                </Link>
+              </div>
             </div>
-
-            {/* Mobile Developers Section */}
-            <div>
-              <div className="text-sm font-medium text-foreground mb-2 font-cyber">Developers</div>
-              {developerItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block pl-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors font-cyber-alt"
-                  onClick={() => setIsMenuOpen(false)}
-                  target={item.external ? '_blank' : undefined}
-                  rel={item.external ? 'noopener noreferrer' : undefined}
-                >
-                  <span className="flex items-center">
-                    {item.name}
-                    {item.external && <ExternalLink className="w-3 h-3 ml-1 text-gray-400" />}
-                  </span>
-                </a>
-              ))}
-            </div>
-
-            {/* Pricing */}
-            <Link
-              href="/pricing"
-              className="block text-sm text-muted-foreground hover:text-foreground font-medium transition-colors duration-200 font-cyber-alt"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Pricing
-            </Link>
-
-            {/* Enterprise */}
-            <a
-              href="#enterprise"
-              className="block text-sm text-muted-foreground hover:text-foreground font-medium transition-colors duration-200 font-cyber-alt"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Enterprise
-            </a>
-
-            
-          </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
-    </>
   )
-} 
+}

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Code2, Github, Twitter, Linkedin, Mail } from 'lucide-react'
 import Link from 'next/link'
 
@@ -43,7 +43,7 @@ export default function FooterLatest({ className = '' }: FooterLatestProps) {
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-gray-700 hover:text-black transition-colors text-sm">
+                <Link href="/newpricing" className="text-gray-700 hover:text-black transition-colors text-sm">
                   Pricing
                 </Link>
               </li>

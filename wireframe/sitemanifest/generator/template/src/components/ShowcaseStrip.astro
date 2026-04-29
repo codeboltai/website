@@ -1,0 +1,106 @@
+---
+/**
+ * ShowcaseStrip — Compact horizontal strip of feature showcases.
+ * Top row: 3-4 large cards with visual areas.
+ * Cursor "Everywhere you work" style.
+ * Each card: title, short description, optional link, visual below.
+ */
+import { cn } from '../lib/utils';
+
+interface ShowcaseItem {
+  title: string;
+  description: string;
+  href?: string;
+  visual?: string;       // ASCII/code
+  visualHtml?: string;   // Rich HTML
+}
+
+interface Props {
+  heading?: string;
+  subtitle?: string;
+  kicker?: string;
+  items: ShowcaseItem[];
+  columns?: 2 | 3 | 4 | 5;
+  tone?: 'default' | 'muted';
+}
+
+const {
+  heading,
+  subtitle,
+  kicker,
+  items = [],
+  columns = 4,
+  tone = 'default',
+} = Astro.props;
+
+const bgClass = tone === 'muted' ? 'bg-muted/10 dark:bg-zinc-900/20' : 'bg-background dark:bg-[#050505]';
+
+const gridClass: Record<number, string> = {
+  2: 'grid-cols-1 md:grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-3',
+  4: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
+  5: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-5',
+};
+---
+
+<section class={cn('py-24 px-6 border-b border-border dark:border-zinc-900', bgClass)}>
+  <div class="max-w-6xl mx-auto">
+    {(kicker || heading) && (
+      <div class="mb-12">
+        {kicker && (
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+            <span class="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">{kicker}</span>
+          </div>
+        )}
+        {heading && <h2 class="text-3xl md:text-5xl font-medium text-foreground tracking-tighter mb-3 leading-[0.95]">{heading}</h2>}
+        {subtitle && <p class="text-xl text-muted-foreground font-light">{subtitle}</p>}
+      </div>
+    )}
+
+    <div class={cn('grid gap-4', gridClass[columns] || gridClass[4])}>
+      {items.map((item: ShowcaseItem) => {
+        const Tag = item.href ? 'a' : 'div';
+        const linkProps = item.href ? { href: item.href } : {};
+        return (
+          <Tag
+            {...linkProps}
+            class={cn(
+              'group flex flex-col border border-border bg-card',
+              'transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4)] overflow-hidden',
+              item.href && 'cursor-pointer no-underline',
+            )}
+          >
+            {/* Text area */}
+            <div class="p-5 flex-shrink-0">
+              <h3 class="text-sm font-medium text-foreground mb-1.5 transition-colors">
+                {item.title}
+              </h3>
+              <p class="text-xs text-muted-foreground leading-relaxed">
+                {item.description}
+              </p>
+              {item.href && (
+                <span class="inline-block mt-2 text-xs text-primary font-medium group-hover:underline">
+                  Learn more &rarr;
+                </span>
+              )}
+            </div>
+
+            {/* Visual area — taller, like a screenshot region */}
+            {(item.visual || item.visualHtml) && (
+              <div class="flex-1 min-h-[180px] bg-muted/40 border-t border-border/60 flex items-start justify-center p-4 overflow-hidden">
+                {item.visualHtml ? (
+                  <div class="w-full" set:html={item.visualHtml} />
+                ) : (
+                  <pre class="text-[10px] leading-tight font-mono text-muted-foreground/70 whitespace-pre overflow-auto max-w-full">
+                    {item.visual}
+                  </pre>
+                )}
+              </div>
+            )}
+          </Tag>
+        );
+      })}
+    </div>
+  </div>
+</section>

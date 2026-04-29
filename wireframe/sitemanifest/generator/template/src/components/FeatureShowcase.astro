@@ -1,0 +1,162 @@
+---
+/**
+ * FeatureShowcase — Windsurf-style layout.
+ * Top row: 2-3 large "hero" feature cards (with visual areas).
+ * Bottom row: 3-4 compact feature cards (icon-style, no visual).
+ * Good for showing a few highlighted features + many smaller ones.
+ */
+import { cn } from '../lib/utils';
+
+interface HeroFeature {
+  title: string;
+  description: string;
+  href?: string;
+  visual?: string;
+  visualHtml?: string;
+  tag?: string;
+}
+
+interface CompactFeature {
+  title: string;
+  description: string;
+  href?: string;
+  tag?: string;
+}
+
+interface Props {
+  heading?: string;
+  subtitle?: string;
+  kicker?: string;
+  heroFeatures: HeroFeature[];
+  compactFeatures?: CompactFeature[];
+  tone?: 'default' | 'muted';
+}
+
+const {
+  heading,
+  subtitle,
+  kicker,
+  heroFeatures = [],
+  compactFeatures = [],
+  tone = 'default',
+} = Astro.props;
+
+const bgClass = tone === 'muted' ? 'bg-muted/10 dark:bg-zinc-900/20' : 'bg-background dark:bg-[#050505]';
+
+const heroGridClass: Record<number, string> = {
+  1: 'grid-cols-1',
+  2: 'grid-cols-1 md:grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-3',
+};
+
+const compactGridClass: Record<number, string> = {
+  2: 'grid-cols-1 md:grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-3',
+  4: 'grid-cols-2 md:grid-cols-4',
+  5: 'grid-cols-2 md:grid-cols-3 lg:grid-cols-5',
+};
+---
+
+<section class={cn('py-24 px-6 border-b border-border dark:border-zinc-900', bgClass)}>
+  <div class="max-w-6xl mx-auto">
+    {(kicker || heading) && (
+      <div class="mb-16 max-w-3xl">
+        {kicker && (
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+            <span class="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">{kicker}</span>
+          </div>
+        )}
+        {heading && <h2 class="text-3xl md:text-5xl font-medium text-foreground tracking-tighter mb-3 leading-[0.95]">{heading}</h2>}
+        {subtitle && <p class="text-lg text-muted-foreground font-light">{subtitle}</p>}
+      </div>
+    )}
+
+    {/* Hero features — large cards with visuals */}
+    {heroFeatures.length > 0 && (
+      <div class={cn('grid gap-4 mb-4', heroGridClass[heroFeatures.length] || heroGridClass[3])}>
+        {heroFeatures.map((item: HeroFeature) => {
+          const Tag = item.href ? 'a' : 'div';
+          const linkProps = item.href ? { href: item.href } : {};
+          return (
+            <Tag
+              {...linkProps}
+              class={cn(
+                'group flex flex-col border border-border dark:border-zinc-800 bg-card/50 dark:bg-[#080808]/80',
+                'transition-all duration-300 hover:border-muted-foreground/40 dark:hover:border-zinc-700 overflow-hidden',
+                item.href && 'cursor-pointer no-underline',
+              )}
+            >
+              <div class="p-6 flex-shrink-0">
+                {item.tag && (
+                  <span class="inline-block font-mono text-[10px] text-primary/80 dark:text-cyan-500/80 uppercase tracking-widest mb-3">
+                    {item.tag}
+                  </span>
+                )}
+                <h3 class="text-lg font-medium text-foreground dark:text-white mb-2 tracking-tight group-hover:text-primary dark:group-hover:text-cyan-400 transition-colors">
+                  {item.title}
+                </h3>
+                <p class="text-sm text-muted-foreground dark:text-zinc-400 font-light leading-relaxed">
+                  {item.description}
+                </p>
+                {item.href && (
+                  <span class="inline-block mt-3 text-xs text-primary dark:text-cyan-500 font-medium group-hover:underline">
+                    Learn more &rarr;
+                  </span>
+                )}
+              </div>
+              {(item.visual || item.visualHtml) && (
+                <div class="flex-1 min-h-[160px] bg-muted/20 dark:bg-[#050505] border-t border-border dark:border-zinc-800/50 flex items-center justify-center p-5 overflow-hidden">
+                  {item.visualHtml ? (
+                    <div class="w-full h-full" set:html={item.visualHtml} />
+                  ) : (
+                    <pre class="text-[10px] leading-tight font-mono text-muted-foreground/80 whitespace-pre overflow-auto max-w-full max-h-full">
+                      {item.visual}
+                    </pre>
+                  )}
+                </div>
+              )}
+            </Tag>
+          );
+        })}
+      </div>
+    )}
+
+    {/* Compact features — smaller cards, no visuals */}
+    {compactFeatures.length > 0 && (
+      <div class={cn('grid gap-4', compactGridClass[compactFeatures.length] || compactGridClass[4])}>
+        {compactFeatures.map((item: CompactFeature) => {
+          const Tag = item.href ? 'a' : 'div';
+          const linkProps = item.href ? { href: item.href } : {};
+          return (
+            <Tag
+              {...linkProps}
+              class={cn(
+                'group border border-border dark:border-zinc-800 p-5 bg-card/30 dark:bg-[#080808]/60',
+                'transition-all duration-300 hover:border-muted-foreground/40 dark:hover:border-zinc-700',
+                item.href && 'cursor-pointer no-underline',
+              )}
+            >
+              {item.tag && (
+                <span class="inline-block font-mono text-[10px] text-primary/60 dark:text-cyan-500/60 uppercase tracking-widest mb-2">
+                  {item.tag}
+                </span>
+              )}
+              <h3 class="text-sm font-medium text-foreground dark:text-white mb-1.5 group-hover:text-primary dark:group-hover:text-cyan-400 transition-colors">
+                {item.title}
+              </h3>
+              <p class="text-xs text-muted-foreground dark:text-zinc-500 leading-relaxed">
+                {item.description}
+              </p>
+              {item.href && (
+                <span class="inline-block mt-2 text-xs text-primary/60 dark:text-cyan-500/60 group-hover:text-primary dark:group-hover:text-cyan-400 transition-colors font-mono">
+                  &rarr;
+                </span>
+              )}
+            </Tag>
+          );
+        })}
+      </div>
+    )}
+  </div>
+</section>
