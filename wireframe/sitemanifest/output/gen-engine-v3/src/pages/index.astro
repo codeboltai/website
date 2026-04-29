@@ -25,11 +25,11 @@ import CtaBlock from '../components/CtaBlock.astro';
   <Hero
     heading="The AI engine for agent-native software."
     subheading="Build agents. Run them autonomously. Ship products on top. Scale from CLI to cloud, SDK, and multi-agent orchestration."
-    media={{"alt":"Codebolt product demo","placeholder":"Product GIF space"}}
   />
   <StartTabs
-    heading="START WITH"
-    tabs={[{"label":"CLI","body":"Install globally with npm. Run in your terminal. Use a built-in agent or write your own — full SDK access, any LLM provider.","code":"$ npm i -g codebolt\n$ codebolt\n","primary":{"label":"Install Guide","href":"/products/cli"},"more":{"label":"View CLI","href":"/products/cli"}},{"label":"Editor","body":"Polished desktop IDE with the engine running locally. Monaco editor, agent workspace, plugin panel. Available for macOS, Windows, and Linux.","code":"Codebolt Editor\n├─ macOS  (Apple Silicon · Intel)\n├─ Windows (x64)\n└─ Linux  (x64 · arm64)\n","primary":{"label":"Download Editor","href":"/download"},"more":{"label":"View Editor","href":"/products/editor"}},{"label":"Cloud","body":"Hosted engine in your browser. No install. Spawn workspaces, run agents on managed sandboxes, share state with your team.","code":"cloud.codebolt.ai\n├─ Browser portal\n├─ Managed sandboxes\n└─ Shared workspaces\n","primary":{"label":"Open Cloud","href":"https://cloud.codebolt.ai"},"more":{"label":"View Cloud","href":"/products/cloud"}}]}
+    eyebrow="Use Codebolt where you work"
+    media={{"alt":"Codebolt product demo","placeholder":"Product GIF space"}}
+    tabs={[{"label":"CLI","body":"Install globally with npm. Run in your terminal. Use a built-in agent or write your own — full SDK access, any LLM provider.","code":"npm i -g codebolt","primary":{"label":"Install Guide","href":"/products/cli"},"more":{"label":"View CLI","href":"/products/cli"}},{"label":"Editor","body":"Polished desktop IDE with the engine running locally. Monaco editor, agent workspace, plugin panel. Available for macOS, Windows, and Linux.","primary":{"label":"Download Editor","href":"/download"},"more":{"label":"View Editor","href":"/products/editor"}},{"label":"Cloud","body":"Hosted engine in your browser. No install. Spawn workspaces, run agents on managed sandboxes, share state with your team.","primary":{"label":"Open Cloud","href":"https://cloud.codebolt.ai"},"more":{"label":"View Cloud","href":"/products/cloud"}}]}
   />
   <HighlightBanner
     tone="accent"

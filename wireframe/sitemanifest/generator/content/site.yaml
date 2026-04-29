@@ -82,36 +82,24 @@ pages:
       - type: hero
         heading: "The AI engine for agent-native software."
         subheading: "Build agents. Run them autonomously. Ship products on top. Scale from CLI to cloud, SDK, and multi-agent orchestration."
+
+      - type: start-tabs
+        eyebrow: "Use Codebolt where you work"
         media:
           alt: "Codebolt product demo"
           placeholder: "Product GIF space"
-
-      - type: start-tabs
-        heading: "START WITH"
         tabs:
           - label: "CLI"
             body: "Install globally with npm. Run in your terminal. Use a built-in agent or write your own — full SDK access, any LLM provider."
-            code: |
-              $ npm i -g codebolt
-              $ codebolt
+            code: "npm i -g codebolt"
             primary: { label: "Install Guide", href: "/products/cli" }
             more: { label: "View CLI", href: "/products/cli" }
           - label: "Editor"
             body: "Polished desktop IDE with the engine running locally. Monaco editor, agent workspace, plugin panel. Available for macOS, Windows, and Linux."
-            code: |
-              Codebolt Editor
-              ├─ macOS  (Apple Silicon · Intel)
-              ├─ Windows (x64)
-              └─ Linux  (x64 · arm64)
             primary: { label: "Download Editor", href: "/download" }
             more: { label: "View Editor", href: "/products/editor" }
           - label: "Cloud"
             body: "Hosted engine in your browser. No install. Spawn workspaces, run agents on managed sandboxes, share state with your team."
-            code: |
-              cloud.codebolt.ai
-              ├─ Browser portal
-              ├─ Managed sandboxes
-              └─ Shared workspaces
             primary: { label: "Open Cloud", href: "https://cloud.codebolt.ai" }
             more: { label: "View Cloud", href: "/products/cloud" }
 

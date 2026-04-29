@@ -84,10 +84,10 @@ const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
               const isActive = t.getAttribute('data-tab-index') === target;
               t.setAttribute('aria-selected', isActive ? 'true' : 'false');
               if (isActive) {
-                t.classList.add('text-foreground', 'bg-muted/40', 'dark:bg-zinc-900/60', 'border-b-2', 'border-b-primary', '-mb-px');
+                t.classList.add('text-foreground', 'bg-background', 'shadow-sm', 'dark:bg-black', 'dark:text-white');
                 t.classList.remove('text-muted-foreground');
               } else {
-                t.classList.remove('text-foreground', 'bg-muted/40', 'dark:bg-zinc-900/60', 'border-b-2', 'border-b-primary', '-mb-px');
+                t.classList.remove('text-foreground', 'bg-background', 'shadow-sm', 'dark:bg-black', 'dark:text-white');
                 t.classList.add('text-muted-foreground');
               }
             });
@@ -99,6 +99,22 @@ const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
               }
             });
           });
+        });
+      });
+
+      document.querySelectorAll('.start-tab-copy').forEach(button => {
+        button.addEventListener('click', async () => {
+          const text = button.getAttribute('data-copy-text') || '';
+          try {
+            await navigator.clipboard.writeText(text);
+            const original = button.textContent;
+            button.textContent = 'Copied';
+            setTimeout(() => {
+              button.textContent = original;
+            }, 1200);
+          } catch {
+            button.textContent = 'Copy failed';
+          }
         });
       });
     });
