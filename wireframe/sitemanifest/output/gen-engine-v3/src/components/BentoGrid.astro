@@ -85,8 +85,8 @@ const rowSpanClass = (rowSpan?: number) => {
           <Tag
             {...linkProps}
             class={cn(
-              'group relative border border-border dark:border-zinc-800 bg-card/50 dark:bg-[#080808]/80',
-              'transition-all duration-300 hover:border-muted-foreground/40 dark:hover:border-zinc-700',
+              'group relative border border-border bg-card',
+              'transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4)]',
               'flex flex-col overflow-hidden',
               item.href && 'cursor-pointer no-underline',
               spanClass(item.span),
@@ -96,20 +96,20 @@ const rowSpanClass = (rowSpan?: number) => {
             {/* Text content */}
             <div class="p-6 flex-shrink-0">
               {item.tag && (
-                <span class="inline-block font-mono text-[10px] text-primary/80 dark:text-cyan-500/80 uppercase tracking-widest mb-3">
+                <span class="inline-block font-mono text-[10px] text-primary uppercase tracking-widest mb-3">
                   {item.tag}
                 </span>
               )}
-              <h3 class="text-base font-medium text-foreground dark:text-white mb-2 tracking-tight group-hover:text-primary dark:group-hover:text-cyan-400 transition-colors">
+              <h3 class="text-base font-medium text-foreground mb-2 tracking-tight">
                 {item.title}
               </h3>
               {item.description && (
-                <p class="text-sm text-muted-foreground dark:text-zinc-400 font-light leading-relaxed">
+                <p class="text-sm text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
               )}
               {item.href && (
-                <span class="inline-block mt-3 text-xs font-mono text-primary/60 dark:text-cyan-500/60 group-hover:text-primary dark:group-hover:text-cyan-400 transition-colors">
+                <span class="inline-block mt-3 text-xs font-mono text-primary group-hover:underline">
                   Learn more &rarr;
                 </span>
               )}
@@ -117,7 +117,7 @@ const rowSpanClass = (rowSpan?: number) => {
 
             {/* Visual area */}
             {(item.visual || item.visualHtml) && (
-              <div class="flex-1 min-h-[140px] bg-muted/20 dark:bg-[#050505] border-t border-border dark:border-zinc-800/50 flex items-center justify-center p-4 overflow-hidden">
+              <div class="flex-1 min-h-[140px] bg-muted/40 border-t border-border flex items-center justify-center p-4 overflow-hidden">
                 {item.visualHtml ? (
                   <div class="w-full h-full" set:html={item.visualHtml} />
                 ) : (

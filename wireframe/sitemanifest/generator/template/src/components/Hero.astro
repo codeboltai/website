@@ -50,7 +50,7 @@ if (heading && Array.isArray(headingAccent) && headingAccent.length > 0) {
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-medium text-foreground dark:text-white tracking-tight mb-8 leading-[1.1] animate-fade-in-up">
         {headingParts ? headingParts.map(p => (
           p.isAccent
-            ? <span class="inline-block whitespace-nowrap bg-gradient-to-r from-cyan-300 via-primary to-cyan-500 bg-clip-text text-transparent">{p.value}</span>
+            ? <span class="inline-block whitespace-nowrap heading-accent">{p.value}</span>
             : <span>{p.value}</span>
         )) : heading}
       </h1>
@@ -62,22 +62,23 @@ if (heading && Array.isArray(headingAccent) && headingAccent.length > 0) {
       )}
 
       {(primaryBtn || secondaryBtn) && (
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up" style="animation-delay: 0.2s">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 0.2s">
           {primaryBtn && (
             <a href={primaryBtn.href} class={cn(
-              "h-12 px-8 rounded-md flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
-              "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/20"
+              "h-12 px-7 rounded-md inline-flex items-center justify-center text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+              "bg-primary text-primary-foreground hover:bg-primary/90",
+              "shadow-[0_4px_14px_0_hsl(var(--primary)/0.45)] hover:shadow-[0_6px_20px_0_hsl(var(--primary)/0.55)] hover:-translate-y-0.5"
             )}>
               {primaryBtn.label}
-              <svg class="ml-2 h-4 w-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+              <svg class="ml-2 h-4 w-4" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M 0 6 H 12 M 9 3 L 12 6 L 9 9" />
               </svg>
             </a>
           )}
           {secondaryBtn && (
             <a href={secondaryBtn.href} class={cn(
-              "h-12 px-8 rounded-md flex items-center justify-center text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
-              "border border-input bg-background hover:bg-accent hover:text-accent-foreground"
+              "h-12 px-7 rounded-md inline-flex items-center justify-center text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+              "border-2 border-foreground/80 bg-transparent text-foreground hover:bg-foreground hover:text-background"
             )}>
               {secondaryBtn.label}
             </a>

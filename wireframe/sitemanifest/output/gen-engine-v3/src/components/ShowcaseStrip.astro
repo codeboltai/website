@@ -66,21 +66,21 @@ const gridClass: Record<number, string> = {
           <Tag
             {...linkProps}
             class={cn(
-              'group flex flex-col border border-border dark:border-zinc-800 bg-card/30 dark:bg-[#080808]/60',
-              'transition-all duration-300 hover:border-muted-foreground/40 dark:hover:border-zinc-700 overflow-hidden',
+              'group flex flex-col border border-border bg-card',
+              'transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4)] overflow-hidden',
               item.href && 'cursor-pointer no-underline',
             )}
           >
             {/* Text area */}
             <div class="p-5 flex-shrink-0">
-              <h3 class="text-sm font-medium text-foreground dark:text-white mb-1.5 group-hover:text-primary dark:group-hover:text-cyan-400 transition-colors">
+              <h3 class="text-sm font-medium text-foreground mb-1.5 transition-colors">
                 {item.title}
               </h3>
-              <p class="text-xs text-muted-foreground dark:text-zinc-500 leading-relaxed">
+              <p class="text-xs text-muted-foreground leading-relaxed">
                 {item.description}
               </p>
               {item.href && (
-                <span class="inline-block mt-2 text-xs text-primary dark:text-cyan-500 font-medium group-hover:underline">
+                <span class="inline-block mt-2 text-xs text-primary font-medium group-hover:underline">
                   Learn more &rarr;
                 </span>
               )}
@@ -88,7 +88,7 @@ const gridClass: Record<number, string> = {
 
             {/* Visual area — taller, like a screenshot region */}
             {(item.visual || item.visualHtml) && (
-              <div class="flex-1 min-h-[180px] bg-muted/15 dark:bg-[#040404] border-t border-border/50 dark:border-zinc-800/40 flex items-start justify-center p-4 overflow-hidden">
+              <div class="flex-1 min-h-[180px] bg-muted/40 border-t border-border/60 flex items-start justify-center p-4 overflow-hidden">
                 {item.visualHtml ? (
                   <div class="w-full" set:html={item.visualHtml} />
                 ) : (

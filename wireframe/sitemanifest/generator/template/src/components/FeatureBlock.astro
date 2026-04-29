@@ -2,6 +2,10 @@
 import { cn } from '../lib/utils';
 
 const { heading, kicker, body, diagram, reverse = false, cta } = Astro.props;
+
+const kickerParts = typeof kicker === 'string' ? kicker.split(' · ') : [];
+const kickerNumber = kickerParts.length > 1 && /^\d+$/.test(kickerParts[0]) ? kickerParts[0] : null;
+const kickerLabel = kickerNumber ? kickerParts.slice(1).join(' · ') : kicker;
 ---
 
 <section class="py-24 lg:py-32 px-6 lg:px-10 border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505]">
@@ -9,15 +13,27 @@ const { heading, kicker, body, diagram, reverse = false, cta } = Astro.props;
 
     {/* Text Content */}
     <div class={cn('col-span-1 lg:col-span-5 flex flex-col', reverse && 'lg:order-last')}>
-      {kicker && (
-        <div class="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
-          {kicker}
+      {kicker && kickerNumber && (
+        <div class="flex items-center gap-3 mb-6 w-full">
+          <div class="inline-flex h-8 min-w-[2rem] items-center justify-center px-2 border border-primary/50 bg-primary/10 font-mono text-sm font-semibold text-primary">
+            {kickerNumber}
+          </div>
+          <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-primary whitespace-nowrap">
+            {kickerLabel}
+          </span>
+          <div class="flex-1 h-px bg-primary/20"></div>
+        </div>
+      )}
+      {kicker && !kickerNumber && (
+        <div class="inline-flex items-center gap-2 mb-5 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 w-fit">
+          <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+          <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">{kicker}</span>
         </div>
       )}
       <h3 class="text-3xl md:text-5xl font-medium text-foreground tracking-tight leading-[1.1] mb-6 dark:text-zinc-100">
         {heading}
       </h3>
-      <div class="space-y-4 text-muted-foreground font-light leading-relaxed dark:text-zinc-400">
+      <div class="space-y-4 text-base text-muted-foreground leading-relaxed dark:text-zinc-400">
         <p set:html={body}></p>
       </div>
       {cta && cta.href && (

@@ -110,10 +110,10 @@ const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
               const isActive = t.getAttribute('data-tab-index') === target;
               t.setAttribute('aria-selected', isActive ? 'true' : 'false');
               if (isActive) {
-                t.classList.add('text-foreground', 'bg-background', 'shadow-sm', 'dark:bg-black', 'dark:text-white');
+                t.classList.add('text-foreground', 'bg-card', 'shadow-sm');
                 t.classList.remove('text-muted-foreground');
               } else {
-                t.classList.remove('text-foreground', 'bg-background', 'shadow-sm', 'dark:bg-black', 'dark:text-white');
+                t.classList.remove('text-foreground', 'bg-card', 'shadow-sm');
                 t.classList.add('text-muted-foreground');
               }
             });
