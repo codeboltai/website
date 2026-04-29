@@ -100,6 +100,8 @@ pages:
             more: { label: "View CLI", href: "/products/cli" }
             media:
               label: "~ codebolt"
+              src: "/images/cli.png"
+              alt: "Codebolt CLI terminal interface"
               placeholder: "CLI Terminal"
           - label: "Editor"
             body: "Polished desktop IDE with the engine running locally. Monaco editor, agent workspace, plugin panel. Available for macOS, Windows, and Linux."
@@ -107,6 +109,8 @@ pages:
             more: { label: "View Editor", href: "/products/editor" }
             media:
               label: "Codebolt Editor"
+              src: "/images/desktop.png"
+              alt: "Codebolt desktop editor interface"
               placeholder: "Desktop IDE"
           - label: "Cloud"
             body: "Hosted engine in your browser. No install. Spawn workspaces, run agents on managed sandboxes, share state with your team."
