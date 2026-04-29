@@ -1,7 +1,7 @@
 site:
   name: "Codebolt"
   tagline: "The engine for agent-native software"
-  logo:
+__dockview_internal_drag_event__$0  logo:
     text: "Code"
     highlight: "bolt"
 
@@ -100,7 +100,7 @@ pages:
             more: { label: "View CLI", href: "/products/cli" }
             media:
               label: "~ codebolt"
-              src: "/images/cli.png"
+              src: "/images/cli-1.png"
               alt: "Codebolt CLI terminal interface"
               placeholder: "CLI Terminal"
           - label: "Editor"
@@ -109,7 +109,7 @@ pages:
             more: { label: "View Editor", href: "/products/editor" }
             media:
               label: "Codebolt Editor"
-              src: "/images/desktop.png"
+              src: "/images/desktop-1.png"
               alt: "Codebolt desktop editor interface"
               placeholder: "Desktop IDE"
           - label: "Cloud"
