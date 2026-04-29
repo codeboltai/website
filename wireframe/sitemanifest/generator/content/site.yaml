@@ -80,8 +80,8 @@ pages:
     sections:
 
       - type: hero
-        heading: "The AI engine for agent-native software."
-        subheading: "Build agents. Run them autonomously. Ship products on top. Scale from CLI to cloud, SDK, and multi-agent orchestration."
+        heading: "The Self-Improving, Hyper-Scaling AI Agent Engine"
+        subheading: "Build, run, and ship agent-native software."
 
       - type: start-tabs
         eyebrow: "Use Codebolt where you work"

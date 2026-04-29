@@ -66,51 +66,12 @@ const { eyebrow, heading, media, tabs = [] } = Astro.props;
     </div>
 
     <div>
-      {media && (
-        <div class="relative">
-          <div class="mx-auto max-w-5xl overflow-hidden border border-border bg-background shadow-2xl shadow-black/20 dark:border-zinc-800 dark:bg-[#101010]">
-            <div class="flex h-8 items-center gap-2 border-b border-border bg-muted/30 px-4 dark:border-zinc-800 dark:bg-zinc-950">
-              <span class="h-2.5 w-2.5 rounded-full bg-red-500/70"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-yellow-500/70"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-green-500/70"></span>
-              {media.label && (
-                <span class="ml-3 truncate font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                  {media.label}
-                </span>
-              )}
-            </div>
-
-            <div class="relative aspect-[16/9] bg-background dark:bg-[#030303]">
-              {media.src ? (
-                <img
-                  src={media.src}
-                  alt={media.alt || 'Product demo'}
-                  class="h-full w-full object-cover"
-                  loading="eager"
-                />
-              ) : (
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-center">
-                    <div class="mb-3 font-mono text-xs uppercase tracking-widest text-primary">
-                      {media.placeholder || 'Product GIF'}
-                    </div>
-                    <div class="mx-auto h-2 w-48 overflow-hidden rounded-full bg-muted dark:bg-zinc-900">
-                      <div class="h-full w-1/2 bg-primary/70"></div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
       {tabs.map((tab, idx) => (
         <div
           role="tabpanel"
           data-tab-panel={idx}
           class={cn(
-            "start-tab-panel mx-auto grid max-w-5xl gap-6 px-0 pt-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-start",
+            "start-tab-panel mx-auto grid max-w-5xl gap-6 px-0 pb-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-start",
             idx === 0 ? "" : "hidden"
           )}
         >
@@ -172,6 +133,45 @@ const { eyebrow, heading, media, tabs = [] } = Astro.props;
           </div>
         </div>
       ))}
+
+      {media && (
+        <div class="relative">
+          <div class="mx-auto max-w-5xl overflow-hidden border border-border bg-background shadow-2xl shadow-black/20 dark:border-zinc-800 dark:bg-[#101010]">
+            <div class="flex h-8 items-center gap-2 border-b border-border bg-muted/30 px-4 dark:border-zinc-800 dark:bg-zinc-950">
+              <span class="h-2.5 w-2.5 rounded-full bg-red-500/70"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-yellow-500/70"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-green-500/70"></span>
+              {media.label && (
+                <span class="ml-3 truncate font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  {media.label}
+                </span>
+              )}
+            </div>
+
+            <div class="relative aspect-[16/9] bg-background dark:bg-[#030303]">
+              {media.src ? (
+                <img
+                  src={media.src}
+                  alt={media.alt || 'Product demo'}
+                  class="h-full w-full object-cover"
+                  loading="eager"
+                />
+              ) : (
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="text-center">
+                    <div class="mb-3 font-mono text-xs uppercase tracking-widest text-primary">
+                      {media.placeholder || 'Product GIF'}
+                    </div>
+                    <div class="mx-auto h-2 w-48 overflow-hidden rounded-full bg-muted dark:bg-zinc-900">
+                      <div class="h-full w-1/2 bg-primary/70"></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   </div>
 </section>
