@@ -118,6 +118,8 @@ pages:
             more: { label: "View Cloud", href: "/products/cloud" }
             media:
               label: "cloud.codebolt.ai"
+              src: "/images/cloud.png"
+              alt: "Codebolt Cloud browser workspace"
               placeholder: "Browser Workspace"
           - label: "SDK"
             body: "Embed the engine in your own product. Agent SDK (63+ modules), Plugin SDK (3 channels), Client SDK (72 REST + 33 WS). Self-host the engine or call it as a service."
@@ -126,6 +128,8 @@ pages:
             more: { label: "View SDK", href: "/products/sdk" }
             media:
               label: "codeboltjs"
+              src: "/images/sdk-editor.png"
+              alt: "Codebolt SDK editor interface"
               placeholder: "Engine, embedded"
 
       - type: highlight-banner
@@ -200,6 +204,8 @@ pages:
         body: "Don't settle for someone else's agent loop. Write <a class='inline-tag' href='/products/sdk'>custom agents</a> in JavaScript with the 63-module SDK — full control over prompts, tools, memory, and routing. Build <a class='inline-tag' href='/engine/system-extensibility'>custom plugins</a> that run inside the engine on three communication channels. Or ship <a class='inline-tag' href='/products/sdk'>custom UIs</a> on top of the Client SDK. Your agents, your tools, your rules."
         reverse: true
         cta: { label: "Explore Agent + Plugin SDKs", href: "/products/sdk" }
+        image: "/images/harness-code.png"
+        imageAlt: "Custom Agent and Plugin SDK code"
         diagram: |
           // Custom Agent — 10 lines, full power
           import { codebolt } from 'codeboltjs';

@@ -1,7 +1,7 @@
 ---
 import { cn } from '../lib/utils';
 
-const { heading, kicker, body, diagram, reverse = false, cta } = Astro.props;
+const { heading, kicker, body, diagram, image, imageAlt, reverse = false, cta } = Astro.props;
 
 const kickerParts = typeof kicker === 'string' ? kicker.split(' · ') : [];
 const kickerNumber = kickerParts.length > 1 && /^\d+$/.test(kickerParts[0]) ? kickerParts[0] : null;
@@ -49,19 +49,30 @@ const kickerLabel = kickerNumber ? kickerParts.slice(1).join(' · ') : kicker;
       )}
     </div>
 
-    {/* Diagram Content */}
+    {/* Diagram / Image Content */}
     <div class={cn('col-span-1 lg:col-span-7', reverse && 'lg:order-first')}>
-      <div class="relative w-full min-h-[400px] flex items-center justify-center bg-card border border-border rounded-sm overflow-hidden dark:bg-[#050505] dark:border-zinc-800/60 p-8">
-        {/* Grid background */}
-        <div
-          class="absolute inset-0 opacity-20 dark:opacity-100 pointer-events-none bg-grid"
-        />
-        
-        {/* Render diagram string as preformatted text */}
-        <pre class="relative z-10 text-xs md:text-sm leading-relaxed font-mono text-muted-foreground whitespace-pre overflow-auto max-w-full">
-          {diagram}
-        </pre>
-      </div>
+      {image ? (
+        <div class="relative w-full overflow-hidden rounded-sm">
+          <img
+            src={image}
+            alt={imageAlt || heading || ''}
+            class="w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div class="relative w-full min-h-[400px] flex items-center justify-center bg-card border border-border rounded-sm overflow-hidden dark:bg-[#050505] dark:border-zinc-800/60 p-8">
+          {/* Grid background */}
+          <div
+            class="absolute inset-0 opacity-20 dark:opacity-100 pointer-events-none bg-grid"
+          />
+          
+          {/* Render diagram string as preformatted text */}
+          <pre class="relative z-10 text-xs md:text-sm leading-relaxed font-mono text-muted-foreground whitespace-pre overflow-auto max-w-full">
+            {diagram}
+          </pre>
+        </div>
+      )}
     </div>
 
   </div>

@@ -1,11 +1,7 @@
 // Auto-generated from site.yaml — do not edit directly
 export const site = {
   "name": "Codebolt",
-  "tagline": "The engine for agent-native software",
-  "logo": {
-    "text": "Code",
-    "highlight": "bolt"
-  }
+  "tagline": "The engine for agent-native software"
 };
 
 export const navigation = {
