@@ -1,7 +1,7 @@
 site:
   name: "Codebolt"
   tagline: "The engine for agent-native software"
-__dockview_internal_drag_event__$0  logo:
+  logo:
     text: "Code"
     highlight: "bolt"
 
@@ -89,6 +89,11 @@ pages:
         buttons:
           - { label: "Download", href: "/download", variant: "primary" }
           - { label: "Read the Docs", href: "/docs", variant: "secondary" }
+        media:
+          label: "Remote Chat"
+          src: "/images/cloud.png"
+          alt: "Codebolt remote chat workspace showing a live autonomous agent completing build and server tasks"
+          placeholder: "Remote Chat Workspace"
 
       - type: start-tabs
         eyebrow: "Use Codebolt where you work"
@@ -117,9 +122,9 @@ pages:
             primary: { label: "Open Cloud", href: "https://cloud.codebolt.ai" }
             more: { label: "View Cloud", href: "/products/cloud" }
             media:
-              label: "cloud.codebolt.ai"
+              label: "Remote Chat"
               src: "/images/cloud.png"
-              alt: "Codebolt Cloud browser workspace"
+              alt: "Codebolt remote chat workspace showing a live autonomous agent completing build and server tasks"
               placeholder: "Browser Workspace"
           - label: "SDK"
             body: "Embed the engine in your own product. Agent SDK (63+ modules), Plugin SDK (3 channels), Client SDK (72 REST + 33 WS). Self-host the engine or call it as a service."
@@ -129,7 +134,7 @@ pages:
             media:
               label: "codeboltjs"
               src: "/images/sdk-editor.png"
-              alt: "Codebolt SDK editor interface"
+              alt: "Codebolt Agent SDK TypeScript editor example"
               placeholder: "Engine, embedded"
 
       - type: highlight-banner
