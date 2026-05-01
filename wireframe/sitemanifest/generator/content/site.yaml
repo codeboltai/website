@@ -1,6 +1,6 @@
 site:
   name: "Codebolt"
-  tagline: "The engine for agent-native software"
+  tagline: "Build software with Codebolt, run autonomous agents anywhere, ship Codebolt-native on top."
 __dockview_internal_drag_event__$0  logo:
     text: "Code"
     highlight: "bolt"
@@ -81,11 +81,11 @@ pages:
 
       - type: hero
         eyebrow: "AGENT-NATIVE SOFTWARE"
-        heading: "The Self-Improving, Hyper-Scaling AI Agent Engine"
+        heading: "The self-evolving, swarm-scale AI agent engine"
         headingAccent:
-          - "Self-Improving"
-          - "Hyper-Scaling"
-        subheading: "Build, run, and ship agent-native software."
+          - "self-evolving"
+          - "swarm-scale"
+        subheading: "Build software with Codebolt. Run and coordinate hundreds of autonomous agents across laptops, cloud, and fleets. Ship Codebolt-native applications that run directly on the engine runtime."
         buttons:
           - { label: "Download", href: "/download", variant: "primary" }
           - { label: "Read the Docs", href: "/docs", variant: "secondary" }
