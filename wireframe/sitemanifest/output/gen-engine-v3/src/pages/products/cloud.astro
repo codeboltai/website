@@ -14,7 +14,7 @@ import CtaBlock from '../../components/CtaBlock.astro';
     title="The cloud control plane for agent work"
     subtitle="Run agents in managed or bring-your-own sandboxes, connect local Codebolt instances, schedule goals, monitor usage, and manage marketplace registries from one portal."
     buttons={[{"label":"Open Cloud","href":"https://cloud.codebolt.ai","variant":"primary"},{"label":"Explore Sandboxes","href":"https://docs.codebolt.ai/docs/04_build-on-codebolt/08a_multi-environment-orchestration/01_overview","variant":"secondary"}]}
-    media={{"label":"Codebolt Cloud Portal","placeholder":"Cloud product GIF / portal screenshot","alt":"Codebolt Cloud portal for agents, sandboxes, automations, usage, and registries"}}
+    media={{"label":"Codebolt Cloud Portal","src":"/images/cloud.png","placeholder":"Cloud product GIF / portal screenshot","alt":"Codebolt Cloud portal for agents, sandboxes, automations, usage, and registries"}}
   />
   <CenteredText
     variant="thesis"
@@ -33,39 +33,16 @@ import CtaBlock from '../../components/CtaBlock.astro';
     heading="Start cloud agents in the sandbox you choose"
     body="Codebolt Cloud can launch agent work into provider-backed environments instead of forcing everything into one hosted runtime. Use Codebolt-managed sandboxes, connect your own E2B or Daytona accounts, route work to Docker or worktree environments, or build a custom provider for your infrastructure. The portal, API, and automations all talk to the same environment model."
     cta={{"label":"Read environment orchestration docs","href":"https://docs.codebolt.ai/docs/04_build-on-codebolt/08a_multi-environment-orchestration/01_overview"}}
-    diagram="Codebolt Cloud
-    │
-    ├─ Portal: start sandbox
-    ├─ API: POST /runs
-    ├─ Webhook: external event
-    └─ Automation: scheduled goal
-            │
-            ▼
-provider-backed environment
-    ├─ lifecycle + heartbeat
-    ├─ agent runtime
-    ├─ files + diffs
-    └─ logs + usage
-"
+    image="/images/Start_cloud_agents_in_the_sandbox.gif"
+    imageAlt="Codebolt Cloud starting agents in provider-backed sandbox environments"
   />
   <FeatureBlock
     kicker="02 · LOCAL HANDOFF"
     heading="Manage local Codebolt sessions from Cloud"
     body="Cloud can connect to local Codebolt instances through the cloud plugin. That gives you a shared portal for local sessions, cloud sessions, and handoffs between them. You can begin in the desktop app or CLI, promote a run to cloud infrastructure, or keep a local machine as an environment Cloud can coordinate."
     reverse={true}
-    diagram="Desktop / CLI instance
-      │ cloud plugin
-      ▼
-Codebolt Cloud portal
-      │
-      ├─ view local sessions
-      ├─ continue in cloud sandbox
-      ├─ send work back local
-      └─ coordinate mixed runs
-
-local-first when you want it
-cloud-scale when you need it
-"
+    image="/images/control_local_from_cloud.gif"
+    imageAlt="Codebolt Cloud portal managing and coordinating local Codebolt sessions remotely"
   />
   <FeatureBlock
     kicker="03 · AUTOMATIONS"
