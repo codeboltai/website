@@ -24,10 +24,10 @@ const dotColors = {
 const titleLines = (title ?? '').split('\n').filter(Boolean);
 ---
 
-<section class="border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505] py-16 md:py-24 px-6 lg:px-10">
+<section class="border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505] py-12 md:py-16 px-6 lg:px-10">
   <div
     class={cn(
-      'max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8',
+      'max-w-[1200px] mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8 px-0 md:px-8',
       align === 'center' && 'md:flex-col md:items-center text-center',
       className
     )}

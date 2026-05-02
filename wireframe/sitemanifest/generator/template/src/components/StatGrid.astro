@@ -24,14 +24,14 @@ const columnStyles = {
 
 <section
   class={cn(
-    'py-16 px-6',
+    'py-12 md:py-14 px-6',
     toneStyles[tone] ?? toneStyles.default,
     borderTop && 'border-t border-border dark:border-zinc-800',
     borderBottom && 'border-b border-border dark:border-zinc-800',
     className
   )}
 >
-  <div class="max-w-6xl mx-auto">
+  <div class="max-w-[1200px] mx-auto px-0 md:px-8">
     <div class={cn('grid gap-8 text-center', columnStyles[columns] ?? columnStyles[4])}>
       {stats.map((stat) => (
         <div>

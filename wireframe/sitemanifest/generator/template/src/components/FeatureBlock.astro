@@ -8,8 +8,8 @@ const kickerNumber = kickerParts.length > 1 && /^\d+$/.test(kickerParts[0]) ? ki
 const kickerLabel = kickerNumber ? kickerParts.slice(1).join(' · ') : kicker;
 ---
 
-<section class="py-24 lg:py-32 px-6 lg:px-10 border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505]">
-  <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<section class="py-16 lg:py-20 px-6 lg:px-10 border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505]">
+  <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center px-0 md:px-8">
 
     {/* Text Content */}
     <div class={cn('col-span-1 lg:col-span-5 flex flex-col', reverse && 'lg:order-last')}>
@@ -61,7 +61,7 @@ const kickerLabel = kickerNumber ? kickerParts.slice(1).join(' · ') : kicker;
           />
         </div>
       ) : (
-        <div class="relative w-full min-h-[400px] flex items-center justify-center bg-card border border-border rounded-sm overflow-hidden dark:bg-[#050505] dark:border-zinc-800/60 p-8">
+        <div class="relative w-full min-h-[360px] flex items-center justify-center bg-card border border-border rounded-sm overflow-hidden dark:bg-[#050505] dark:border-zinc-800/60 p-8">
           {/* Grid background */}
           <div
             class="absolute inset-0 opacity-20 dark:opacity-100 pointer-events-none bg-grid"

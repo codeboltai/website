@@ -34,15 +34,15 @@ const titleLines = (title ?? '').split('\n').filter(Boolean);
 
 <section
   class={cn(
-    'py-24 px-6',
+    'py-16 md:py-20 px-6',
     toneStyles[tone] ?? toneStyles.default,
     borderTop && 'border-t border-border dark:border-zinc-800',
     borderBottom && 'border-b border-border dark:border-zinc-800',
     className
   )}
 >
-  <div class="max-w-6xl mx-auto">
-    <div class="mb-16">
+  <div class="max-w-[1200px] mx-auto px-0 md:px-8">
+    <div class="mb-10 md:mb-12">
       {kicker && (
         <div class="flex items-center gap-3 mb-6">
           <span class="w-1.5 h-1.5 bg-primary rounded-full" />

@@ -32,10 +32,10 @@ const { eyebrow, heading, tabs = [] } = Astro.props;
 ---
 
 <section class={cn(
-  "relative bg-background text-foreground border-b border-border font-sans antialiased",
+  "has-rule-fill relative bg-background text-foreground border-b border-border font-sans antialiased",
   "dark:bg-[#050505] dark:border-neutral-900"
 )}>
-  <div class="start-tabs max-w-6xl mx-auto px-6 pt-12 pb-20 relative z-20">
+  <div class="start-tabs max-w-[1200px] mx-auto px-6 pt-8 pb-14 md:px-10 md:pt-10 md:pb-16 relative z-20">
     <div class="mb-8 flex flex-col items-center gap-4 text-center">
       {(eyebrow || heading) && (
         <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
@@ -44,7 +44,7 @@ const { eyebrow, heading, tabs = [] } = Astro.props;
       )}
 
       <div
-        class="flex w-fit max-w-full items-center justify-center overflow-x-auto border border-border bg-muted p-1 rounded-md"
+        class="flex w-fit max-w-full items-center justify-center overflow-x-auto border border-border bg-background/70 p-1 backdrop-blur-sm dark:bg-black/45"
         role="tablist"
       >
         {tabs.map((tab, idx) => (
@@ -54,7 +54,7 @@ const { eyebrow, heading, tabs = [] } = Astro.props;
             data-tab-index={idx}
             aria-selected={idx === 0 ? 'true' : 'false'}
             class={cn(
-              "start-tab-trigger shrink-0 px-4 py-2 text-left text-sm font-medium transition-colors rounded",
+              "start-tab-trigger shrink-0 px-4 py-2 text-left text-sm font-medium transition-colors",
               "hover:text-foreground",
               idx === 0
                 ? "text-foreground bg-card shadow-sm"
@@ -138,9 +138,9 @@ const { eyebrow, heading, tabs = [] } = Astro.props;
             <div class="relative">
               <div class="overflow-hidden border border-border bg-background shadow-2xl shadow-black/20 dark:border-zinc-800 dark:bg-[#0a0a0a]">
                 <div class="flex h-8 items-center gap-2 border-b border-border bg-muted/30 px-4 dark:border-zinc-800 dark:bg-zinc-950">
-                  <span class="h-2.5 w-2.5 rounded-full bg-red-500/70"></span>
-                  <span class="h-2.5 w-2.5 rounded-full bg-yellow-500/70"></span>
-                  <span class="h-2.5 w-2.5 rounded-full bg-green-500/70"></span>
+                  <span class="h-2.5 w-2.5 bg-red-500/70"></span>
+                  <span class="h-2.5 w-2.5 bg-yellow-500/70"></span>
+                  <span class="h-2.5 w-2.5 bg-green-500/70"></span>
                   {tab.media.label && (
                     <span class="ml-3 truncate font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                       {tab.media.label}

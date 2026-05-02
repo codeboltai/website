@@ -110,6 +110,171 @@
     background-size: 40px 40px;
   }
 
+  .rule-grid {
+    position: relative;
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.55) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.55) 1px, transparent 1px);
+    background-size: 96px 96px;
+    border-left: 1px solid hsl(var(--border));
+    border-right: 1px solid hsl(var(--border));
+  }
+
+  .rule-grid::before,
+  .rule-grid::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    pointer-events: none;
+  }
+
+  .rule-grid::before {
+    top: -1px;
+    left: -1px;
+    border-top: 1px solid hsl(var(--muted-foreground) / 0.55);
+    border-left: 1px solid hsl(var(--muted-foreground) / 0.55);
+  }
+
+  .rule-grid::after {
+    top: -1px;
+    right: -1px;
+    border-top: 1px solid hsl(var(--muted-foreground) / 0.55);
+    border-right: 1px solid hsl(var(--muted-foreground) / 0.55);
+  }
+
+  html.light .rule-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.7) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.7) 1px, transparent 1px);
+  }
+
+  body > section,
+  body > main > section {
+    position: relative;
+    --section-panel-bg: hsl(var(--background));
+    background-color: transparent !important;
+    border-color: transparent !important;
+  }
+
+  body > section[class*="bg-muted/10"],
+  body > main > section[class*="bg-muted/10"] {
+    --section-panel-bg: hsl(var(--muted) / 0.10);
+  }
+
+  body > section[class*="bg-card/30"],
+  body > main > section[class*="bg-card/30"] {
+    --section-panel-bg: hsl(var(--card) / 0.30);
+  }
+
+  body > section[class*="bg-primary/5"],
+  body > main > section[class*="bg-primary/5"] {
+    --section-panel-bg: hsl(var(--primary) / 0.05);
+  }
+
+  body > section[class*="dark:bg-cyan-500/5"],
+  body > main > section[class*="dark:bg-cyan-500/5"] {
+    --section-panel-bg: hsl(186 100% 52% / 0.05);
+  }
+
+  html.light body > section,
+  html.light body > main > section {
+    --section-panel-bg: hsl(var(--background));
+  }
+
+  body > section:not(.no-section-grid)::before,
+  body > main > section:not(.no-section-grid)::before {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    left: 50%;
+    width: min(calc(100% - 3rem), 75rem);
+    transform: translateX(-50%);
+    pointer-events: none;
+    border-left: 1px solid hsl(var(--border));
+    border-right: 1px solid hsl(var(--border));
+    border-top: 1px solid hsl(var(--border));
+    border-bottom: 1px solid hsl(var(--border));
+    background-color: var(--section-panel-bg);
+    z-index: 0;
+  }
+
+  body > section.has-rule-fill::before,
+  body > main > section.has-rule-fill::before {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.42) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.42) 1px, transparent 1px);
+    background-size: 96px 96px;
+  }
+
+  body > section:not(.no-section-grid)::after,
+  body > main > section:not(.no-section-grid)::after {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    left: 50%;
+    width: min(calc(100% - 3rem), 75rem);
+    transform: translateX(-50%);
+    pointer-events: none;
+    background-image:
+      linear-gradient(hsl(var(--muted-foreground) / 0.42), hsl(var(--muted-foreground) / 0.42)),
+      linear-gradient(hsl(var(--muted-foreground) / 0.42), hsl(var(--muted-foreground) / 0.42)),
+      linear-gradient(hsl(var(--muted-foreground) / 0.42), hsl(var(--muted-foreground) / 0.42)),
+      linear-gradient(hsl(var(--muted-foreground) / 0.42), hsl(var(--muted-foreground) / 0.42)),
+      linear-gradient(hsl(var(--muted-foreground) / 0.42), hsl(var(--muted-foreground) / 0.42)),
+      linear-gradient(hsl(var(--muted-foreground) / 0.42), hsl(var(--muted-foreground) / 0.42)),
+      linear-gradient(hsl(var(--muted-foreground) / 0.42), hsl(var(--muted-foreground) / 0.42)),
+      linear-gradient(hsl(var(--muted-foreground) / 0.42), hsl(var(--muted-foreground) / 0.42));
+    background-position:
+      left top,
+      left top,
+      right top,
+      right top,
+      left bottom,
+      left bottom,
+      right bottom,
+      right bottom;
+    background-size:
+      14px 1px,
+      1px 14px,
+      14px 1px,
+      1px 14px,
+      14px 1px,
+      1px 14px,
+      14px 1px,
+      1px 14px;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  body > section > *,
+  body > main > section > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  body > section > [class*="max-w-[1200px]"],
+  body > main > section > [class*="max-w-[1200px]"] {
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    body > section > [class*="max-w-[1200px]"],
+    body > main > section > [class*="max-w-[1200px]"] {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  html.light body > section.has-rule-fill::before,
+  html.light body > main > section.has-rule-fill::before {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.6) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.6) 1px, transparent 1px);
+  }
+
   /* Corner Brackets */
   .corner-brackets {
     position: relative;

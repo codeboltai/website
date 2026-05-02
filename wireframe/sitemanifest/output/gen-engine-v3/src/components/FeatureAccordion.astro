@@ -20,11 +20,11 @@ interface Props {
 const { kicker, heading, description, items = [] } = Astro.props;
 ---
 
-<section class="py-24 lg:py-32 px-6 lg:px-10 border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505]">
-  <div class="max-w-[1200px] mx-auto">
+<section class="py-16 lg:py-20 px-6 lg:px-10 border-b border-border dark:border-zinc-800/60 bg-background dark:bg-[#050505]">
+  <div class="max-w-[1200px] mx-auto px-0 md:px-8">
 
     {(kicker || heading || description) && (
-      <div class="mb-12 max-w-3xl">
+      <div class="mb-10 max-w-3xl">
         {kicker && (
           <div class="flex items-center gap-3 mb-6">
             <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
@@ -75,7 +75,7 @@ const { kicker, heading, description, items = [] } = Astro.props;
         ))}
       </div>
 
-      <div class="relative min-h-[400px] border border-border dark:border-zinc-800/60 bg-card dark:bg-[#050505] overflow-hidden">
+      <div class="relative min-h-[360px] border border-border dark:border-zinc-800/60 bg-card dark:bg-[#050505] overflow-hidden">
         <div class="absolute inset-0 opacity-30 dark:opacity-100 pointer-events-none bg-grid"></div>
         {items.map((item, idx) => (
           <div

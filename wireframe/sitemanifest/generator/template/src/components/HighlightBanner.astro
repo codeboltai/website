@@ -17,9 +17,9 @@ const toneStyles = {
 };
 
 const paddingStyles = {
-  sm: 'py-12',
-  md: 'py-16',
-  lg: 'py-24',
+  sm: 'py-10',
+  md: 'py-12 md:py-14',
+  lg: 'py-16 md:py-20',
 };
 ---
 
@@ -33,7 +33,7 @@ const paddingStyles = {
     className
   )}
 >
-  <div class="max-w-4xl mx-auto text-center">
+  <div class="max-w-4xl mx-auto text-center px-0 md:px-8">
     <p class="text-2xl md:text-3xl text-foreground font-light leading-relaxed" set:html={content} />
   </div>
 </section>
