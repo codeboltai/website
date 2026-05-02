@@ -2563,16 +2563,8 @@ pages:
         kicker: "03 · AUTOMATIONS"
         heading: "Turn prompts into scheduled goals"
         body: "Cloud agents do not have to start from a person typing in a chat box. Define recurring goals, cron-style schedules, webhook triggers, or API-triggered jobs. Agents can triage issues, run maintenance, generate reports, watch repos, check deployments, or execute business workflows on a schedule."
-        diagram: |
-          goal: keep project healthy
-              │
-              ├─ every morning: triage issues
-              ├─ on PR: review + test
-              ├─ on deploy: monitor logs
-              ├─ webhook: customer signal
-              └─ API: start custom run
-
-          portal · API · webhook · schedule
+        image: "/images/Turn_prompts_into_scheduled_goals.gif"
+        imageAlt: "Codebolt Cloud turning prompts into scheduled automation goals"
 
       - type: feature-block
         kicker: "04 · APP BACKENDS"
