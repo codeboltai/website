@@ -207,6 +207,9 @@ function main() {
 
   // 4. Generate pages
   const pagesDir = path.join(outputDir, 'src', 'pages');
+  // Generated pages are fully derived from site.yaml. Remove stale pages so
+  // renamed/deleted slugs do not keep building as orphan routes.
+  fs.rmSync(pagesDir, { recursive: true, force: true });
   fs.mkdirSync(pagesDir, { recursive: true });
 
   const pages = config.pages || [];

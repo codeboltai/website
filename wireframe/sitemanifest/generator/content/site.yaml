@@ -13,7 +13,7 @@ navigation:
           - { label: "Engine Overview", href: "/engine" }
           - { label: "System Extensibility", href: "/engine/system-extensibility" }
           - { label: "Agent Extensibility", href: "/engine/agent-extensibility" }
-          - { label: "Self Evolving Memory", href: "/engine/self-evolving-memory" }
+          - { label: "Dynamic Scalable Evolving Memory", href: "/engine/dynamic-scalable-evolving-memory" }
           - { label: "Multi-Agent Scaling", href: "/engine/multi-agent" }
           - { label: "Multi-Environment Scaling", href: "/engine/multi-environment" }
           - { label: "Codebolt Native Applications", href: "/engine/codebolt-native-applications" }
@@ -41,7 +41,7 @@ navigation:
           - { label: "Engine", href: "/engine" }
           - { label: "System Extensibility", href: "/engine/system-extensibility" }
           - { label: "Agent Extensibility", href: "/engine/agent-extensibility" }
-          - { label: "Self Evolving Memory", href: "/engine/self-evolving-memory" }
+          - { label: "Dynamic Scalable Evolving Memory", href: "/engine/dynamic-scalable-evolving-memory" }
           - { label: "Multi-Agent Scaling", href: "/engine/multi-agent" }
           - { label: "Multi-Environment Scaling", href: "/engine/multi-environment" }
           - { label: "Codebolt Native Applications", href: "/engine/codebolt-native-applications" }
@@ -1259,198 +1259,204 @@ pages:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
           - { label: "Back to Engine", href: "/engine", variant: "secondary" }
 
-  # -- Engine: Self Evolving Memory ------------
-  - slug: "engine/self-evolving-memory"
-    title: "Self Evolving Memory - Codebolt"
+  # -- Engine: Dynamic Scalable Evolving Memory
+  - slug: "engine/dynamic-scalable-evolving-memory"
+    title: "Dynamic Scalable Evolving Memory - Codebolt"
     sections:
 
       - type: product-hero-stack
-        eyebrow: "SELF EVOLVING MEMORY"
-        title: "Memory that improves the agent system, not just the next prompt"
-        subtitle: "Codebolt externalizes memory into the engine runtime. Agents can stop, restart, multiply, and move across environments while the application layer preserves context, assembles the right knowledge, and evolves the rules that decide what future agents should know."
+        eyebrow: "DYNAMIC SCALABLE EVOLVING MEMORY"
+        title: "A memory substrate agents can grow, reshape, and inject at runtime"
+        subtitle: "Codebolt memory is not a fixed conversation summary. It is an active engine layer that can ingest chats, code, prompts, tasks, events, and relationships; create new memory structures; evolve context rules; and inject the right memory into each agent run under budget."
         buttons:
           - { label: "Explore Architecture", href: "/architecture", variant: "primary" }
           - { label: "Back to Engine", href: "/engine", variant: "secondary" }
-        stackTitle: "Memory control plane"
+        stackTitle: "Memory runtime"
         stackItems:
-          - { label: "Agent role", value: "stateless intellectual processor" }
-          - { label: "Context owner", value: "Context Assembly Engine" }
-          - { label: "Write path", value: "event-driven ingestion pipelines" }
-          - { label: "Storage", value: "episodic logs, persistent memory, vector, graph, KV" }
-          - { label: "Evolution", value: "agents mutate rules, pipelines, and retrieval logic" }
-        footer: "The engine remembers across sessions, agents, swarms, projects, and environments."
+          - { label: "Scalable", value: "memory grows as the system is used" }
+          - { label: "Dynamic", value: "memory structures are primitives, not fixed schemas" }
+          - { label: "Evolving", value: "agents can change structures and context rules" }
+          - { label: "Injectable", value: "CAE injects memory by rules and budgets" }
+          - { label: "Active", value: "background memory processes keep working" }
+          - { label: "Reactive", value: "hooks and events trigger memory updates" }
+        footer: "The memory layer is part of the engine runtime, not a prompt appendix."
 
       - type: centered-text
         variant: "thesis"
-        text: "Most agent memory is a bigger chat history. Codebolt memory is externalized infrastructure: events are captured, knowledge is structured, retrieval is pipelined, and the Context Assembly Engine builds each agent's context from state variables, rules, and token budgets."
+        text: "Most agent memory products start with a fixed shape: summaries, preferences, key points, maybe mistakes. Codebolt ships memory primitives. You can decide what memory means for a project: unfinished tasks, negative patterns, positive patterns, object relationships, code facts, prompt behavior, agent habits, customer context, or a structure no one anticipated when the agent started."
 
       - type: bento-grid
-        kicker: "WHY IT IS DIFFERENT"
-        heading: "Externalized memory for ephemeral agents and swarms"
-        description: "The point is not to make one agent remember more. The point is to let every future agent inherit what the system learned."
+        kicker: "SIX MEMORY PROPERTIES"
+        heading: "Dynamic, scalable, evolving memory"
+        description: "The important part is not only that agents remember. It is that the memory substrate can grow, restructure, react, and decide what should enter context."
         columns: 3
         items:
-          - title: "Agents do not own the state"
-            tag: "EXTERNALIZED"
+          - title: "Scalable memory"
+            tag: "SCALABLE"
             span: 2
-            description: "Traditional agents carry context inside a thread. Codebolt moves working context, facts, events, rules, and retrieval strategy into the durable engine layer. Agents can be paused, replaced, or spawned in parallel without losing the intelligence they produced."
+            description: "Memory grows as Codebolt is used. Agent chats, code changes, prompts, tool traces, tasks, decisions, failures, and relationships can be ingested into durable stores and converted into useful structures such as positive patterns, negative patterns, object relationships, unresolved work, and project facts."
             visual: |
-              agent run ends
-                    |
-                    v
-              memory survives in engine
-                    |
-                    v
-              next agent inherits context
-          - title: "Context is assembled, not hunted"
-            tag: "CAE"
-            description: "An agent supplies state variables such as task, role, thread, project, swarm, or phase. The Context Assembly Engine evaluates rules, calls memory pipelines, merges results, and returns budgeted context with traceability."
-          - title: "Memory has a write path"
-            tag: "INGESTION"
-            description: "Application events such as conversation end, task start, task failure, task completion, actions, and errors can trigger ingestion pipelines. Raw events become summaries, records, embeddings, graph edges, or structured memories."
-          - title: "Retrieval is programmable"
-            tag: "PIPELINES"
-            description: "Persistent memory definitions can use query derivation, vector search, graph expansion, KV reads, log search, filters, dedupe, ranking, transforms, and aggregation. Retrieval becomes an engine capability, not prompt glue."
-          - title: "Swarm knowledge compounds"
-            tag: "STIGMERGY"
+              usage keeps producing signal
+              ├─ chats
+              ├─ code
+              ├─ prompts
+              ├─ tools
+              ├─ tasks
+              └─ events
+                    ↓
+              memory keeps compounding
+          - title: "Dynamic structures"
+            tag: "DYNAMIC"
+            description: "The memory shape is not predefined by Codebolt. If you do not want conversation summaries, skip them. If you only want unfinished tasks, create that memory. If you need object graphs, failure patterns, or domain-specific state, define those instead."
+          - title: "Evolving schemas and rules"
+            tag: "EVOLVING"
+            description: "Agents can change memory structures at runtime. They can create new memory definitions, adjust ingestion, improve retrieval pipelines, and add Context Assembly rules that control what future agents receive."
+          - title: "Injectable context"
+            tag: "INJECTABLE"
+            description: "Memory does not blindly flood the prompt. The Context Assembly Engine injects memory by scope variables, rules, retrieval pipelines, contribution rules, and token budgets."
+          - title: "Active and reactive memory"
+            tag: "ACTIVE"
             span: 2
-            description: "External memory gives swarms a shared environment. Agents coordinate through persistent signals, task ownership, past failures, learned workflows, and structured facts instead of fragile direct message chains."
+            description: "Memory work can run in the background and react to the system. Hooks, events, schedules, task outcomes, conversation lifecycle events, and custom plugins can trigger ingestion, updates, consolidation, and new derived memory."
             visual: |
-              Agent A -> shared memory <- Agent B
-              Agent C -> pheromones    <- Agent D
+              event happens
+                    ↓
+              hook / ingestion pipeline
+                    ↓
+              update memory
+                    ↓
+              CAE changes future context
 
-              no direct coupling
-              coordination accumulates over time
+              memory is not passive storage
 
       - type: feature-block
-        kicker: "01 · THREE LAYERS"
-        heading: "A three-layer memory architecture"
-        body: "Codebolt separates memory into storage, orchestration, and context assembly. The storage layer handles multi-modal persistence. The orchestration layer controls ingestion and retrieval pipelines. The Context Assembly layer decides which memories matter for the current agent state and enforces context budgets."
+        kicker: "01 · MEMORY PRIMITIVES"
+        heading: "Not one memory format. A system for creating memory formats."
+        body: "Codebolt separates memory into primitives: storage types, ingestion pipelines, retrieval pipelines, context rules, contribution rules, and budgets. Together they let a project define the memory it actually needs instead of accepting a fixed vendor schema."
         diagram: |
-          LAYER 3: CONTEXT ASSEMBLY
-          ├─ evaluate rules
-          ├─ select memories
-          ├─ merge + dedupe
-          ├─ enforce token budget
-          └─ return traceable context
+          YOU CAN DEFINE:
+          ├─ unfinished tasks memory
+          ├─ negative pattern memory
+          ├─ positive pattern memory
+          ├─ object relationship memory
+          ├─ codebase fact memory
+          ├─ prompt behavior memory
+          └─ domain-specific memory
 
-          LAYER 2: ORCHESTRATION
+          USING PRIMITIVES:
+          ├─ episodic logs
+          ├─ persistent memory definitions
+          ├─ vector search
+          ├─ knowledge graph
+          ├─ key-value state
           ├─ ingestion pipelines
           ├─ retrieval pipelines
-          ├─ memory stitching
-          └─ ranking + transforms
-
-          LAYER 1: STORAGE
-          ├─ episodic event logs
-          ├─ persistent memory definitions
-          ├─ vector database
-          ├─ knowledge graph
-          └─ key-value state
+          └─ context assembly rules
 
       - type: accordion-showcase
-        kicker: "AUTONOMOUS EVOLUTION"
-        heading: "How memory evolves while agents work"
-        description: "Agents do not just store more notes. They can improve the rules and memory structures that future agents inherit."
+        kicker: "RUNTIME EVOLUTION"
+        heading: "How memory changes while the system runs"
+        description: "The memory layer can collect signal, derive structures, modify schemas, and change injection behavior without waiting for a new product release."
         visual:
-          label: "Memory evolution loop"
+          label: "Dynamic memory loop"
           code: |
-            observe event
+            observe work
                   |
                   v
-            ingest + structure
+            create / update structures
                   |
                   v
-            retrieve + assemble
+            add rules + pipelines
                   |
                   v
-            agent acts with context
+            inject under budget
                   |
                   v
-            update memory rules
+            future agents inherit
         items:
-          - question: "Observe real work"
-            answer: "The server emits events for conversations, tasks, actions, failures, completions, tools, jobs, and agent activity. Memory ingestion subscribes to those events through a bridge, resolves domain data, and turns runtime behavior into memory inputs."
-          - question: "Ingest into durable structures"
-            answer: "Pipelines can store raw blobs, chunk text, create embeddings, extract entities with LLMs, parse structured data, normalize outputs, and route writes into logs, vectors, graphs, KV stores, or persistent memory instances."
-          - question: "Retrieve across memory types"
-            answer: "A memory can define a retrieval pipeline that derives a query, searches vectors, expands a graph, reads KV state, searches logs, filters, deduplicates, ranks, transforms, and aggregates results before they reach the agent."
-          - question: "Assemble by state"
-            answer: "The Context Assembly Engine receives scope variables for swarm, agent, project, orchestrator, thread, task, user, org, plus custom variables like execution phase. Rules map those variables to the memories that matter right now."
-          - question: "Improve the rules"
-            answer: "When an agent discovers a recurring failure, useful workflow, missing context, or better retrieval path, it can encode that learning into memory definitions, context rules, ingestion behavior, or custom agents and plugins."
+          - question: "Scale from raw usage"
+            answer: "The memory system can consume agent chat, code, prompts, tool results, task state, project files, application events, and plugin events. Over time that raw usage becomes structured project intelligence."
+          - question: "Create new structures"
+            answer: "A project can add new persistent memory definitions for the exact shape it needs: unfinished tasks, issue clusters, component relationships, repeated user corrections, agent mistakes, winning strategies, or business-specific entities."
+          - question: "Change structures at runtime"
+            answer: "Because memory structures are engine primitives, agents and plugins can update schemas, ingestion behavior, and retrieval pipelines while work is happening. The structure of memory can evolve with the problem."
+          - question: "Control injection"
+            answer: "Context Assembly rules determine which memories are injected for a given agent, task, phase, thread, project, user, or swarm. Memory is selected and budgeted before it enters the prompt."
+          - question: "React in the background"
+            answer: "Hooks, events, schedules, and lifecycle triggers can run memory work without a user prompt. Memory can consolidate, update relationships, record failures, and prepare future context while agents continue working."
 
       - type: tabs-showcase
-        kicker: "MEMORY SURFACES"
-        heading: "One memory system, multiple storage modes"
-        description: "Different kinds of agent intelligence need different persistence shapes. Codebolt keeps them under one runtime instead of forcing everything into chat history."
+        kicker: "WHAT CAN MEMORY BECOME"
+        heading: "The memory shape is programmable"
+        description: "Codebolt can support normal chat memory, but the stronger idea is that memory can become whatever durable intelligence the agent system needs."
         tabs:
-          - label: "Episodic"
-            title: "Append-only event memory"
-            body: "Capture what happened over time: conversations, observations, tool calls, agent activity, source metadata, and context. This is the flight recorder for agent work."
+          - label: "Patterns"
+            title: "Positive and negative pattern memory"
+            body: "Track what works and what fails. Agents can record repeated mistakes, constraints that were missed, review feedback, successful approaches, and patterns that should influence future work."
             points:
-              - "Time-based recall for threads and agents"
-              - "Useful for audits, replay, summaries, and failure analysis"
-              - "Feeds higher-level persistent memory"
+              - "Negative patterns: failed assumptions, repeated bugs, bad plans"
+              - "Positive patterns: validated approaches, successful workflows"
+              - "Useful for self-correction and agent evaluation"
             visual:
-              label: "episodic memory"
+              label: "pattern memory"
               code: |
-                event log
-                ├─ timestamp
-                ├─ source
-                ├─ type
-                ├─ content
-                └─ context
-          - label: "Persistent"
-            title: "Structured memory definitions"
-            body: "Define named memories with scopes, schemas, persistence modes, ingestion triggers, retrieval pipelines, and contribution rules."
+                mistake_pattern
+                ├─ trigger
+                ├─ evidence
+                ├─ correction
+                └─ inject_when
+          - label: "Tasks"
+            title: "Unfinished work memory"
+            body: "Instead of summarizing every conversation, a project can keep memory focused on open loops: unfinished tasks, blocked decisions, abandoned branches, stale todos, skipped tests, and follow-up actions."
             points:
-              - "Cross-session knowledge retention"
-              - "Declarative memory types"
-              - "Persistent, session, or ephemeral modes"
+              - "Created from chats, plans, TODOs, jobs, commits, and events"
+              - "Injected only when relevant to the current task or file"
+              - "Useful for long-running autonomous work"
             visual:
-              label: "persistent memory"
+              label: "unfinished tasks"
               code: |
-                memory definition
-                ├─ scopes: project, agent, task
-                ├─ schema
-                ├─ ingestion
-                └─ retrieval pipeline
-          - label: "Vector"
-            title: "Semantic retrieval"
-            body: "Chunk and embed large text so agents can retrieve relevant documents, codebase knowledge, conversations, and historical observations by meaning."
+                open_loop
+                ├─ task
+                ├─ blocker
+                ├─ owner
+                └─ next_action
+          - label: "Objects"
+            title: "Object relationship memory"
+            body: "Memory can become a relationship graph for code, product, people, tasks, agents, files, APIs, prompts, business objects, or any domain-specific entity."
             points:
-              - "Powered by embedding services"
-              - "Backed by sqlite-vec in the server"
-              - "Used by code search and RAG"
+              - "Relationships can be discovered from code and runtime events"
+              - "Graph expansion adds related context"
+              - "Useful for multi-agent coordination and architecture work"
             visual:
-              label: "vector retrieval"
+              label: "object graph"
               code: |
-                query -> embed
-                      -> top_k semantic matches
-                      -> rerank
-                      -> context item
-          - label: "Graph"
-            title: "Relationship memory"
-            body: "Store entities, records, and edges for project concepts, agents, tasks, dependencies, decisions, failures, and learned relationships."
+                Component -> uses -> API
+                Agent -> owns -> Task
+                Prompt -> caused -> Failure
+                File -> implements -> Feature
+          - label: "Signals"
+            title: "Active and reactive signal memory"
+            body: "Memory can keep working after the chat turn ends. Background processors, hooks, schedules, task events, action events, and plugin events can update memory continuously."
             points:
-              - "Graph expansion for related context"
-              - "Kuzu-backed knowledge graph service"
-              - "Useful for multi-agent and long-lived systems"
+              - "Runs from event triggers, not only user prompts"
+              - "Can consolidate and update derived memories"
+              - "Fits monitoring and long-term autonomous agents"
             visual:
-              label: "knowledge graph"
+              label: "reactive memory"
               code: |
-                Task -> touches -> File
-                Agent -> learned -> Pattern
-                Failure -> caused_by -> Constraint
-          - label: "Rules"
-            title: "Context selection logic"
-            body: "Context rules decide what to include based on runtime variables. This is where self-improvement becomes infrastructure: better rules mean better context for every future agent."
+                onTaskFailure -> store pattern
+                onAction     -> update object
+                onSchedule   -> consolidate
+                onWebhook    -> ingest event
+          - label: "Injection"
+            title: "Rule-based context injection"
+            body: "The memory structure is only half the system. Context Assembly decides which memory should enter a given agent run, where it should be placed, and how much budget it gets."
             points:
-              - "Rules evaluate against scope variables"
-              - "Assemblies include traces for debugging"
-              - "Token budgets keep context focused"
+              - "Rules evaluate scope variables and custom variables"
+              - "Budgets prevent memory from flooding the prompt"
+              - "Traces explain why memory was included"
             visual:
-              label: "context rule"
+              label: "context injection"
               code: |
                 if task_type = refactor
                 and phase = debugging
@@ -1460,25 +1466,30 @@ pages:
                   - review_notes
 
       - type: feature-block
-        kicker: "02 · WHY IT SCALES"
-        heading: "Thread history independence is a scaling feature"
-        body: "When memory lives outside the agent instance, parallel agents do not need to carry every previous message. They can load the right slice on demand. That matters for swarm-scale work: hundreds of agents can share durable knowledge without copying full thread histories into every context window."
+        kicker: "02 · SCALABLE + INJECTABLE"
+        heading: "Memory can grow without flooding every agent"
+        body: "Scalable memory creates a second problem: the more the system learns, the less any single agent can read. Codebolt solves that through Context Assembly. Memory can grow in the background, but each agent receives only the slice selected by rules, retrieval pipelines, contribution logic, and token budgets."
         reverse: true
         diagram: |
-          without externalized memory:
-          agent = thread history + current task
-          scale breaks as history grows
+          memory keeps growing:
+          ├─ conversations
+          ├─ code facts
+          ├─ object graph
+          ├─ positive patterns
+          ├─ negative patterns
+          └─ unfinished tasks
 
-          with Codebolt:
-          agent = current task + assembled context
-          memory = shared engine layer
+          CAE decides:
+          ├─ which memory applies
+          ├─ which retrieval pipeline to run
+          ├─ where context is placed
+          └─ how much budget it receives
 
-          1 agent  -> same memory substrate
-          10 agents -> same memory substrate
-          300+ agents -> same memory substrate
+          agent gets focused context,
+          not the whole database
 
       - type: cta-block
-        heading: "Give your agents a memory system that gets better with use."
+        heading: "Give agents memory they can scale, reshape, and inject."
         buttons:
           - { label: "Explore Architecture", href: "/architecture", variant: "primary" }
           - { label: "Back to Features", href: "/engine", variant: "secondary" }
