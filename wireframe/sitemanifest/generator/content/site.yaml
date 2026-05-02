@@ -13,6 +13,7 @@ navigation:
           - { label: "Engine Overview", href: "/engine" }
           - { label: "System Extensibility", href: "/engine/system-extensibility" }
           - { label: "Agent Extensibility", href: "/engine/agent-extensibility" }
+          - { label: "Self Evolving Memory", href: "/engine/self-evolving-memory" }
           - { label: "Multi-Agent Scaling", href: "/engine/multi-agent" }
           - { label: "Multi-Environment Scaling", href: "/engine/multi-environment" }
           - { label: "Codebolt Native Applications", href: "/engine/codebolt-native-applications" }
@@ -40,6 +41,7 @@ navigation:
           - { label: "Engine", href: "/engine" }
           - { label: "System Extensibility", href: "/engine/system-extensibility" }
           - { label: "Agent Extensibility", href: "/engine/agent-extensibility" }
+          - { label: "Self Evolving Memory", href: "/engine/self-evolving-memory" }
           - { label: "Multi-Agent Scaling", href: "/engine/multi-agent" }
           - { label: "Multi-Environment Scaling", href: "/engine/multi-environment" }
           - { label: "Codebolt Native Applications", href: "/engine/codebolt-native-applications" }
@@ -1257,6 +1259,230 @@ pages:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
           - { label: "Back to Engine", href: "/engine", variant: "secondary" }
 
+  # -- Engine: Self Evolving Memory ------------
+  - slug: "engine/self-evolving-memory"
+    title: "Self Evolving Memory - Codebolt"
+    sections:
+
+      - type: product-hero-stack
+        eyebrow: "SELF EVOLVING MEMORY"
+        title: "Memory that improves the agent system, not just the next prompt"
+        subtitle: "Codebolt externalizes memory into the engine runtime. Agents can stop, restart, multiply, and move across environments while the application layer preserves context, assembles the right knowledge, and evolves the rules that decide what future agents should know."
+        buttons:
+          - { label: "Explore Architecture", href: "/architecture", variant: "primary" }
+          - { label: "Back to Engine", href: "/engine", variant: "secondary" }
+        stackTitle: "Memory control plane"
+        stackItems:
+          - { label: "Agent role", value: "stateless intellectual processor" }
+          - { label: "Context owner", value: "Context Assembly Engine" }
+          - { label: "Write path", value: "event-driven ingestion pipelines" }
+          - { label: "Storage", value: "episodic logs, persistent memory, vector, graph, KV" }
+          - { label: "Evolution", value: "agents mutate rules, pipelines, and retrieval logic" }
+        footer: "The engine remembers across sessions, agents, swarms, projects, and environments."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "Most agent memory is a bigger chat history. Codebolt memory is externalized infrastructure: events are captured, knowledge is structured, retrieval is pipelined, and the Context Assembly Engine builds each agent's context from state variables, rules, and token budgets."
+
+      - type: bento-grid
+        kicker: "WHY IT IS DIFFERENT"
+        heading: "Externalized memory for ephemeral agents and swarms"
+        description: "The point is not to make one agent remember more. The point is to let every future agent inherit what the system learned."
+        columns: 3
+        items:
+          - title: "Agents do not own the state"
+            tag: "EXTERNALIZED"
+            span: 2
+            description: "Traditional agents carry context inside a thread. Codebolt moves working context, facts, events, rules, and retrieval strategy into the durable engine layer. Agents can be paused, replaced, or spawned in parallel without losing the intelligence they produced."
+            visual: |
+              agent run ends
+                    |
+                    v
+              memory survives in engine
+                    |
+                    v
+              next agent inherits context
+          - title: "Context is assembled, not hunted"
+            tag: "CAE"
+            description: "An agent supplies state variables such as task, role, thread, project, swarm, or phase. The Context Assembly Engine evaluates rules, calls memory pipelines, merges results, and returns budgeted context with traceability."
+          - title: "Memory has a write path"
+            tag: "INGESTION"
+            description: "Application events such as conversation end, task start, task failure, task completion, actions, and errors can trigger ingestion pipelines. Raw events become summaries, records, embeddings, graph edges, or structured memories."
+          - title: "Retrieval is programmable"
+            tag: "PIPELINES"
+            description: "Persistent memory definitions can use query derivation, vector search, graph expansion, KV reads, log search, filters, dedupe, ranking, transforms, and aggregation. Retrieval becomes an engine capability, not prompt glue."
+          - title: "Swarm knowledge compounds"
+            tag: "STIGMERGY"
+            span: 2
+            description: "External memory gives swarms a shared environment. Agents coordinate through persistent signals, task ownership, past failures, learned workflows, and structured facts instead of fragile direct message chains."
+            visual: |
+              Agent A -> shared memory <- Agent B
+              Agent C -> pheromones    <- Agent D
+
+              no direct coupling
+              coordination accumulates over time
+
+      - type: feature-block
+        kicker: "01 · THREE LAYERS"
+        heading: "A three-layer memory architecture"
+        body: "Codebolt separates memory into storage, orchestration, and context assembly. The storage layer handles multi-modal persistence. The orchestration layer controls ingestion and retrieval pipelines. The Context Assembly layer decides which memories matter for the current agent state and enforces context budgets."
+        diagram: |
+          LAYER 3: CONTEXT ASSEMBLY
+          ├─ evaluate rules
+          ├─ select memories
+          ├─ merge + dedupe
+          ├─ enforce token budget
+          └─ return traceable context
+
+          LAYER 2: ORCHESTRATION
+          ├─ ingestion pipelines
+          ├─ retrieval pipelines
+          ├─ memory stitching
+          └─ ranking + transforms
+
+          LAYER 1: STORAGE
+          ├─ episodic event logs
+          ├─ persistent memory definitions
+          ├─ vector database
+          ├─ knowledge graph
+          └─ key-value state
+
+      - type: accordion-showcase
+        kicker: "AUTONOMOUS EVOLUTION"
+        heading: "How memory evolves while agents work"
+        description: "Agents do not just store more notes. They can improve the rules and memory structures that future agents inherit."
+        visual:
+          label: "Memory evolution loop"
+          code: |
+            observe event
+                  |
+                  v
+            ingest + structure
+                  |
+                  v
+            retrieve + assemble
+                  |
+                  v
+            agent acts with context
+                  |
+                  v
+            update memory rules
+        items:
+          - question: "Observe real work"
+            answer: "The server emits events for conversations, tasks, actions, failures, completions, tools, jobs, and agent activity. Memory ingestion subscribes to those events through a bridge, resolves domain data, and turns runtime behavior into memory inputs."
+          - question: "Ingest into durable structures"
+            answer: "Pipelines can store raw blobs, chunk text, create embeddings, extract entities with LLMs, parse structured data, normalize outputs, and route writes into logs, vectors, graphs, KV stores, or persistent memory instances."
+          - question: "Retrieve across memory types"
+            answer: "A memory can define a retrieval pipeline that derives a query, searches vectors, expands a graph, reads KV state, searches logs, filters, deduplicates, ranks, transforms, and aggregates results before they reach the agent."
+          - question: "Assemble by state"
+            answer: "The Context Assembly Engine receives scope variables for swarm, agent, project, orchestrator, thread, task, user, org, plus custom variables like execution phase. Rules map those variables to the memories that matter right now."
+          - question: "Improve the rules"
+            answer: "When an agent discovers a recurring failure, useful workflow, missing context, or better retrieval path, it can encode that learning into memory definitions, context rules, ingestion behavior, or custom agents and plugins."
+
+      - type: tabs-showcase
+        kicker: "MEMORY SURFACES"
+        heading: "One memory system, multiple storage modes"
+        description: "Different kinds of agent intelligence need different persistence shapes. Codebolt keeps them under one runtime instead of forcing everything into chat history."
+        tabs:
+          - label: "Episodic"
+            title: "Append-only event memory"
+            body: "Capture what happened over time: conversations, observations, tool calls, agent activity, source metadata, and context. This is the flight recorder for agent work."
+            points:
+              - "Time-based recall for threads and agents"
+              - "Useful for audits, replay, summaries, and failure analysis"
+              - "Feeds higher-level persistent memory"
+            visual:
+              label: "episodic memory"
+              code: |
+                event log
+                ├─ timestamp
+                ├─ source
+                ├─ type
+                ├─ content
+                └─ context
+          - label: "Persistent"
+            title: "Structured memory definitions"
+            body: "Define named memories with scopes, schemas, persistence modes, ingestion triggers, retrieval pipelines, and contribution rules."
+            points:
+              - "Cross-session knowledge retention"
+              - "Declarative memory types"
+              - "Persistent, session, or ephemeral modes"
+            visual:
+              label: "persistent memory"
+              code: |
+                memory definition
+                ├─ scopes: project, agent, task
+                ├─ schema
+                ├─ ingestion
+                └─ retrieval pipeline
+          - label: "Vector"
+            title: "Semantic retrieval"
+            body: "Chunk and embed large text so agents can retrieve relevant documents, codebase knowledge, conversations, and historical observations by meaning."
+            points:
+              - "Powered by embedding services"
+              - "Backed by sqlite-vec in the server"
+              - "Used by code search and RAG"
+            visual:
+              label: "vector retrieval"
+              code: |
+                query -> embed
+                      -> top_k semantic matches
+                      -> rerank
+                      -> context item
+          - label: "Graph"
+            title: "Relationship memory"
+            body: "Store entities, records, and edges for project concepts, agents, tasks, dependencies, decisions, failures, and learned relationships."
+            points:
+              - "Graph expansion for related context"
+              - "Kuzu-backed knowledge graph service"
+              - "Useful for multi-agent and long-lived systems"
+            visual:
+              label: "knowledge graph"
+              code: |
+                Task -> touches -> File
+                Agent -> learned -> Pattern
+                Failure -> caused_by -> Constraint
+          - label: "Rules"
+            title: "Context selection logic"
+            body: "Context rules decide what to include based on runtime variables. This is where self-improvement becomes infrastructure: better rules mean better context for every future agent."
+            points:
+              - "Rules evaluate against scope variables"
+              - "Assemblies include traces for debugging"
+              - "Token budgets keep context focused"
+            visual:
+              label: "context rule"
+              code: |
+                if task_type = refactor
+                and phase = debugging
+                include:
+                  - past_failures
+                  - related_files
+                  - review_notes
+
+      - type: feature-block
+        kicker: "02 · WHY IT SCALES"
+        heading: "Thread history independence is a scaling feature"
+        body: "When memory lives outside the agent instance, parallel agents do not need to carry every previous message. They can load the right slice on demand. That matters for swarm-scale work: hundreds of agents can share durable knowledge without copying full thread histories into every context window."
+        reverse: true
+        diagram: |
+          without externalized memory:
+          agent = thread history + current task
+          scale breaks as history grows
+
+          with Codebolt:
+          agent = current task + assembled context
+          memory = shared engine layer
+
+          1 agent  -> same memory substrate
+          10 agents -> same memory substrate
+          300+ agents -> same memory substrate
+
+      - type: cta-block
+        heading: "Give your agents a memory system that gets better with use."
+        buttons:
+          - { label: "Explore Architecture", href: "/architecture", variant: "primary" }
+          - { label: "Back to Features", href: "/engine", variant: "secondary" }
+
   # ── Engine: Multi-Agent (Single Env) ───────
   - slug: "engine/multi-agent"
     title: "Multi-Agent Scaling — Codebolt"
@@ -2420,81 +2646,205 @@ pages:
 
   # ── Product: SDK ───────────────────────────
   - slug: "products/sdk"
-    title: "Codebolt SDK — Embed the Engine in Your Product"
+    title: "Codebolt SDK — Build, Extend, and Scale on the Engine"
     sections:
 
       - type: page-header
-        title: "Codebolt SDK"
-        subtitle: "Embed the engine in your own product. Build a custom client, ship an agent-native app, or run the engine inside your infrastructure."
+        eyebrow: "CODEBOLT SDK"
+        title: "The SDK layer for scalable agent software"
+        subtitle: "Build custom agents, custom clients, plugins, providers, and Codebolt-native applications on top of the same engine that powers the Editor, CLI, Cloud, and autonomous agents."
+        buttons:
+          - { label: "Read SDK Docs", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/01_overview", variant: "primary" }
+          - { label: "Codebolt Native Apps", href: "/engine/codebolt-native-applications", variant: "secondary" }
+        pills:
+          - "Agent SDK"
+          - "Client SDK"
+          - "Plugin SDK"
+          - "Provider SDK"
 
       - type: centered-text
         variant: "thesis"
-        text: "The Editor is one client of the engine. The CLI is another. With the SDK, you can build your own — a vertical IDE for your domain, an agent-powered SaaS for your customers, or a headless deployment running inside your CI. Same engine. Your interface."
+        text: "The SDK is the scalability layer of Codebolt. Use the Agent SDK and agent framework to control agent behavior, the Client SDK to build custom interfaces and integrate other applications, the Plugin SDK to extend the engine, and the Provider SDK to connect agent execution across platforms and environments."
+
+      - type: bento-grid
+        kicker: "SDK LAYERS"
+        heading: "Build at every layer of the engine"
+        description: "Codebolt is not just an app with an API. It exposes the layers you need to create agents, build interfaces, extend runtime behavior, connect external systems, and scale execution."
+        columns: 4
+        gap: "none"
+        items:
+          - title: "Agent SDK"
+            tag: "codeboltjs"
+            description: "Use <a href='https://docs.codebolt.ai/docs/05_reference/02_codeboltjs/01_intro'>codeboltjs</a> to create custom agents with direct access to files, git, terminal, browser, LLMs, memory, tasks, dynamic panels, environments, evals, and engine APIs."
+            span: 2
+            visual: |
+              custom agent
+              ├─ codebolt.fs / git / terminal
+              ├─ codebolt.llm / browser / mcp
+              ├─ memory + knowledge
+              ├─ tasks + jobs + plans
+              └─ dynamic panels + environments
+          - title: "Agent framework"
+            tag: "@codebolt/agent"
+            description: "Build agents like you would with LangChain, Mastra, or other frameworks, but Codebolt-aware. Compose tools, workflows, processors, message modifiers, compaction, and execution control for agents tailored to your workflow."
+          - title: "Client SDK"
+            tag: "Custom clients"
+            description: "Use the <a href='/engine/codebolt-native-applications'>Client SDK</a> to build custom web apps, internal tools, dashboards, vertical IDEs, mobile surfaces, or product integrations that talk to Codebolt over REST and WebSocket APIs."
+          - title: "Plugin SDK"
+            tag: "Runtime extension"
+            description: "Use the <a href='https://docs.codebolt.ai/docs/04_build-on-codebolt/05_plugins/01_overview'>Plugin SDK</a> to add backend capabilities, commands, routes, hooks, dynamic panels, provider integrations, marketplace packages, and app-specific runtime logic."
+          - title: "Provider SDK"
+            tag: "Agent routing"
+            description: "Create custom agent providers and execution bridges so Codebolt can chain agent connections across platforms, environments, remote servers, and specialized runtimes."
+          - title: "Native applications"
+            tag: "Composable"
+            description: "Combine SDK layers to create <a href='/engine/codebolt-native-applications'>Codebolt-native applications</a>: a custom app UI, plugin backend, custom agents, provider routing, and cloud or self-hosted execution on the same engine."
 
       - type: feature-block
-        heading: "Three SDKs, three layers of access"
-        body: "Agent SDK (codeboltjs, 63+ modules): write the agent loop in code. Plugin SDK (3 channels: WebSocket, Mux, HTTP): extend the engine itself. Client SDK (72 REST + 33 WS): build any front-end you want. The engine is open at every layer — you choose where to plug in."
+        kicker: "01 · AGENT SDK"
+        heading: "Create custom agents tailored to your workflow"
+        body: "Codebolt lets teams build agents the way they build software: with code, modules, tools, workflows, and explicit control over the agent loop. The codeboltjs Agent SDK gives agents direct access to Codebolt engine capabilities, while the @codebolt/agent framework provides a higher-level interface for tools, workflows, reusable processor pieces, message modifiers, loop detection, and conversation compaction. Use it when a generic prompt is not enough and the agent needs to follow your product, team, or domain workflow."
+        cta: { label: "Read codeboltjs docs", href: "https://docs.codebolt.ai/docs/05_reference/02_codeboltjs/01_intro" }
         diagram: |
-          Agent SDK    → write custom agents
-          Plugin SDK   → extend the engine
-          Client SDK   → build your own UI
+          Agent SDK + framework
+          ├─ system prompt + instructions
+          ├─ allowed tools
+          ├─ message modifiers
+          ├─ pre/post inference processors
+          ├─ pre/post tool processors
+          ├─ workflows
+          ├─ compaction
+          └─ Codebolt engine modules
 
-          63+ modules · 3 channels
-          72 REST + 33 WS endpoints
-          All open. All documented.
+          custom agent behavior
+          without leaving the engine
 
       - type: feature-block
-        heading: "Ship agent-native software"
-        body: "If your product needs agents at the core — not as a chat sidebar — the SDK is the foundation. The engine handles the agentic loop, memory, plugins, and coordination. You build the surface your customers see. Cursor and Claude Code can't be embedded; the Codebolt engine can."
+        kicker: "02 · CLIENT SDK"
+        heading: "Build your own interfaces and integrations"
+        body: "The Editor and CLI are clients of the engine. With the Client SDK, your application can be one too. Build a custom UI, vertical workspace, internal operations console, product-specific dashboard, or integration from another application. The client layer can call Codebolt APIs, subscribe to real-time sockets, manage threads, tasks, jobs, agents, environments, memory, git, files, and application state."
         reverse: true
+        cta: { label: "Explore native apps", href: "/engine/codebolt-native-applications" }
         diagram: |
-          Your product:
-          ├── Your UI / brand
-          ├── Your auth / billing
-          ├── Your domain logic
-          └── Codebolt Engine ← embedded
-              ├── Agents
-              ├── Plugins
-              └── Memory
+          your application
+              │ REST + WebSocket
+              ▼
+          Codebolt Client SDK
+              │
+              ├─ chat + threads
+              ├─ agents + tasks + jobs
+              ├─ files + git + terminal
+              ├─ memory + knowledge
+              ├─ environments + providers
+              └─ application state
 
-          You own the product.
-          The engine does the work.
+          custom interface
+          same engine
 
       - type: feature-block
-        heading: "Self-host the engine"
-        body: "Run the engine on your own infrastructure — bare metal, Docker, Kubernetes, your VPC. The Client SDK connects any front-end to a self-hosted engine instance the same way it connects to Cloud. Compliance teams get a deployment model they can audit."
+        kicker: "03 · PLUGIN SDK"
+        heading: "Extend the runtime, not just the UI"
+        body: "Plugins let you add capabilities inside the Codebolt engine itself. A plugin can expose routes, connect to external APIs, register hooks, open dynamic panels, mediate application requests, push live events, add provider behavior, and serve as the backend for a Codebolt-native application. That means your product logic can live close to agents, memory, tasks, environments, and execution rather than in a disconnected service."
+        cta: { label: "Read plugin docs", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/05_plugins/01_overview" }
         diagram: |
-          $ docker run codebolt/engine:latest
-          $ codebolt serve --port 3100
+          plugin runtime
+          ├─ lifecycle: onStart / onStop
+          ├─ HTTP-style routes
+          ├─ WebSocket + multiplexed events
+          ├─ hooks + commands
+          ├─ dynamic panels
+          ├─ external API adapters
+          └─ engine API access
 
-          # Engine running on your infra
-          # Connect any client (Editor, CLI,
-          # custom UI) to the same engine
-          # Self-host = full control
+          plugins become backend
+          capabilities for apps and agents
+
+      - type: feature-block
+        kicker: "04 · PROVIDER SDK"
+        heading: "Route agent execution across platforms"
+        body: "The provider layer lets Codebolt connect to execution sources beyond one local runtime. Build custom providers to bridge agent connections across platforms, environments, remote machines, cloud sandboxes, or specialized agent systems. This is how the SDK story becomes a scaling story: agent work can move through the right provider instead of being trapped inside one client or one machine."
+        reverse: true
+        cta: { label: "Read provider commands", href: "https://docs.codebolt.ai/docs/02_using-codebolt/02_surfaces/03_cli/04_provider-commands" }
+        diagram: |
+          Codebolt runtime
+              │ execution request
+              ▼
+          provider layer
+              ├─ local engine
+              ├─ remote Codebolt server
+              ├─ cloud sandbox
+              ├─ custom agent platform
+              └─ specialized runtime
+
+          one agent graph
+          many execution backends
+
+      - type: feature-block
+        kicker: "05 · CODEBOLT-NATIVE APPS"
+        heading: "Combine SDKs into full applications"
+        body: "The real power appears when the SDK layers are used together. Use the Agent SDK to control the agent flow, the Plugin SDK to provide backend application logic, the Client SDK to create the interface, and the Provider SDK to route execution across environments. The result is a Codebolt-native application: software that uses the Codebolt engine as its backend instead of rebuilding agents, plugins, memory, tasks, orchestration, and scaling from scratch."
+        cta: { label: "Open native applications page", href: "/engine/codebolt-native-applications" }
+        diagram: |
+          Codebolt-native application
+          ├─ Client SDK: custom UI / product
+          ├─ Plugin SDK: backend logic
+          ├─ Agent SDK: workflow agents
+          ├─ Provider SDK: execution routing
+          └─ Codebolt engine
+              ├─ memory + tasks + jobs
+              ├─ plugins + tools + MCP
+              ├─ environments + cloud
+              └─ observability + evals
+
+      - type: bento-grid
+        kicker: "WHAT YOU CAN BUILD"
+        heading: "The SDK is for scaling beyond the default surfaces"
+        description: "Use SDKs when you need something more specific than a stock editor, one terminal session, or one hosted agent."
+        columns: 3
+        gap: "none"
+        items:
+          - title: "Workflow-specific agents"
+            tag: "Agents"
+            description: "Create agents for code review, migration, compliance, support, research, release management, data labeling, product planning, or any domain workflow."
+          - title: "Custom product interfaces"
+            tag: "Clients"
+            description: "Build your own UI on top of Codebolt: dashboards, vertical IDEs, internal portals, mobile apps, customer-facing tools, or embedded product surfaces."
+          - title: "Engine extensions"
+            tag: "Plugins"
+            description: "Add integrations, routes, panels, hooks, commands, marketplace packages, backend logic, and domain capabilities directly into the engine runtime."
+          - title: "Execution bridges"
+            tag: "Providers"
+            description: "Route agent work to local runtimes, cloud sandboxes, remote servers, or third-party agent platforms using custom providers."
+          - title: "Packaged engine apps"
+            tag: "Native apps"
+            description: "Package Codebolt into your own application or make Codebolt itself become the shell for your app through panels, plugins, and custom clients."
+          - title: "Scalable agent systems"
+            tag: "Scale"
+            description: "Grow from one custom agent to multi-agent, multi-environment workflows without changing the foundation."
 
       - type: comparison-columns
         problem:
-          heading: "Closed agent products"
+          heading: "Single-surface agent tools"
           items:
-            - "Cursor, Claude Code, Devin — you can use them, you can't embed them"
-            - "No way to ship an agent-native product on their engine"
-            - "No self-host story for compliance-heavy environments"
-            - "Front-end is fixed; you can't build a vertical UX"
-            - "Lock-in to one vendor's surface"
+            - "Let you use their agent, but not build your own agent runtime around your workflow"
+            - "Expose a fixed UI instead of a client SDK for custom applications"
+            - "Treat plugins as add-ons instead of runtime backends"
+            - "Do not provide a provider layer for chaining execution across platforms"
+            - "Force teams to rebuild memory, tasks, jobs, orchestration, and scaling around the tool"
         solution:
           heading: "Codebolt SDK"
           items:
-            - "Engine is embeddable — build a product on top of it"
-            - "Three SDKs let you plug in at agent, plugin, or client layer"
-            - "Self-host on your infra, your VPC, your terms"
-            - "Build any front-end — vertical IDE, SaaS, internal tool"
-            - "The engine is yours to deploy as you see fit"
+            - "Agent SDK and framework let you control agent flow, tools, processors, workflows, and compaction"
+            - "Client SDK lets you build custom interfaces and integrate Codebolt into other applications"
+            - "Plugin SDK lets you extend the engine and run app backend logic inside the runtime"
+            - "Provider SDK lets you bridge agent execution across environments and platforms"
+            - "Together, the SDK layers let teams build Codebolt-native applications that scale with the engine"
 
       - type: cta-block
-        heading: "Embed the engine. Ship your own product."
+        heading: "Build on the engine. Scale beyond the default app."
         buttons:
-          - { label: "Get Started", href: "/pricing", variant: "primary" }
-          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
+          - { label: "Read SDK Docs", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/01_overview", variant: "primary" }
+          - { label: "Explore Native Apps", href: "/engine/codebolt-native-applications", variant: "secondary" }
 
   # ── Use Case: Orchestration ────────────────
   - slug: "use-cases/orchestration"

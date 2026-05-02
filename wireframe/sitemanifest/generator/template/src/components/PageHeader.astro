@@ -1,15 +1,146 @@
 ---
-const { title, subtitle } = Astro.props;
+import { cn } from '../lib/utils';
+
+interface Button {
+  label: string;
+  href: string;
+  variant?: 'primary' | 'secondary';
+}
+
+const {
+  title,
+  subtitle,
+  eyebrow,
+  buttons = [],
+  pills = [],
+  visualTitle,
+  visual,
+} = Astro.props;
+
+const hasEnhancedHeader = eyebrow || buttons.length > 0 || pills.length > 0 || visual;
+const primaryBtn = buttons.find((button: Button) => button.variant === 'primary') || buttons[0];
+const secondaryBtn = buttons.find((button: Button) => button.variant === 'secondary') || buttons[1];
+const hasVisual = Boolean(visual);
 ---
-<section class="pt-32 pb-20 px-6 bg-background dark:bg-[#050505] border-b border-border dark:border-zinc-900">
-  <div class="max-w-5xl mx-auto">
-    <h1 class="text-5xl md:text-6xl font-medium tracking-tight text-foreground dark:text-white leading-[1.05]">
-      {title}
-    </h1>
-    {subtitle && (
-      <p class="mt-6 text-lg text-muted-foreground dark:text-zinc-400 max-w-2xl leading-relaxed">
-        {subtitle}
-      </p>
+<section class={cn(
+  'relative overflow-hidden px-6 bg-background dark:bg-[#050505] border-b border-border dark:border-zinc-900',
+  hasEnhancedHeader ? 'pt-28 pb-0' : 'pt-32 pb-20'
+)}>
+  {hasEnhancedHeader && !hasVisual && (
+    <>
+      <div class="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
+      <div class="absolute inset-x-0 top-0 h-px bg-primary/30"></div>
+      <div class="absolute inset-x-0 bottom-0 h-px bg-primary/10"></div>
+    </>
+  )}
+  <div class={cn(
+    'relative mx-auto',
+    hasEnhancedHeader ? 'max-w-[1200px] border-x border-border dark:border-zinc-900' : 'max-w-5xl'
+  )}>
+    {hasEnhancedHeader ? (
+      <div class={cn(
+        'relative grid grid-cols-1 lg:grid-cols-12',
+        !hasVisual && 'before:absolute before:left-0 before:top-0 before:h-3 before:w-3 before:border-l before:border-t before:border-primary/50 after:absolute after:right-0 after:top-0 after:h-3 after:w-3 after:border-r after:border-t after:border-primary/50'
+      )}>
+        <div class={cn(
+          'px-6 py-16 md:px-10 md:py-20',
+          hasVisual ? 'lg:col-span-7 lg:border-r border-border dark:border-zinc-900' : 'lg:col-span-12'
+        )}>
+          {eyebrow && (
+            <div class="mb-6 flex items-center gap-3">
+              <span class="h-1.5 w-1.5 bg-primary"></span>
+              <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{eyebrow}</span>
+            </div>
+          )}
+
+          <h1 class={cn(
+            'text-5xl md:text-6xl font-medium tracking-tight text-foreground dark:text-white leading-[1.05]',
+            hasVisual ? 'max-w-4xl' : 'max-w-5xl'
+          )}>
+            {title}
+          </h1>
+
+          {subtitle && (
+            <p class={cn(
+              'mt-6 text-lg text-muted-foreground dark:text-zinc-400 leading-relaxed',
+              hasVisual ? 'max-w-3xl' : 'max-w-4xl'
+            )}>
+              {subtitle}
+            </p>
+          )}
+
+          {pills.length > 0 && hasVisual && (
+            <div class="mt-8 flex flex-wrap gap-2">
+              {pills.map((pill: string) => (
+                <span class="border border-primary/30 bg-primary/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-primary">
+                  {pill}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {pills.length > 0 && !hasVisual && (
+            <div class="mt-10 grid max-w-5xl grid-cols-1 border border-border bg-background/70 backdrop-blur dark:border-zinc-900 dark:bg-[#050505]/70 sm:grid-cols-2 lg:grid-cols-4">
+              {pills.map((pill: string, index: number) => (
+                <div class="relative min-h-24 border-b border-border p-5 last:border-b-0 dark:border-zinc-900 sm:[&:nth-last-child(-n+2)]:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0">
+                  <div class="mb-5 flex items-center justify-between">
+                    <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span class="h-px w-10 bg-primary/30"></span>
+                  </div>
+                  <div class="font-mono text-xs uppercase tracking-[0.16em] text-foreground dark:text-zinc-100">
+                    {pill}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {(primaryBtn || secondaryBtn) && (
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              {primaryBtn && (
+                <a href={primaryBtn.href} class="inline-flex h-10 items-center justify-center border border-primary bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+                  {primaryBtn.label}
+                </a>
+              )}
+              {secondaryBtn && (
+                <a href={secondaryBtn.href} class="inline-flex h-10 items-center justify-center border border-border bg-background px-5 text-sm font-semibold text-foreground transition-colors hover:border-muted-foreground/70 dark:border-zinc-800 dark:bg-[#050505]">
+                  {secondaryBtn.label}
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+
+        {visual && (
+          <div class="relative lg:col-span-5 min-h-[380px] overflow-hidden bg-[#020202]">
+            <div class="absolute inset-0 bg-grid opacity-70"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_60%_20%,hsl(var(--primary)/0.16),transparent_34%)]"></div>
+            <div class="relative flex h-full items-center p-6 md:p-10">
+              <div class="w-full border border-zinc-800 bg-[#050505]">
+                <div class="flex h-9 items-center border-b border-zinc-800 bg-[#090909] px-4">
+                  <span class="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                    {visualTitle || 'Architecture'}
+                  </span>
+                </div>
+                <pre class="min-h-[280px] overflow-auto whitespace-pre-wrap p-6 font-mono text-[11px] leading-relaxed text-zinc-300 md:p-8">{visual}</pre>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    ) : (
+      <>
+        <h1 class="text-5xl md:text-6xl font-medium tracking-tight text-foreground dark:text-white leading-[1.05]">
+          {title}
+        </h1>
+        {subtitle && (
+          <p class="mt-6 text-lg text-muted-foreground dark:text-zinc-400 max-w-2xl leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+      </>
     )}
   </div>
 </section>

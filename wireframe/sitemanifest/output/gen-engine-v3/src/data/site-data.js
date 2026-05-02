@@ -27,6 +27,10 @@ export const navigation = {
             "href": "/engine/agent-extensibility"
           },
           {
+            "label": "Self Evolving Memory",
+            "href": "/engine/self-evolving-memory"
+          },
+          {
             "label": "Multi-Agent Scaling",
             "href": "/engine/multi-agent"
           },
@@ -117,6 +121,10 @@ export const navigation = {
           {
             "label": "Agent Extensibility",
             "href": "/engine/agent-extensibility"
+          },
+          {
+            "label": "Self Evolving Memory",
+            "href": "/engine/self-evolving-memory"
           },
           {
             "label": "Multi-Agent Scaling",
