@@ -5,10 +5,10 @@ const { problem, solution } = Astro.props;
 ---
 
 <section class="py-0 px-6 border-b border-border dark:border-zinc-900 bg-background dark:bg-[#050505]">
-  <div class="max-w-[1200px] mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-2 border-x border-border dark:border-zinc-800">
+  <div class="max-w-[1200px] mx-auto bg-muted/10 dark:bg-[#080808]">
+    <div class="grid grid-cols-1 md:grid-cols-2">
       {/* Left: Problem */}
-      <div class="p-8 md:p-12 flex flex-col justify-between relative overflow-hidden border-b md:border-b-0 md:border-r border-border dark:border-zinc-800 bg-muted/10 dark:bg-zinc-900/10">
+      <div class="p-8 md:p-12 flex flex-col justify-between relative overflow-hidden border-b md:border-b-0 md:border-r border-border dark:border-zinc-800">
         <div class="relative z-10">
           <div class="font-mono text-xs uppercase text-muted-foreground dark:text-zinc-500 mb-8 flex justify-between items-center gap-4">
             <span class="flex items-center gap-2">
@@ -33,7 +33,7 @@ const { problem, solution } = Astro.props;
       </div>
 
       {/* Right: Solution */}
-      <div class="p-8 md:p-12 flex flex-col justify-between relative overflow-hidden bg-muted/5 dark:bg-[#080808]">
+      <div class="p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
         {/* Highlight Grid */}
         <div class="absolute inset-0 bg-grid-subtle opacity-50 pointer-events-none" />
 

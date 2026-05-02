@@ -1,29 +1,54 @@
 ---
-const { heading, items = [] } = Astro.props;
+const { kicker, heading, subtitle, items = [] } = Astro.props;
 ---
-<section class="py-24 px-6 bg-background dark:bg-[#050505] text-foreground border-b border-border dark:border-zinc-900">
-  <div class="max-w-5xl mx-auto">
-    {heading && (
-      <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-center mb-10 leading-[1.12]">
-        {heading}
-      </h2>
+<section class="py-16 md:py-20 px-6 bg-background dark:bg-[#050505] text-foreground border-b border-border dark:border-zinc-900">
+  <div class="max-w-[1200px] mx-auto px-0 md:px-8">
+    {(kicker || heading || subtitle) && (
+      <div class="mb-10 max-w-3xl">
+        {kicker && (
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+            <span class="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">{kicker}</span>
+          </div>
+        )}
+        {heading && (
+          <h2 class="text-3xl md:text-4xl font-medium tracking-tight mb-4 leading-[1.12]">
+            {heading}
+          </h2>
+        )}
+        {subtitle && (
+          <p class="text-lg text-muted-foreground font-light leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+      </div>
     )}
-    <div class="accordion space-y-4">
-      {items.map((item) => (
-        <div class="accordion-item border border-border dark:border-zinc-800 bg-card/30">
-          <button type="button" class="accordion-trigger w-full px-6 py-4 text-left flex items-center justify-between hover:bg-accent/50 transition-colors">
-            <span class="text-lg font-medium text-foreground">
+    <div class="accordion border-x border-t border-border dark:border-zinc-800">
+      {items.map((item, index) => (
+        <div class={`accordion-item border-b border-border dark:border-zinc-800 bg-card/30 ${index === 0 ? 'open' : ''}`}>
+          <button type="button" class="accordion-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-6 hover:bg-accent/50 transition-colors">
+            <span>
+              {item.tag && (
+                <span class="mb-2 block font-mono text-[10px] uppercase tracking-widest text-primary">{item.tag}</span>
+              )}
+              <span class="text-lg font-medium text-foreground">
               {item.question}
+              </span>
             </span>
             <svg class="accordion-chevron w-5 h-5 text-muted-foreground transition-transform duration-200" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M6 8l4 4 4-4" />
             </svg>
           </button>
           <div class="accordion-content overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out">
-            <div class="px-6 pb-4">
-              <p class="text-muted-foreground leading-relaxed">
+            <div class="grid grid-cols-1 gap-6 px-6 pb-6 md:grid-cols-12">
+              <p class="text-muted-foreground leading-relaxed md:col-span-7">
                 {item.answer}
               </p>
+              {item.visual && (
+                <div class="md:col-span-5 border border-border bg-muted/30 p-4 dark:border-zinc-800 dark:bg-[#050505]">
+                  <pre class="overflow-auto whitespace-pre text-[10px] leading-tight font-mono text-muted-foreground">{item.visual}</pre>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -36,3 +61,15 @@ const { heading, items = [] } = Astro.props;
   .accordion-item.open .accordion-content { max-height: 320px; }
   .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
 </style>
+
+<script>
+  document.querySelectorAll('.accordion').forEach((accordion) => {
+    accordion.querySelectorAll('.accordion-trigger').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.accordion-item');
+        if (!item) return;
+        item.classList.toggle('open');
+      });
+    });
+  });
+</script>

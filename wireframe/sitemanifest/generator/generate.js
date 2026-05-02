@@ -33,6 +33,7 @@ function kebabToPascal(str) {
 // Map section type names to component file names
 const TYPE_TO_COMPONENT = {
   'hero': 'Hero',
+  'product-hero': 'ProductHero',
   'page-header': 'PageHeader',
   'centered-text': 'CenteredText',
   'comparison-columns': 'ComparisonColumns',
@@ -44,6 +45,7 @@ const TYPE_TO_COMPONENT = {
   'pricing-grid': 'PricingGrid',
   'blog-grid': 'BlogGrid',
   'accordion': 'Accordion',
+  'accordion-showcase': 'AccordionShowcase',
   'value-list': 'ValueList',
   'two-column-text': 'TwoColumnText',
   'role-list': 'RoleList',
@@ -79,6 +81,7 @@ const TYPE_TO_COMPONENT = {
   'sdk-callout': 'SdkCallout',
   'feature-showcase': 'FeatureShowcase',
   'start-tabs': 'StartTabs',
+  'tabs-showcase': 'TabsShowcase',
   'engine-architecture-diagram': 'EngineArchitectureDiagram',
   'structure-diagram': 'StructureDiagram',
   'subsystem-diagram': 'SubsystemDiagram',
