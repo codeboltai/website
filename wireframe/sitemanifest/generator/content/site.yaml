@@ -15,6 +15,7 @@ navigation:
           - { label: "Agent Extensibility", href: "/engine/agent-extensibility" }
           - { label: "Multi-Agent Scaling", href: "/engine/multi-agent" }
           - { label: "Multi-Environment Scaling", href: "/engine/multi-environment" }
+          - { label: "Codebolt Native Applications", href: "/engine/codebolt-native-applications" }
       - label: "Products"
         href: "/products/editor"
         children:
@@ -41,6 +42,7 @@ navigation:
           - { label: "Agent Extensibility", href: "/engine/agent-extensibility" }
           - { label: "Multi-Agent Scaling", href: "/engine/multi-agent" }
           - { label: "Multi-Environment Scaling", href: "/engine/multi-environment" }
+          - { label: "Codebolt Native Applications", href: "/engine/codebolt-native-applications" }
           - { label: "Codebolt Editor", href: "/products/editor" }
           - { label: "Codebolt CLI", href: "/products/cli" }
           - { label: "Codebolt Cloud", href: "/products/cloud" }
@@ -1464,6 +1466,183 @@ pages:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
           - { label: "Back to Engine", href: "/engine", variant: "secondary" }
 
+  # ── Engine: Codebolt Native Applications ──
+  - slug: "engine/codebolt-native-applications"
+    title: "Codebolt Native Applications — Build Apps on the Agent Engine"
+    sections:
+
+      - type: product-hero
+        eyebrow: "CODEBOLT NATIVE APPLICATIONS"
+        title: "Applications that use the agent engine as their backend"
+        subtitle: "Cloud-native applications were designed around cloud primitives. Codebolt-native applications are designed around Codebolt primitives: agents, plugins, memory, tasks, environments, dynamic panels, and cloud-scale execution."
+        buttons:
+          - { label: "Read App Docs", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/04b_custom-agentic-applications/01_overview", variant: "primary" }
+          - { label: "Explore the SDK", href: "/products/sdk", variant: "secondary" }
+        media:
+          label: "Codebolt-native architecture"
+          placeholder: "App UI + plugin backend + agent runtime"
+          alt: "Codebolt native application architecture"
+
+      - type: centered-text
+        variant: "thesis"
+        text: "A Codebolt-native application is not just a web app with an AI chat box. It is an application whose workflow, backend, and runtime behavior are built around the Codebolt engine. The app can call agents, manage tasks, open dynamic panels, run plugins, coordinate environments, use memory, and scale work through local or cloud agent runtimes."
+
+      - type: bento-grid
+        kicker: "APPLICATION MODEL"
+        heading: "Four ways to build on the engine"
+        description: "Choose the level of integration that matches your product. Start with APIs, move into plugin-backed applications, embed UI directly inside Codebolt, or host the engine yourself."
+        columns: 4
+        gap: "none"
+        items:
+          - title: "Client SDK or Cloud API"
+            tag: "External app"
+            description: "Connect a third-party product to Codebolt through the <a href='/products/sdk'>Client SDK</a> or Cloud API. Your app keeps its own UI while Codebolt supplies agents, threads, tasks, jobs, git, memory, environments, and real-time sockets."
+            span: 2
+            visual: |
+              your product
+                 │ REST + WebSocket
+                 ▼
+              Codebolt server / Cloud API
+              ├─ agents + threads
+              ├─ tasks + jobs
+              ├─ memory + knowledge
+              └─ environments + tools
+          - title: "Plugin-backed application"
+            tag: "Plugin SDK"
+            description: "Use the <a href='https://docs.codebolt.ai/docs/04_build-on-codebolt/05_plugins/01_overview'>Plugin SDK</a> as the backend for app features. The plugin can expose Hono-style routes, validate requests, run engine APIs, push events, and keep application logic close to the runtime."
+          - title: "Dynamic panels"
+            tag: "In-app UI"
+            description: "Open <a href='https://docs.codebolt.ai/docs/04_build-on-codebolt/04_custom-uis/05_dynamic-panels'>dynamic panels</a> inside Codebolt so the application UI lives directly in the editor. Agents and plugins can open, update, stream to, and close panels during a workflow."
+          - title: "Self-hosted engine"
+            tag: "Embedded runtime"
+            description: "Run Codebolt on your own server or infrastructure like an agent framework, but with engine-level capabilities already included: agents, plugins, memory, orchestration, provider routing, environments, and UI extension points."
+          - title: "Cloud-scale backend agents"
+            tag: "Scale"
+            description: "Let applications invoke Cloud agents as backend workers. Codebolt Cloud can route runs, start sandboxes, stream status, preserve run state, and scale agent invocations independently from the application frontend."
+          - title: "Runtime-native features"
+            tag: "Engine"
+            description: "Applications inherit engine primitives instead of rebuilding them: agent management, multi-agent coordination, plugin execution, memory, evals, tasks, jobs, environment lifecycle, logs, and provider/model routing."
+
+      - type: feature-block
+        kicker: "01 · CLIENT SDK AND API"
+        heading: "Build any interface on top of Codebolt"
+        body: "A third-party product can connect directly to a local Codebolt server or Codebolt Cloud using the Client SDK and APIs. That product can keep its own frontend, auth, domain model, and business workflow while delegating agent execution, task management, jobs, git operations, memory, environment control, and real-time updates to Codebolt. This is the lightest way to make an existing product Codebolt-native."
+        cta: { label: "Explore the SDK", href: "/products/sdk" }
+        diagram: |
+          React / SaaS / internal tool
+              │
+              ├─ REST APIs
+              ├─ WebSocket events
+              └─ Cloud API
+                    │
+                    ▼
+          Codebolt runtime
+              ├─ chat + threads
+              ├─ tasks + jobs
+              ├─ agents + execution
+              ├─ git + files
+              ├─ memory + knowledge
+              └─ environments
+
+      - type: feature-block
+        kicker: "02 · PLUGIN BACKEND"
+        heading: "Use a plugin as the application backend"
+        body: "For deeper integration, a Codebolt plugin can become the backend for a web application surface. The feedback form plugin is the small version of this pattern: the UI calls a plugin route, the plugin handles the request, updates state, emits events, and can use the full engine context. Larger applications can use the same shape for approvals, dashboards, review tools, business workflows, or vertical agent products."
+        reverse: true
+        cta: { label: "Read plugin-backed UI docs", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/04b_custom-agentic-applications/04_plugin-backed-uis" }
+        diagram: |
+          UI panel
+              │ codeboltPlugin.fetch('/feedback')
+              ▼
+          plugin.dynamicPanel.router(panelId)
+              ├─ validate request
+              ├─ call engine APIs
+              ├─ run agents / jobs
+              ├─ emit live events
+              └─ return JSON
+
+          plugin is the backend
+          Codebolt is the runtime
+
+      - type: feature-block
+        kicker: "03 · DYNAMIC PANELS"
+        heading: "Turn Codebolt into the application shell"
+        body: "A Codebolt-native application can run inside the Codebolt Editor itself. Dynamic panels let plugins and agents create application UI at runtime, stream data into it, receive user actions, and adapt the interface to the workflow. That means Codebolt can become a planning tool, review console, support dashboard, data labeling surface, operations cockpit, or any domain app that needs agents as first-class workers."
+        cta: { label: "Explore dynamic panels", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/04_custom-uis/05_dynamic-panels" }
+        diagram: |
+          Codebolt Editor
+              │
+              ├─ project workspace
+              ├─ agent threads
+              ├─ terminal / files / git
+              └─ dynamic app panels
+                     ▲
+                     │ messages + events
+                     ▼
+          plugin backend + engine APIs
+
+          the editor becomes your app shell
+
+      - type: feature-block
+        kicker: "04 · CLOUD AND SELF-HOST"
+        heading: "Run the same application locally, in Cloud, or on your infrastructure"
+        body: "The application does not have to care whether work runs on a laptop, a cloud sandbox, a local server, or your own infrastructure. Codebolt can be used like an agent framework, but the framework already includes runtime UI, plugin lifecycle, memory, task state, environment routing, multi-agent coordination, and operational visibility. For Codebolt Cloud, applications can call backend agents through the API and scale each invocation independently."
+        reverse: true
+        cta: { label: "Explore Cloud", href: "/products/cloud" }
+        diagram: |
+          Codebolt-native app
+              │
+              ├─ local Codebolt server
+              ├─ Codebolt Cloud API
+              ├─ self-hosted engine
+              └─ remote environments
+
+          same app contract
+          different execution topology
+
+      - type: comparison-columns
+        problem:
+          heading: "Normal AI apps"
+          items:
+            - "Treat AI as a chat sidebar or one-off API call"
+            - "Rebuild agent state, memory, task tracking, logs, and execution management from scratch"
+            - "Need a separate backend for orchestration, tool access, scheduling, and long-running jobs"
+            - "Often stop at one agent in one environment"
+            - "Have to invent their own UI extension and plugin model"
+        solution:
+          heading: "Codebolt-native apps"
+          items:
+            - "Use Codebolt as the backend runtime for agents, plugins, memory, jobs, tasks, and environments"
+            - "Can run as standalone apps, plugin-backed apps, dynamic panels, Cloud API clients, or self-hosted engine deployments"
+            - "Get multi-agent coordination and multi-environment scaling as runtime capabilities"
+            - "Can turn the Codebolt Editor into a custom application shell"
+            - "Build domain software on top of an engine that can evolve the agents, plugins, and UI around the workflow"
+
+      - type: feature-block
+        kicker: "05 · WHAT YOU GET BY DEFAULT"
+        heading: "Application infrastructure that already understands agents"
+        body: "The reason this matters is leverage. A Codebolt-native application starts with the engine features already in place: agent portfolios, custom agents, plugins, memory, tasks, jobs, files, git, terminals, environment providers, model routing, event streams, observability, evaluations, and dynamic UI. Instead of building a server around an agent, you build the application on an engine that already knows how agent work behaves."
+        diagram: |
+          engine capabilities
+          ├─ agent management
+          ├─ custom agents + plugins
+          ├─ memory + knowledge
+          ├─ tasks + jobs + goals
+          ├─ files + git + terminals
+          ├─ model/provider routing
+          ├─ local/cloud environments
+          ├─ observability + evals
+          └─ dynamic panels
+
+          your app composes these
+          instead of rebuilding them
+
+      - type: cta-block
+        heading: "Build applications around the engine, not beside it."
+        buttons:
+          - { label: "Read App Docs", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/04b_custom-agentic-applications/01_overview", variant: "primary" }
+          - { label: "Explore Codebolt Editor", href: "/products/editor", variant: "secondary" }
+
   # ── Product: CLI ───────────────────────────
   - slug: "products/cli"
     title: "Codebolt CLI — Multi-Agent Terminal Workspace"
@@ -1852,70 +2031,219 @@ pages:
 
   # ── Product: 24/7 Autonomous Agent ─────────
   - slug: "products/autonomous-agent"
-    title: "Codebolt 24/7 Autonomous Agent — Always-On AI That Grows With You"
+    title: "Codebolt 24/7 Autonomous Agent — Always-On Agents for Any Platform"
     sections:
 
-      - type: page-header
-        title: "Codebolt 24/7 Autonomous Agent"
-        subtitle: "An always-on agent with persistent memory, plugin integrations, and proactive capabilities. Reaches your customers wherever they already are."
+      - type: product-hero-stack
+        eyebrow: "CODEBOLT 24/7 AUTONOMOUS AGENT"
+        title: "Always-on agents connected to every platform"
+        subtitle: "Run autonomous agents on your own Codebolt server or in the cloud portal. Connect Telegram, Linear, webhooks, custom chat channels, native apps, schedules, hooks, memory, and multi-agent scaling through the same engine runtime."
+        buttons:
+          - { label: "Start Building", href: "/pricing", variant: "primary" }
+          - { label: "Explore Plugins", href: "/engine/system-extensibility", variant: "secondary" }
+        stackTitle: "Always-on runtime"
+        stackItems:
+          - { label: "Surfaces", value: "Telegram, Linear, webhooks, custom apps" }
+          - { label: "Routing", value: "single, per-user, per-conversation, per-message, multi-thread" }
+          - { label: "Triggers", value: "schedule, hooks, webhook, user request" }
+          - { label: "Runtime", value: "self-hosted server or Codebolt Cloud" }
+          - { label: "Scale", value: "memory, custom agents, plugins, multi-agent, multi-environment" }
+        footer: "A long-running agent system, not a hosted chat widget."
 
       - type: centered-text
         variant: "thesis"
-        text: "Run the engine always-on. Three-tier persistent memory means your agent remembers everything — across sessions, across tasks, across days. Plugins connect it to email, calendar, monitoring, messaging apps, and anything with an API. The engine grows with you."
+        text: "An autonomous agent is not just a hosted chat bot. In Codebolt it is a server-backed agent system: external platforms send messages or events into the gateway, the gateway maps them to the right thread strategy, agents use persistent memory and plans, plugins can modify applications in real time, and the runtime can scale across agents and environments as the workload grows."
+
+      - type: bento-grid
+        kicker: "PLATFORM INTEGRATIONS"
+        heading: "Connect your agent to any surface"
+        description: "Codebolt plugins let the autonomous agent meet users and systems where they already work. Chat channels, issue trackers, internal tools, webhooks, and Codebolt-native apps can all become front doors to the same server runtime."
+        columns: 3
+        gap: "none"
+        items:
+          - title: "Chat channel plugins"
+            tag: "Telegram / Slack / Custom"
+            description: "Build chat plugins like Telegram channel integrations so users can talk to a Codebolt server instance from external messaging platforms."
+            span: 2
+            visual: |
+              Telegram / Slack / custom chat
+                    │
+                    ▼
+              Codebolt channel plugin
+                    │
+                    ▼
+              Gateway → agent thread
+          - title: "Application plugins"
+            tag: "Linear / Jira / GitHub"
+            description: "Plugins like Linear agent integrations can convert platform events, issues, comments, and workflow changes into agent sessions."
+            visual: |
+              Linear issue
+              ├─ webhook event
+              ├─ agent session
+              └─ plan + updates
+          - title: "Custom platform adapters"
+            tag: "Plugins"
+            description: "Write custom plugins for internal tools, customer portals, monitoring systems, or any platform with an API."
+          - title: "Codebolt-native apps"
+            tag: "Runtime apps"
+            description: "Use plugins and custom Codebolt-native applications to let agents modify product state, dashboards, panels, and workflows in real time."
+          - title: "Remote webhooks"
+            tag: "Webhooks"
+            description: "Expose remote webhook entry points so third-party systems can trigger agent work without a human opening a prompt."
+
+      - type: accordion-showcase
+        kicker: "ROUTING + DEPLOYMENT"
+        heading: "Self-host it, use Cloud, and route every conversation correctly"
+        subtitle: "The server gateway decides how incoming platform messages become agent work. That lets one integration behave like a shared chat, a per-user assistant, a per-conversation support agent, or a multi-thread workflow."
+        visualLabel: "Gateway routing model"
+        visual: |
+          External Platform
+          ├─ Telegram message
+          ├─ Linear webhook
+          ├─ custom app event
+          ├─ calendar trigger
+          └─ remote webhook
+
+                  │
+                  ▼
+
+          Codebolt Gateway
+          ├─ single shared thread
+          ├─ one thread per user
+          ├─ one thread per conversation
+          ├─ one thread per message
+          └─ multiple coordinated threads
+
+                  │
+                  ▼
+
+          Autonomous agent runtime
+          memory + plans + plugins + hooks
+        items:
+          - question: "Self-host locally or on your own server"
+            answer: "Run Codebolt server wherever you need control: a local machine, private VM, internal network, or your own deployment. The same plugin and gateway model works without forcing you into hosted infrastructure."
+          - question: "Use the cloud portal when you do not want to host"
+            answer: "Use Codebolt Cloud as the managed control plane for teams that want always-on agents without maintaining the runtime themselves."
+          - question: "Route by client and conversation shape"
+            answer: "Gateway routing supports different thread strategies: shared chats, one thread per user, one thread per conversation, one thread per message, or multiple coordinated threads."
+          - question: "Keep client communication flexible"
+            answer: "Different clients need different routing. A support inbox, Telegram bot, Linear issue worker, webhook monitor, and Codebolt-native app do not have to use the same conversation model."
+
+      - type: tabs-showcase
+        kicker: "ALWAYS-ON WORK MODES"
+        heading: "Autonomous agents can start from schedules, hooks, webhooks, or users"
+        subtitle: "Long-term monitoring and background work becomes practical when schedules, calendar plans, hooks, platform events, and custom plugins all feed the same agent runtime."
+        tabs:
+          - label: "Schedule"
+            title: "Work on a schedule"
+            tag: "Calendar + plans"
+            description: "Use calendar and plan structures to schedule recurring or future agent work, then route triggered tasks through the gateway."
+            points:
+              - "Run daily, weekly, or time-based tasks."
+              - "Attach planned work to threads and task state."
+              - "Use persistent memory so recurring jobs improve over time."
+            visual: |
+              calendar
+              ├─ 09:00 check deploy health
+              ├─ 12:00 summarize Linear issues
+              └─ Friday run release review
+                    │
+                    ▼
+              gateway → agent thread
+          - label: "Hooks"
+            title: "React to events as they happen"
+            tag: "Runtime hooks"
+            description: "Hooks let agents respond to events beyond time: application changes, plugin events, workflow transitions, monitoring alerts, or custom runtime signals."
+            points:
+              - "Monitor long-running systems without polling manually."
+              - "React when a plugin, app, or workflow emits an event."
+              - "Combine hooks with custom agents for domain-specific behavior."
+            visual: |
+              event occurs
+              ├─ plugin update
+              ├─ app state changed
+              ├─ workflow status
+              └─ monitoring alert
+                    │
+                    ▼
+              hook → agent action
+          - label: "Webhooks"
+            title: "Accept remote webhook triggers"
+            tag: "Remote events"
+            description: "Remote systems can call webhooks to trigger autonomous work from outside the Codebolt UI."
+            points:
+              - "Connect CI, issue trackers, support tools, and internal systems."
+              - "Use gateway routing to choose the right thread strategy."
+              - "Return results through plugins or platform replies."
+            visual: |
+              remote system
+              ├─ POST /webhook
+              ├─ payload + metadata
+              └─ thread strategy
+                    │
+                    ▼
+              route → run agent
+          - label: "User"
+            title: "Work on direct user request"
+            tag: "Chat + apps"
+            description: "Users can still ask directly through chat channels, the editor, CLI, cloud portal, or custom Codebolt-native applications."
+            points:
+              - "One engine can serve many client surfaces."
+              - "The same agent can continue from user messages, schedules, or hooks."
+              - "Plugins can reply back to the originating platform."
+            visual: |
+              user request
+              ├─ Telegram
+              ├─ Cloud portal
+              ├─ Codebolt app
+              └─ CLI / Editor
+                    │
+                    ▼
+              gateway → memory → agent
 
       - type: feature-block
-        heading: "Persistent memory that compounds"
-        body: "Episodic memory for time-based recall of past interactions. Persistent memory with chunking, embedding, and retrieval pipelines. The Context Assembly Engine assembles optimal context using rules, pipelines, and token budgets. Your agent doesn't just remember — it knows what to remember and when to use it. The longer it runs, the smarter it gets."
+        kicker: "01 · MEMORY"
+        heading: "Persistent memory keeps the intelligence alive"
+        body: "Autonomous work only matters if the agent can retain context across runs. Codebolt's memory structure lets agents keep durable knowledge across sessions, tasks, users, and time. That memory can be retrieved into future conversations, scheduled jobs, webhook-triggered work, and long-term monitoring loops."
         diagram: |
-          ┌─────────────────────────┐
-          │ Context Assembly Engine │
-          ├─────────────────────────┤
-          │ Episodic → time-based   │
-          │ Persistent → structured │
-          │ Rules → what to include │
-          │ Token budget → limits   │
-          ├─────────────────────────┤
-          │ Compounds over time     │
-          └─────────────────────────┘
+          Memory structure
+          ├─ working context
+          ├─ episodic memory
+          ├─ persistent memory
+          ├─ vector retrieval
+          ├─ knowledge graph
+          └─ context assembly
+
+          schedule / hook / webhook / user
+                    │
+                    ▼
+              memory-aware agent
 
       - type: feature-block
-        heading: "Plugins connect it to your world"
-        body: "Plugins connect through three communication channels — WebSocket, multiplexed events, and HTTP REST. Build or install plugins for email, calendar, GitHub, Jira, Slack, monitoring, home automation, and anything with an API. Plugins run inside the engine — they don't need separate agent instances."
+        kicker: "02 · SCALE"
+        heading: "Scale from one always-on agent to coordinated agent systems"
+        body: "A Codebolt autonomous agent can start as one worker and grow into multi-agent, multi-environment execution. The same engine supports custom agents, custom plugins, shared memory, multi-thread routing, and multi-environment scaling when the task needs more capacity or coordination."
         reverse: true
         diagram: |
-          Engine
-            │
-          ┌─┼─────────────────────┐
-          │ Plugin: Email         │
-          │ Plugin: Calendar      │
-          │ Plugin: GitHub        │
-          │ Plugin: Monitoring    │
-          │ Plugin: Custom        │
-          └───────────────────────┘
-          All running inside the engine
-
-      - type: feature-block
-        heading: "What OpenClaw and Hermes can't do"
-        body: "OpenClaw is a great personal agent. Hermes has an impressive learning loop. But neither can scale to multi-agent orchestration, multi-environment coordination, or autonomous company infrastructure. Codebolt can. Start as a personal agent — scale to running your entire business when you're ready. Same engine, same memory, same plugins."
-        diagram: |
-          OpenClaw / Hermes:
-          ✓ Personal agent
-          ✓ Persistent memory
-          ✓ Skills/plugins
-          ✗ Multi-agent coordination
-          ✗ Multi-environment
-          ✗ Enterprise governance
-
-          Codebolt 24/7 Autonomous Agent:
-          ✓ All of the above
-          + Scales to orchestration
-          + Same engine as Editor/CLI
+          one autonomous agent
+                    │
+                    ▼
+          custom agents + plugins
+                    │
+                    ▼
+          multi-thread gateway routing
+                    │
+                    ▼
+          multi-agent coordination
+                    │
+                    ▼
+          local + server + cloud + fleet
 
       - type: cta-block
-        heading: "Your 24/7 agent. On an engine that scales."
+        heading: "Build an autonomous agent that lives where your work happens."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
-          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
+          - { label: "Explore Plugins", href: "/engine/system-extensibility", variant: "secondary" }
 
   # ── Product: Cloud ─────────────────────────
   - slug: "products/cloud"
