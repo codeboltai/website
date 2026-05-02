@@ -30,6 +30,7 @@ interface Props {
   heroFeatures: HeroFeature[];
   compactFeatures?: CompactFeature[];
   tone?: 'default' | 'muted';
+  gap?: 'none' | 'sm' | 'md' | 'lg';
 }
 
 const {
@@ -39,7 +40,15 @@ const {
   heroFeatures = [],
   compactFeatures = [],
   tone = 'default',
+  gap = 'md',
 } = Astro.props;
+
+const gapClass: Record<string, string> = {
+  none: 'gap-0',
+  sm: 'gap-2',
+  md: 'gap-4',
+  lg: 'gap-6',
+};
 
 const bgClass = tone === 'muted' ? 'bg-muted/10 dark:bg-zinc-900/20' : 'bg-background dark:bg-[#050505]';
 
@@ -67,14 +76,14 @@ const compactGridClass: Record<number, string> = {
             <span class="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">{kicker}</span>
           </div>
         )}
-        {heading && <h2 class="text-3xl md:text-5xl font-medium text-foreground tracking-tighter mb-3 leading-[0.95]">{heading}</h2>}
+        {heading && <h2 class="text-3xl md:text-4xl font-medium text-foreground tracking-tight mb-3 leading-[1.12]">{heading}</h2>}
         {subtitle && <p class="text-lg text-muted-foreground font-light">{subtitle}</p>}
       </div>
     )}
 
     {/* Hero features — large cards with visuals */}
     {heroFeatures.length > 0 && (
-      <div class={cn('grid gap-4 mb-4', heroGridClass[heroFeatures.length] || heroGridClass[3])}>
+      <div class={cn(`grid ${gapClass[gap] || gapClass.md} mb-4`, heroGridClass[heroFeatures.length] || heroGridClass[3])}>
         {heroFeatures.map((item: HeroFeature) => {
           const Tag = item.href ? 'a' : 'div';
           const linkProps = item.href ? { href: item.href } : {};
@@ -124,7 +133,7 @@ const compactGridClass: Record<number, string> = {
 
     {/* Compact features — smaller cards, no visuals */}
     {compactFeatures.length > 0 && (
-      <div class={cn('grid gap-4', compactGridClass[compactFeatures.length] || compactGridClass[4])}>
+      <div class={cn(`grid ${gapClass[gap] || gapClass.md}`, compactGridClass[compactFeatures.length] || compactGridClass[4])}>
         {compactFeatures.map((item: CompactFeature) => {
           const Tag = item.href ? 'a' : 'div';
           const linkProps = item.href ? { href: item.href } : {};

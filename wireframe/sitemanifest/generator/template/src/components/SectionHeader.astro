@@ -48,7 +48,7 @@ const titleLines = (title ?? '').split('\n').filter(Boolean);
     )}
 
     {titleLines.length > 0 && (
-      <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-6 leading-[1.1]">
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tight mb-5 leading-[1.12]">
         {titleLines.map((line, i) => (
           <span class={cn('block', i === 0 ? 'text-foreground dark:text-white' : 'text-muted-foreground dark:text-zinc-500')}>
             {line}

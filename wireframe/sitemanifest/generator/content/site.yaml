@@ -1,12 +1,6 @@
 site:
   name: "Codebolt"
-<<<<<<< HEAD
-  tagline: "The engine for agent-native software"
   logo:
-=======
-  tagline: "Build software with Codebolt, run autonomous agents anywhere, ship Codebolt-native on top."
-__dockview_internal_drag_event__$0  logo:
->>>>>>> 3b2cfeb93e7c38d498799319723d5f06990d6cb6
     text: "Code"
     highlight: "bolt"
 
@@ -545,6 +539,7 @@ pages:
         kicker: "THE ENGINE"
         heading: "The pillars of the engine"
         subtitle: "Extensible at every layer. Self-improving by design. Moldable at the surface."
+        gap: "none"
         heroFeatures:
           - title: "System Extensibility"
             description: "Three SDKs. Agent SDK (63+ modules), Plugin SDK (3 channels), Client SDK (72 REST + 33 WS). The system is open at every layer."
@@ -609,6 +604,7 @@ pages:
         heading: "Built different. Scales different."
         description: "An advanced agent execution engine — from one agent to autonomous companies."
         columns: 3
+        gap: "none"
         items:
           - title: "63+ SDK Modules"
             description: "Filesystem, git, browser, terminal, LLM, vector DB, memory, knowledge graph, code search, and more."
@@ -765,6 +761,7 @@ pages:
 
       - type: card-grid
         heading: "The Progression"
+        gap: "none"
         cards:
           - title: "Day 1 — CLI in your terminal"
             body: "Install Codebolt. Run it in your terminal. Use a built-in agent or bring your own. Like Claude Code but with any model, full SDK access, and room to grow."

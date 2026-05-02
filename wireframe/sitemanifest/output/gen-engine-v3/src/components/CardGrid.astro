@@ -1,7 +1,14 @@
 ---
 import { cn } from '../lib/utils';
 
-const { heading, cards = [], columns = 3 } = Astro.props;
+const gapClass = {
+  none: 'gap-0',
+  sm: 'gap-2',
+  md: 'gap-6',
+  lg: 'gap-10',
+};
+
+const { heading, cards = [], columns = 3, gap = 'md' } = Astro.props;
 
 const gridCols = {
   2: 'grid-cols-1 md:grid-cols-2',
@@ -14,13 +21,13 @@ const gridCols = {
   <div class="max-w-[1200px] mx-auto">
     {/* Section Header */}
     <div class="mb-20 max-w-3xl">
-      <h2 class="text-4xl md:text-6xl font-medium tracking-tighter text-foreground dark:text-white mb-8 leading-[0.95]">
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-foreground dark:text-white mb-6 leading-[1.12]">
         {heading}
       </h2>
     </div>
 
     {/* Feature Cards Grid */}
-    <div class={cn('grid gap-6', gridCols[columns] || gridCols[3])}>
+    <div class={cn(`grid ${gapClass[gap] || gapClass.md}`, gridCols[columns] || gridCols[3])}>
       {cards.map((card, idx) => {
         const Tag = card.href ? 'a' : 'div';
         const linkProps = card.href ? { href: card.href } : {};
