@@ -1480,7 +1480,7 @@ pages:
         installCommand: "npm i -g codebolt"
         media:
           label: "Codebolt CLI Demo"
-          placeholder: "Product GIF / TUI screenshot"
+          src: "/images/cli-1.png"
           alt: "Codebolt CLI multi-agent terminal interface"
 
       - type: bento-grid
@@ -1525,18 +1525,8 @@ pages:
         heading: "tmux-style agent work, not one linear chat"
         body: "Codebolt CLI is designed for the way agent work actually happens: one thread explores, another edits, another tests, another reviews. The TUI can show parent and child conversations together, keep windows arranged on a terminal canvas, and let you supervise parallel work from one keyboard-first surface."
         reverse: true
-        diagram: |
-          Codebolt CLI
-          ├─ base thread: plan feature
-          │
-          ├─ child thread: update API
-          ├─ child thread: update UI
-          ├─ child thread: write tests
-          └─ child thread: review diff
-
-          one terminal
-          many agent threads
-          same server runtime
+        image: "/images/tmux-style.gif"
+        imageAlt: "Codebolt CLI tmux-style terminal workspace showing multiple agent work panes in parallel"
 
       - type: accordion-showcase
         kicker: "MULTI-AGENT · MULTI-ENVIRONMENT"
@@ -1591,6 +1581,9 @@ pages:
               - "File tree and file preview stay close to the agent conversation."
               - "Autocomplete and search help attach the right project context."
               - "File read/write activity remains inspectable from the terminal."
+            image:
+              src: "/images/cli-editor.png"
+              alt: "Codebolt CLI project workspace with file tree and editor-style terminal panels"
             visual: |
               project
               ├─ files
@@ -1608,6 +1601,9 @@ pages:
               - "Review changed files while the agent run is still active."
               - "Use git status and commit panels without leaving the TUI."
               - "Keep checkpoints and code review in the same operator surface."
+            image:
+              src: "/images/cli-git.png"
+              alt: "Codebolt CLI git panel showing changed files and repository status"
             visual: |
               git
               ├─ status
@@ -1624,6 +1620,9 @@ pages:
               - "Keep chat beside status and review panels."
               - "Monitor connection state while long-running agents continue."
               - "Use the terminal as an operator console, not just a prompt."
+            image:
+              src: "/images/cli-panels.png"
+              alt: "Codebolt CLI operational panels showing chat, notifications, connection status, and review state"
             visual: |
               panels
               ├─ chat
@@ -1638,6 +1637,9 @@ pages:
               - "Stream server and agent logs inside the TUI."
               - "Inspect structured runtime events for debugging."
               - "Understand why an agent is waiting, failing, or retrying."
+            image:
+              src: "/images/cli-logs.png"
+              alt: "Codebolt CLI logs panel showing runtime, server, and agent events"
             visual: |
               logs
               ├─ server
@@ -1652,6 +1654,9 @@ pages:
               - "Choose providers and models from terminal dialogs."
               - "Set pinned agents and defaults for the project."
               - "Change theme, keybindings, and app settings in place."
+            image:
+              src: "/images/cli-setting.png"
+              alt: "Codebolt CLI settings panel for providers, models, agents, themes, and keybindings"
             visual: |
               settings
               ├─ login
