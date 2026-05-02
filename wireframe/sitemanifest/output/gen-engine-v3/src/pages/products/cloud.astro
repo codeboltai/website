@@ -2,67 +2,141 @@
 // Auto-generated from site.yaml — edit site.yaml and regenerate
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site, navigation } from '../../data/site-data.js';
-import PageHeader from '../../components/PageHeader.astro';
+import ProductHero from '../../components/ProductHero.astro';
 import CenteredText from '../../components/CenteredText.astro';
+import BentoGrid from '../../components/BentoGrid.astro';
 import FeatureBlock from '../../components/FeatureBlock.astro';
-import ComparisonColumns from '../../components/ComparisonColumns.astro';
 import CtaBlock from '../../components/CtaBlock.astro';
 ---
-<BaseLayout title="Codebolt Cloud — Hosted Engine, Browser Portal" navbarVariant="solid" site={site} navigation={navigation}>
-  <PageHeader
-    title="Codebolt Cloud"
-    subtitle="The engine, hosted. A browser portal, sandboxed runs, and shared workspaces — no local install required."
+<BaseLayout title="Codebolt Cloud — Agent Control Plane" navbarVariant="solid" site={site} navigation={navigation}>
+  <ProductHero
+    eyebrow="CODEBOLT CLOUD"
+    title="The cloud control plane for agent work"
+    subtitle="Run agents in managed or bring-your-own sandboxes, connect local Codebolt instances, schedule goals, monitor usage, and manage marketplace registries from one portal."
+    buttons={[{"label":"Open Cloud","href":"https://cloud.codebolt.ai","variant":"primary"},{"label":"Explore Sandboxes","href":"https://docs.codebolt.ai/docs/04_build-on-codebolt/08a_multi-environment-orchestration/01_overview","variant":"secondary"}]}
+    media={{"label":"Codebolt Cloud Portal","placeholder":"Cloud product GIF / portal screenshot","alt":"Codebolt Cloud portal for agents, sandboxes, automations, usage, and registries"}}
   />
   <CenteredText
     variant="thesis"
-    text="Codebolt Cloud spins up the engine for you. Open a workspace in your browser, drop in agents and plugins, and run them on managed sandboxes. Same SDK, same plugins, same memory as the desktop Editor — just managed infrastructure underneath."
+    text="Codebolt Cloud lets you start in the browser, CLI, or desktop app and scale into managed or bring-your-own sandboxes. Run cloud agents, connect local Codebolt instances, schedule goals, monitor usage, and manage public or private plugin and template registries from one portal."
+  />
+  <BentoGrid
+    kicker="CLOUD CAPABILITIES"
+    heading="Run and manage agents across every environment"
+    description="Cloud is not just a hosted editor. It is the shared control plane for launching, routing, supervising, and scaling Codebolt work."
+    columns={3}
+    gap="none"
+    items={[{"title":"Bring your own sandboxes","tag":"Sandboxes","description":"Run cloud agents in managed or self-owned sandboxes such as <a href='https://docs.codebolt.ai/docs/04_build-on-codebolt/08a_multi-environment-orchestration/01_overview'>E2B, Daytona, Docker, worktrees, remote servers, or custom providers</a>. Start sandboxes from the portal UI, API calls, webhooks, or automations.","span":2,"visual":"portal / api / automation\n         │\n         ▼\nenvironment provider\n├─ E2B sandbox\n├─ Daytona workspace\n├─ Docker container\n├─ git worktree\n└─ remote Codebolt server\n"},{"title":"Scale from CLI or Desktop","tag":"Handoff","description":"Start local in the <a href='/products/cli'>CLI</a> or <a href='/products/editor'>Editor</a>, then scale the same work into Cloud when you need longer runs, remote capacity, team visibility, or scheduled execution."},{"title":"Connect local instances","tag":"Local + Cloud","description":"Use the cloud plugin to connect local Codebolt instances to Cloud, manage local sessions from the portal, and hand work off between local and cloud runtimes without losing context."},{"title":"Automations and goals","tag":"Always-on","description":"Define goals, scheduled runs, webhook triggers, and API-triggered jobs so agents can operate on a cadence instead of waiting for a human to open a prompt."},{"title":"Backend agents for native apps","tag":"App backend","description":"Use Cloud agents as scalable backend workers for Codebolt-native applications. Apps can invoke agents directly through the API and let Cloud handle routing, sandboxing, execution, and run state."}]}
   />
   <FeatureBlock
-    heading="The engine, managed for you"
-    body="Every Cloud workspace is a full Codebolt engine running on a managed sandbox. Spawn it, run agents, transfer state, tear it down. No daemon to install, no ports to expose. The same engine that powers the desktop Editor — just running on our infrastructure instead of yours."
-    diagram="Browser Portal
-      │
-      ↓ HTTPS + WebSocket
-┌── Managed Sandbox ──┐
-│ Codebolt Engine     │
-│ Agents · Plugins    │
-│ Memory · Storage    │
-└─────────────────────┘
-Same engine. Hosted.
+    kicker="01 · SANDBOX AGENTS"
+    heading="Start cloud agents in the sandbox you choose"
+    body="Codebolt Cloud can launch agent work into provider-backed environments instead of forcing everything into one hosted runtime. Use Codebolt-managed sandboxes, connect your own E2B or Daytona accounts, route work to Docker or worktree environments, or build a custom provider for your infrastructure. The portal, API, and automations all talk to the same environment model."
+    cta={{"label":"Read environment orchestration docs","href":"https://docs.codebolt.ai/docs/04_build-on-codebolt/08a_multi-environment-orchestration/01_overview"}}
+    diagram="Codebolt Cloud
+    │
+    ├─ Portal: start sandbox
+    ├─ API: POST /runs
+    ├─ Webhook: external event
+    └─ Automation: scheduled goal
+            │
+            ▼
+provider-backed environment
+    ├─ lifecycle + heartbeat
+    ├─ agent runtime
+    ├─ files + diffs
+    └─ logs + usage
 "
   />
   <FeatureBlock
-    heading="Share workspaces. Hand off context."
-    body="A Cloud workspace is a URL. Share it with a teammate and they pick up exactly where you left off — same agents, same memory, same state. Hand off long-running tasks to the cloud and let them keep working while your laptop sleeps."
+    kicker="02 · LOCAL HANDOFF"
+    heading="Manage local Codebolt sessions from Cloud"
+    body="Cloud can connect to local Codebolt instances through the cloud plugin. That gives you a shared portal for local sessions, cloud sessions, and handoffs between them. You can begin in the desktop app or CLI, promote a run to cloud infrastructure, or keep a local machine as an environment Cloud can coordinate."
     reverse={true}
-    diagram="Local Editor ──→ push state
-                  ↓
-             Cloud workspace
-                  ↓
-Teammate's Editor ←── pull state
+    diagram="Desktop / CLI instance
+      │ cloud plugin
+      ▼
+Codebolt Cloud portal
+      │
+      ├─ view local sessions
+      ├─ continue in cloud sandbox
+      ├─ send work back local
+      └─ coordinate mixed runs
 
-Git bundle state transfer
-Engine state, not just code
+local-first when you want it
+cloud-scale when you need it
 "
   />
   <FeatureBlock
-    heading="Headless, scheduled, and webhook-driven"
-    body="Cloud workspaces don't need a person watching them. Schedule agents on cron. Wire them to webhooks. Run them on demand from the API. The engine runs autonomously and reaches you when it has something to say — over Slack, Telegram, email, or whatever channel your plugin connects to."
-    diagram={`\$ curl -X POST cloud.codebolt.ai/run \\
-    -H "Authorization: Bearer ..." \\
-    -d '{"agent": "triage", ...}'
+    kicker="03 · AUTOMATIONS"
+    heading="Turn prompts into scheduled goals"
+    body="Cloud agents do not have to start from a person typing in a chat box. Define recurring goals, cron-style schedules, webhook triggers, or API-triggered jobs. Agents can triage issues, run maintenance, generate reports, watch repos, check deployments, or execute business workflows on a schedule."
+    diagram="goal: keep project healthy
+    │
+    ├─ every morning: triage issues
+    ├─ on PR: review + test
+    ├─ on deploy: monitor logs
+    ├─ webhook: customer signal
+    └─ API: start custom run
 
-# Webhook · Cron · Manual trigger
-# All through the engine
-# All under the same SDK
-`}
+portal · API · webhook · schedule
+"
   />
-  <ComparisonColumns
-    problem={{"heading":"Local-only tools","items":["Engine dies when you close your laptop","Long-running tasks block your machine","No way to hand off a workspace to a teammate","Webhooks and cron need a server you operate","Onboarding requires installing software locally"]}}
-    solution={{"heading":"Codebolt Cloud","items":["Engine runs on managed infrastructure, 24/7","Long tasks run in the cloud while you do other work","A workspace is a URL — share, fork, or hand off","Webhooks, cron, and API triggers built in","Open a browser. You're in. Same engine as desktop."]}}
+  <FeatureBlock
+    kicker="04 · APP BACKENDS"
+    heading="Use Cloud agents as the backend for Codebolt-native applications"
+    body="Codebolt-native applications do not need to run every agent inside the user's local editor session. They can call the Cloud API, start the right agent in the right sandbox, stream status back to the application UI, and scale invocations independently from the frontend. The application owns the workflow; Codebolt Cloud supplies the agent runtime, provider routing, environment lifecycle, memory, logs, and execution state."
+    reverse={true}
+    cta={{"label":"Read custom agentic apps","href":"https://docs.codebolt.ai/docs/04_build-on-codebolt/04b_custom-agentic-applications/01_overview"}}
+    diagram="Codebolt-native app
+    │
+    ├─ frontend / dynamic panel
+    ├─ plugin or app backend
+    │
+    ▼ API
+Codebolt Cloud agents
+    ├─ route to provider
+    ├─ start sandbox
+    ├─ run agent workflow
+    ├─ stream events
+    └─ persist run state
+
+app UX scales separately
+agent execution scales in Cloud
+"
+  />
+  <FeatureBlock
+    kicker="05 · OPERATIONS"
+    heading="Track usage, cost, and runtime activity"
+    body="When agents run across local machines, cloud sandboxes, API jobs, and scheduled automations, visibility matters. Codebolt Cloud gives teams a central place to track run history, usage, costs, token consumption, environment activity, and operational status across the whole agent fleet."
+    diagram="Usage dashboard
+    ├─ agent runs
+    ├─ tokens + model cost
+    ├─ sandbox runtime
+    ├─ local/cloud activity
+    ├─ failures + retries
+    └─ team/project views
+"
+  />
+  <FeatureBlock
+    kicker="06 · REGISTRY"
+    heading="Manage public and private marketplaces"
+    body="Cloud also acts as the registry layer for your agent ecosystem. Publish and install agents, plugins, MCP servers, templates, and reusable packages. Keep some public, keep internal ones private, mirror approved marketplace entries, and give teams a controlled catalog instead of unmanaged scripts."
+    cta={{"label":"Read marketplace docs","href":"https://docs.codebolt.ai/docs/02_using-codebolt/04_agents/04_the-marketplace"}}
+    diagram="Codebolt registry
+    ├─ public marketplace
+    ├─ private org registry
+    ├─ agents
+    ├─ plugins
+    ├─ MCP servers
+    └─ templates
+
+approved tools, reusable workflows,
+and team-specific packages
+"
   />
   <CtaBlock
-    heading="The engine, hosted. Open a workspace and start."
+    heading="Start local. Scale through Cloud when the work grows."
     buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Explore the Engine","href":"/engine","variant":"secondary"}]}
   />
 </BaseLayout>
