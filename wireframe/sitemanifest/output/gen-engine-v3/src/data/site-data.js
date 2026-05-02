@@ -33,6 +33,10 @@ export const navigation = {
           {
             "label": "Multi-Environment Scaling",
             "href": "/engine/multi-environment"
+          },
+          {
+            "label": "Codebolt Native Applications",
+            "href": "/engine/codebolt-native-applications"
           }
         ]
       },
@@ -121,6 +125,10 @@ export const navigation = {
           {
             "label": "Multi-Environment Scaling",
             "href": "/engine/multi-environment"
+          },
+          {
+            "label": "Codebolt Native Applications",
+            "href": "/engine/codebolt-native-applications"
           },
           {
             "label": "Codebolt Editor",

@@ -34,6 +34,7 @@ function kebabToPascal(str) {
 const TYPE_TO_COMPONENT = {
   'hero': 'Hero',
   'product-hero': 'ProductHero',
+  'product-hero-stack': 'ProductHeroStack',
   'page-header': 'PageHeader',
   'centered-text': 'CenteredText',
   'comparison-columns': 'ComparisonColumns',
