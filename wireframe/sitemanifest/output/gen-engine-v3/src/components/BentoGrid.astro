@@ -2,7 +2,7 @@
 /**
  * BentoGrid — Asymmetric feature grid with mixed cell sizes.
  * Each item can span 1 or 2 columns, and optionally 2 rows.
- * Supports: title, description, href, visual (ASCII), visualHtml (rich HTML), tag badge.
+ * Supports: title, description, href, links, visual (ASCII), visualHtml (rich HTML), tag badge.
  */
 import { cn } from '../lib/utils';
 
@@ -10,6 +10,7 @@ interface BentoItem {
   title: string;
   description?: string;
   href?: string;
+  links?: { label: string; href: string }[];
   visual?: string;       // ASCII/code diagram
   visualHtml?: string;   // Rich HTML content
   tag?: string;          // Small badge label
@@ -79,8 +80,9 @@ const rowSpanClass = (rowSpan?: number) => {
 
     <div class={cn('grid auto-rows-auto', gapClass[gap] || gapClass.md, gridClass[columns] || gridClass[3])}>
       {items.map((item: BentoItem) => {
-        const Tag = item.href ? 'a' : 'div';
-        const linkProps = item.href ? { href: item.href } : {};
+        const hasInlineLinks = Array.isArray(item.links) && item.links.length > 0;
+        const Tag = item.href && !hasInlineLinks ? 'a' : 'div';
+        const linkProps = item.href && !hasInlineLinks ? { href: item.href } : {};
         return (
           <Tag
             {...linkProps}
@@ -88,7 +90,7 @@ const rowSpanClass = (rowSpan?: number) => {
               'group relative border border-border bg-card',
               'transition-all duration-300 hover:border-primary/60 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4)]',
               'flex flex-col overflow-hidden',
-              item.href && 'cursor-pointer no-underline',
+              item.href && !hasInlineLinks && 'cursor-pointer no-underline',
               spanClass(item.span),
               rowSpanClass(item.rowSpan),
             )}
@@ -104,14 +106,28 @@ const rowSpanClass = (rowSpan?: number) => {
                 {item.title}
               </h3>
               {item.description && (
-                <p class="text-sm text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
+                <p
+                  class="text-sm text-muted-foreground leading-relaxed [&_a]:inline-flex [&_a]:items-center [&_a]:rounded-sm [&_a]:border [&_a]:border-primary/30 [&_a]:bg-primary/10 [&_a]:px-1.5 [&_a]:py-0.5 [&_a]:font-medium [&_a]:text-primary [&_a]:no-underline [&_a]:transition-colors hover:[&_a]:border-primary/60 hover:[&_a]:bg-primary/15 hover:[&_a]:text-primary"
+                  set:html={item.description}
+                ></p>
               )}
               {item.href && (
                 <span class="inline-block mt-3 text-xs font-mono text-primary group-hover:underline">
                   Learn more &rarr;
                 </span>
+              )}
+              {hasInlineLinks && (
+                <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+                  {item.links?.map((link) => (
+                    <a
+                      href={link.href}
+                      class="inline-flex items-center gap-1 text-xs font-mono text-primary hover:underline"
+                    >
+                      {link.label}
+                      <span aria-hidden="true">&rarr;</span>
+                    </a>
+                  ))}
+                </div>
               )}
             </div>
 

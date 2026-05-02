@@ -1466,74 +1466,184 @@ pages:
 
   # ── Product: CLI ───────────────────────────
   - slug: "products/cli"
-    title: "Codebolt CLI — Terminal Coding Agent"
+    title: "Codebolt CLI — Multi-Agent Terminal Workspace"
     sections:
 
       - type: page-header
         title: "Codebolt CLI"
-        subtitle: "A coding agent in your terminal. Like Claude Code, but with an engine behind it."
+        subtitle: "A terminal workspace for running agents, threads, files, git, logs, and settings on top of the Codebolt engine."
 
       - type: centered-text
         variant: "thesis"
-        text: "Install globally. Run in your terminal. Use a built-in agent or write your own. Headless mode for CI/CD. Any LLM provider. Full 63-module SDK. And when you need more than one agent — the engine is already there."
+        text: "Most AI CLIs are one chat running one agent. Codebolt CLI is closer to tmux plus Codex: run multiple agent threads in parallel, move between workspaces, inspect files and git, and stay connected to the same server runtime used by the editor and cloud."
+
+      - type: bento-grid
+        kicker: "AGENT CHAT"
+        heading: "A serious terminal chat surface for agent work"
+        description: "Start with the familiar workflow: open the terminal, talk to an agent, attach project context, approve tool use, inspect steps, and keep the conversation moving without leaving the keyboard."
+        columns: 3
+        gap: "none"
+        items:
+          - title: "Agent conversations"
+            tag: "Chat"
+            description: "Run focused coding conversations with built-in agents, custom agents, or pinned project agents. Keep prompt, response, tool calls, and progress in a compact terminal-native flow."
+            span: 2
+            visual: |
+              chat
+              ├─ prompt
+              ├─ agent response
+              ├─ tool call cards
+              ├─ file read/write confirmations
+              └─ checkpoints + review state
+          - title: "Context controls"
+            tag: "Context"
+            description: "Use project context, file suggestions, slash commands, todos, plans, and structured widgets so the agent gets more than a raw prompt."
+            visual: |
+              @file
+              /agent
+              /model
+              todos
+              action plan
+          - title: "Tool visibility"
+            tag: "Tools"
+            description: "See filesystem, terminal, browser, git, memory, and MCP/tool activity as first-class chat events instead of invisible background automation."
+          - title: "Review checkpoints"
+            tag: "Review"
+            description: "Track file writes, shadow git checkpoints, review requests, and confirmation prompts inside the same chat where the agent is doing the work."
+          - title: "Models and agents"
+            tag: "Control"
+            description: "Pick providers, models, and agents from terminal dialogs. Change the working agent without leaving the TUI."
+
+      - type: bento-grid
+        kicker: "MULTI-AGENT · MULTI-ENVIRONMENT"
+        heading: "Run more than one agent, across more than one place"
+        description: "The CLI is backed by the Codebolt server runtime, so it is not limited to one local terminal loop. Use it as the operator surface for parallel threads, child agents, remote servers, and multi-environment work."
+        columns: 3
+        gap: "none"
+        items:
+          - title: "Parallel agent threads"
+            tag: "Threads"
+            description: "Run multiple conversations and agent tasks side by side instead of waiting on one linear session. Keep each thread scoped to its own work while still supervising the whole run."
+            span: 2
+            visual: |
+              workspace
+              ├─ thread: refactor auth
+              ├─ thread: write tests
+              ├─ thread: review diffs
+              └─ thread: update docs
+          - title: "Window tiling"
+            tag: "Tiling"
+            description: "Use a multi-window terminal canvas for agent work. Drag and arrange conversation windows, tile child threads, and keep long-running work visible without opening another tool."
+            visual: |
+              ┌─────────────┬─────────────┐
+              │ parent run  │ child agent │
+              ├─────────────┼─────────────┤
+              │ tests       │ review      │
+              └─────────────┴─────────────┘
+          - title: "Server-backed runs"
+            tag: "Runtime"
+            description: "The TUI connects to the Codebolt server over WebSocket. Local, Docker, cloud, and remote environments can share the same runtime model instead of trapping work inside one terminal process."
+            span: 2
+            visual: |
+              TUI ⇄ Codebolt Server
+                    ├─ local laptop
+                    ├─ Docker/worktree
+                    ├─ remote host
+                    └─ cloud fleet
+          - title: "Parent and child agents"
+            tag: "Orchestrate"
+            description: "Keep a base conversation visible while child agents branch into focused subtasks. This is the terminal version of supervising a small agent team."
+          - title: "Same state as Editor"
+            tag: "Continuity"
+            description: "Because CLI, Editor, Cloud, and SDK sit on the same runtime, you can start work in the editor, continue in the terminal, and keep agent state moving across surfaces."
+
+      - type: bento-grid
+        kicker: "WORKSPACE TOOLS"
+        heading: "More than chat: files, git, logs, settings"
+        description: "Codebolt CLI is also a terminal workspace. The surrounding panels matter because serious agent work needs inspection, debugging, configuration, and review."
+        columns: 3
+        gap: "none"
+        items:
+          - title: "Project workspace"
+            tag: "Files"
+            description: "Open file tree and preview panels from the terminal. Agents can read, write, search, and explain project files while you keep the project structure in view."
+            span: 2
+            visual: |
+              project
+              ├─ files
+              ├─ preview
+              ├─ search
+              └─ autocomplete
+          - title: "Git panels"
+            tag: "Git"
+            description: "Inspect git status and commits in the TUI while agent edits flow through Codebolt's runtime. Review changes where the agent work is happening."
+            visual: |
+              git
+              ├─ status
+              ├─ commits
+              └─ changed files
+          - title: "Operational panels"
+            tag: "Panels"
+            description: "Keep chat, review, logs, notifications, and connection status available together instead of spreading agent work across separate terminal windows."
+          - title: "Logs and observability"
+            tag: "Observe"
+            description: "Open server logs, agent logs, structured logs, notifications, and connection status from the same terminal UI. When something stalls, you can inspect the run instead of guessing."
+          - title: "Settings in terminal"
+            tag: "Control"
+            description: "Configure login, providers, models, pinned agents, themes, keybindings, and application settings without leaving the TUI."
 
       - type: feature-block
-        heading: "Everything you'd expect from a coding CLI"
-        body: "Interactive terminal mode with a modern Go-based TUI. Agent assists, you direct. Use any of the 17+ LLM providers or local models via Ollama and LM Studio. Per-agent and per-task model selection. Full filesystem, git, browser, terminal, and LLM access through the SDK."
-        diagram: |
-          $ npm i -g codebolt
-          $ codebolt                    # TUI mode
-          $ codebolt --prompt "..."     # single task
-          $ codebolt --agent my-agent   # custom agent
-          $ codebolt --provider claude  # choose model
-          $ codebolt --model opus       # specific model
-
-      - type: feature-block
-        heading: "What Claude Code can't do"
-        body: "Write custom agents in JavaScript with full control over the agentic loop. Install plugins that connect to external services. Run in headless server mode for CI/CD automation. Spawn Docker environments and transfer state between them. Scale to multi-agent when you're ready — without switching tools."
+        kicker: "01 · TERMINAL ORCHESTRATION"
+        heading: "tmux-style agent work, not one linear chat"
+        body: "Codebolt CLI is designed for the way agent work actually happens: one thread explores, another edits, another tests, another reviews. The TUI can show parent and child conversations together, keep windows arranged on a terminal canvas, and let you supervise parallel work from one keyboard-first surface."
         reverse: true
         diagram: |
-          Claude Code:
-          ✗ Custom agents
-          ✗ Plugin system
-          ✗ Headless CI/CD
-          ✗ Multi-agent
-          ✗ Multi-environment
+          Codebolt CLI
+          ├─ base thread: plan feature
+          │
+          ├─ child thread: update API
+          ├─ child thread: update UI
+          ├─ child thread: write tests
+          └─ child thread: review diff
 
-          Codebolt CLI:
-          ✓ All of the above
-          + Same engine as IDE/orchestration
+          one terminal
+          many agent threads
+          same server runtime
 
       - type: feature-block
-        heading: "Headless mode for infrastructure"
-        body: "Run Codebolt as a headless server — no GUI, no TUI. Perfect for CI/CD pipelines, Docker containers, cloud VMs, and automated workflows. Spawn environments, run agents, transfer state, monitor progress. The same engine that powers the IDE runs headless in your infrastructure."
+        kicker: "02 · SHARED ENGINE"
+        heading: "Start in the editor. Continue in the TUI."
+        body: "The CLI is a surface over the same Codebolt server used by the editor and cloud. Agent threads, provider settings, project context, logs, and runtime state do not belong to a single UI. Use the editor when you want visual workspace control; switch to the TUI when you want a terminal-native command center."
         diagram: |
-          $ codebolt --server --port 8080
-          # Headless mode
-          # REST API + WebSocket
-          # Run in Docker, CI/CD, cloud
-          # Full agent + plugin capabilities
+          Editor ─┐
+                  ├─ Codebolt Server Runtime
+          CLI   ─┘
+                  ├─ agents
+                  ├─ threads
+                  ├─ files + git
+                  ├─ logs
+                  └─ provider/model settings
 
       - type: comparison-columns
         problem:
-          heading: "Claude Code"
+          heading: "Single-agent CLIs"
           items:
-            - "Great CLI agent, but single agent only"
-            - "Can't customize the agentic loop"
-            - "No plugin system for extensions"
-            - "No headless mode for CI/CD"
-            - "If you outgrow it, start over with a different tool"
+            - "Great for one focused agent chat"
+            - "Terminal is mostly a prompt-and-response surface"
+            - "Parallel work usually means multiple shells with disconnected state"
+            - "Editor, CLI, and backend state are usually separate"
+            - "Scaling beyond one local session requires a different system"
         solution:
           heading: "Codebolt CLI"
           items:
-            - "Same great CLI experience, plus custom agents"
-            - "Full control — write agents in code, not prompts"
-            - "Plugin system with 3 communication channels"
-            - "Headless server mode for infrastructure"
-            - "Scale to IDE, orchestration, autonomous company — same engine"
+            - "Run and supervise multiple agent threads from one TUI"
+            - "Use chat, files, git, logs, settings, provider/model controls, and windows together"
+            - "Connect to local or remote Codebolt server runtimes"
+            - "Continue the same work across CLI, Editor, Cloud, and SDK surfaces"
+            - "Scale from terminal agent work to multi-environment orchestration without changing engines"
 
       - type: cta-block
-        heading: "Start in the terminal. Scale without limits."
+        heading: "Run agents from the terminal. Keep the engine underneath."
         buttons:
           - { label: "Get Started", href: "/pricing", variant: "primary" }
           - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
@@ -1545,59 +1655,155 @@ pages:
 
       - type: page-header
         title: "Codebolt Editor"
-        subtitle: "A full desktop editor built for agent coordination. Not a VS Code fork — built from scratch."
+        subtitle: "A complete AI code editor, orchestration console, and runtime surface for Codebolt-native applications."
 
       - type: centered-text
         variant: "thesis"
-        text: "Monaco editor (the engine behind VS Code). Integrated terminal. File explorer. Agent workspace showing real-time activity. Plugin panel. Excalidraw canvas. Dockview panels. Cross-platform. 40+ file type associations. And the same agent engine that powers CLI and orchestration."
+        text: "Codebolt Editor is the desktop command center for the engine. Open projects, edit code, run terminals, talk to agents, inspect their work, manage plans, coordinate environments, install plugins, and launch application interfaces that run directly on the Codebolt runtime."
+
+      - type: bento-grid
+        kicker: "EDITOR CAPABILITIES"
+        heading: "A full editor built around agent work"
+        description: "The editor is not only chat next to files. It is a complete workspace where code, context, agents, planning artifacts, runtime panels, and observability live together."
+        columns: 3
+        gap: "none"
+        items:
+          - title: "Project workspace"
+            tag: "Workspace"
+            description: "Open <a href='https://docs.codebolt.ai/docs/02_using-codebolt/02_surfaces/02_desktop-app/01_workspace-and-projects'>workspaces</a> with file tree, editor state, chat threads, project-local config, checkpoints, indexes, codemap, and memory. Tune the <a href='https://docs.codebolt.ai/docs/02_using-codebolt/02_surfaces/02_desktop-app/02_panels-and-layout'>panel layout</a> and <a href='https://docs.codebolt.ai/docs/02_using-codebolt/02_surfaces/02_desktop-app/03_settings-and-profiles'>settings profiles</a> per project."
+            span: 2
+            visual: |
+              workspace
+              ├─ project tabs
+              ├─ file tree + editor state
+              ├─ chat threads + agent runs
+              ├─ .codebolt/ config
+              └─ checkpoints + memory
+          - title: "AI coding surface"
+            tag: "Editor"
+            description: "Code editing, terminals, file explorer, project context, <a href='https://docs.codebolt.ai/docs/02_using-codebolt/03_chat/01_overview'>chat</a>, <a href='https://docs.codebolt.ai/docs/02_using-codebolt/03_chat/04_checkpoints-and-rollback'>checkpoints and rollback</a>, and <a href='https://docs.codebolt.ai/docs/02_using-codebolt/03_chat/06_model-selection'>model selection</a> in one desktop surface."
+          - title: "Agent workspace"
+            tag: "Agents"
+            description: "<a href='https://docs.codebolt.ai/docs/02_using-codebolt/04_agents/03_running-agents'>Run agents</a> from the project, including <a href='https://docs.codebolt.ai/docs/02_using-codebolt/04_agents/02_built-in-agents'>built-in agents</a>, remixes, custom agents, third-party agents, and remote agents. Use <a href='https://docs.codebolt.ai/docs/02_using-codebolt/04_agents/06_agent-portfolios'>agent portfolios</a> and the <a href='https://docs.codebolt.ai/docs/02_using-codebolt/04_agents/08_thread-panel'>thread panel</a> to manage work."
+          - title: "Debug and observability"
+            tag: "Observe"
+            description: "Inspect <a href='https://docs.codebolt.ai/docs/02_using-codebolt/05c_agent-observability/02_agent-debug'>agent logs</a>, <a href='https://docs.codebolt.ai/docs/02_using-codebolt/05c_agent-observability/03_ai-debug-and-console'>LLM calls, token budgets, and console output</a>, plus <a href='https://docs.codebolt.ai/docs/02_using-codebolt/09b_code-observability/03_narrative-graph'>narrative graphs</a> and run history without leaving the workspace."
+          - title: "Planning tools"
+            tag: "Plan"
+            description: "<a href='https://docs.codebolt.ai/docs/02_using-codebolt/06_planning/02_roadmap'>Roadmaps</a>, <a href='https://docs.codebolt.ai/docs/02_using-codebolt/06_planning/03_specs'>specs</a>, <a href='https://docs.codebolt.ai/docs/02_using-codebolt/06_planning/04_ui-flow'>UI flows</a>, <a href='https://docs.codebolt.ai/docs/02_using-codebolt/06_planning/05_requirement-plan'>requirement plans</a>, <a href='https://docs.codebolt.ai/docs/02_using-codebolt/06_planning/06_action-plan'>action plans</a>, and <a href='https://docs.codebolt.ai/docs/02_using-codebolt/06_planning/07_tasks'>tasks</a> live beside the code so humans and agents share the same source of truth."
+          - title: "Runtime UI panels"
+            tag: "Apps"
+            description: "Agents and plugins can open <a href='https://docs.codebolt.ai/docs/04_build-on-codebolt/04_custom-uis/05_dynamic-panels'>dynamic panels</a>, stream data into them, and receive user actions back. Build a <a href='https://docs.codebolt.ai/docs/04_build-on-codebolt/04_custom-uis/07_build-your-first-dynamic-panel'>first panel</a>, package <a href='https://docs.codebolt.ai/docs/04_build-on-codebolt/05_plugins/05_dynamic-panel-plugins'>plugin-backed panels</a>, or create <a href='https://docs.codebolt.ai/docs/04_build-on-codebolt/04b_custom-agentic-applications/01_overview'>custom agentic apps</a>."
 
       - type: feature-block
-        heading: "A proper IDE with agents at the center"
-        body: "The agent workspace shows real-time agent activity — what they're doing, what files they're touching, what decisions they're making. Multiple agents visible simultaneously. Plugin panel for extensions. Not an afterthought sidebar — agents are the primary interface."
+        kicker: "01 · ORCHESTRATION HUB"
+        heading: "The control room for multi-environment agent work"
+        body: "Codebolt Editor sits on top of the same server runtime used by CLI, cloud, and headless deployments. The editor becomes the human-facing control plane for agent runs that may execute locally, in Docker, in cloud sandboxes, on remote servers, or across provider-backed environments. You can monitor the run, inspect artifacts, review changes, and keep coordination state in one place."
+        cta: { label: "Read multi-environment docs", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/08a_multi-environment-orchestration/01_overview" }
         diagram: |
-          ┌─────────────────────────────────┐
-          │ Monaco Editor    │ Agent Panel  │
-          │ (VS Code engine) │ (real-time)  │
-          ├─────────────────────────────────┤
-          │ Terminal  │ File Explorer       │
-          │ (xterm)   │ Plugins │ Excalidraw│
-          └─────────────────────────────────┘
-          macOS (arm64/x64) + Windows + Linux
+          Codebolt Editor
+              │
+              ▼
+          Codebolt Server Runtime
+              ├─ local laptop
+              ├─ Docker / worktree
+              ├─ E2B / Daytona
+              ├─ remote Codebolt server
+              └─ fleet environments
+
+          server remains the control plane
+          editor remains the operator surface
 
       - type: feature-block
-        heading: "What Cursor can't do"
-        body: "Write custom agents that run inside the IDE. Install plugins with three communication channels. Coordinate multiple agents on the same codebase with pheromone-based ownership. Scale to multi-environment. Switch to CLI or headless without losing anything."
+        kicker: "02 · EXTENSIBLE EDITOR"
+        heading: "Agents and plugins can extend the interface at runtime"
+        body: "The editor is an application host. Plugins can add panels, commands, provider integrations, and backend behavior. Agents can open dynamic panels for reviews, dashboards, forms, status views, approvals, or domain-specific workflows. The UI is not fixed to a single sidebar or chat panel; it can change with the task."
+        cta: { label: "Explore dynamic panels", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/04_custom-uis/05_dynamic-panels" }
         reverse: true
         diagram: |
-          Cursor:
-          ✗ Custom agents
-          ✗ Plugin SDK (3 channels)
-          ✗ Multi-agent coordination
-          ✗ Multi-environment
-          ✗ CLI/headless mode
+          plugin backend
+              │
+              ├─ commands
+              ├─ providers
+              ├─ hooks
+              └─ dynamic panel
+                     ▲
+                     │ messages / fetch / events
+                     ▼
+          editor UI panel inside Codebolt
 
-          Codebolt Editor:
-          ✓ All of the above
-          + Same engine as CLI/orchestration
+          agents can open, update, wait on,
+          and close panels during a run
 
       - type: feature-block
-        heading: "Built from scratch, not forked"
-        body: "Codebolt isn't a VS Code fork with agents bolted on. The architecture starts with the agent engine — 73 controllers, 134 services, the HostBridge abstraction. The IDE is one interface to that engine. The same codebase powers the CLI, TUI, web interface, and headless server with identical capabilities."
+        kicker: "03 · CODEBOLT-NATIVE APPS"
+        heading: "Run full application experiences on the engine"
+        body: "The biggest shift is that Codebolt Editor is not only where you write applications. It is also where Codebolt-native applications can run. A plugin can act as the backend, a dynamic panel can act as the frontend, and the Codebolt engine provides agents, tools, memory, events, project state, and execution. This is closer to cloud-native applications than a normal extension model: the app is designed around the runtime, not just hosted beside it."
+        cta: { label: "Read custom agentic apps", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/04b_custom-agentic-applications/01_overview" }
         diagram: |
-          ┌── Interface (Electron) ──────┐
-          │ Monaco + xterm + dockview    │
-          ├── HostBridge ────────────────┤
-          │ Same engine as CLI/headless  │
-          ├── Core Engine ───────────────┤
-          │ 73 controllers               │
-          │ 134 services                 │
-          │ 3 communication channels     │
-          └──────────────────────────────┘
+          Codebolt-native application
+              │
+              ├─ dynamic panel frontend
+              ├─ plugin backend
+              ├─ agent workflows
+              ├─ tools + MCP + providers
+              ├─ memory + event history
+              └─ project / task state
+
+          runs inside the editor runtime
+          without requiring a separate server
+
+      - type: bento-grid
+        kicker: "DEVELOPMENT LIFECYCLE"
+        heading: "Manage the full software lifecycle in one workspace"
+        description: "Codebolt Editor connects planning, implementation, agent management, evaluation, optimization, and delivery instead of scattering them across disconnected tools."
+        columns: 3
+        gap: "none"
+        items:
+          - title: "Plan the work"
+            tag: "Roadmap"
+            description: "Capture product phases, features, specs, UI flows, and requirement plans as project files that agents can read before acting."
+            href: "https://docs.codebolt.ai/docs/02_using-codebolt/06_planning/01_overview"
+          - title: "Break it into execution"
+            tag: "Action Plan"
+            description: "Create structured action plans with tasks, dependencies, parallel groups, and progress that agents can update while they work."
+            href: "https://docs.codebolt.ai/docs/02_using-codebolt/06_planning/06_action-plan"
+          - title: "Track tasks on Kanban"
+            tag: "Tasks"
+            description: "Manage standalone tasks, subtasks, statuses, and kanban columns alongside the codebase and agent message history."
+            href: "https://docs.codebolt.ai/docs/02_using-codebolt/06_planning/07_tasks"
+          - title: "Develop with agents"
+            tag: "Build"
+            description: "Run coding agents against the project context, inspect file edits, review checkpoints, and keep human control over the work."
+            href: "https://docs.codebolt.ai/docs/02_using-codebolt/04_agents/03_running-agents"
+          - title: "Manage agent portfolios"
+            tag: "Agents"
+            description: "Use built-in agents, remixes, custom agents, remote agents, and specialized teams without leaving the editor surface."
+            href: "https://docs.codebolt.ai/docs/02_using-codebolt/04_agents/06_agent-portfolios"
+          - title: "Evaluate and optimize"
+            tag: "Quality"
+            description: "Define eval tasks, score outputs, compare runs, and run optimization loops that improve agents over iterations."
+            href: "https://docs.codebolt.ai/docs/02_using-codebolt/05e_eval-and-optimization/01_overview"
+          - title: "Observe every run"
+            tag: "Trace"
+            description: "Use debug panels, AI call inspection, console streams, and narrative graphs to see why an agent made each decision."
+            href: "https://docs.codebolt.ai/docs/02_using-codebolt/05c_agent-observability/01_overview"
+            span: 2
+            visual: |
+              roadmap -> spec -> action plan -> task
+                   │         │          │         │
+                   └──────── agents read/update ─┘
+
+              run -> logs -> trace -> eval -> optimize
+          - title: "Ship through the same runtime"
+            tag: "Runtime"
+            description: "Move from editor work to CLI, cloud, remote environments, or Codebolt-native application surfaces without changing the underlying engine."
+            href: "/engine"
 
       - type: cta-block
-        heading: "An IDE built for the agent era."
+        heading: "A desktop editor, orchestration console, and application runtime in one."
         buttons:
-          - { label: "Download", href: "/pricing", variant: "primary" }
+          - { label: "Download", href: "/download", variant: "primary" }
           - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
 
   # ── Product: 24/7 Autonomous Agent ─────────
