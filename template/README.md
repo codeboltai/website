@@ -111,6 +111,28 @@ Keep deployment files in the template so every generated site receives them:
 
 If Cloudflare reports a missing file, fix it in this template and regenerate the site.
 
+For Cloudflare Pages Git integration, do not use `wrangler deploy`. Configure the Pages project to run the build and publish the generated static directory.
+
+If the Cloudflare project root is the generated `site/` folder:
+
+```txt
+Build command: npm run build
+Build output directory: dist
+```
+
+If the Cloudflare project root is this repository root:
+
+```txt
+Build command: npm run build
+Build output directory: site/dist
+```
+
+The manual deploy script uses Cloudflare Pages, not Workers:
+
+```bash
+npm run cf:deploy
+```
+
 ## Diagram Exports
 
 Diagram components can expose `data-export-id` attributes. The root script `scripts/export-diagrams.mjs` captures those elements from the built site and writes PNG files to `scripts/exports/`.
