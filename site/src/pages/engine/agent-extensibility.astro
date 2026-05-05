@@ -1,5 +1,5 @@
 ---
-// Auto-generated from site.yaml — edit site.yaml and regenerate
+// Auto-generated from site content. Edit source content and regenerate.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site, navigation } from '../../data/site-data.js';
 import PageHeader from '../../components/PageHeader.astro';
@@ -19,7 +19,7 @@ import CtaBlock from '../../components/CtaBlock.astro';
   <FeatureBlock
     heading="Remix Agents — No-Code Customization"
     body="Remix agents inherit from a base agent and add custom instructions in YAML frontmatter + Markdown body. Stored as .md files in .codebolt/agents/remix/ — git-friendly, versionable, mergeable. Declare supported languages, frameworks, routing rules, and LLM model fallback chains. No code required."
-    diagram=".codebolt/agents/remix/my-agent.md:
+    diagram={`.codebolt/agents/remix/my-agent.md:
 ---
 name: Python Testing Expert
 baseAgent: code-generation
@@ -31,13 +31,13 @@ metadata:
 ---
 You are a Python testing expert.
 Write pytest tests with fixtures...
-"
+`}
   />
   <FeatureBlock
     heading="Flow Agents — Visual Composition"
     body="Build agent workflows visually using the LiteGraph-based flow editor. Create .agentflow files with nodes, connections, and data flow. The runtime service executes the flow graph. Combine multiple agent capabilities into complex workflows without writing orchestration code."
     reverse={true}
-    diagram="┌─────────┐    ┌─────────┐    ┌─────────┐
+    diagram={`┌─────────┐    ┌─────────┐    ┌─────────┐
 │ Analyze  │───→│ Generate │───→│ Review  │
 │ Code     │    │ Tests    │    │ Output  │
 └─────────┘    └─────────┘    └─────────┘
@@ -46,7 +46,7 @@ Write pytest tests with fixtures...
 
 Visual editor. .agentflow files.
 Runtime executes the graph.
-"
+`}
   />
   <FeatureBlock
     heading="Custom Agents — Full SDK Access"
@@ -69,7 +69,7 @@ codebolt.onMessage(async (msg) => {
     heading="Remote Agents"
     body="Agents running in external environments connect via HTTP/WebSocket endpoints. A remote agent has the same capabilities as a local one — full SDK access through the network. This enables distributed agent architectures where specialized agents live on specialized hardware."
     reverse={true}
-    diagram="Local Codebolt Instance
+    diagram={`Local Codebolt Instance
       │
 ┌─────┼──────────────────┐
 │ Remote Agent (GPU VM)  │
@@ -77,12 +77,12 @@ codebolt.onMessage(async (msg) => {
 │ → full SDK access      │
 │ → specialized hardware │
 └────────────────────────┘
-"
+`}
   />
   <FeatureBlock
     heading="675+ Skills Organized by Domain"
     body="72 tool domains with 675+ individual tools. File operations (read, write, search, diff, create). Git (commit, push, pull, branch, merge, revert). Browser (navigate, screenshot, click, type, scroll). Terminal (execute, stream, manage PTY). LLM (chat, embed, count tokens). Vector DB (store, query, semantic search). Agent control (start, stop, list, spawn sub-agents). Memory & knowledge (persist, retrieve, graph queries). Skills are scoped by environment capabilities."
-    diagram="Agent declares needed capabilities:
+    diagram={`Agent declares needed capabilities:
 → browser-automation
 → llm-embedding
 → vector-storage
@@ -95,13 +95,13 @@ Environment checks:
 Agent gains access to:
 675+ tools across 72 domains
 Scoped by what's available
-"
+`}
   />
   <FeatureBlock
     heading="Role-Specific LLM Configuration"
     body="Each agent can declare different LLM configurations for different roles. Use GPT-4 for planning, Claude for code generation, a local model for repetitive tasks. Define fallback chains — if the primary model is unavailable, automatically try alternatives. Per-agent, per-task, per-role model selection. 17+ cloud providers plus Ollama and LM Studio."
     reverse={true}
-    diagram="metadata:
+    diagram={`metadata:
   llm_role:
     - role: planning
       modelorder: [gpt-4, claude-opus]
@@ -112,7 +112,7 @@ Scoped by what's available
 
 Fallback: if primary unavailable,
 try next in chain automatically.
-"
+`}
   />
   <CtaBlock
     heading="Every agent is extensible."

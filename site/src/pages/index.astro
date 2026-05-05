@@ -1,5 +1,5 @@
 ---
-// Auto-generated from site.yaml — edit site.yaml and regenerate
+// Auto-generated from site content. Edit source content and regenerate.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site, navigation } from '../data/site-data.js';
 import Hero from '../components/Hero.astro';
@@ -53,9 +53,9 @@ import CtaBlock from '../components/CtaBlock.astro';
   <IconGrid
     tone="muted"
     kicker="WHAT IS AGENT-NATIVE SOFTWARE"
-    title="Software that runs itself, improves itself,
+    title={`Software that runs itself, improves itself,
 distributes itself, and composes with other software like it.
-"
+`}
     description="Agent-native software has properties traditional software doesn't. Codebolt is the engine that makes them possible."
     columns={5}
     features={[{"icon":"zap","title":"Runs itself","description":"Autonomous loops, hooks, schedules, webhooks. The agent stays in motion without you driving it. You don't have to be in the loop for work to happen."},{"icon":"git-branch","title":"Improves itself","description":"Define what good looks like with eval tasks. The optimizer iterates on prompts, tools, and configs across runs. Your agents get measurably better with use, not worse."},{"icon":"layers","title":"Distributes itself","description":"Lives where customers already are — Slack, Telegram, Discord, email, web. The Routing Gateway carries the same agent to every surface, no glue code."},{"icon":"cpu","title":"Composes","description":"Agents call agents. Multi-agent by default. Stigmergy, deliberation councils, review-merge — coordination is built in, not bolted on."}]}
@@ -210,9 +210,9 @@ codebolt.onMessage(async (msg) => {
   <IconGrid
     tone="muted"
     kicker="ENGINE CAPABILITIES"
-    title="What makes the engine powerful
+    title={`What makes the engine powerful
 63+ modules. 3 channels. Unlimited scale.
-"
+`}
     description="Every capability is available at every scale — from CLI to autonomous company."
     columns={3}
     features={[{"icon":"layers","title":"63+ SDK Modules","description":"Filesystem, git, browser, terminal, LLM, vector DB, memory, knowledge graph, code search, and more."},{"icon":"cpu","title":"3 Communication Channels","description":"Agent channel (codeboltjs), Plugin channel (WS + HTTP), Client channel (UI/TUI/Web). Each serves a purpose."},{"icon":"git-branch","title":"Multi-Environment","description":"Local, Docker, cloud, hierarchical. State transfer via git bundles. Heartbeat monitoring. Full lifecycle management."},{"icon":"shield","title":"Guardrails & Governance","description":"Policy engine with LLM risk classification. Per-agent, per-environment, per-phase scoping. Allow, deny, or escalate."},{"icon":"code","title":"17+ LLM Providers","description":"OpenAI, Anthropic, Google, Mistral, Groq, DeepSeek, Ollama, LM Studio. Per-agent, per-task model selection."},{"icon":"zap","title":"Built-in Review & Merge","description":"Agents review each other's work. Conflict detection. Pheromone coordination. No GitHub PR bottleneck."}]}

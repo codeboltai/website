@@ -1,5 +1,5 @@
 ---
-// Auto-generated from site.yaml — edit site.yaml and regenerate
+// Auto-generated from site content. Edit source content and regenerate.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site, navigation } from '../../data/site-data.js';
 import ProductHeroStack from '../../components/ProductHeroStack.astro';
@@ -35,7 +35,7 @@ import CtaBlock from '../../components/CtaBlock.astro';
     kicker="01 · MEMORY PRIMITIVES"
     heading="Not one memory format. A system for creating memory formats."
     body="Codebolt separates memory into primitives: storage types, ingestion pipelines, retrieval pipelines, context rules, contribution rules, and budgets. Together they let a project define the memory it actually needs instead of accepting a fixed vendor schema."
-    diagram="YOU CAN DEFINE:
+    diagram={`YOU CAN DEFINE:
 ├─ unfinished tasks memory
 ├─ negative pattern memory
 ├─ positive pattern memory
@@ -53,7 +53,7 @@ USING PRIMITIVES:
 ├─ ingestion pipelines
 ├─ retrieval pipelines
 └─ context assembly rules
-"
+`}
   />
   <AccordionShowcase
     kicker="RUNTIME EVOLUTION"
@@ -73,7 +73,7 @@ USING PRIMITIVES:
     heading="Memory can grow without flooding every agent"
     body="Scalable memory creates a second problem: the more the system learns, the less any single agent can read. Codebolt solves that through Context Assembly. Memory can grow in the background, but each agent receives only the slice selected by rules, retrieval pipelines, contribution logic, and token budgets."
     reverse={true}
-    diagram="memory keeps growing:
+    diagram={`memory keeps growing:
 ├─ conversations
 ├─ code facts
 ├─ object graph
@@ -89,7 +89,7 @@ CAE decides:
 
 agent gets focused context,
 not the whole database
-"
+`}
   />
   <CtaBlock
     heading="Give agents memory they can scale, reshape, and inject."

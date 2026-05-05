@@ -1,4 +1,4 @@
-// Auto-generated from site.yaml — do not edit directly
+// Auto-generated from site content. Do not edit directly.
 export const site = {
   "name": "Codebolt",
   "logo": {

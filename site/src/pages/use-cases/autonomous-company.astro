@@ -1,5 +1,5 @@
 ---
-// Auto-generated from site.yaml — edit site.yaml and regenerate
+// Auto-generated from site content. Edit source content and regenerate.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site, navigation } from '../../data/site-data.js';
 import PageHeader from '../../components/PageHeader.astro';
@@ -19,7 +19,7 @@ import CtaBlock from '../../components/CtaBlock.astro';
   <FeatureBlock
     heading="Business domains as plugins"
     body="Each business function — engineering, testing, deployment, monitoring, customer support — becomes a plugin running inside the engine. Plugins don't need their own agent instances. They execute within the agentic environment with full access to the 63-module SDK, three communication channels, and all coordination primitives."
-    diagram="┌── The Engine ──────────────────┐
+    diagram={`┌── The Engine ──────────────────┐
 │ Plugin: Engineering            │
 │ Plugin: QA & Testing           │
 │ Plugin: Deployment             │
@@ -31,13 +31,13 @@ import CtaBlock from '../../components/CtaBlock.astro';
 │ Governed by guardrails         │
 │ Scaled by provider system      │
 └────────────────────────────────┘
-"
+`}
   />
   <FeatureBlock
     heading="Why one engine, not five tools"
     body="Paperclip orchestrates external agents — Claude Code for coding, OpenClaw for tasks, Cursor for editing. Each tool has its own API limits, its own memory, its own quirks. Codebolt runs everything in one engine. All agents share the same SDK, the same coordination system, the same memory. No integration tax. No tool-switching overhead."
     reverse={true}
-    diagram="Five tools stitched together:
+    diagram={`Five tools stitched together:
 Claude Code + OpenClaw + Cursor
 + Paperclip + custom scripts
 = integration nightmare
@@ -47,17 +47,17 @@ Codebolt
 = everything built in
 = everything coordinated
 = everything scales
-"
+`}
   />
   <FeatureBlock
     heading="Scale horizontally"
     body="Start with one local environment. Add Docker containers. Spin up cloud VMs. The provider system treats each as a coordinated environment with full lifecycle management. Git bundles transfer state. Heartbeat monitoring tracks health. As your autonomous company grows, the engine grows with it."
-    diagram="Month 1:  1 env, 5 agents
+    diagram={`Month 1:  1 env, 5 agents
 Month 3:  3 envs, 20 agents
 Month 6:  5 envs, 50 agents
 Year 1:   10 envs, 100+ agents
 All from the same engine
-"
+`}
   />
   <CtaBlock
     heading="Build an autonomous company. On one engine."

@@ -1,7 +1,7 @@
-.codebolt
-.worktree
 .astro
 .cache
+.codebolt
 .wrangler
+.worktree
 dist
 node_modules

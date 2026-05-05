@@ -8,7 +8,7 @@
       "title": "How everything connects",
       "kind": "engine-architecture",
       "page": "architecture",
-      "file": "exports/how-everything-connects.png",
+      "file": "scripts/exports/how-everything-connects.png",
       "sizeBytes": 170869
     },
     {
@@ -16,7 +16,7 @@
       "title": "CODEBOLT SERVER — EXECUTION TOPOLOGY",
       "kind": "structure-diagram",
       "page": "architecture",
-      "file": "exports/codebolt-server-execution-topology.png",
+      "file": "scripts/exports/codebolt-server-execution-topology.png",
       "sizeBytes": 487055
     },
     {
@@ -24,7 +24,7 @@
       "title": "AGENT EXECUTION MODEL — ACTOR OWNERSHIP",
       "kind": "structure-diagram",
       "page": "architecture",
-      "file": "exports/agent-execution-model-actor-ownership.png",
+      "file": "scripts/exports/agent-execution-model-actor-ownership.png",
       "sizeBytes": 298806
     },
     {
@@ -32,7 +32,7 @@
       "title": "THREE-TIER MEMORY SUBSYSTEM",
       "kind": "structure-diagram",
       "page": "architecture",
-      "file": "exports/three-tier-memory-subsystem.png",
+      "file": "scripts/exports/three-tier-memory-subsystem.png",
       "sizeBytes": 296634
     },
     {
@@ -40,7 +40,7 @@
       "title": "PLUGIN + ENVIRONMENT SUBSYSTEM",
       "kind": "structure-diagram",
       "page": "architecture",
-      "file": "exports/plugin-environment-subsystem.png",
+      "file": "scripts/exports/plugin-environment-subsystem.png",
       "sizeBytes": 318992
     },
     {
@@ -48,7 +48,7 @@
       "title": "TOOL REGISTRY — 66 MODULES · 625+ TOOLS",
       "kind": "structure-diagram",
       "page": "architecture",
-      "file": "exports/tool-registry-66-modules-625-tools.png",
+      "file": "scripts/exports/tool-registry-66-modules-625-tools.png",
       "sizeBytes": 1202173
     },
     {
@@ -56,7 +56,7 @@
       "title": "Engine + Channels + Interfaces",
       "kind": "engine-architecture",
       "page": "engine",
-      "file": "exports/engine-channels-interfaces.png",
+      "file": "scripts/exports/engine-channels-interfaces.png",
       "sizeBytes": 163752
     }
   ]

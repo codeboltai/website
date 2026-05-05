@@ -8,11 +8,11 @@
  *
  * Usage:
  *   node scripts/generate-code-image.mjs
- *   node scripts/generate-code-image.mjs --output template/images/harness-code.png
+ *   node scripts/generate-code-image.mjs --output template/public/images/harness-code.png
  *   node scripts/generate-code-image.mjs --scale 2
  *
  * Output:
- *   template/images/harness-code.png (default)
+ *   template/public/images/harness-code.png (default)
  */
 
 import fs from 'node:fs';
@@ -20,7 +20,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const GENERATOR_DIR = path.resolve(__dirname, '..');
+const ROOT_DIR = path.resolve(__dirname, '..');
 
 // ─────────── Parse CLI flags ────────────
 const args = process.argv.slice(2);
@@ -35,8 +35,8 @@ for (let i = 0; i < args.length; i++) {
 }
 
 const OUTPUT = flags.output
-  ? path.resolve(GENERATOR_DIR, flags.output)
-  : path.resolve(GENERATOR_DIR, 'template', 'images', 'harness-code.png');
+  ? path.resolve(ROOT_DIR, flags.output)
+  : path.resolve(ROOT_DIR, 'template', 'public', 'images', 'harness-code.png');
 const SCALE = Number(flags.scale) || 2;
 const WIDTH = 3176;
 const HEIGHT = 1988;

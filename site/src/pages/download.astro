@@ -1,5 +1,5 @@
 ---
-// Auto-generated from site.yaml — edit site.yaml and regenerate
+// Auto-generated from site content. Edit source content and regenerate.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site, navigation } from '../data/site-data.js';
 import PageHeader from '../components/PageHeader.astro';
@@ -30,22 +30,22 @@ import CtaBlock from '../components/CtaBlock.astro';
   <FeatureBlock
     heading="Codebolt Cloud — Browser"
     body="No install. Open a workspace in your browser, drop in agents and plugins, and run them on managed sandboxes. Same engine as the desktop Editor — just running on our infrastructure."
-    diagram="→ cloud.codebolt.ai
+    diagram={`→ cloud.codebolt.ai
 ├─ Browser portal
 ├─ Managed sandboxes
 └─ Shared workspaces
-"
+`}
     reverse={true}
   />
   <FeatureBlock
     heading="Codebolt SDK — Embed"
     body="Building your own product on top of the engine? The SDK lets you embed the runtime in your app or self-host it on your own infrastructure. Three SDKs (Agent, Plugin, Client) cover every layer."
-    diagram="# Self-host the engine
-$ docker run codebolt/engine:latest
+    diagram={`# Self-host the engine
+\$ docker run codebolt/engine:latest
 
 # Or install the SDK package
-$ npm i codeboltjs
-"
+\$ npm i codeboltjs
+`}
   />
   <CtaBlock
     heading="Need help getting started?"

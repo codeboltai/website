@@ -1,5 +1,5 @@
 ---
-// Auto-generated from site.yaml — edit site.yaml and regenerate
+// Auto-generated from site content. Edit source content and regenerate.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site, navigation } from '../../data/site-data.js';
 import PageHeader from '../../components/PageHeader.astro';
@@ -19,19 +19,19 @@ import CtaBlock from '../../components/CtaBlock.astro';
   <FeatureBlock
     heading="Stigmergy-based coordination"
     body="Traditional multi-agent systems use direct message passing — fragile and doesn't scale. Codebolt uses stigmergy: agents communicate through structured shared state. Pheromone-based task ownership prevents conflicts. The engine manages sequencing, dependencies, and resource allocation."
-    diagram="Agent A → shared state ← Agent B
+    diagram={`Agent A → shared state ← Agent B
                ↕
 Agent C → shared state ← Agent D
 Pheromones: ownership signals
 No direct messaging needed
 Scales: 2 agents → 200 agents
-"
+`}
   />
   <FeatureBlock
     heading="Multi-environment scaling"
     body="The provider system lets one Codebolt instance treat another as a coordinated environment. Run agents across local, Docker, cloud, and hierarchical setups. Each environment has full lifecycle management with heartbeat monitoring. Git bundles transfer state between environments."
     reverse={true}
-    diagram="Main Instance
+    diagram={`Main Instance
       │
 ┌─────┼──────┐
 ↓     ↓      ↓
@@ -40,12 +40,12 @@ local docker  cloud
 └──────┼──────┘
  git bundle state transfer
  heartbeat monitoring
-"
+`}
   />
   <FeatureBlock
     heading="What Paperclip can't do"
     body="Paperclip orchestrates agents but doesn't run them. You need to bring Claude Code, OpenClaw, Cursor, and wire them together. Codebolt IS the engine — it runs agents AND orchestrates them. One system instead of five tools stitched together. And every agent has access to the full 63-module SDK, not just whatever each external tool exposes."
-    diagram="Paperclip:
+    diagram={`Paperclip:
 ✓ Org charts, budgets, governance
 ✗ Doesn't run agents
 ✗ Requires external tools
@@ -56,20 +56,20 @@ Codebolt Orchestration:
 ✓ Coordinates (stigmergy)
 ✓ Governance (guardrails)
 ✓ One engine, not five tools
-"
+`}
   />
   <FeatureBlock
     heading="Agent deliberation and automatic review"
     body="Agents propose options, debate tradeoffs, vote, and reach consensus. Review-merge requests let agents review each other's work without GitHub PR bottleneck. Conflict detection runs before merge. Drift tracking catches deviation across all agents. Every decision is logged and traceable."
     reverse={true}
-    diagram="Agent A: implements feature
+    diagram={`Agent A: implements feature
 Agent B: reviews code
 Agent C: checks for conflicts
 Agent D: runs tests
       ↓
 Auto-merged. Decision logged.
 No human bottleneck needed.
-"
+`}
   />
   <CtaBlock
     heading="Orchestration built into the engine."

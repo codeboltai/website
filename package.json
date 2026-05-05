@@ -1,0 +1,18 @@
+{
+  "name": "codebolt-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "sitegen generate --template ./template --content ./content/site.yaml --output ./site",
+    "validate": "sitegen validate --template ./template --content ./content/site.yaml",
+    "build": "npm run generate && npm install --prefix ./site --loglevel error && npm run --prefix ./site build",
+    "dev": "npm run generate && npm install --prefix ./site --loglevel error && npm run --prefix ./site dev",
+    "export-diagrams": "node scripts/export-diagrams.mjs",
+    "generate-code-image": "node scripts/generate-code-image.mjs"
+  },
+  "devDependencies": {
+    "@codebolt/agent-sitegen": "^0.1.1",
+    "playwright": "^1.59.1"
+  }
+}

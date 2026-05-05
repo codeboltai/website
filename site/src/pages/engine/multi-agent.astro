@@ -1,5 +1,5 @@
 ---
-// Auto-generated from site.yaml — edit site.yaml and regenerate
+// Auto-generated from site content. Edit source content and regenerate.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site, navigation } from '../../data/site-data.js';
 import PageHeader from '../../components/PageHeader.astro';
@@ -19,7 +19,7 @@ import CtaBlock from '../../components/CtaBlock.astro';
   <FeatureBlock
     heading="Sub-Agent Spawning"
     body="Any agent can spawn background child threads that run as full agent instances in parallel. Not async tasks — real agents with complete SDK access. Register children individually or in groups. Wait for individual completion, grouped completion, or any external event. Message-driven parent-child communication via WebSocket."
-    diagram="Parent Agent
+    diagram={`Parent Agent
   ├─ spawn('reviewer', task1) → Child 1
   ├─ spawn('tester', task2)  → Child 2
   ├─ spawn('docs', task3)    → Child 3
@@ -30,13 +30,13 @@ import CtaBlock from '../../components/CtaBlock.astro';
             ↓
      All 3 complete in parallel
      → Merge results → Continue
-"
+`}
   />
   <FeatureBlock
     heading="Stigmergy-Based Coordination"
     body="Traditional multi-agent systems use direct message passing — fragile, creates coupling, doesn't scale. Codebolt uses stigmergy: agents communicate indirectly through structured shared state. Each agent reads from and writes to a shared environment. Coordination emerges without explicit messaging. This is how biological swarms scale to millions."
     reverse={true}
-    diagram="Message Passing (others):
+    diagram={`Message Passing (others):
 A → B → C → D (fragile chain)
 
 Stigmergy (Codebolt):
@@ -44,12 +44,12 @@ A → [shared state] ← B
 C → [shared state] ← D
 No direct coupling.
 Scales: 2 → 200+ agents.
-"
+`}
   />
   <FeatureBlock
     heading="Pheromone-Based Task Ownership"
     body="Agents deposit pheromones on tasks and files to signal interest and ownership. Configurable pheromone types. Aggregation system for conflict resolution when multiple agents target the same work. Lock/unlock mechanisms for exclusive access. This prevents the coordination breakdown that happens when independent agents collide."
-    diagram="Agent A deposits pheromone:
+    diagram={`Agent A deposits pheromone:
 → file: auth.ts (ownership)
 → task: refactor-auth (working)
 
@@ -59,13 +59,13 @@ Agent B checks pheromones:
 
 No collision. No merge conflict.
 Automatic coordination.
-"
+`}
   />
   <FeatureBlock
     heading="Agent Deliberation Council"
     body="Agents propose options, debate tradeoffs, vote, and reach consensus. Deliberation types: decision, review, brainstorm, approval, vote. All stored per-project in .codebolt/agentdeliberation/ and fully traceable. This is how agents make architectural decisions collectively — not by one agent guessing."
     reverse={true}
-    diagram="Agent A: proposes microservices
+    diagram={`Agent A: proposes microservices
 Agent B: proposes monolith
 Agent C: analyzes tradeoffs
       ↓
@@ -74,12 +74,12 @@ Vote: 2 for monolith, 1 for micro
 Consensus: monolith
 Decision: logged + traceable
 Rationale: preserved
-"
+`}
   />
   <FeatureBlock
     heading="Automatic Review & Merge"
     body="Agents create review-merge requests for their changes. Other agents provide feedback — approve, request changes, or comment. Conflict detection runs before merge. Pheromone-based coordination prevents overlapping work. The shadow git system handles the actual merge operations. No GitHub PR bottleneck. Agents do long tasks in parallel, review each other, and merge autonomously."
-    diagram="Agent A: implements feature
+    diagram={`Agent A: implements feature
       ↓
 Review request created
       ↓
@@ -88,13 +88,13 @@ Agent C: checks conflicts → clear
       ↓
 Auto-merged by shadow git
 No human needed. Fully traced.
-"
+`}
   />
   <FeatureBlock
     heading="Drift Tracking — Two Levels"
     body="Local Rust engine instances assess drift within each agent context — structural drift (architecture diverging from plan), scope drift (features expanding beyond intent), constraint drift (violations of rules), coverage drift (gaps in implementation). The global JavaScript layer aggregates signals across all agents, detecting systemic drift that no single agent would catch."
     reverse={true}
-    diagram="Level 1: Rust (per-agent)
+    diagram={`Level 1: Rust (per-agent)
 → structural drift
 → scope drift
 → constraint drift
@@ -104,7 +104,7 @@ Level 2: JavaScript (global)
 → aggregate all agent signals
 → detect systemic patterns
 → flag before it compounds
-"
+`}
   />
   <CtaBlock
     heading="Coordination, not collision."

@@ -1,0 +1,40 @@
+{
+  "name": "codebolt-astro-cloudflare",
+  "description": "Codebolt Astro + Tailwind template deployable to Cloudflare Pages with Wrangler.",
+  "generated": {
+    "pagesDir": "src/pages",
+    "siteData": "src/data/site-data.js",
+    "layout": "src/layouts/BaseLayout.astro",
+    "componentsDir": "src/components"
+  },
+  "components": {
+    "blockquote": {
+      "component": "BlockquoteSection",
+      "description": "Quote or blockquote section."
+    }
+  },
+  "privateComponents": [
+    "button",
+    "footer",
+    "mobile-menu",
+    "navbar"
+  ],
+  "componentGroups": [
+    {
+      "name": "Hero Sections",
+      "components": ["hero", "product-hero", "product-hero-stack", "page-header"]
+    },
+    {
+      "name": "Content Sections",
+      "components": ["centered-text", "feature-block", "card-grid", "bento-grid", "feature-showcase", "tabs-showcase"]
+    },
+    {
+      "name": "Conversion Sections",
+      "components": ["cta-block", "pricing-grid", "highlight-banner"]
+    },
+    {
+      "name": "Architecture Sections",
+      "components": ["diagram-section", "engine-architecture-diagram", "structure-diagram", "subsystem-diagram"]
+    }
+  ]
+}

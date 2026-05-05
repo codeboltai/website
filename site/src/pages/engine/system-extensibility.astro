@@ -1,5 +1,5 @@
 ---
-// Auto-generated from site.yaml — edit site.yaml and regenerate
+// Auto-generated from site content. Edit source content and regenerate.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { site, navigation } from '../../data/site-data.js';
 import PageHeader from '../../components/PageHeader.astro';
@@ -35,7 +35,7 @@ codebolt.onMessage(async (msg) => {
     heading="Plugin SDK — Three Communication Channels"
     body="Plugins connect to the engine through three channels simultaneously. Channel 1: WebSocket (same as agents — filesystem, git, terminal, LLM access). Channel 2: Multiplexed events (real-time subscriptions to tasks, chat, jobs, swarm, calendar, review-merge). Channel 3: HTTP REST (CRUD for threads, tasks, projects, environments). Plugins run inside the engine — no separate agent instance needed."
     reverse={true}
-    diagram="┌──────────────────────────────────┐
+    diagram={`┌──────────────────────────────────┐
 │  Your Plugin                     │
 ├──────────────────────────────────┤
 │ Ch.1 WS     → fs, git, llm, ... │
@@ -47,7 +47,7 @@ codebolt.onMessage(async (msg) => {
 │ Lifecycle managed by engine      │
 │ Trigger-based auto-start         │
 └──────────────────────────────────┘
-"
+`}
   />
   <FeatureBlock
     heading="Client SDK — Build Any Interface"
@@ -74,7 +74,7 @@ client.onEvents('tasks.*', (data) => {
     heading="Plugin Discovery & Lifecycle"
     body="Plugins are discovered from project .codeboltPlugins/ directories and global ~/.codebolt/plugins/. Each plugin declares itself in package.json with a codebolt.plugin key. The PluginProcessManager handles loading, starting, stopping, and trigger-based auto-start. Plugins receive a PluginContext with their ID, directory, and manifest. Built-in plugins include cloud integration, remote execution, and test execution."
     reverse={true}
-    diagram="Discovery:
+    diagram={`Discovery:
 ├─ .codeboltPlugins/ (per-project)
 └─ ~/.codebolt/plugins/ (global)
 
@@ -87,7 +87,7 @@ Built-in:
 ├─ cloud-plugin
 ├─ remote-execution-plugin
 └─ test-execution-plugin
-"
+`}
   />
   <CtaBlock
     heading="Three SDKs. Every layer open."

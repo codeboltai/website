@@ -4,24 +4,21 @@
  *
  * Playwright-based diagram exporter. Finds every element with a
  * [data-export-id] attribute on the pre-built site and saves each as
- * a standalone PNG to wireframe/sitemanifest/exports/.
+ * a standalone PNG to scripts/exports/.
  *
  * Usage:
  *   # Build the site first
- *   node generate.js gen-engine-v3
- *   cd ../output/gen-engine-v3 && npx astro build
- *   cd ../../generator
+ *   npm run build
  *
  *   # Then run the exporter (installs playwright browsers on first run)
  *   npm run export-diagrams
  *
  *   # Optional: point at a different version or host
- *   node scripts/export-diagrams.mjs --version gen-engine-v3
  *   node scripts/export-diagrams.mjs --pages architecture,engine
  *   node scripts/export-diagrams.mjs --scale 2
  *
  * Output:
- *   wireframe/sitemanifest/exports/{slug}.png
+ *   scripts/exports/{slug}.png
  */
 
 import http from 'node:http';
@@ -30,8 +27,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const GENERATOR_DIR = path.resolve(__dirname, '..');
-const SITEMANIFEST_DIR = path.resolve(GENERATOR_DIR, '..');
+const ROOT_DIR = path.resolve(__dirname, '..');
 
 // ─────────── Parse CLI flags ────────────
 const args = process.argv.slice(2);
@@ -45,17 +41,21 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
-const VERSION = flags.version || 'gen-engine-v3';
 const SCALE = Number(flags.scale) || 2;
+const VERSION = flags.version || 'current';
 const PAGES = (flags.pages || 'architecture,engine').split(',').map((p) => p.trim()).filter(Boolean);
-const DIST_DIR = path.resolve(SITEMANIFEST_DIR, 'output', VERSION, 'dist');
-const EXPORTS_DIR = path.resolve(SITEMANIFEST_DIR, 'exports');
+const DIST_DIR = flags.dist
+  ? path.resolve(ROOT_DIR, flags.dist)
+  : path.resolve(ROOT_DIR, 'site', 'dist');
+const EXPORTS_DIR = flags.output
+  ? path.resolve(ROOT_DIR, flags.output)
+  : path.resolve(__dirname, 'exports');
+const exportsIndexPrefix = path.relative(ROOT_DIR, EXPORTS_DIR).replaceAll(path.sep, '/');
 
 if (!fs.existsSync(DIST_DIR)) {
   console.error(`[error] dist directory not found: ${DIST_DIR}`);
   console.error(`        Build the site first:`);
-  console.error(`          node generate.js ${VERSION}`);
-  console.error(`          cd ../output/${VERSION} && npx astro build`);
+  console.error(`          npm run build`);
   process.exit(1);
 }
 
@@ -68,7 +68,7 @@ try {
 } catch {
   console.error('[error] playwright is not installed in this directory.');
   console.error('        Install it:');
-  console.error(`          cd ${GENERATOR_DIR}`);
+  console.error(`          cd ${ROOT_DIR}`);
   console.error('          npm install --save-dev playwright');
   console.error('          npx playwright install chromium');
   process.exit(1);
@@ -231,7 +231,7 @@ for (const slug of PAGES) {
         title: title || id,
         kind: kind || 'unknown',
         page: slug,
-        file: `exports/${filename}`,
+        file: `${exportsIndexPrefix}/${filename}`,
         sizeBytes: size,
       });
     } catch (err) {
