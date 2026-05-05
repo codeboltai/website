@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "codebolt-site",
+  "name": "website",
   "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-05-05"
 }
