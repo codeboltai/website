@@ -17,12 +17,14 @@ cd ../output/v2
 npm install
 npm run dev      # dev server at localhost:4321
 npm run build    # production build
+npm run cf:dev   # build and preview with Cloudflare Pages locally
+npm run deploy   # build and deploy to Cloudflare Pages with Wrangler
 ```
 
 ## How It Works
 
 1. **`content/site.yaml`** — declarative site definition (pages, sections, navigation, content)
-2. **`template/`** — immutable Astro base project with reusable components (never modified)
+2. **`template/`** — immutable Astro base project with reusable components and Cloudflare Pages/Wrangler deployment config
 3. **`generate.js`** — copies template to `output/{version}/`, generates `.astro` page files from YAML
 
 Each generation creates a self-contained Astro project. Change YAML, regenerate, get a fresh site.
