@@ -2,7 +2,7 @@
 
 This is the Codebolt website template for `@codebolt/agent-sitegen`.
 
-It is an Astro + Tailwind static site template that can be generated from structured content and deployed to Cloudflare Pages with Wrangler.
+It is an Astro + Tailwind static site template that can be generated from structured content and deployed to Cloudflare Workers static assets with Wrangler.
 
 ## How This Template Is Used
 
@@ -111,23 +111,33 @@ Keep deployment files in the template so every generated site receives them:
 
 If Cloudflare reports a missing file, fix it in this template and regenerate the site.
 
-For Cloudflare Pages Git integration, do not use `wrangler deploy`. Configure the Pages project to run the build and publish the generated static directory.
+For Cloudflare Workers Git integration, deploy this as a static assets Worker. The build creates `dist/`, then Wrangler deploys it using `wrangler.jsonc`.
 
 If the Cloudflare project root is the generated `site/` folder:
 
 ```txt
 Build command: npm run build
-Build output directory: dist
+Deploy command: npx wrangler deploy
 ```
 
 If the Cloudflare project root is this repository root:
 
 ```txt
 Build command: npm run build
-Build output directory: site/dist
+Deploy command: cd site && npx wrangler deploy
 ```
 
-The manual deploy script uses Cloudflare Pages, not Workers:
+`wrangler.jsonc` must point Workers at the Astro static output:
+
+```json
+{
+  "assets": {
+    "directory": "./dist"
+  }
+}
+```
+
+The manual deploy script also uses Cloudflare Workers:
 
 ```bash
 npm run cf:deploy
