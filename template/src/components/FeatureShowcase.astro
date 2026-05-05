@@ -12,6 +12,7 @@
  * Good for showing a few highlighted features + many smaller ones.
  */
 import { cn } from '../lib/utils';
+import ThemeVisual from './ThemeVisual.astro';
 
 interface HeroFeature {
   title: string;
@@ -122,9 +123,9 @@ const compactGridClass: Record<number, string> = {
                 )}
               </div>
               {(item.image || item.visual || item.visualHtml) && (
-                <div class="flex-1 min-h-[160px] bg-muted/20 dark:bg-[#050505] border-t border-border dark:border-zinc-800/50 flex items-center justify-center p-5 overflow-hidden">
+                <div class="flex-1 min-h-[160px] border-t border-border/70 dark:border-zinc-800/50 flex items-center justify-center p-5 overflow-hidden">
                   {item.image ? (
-                    <img src={item.image.src} alt={item.image.alt || item.title} class="theme-aware-visual h-full max-h-[220px] w-full object-contain" loading="lazy" />
+                    <ThemeVisual src={item.image.src} alt={item.image.alt || item.title} class="h-full max-h-[220px] w-full object-contain" />
                   ) : item.visualHtml ? (
                     <div class="w-full h-full" set:html={item.visualHtml} />
                   ) : (

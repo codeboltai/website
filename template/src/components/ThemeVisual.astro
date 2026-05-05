@@ -1,0 +1,179 @@
+---
+import { existsSync, readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { join, normalize, sep } from 'node:path';
+import { randomUUID } from 'node:crypto';
+
+interface Props {
+  src: string;
+  alt?: string;
+  class?: string;
+  loading?: 'eager' | 'lazy';
+}
+
+const {
+  src,
+  alt = '',
+  class: className = '',
+  loading = 'lazy',
+} = Astro.props;
+
+const cleanSrc = typeof src === 'string' ? src.split(/[?#]/)[0] : '';
+const isLocalSvg = cleanSrc.startsWith('/images/') && cleanSrc.endsWith('.svg');
+const publicImagesDir = fileURLToPath(new URL('../../public/images/', import.meta.url));
+
+let svgMarkup = '';
+const svgIdPrefix = `theme-visual-${randomUUID().replace(/-/g, '')}`;
+
+const colorTokenMap: Record<string, string> = {
+  '#00D8FF': 'hsl(var(--primary))',
+  '#020617': 'hsl(var(--background))',
+  '#030508': 'hsl(var(--background))',
+  '#03130A': 'hsl(var(--card))',
+  '#04131C': 'hsl(var(--card))',
+  '#050816': 'hsl(var(--background))',
+  '#050B14': 'hsl(var(--background))',
+  '#060E17': 'hsl(var(--card))',
+  '#061018': 'hsl(var(--card))',
+  '#06101C': 'hsl(var(--card))',
+  '#06111F': 'hsl(var(--card))',
+  '#061A22': 'hsl(var(--card))',
+  '#070D16': 'hsl(var(--card))',
+  '#070E18': 'hsl(var(--card))',
+  '#07111A': 'hsl(var(--card))',
+  '#07111F': 'hsl(var(--card))',
+  '#071B2B': 'hsl(var(--card))',
+  '#080B12': 'hsl(var(--card))',
+  '#080C13': 'hsl(var(--card))',
+  '#08111A': 'hsl(var(--card))',
+  '#08111F': 'hsl(var(--card))',
+  '#081A24': 'hsl(var(--card))',
+  '#090A12': 'hsl(var(--card))',
+  '#090A17': 'hsl(var(--card))',
+  '#090B12': 'hsl(var(--card))',
+  '#090C13': 'hsl(var(--card))',
+  '#090D13': 'hsl(var(--card))',
+  '#091D26': 'hsl(var(--card))',
+  '#0A0F1E': 'hsl(var(--card))',
+  '#0A1A23': 'hsl(var(--card))',
+  '#0B1220': 'hsl(var(--card))',
+  '#0B1320': 'hsl(var(--card))',
+  '#0B1A24': 'hsl(var(--card))',
+  '#0D1B2A': 'hsl(var(--card))',
+  '#0F172A': 'hsl(var(--secondary))',
+  '#0F1B27': 'hsl(var(--secondary))',
+  '#100A12': 'hsl(var(--card))',
+  '#101006': 'hsl(var(--card))',
+  '#101825': 'hsl(var(--secondary))',
+  '#101827': 'hsl(var(--secondary))',
+  '#111827': 'hsl(var(--secondary))',
+  '#120A12': 'hsl(var(--card))',
+  '#12121A': 'hsl(var(--secondary))',
+  '#121725': 'hsl(var(--secondary))',
+  '#121827': 'hsl(var(--secondary))',
+  '#17142A': 'hsl(var(--primary) / 0.12)',
+  '#1B3148': 'hsl(var(--muted))',
+  '#1D3345': 'hsl(var(--muted))',
+  '#1D3348': 'hsl(var(--muted))',
+  '#1E293B': 'hsl(var(--muted))',
+  '#1E3146': 'hsl(var(--muted))',
+  '#1F1300': 'hsl(var(--primary) / 0.08)',
+  '#1F2937': 'hsl(var(--border))',
+  '#22C55E': 'hsl(var(--primary))',
+  '#251A06': 'hsl(var(--primary) / 0.08)',
+  '#25415C': 'hsl(var(--muted))',
+  '#263852': 'hsl(var(--muted))',
+  '#2A0F18': 'hsl(var(--primary) / 0.08)',
+  '#2A4058': 'hsl(var(--muted))',
+  '#2DD4BF': 'hsl(var(--primary))',
+  '#334155': 'hsl(var(--border))',
+  '#34475E': 'hsl(var(--border))',
+  '#38BDF8': 'hsl(var(--primary))',
+  '#475569': 'hsl(var(--muted-foreground) / 0.65)',
+  '#5EEAD4': 'hsl(var(--primary))',
+  '#5FF5D0': 'hsl(var(--primary))',
+  '#64748B': 'hsl(var(--muted-foreground))',
+  '#7B8BA0': 'hsl(var(--muted-foreground))',
+  '#94A3B8': 'hsl(var(--muted-foreground))',
+  '#99F6E4': 'hsl(var(--primary) / 0.78)',
+  '#9EF7FF': 'hsl(var(--primary) / 0.82)',
+  '#A78BFA': 'hsl(var(--primary))',
+  '#AFC2D4': 'hsl(var(--muted-foreground))',
+  '#B8C8D8': 'hsl(var(--muted-foreground))',
+  '#BAE6FD': 'hsl(var(--primary) / 0.72)',
+  '#C4B5FD': 'hsl(var(--primary) / 0.72)',
+  '#CBD5E1': 'hsl(var(--foreground) / 0.82)',
+  '#CCFBF1': 'hsl(var(--primary) / 0.72)',
+  '#CFE1F1': 'hsl(var(--foreground) / 0.82)',
+  '#CFE6F9': 'hsl(var(--foreground) / 0.82)',
+  '#CFF8FF': 'hsl(var(--primary) / 0.72)',
+  '#D7E7F4': 'hsl(var(--foreground) / 0.9)',
+  '#D7FFF5': 'hsl(var(--primary) / 0.72)',
+  '#E0F2FE': 'hsl(var(--foreground) / 0.9)',
+  '#E2E8F0': 'hsl(var(--foreground))',
+  '#E8F4FF': 'hsl(var(--foreground))',
+  '#E9F7FF': 'hsl(var(--foreground))',
+  '#EDE9FE': 'hsl(var(--foreground))',
+  '#FB7185': 'hsl(var(--primary))',
+  '#FBBF24': 'hsl(var(--primary))',
+  '#FCA5A5': 'hsl(var(--primary) / 0.72)',
+  '#FDA4AF': 'hsl(var(--primary) / 0.72)',
+  '#FDE68A': 'hsl(var(--primary) / 0.56)',
+  '#FECDD3': 'hsl(var(--primary) / 0.35)',
+  '#FEF3C7': 'hsl(var(--primary) / 0.28)',
+  '#FFE4E6': 'hsl(var(--primary) / 0.25)',
+};
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function prefixSvgIds(markup: string, prefix: string) {
+  const ids = Array.from(markup.matchAll(/\bid="([^"]+)"/g), (match) => match[1]);
+  let nextMarkup = markup;
+
+  for (const id of ids) {
+    const nextId = `${prefix}-${id}`;
+    const escapedId = escapeRegExp(id);
+    nextMarkup = nextMarkup
+      .replace(new RegExp(`\\bid="${escapedId}"`, 'g'), `id="${nextId}"`)
+      .replace(new RegExp(`url\\(#${escapedId}\\)`, 'g'), `url(#${nextId})`)
+      .replace(new RegExp(`href="#${escapedId}"`, 'g'), `href="#${nextId}"`)
+      .replace(new RegExp(`xlink:href="#${escapedId}"`, 'g'), `xlink:href="#${nextId}"`)
+      .replace(new RegExp(`aria-labelledby="([^"]*)\\b${escapedId}\\b([^"]*)"`, 'g'), (_match, before, after) => (
+        `aria-labelledby="${before}${nextId}${after}"`
+      ));
+  }
+
+  return nextMarkup;
+}
+
+function normalizeSvgTheme(markup: string, idPrefix: string) {
+  return prefixSvgIds(markup, idPrefix)
+    .replace(/<svg\b(?![^>]*\bclass=)/, '<svg class="theme-svg"')
+    .replace(/<svg\b([^>]*?)\bclass="([^"]*)"/, '<svg$1class="theme-svg $2"')
+    .replace(/#[0-9A-Fa-f]{6}\b/g, (match) => colorTokenMap[match.toUpperCase()] || match);
+}
+
+if (isLocalSvg) {
+  const fileName = decodeURIComponent(cleanSrc.replace('/images/', ''));
+  const filePath = normalize(join(publicImagesDir, fileName));
+  const isInsideImagesDir = filePath.startsWith(normalize(publicImagesDir + sep));
+
+  if (isInsideImagesDir && existsSync(filePath)) {
+    svgMarkup = normalizeSvgTheme(readFileSync(filePath, 'utf8'), svgIdPrefix);
+  }
+}
+---
+
+{svgMarkup ? (
+  <span
+    class={`theme-aware-visual theme-svg-visual ${className}`}
+    role={alt ? 'img' : undefined}
+    aria-label={alt || undefined}
+    aria-hidden={alt ? undefined : 'true'}
+    set:html={svgMarkup}
+  />
+) : (
+  <img src={src} alt={alt} class={`theme-aware-visual ${className}`} loading={loading} />
+)}

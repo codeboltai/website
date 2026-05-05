@@ -6,6 +6,7 @@
  * group: Hero Sections
  */
 import { cn } from '../lib/utils';
+import ThemeVisual from './ThemeVisual.astro';
 
 const { heading, subheading, eyebrow, headingAccent = [], buttons = [], media, installCommand, installLabel = 'Install' } = Astro.props;
 
@@ -126,12 +127,7 @@ if (heading && Array.isArray(headingAccent) && headingAccent.length > 0) {
 
             <div class="relative aspect-[16/9] bg-background dark:bg-[#030303]">
               {media.src ? (
-                <img
-                  src={media.src}
-                  alt={media.alt || 'Product demo'}
-                  class="theme-aware-visual h-full w-full object-cover"
-                  loading="eager"
-                />
+                <ThemeVisual src={media.src} alt={media.alt || 'Product demo'} class="h-full w-full object-cover" loading="eager" />
               ) : (
                 <div class="absolute inset-0 flex items-center justify-center">
                   <div class="text-center">

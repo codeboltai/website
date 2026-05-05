@@ -31,7 +31,8 @@
     "status-badge",
     "step-card",
     "tier-card",
-    "topo-card"
+    "topo-card",
+    "theme-visual"
   ],
   "componentGroups": [
     {

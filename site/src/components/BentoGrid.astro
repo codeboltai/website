@@ -11,6 +11,7 @@
  * Supports: title, description, href, links, image, visual (ASCII), visualHtml (rich HTML), tag badge.
  */
 import { cn } from '../lib/utils';
+import ThemeVisual from './ThemeVisual.astro';
 
 interface BentoItem {
   title: string;
@@ -140,9 +141,9 @@ const rowSpanClass = (rowSpan?: number) => {
 
             {/* Visual area */}
             {(item.image || item.visual || item.visualHtml) && (
-              <div class="flex-1 min-h-[140px] bg-muted/40 border-t border-border flex items-center justify-center p-4 overflow-hidden">
+              <div class="flex-1 min-h-[140px] border-t border-border/70 flex items-center justify-center p-4 overflow-hidden">
                 {item.image ? (
-                  <img src={item.image.src} alt={item.image.alt || item.title} class="theme-aware-visual h-full max-h-[220px] w-full object-contain" loading="lazy" />
+                  <ThemeVisual src={item.image.src} alt={item.image.alt || item.title} class="h-full max-h-[220px] w-full object-contain" />
                 ) : item.visualHtml ? (
                   <div class="w-full h-full" set:html={item.visualHtml} />
                 ) : (

@@ -12,6 +12,7 @@
  * Each card: title, short description, optional link, visual below.
  */
 import { cn } from '../lib/utils';
+import ThemeVisual from './ThemeVisual.astro';
 
 interface ShowcaseItem {
   title: string;
@@ -95,9 +96,9 @@ const gridClass: Record<number, string> = {
 
             {/* Visual area — taller, like a screenshot region */}
             {(item.image || item.visual || item.visualHtml) && (
-              <div class="flex-1 min-h-[180px] bg-muted/40 border-t border-border/60 flex items-start justify-center p-4 overflow-hidden">
+              <div class="flex-1 min-h-[180px] border-t border-border/60 flex items-start justify-center p-4 overflow-hidden">
                 {item.image ? (
-                  <img src={item.image.src} alt={item.image.alt || item.title} class="theme-aware-visual h-full max-h-[220px] w-full object-contain" loading="lazy" />
+                  <ThemeVisual src={item.image.src} alt={item.image.alt || item.title} class="h-full max-h-[220px] w-full object-contain" />
                 ) : item.visualHtml ? (
                   <div class="w-full" set:html={item.visualHtml} />
                 ) : (

@@ -6,6 +6,7 @@
  * group: Content Sections
  */
 import { cn } from '../lib/utils';
+import ThemeVisual from './ThemeVisual.astro';
 
 interface Item {
   title: string;
@@ -82,8 +83,8 @@ const { kicker, heading, description, items = [] } = Astro.props;
         ))}
       </div>
 
-      <div class="relative min-h-[360px] border border-border dark:border-zinc-800/60 bg-card dark:bg-[#050505] overflow-hidden">
-        <div class="absolute inset-0 opacity-30 dark:opacity-100 pointer-events-none bg-grid"></div>
+      <div class="relative min-h-[360px] border border-border dark:border-zinc-800/60 overflow-hidden">
+        <div class="absolute inset-0 opacity-25 pointer-events-none bg-grid"></div>
         {items.map((item, idx) => (
           <div
             data-acc-panel={idx}
@@ -93,7 +94,7 @@ const { kicker, heading, description, items = [] } = Astro.props;
             )}
           >
             {item.image ? (
-              <img src={item.image.src} alt={item.image.alt || item.title} class="theme-aware-visual relative z-10 max-h-[320px] w-full object-contain" loading="lazy" />
+              <ThemeVisual src={item.image.src} alt={item.image.alt || item.title} class="relative z-10 max-h-[320px] w-full object-contain" />
             ) : item.visualHtml ? (
               <div class="relative z-10 w-full" set:html={item.visualHtml} />
             ) : (

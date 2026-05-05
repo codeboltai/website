@@ -6,6 +6,7 @@
  * group: Content Sections
  */
 import { cn } from '../lib/utils';
+import ThemeVisual from './ThemeVisual.astro';
 
 interface Action {
   label: string;
@@ -156,12 +157,7 @@ const { eyebrow, heading, tabs = [] } = Astro.props;
 
                 <div class="relative aspect-[16/10] bg-background dark:bg-[#030303]">
                   {tab.media.src ? (
-                    <img
-                      src={tab.media.src}
-                      alt={tab.media.alt || `${tab.label} demo`}
-                      class="theme-aware-visual h-full w-full object-cover"
-                      loading="lazy"
-                    />
+                    <ThemeVisual src={tab.media.src} alt={tab.media.alt || `${tab.label} demo`} class="h-full w-full object-cover" />
                   ) : (
                     <>
                       <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
