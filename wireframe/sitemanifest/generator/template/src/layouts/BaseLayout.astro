@@ -87,19 +87,6 @@ const { title, navbarVariant = 'solid', site, navigation } = Astro.props;
         });
       }
 
-      document.querySelectorAll('.accordion-trigger').forEach(trigger => {
-        trigger.addEventListener('click', () => {
-          const item = trigger.parentElement;
-          const wasOpen = item.classList.contains('open');
-          item.closest('.accordion').querySelectorAll('.accordion-item').forEach(i => {
-            i.classList.remove('open');
-          });
-          if (!wasOpen) {
-            item.classList.add('open');
-          }
-        });
-      });
-
       document.querySelectorAll('.start-tabs').forEach(group => {
         const triggers = group.querySelectorAll('.start-tab-trigger');
         const panels = group.querySelectorAll('.start-tab-panel');

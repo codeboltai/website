@@ -27,7 +27,7 @@ export const navigation = {
             "href": "/engine/agent-extensibility"
           },
           {
-            "label": "Dynamic Scalable Evolving Memory",
+            "label": "Dynamic Evolving Memory",
             "href": "/engine/dynamic-scalable-evolving-memory"
           },
           {
@@ -37,6 +37,10 @@ export const navigation = {
           {
             "label": "Multi-Environment Scaling",
             "href": "/engine/multi-environment"
+          },
+          {
+            "label": "Agent Orchestration",
+            "href": "/engine/agent-orchestration"
           },
           {
             "label": "Codebolt Native Applications",
@@ -72,7 +76,29 @@ export const navigation = {
       },
       {
         "label": "Use Cases",
-        "href": "/use-cases"
+        "href": "/use-cases",
+        "children": [
+          {
+            "label": "Overview",
+            "href": "/use-cases"
+          },
+          {
+            "label": "Custom Agent Development",
+            "href": "/use-cases/custom-agent-development"
+          },
+          {
+            "label": "Autonomous Companies",
+            "href": "/use-cases/autonomous-companies"
+          },
+          {
+            "label": "Coding Agent",
+            "href": "/use-cases/coding-agent"
+          },
+          {
+            "label": "Agent Cloud",
+            "href": "/use-cases/agent-cloud"
+          }
+        ]
       },
       {
         "label": "Architecture",
@@ -123,7 +149,7 @@ export const navigation = {
             "href": "/engine/agent-extensibility"
           },
           {
-            "label": "Dynamic Scalable Evolving Memory",
+            "label": "Dynamic Evolving Memory",
             "href": "/engine/dynamic-scalable-evolving-memory"
           },
           {
@@ -133,6 +159,10 @@ export const navigation = {
           {
             "label": "Multi-Environment Scaling",
             "href": "/engine/multi-environment"
+          },
+          {
+            "label": "Agent Orchestration",
+            "href": "/engine/agent-orchestration"
           },
           {
             "label": "Codebolt Native Applications",
@@ -161,6 +191,22 @@ export const navigation = {
           {
             "label": "Use Cases",
             "href": "/use-cases"
+          },
+          {
+            "label": "Custom Agent Development",
+            "href": "/use-cases/custom-agent-development"
+          },
+          {
+            "label": "Autonomous Companies",
+            "href": "/use-cases/autonomous-companies"
+          },
+          {
+            "label": "Coding Agent",
+            "href": "/use-cases/coding-agent"
+          },
+          {
+            "label": "Agent Cloud",
+            "href": "/use-cases/agent-cloud"
           },
           {
             "label": "Architecture",

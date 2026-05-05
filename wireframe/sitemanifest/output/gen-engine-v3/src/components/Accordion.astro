@@ -39,7 +39,7 @@ const { kicker, heading, subtitle, items = [] } = Astro.props;
               <path d="M6 8l4 4 4-4" />
             </svg>
           </button>
-          <div class="accordion-content overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out">
+          <div class="accordion-content overflow-hidden transition-[max-height] duration-300 ease-in-out">
             <div class="grid grid-cols-1 gap-6 px-6 pb-6 md:grid-cols-12">
               <p class="text-muted-foreground leading-relaxed md:col-span-7">
                 {item.answer}
@@ -58,18 +58,38 @@ const { kicker, heading, subtitle, items = [] } = Astro.props;
 </section>
 
 <style>
-  .accordion-item.open .accordion-content { max-height: 320px; }
   .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
 </style>
 
 <script>
   document.querySelectorAll('.accordion').forEach((accordion) => {
+    const syncHeights = () => {
+      accordion.querySelectorAll('.accordion-item').forEach((item) => {
+        const content = item.querySelector('.accordion-content');
+        if (!content) return;
+        content.style.maxHeight = item.classList.contains('open')
+          ? `${content.scrollHeight}px`
+          : '0px';
+      });
+    };
+
+    syncHeights();
+
     accordion.querySelectorAll('.accordion-trigger').forEach((trigger) => {
       trigger.addEventListener('click', () => {
         const item = trigger.closest('.accordion-item');
         if (!item) return;
-        item.classList.toggle('open');
+        const wasOpen = item.classList.contains('open');
+        accordion.querySelectorAll('.accordion-item').forEach((otherItem) => {
+          otherItem.classList.remove('open');
+        });
+        if (!wasOpen) {
+          item.classList.add('open');
+        }
+        syncHeights();
       });
     });
+
+    window.addEventListener('resize', syncHeights);
   });
 </script>
