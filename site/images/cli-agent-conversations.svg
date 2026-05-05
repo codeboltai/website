@@ -1,0 +1,22 @@
+<svg width="720" height="420" viewBox="0 0 720 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="420" rx="18" fill="#06101C"/>
+  <rect x="26" y="28" width="668" height="364" rx="14" fill="#080B12" stroke="#1B3148"/>
+  <text x="56" y="70" fill="#7B8BA0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="4">AGENT CONVERSATION</text>
+  <rect x="56" y="104" width="250" height="52" rx="8" fill="#101825" stroke="#25415C"/>
+  <text x="78" y="136" fill="#E8F4FF" font-family="Arial, sans-serif" font-size="18" font-weight="700">Prompt</text>
+  <rect x="56" y="177" width="608" height="64" rx="10" fill="#081A24" stroke="#00D8FF"/>
+  <text x="82" y="215" fill="#E8F4FF" font-family="Arial, sans-serif" font-size="18" font-weight="700">Agent response</text>
+  <path d="M316 130H382" stroke="#00D8FF" stroke-width="4"/>
+  <path d="M370 116L386 130L370 144" stroke="#00D8FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="406" y="104" width="118" height="52" rx="8" fill="#121725" stroke="#263852"/>
+  <text x="432" y="136" fill="#B8C8D8" font-family="Arial, sans-serif" font-size="16" font-weight="700">tools</text>
+  <rect x="546" y="104" width="118" height="52" rx="8" fill="#121725" stroke="#263852"/>
+  <text x="568" y="136" fill="#B8C8D8" font-family="Arial, sans-serif" font-size="16" font-weight="700">files</text>
+  <rect x="84" y="274" width="132" height="42" rx="8" fill="#111827" stroke="#25415C"/>
+  <text x="114" y="301" fill="#CFE6F9" font-family="Arial, sans-serif" font-size="15" font-weight="700">tool calls</text>
+  <rect x="246" y="274" width="160" height="42" rx="8" fill="#111827" stroke="#25415C"/>
+  <text x="272" y="301" fill="#CFE6F9" font-family="Arial, sans-serif" font-size="15" font-weight="700">confirm writes</text>
+  <rect x="436" y="274" width="170" height="42" rx="8" fill="#111827" stroke="#25415C"/>
+  <text x="462" y="301" fill="#CFE6F9" font-family="Arial, sans-serif" font-size="15" font-weight="700">checkpoints</text>
+  <path d="M150 241V274M326 241V274M521 241V274" stroke="#5FF5D0" stroke-width="3" stroke-linecap="round"/>
+</svg>

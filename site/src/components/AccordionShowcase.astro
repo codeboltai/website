@@ -1,5 +1,5 @@
 ---
-const { kicker, heading, subtitle, items = [], visual, visualLabel } = Astro.props;
+const { kicker, heading, subtitle, items = [], visual, visualLabel, visualImage } = Astro.props;
 ---
 
 <section class="py-16 md:py-20 px-6 bg-background dark:bg-[#050505] text-foreground border-b border-border dark:border-zinc-900">
@@ -67,7 +67,11 @@ const { kicker, heading, subtitle, items = [], visual, visualLabel } = Astro.pro
           <div class="relative min-h-[420px] bg-[#030303] p-6 md:p-8 flex items-center justify-center">
             <div class="absolute inset-0 bg-grid opacity-70"></div>
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_65%_25%,hsl(var(--primary)/0.18),transparent_35%)]"></div>
-            <pre class="relative z-10 w-full overflow-auto whitespace-pre text-[11px] md:text-xs leading-relaxed font-mono text-zinc-300">{visual}</pre>
+            {visualImage?.src ? (
+              <img src={visualImage.src} alt={visualImage.alt || visualLabel || heading || ''} class="theme-aware-visual relative z-10 max-h-[420px] w-full object-contain" loading="lazy" />
+            ) : (
+              <pre class="relative z-10 w-full overflow-auto whitespace-pre text-[11px] md:text-xs leading-relaxed font-mono text-zinc-300">{visual}</pre>
+            )}
           </div>
         </div>
       </div>

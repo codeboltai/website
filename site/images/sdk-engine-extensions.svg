@@ -1,0 +1,22 @@
+<svg width="560" height="320" viewBox="0 0 560 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Engine extensions</title>
+  <desc id="desc">Integrations, routes, panels, hooks, commands, marketplace packages, backend logic, and domain capabilities run inside the engine runtime.</desc>
+  <rect width="560" height="320" rx="18" fill="#050816"/>
+  <rect x="30" y="28" width="500" height="264" rx="14" fill="#100A12" stroke="#1F2937"/>
+  <text x="54" y="64" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">ENGINE EXTENSIONS</text>
+  <rect x="84" y="112" width="132" height="112" rx="14" fill="#2A0F18" stroke="#FB7185"/>
+  <text x="150" y="159" text-anchor="middle" fill="#FFE4E6" font-family="Inter, ui-sans-serif, system-ui" font-size="15" font-weight="800">Plugin</text>
+  <text x="150" y="181" text-anchor="middle" fill="#FECDD3" font-family="Inter, ui-sans-serif, system-ui" font-size="11">extension</text>
+  <g fill="#111827" stroke="#475569">
+    <rect x="278" y="88" width="94" height="36" rx="8"/>
+    <rect x="388" y="88" width="94" height="36" rx="8"/>
+    <rect x="278" y="150" width="94" height="36" rx="8"/>
+    <rect x="388" y="150" width="94" height="36" rx="8"/>
+    <rect x="334" y="212" width="94" height="36" rx="8"/>
+  </g>
+  <text x="325" y="111" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="11">routes</text>
+  <text x="435" y="111" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="11">hooks</text>
+  <text x="325" y="173" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="11">panels</text>
+  <text x="435" y="173" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="11">commands</text>
+  <text x="381" y="235" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="11">packages</text>
+</svg>

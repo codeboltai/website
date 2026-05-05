@@ -1,0 +1,12 @@
+<svg width="560" height="320" viewBox="0 0 560 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Develop with agents</title>
+  <desc id="desc">Run coding agents against project context, inspect file edits, review checkpoints, and keep human control.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L9 5L1 9" stroke="#38BDF8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <rect width="560" height="320" rx="18" fill="#050816"/><rect x="30" y="28" width="500" height="264" rx="14" fill="#08111F" stroke="#1F2937"/>
+  <text x="54" y="64" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">BUILD WITH AGENTS</text>
+  <rect x="74" y="112" width="112" height="90" rx="12" fill="#111827" stroke="#475569"/><text x="130" y="163" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12">context</text>
+  <path d="M204 157H284" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="302" y="112" width="112" height="90" rx="12" fill="#071B2B" stroke="#38BDF8"/><text x="358" y="163" text-anchor="middle" fill="#E0F2FE" font-family="Inter, ui-sans-serif, system-ui" font-size="12">agent edit</text>
+  <path d="M432 157H478" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="480" y="126" width="42" height="62" rx="9" fill="#111827" stroke="#475569"/><text x="501" y="211" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="10">review</text>
+</svg>

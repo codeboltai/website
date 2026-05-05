@@ -1,0 +1,38 @@
+<svg width="880" height="500" viewBox="0 0 880 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Provider SDK routes execution across backends</title>
+  <desc id="desc">Codebolt sends an execution request through the provider layer to local engines, remote servers, cloud sandboxes, custom agent platforms, or specialized runtimes.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1L9 5L1 9" stroke="#FBBF24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="880" height="500" rx="22" fill="#050816"/>
+  <rect x="40" y="40" width="800" height="420" rx="18" fill="#101006" stroke="#1F2937"/>
+  <text x="76" y="84" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">PROVIDER ROUTING</text>
+  <rect x="86" y="192" width="164" height="90" rx="16" fill="#111827" stroke="#475569"/>
+  <text x="168" y="230" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="16" font-weight="800">Codebolt</text>
+  <text x="168" y="255" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">execution request</text>
+  <path d="M270 237H354" stroke="#FBBF24" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="372" y="172" width="140" height="130" rx="16" fill="#251A06" stroke="#FBBF24"/>
+  <text x="442" y="224" text-anchor="middle" fill="#FEF3C7" font-family="Inter, ui-sans-serif, system-ui" font-size="17" font-weight="800">Provider</text>
+  <text x="442" y="250" text-anchor="middle" fill="#FDE68A" font-family="Inter, ui-sans-serif, system-ui" font-size="12">choose backend</text>
+  <g stroke="#FBBF24" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M530 206C578 120 608 114 656 114"/>
+    <path d="M530 224C578 172 610 166 656 166"/>
+    <path d="M530 242H656"/>
+    <path d="M530 260C578 312 610 318 656 318"/>
+    <path d="M530 278C578 370 608 382 656 382"/>
+  </g>
+  <g fill="#111827" stroke="#475569">
+    <rect x="674" y="92" width="124" height="44" rx="10"/>
+    <rect x="674" y="144" width="124" height="44" rx="10"/>
+    <rect x="674" y="220" width="124" height="44" rx="10"/>
+    <rect x="674" y="296" width="124" height="44" rx="10"/>
+    <rect x="674" y="360" width="124" height="44" rx="10"/>
+  </g>
+  <text x="736" y="120" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12">local</text>
+  <text x="736" y="172" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12">remote server</text>
+  <text x="736" y="248" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12">cloud sandbox</text>
+  <text x="736" y="324" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12">agent platform</text>
+  <text x="736" y="388" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12">specialized</text>
+</svg>

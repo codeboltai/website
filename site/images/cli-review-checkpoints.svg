@@ -1,0 +1,18 @@
+<svg width="720" height="420" viewBox="0 0 720 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="420" rx="18" fill="#070D16"/>
+  <rect x="34" y="34" width="652" height="352" rx="14" fill="#090B12" stroke="#1E3146"/>
+  <text x="62" y="77" fill="#7B8BA0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="4">REVIEW CHECKPOINTS</text>
+  <rect x="74" y="122" width="150" height="64" rx="10" fill="#101827" stroke="#2A4058"/>
+  <text x="111" y="160" fill="#D7E7F4" font-family="Arial, sans-serif" font-size="16" font-weight="700">file write</text>
+  <rect x="284" y="122" width="150" height="64" rx="10" fill="#0B1A24" stroke="#00D8FF"/>
+  <text x="316" y="160" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="16" font-weight="700">checkpoint</text>
+  <rect x="494" y="122" width="150" height="64" rx="10" fill="#101827" stroke="#2A4058"/>
+  <text x="535" y="160" fill="#D7E7F4" font-family="Arial, sans-serif" font-size="16" font-weight="700">review</text>
+  <path d="M224 154H284M434 154H494" stroke="#00D8FF" stroke-width="4"/>
+  <path d="M270 140L286 154L270 168M480 140L496 154L480 168" stroke="#00D8FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="108" y="252" width="504" height="56" rx="10" fill="#111827" stroke="#2A4058"/>
+  <path d="M140 280L158 298L194 260" stroke="#5FF5D0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="224" y="287" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="17" font-weight="700">approve, reject, or roll back from the TUI</text>
+  <rect x="238" y="334" width="244" height="30" rx="15" fill="#091D26" stroke="#00D8FF"/>
+  <text x="284" y="354" fill="#9EF7FF" font-family="Arial, sans-serif" font-size="13" font-weight="700">human control stays visible</text>
+</svg>

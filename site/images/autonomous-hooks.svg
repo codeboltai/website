@@ -1,0 +1,33 @@
+<svg width="760" height="420" viewBox="0 0 760 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Runtime hooks react to events as they happen</title>
+  <desc id="desc">Plugin updates, app state changes, workflow transitions, and monitoring alerts enter a hook bus that starts agent actions.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1L9 5L1 9" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="760" height="420" rx="22" fill="#050816"/>
+  <rect x="42" y="42" width="676" height="336" rx="18" fill="#090A17" stroke="#1F2937"/>
+  <text x="76" y="86" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">RUNTIME HOOKS</text>
+  <g fill="#111827" stroke="#475569">
+    <rect x="78" y="114" width="164" height="46" rx="10"/>
+    <rect x="78" y="178" width="164" height="46" rx="10"/>
+    <rect x="78" y="242" width="164" height="46" rx="10"/>
+    <rect x="78" y="306" width="164" height="46" rx="10"/>
+  </g>
+  <text x="160" y="143" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">Plugin update</text>
+  <text x="160" y="207" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">App state change</text>
+  <text x="160" y="271" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">Workflow status</text>
+  <text x="160" y="335" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">Monitoring alert</text>
+  <path d="M260 137C318 137 316 199 374 199" stroke="#A78BFA" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M260 201H374" stroke="#A78BFA" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M260 265C318 265 316 211 374 211" stroke="#A78BFA" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M260 329C326 329 322 223 374 223" stroke="#A78BFA" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="392" y="150" width="138" height="112" rx="15" fill="#17142A" stroke="#A78BFA"/>
+  <text x="461" y="192" text-anchor="middle" fill="#EDE9FE" font-family="Inter, ui-sans-serif, system-ui" font-size="17" font-weight="800">Hook bus</text>
+  <text x="461" y="218" text-anchor="middle" fill="#C4B5FD" font-family="Inter, ui-sans-serif, system-ui" font-size="12">filter + dispatch</text>
+  <path d="M548 206H626" stroke="#A78BFA" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="644" cy="206" r="36" fill="#111827" stroke="#475569"/>
+  <text x="644" y="202" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12" font-weight="700">Agent</text>
+  <text x="644" y="220" text-anchor="middle" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="10">action</text>
+</svg>

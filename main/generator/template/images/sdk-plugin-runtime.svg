@@ -1,0 +1,33 @@
+<svg width="880" height="500" viewBox="0 0 880 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Plugin SDK runtime backend capabilities</title>
+  <desc id="desc">A plugin process provides lifecycle hooks, routes, WebSocket events, commands, panels, external adapters, and engine API access for apps and agents.</desc>
+  <rect width="880" height="500" rx="22" fill="#050816"/>
+  <rect x="40" y="40" width="800" height="420" rx="18" fill="#100A12" stroke="#1F2937"/>
+  <text x="76" y="84" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">PLUGIN RUNTIME</text>
+  <rect x="94" y="138" width="210" height="184" rx="16" fill="#2A0F18" stroke="#FB7185"/>
+  <text x="199" y="202" text-anchor="middle" fill="#FFE4E6" font-family="Inter, ui-sans-serif, system-ui" font-size="18" font-weight="800">Plugin process</text>
+  <text x="199" y="232" text-anchor="middle" fill="#FECDD3" font-family="Inter, ui-sans-serif, system-ui" font-size="12">backend inside engine</text>
+  <text x="199" y="260" text-anchor="middle" fill="#FECDD3" font-family="Inter, ui-sans-serif, system-ui" font-size="12">close to agents and memory</text>
+  <g fill="#111827" stroke="#475569">
+    <rect x="372" y="102" width="154" height="44" rx="10"/>
+    <rect x="558" y="102" width="154" height="44" rx="10"/>
+    <rect x="372" y="174" width="154" height="44" rx="10"/>
+    <rect x="558" y="174" width="154" height="44" rx="10"/>
+    <rect x="372" y="246" width="154" height="44" rx="10"/>
+    <rect x="558" y="246" width="154" height="44" rx="10"/>
+    <rect x="464" y="318" width="154" height="44" rx="10"/>
+  </g>
+  <g stroke="#FB7185" stroke-width="1.6">
+    <path d="M304 210H372"/>
+    <path d="M304 222H372"/>
+    <path d="M304 234H372"/>
+    <path d="M304 246H372"/>
+  </g>
+  <text x="449" y="130" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">lifecycle</text>
+  <text x="635" y="130" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">HTTP routes</text>
+  <text x="449" y="202" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">WS + mux</text>
+  <text x="635" y="202" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">hooks</text>
+  <text x="449" y="274" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">panels</text>
+  <text x="635" y="274" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">adapters</text>
+  <text x="541" y="346" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">engine API</text>
+</svg>

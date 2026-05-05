@@ -5,6 +5,7 @@ interface Item {
   title: string;
   description?: string;
   icon?: string;
+  image?: { src: string; alt?: string };
   visual?: string;
   visualHtml?: string;
   href?: string;
@@ -85,7 +86,9 @@ const { kicker, heading, description, items = [] } = Astro.props;
               idx === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'
             )}
           >
-            {item.visualHtml ? (
+            {item.image ? (
+              <img src={item.image.src} alt={item.image.alt || item.title} class="theme-aware-visual relative z-10 max-h-[320px] w-full object-contain" loading="lazy" />
+            ) : item.visualHtml ? (
               <div class="relative z-10 w-full" set:html={item.visualHtml} />
             ) : (
               <pre class="relative z-10 text-xs md:text-sm font-mono text-muted-foreground whitespace-pre overflow-auto max-w-full">

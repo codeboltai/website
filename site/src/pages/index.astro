@@ -31,7 +31,6 @@ import CtaBlock from '../components/CtaBlock.astro';
     headingAccent={["self-evolving","swarm-scale"]}
     subheading="Build software with Codebolt. Run and coordinate hundreds of autonomous agents across laptops, cloud, and fleets. Ship Codebolt-native applications that run directly on the engine runtime."
     buttons={[{"label":"Download","href":"/download","variant":"primary"},{"label":"Read the Docs","href":"/docs","variant":"secondary"}]}
-    media={{"label":"Remote Chat","src":"/images/cloud.png","alt":"Codebolt remote chat workspace showing a live autonomous agent completing build and server tasks","placeholder":"Remote Chat Workspace"}}
   />
   <StartTabs
     eyebrow="Use Codebolt where you work"
@@ -73,17 +72,8 @@ distributes itself, and composes with other software like it.
     heading="Build software (and more) with Codebolt"
     body={`Use the <a class='inline-tag' href='/products/editor'>Editor</a>, <a class='inline-tag' href='/products/cli'>CLI</a>, or terminal as a coding partner — like Claude Code, but with <a class='inline-tag' href='/products/sdk'>custom agents</a>, any LLM, and full SDK access. Then push beyond software: spin up agents that draft documents, edit videos, run research, generate decks. Anything an agent can do, you can build a workflow for.`}
     cta={{"label":"See the products","href":"/products/editor"}}
-    diagram={`SOFTWARE
-├─ codebolt --prompt "refactor user.ts"
-├─ Editor → multi-agent codebase work
-└─ CLI → build / test / ship loops
-
-BEYOND SOFTWARE
-├─ docs-agent      → drafts + reviews
-├─ video-agent     → edits, captions, cuts
-├─ research-agent  → gather, summarize, cite
-└─ your-agent      → any domain, any tool
-`}
+    image="/images/editor-project-workspace.svg"
+    imageAlt="Codebolt workspace connecting editor, CLI, agents, project context, and memory"
   />
   <FeatureBlock
     kicker="02 · BUILD YOUR HARNESS"
@@ -114,28 +104,15 @@ codebolt.onMessage(async (msg) => {
     description="Same content as the section above, in a bento grid layout. Compare and pick the one you like."
     columns={3}
     gap="none"
-    items={[{"title":"Custom Agents","tag":"AGENT SDK","description":"Write agents in JavaScript with 63+ SDK modules. Full control over the agentic loop — prompts, tools, memory, routing.","href":"/products/sdk","span":2,"visual":"import { codebolt } from 'codeboltjs';\n\ncodebolt.onMessage(async (msg) => {\n  const plan = await codebolt.llm.plan(msg);\n  const code = await codebolt.fs.read(plan.file);\n  const next = await codebolt.llm.edit(code, plan);\n  await codebolt.fs.write(plan.file, next);\n  await codebolt.git.commit(plan.summary);\n});\n"},{"title":"Custom Plugins","tag":"PLUGIN SDK","description":"Run inside the engine on three channels — WebSocket actions, multiplexed events, HTTP REST.","href":"/engine/system-extensibility","span":1,"visual":"Agent Ch.   → codeboltjs\nPlugin Ch.  → WS · Mux · HTTP\nClient Ch.  → 72 REST + 33 WS\n"},{"title":"Remix Agents","tag":"NO-CODE","description":"Inherit a base agent. Customize in YAML + Markdown. Git-friendly. No code required.","span":1,"visual":"# remix.yaml\nbase: code-reviewer\nprompts:\n  + style: terse\n  + lang:  ts\n"},{"title":"Flow Agents","tag":"VISUAL","description":"Drag-and-drop agent workflows. LiteGraph editor. Compose agents with no code.","span":1,"visual":"┌─────┐   ┌─────┐\n│Plan │──▶│Edit │\n└─────┘   └──┬──┘\n             ▼\n         ┌──────┐\n         │Review│\n         └──────┘\n"},{"title":"Custom UI","tag":"CLIENT SDK","description":"Build dashboards, panels, mobile apps. 72 REST + 33 WebSocket modules.","href":"/products/sdk","span":1,"visual":"72 REST modules\n33 WebSocket modules\n→ any UI you want\n"}]}
+    items={[{"title":"Custom Agents","tag":"AGENT SDK","description":"Write agents in JavaScript with 63+ SDK modules. Full control over the agentic loop — prompts, tools, memory, routing.","href":"/products/sdk","span":2,"image":{"src":"/images/sdk-agent-layer.svg","alt":"Agent SDK layer with prompts, tools, memory, browser, filesystem, and git modules"}},{"title":"Custom Plugins","tag":"PLUGIN SDK","description":"Run inside the engine on three channels — WebSocket actions, multiplexed events, HTTP REST.","href":"/engine/system-extensibility","span":1,"image":{"src":"/images/sdk-plugin-layer.svg","alt":"Plugin SDK layer with WebSocket, multiplexed event, and HTTP channels"}},{"title":"Remix Agents","tag":"NO-CODE","description":"Inherit a base agent. Customize in YAML + Markdown. Git-friendly. No code required.","span":1,"image":{"src":"/images/sdk-agent-framework.svg","alt":"Agent framework options for remix, flow, and custom agents"}},{"title":"Flow Agents","tag":"VISUAL","description":"Drag-and-drop agent workflows. LiteGraph editor. Compose agents with no code.","span":1,"image":{"src":"/images/sdk-workflow-agents.svg","alt":"Visual flow agents moving through plan, edit, test, and review stages"}},{"title":"Custom UI","tag":"CLIENT SDK","description":"Build dashboards, panels, mobile apps. 72 REST + 33 WebSocket modules.","href":"/products/sdk","span":1,"image":{"src":"/images/sdk-client-interface.svg","alt":"Client SDK interface with REST, WebSocket, dashboard, panel, and mobile surfaces"}}]}
   />
   <FeatureBlock
     kicker="03 · RUN AUTONOMOUS"
     heading="Run an autonomous organization"
-    body={`Promote your agents to always-on. The <a class='inline-tag' href='/products/autonomous-agent'>24/7 Autonomous Agent</a> runs locally or on <a class='inline-tag' href='/products/cloud'>Codebolt Cloud</a> — proactive scheduling, persistent memory, plugin integrations to the messengers and APIs your business already uses. From one always-on assistant to a full <a class='inline-tag' href='/use-cases/autonomous-companies'>autonomous company</a> with agents managing engineering, QA, deployment, and monitoring as plugins.`}
+    body={`Promote your agents to always-on. The <a class='inline-tag' href='/products/autonomous-agent'>24/7 Autonomous Agent</a> runs locally or on <a class='inline-tag' href='/products/cloud'>Codebolt Cloud</a> — proactive scheduling, persistent memory, plugin integrations to the messengers and APIs your business already uses. From one always-on assistant to a full <a class='inline-tag' href='/use-cases/autonomous-company'>autonomous company</a> with agents managing engineering, QA, deployment, and monitoring as plugins.`}
     cta={{"label":"See the autonomous agent","href":"/products/autonomous-agent"}}
-    diagram="24/7 AUTONOMOUS AGENT
-├─ Local or Cloud
-├─ Persistent memory (3-tier)
-├─ Hooks · Schedules · Webhooks
-├─ Plugins → Slack, Email, Calendar, GitHub
-└─ Reaches customers wherever they are
-
-AUTONOMOUS COMPANY
-┌───────────┬───────────┬───────────┐
-│ Eng Plugin│ QA Plugin │ Ops Plugin│
-├───────────┴───────────┴───────────┤
-│   Coordination · Stigmergy · Review│
-│           You direct.              │
-└────────────────────────────────────┘
-"
+    image="/images/autonomous-scale.svg"
+    imageAlt="Always-on autonomous organization with persistent memory, schedules, hooks, webhooks, plugins, and scaling"
   />
   <FeatureBlock
     kicker="04 · BUILD ON TOP"
@@ -143,24 +120,14 @@ AUTONOMOUS COMPANY
     body={`The engine is a substrate, not a destination. Ship <a class='inline-tag' href='/engine/system-extensibility'>custom applications as plugins</a> that ride inside the engine — they get memory, scheduling, multi-agent coordination, and routing for free. Or build <a class='inline-tag' href='/products/cloud'>cloud-native apps</a> on Codebolt Cloud that share the same workspaces, sandboxes, and agent runtime your team already uses.`}
     reverse={true}
     cta={{"label":"Explore the Cloud","href":"/products/cloud"}}
-    diagram="PLUGINS — apps inside the engine
-├─ vertical IDE         (your own surface)
-├─ domain workflow      (compliance, sales, ops)
-├─ developer tool       (review, deploy, monitor)
-└─ runs alongside agents, shares memory + routing
-
-CLOUD APPS — apps on the hosted engine
-├─ Browser portal     ← your UI
-├─ Managed sandboxes  ← your runtime
-├─ Shared workspaces  ← your team
-└─ Same engine inside.
-"
+    image="/images/sdk-native-application.svg"
+    imageAlt="Codebolt-native application with plugin backend, dynamic panel frontend, agents, tools, memory, and project state"
   />
   <FeatureAccordion
     kicker="ACCORDION VARIANT · BUILD ON TOP"
     heading="Build on top of Codebolt"
     description="Same content as the section above, in an accordion-with-visual layout. Click any row to swap the panel."
-    items={[{"title":"Custom Plugins","icon":"PLG","description":"Ship your application as a plugin that runs inside the engine. Get memory, scheduling, multi-agent coordination, and routing for free.","href":"/engine/system-extensibility","visual":"YOUR APP (plugin)\n┌─────────────────────────┐\n│  Your code              │\n│  ↓ Plugin SDK           │\n│  WS · Mux · HTTP        │\n└─────────────────────────┘\n         ↓\n    ENGINE CORE\n┌─────────────────────────┐\n│ Memory · Scheduling     │\n│ Coordination · Routing  │\n└─────────────────────────┘\n"},{"title":"Cloud-Native Apps","icon":"CLD","description":"Build apps on Codebolt Cloud that share the same workspaces, sandboxes, and agent runtime your team already uses.","href":"/products/cloud","visual":"cloud.codebolt.ai\n┌─────────────────────────┐\n│  Browser portal    ← UI │\n│  Managed sandboxes ← run│\n│  Shared workspaces ← team│\n│  Same engine inside.    │\n└─────────────────────────┘\n         ↓\nYOUR APP rides the cloud.\n"},{"title":"Vertical IDEs","icon":"IDE","description":"Compose panels and plugins into a domain-specific IDE — your customers see your surface, not Codebolt's.","visual":"YOUR VERTICAL IDE\n┌────────────┬────────────┐\n│ Code Panel │ Domain     │\n│            │ Workflow   │\n├────────────┴────────────┤\n│ Terminal · Custom Tools │\n└─────────────────────────┘\nbuilt from engine parts.\n"},{"title":"Domain Workflows","icon":"WF ","description":"Package compliance, sales, ops, or any vertical workflow as a plugin. Agents pick it up automatically.","visual":"DOMAIN WORKFLOW\n┌─────────────────────────┐\n│ trigger → policy → log  │\n│   ↓                     │\n│ agent picks task        │\n│   ↓                     │\n│ executes via plugin SDK │\n└─────────────────────────┘\n"},{"title":"Developer Tools","icon":"DEV","description":"Ship review, deploy, monitor, lint, or any developer-facing tool as a plugin on the engine.","visual":"DEV TOOL PLUGIN\n┌─────────────────────────┐\n│ Review · Deploy · Lint  │\n│ Monitor · Test · Audit  │\n├─────────────────────────┤\n│ All on the same engine, │\n│ same agents, same memory│\n└─────────────────────────┘\n"}]}
+    items={[{"title":"Custom Plugins","icon":"PLG","description":"Ship your application as a plugin that runs inside the engine. Get memory, scheduling, multi-agent coordination, and routing for free.","href":"/engine/system-extensibility","image":{"src":"/images/sdk-plugin-runtime.svg","alt":"Plugin runtime connected to engine memory, scheduling, coordination, and routing"}},{"title":"Cloud-Native Apps","icon":"CLD","description":"Build apps on Codebolt Cloud that share the same workspaces, sandboxes, and agent runtime your team already uses.","href":"/products/cloud","image":{"src":"/images/cloud-app-backends.svg","alt":"Cloud-native app backends using browser portal, managed sandboxes, shared workspaces, and hosted agent runtime"}},{"title":"Vertical IDEs","icon":"IDE","description":"Compose panels and plugins into a domain-specific IDE — your customers see your surface, not Codebolt's.","image":{"src":"/images/editor-runtime-panels.svg","alt":"Vertical IDE composed from editor panels, custom tools, terminal, and plugins"}},{"title":"Domain Workflows","icon":"WF ","description":"Package compliance, sales, ops, or any vertical workflow as a plugin. Agents pick it up automatically.","image":{"src":"/images/autonomous-hooks.svg","alt":"Domain workflow with triggers, policy, logging, agent handoff, and plugin execution"}},{"title":"Developer Tools","icon":"DEV","description":"Ship review, deploy, monitor, lint, or any developer-facing tool as a plugin on the engine.","image":{"src":"/images/cloud-operations.svg","alt":"Developer tool plugin for review, deploy, lint, monitor, test, and audit workflows"}}]}
   />
   <SectionHeader
     kicker="WHY IT'S DIFFERENT"
@@ -174,24 +141,8 @@ CLOUD APPS — apps on the hosted engine
     heading="Self-Improving by design"
     body={`Define what good looks like with <a class='inline-tag' href='/architecture'>eval tasks</a>. The optimizer iterates on prompts, tools, and configs across runs and keeps the winners. <a class='inline-tag' href='/architecture'>Three-tier memory</a> compounds knowledge across sessions — episodic, persistent, and a context-assembly engine that decides what each agent sees. The engine even generates new <a class='inline-tag' href='/products/sdk'>agents and plugins</a> dynamically when the work calls for it. Agents get measurably better with use, not worse.`}
     cta={{"label":"Read the architecture","href":"/architecture"}}
-    diagram="EVALS · OPTIMIZATION
-eval task → score
-  ↓
-optimizer → tweak prompt / tools / config
-  ↓
-re-run → new score
-  ↓
-keep winners. Forever loop.
-
-MEMORY EVOLUTION
-├─ Episodic   (what happened, with whom)
-├─ Persistent (what to remember, forever)
-└─ Context Assembly (what this agent sees now)
-
-DYNAMIC GENERATION
-├─ Agents generated on demand
-└─ Plugins composed from existing parts
-"
+    image="/images/editor-lifecycle-quality.svg"
+    imageAlt="Evaluation and optimization loop with scoring, prompt and tool updates, memory evolution, and dynamic generation"
   />
   <FeatureBlock
     kicker="06 · HYPER-SCALING"
@@ -199,22 +150,8 @@ DYNAMIC GENERATION
     body={`One agent in your terminal is the same engine that coordinates 100+ agents across <a class='inline-tag' href='/engine/multi-environment'>local, Docker, and cloud</a>. Proxy execution chains environments — Env A → B → C, any topology. <a class='inline-tag' href='/engine/multi-agent'>Stigmergy</a> gives you bio-inspired coordination: pheromone task ownership, deliberation councils, automatic review and merge — no GitHub-PR bottleneck. Coordination is built in, not bolted on.`}
     reverse={true}
     cta={{"label":"See multi-agent + multi-environment","href":"/engine/multi-environment"}}
-    diagram="MULTI-ENVIRONMENT
-local ──→ Docker ──→ cloud
-       ↕ proxy execution
-Any topology. Git bundles transfer state.
-
-COORDINATION
-├─ Sub-agents (parallel children)
-├─ Pheromones (task ownership)
-├─ Deliberation (consensus)
-└─ Auto review & merge (no PR queue)
-
-STIGMERGY
-Agents leave traces in shared state.
-Other agents pick up the trace.
-Coordination without central control.
-"
+    image="/images/cloud-scale-handoff.svg"
+    imageAlt="Multi-environment scaling from local to Docker to cloud with coordination, review, and shared state"
   />
   <ProgressionStrip
     kicker="THE SCALE SPECTRUM"
@@ -227,7 +164,7 @@ Coordination without central control.
     heading="One engine. Every surface."
     subtitle="Same engine, same SDK, same plugins — different interface for different needs."
     columns={4}
-    items={[{"title":"CLI","description":"Terminal client. Like Claude Code, but with custom agents and a growth path to multi-agent.","href":"/products/cli","visual":"$ codebolt\n$ codebolt --agent my-agent\n$ codebolt --server\n$ codebolt --prompt \"...\"\n"},{"title":"Editor","description":"Desktop editor with Monaco, agent workspace, and plugin panel. Not a fork.","href":"/products/editor","visual":"┌──────────┬──────────┐\n│ Editor   │ Agents   │\n├──────────┴──────────┤\n│ Terminal │ Plugins  │\n└─────────────────────┘\n"},{"title":"24/7 Autonomous Agent","description":"Always-on agent with persistent memory and plugin integrations. Reaches your customers wherever they are.","href":"/products/autonomous-agent","visual":"Always-on engine\n├─ Memory (3-tier)\n├─ Plugins (external)\n├─ Hooks (proactive)\n└─ Any LLM provider\n"},{"title":"Cloud","description":"Hosted engine with a browser portal. Sandbox runs, shared workspaces, no install.","href":"/products/cloud","visual":"cloud.codebolt.ai\n├─ Browser portal\n├─ Managed sandboxes\n├─ Shared workspaces\n└─ Same engine inside\n"}]}
+    items={[{"title":"CLI","description":"Terminal client. Like Claude Code, but with custom agents and a growth path to multi-agent.","href":"/products/cli","image":{"src":"/images/cli-agent-conversations.svg","alt":"CLI agent conversations with terminal prompts, custom agents, server mode, and prompt runs"}},{"title":"Editor","description":"Desktop editor with Monaco, agent workspace, and plugin panel. Not a fork.","href":"/products/editor","image":{"src":"/images/editor-project-workspace.svg","alt":"Editor workspace with project files, agents, terminal, browser, and plugin panels"}},{"title":"24/7 Autonomous Agent","description":"Always-on agent with persistent memory and plugin integrations. Reaches your customers wherever they are.","href":"/products/autonomous-agent","image":{"src":"/images/autonomous-scale.svg","alt":"Always-on autonomous agent with memory, plugins, hooks, external channels, and scaling"}},{"title":"Cloud","description":"Hosted engine with a browser portal. Sandbox runs, shared workspaces, no install.","href":"/products/cloud","image":{"src":"/images/cloud-sandboxes.svg","alt":"Cloud portal with managed sandboxes, browser sessions, shared workspaces, and hosted runtime"}}]}
   />
   <SdkCallout
     kicker="BUILD YOUR OWN SURFACE"
@@ -241,7 +178,7 @@ Coordination without central control.
     heading="The pillars of the engine"
     subtitle="Extensible at every layer. Self-improving by design. Moldable at the surface."
     gap="none"
-    heroFeatures={[{"title":"System Extensibility","description":"Three SDKs. Agent SDK (63+ modules), Plugin SDK (3 channels), Client SDK (72 REST + 33 WS). The system is open at every layer.","href":"/engine/system-extensibility","tag":"EXTEND THE SYSTEM","visual":"Agent SDK → codeboltjs (63+ modules)\nPlugin SDK → WS + Mux + HTTP\nClient SDK → 72 REST + 33 WS\nAll open. All extensible.\n"},{"title":"Agent Extensibility","description":"Remix agents (no-code YAML), Flow agents (visual graph), Custom agents (full code). 675+ skills across 72 domains. Role-specific LLM configs.","href":"/engine/agent-extensibility","tag":"EXTEND ANY AGENT","visual":"Remix: YAML + Markdown (no code)\nFlow:  Visual graph editor\nCustom: Full SDK access (code)\nSkills: 675+ across 72 domains\n"},{"title":"Self-Improving by Design","description":"Define what good looks like with eval tasks. The optimizer iterates on prompts, tools, and configs across runs. Your agents get measurably better with use, not worse.","tag":"EVAL · OPTIMIZE","visual":"eval task → score\n  ↓\noptimizer → tweak prompt/tools\n  ↓\nre-run → new score\n  ↓\nkeep winners. Forever loop.\n"}]}
+    heroFeatures={[{"title":"System Extensibility","description":"Three SDKs. Agent SDK (63+ modules), Plugin SDK (3 channels), Client SDK (72 REST + 33 WS). The system is open at every layer.","href":"/engine/system-extensibility","tag":"EXTEND THE SYSTEM","image":{"src":"/images/sdk-agent-layer.svg","alt":"System extensibility through Agent SDK, Plugin SDK, and Client SDK layers"}},{"title":"Agent Extensibility","description":"Remix agents (no-code YAML), Flow agents (visual graph), Custom agents (full code). 675+ skills across 72 domains. Role-specific LLM configs.","href":"/engine/agent-extensibility","tag":"EXTEND ANY AGENT","image":{"src":"/images/sdk-agent-framework.svg","alt":"Agent extensibility through remix agents, flow agents, custom agents, skills, and role model configs"}},{"title":"Self-Improving by Design","description":"Define what good looks like with eval tasks. The optimizer iterates on prompts, tools, and configs across runs. Your agents get measurably better with use, not worse.","tag":"EVAL · OPTIMIZE","image":{"src":"/images/editor-lifecycle-quality.svg","alt":"Self-improving loop with eval tasks, scoring, optimizer updates, reruns, and retained winners"}}]}
     compactFeatures={[{"title":"Dynamic Interface Generation","description":"Panels and plugins compose into the surface your customers see. Ship a vertical IDE, a domain-specific UI, or a SaaS — assembled from the engine's parts.","tag":"MOLDABLE"},{"title":"Multi-Agent Scaling","description":"Sub-agents, parallel execution, stigmergy coordination, pheromone ownership, deliberation councils, auto review & merge — within one environment.","href":"/engine/multi-agent","tag":"COORDINATION"},{"title":"Multi-Environment Scaling","description":"Proxy execution chains environments. Env A → B → C. Any topology. Git bundle state transfer.","href":"/engine/multi-environment","tag":"ACROSS MACHINES"},{"title":"Narrative Engine","description":"Rust-based flight recorder. Shadow git snapshots. Per-thread history. Deterministic replay.","tag":"RUST"},{"title":"Guardrails","description":"Policy engine with LLM risk classification. Per-role, per-environment, per-phase. Allow, deny, escalate.","tag":"GOVERNANCE"},{"title":"Three-Tier Memory","description":"Episodic + Persistent + Context Assembly Engine. Token budgets. Agents know what to remember.","tag":"MEMORY"}]}
   />
   <QuoteBlock
@@ -256,7 +193,7 @@ Coordination without central control.
     description="An advanced agent execution engine — from one agent to autonomous companies."
     columns={3}
     gap="none"
-    items={[{"title":"63+ SDK Modules","description":"Filesystem, git, browser, terminal, LLM, vector DB, memory, knowledge graph, code search, and more.","tag":"AGENT SDK","span":1,"visual":"codebolt.fs    codebolt.git\ncodebolt.llm   codebolt.browser\ncodebolt.terminal  codebolt.vectordb\ncodebolt.memory  codebolt.agent\n... 55 more modules\n"},{"title":"3 Communication Channels","description":"Agent channel for work. Plugin channel for extensions. Client channel for interfaces. Each serves a distinct purpose.","tag":"ARCHITECTURE","span":2,"visual":"Agent Ch.  ──→ codeboltjs SDK ──→ 63+ modules\nPlugin Ch. ──→ WS + Mux + HTTP ──→ runs inside engine\nClient Ch. ──→ 72 REST + 33 WS ──→ build any interface\n"},{"title":"17+ LLM Providers","description":"OpenAI, Anthropic, Google, Mistral, Groq, DeepSeek, Ollama, LM Studio. Per-agent, per-task model selection.","tag":"MODEL AGNOSTIC","span":1},{"title":"Multi-Environment","description":"Local, Docker, cloud, hierarchical. Proxy execution chains them together. Git bundles transfer state.","tag":"INFRASTRUCTURE","span":1,"visual":"local → Docker → cloud\n↕ proxy execution\nAny topology. Any scale.\n"},{"title":"Stigmergy + Deliberation","description":"Bio-inspired coordination. Pheromone task ownership. Agent deliberation councils. Review & merge without GitHub PR bottleneck.","tag":"COORDINATION","span":1,"visual":"Agents → shared state\nPheromones → ownership\nDeliberation → consensus\nAuto-merge → no bottleneck\n"}]}
+    items={[{"title":"63+ SDK Modules","description":"Filesystem, git, browser, terminal, LLM, vector DB, memory, knowledge graph, code search, and more.","tag":"AGENT SDK","span":1,"image":{"src":"/images/sdk-agent-layer.svg","alt":"Agent SDK module layer for filesystem, git, browser, terminal, LLM, vector database, memory, and agents"}},{"title":"3 Communication Channels","description":"Agent channel for work. Plugin channel for extensions. Client channel for interfaces. Each serves a distinct purpose.","tag":"ARCHITECTURE","span":2,"image":{"src":"/images/sdk-client-layer.svg","alt":"Three communication channels for agent work, plugin extensions, and client interfaces"}},{"title":"17+ LLM Providers","description":"OpenAI, Anthropic, Google, Mistral, Groq, DeepSeek, Ollama, LM Studio. Per-agent, per-task model selection.","tag":"MODEL AGNOSTIC","span":1,"image":{"src":"/images/sdk-provider-layer.svg","alt":"Model provider layer spanning OpenAI, Anthropic, Google, Mistral, Groq, DeepSeek, Ollama, and local providers"}},{"title":"Multi-Environment","description":"Local, Docker, cloud, hierarchical. Proxy execution chains them together. Git bundles transfer state.","tag":"INFRASTRUCTURE","span":1,"image":{"src":"/images/cloud-scale-handoff.svg","alt":"Multi-environment scale handoff from local to Docker to cloud and hierarchical infrastructure"}},{"title":"Stigmergy + Deliberation","description":"Bio-inspired coordination. Pheromone task ownership. Agent deliberation councils. Review & merge without GitHub PR bottleneck.","tag":"COORDINATION","span":1,"image":{"src":"/images/cli-orchestration-map.svg","alt":"Stigmergy and deliberation coordination map with shared state, ownership, consensus, and auto merge"}}]}
   />
   <ComparisonColumns
     problem={{"heading":"Other tools","items":["Claude Code — great CLI agent, but you can't customize the loop or scale beyond one agent","Cursor — great IDE, but agents are fixed and there's no plugin system","OpenClaw — great personal agent, but no multi-agent coordination or enterprise scaling","LangChain/CrewAI — agent frameworks, but no execution environment","Each tool is one thing. If you outgrow it, you start over."]}}
@@ -296,7 +233,7 @@ Coordination without central control.
   <CardGrid
     heading="The Progression"
     gap="none"
-    cards={[{"title":"Day 1 — CLI in your terminal","body":"Install Codebolt. Run it in your terminal. Use a built-in agent or bring your own. Like Claude Code but with any model, full SDK access, and room to grow.","visual":"$ npm i -g codebolt\n$ codebolt\n→ Start with the engine\n"},{"title":"Week 2 — Custom Agents","body":"Write your first agent in 10 lines of JavaScript. Full access to 63+ SDK modules. Your logic, your tools, your rules. No other tool gives you this for free.","visual":"import { codebolt } from 'codeboltjs';\ncodebolt.onMessage(async (msg) => {\n  // your agent, your logic\n});\n"},{"title":"Month 2 — Editor + Plugins","body":"Switch to the desktop Editor. Install plugins that connect to GitHub, Jira, Slack. Build custom plugins. Multiple agents coordinating on your codebase.","visual":"Editor + Monaco\nPlugins: CI/CD, review, deploy\n3+ agents coordinating\n"},{"title":"Month 6 — 24/7 Autonomous Agent","body":"Your agent runs always-on. Persistent memory. Proactive scheduling. Plugin integrations handle email, calendar, monitoring. Like OpenClaw, but on an engine that scales.","visual":"Always-on engine\nMemory persists across sessions\nPlugins handle the world\n"},{"title":"Year 1 — Orchestration","body":"50+ agents across Docker and cloud environments. Stigmergy coordination. Deliberation councils. Automatic review and merge. Drift tracking. Your infrastructure, not your bottleneck.","visual":"50+ agents → 5 environments\nAuto review & merge\nDrift tracking + guardrails\n"},{"title":"Year 2 — Autonomous Company","body":"Applications run as plugins inside the engine. Each handles a domain — engineering, testing, deployment, monitoring. Agents coordinate across all of them. You direct the vision.","visual":"Plugin: Engineering\nPlugin: QA & Testing\nPlugin: Deployment\nPlugin: Monitoring\nAll autonomous. You direct.\n"}]}
+    cards={[{"title":"Day 1 — CLI in your terminal","body":"Install Codebolt. Run it in your terminal. Use a built-in agent or bring your own. Like Claude Code but with any model, full SDK access, and room to grow.","image":{"src":"/images/cli-agent-conversations.svg","alt":"Day one CLI session starting Codebolt in the terminal with agent conversations"}},{"title":"Week 2 — Custom Agents","body":"Write your first agent in 10 lines of JavaScript. Full access to 63+ SDK modules. Your logic, your tools, your rules. No other tool gives you this for free.","image":{"src":"/images/sdk-agent-flow.svg","alt":"Custom agent flow using SDK modules, prompts, tools, memory, and routing"}},{"title":"Month 2 — Editor + Plugins","body":"Switch to the desktop Editor. Install plugins that connect to GitHub, Jira, Slack. Build custom plugins. Multiple agents coordinating on your codebase.","image":{"src":"/images/editor-project-workspace.svg","alt":"Editor workspace with Monaco, plugins, terminal, browser, agents, and project files"}},{"title":"Month 6 — 24/7 Autonomous Agent","body":"Your agent runs always-on. Persistent memory. Proactive scheduling. Plugin integrations handle email, calendar, monitoring. Like OpenClaw, but on an engine that scales.","image":{"src":"/images/autonomous-schedule.svg","alt":"Always-on autonomous agent schedule with persistent memory and proactive plugin integrations"}},{"title":"Year 1 — Orchestration","body":"50+ agents across Docker and cloud environments. Stigmergy coordination. Deliberation councils. Automatic review and merge. Drift tracking. Your infrastructure, not your bottleneck.","image":{"src":"/images/cloud-scale-handoff.svg","alt":"Orchestration across local, Docker, and cloud environments with review and shared state"}},{"title":"Year 2 — Autonomous Company","body":"Applications run as plugins inside the engine. Each handles a domain — engineering, testing, deployment, monitoring. Agents coordinate across all of them. You direct the vision.","image":{"src":"/images/autonomous-scale.svg","alt":"Autonomous company with business domains as plugins and agents coordinating across them"}}]}
   />
   <PersonaGrid
     personas={[{"label":"Solo Developers","body":"Start with the CLI. Use one agent. Write custom agents when you're ready. More power than any free coding tool — because you control the agent, not just the prompt."},{"label":"Teams Scaling AI","body":"When two agents edit the same repo, the platform resolves conflicts. Coordination, drift tracking, and multi-environment management — so you focus on the product."},{"label":"AI Startup Founders","body":"Build your company on the engine. Applications run as plugins — no separate agent instances needed. Scale across environments as you grow."},{"label":"Enterprise & Production","body":"Governance, audit trails, deterministic replay, and guardrails. Every agent decision is traceable. Every change is attributable. Deploy agents in production with confidence."},{"label":"Platform Engineers","body":"Run headless in CI/CD. Spawn Docker environments. Transfer state between them. Monitor with real-time events. The engine was built for infrastructure people."},{"label":"AI Researchers","body":"Stigmergy-based coordination. Pheromone systems. Narrative versioning. Agent deliberation councils. Research-grounded architecture with published foundations."}]}

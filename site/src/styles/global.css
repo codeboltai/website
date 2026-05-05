@@ -110,6 +110,14 @@
     background-size: 40px 40px;
   }
 
+  .theme-aware-visual {
+    transition: filter 180ms ease;
+  }
+
+  html.light .theme-aware-visual[src$=".svg"] {
+    filter: invert(1) hue-rotate(180deg) saturate(0.9) contrast(0.95);
+  }
+
   .rule-grid {
     position: relative;
     background-image:

@@ -1,0 +1,20 @@
+<svg width="880" height="500" viewBox="0 0 880 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Codebolt-native app running inside Editor</title>
+  <desc id="desc">Dynamic panel frontend, plugin backend, agent workflows, tools, MCP providers, memory, events, project state, and task state run on the editor runtime.</desc>
+  <rect width="880" height="500" rx="22" fill="#050816"/>
+  <rect x="40" y="40" width="800" height="420" rx="18" fill="#090A12" stroke="#1F2937"/>
+  <text x="76" y="84" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">CODEBOLT-NATIVE APPS</text>
+  <rect x="92" y="128" width="696" height="248" rx="18" fill="#0B1220" stroke="#334155"/>
+  <g>
+    <rect x="132" y="176" width="136" height="52" rx="10" fill="#071B2B" stroke="#38BDF8"/>
+    <rect x="292" y="176" width="136" height="52" rx="10" fill="#2A0F18" stroke="#FB7185"/>
+    <rect x="452" y="176" width="136" height="52" rx="10" fill="#0D1B2A" stroke="#2DD4BF"/>
+    <rect x="612" y="176" width="136" height="52" rx="10" fill="#251A06" stroke="#FBBF24"/>
+    <rect x="212" y="276" width="456" height="52" rx="10" fill="#17142A" stroke="#A78BFA"/>
+  </g>
+  <text x="200" y="207" text-anchor="middle" fill="#E0F2FE" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Panel frontend</text>
+  <text x="360" y="207" text-anchor="middle" fill="#FFE4E6" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Plugin backend</text>
+  <text x="520" y="207" text-anchor="middle" fill="#CCFBF1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Agent workflows</text>
+  <text x="680" y="207" text-anchor="middle" fill="#FEF3C7" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Tools + MCP</text>
+  <text x="440" y="307" text-anchor="middle" fill="#EDE9FE" font-family="Inter, ui-sans-serif, system-ui" font-size="13" font-weight="800">Editor runtime: memory + events + project state + task state</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg width="720" height="420" viewBox="0 0 720 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="420" rx="18" fill="#060E17"/>
+  <rect x="32" y="32" width="656" height="356" rx="14" fill="#090C13" stroke="#1E3146"/>
+  <text x="62" y="76" fill="#7B8BA0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="4">TOOL VISIBILITY</text>
+  <rect x="72" y="124" width="134" height="54" rx="9" fill="#101827" stroke="#2A4058"/>
+  <text x="111" y="157" fill="#D7E7F4" font-family="Arial, sans-serif" font-size="16" font-weight="700">files</text>
+  <rect x="229" y="124" width="134" height="54" rx="9" fill="#101827" stroke="#2A4058"/>
+  <text x="265" y="157" fill="#D7E7F4" font-family="Arial, sans-serif" font-size="16" font-weight="700">shell</text>
+  <rect x="386" y="124" width="134" height="54" rx="9" fill="#101827" stroke="#2A4058"/>
+  <text x="420" y="157" fill="#D7E7F4" font-family="Arial, sans-serif" font-size="16" font-weight="700">browser</text>
+  <rect x="543" y="124" width="106" height="54" rx="9" fill="#101827" stroke="#2A4058"/>
+  <text x="573" y="157" fill="#D7E7F4" font-family="Arial, sans-serif" font-size="16" font-weight="700">git</text>
+  <rect x="116" y="244" width="150" height="54" rx="9" fill="#0A1A23" stroke="#00D8FF"/>
+  <text x="158" y="277" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="16" font-weight="700">memory</text>
+  <rect x="296" y="244" width="128" height="54" rx="9" fill="#0A1A23" stroke="#00D8FF"/>
+  <text x="333" y="277" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="16" font-weight="700">MCP</text>
+  <rect x="454" y="244" width="150" height="54" rx="9" fill="#0A1A23" stroke="#00D8FF"/>
+  <text x="493" y="277" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="16" font-weight="700">events</text>
+  <path d="M139 178V214H529V244M296 178V244M453 178V244M596 178V214" stroke="#5FF5D0" stroke-width="3" stroke-linecap="round"/>
+  <rect x="194" y="334" width="332" height="30" rx="15" fill="#111827" stroke="#34475E"/>
+  <text x="266" y="354" fill="#AFC2D4" font-family="Arial, sans-serif" font-size="13" font-weight="700">every tool call remains inspectable</text>
+</svg>

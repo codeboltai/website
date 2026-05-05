@@ -2,7 +2,7 @@
 /**
  * BentoGrid — Asymmetric feature grid with mixed cell sizes.
  * Each item can span 1 or 2 columns, and optionally 2 rows.
- * Supports: title, description, href, links, visual (ASCII), visualHtml (rich HTML), tag badge.
+ * Supports: title, description, href, links, image, visual (ASCII), visualHtml (rich HTML), tag badge.
  */
 import { cn } from '../lib/utils';
 
@@ -11,6 +11,7 @@ interface BentoItem {
   description?: string;
   href?: string;
   links?: { label: string; href: string }[];
+  image?: { src: string; alt?: string };
   visual?: string;       // ASCII/code diagram
   visualHtml?: string;   // Rich HTML content
   tag?: string;          // Small badge label
@@ -132,9 +133,11 @@ const rowSpanClass = (rowSpan?: number) => {
             </div>
 
             {/* Visual area */}
-            {(item.visual || item.visualHtml) && (
+            {(item.image || item.visual || item.visualHtml) && (
               <div class="flex-1 min-h-[140px] bg-muted/40 border-t border-border flex items-center justify-center p-4 overflow-hidden">
-                {item.visualHtml ? (
+                {item.image ? (
+                  <img src={item.image.src} alt={item.image.alt || item.title} class="theme-aware-visual h-full max-h-[220px] w-full object-contain" loading="lazy" />
+                ) : item.visualHtml ? (
                   <div class="w-full h-full" set:html={item.visualHtml} />
                 ) : (
                   <pre class="text-[10px] leading-tight font-mono text-muted-foreground/80 whitespace-pre overflow-auto max-w-full max-h-full">

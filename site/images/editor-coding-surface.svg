@@ -1,0 +1,19 @@
+<svg width="560" height="320" viewBox="0 0 560 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AI coding surface</title>
+  <desc id="desc">Editor combines code editing, terminal, file explorer, project context, chat, checkpoints, rollback, and model selection.</desc>
+  <rect width="560" height="320" rx="18" fill="#050816"/>
+  <rect x="30" y="28" width="500" height="264" rx="14" fill="#090A12" stroke="#1F2937"/>
+  <text x="54" y="64" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">AI CODING SURFACE</text>
+  <rect x="70" y="96" width="160" height="150" rx="12" fill="#111827" stroke="#475569"/>
+  <text x="94" y="126" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="11">files</text>
+  <rect x="94" y="148" width="78" height="8" rx="4" fill="#38BDF8"/>
+  <rect x="94" y="176" width="104" height="8" rx="4" fill="#334155"/>
+  <rect x="94" y="204" width="88" height="8" rx="4" fill="#334155"/>
+  <rect x="250" y="96" width="230" height="150" rx="12" fill="#071B2B" stroke="#38BDF8"/>
+  <text x="274" y="126" fill="#BAE6FD" font-family="Inter, ui-sans-serif, system-ui" font-size="11">editor + terminal + chat</text>
+  <rect x="274" y="152" width="150" height="8" rx="4" fill="#38BDF8"/>
+  <rect x="274" y="178" width="182" height="8" rx="4" fill="#334155"/>
+  <rect x="274" y="204" width="122" height="8" rx="4" fill="#5EEAD4"/>
+  <rect x="184" y="260" width="192" height="28" rx="7" fill="#111827" stroke="#334155"/>
+  <text x="280" y="279" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="11">checkpoints + model selection</text>
+</svg>

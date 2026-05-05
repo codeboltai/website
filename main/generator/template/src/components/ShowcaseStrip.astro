@@ -11,6 +11,7 @@ interface ShowcaseItem {
   title: string;
   description: string;
   href?: string;
+  image?: { src: string; alt?: string };
   visual?: string;       // ASCII/code
   visualHtml?: string;   // Rich HTML
 }
@@ -87,9 +88,11 @@ const gridClass: Record<number, string> = {
             </div>
 
             {/* Visual area — taller, like a screenshot region */}
-            {(item.visual || item.visualHtml) && (
+            {(item.image || item.visual || item.visualHtml) && (
               <div class="flex-1 min-h-[180px] bg-muted/40 border-t border-border/60 flex items-start justify-center p-4 overflow-hidden">
-                {item.visualHtml ? (
+                {item.image ? (
+                  <img src={item.image.src} alt={item.image.alt || item.title} class="theme-aware-visual h-full max-h-[220px] w-full object-contain" loading="lazy" />
+                ) : item.visualHtml ? (
                   <div class="w-full" set:html={item.visualHtml} />
                 ) : (
                   <pre class="text-[10px] leading-tight font-mono text-muted-foreground/70 whitespace-pre overflow-auto max-w-full">

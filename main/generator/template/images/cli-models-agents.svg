@@ -1,0 +1,21 @@
+<svg width="720" height="420" viewBox="0 0 720 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="420" rx="18" fill="#070E18"/>
+  <rect x="34" y="34" width="652" height="352" rx="14" fill="#090C13" stroke="#1D3348"/>
+  <text x="62" y="77" fill="#7B8BA0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="4">MODELS AND AGENTS</text>
+  <rect x="76" y="118" width="236" height="204" rx="12" fill="#101827" stroke="#2A4058"/>
+  <text x="104" y="154" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="18" font-weight="700">Provider</text>
+  <rect x="104" y="182" width="180" height="38" rx="8" fill="#081A24" stroke="#00D8FF"/>
+  <text x="136" y="207" fill="#CFF8FF" font-family="Arial, sans-serif" font-size="14" font-weight="700">gpt-5.5</text>
+  <rect x="104" y="236" width="180" height="38" rx="8" fill="#121827" stroke="#34475E"/>
+  <text x="136" y="261" fill="#B8C8D8" font-family="Arial, sans-serif" font-size="14" font-weight="700">claude</text>
+  <rect x="408" y="118" width="236" height="204" rx="12" fill="#101827" stroke="#2A4058"/>
+  <text x="436" y="154" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="18" font-weight="700">Agent</text>
+  <rect x="436" y="182" width="180" height="38" rx="8" fill="#081A24" stroke="#5FF5D0"/>
+  <text x="464" y="207" fill="#D7FFF5" font-family="Arial, sans-serif" font-size="14" font-weight="700">code agent</text>
+  <rect x="436" y="236" width="180" height="38" rx="8" fill="#121827" stroke="#34475E"/>
+  <text x="464" y="261" fill="#B8C8D8" font-family="Arial, sans-serif" font-size="14" font-weight="700">review agent</text>
+  <path d="M312 220H408" stroke="#00D8FF" stroke-width="4"/>
+  <path d="M394 206L410 220L394 234" stroke="#00D8FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="224" y="346" width="272" height="30" rx="15" fill="#091D26" stroke="#00D8FF"/>
+  <text x="284" y="366" fill="#9EF7FF" font-family="Arial, sans-serif" font-size="13" font-weight="700">switch control without leaving CLI</text>
+</svg>

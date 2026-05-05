@@ -68,7 +68,7 @@ const id = `tabs-${Math.random().toString(36).slice(2)}`;
           {tabs.map((tab, index) => (
             <div class={`tabs-showcase-visual relative z-10 h-full ${index === 0 ? 'flex' : 'hidden'} items-center justify-center`} data-tab-visual={index}>
               {tab.image ? (
-                <img src={tab.image.src} alt={tab.image.alt || tab.title} class="max-h-full w-full object-contain" loading="lazy" />
+                <img src={tab.image.src} alt={tab.image.alt || tab.title} class="theme-aware-visual max-h-full w-full object-contain" loading="lazy" />
               ) : (
                 <div class="w-full border border-zinc-800 bg-black/70">
                   <div class="flex h-9 items-center gap-2 border-b border-zinc-800 bg-[#090909] px-4">

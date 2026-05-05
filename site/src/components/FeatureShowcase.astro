@@ -11,6 +11,7 @@ interface HeroFeature {
   title: string;
   description: string;
   href?: string;
+  image?: { src: string; alt?: string };
   visual?: string;
   visualHtml?: string;
   tag?: string;
@@ -114,9 +115,11 @@ const compactGridClass: Record<number, string> = {
                   </span>
                 )}
               </div>
-              {(item.visual || item.visualHtml) && (
+              {(item.image || item.visual || item.visualHtml) && (
                 <div class="flex-1 min-h-[160px] bg-muted/20 dark:bg-[#050505] border-t border-border dark:border-zinc-800/50 flex items-center justify-center p-5 overflow-hidden">
-                  {item.visualHtml ? (
+                  {item.image ? (
+                    <img src={item.image.src} alt={item.image.alt || item.title} class="theme-aware-visual h-full max-h-[220px] w-full object-contain" loading="lazy" />
+                  ) : item.visualHtml ? (
                     <div class="w-full h-full" set:html={item.visualHtml} />
                   ) : (
                     <pre class="text-[10px] leading-tight font-mono text-muted-foreground/80 whitespace-pre overflow-auto max-w-full max-h-full">

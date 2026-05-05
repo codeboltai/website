@@ -1,0 +1,49 @@
+<svg width="860" height="520" viewBox="0 0 860 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Gateway routing model for self-hosted and cloud autonomous agents</title>
+  <desc id="desc">External platform events route through the Codebolt gateway into shared, per-user, per-conversation, per-message, or coordinated agent threads.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="860" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06111F"/>
+      <stop offset="1" stop-color="#030508"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1L9 5L1 9" stroke="#5EEAD4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="860" height="520" rx="22" fill="url(#bg)"/>
+  <rect x="34" y="34" width="792" height="452" rx="18" fill="#050816" stroke="#1F2937"/>
+  <text x="66" y="78" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">ROUTING + DEPLOYMENT</text>
+  <g>
+    <rect x="64" y="118" width="188" height="54" rx="10" fill="#0B1220" stroke="#334155"/>
+    <text x="158" y="151" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="14">Telegram message</text>
+    <rect x="64" y="188" width="188" height="54" rx="10" fill="#0B1220" stroke="#334155"/>
+    <text x="158" y="221" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="14">Linear webhook</text>
+    <rect x="64" y="258" width="188" height="54" rx="10" fill="#0B1220" stroke="#334155"/>
+    <text x="158" y="291" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="14">Calendar trigger</text>
+    <rect x="64" y="328" width="188" height="54" rx="10" fill="#0B1220" stroke="#334155"/>
+    <text x="158" y="361" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="14">Custom app event</text>
+  </g>
+  <path d="M270 250H348" stroke="#5EEAD4" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <rect x="364" y="190" width="140" height="120" rx="16" fill="#0D1B2A" stroke="#2DD4BF"/>
+  <text x="434" y="235" text-anchor="middle" fill="#CCFBF1" font-family="Inter, ui-sans-serif, system-ui" font-size="18" font-weight="800">Codebolt</text>
+  <text x="434" y="260" text-anchor="middle" fill="#99F6E4" font-family="Inter, ui-sans-serif, system-ui" font-size="15">Gateway</text>
+  <text x="434" y="286" text-anchor="middle" fill="#99F6E4" font-family="Inter, ui-sans-serif, system-ui" font-size="11">self-hosted or cloud</text>
+  <g stroke="#5EEAD4" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M520 218C560 152 588 145 628 145"/>
+    <path d="M520 238H628"/>
+    <path d="M520 258C560 258 588 285 628 285"/>
+    <path d="M520 278C560 344 588 355 628 355"/>
+  </g>
+  <g>
+    <rect x="644" y="118" width="152" height="54" rx="10" fill="#111827" stroke="#475569"/>
+    <text x="720" y="150" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">Shared thread</text>
+    <rect x="644" y="212" width="152" height="54" rx="10" fill="#111827" stroke="#475569"/>
+    <text x="720" y="244" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">Per user</text>
+    <rect x="644" y="258" width="152" height="54" rx="10" fill="#111827" stroke="#475569"/>
+    <text x="720" y="290" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">Per conversation</text>
+    <rect x="644" y="328" width="152" height="54" rx="10" fill="#111827" stroke="#475569"/>
+    <text x="720" y="360" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">Multi-thread</text>
+  </g>
+  <rect x="312" y="406" width="244" height="48" rx="10" fill="#111827" stroke="#334155"/>
+  <text x="434" y="435" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="13">memory + plans + plugins + hooks</text>
+</svg>
