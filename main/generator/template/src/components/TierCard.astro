@@ -1,0 +1,62 @@
+---
+import { cn } from '../lib/utils';
+
+const { tierLabel, title, value, valueSuffix, description, progress, accent = 'default', className } = Astro.props;
+
+const accentStyles = {
+  default: {
+    value: 'text-foreground dark:text-white',
+    bar: 'bg-foreground dark:bg-white',
+  },
+  purple: {
+    value: 'text-purple-400',
+    bar: 'bg-purple-500 shadow-[0_0_10px_rgba(168,85,247,0.5)]',
+  },
+  emerald: {
+    value: 'text-emerald-400',
+    bar: 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]',
+  },
+  amber: {
+    value: 'text-amber-400',
+    bar: 'bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.5)]',
+  },
+};
+
+const styles = accentStyles[accent] ?? accentStyles.default;
+---
+
+<div class={cn('p-8 md:p-12 hover:bg-muted/10 dark:hover:bg-zinc-900/20 transition-colors', className)}>
+  <div class="flex justify-between items-start mb-6">
+    <div>
+      <div class="font-mono text-xs uppercase text-muted-foreground dark:text-zinc-500 mb-1">
+        {tierLabel}
+      </div>
+      <h4 class="text-2xl text-foreground dark:text-white font-light">
+        {title}
+      </h4>
+    </div>
+    <div class="text-right">
+      <span class={cn('block text-3xl font-light', styles.value)}>{value}</span>
+      {valueSuffix && (
+        <span class="text-[10px] font-mono text-muted-foreground/70 dark:text-zinc-600 uppercase">
+          {valueSuffix}
+        </span>
+      )}
+    </div>
+  </div>
+
+  <p class="text-sm text-muted-foreground dark:text-zinc-400 leading-relaxed mb-6">
+    {description}
+  </p>
+
+  {progress && (
+    <div>
+      <div class="w-full bg-neutral-800 dark:bg-zinc-800 h-1 mt-4">
+        <div class={cn('h-1', styles.bar)} style={`width: ${progress}`} />
+      </div>
+      <div class="mt-2 text-[9px] font-mono text-muted-foreground/70 dark:text-zinc-600 text-right">
+        Capacity: {progress}
+      </div>
+    </div>
+  )}
+</div>

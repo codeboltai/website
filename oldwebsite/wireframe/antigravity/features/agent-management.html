@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Management - Codebolt Features</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">Codebolt</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Features</a></li>
+                <li><a href="../concepts/index.html">Concepts</a></li>
+                <li><a href="../use-cases.html">Use Cases</a></li>
+                <li><a href="../download.html" class="btn btn-primary" style="padding: 10px 20px;">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 160px 24px 80px;">
+        <div class="hero-content">
+            <div class="hero-badge">Feature</div>
+            <h1>Agent Management</h1>
+            <p class="hero-subtitle">
+                Create swarms, define teams, assign roles. Visual builders and real-time heatmaps for 200+ agents.
+            </p>
+        </div>
+    </section>
+
+    <!-- Swarm Organization -->
+    <section class="section">
+        <div class="container">
+            <div class="split">
+                <div>
+                    <span class="section-label">Organization</span>
+                    <h2 class="section-title">Swarms, Teams, Roles</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        Organize your agent workforce like you'd organize a company. Swarms are the top level, containing teams, which contain agents with specific roles.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-bullet">🐝</div>
+                            <div>
+                                <h4>Swarm Creation</h4>
+                                <p>Create named swarms with agent limits and policies.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">👥</div>
+                            <div>
+                                <h4>Teams</h4>
+                                <p>Group agents by function: frontend, backend, testing, docs.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🎭</div>
+                            <div>
+                                <h4>Roles</h4>
+                                <p>Define capabilities, permissions, and max assignees per role.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">📋</div>
+                            <div>
+                                <h4>Vacancies</h4>
+                                <p>Post open positions. Agents apply. Approval workflows ensure quality.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-block dark">
+                    [Swarm Structure]<br><br>
+                    Swarm: "ProductTeam"<br>
+                    ├── Team: Frontend (5 agents)<br>
+                    ├── Team: Backend (8 agents)<br>
+                    ├── Team: Testing (3 agents)<br>
+                    └── Vacancies: 2 open
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Builder -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Creation</span>
+                <h2 class="section-title">Visual Agent Builder</h2>
+                <p class="section-desc">Create agents without code using drag-and-drop flows. Or code them with full SDK access.</p>
+            </div>
+            <div class="comparison-grid" style="margin-top: 48px;">
+                <div class="comparison-card">
+                    <h3 style="margin-bottom: 20px;">🎨 Visual Flow Design</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 24px;">
+                        Drag trigger, action, condition, and output nodes onto the canvas. Connect them to define agent behavior.
+                    </p>
+                    <ul style="list-style: none; color: var(--text-muted); font-size: 14px;">
+                        <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">• Trigger: "On Job Assigned"</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">• Action: "Read File", "Code Review"</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">• Condition: "If Issues Found"</li>
+                        <li style="padding: 8px 0;">• Output: "Create PR", "Update Job"</li>
+                    </ul>
+                </div>
+                <div class="comparison-card highlight">
+                    <h3 style="margin-bottom: 20px;">🔧 Code-Based Agents</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 24px;">
+                        Full SDK access for custom logic in JavaScript/TypeScript. Agents have the same capabilities as humans.
+                    </p>
+                    <ul style="list-style: none; color: var(--text-muted); font-size: 14px;">
+                        <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">• codebolt.fs.* — File system</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">• codebolt.jobs.* — Job management</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid var(--border);">• codebolt.memory.* — Memory ops</li>
+                        <li style="padding: 8px 0;">• codebolt.pheromone.* — Stigmergy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heatmaps -->
+    <section class="section">
+        <div class="container">
+            <div class="split reverse">
+                <div>
+                    <span class="section-label">Monitoring</span>
+                    <h2 class="section-title">Real-Time Heatmaps</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        Monitor 200 agents at a glance. Status-coded tiles show who's working, who's idle, who's stuck.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-bullet" style="background: #22c55e20; color: #22c55e;">●</div>
+                            <div>
+                                <h4>Working</h4>
+                                <p>Agent actively processing a job.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet" style="background: #eab30820; color: #eab308;">●</div>
+                            <div>
+                                <h4>Idle</h4>
+                                <p>Ready for work, waiting for jobs.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet" style="background: #ef444420; color: #ef4444;">●</div>
+                            <div>
+                                <h4>Error</h4>
+                                <p>Encountered an issue—needs attention.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet" style="background: #3b82f620; color: #3b82f6;">●</div>
+                            <div>
+                                <h4>Blocked</h4>
+                                <p>Waiting on a dependency or blocker.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-block">
+                    [Agent Heatmap Grid]<br><br>
+                    200 tiles, color-coded by status<br>
+                    Click any tile → drill down to details
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agent Lifecycle -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Lifecycle</span>
+                <h2 class="section-title">Spawn & Termination</h2>
+                <p class="section-desc">Controlled agent lifecycle with approval workflows and full audit trails.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px;">
+                <div style="text-align: center;">
+                    <div style="width: 64px; height: 64px; background: var(--accent-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;">📝</div>
+                    <h4 style="margin-bottom: 8px;">Spawn Request</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">Request new agent with role and reason</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 64px; height: 64px; background: var(--accent-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;">✅</div>
+                    <h4 style="margin-bottom: 8px;">Approval</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">Request reviewed and approved</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 64px; height: 64px; background: var(--accent-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;">🤖</div>
+                    <h4 style="margin-bottom: 8px;">Running</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">Agent active and processing jobs</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 64px; height: 64px; background: var(--accent-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 16px;">🔚</div>
+                    <h4 style="margin-bottom: 8px;">Termination</h4>
+                    <p style="font-size: 14px; color: var(--text-muted);">Graceful shutdown with state externalized</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Build Your Swarm</h2>
+            <p>Download Codebolt and create your first agent.</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="../download.html" class="btn btn-primary">Download Free</a>
+                <a href="job-coordination.html" class="btn btn-secondary">Next: Job Coordination →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                © 2026 Codebolt. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

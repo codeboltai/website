@@ -1,0 +1,11 @@
+{
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "agentation"
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(node generate.js gen-engine-v3)"
+    ]
+  }
+}

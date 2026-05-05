@@ -1,0 +1,47 @@
+---
+import Button from './Button.astro';
+const { heading, layers = [], annotation, buttons = [] } = Astro.props;
+
+const styleClasses = {
+  surface: 'bg-card/30',
+  runtime: 'bg-muted/10',
+  drift: 'bg-primary/5',
+  versioning: 'bg-muted/5',
+  governance: 'bg-muted/10',
+};
+---
+<section class="py-24 px-6 bg-background dark:bg-[#050505] border-b border-border dark:border-zinc-900">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="mb-16 max-w-3xl">
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-foreground dark:text-white mb-6 leading-[1.12]">
+        {heading}
+      </h2>
+      {annotation && (
+        <p class="text-sm text-muted-foreground dark:text-zinc-400 leading-relaxed max-w-2xl">
+          {annotation}
+        </p>
+      )}
+    </div>
+
+    <div class="border border-border dark:border-zinc-800 overflow-hidden">
+      {layers.map((layer) => (
+        <div class={`flex items-center justify-between px-6 py-5 border-b border-border dark:border-zinc-800 ${styleClasses[layer.style] ?? 'bg-card/30'}`}>
+          <span class="text-sm text-foreground dark:text-white font-medium">
+            {layer.label}
+          </span>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground dark:text-zinc-500">
+            {layer.tag}
+          </span>
+        </div>
+      ))}
+    </div>
+
+    {buttons.length > 0 && (
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        {buttons.map((btn) => (
+          <Button label={btn.label} href={btn.href} variant={btn.variant} external={btn.external} />
+        ))}
+      </div>
+    )}
+  </div>
+</section>

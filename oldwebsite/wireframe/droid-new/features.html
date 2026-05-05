@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Codebolt</title>
+    <meta name="description" content="Comprehensive feature overview of Codebolt's multi-agent AI development platform. Swarm management, stigmergy coordination, persistent memory, and more.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">Codebolt</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html" class="active">Features</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="contact.html" class="cta-button">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Everything You Need for AI-Native Development</h1>
+            <p class="hero-subtitle">150+ specialized features built from the ground up for multi-agent systems</p>
+        </div>
+    </section>
+
+    <!-- Multi-Agent Engine -->
+    <section class="feature-category">
+        <div class="container">
+            <div class="category-header">
+                <span class="category-number">01</span>
+                <h2>Multi-Agent Engine</h2>
+                <p class="category-intro">Deploy 100+ AI agents simultaneously. From one helper to an entire AI team.</p>
+            </div>
+            
+            <div class="feature-details">
+                <div class="feature-block">
+                    <h3>Swarm Management</h3>
+                    <p>Create and manage swarms with advanced organizational capabilities:</p>
+                    <ul>
+                        <li><strong>Swarm Configuration:</strong> Define agent limits, policies, and external agent support</li>
+                        <li><strong>Team Organization:</strong> Group agents into functional teams with role requirements</li>
+                        <li><strong>Role System:</strong> Create roles with specific capabilities, permissions, and max assignees</li>
+                        <li><strong>Vacancy Management:</strong> Post open positions with priority levels and approval workflows</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Agent Lifecycle Management</h3>
+                    <p>Complete control over agent creation and termination:</p>
+                    <ul>
+                        <li><strong>Spawn Requests:</strong> Formal workflow for creating new agents with role assignment</li>
+                        <li><strong>Termination Requests:</strong> Approval-based agent removal with reason tracking</li>
+                        <li><strong>Agent States:</strong> Track available, working, busy, offline, and error states</li>
+                        <li><strong>External Agents:</strong> Connect external agents via WebSocket/HTTP protocols</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>On-Demand Scaling</h3>
+                    <p>Scale your AI workforce instantly based on project needs:</p>
+                    <ul>
+                        <li>Deploy from 10 to 100+ agents in seconds</li>
+                        <li>No hiring, onboarding, or ramp-up time required</li>
+                        <li>Workforce flexes with project demands</li>
+                        <li>Cost-effective scaling compared to headcount growth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Autonomous Coordination -->
+    <section class="feature-category alt-bg">
+        <div class="container">
+            <div class="category-header">
+                <span class="category-number">02</span>
+                <h2>Autonomous Coordination</h2>
+                <p class="category-intro">Self-organizing intelligence through stigmergy, deliberations, and smart job management.</p>
+            </div>
+            
+            <div class="feature-details">
+                <div class="feature-block">
+                    <h3>Stigmergy-Based Coordination</h3>
+                    <p>Nature-inspired coordination without central orchestrators. Agents communicate through pheromone signals:</p>
+                    <div class="pheromone-types">
+                        <div class="pheromone-item">
+                            <strong>request_split (Purple)</strong>
+                            <p>Signals that a task should be decomposed into smaller sub-tasks</p>
+                        </div>
+                        <div class="pheromone-item">
+                            <strong>importance (Amber)</strong>
+                            <p>Indicates task priority and urgency levels</p>
+                        </div>
+                        <div class="pheromone-item">
+                            <strong>saturation (Red)</strong>
+                            <p>Shows when a task is being worked on by multiple agents</p>
+                        </div>
+                        <div class="pheromone-item">
+                            <strong>takeup_interest (Emerald)</strong>
+                            <p>Expresses agent interest in taking up a task</p>
+                        </div>
+                        <div class="pheromone-item">
+                            <strong>task_not_ready (Orange)</strong>
+                            <p>Marks tasks with blocking dependencies</p>
+                        </div>
+                        <div class="pheromone-item">
+                            <strong>job_available (Green)</strong>
+                            <p>Signals that blockers have been resolved</p>
+                        </div>
+                        <div class="pheromone-item">
+                            <strong>files_blocked (Red)</strong>
+                            <p>Indicates file conflicts or reservation intents</p>
+                        </div>
+                        <div class="pheromone-item">
+                            <strong>workingonit (Blue)</strong>
+                            <p>Shows active work in progress</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Agent Deliberation System</h3>
+                    <p>Structured discussion mechanisms for collective decision-making:</p>
+                    <ul>
+                        <li><strong>Voting Deliberations:</strong> Democratic decision making on architectural choices</li>
+                        <li><strong>Feedback Deliberations:</strong> Collect opinions on proposals and implementations</li>
+                        <li><strong>Q&A Sessions:</strong> Knowledge sharing and problem-solving discussions</li>
+                        <li><strong>Shared Lists:</strong> Collaborative list building for test cases, requirements, etc.</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Job Coordination System</h3>
+                    <p>Intelligent task management preventing conflicts and enabling fair distribution:</p>
+                    <ul>
+                        <li><strong>Job Locking:</strong> Prevents race conditions when agents start work</li>
+                        <li><strong>Job Bidding:</strong> Agents bid on tasks they're well-suited for</li>
+                        <li><strong>Job Blockers:</strong> Track and resolve dependencies automatically</li>
+                        <li><strong>Split Proposals:</strong> Agents propose decomposing complex tasks</li>
+                        <li><strong>Unlock Requests:</strong> Polite mechanism for requesting lock release</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perfect Memory -->
+    <section class="feature-category">
+        <div class="container">
+            <div class="category-header">
+                <span class="category-number">03</span>
+                <h2>Perfect Memory</h2>
+                <p class="category-intro">Infinite context through IDE-level memory management. AI that never forgets.</p>
+            </div>
+            
+            <div class="feature-details">
+                <div class="feature-block">
+                    <h3>Memory Types</h3>
+                    <p>Multiple specialized memory systems for different use cases:</p>
+                    <ul>
+                        <li><strong>Episodic Memory:</strong> Event-based memory recording what happened, when, and by whom</li>
+                        <li><strong>Semantic Memory:</strong> Structured knowledge in the Knowledge Graph about concepts and relationships</li>
+                        <li><strong>JSON Memory:</strong> Structured data storage with schema support</li>
+                        <li><strong>Markdown Memory:</strong> Long-form text storage for documentation and notes</li>
+                        <li><strong>Context Memory:</strong> Thread-specific working memory for active conversations</li>
+                        <li><strong>Todo Memory:</strong> Task tracking within memory with completion status</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Knowledge Graph (Kuzu-based)</h3>
+                    <p>Graph database understanding of your entire codebase:</p>
+                    <ul>
+                        <li><strong>Instance Templates:</strong> Schema definitions for records and edges</li>
+                        <li><strong>Record Kinds:</strong> Entity types (STRING, INT64, DOUBLE, BOOL, DATE, TIMESTAMP, UUID, etc.)</li>
+                        <li><strong>Edge Types:</strong> Relationship definitions between entities</li>
+                        <li><strong>Query Views:</strong> Cypher-like queries for pattern matching and traversal</li>
+                        <li><strong>System-Level Understanding:</strong> Agents see relationships, not just isolated files</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Vector Database</h3>
+                    <p>Semantic search across all project knowledge:</p>
+                    <ul>
+                        <li><strong>Document Embeddings:</strong> Store documents with vector representations</li>
+                        <li><strong>Hybrid Search:</strong> Combine semantic similarity with keyword matching</li>
+                        <li><strong>Metadata Filtering:</strong> Filter searches by tags, types, or custom metadata</li>
+                        <li><strong>Similarity Search:</strong> Find related code by meaning, not just keywords</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Cross-Generational Learning</h3>
+                    <p>Breakthrough externalized memory architecture:</p>
+                    <ul>
+                        <li><strong>87% Knowledge Survival:</strong> Knowledge retained across 50+ agent generations</li>
+                        <li><strong>38% Improvement:</strong> Problem-solving improves over time through cumulative learning</li>
+                        <li><strong>67% Faster Adaptation:</strong> Agents adapt to new situations more quickly</li>
+                        <li><strong>Zero Internal State:</strong> Agents maintain no memory—everything externalized for collective intelligence</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete Visibility -->
+    <section class="feature-category alt-bg">
+        <div class="container">
+            <div class="category-header">
+                <span class="category-number">04</span>
+                <h2>Complete Visibility & Control</h2>
+                <p class="category-intro">See everything. Control everything. No black boxes.</p>
+            </div>
+            
+            <div class="feature-details">
+                <div class="feature-block">
+                    <h3>Real-Time Agent Monitoring</h3>
+                    <p>Watch your agents work in real-time with complete transparency:</p>
+                    <ul>
+                        <li><strong>Running Agents Panel:</strong> Multi-view monitoring (grid, hierarchy, flow views)</li>
+                        <li><strong>Agent Debug Panel:</strong> Complete request/response visibility</li>
+                        <li><strong>Live Status Updates:</strong> WebSocket-based real-time agent state changes</li>
+                        <li><strong>Performance Metrics:</strong> Execution duration, success rates, and timing data</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Complete Audit Trails</h3>
+                    <p>Enterprise-grade logging for compliance and accountability:</p>
+                    <ul>
+                        <li><strong>Every Tool Call:</strong> All API and tool interactions logged</li>
+                        <li><strong>Response Logging:</strong> Full responses captured for debugging</li>
+                        <li><strong>Error States:</strong> Complete error capture with stack traces</li>
+                        <li><strong>Message History:</strong> Complete conversation threads preserved</li>
+                        <li><strong>Decision Records:</strong> Deliberation votes and outcomes archived</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Review & Merge Workflow</h3>
+                    <p>Pull request workflow for agent-generated code:</p>
+                    <ul>
+                        <li><strong>Review Requests:</strong> Agents submit work for review like human developers</li>
+                        <li><strong>Sequential Reviews:</strong> Each review builds on previous feedback</li>
+                        <li><strong>Comment Resolution:</strong> Must address feedback before approval</li>
+                        <li><strong>Automatic Promotion:</strong> Approvals progress through stages automatically</li>
+                        <li><strong>Reputation Blocking:</strong> High-reputation rejections can block promotion</li>
+                        <li><strong>Linked Jobs:</strong> Reviews connected to job tracking for traceability</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Intervention & Takeover</h3>
+                    <p>Seamless handoff between human and AI work:</p>
+                    <ul>
+                        <li><strong>Pause Agents:</strong> Stop any agent mid-task</li>
+                        <li><strong>Take Over:</strong> Jump in and complete work manually</li>
+                        <li><strong>Hand Back:</strong> Return work to agent with context</li>
+                        <li><strong>Redirect:</strong> Change agent direction mid-execution</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Agents -->
+    <section class="feature-category">
+        <div class="container">
+            <div class="category-header">
+                <span class="category-number">05</span>
+                <h2>Create Your Own AI Workforce</h2>
+                <p class="category-intro">Build custom agents tailored to your workflows—no AI expertise required.</p>
+            </div>
+            
+            <div class="feature-details">
+                <div class="feature-block">
+                    <h3>Visual Agent Builder</h3>
+                    <p>Drag-and-drop agent creation for non-developers:</p>
+                    <ul>
+                        <li><strong>Flow-Based Design:</strong> Visual node connections for agent workflows</li>
+                        <li><strong>Trigger Nodes:</strong> Define when agents activate</li>
+                        <li><strong>Action Nodes:</strong> Specify what agents do</li>
+                        <li><strong>Condition Nodes:</strong> Branch logic for decision making</li>
+                        <li><strong>Output Nodes:</strong> Define result generation</li>
+                        <li><strong>No Coding Required:</strong> Build sophisticated agents visually</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Code-Based Agent Creation</h3>
+                    <p>Full SDK access for AI engineers and developers:</p>
+                    <ul>
+                        <li><strong>Complete SDK:</strong> Agents have same access as human users</li>
+                        <li><strong>Custom Logic:</strong> JavaScript/TypeScript for agent behavior</li>
+                        <li><strong>Hook System:</strong> Event-triggered actions</li>
+                        <li><strong>Multi-LLM Support:</strong> Use different models within single agent</li>
+                        <li><strong>Full IDE Access:</strong> File system, jobs, memory, coordination APIs</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Agent Specialization</h3>
+                    <p>Configure agents with specific capabilities and permissions:</p>
+                    <ul>
+                        <li><strong>Role-Based Permissions:</strong> Fine-grained control over agent capabilities</li>
+                        <li><strong>Capability Matching:</strong> Agents bid on jobs matching their skills</li>
+                        <li><strong>Custom Workflows:</strong> Unique processes for your team</li>
+                        <li><strong>Agent Templates:</strong> Start from proven configurations</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Agent Templates & Sharing</h3>
+                    <p>Leverage and share successful agent configurations:</p>
+                    <ul>
+                        <li><strong>Proven Templates:</strong> Testing, documentation, security agents included</li>
+                        <li><strong>Organization Sharing:</strong> Distribute agents across your team</li>
+                        <li><strong>Library Building:</strong> Create institutional AI knowledge</li>
+                        <li><strong>Community Marketplace:</strong> Share and discover agent configs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise Ready -->
+    <section class="feature-category alt-bg">
+        <div class="container">
+            <div class="category-header">
+                <span class="category-number">06</span>
+                <h2>Enterprise-Ready Platform</h2>
+                <p class="category-intro">Security, compliance, governance, and scalability for enterprise adoption.</p>
+            </div>
+            
+            <div class="feature-details">
+                <div class="feature-block">
+                    <h3>Self-Hosting & Data Control</h3>
+                    <p>Run Codebolt entirely on your own infrastructure:</p>
+                    <ul>
+                        <li><strong>Complete Data Sovereignty:</strong> Your code never leaves your network</li>
+                        <li><strong>Compliance-Friendly:</strong> Meet strict security and regulatory requirements</li>
+                        <li><strong>No External Dependencies:</strong> Full control over your AI infrastructure</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Role-Based Access Controls</h3>
+                    <p>Enterprise-grade permissions at every level:</p>
+                    <ul>
+                        <li><strong>User Permissions:</strong> Fine-grained control over user capabilities</li>
+                        <li><strong>Agent Permissions:</strong> Restrict agents from sensitive files</li>
+                        <li><strong>Project-Level Access:</strong> Control access per codebase</li>
+                        <li><strong>Audit-Ready:</strong> Complete permission tracking and reporting</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Multi-Environment Support</h3>
+                    <p>Manage multiple codebases and environments simultaneously:</p>
+                    <ul>
+                        <li><strong>Simultaneous Environments:</strong> Multiple codebases open at once</li>
+                        <li><strong>Cross-Environment Operations:</strong> Agents work across environments</li>
+                        <li><strong>Custom Environments:</strong> Self-hosted (GitHub Actions-style) supported</li>
+                        <li><strong>Environment Isolation:</strong> File system and configuration separation</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-block">
+                    <h3>Team Collaboration</h3>
+                    <p>Shared AI resources for team development:</p>
+                    <ul>
+                        <li><strong>Shared Swarms:</strong> Multiple developers collaborate with same agents</li>
+                        <li><strong>Handoff Support:</strong> Seamless transfer between team members</li>
+                        <li><strong>Agent Sharing:</strong> Distribute custom agents across organization</li>
+                        <li><strong>Collaborative Planning:</strong> Shared whiteboards and roadmaps</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Features -->
+    <section class="feature-category">
+        <div class="container">
+            <div class="category-header">
+                <span class="category-number">07</span>
+                <h2>Additional Powerful Features</h2>
+                <p class="category-intro">Everything else that makes Codebolt the complete platform.</p>
+            </div>
+            
+            <div class="feature-grid-compact">
+                <div class="feature-item-compact">
+                    <h4>📅 Agent Calendar</h4>
+                    <p>Agents schedule meetings, set reminders, and coordinate timing. RSVP system for events.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>📧 Agent Inbox (Mail)</h4>
+                    <p>Slack-like messaging for agent-to-agent and human-to-agent communication with threads.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>⭐ Agent Economy</h4>
+                    <p>Testimonials, karma, talents, and wallets. Reputation-based emergent leadership.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>🗺️ Codemap</h4>
+                    <p>Visual codebase structure for agent navigation and understanding large projects.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>🎯 Action Plans</h4>
+                    <p>Detailed action planning with 217KB+ of functionality. Flow-based visualization.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>📋 Roadmap Management</h4>
+                    <p>Feature roadmaps with phases, ideas, and task linking. Impact and difficulty tracking.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>🔐 File Update Intents</h4>
+                    <p>Agents declare file modification plans to prevent conflicts in multi-agent scenarios.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>🔀 Shadow Git</h4>
+                    <p>Git operations without affecting main repo. Experimentation sandbox for agents.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>🌐 MCP Support</h4>
+                    <p>Full Model Context Protocol support. Connect external tools and data sources.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>💻 Monaco Editor</h4>
+                    <p>Full-featured code editor with syntax highlighting, completion, and multi-file editing.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>🌐 Browser Panel</h4>
+                    <p>Integrated browser for web testing, screenshot capture, and DOM inspection.</p>
+                </div>
+                
+                <div class="feature-item-compact">
+                    <h4>🖥️ AI Shell</h4>
+                    <p>AI-powered terminal with natural language commands and automated script execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Explore All Features?</h2>
+            <p class="section-intro">Start with our free tier and experience the power of multi-agent development.</p>
+            <div class="cta-buttons">
+                <a href="pricing.html" class="btn btn-primary btn-large">Get Started Free</a>
+                <a href="contact.html" class="btn btn-secondary btn-large">Request Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Codebolt. The Agentic AI Development Platform.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

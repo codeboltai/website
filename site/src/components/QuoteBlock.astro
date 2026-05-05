@@ -1,0 +1,48 @@
+---
+import { cn } from '../lib/utils';
+
+const {
+  quote,
+  attribution,
+  variant = 'default',
+  size = 'md',
+  align = 'left',
+  className,
+} = Astro.props;
+
+const sizeStyles = {
+  sm: 'text-base',
+  md: 'text-lg',
+  lg: 'text-xl',
+};
+---
+
+<section
+  class={cn(
+    'py-0 border-b border-border dark:border-zinc-800 bg-background dark:bg-[#050505]',
+    className
+  )}
+>
+  <div class="max-w-[1200px] mx-auto !px-0">
+    <div
+      class={cn(
+        'w-full border-x border-border dark:border-zinc-800 p-8 md:p-12',
+        variant === 'muted' && 'bg-muted/10 dark:bg-zinc-900/10'
+      )}
+    >
+      <div class={cn('max-w-2xl', align === 'center' && 'mx-auto text-center')}>
+        <p class={cn('font-sans text-muted-foreground dark:text-zinc-400 leading-relaxed mb-6', sizeStyles[size])}>
+          &quot;{quote}&quot;
+        </p>
+        {attribution && (
+          <div class={cn('flex items-center gap-4', align === 'center' && 'justify-center')}>
+            {align === 'left' && <div class="h-px w-12 bg-border dark:bg-zinc-700" />}
+            <span class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground dark:text-zinc-500">
+              {attribution}
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,78 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import ProductHero from '../../components/ProductHero.astro';
+import BentoGrid from '../../components/BentoGrid.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import AccordionShowcase from '../../components/AccordionShowcase.astro';
+import TabsShowcase from '../../components/TabsShowcase.astro';
+import ComparisonColumns from '../../components/ComparisonColumns.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Codebolt CLI — Multi-Agent Terminal Workspace" navbarVariant="solid" site={site} navigation={navigation}>
+  <ProductHero
+    eyebrow="CODEBOLT CLI"
+    title="A multi-agent terminal workspace"
+    subtitle="Run agent chat, parallel threads, project files, git, logs, settings, and multi-environment work from one TUI backed by the Codebolt engine."
+    buttons={[{"label":"Download CLI","href":"/download","variant":"primary"},{"label":"Read CLI Docs","href":"https://docs.codebolt.ai/docs/05_reference/06_codebolt-cli/02_root-command","variant":"secondary"}]}
+    installLabel="Install"
+    installCommand="npm i -g codebolt"
+    media={{"label":"Codebolt CLI Demo","src":"/images/cli-1.png","alt":"Codebolt CLI multi-agent terminal interface"}}
+  />
+  <BentoGrid
+    kicker="AGENT CHAT"
+    heading="A serious terminal chat surface for agent work"
+    description="Start with the familiar workflow: open the terminal, talk to an agent, attach project context, approve tool use, inspect steps, and keep the conversation moving without leaving the keyboard."
+    columns={3}
+    gap="none"
+    items={[{"title":"Agent conversations","tag":"Chat","description":"Run focused coding conversations with built-in agents, custom agents, or pinned project agents. Keep prompt, response, tool calls, and progress in a compact terminal-native flow.","span":2,"visual":"chat\n├─ prompt\n├─ agent response\n├─ tool call cards\n├─ file read/write confirmations\n└─ checkpoints + review state\n"},{"title":"Context controls","tag":"Context","description":"Use project context, file suggestions, slash commands, todos, plans, and structured widgets so the agent gets more than a raw prompt.","visual":"@file\n/agent\n/model\ntodos\naction plan\n"},{"title":"Tool visibility","tag":"Tools","description":"See filesystem, terminal, browser, git, memory, and MCP/tool activity as first-class chat events instead of invisible background automation."},{"title":"Review checkpoints","tag":"Review","description":"Track file writes, shadow git checkpoints, review requests, and confirmation prompts inside the same chat where the agent is doing the work."},{"title":"Models and agents","tag":"Control","description":"Pick providers, models, and agents from terminal dialogs. Change the working agent without leaving the TUI."}]}
+  />
+  <FeatureBlock
+    kicker="01 · TERMINAL ORCHESTRATION"
+    heading="tmux-style agent work, not one linear chat"
+    body="Codebolt CLI is designed for the way agent work actually happens: one thread explores, another edits, another tests, another reviews. The TUI can show parent and child conversations together, keep windows arranged on a terminal canvas, and let you supervise parallel work from one keyboard-first surface."
+    reverse={true}
+    image="/images/tmux-style.gif"
+    imageAlt="Codebolt CLI tmux-style terminal workspace showing multiple agent work panes in parallel"
+  />
+  <AccordionShowcase
+    kicker="MULTI-AGENT · MULTI-ENVIRONMENT"
+    heading="Run more than one agent, across more than one place"
+    subtitle="The CLI is backed by the Codebolt server runtime, so it is not limited to one local terminal loop. Use it as the operator surface for parallel threads, child agents, remote servers, and multi-environment work."
+    visualLabel="CLI orchestration map"
+    visual="Codebolt CLI
+├─ parent thread: plan feature
+│
+├─ child: refactor auth       running
+├─ child: write tests          running
+├─ child: review diff          queued
+└─ child: update docs          ready
+
+Codebolt Server Runtime
+├─ local laptop
+├─ Docker / worktree
+├─ remote host
+└─ cloud fleet
+
+one TUI
+many threads
+many environments
+"
+    items={[{"question":"Parallel agent threads","tag":"Threads","answer":"Run multiple conversations and agent tasks side by side instead of waiting on one linear session. Keep each thread scoped to its own work while still supervising the whole run."},{"question":"Window tiling","tag":"Tiling","answer":"Use a multi-window terminal canvas for agent work. Drag and arrange conversation windows, tile child threads, and keep long-running work visible without opening another tool."},{"question":"Server-backed runs","tag":"Runtime","answer":"The TUI connects to the Codebolt server over WebSocket. Local, Docker, cloud, and remote environments can share the same runtime model instead of trapping work inside one terminal process."},{"question":"Parent and child agents","tag":"Orchestrate","answer":"Keep a base conversation visible while child agents branch into focused subtasks. This is the terminal version of supervising a small agent team."},{"question":"Same state as Editor","tag":"Continuity","answer":"Because CLI, Editor, Cloud, and SDK sit on the same runtime, you can start work in the editor, continue in the terminal, and keep agent state moving across surfaces."}]}
+  />
+  <TabsShowcase
+    kicker="WORKSPACE TOOLS"
+    heading="More than chat: files, git, logs, settings"
+    subtitle="Codebolt CLI is also a terminal workspace. The surrounding panels matter because serious agent work needs inspection, debugging, configuration, and review."
+    tabs={[{"label":"Files","title":"Project workspace","tag":"Files","description":"Open file tree and preview panels from the terminal. Agents can read, write, search, and explain project files while you keep the project structure in view.","points":["File tree and file preview stay close to the agent conversation.","Autocomplete and search help attach the right project context.","File read/write activity remains inspectable from the terminal."],"image":{"src":"/images/cli-editor.png","alt":"Codebolt CLI project workspace with file tree and editor-style terminal panels"},"visual":"project\n├─ files\n│  ├─ src/\n│  ├─ tests/\n│  └─ package.json\n├─ preview\n├─ search\n└─ autocomplete\n"},{"label":"Git","title":"Git panels","tag":"Git","description":"Inspect git status and commits in the TUI while agent edits flow through Codebolt's runtime. Review changes where the agent work is happening.","points":["Review changed files while the agent run is still active.","Use git status and commit panels without leaving the TUI.","Keep checkpoints and code review in the same operator surface."],"image":{"src":"/images/cli-git.png","alt":"Codebolt CLI git panel showing changed files and repository status"},"visual":"git\n├─ status\n│  ├─ modified: auth.ts\n│  ├─ added: auth.test.ts\n│  └─ deleted: old-session.ts\n├─ commits\n└─ changed files\n"},{"label":"Panels","title":"Operational panels","tag":"Panels","description":"Keep chat, review, logs, notifications, and connection status available together instead of spreading agent work across separate terminal windows.","points":["Keep chat beside status and review panels.","Monitor connection state while long-running agents continue.","Use the terminal as an operator console, not just a prompt."],"image":{"src":"/images/cli-panels.png","alt":"Codebolt CLI operational panels showing chat, notifications, connection status, and review state"},"visual":"panels\n├─ chat\n├─ notifications\n├─ connection status\n└─ review state\n"},{"label":"Logs","title":"Logs and observability","tag":"Observe","description":"Open server logs, agent logs, structured logs, notifications, and connection status from the same terminal UI. When something stalls, you can inspect the run instead of guessing.","points":["Stream server and agent logs inside the TUI.","Inspect structured runtime events for debugging.","Understand why an agent is waiting, failing, or retrying."],"image":{"src":"/images/cli-logs.png","alt":"Codebolt CLI logs panel showing runtime, server, and agent events"},"visual":"logs\n├─ server\n├─ agent\n├─ structured events\n└─ notifications\n"},{"label":"Settings","title":"Settings in terminal","tag":"Control","description":"Configure login, providers, models, pinned agents, themes, keybindings, and application settings without leaving the TUI.","points":["Choose providers and models from terminal dialogs.","Set pinned agents and defaults for the project.","Change theme, keybindings, and app settings in place."],"image":{"src":"/images/cli-setting.png","alt":"Codebolt CLI settings panel for providers, models, agents, themes, and keybindings"},"visual":"settings\n├─ login\n├─ providers + models\n├─ pinned agents\n├─ themes\n└─ keybindings\n"}]}
+  />
+  <ComparisonColumns
+    problem={{"heading":"Single-agent CLIs","items":["Great for one focused agent chat","Terminal is mostly a prompt-and-response surface","Parallel work usually means multiple shells with disconnected state","Editor, CLI, and backend state are usually separate","Scaling beyond one local session requires a different system"]}}
+    solution={{"heading":"Codebolt CLI","items":["Run and supervise multiple agent threads from one TUI","Use chat, files, git, logs, settings, provider/model controls, and windows together","Connect to local or remote Codebolt server runtimes","Continue the same work across CLI, Editor, Cloud, and SDK surfaces","Scale from terminal agent work to multi-environment orchestration without changing engines"]}}
+  />
+  <CtaBlock
+    heading="Run agents from the terminal. Keep the engine underneath."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Explore the Engine","href":"/engine","variant":"secondary"}]}
+  />
+</BaseLayout>

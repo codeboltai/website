@@ -1,0 +1,21 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import PricingGrid from '../components/PricingGrid.astro';
+import Accordion from '../components/Accordion.astro';
+---
+<BaseLayout title="Pricing — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Pricing"
+    subtitle="Start with one agent. Scale when you're ready."
+  />
+  <PricingGrid
+    cards={[{"tier":"Community","price":"Free","for":"Individual developers and tinkerers building custom agents","features":["Full IDE + CLI + TUI + Web","3 concurrent agents","Full Agent SDK (63+ modules)","Plugin system","All 17+ LLM providers","Community support"],"cta":{"label":"Start Free","href":"#","variant":"secondary"}},{"tier":"Pro","price":"$49","price_sub":"/mo","for":"Engineers and teams scaling agent coordination","featured":true,"badge":"Most popular","features":["Everything in Community","Unlimited concurrent agents","Full drift engine (4D tracking)","Multi-environment coordination","Agent deliberation councils","Automatic review & merge","Full memory system","Priority support"],"cta":{"label":"Start Pro","href":"#","variant":"primary"}},{"tier":"Enterprise","price":"Custom","for":"Organizations deploying autonomous agents in production","features":["Everything in Pro","Deterministic replay","Full audit trails","SSO / SAML","Custom guardrail policies","Dedicated support & SLA","Environment templates","On-premise deployment"],"cta":{"label":"Talk to Engineering","href":"mailto:eng@codebolt.ai","variant":"secondary"}}]}
+  />
+  <Accordion
+    heading="FAQ"
+    items={[{"question":"How is Codebolt different from Cursor or Claude Code?","answer":"Cursor and Claude Code are agents you use. Codebolt is a platform you build on. You can write custom agents with a full 63-module SDK, build applications as plugins, and coordinate multiple agents across environments. They're tools. Codebolt is infrastructure."},{"question":"How is Codebolt different from OpenClaw or personal AI assistants?","answer":"OpenClaw is a great personal assistant for your inbox, calendar, and daily tasks. Codebolt is a development platform for building, running, and coordinating AI agents that write software. Different purpose, different architecture. You might use both — OpenClaw for personal automation, Codebolt for development."},{"question":"How is Codebolt different from LangChain or CrewAI?","answer":"LangChain and CrewAI are libraries for building agents. Codebolt is a complete platform — IDE, execution environment, coordination engine, and deployment infrastructure. Frameworks give you tools to build agents. Codebolt gives you a place for them to run, coordinate, and scale."},{"question":"I'm using one agent today. Is this for me?","answer":"Yes. Start with one agent and the full SDK. You get more power than any free coding tool because you control the agent loop, not just the prompt. When you're ready to add more agents, the platform scales with you."},{"question":"Can I run this headless in CI/CD?","answer":"Yes. Codebolt runs as a headless server via the CLI. Spawn Docker environments, run agents, transfer state, and monitor progress — all without a GUI."},{"question":"Is Codebolt a VS Code fork?","answer":"No. Codebolt is built from the ground up. The architecture starts with agent coordination as the foundation. The editor uses Monaco (the same editor component as VS Code) but the platform, runtime, and coordination layers are entirely original."},{"question":"Which AI models does Codebolt support?","answer":"All of them. 17+ cloud providers (OpenAI, Anthropic, Google, Mistral, Groq, DeepSeek, etc.) plus local models via Ollama and LM Studio. Per-agent and per-task model selection. Use GPT for planning, Claude for coding, and a local model for repetitive tasks — all in the same workflow."}]}
+  />
+</BaseLayout>

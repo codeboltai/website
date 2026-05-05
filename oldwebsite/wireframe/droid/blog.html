@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Codebolt (Wireframe)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            background: #fff;
+            border: 2px solid #333;
+            padding: 40px;
+            margin-bottom: 20px;
+        }
+        .section-label {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .hero-title {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .blog-card {
+            border: 1px solid #ddd;
+            padding: 0;
+            background: #fafafa;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 48px;
+            font-weight: 600;
+        }
+        .blog-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-category {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #0891b2;
+            margin-bottom: 10px;
+        }
+        .blog-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .blog-excerpt {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        .blog-meta {
+            font-size: 12px;
+            color: #999;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+        .featured-post {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+            background: #fff;
+            border: 2px solid #0891b2;
+        }
+        .featured-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .featured-label {
+            display: inline-block;
+            background: #0891b2;
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .featured-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .featured-excerpt {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .featured-image {
+            height: 400px;
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 72px;
+            font-weight: 600;
+        }
+        .topic-list {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .topic-tag {
+            padding: 8px 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+        }
+        .topic-tag:hover {
+            border-color: #0891b2;
+            color: #0891b2;
+        }
+        .newsletter-section {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(8, 145, 178, 0.05) 100%);
+            border: 2px solid #0891b2;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .newsletter-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .newsletter-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .newsletter-input {
+            padding: 12px 20px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 300px;
+            margin-right: 10px;
+        }
+        .newsletter-button {
+            padding: 12px 24px;
+            background: #0891b2;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero -->
+        <div class="section">
+            <span class="section-label">Blog</span>
+            <h1 class="hero-title">Latest from Codebolt</h1>
+            <p class="hero-description">Engineering insights, product updates, and thoughts on the future of AI-powered development.</p>
+        </div>
+
+        <!-- Featured Post -->
+        <div class="section" style="padding: 0;">
+            <div class="featured-post">
+                <div class="featured-content">
+                    <span class="featured-label">Featured</span>
+                    <h2 class="featured-title">The Multi-Agent Paradigm: Why One AI Isn't Enough</h2>
+                    <p class="featured-excerpt">Today's AI coding tools give you one helper. That's like having a single employee. Here's why we built Codebolt to give you an entire AI team.</p>
+                    <div class="blog-meta">
+                        <span>January 15, 2025</span>
+                        <span style="margin: 0 10px;">•</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+                <div class="featured-image">🐜</div>
+            </div>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="section">
+            <h2 style="font-size: 32px; font-weight: 600; margin-bottom: 20px;">Recent Posts</h2>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">🧠</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Engineering</span>
+                        <h3 class="blog-title">Infinite Context: How We Solved the Memory Problem</h3>
+                        <p class="blog-excerpt">LLMs have limited context windows. Codebolt solves this with persistent memory, knowledge graphs, and vector databases.</p>
+                        <div class="blog-meta">January 10, 2025 • 6 min read</div>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">🔄</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Product</span>
+                        <h3 class="blog-title">Stigmergy: Self-Organizing AI Swarms</h3>
+                        <p class="blog-excerpt">How ant colonies inspired our coordination protocol. No central orchestrator—just emergent intelligence.</p>
+                        <div class="blog-meta">January 5, 2025 • 7 min read</div>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">⚡</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Engineering</span>
+                        <h3 class="blog-title">Building for 24/7 Operation</h3>
+                        <p class="blog-excerpt">How we designed Codebolt to run continuously, letting agents work while you sleep.</p>
+                        <div class="blog-meta">December 28, 2024 • 5 min read</div>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">👁️</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Product</span>
+                        <h3 class="blog-title">Complete Observability: Why Visibility Matters</h3>
+                        <p class="blog-excerpt">Every agent decision, tool call, and reasoning step—visible and auditable. No black boxes.</p>
+                        <div class="blog-meta">December 20, 2024 • 6 min read</div>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">🚀</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Announcement</span>
+                        <h3 class="blog-title">Introducing Custom Agent Builder</h3>
+                        <p class="blog-excerpt">Create specialized AI agents for your workflows—no code required. Visual drag-and-drop interface.</p>
+                        <div class="blog-meta">December 15, 2024 • 4 min read</div>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">🏗️</div>
+                    <div class="blog-content">
+                        <span class="blog-category">Engineering</span>
+                        <h3 class="blog-title">Architecture of Collective Intelligence</h3>
+                        <p class="blog-excerpt">Deep dive into Codebolt's distributed system architecture. How hundreds of agents work together.</p>
+                        <div class="blog-meta">December 10, 2024 • 10 min read</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topics -->
+            <div style="margin-top: 60px;">
+                <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 20px;">Explore by Topic</h3>
+                <div class="topic-list">
+                    <a href="#" class="topic-tag">Engineering</a>
+                    <a href="#" class="topic-tag">Product</a>
+                    <a href="#" class="topic-tag">AI Research</a>
+                    <a href="#" class="topic-tag">Tutorials</a>
+                    <a href="#" class="topic-tag">Company</a>
+                    <a href="#" class="topic-tag">Open Source</a>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="newsletter-section">
+                <h3 class="newsletter-title">Stay Updated</h3>
+                <p class="newsletter-description">Get the latest posts and product updates delivered to your inbox.</p>
+                <div style="margin-top: 20px;">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input">
+                    <button class="newsletter-button">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

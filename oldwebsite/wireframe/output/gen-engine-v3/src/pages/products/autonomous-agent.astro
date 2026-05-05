@@ -1,0 +1,113 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import ProductHeroStack from '../../components/ProductHeroStack.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import BentoGrid from '../../components/BentoGrid.astro';
+import AccordionShowcase from '../../components/AccordionShowcase.astro';
+import TabsShowcase from '../../components/TabsShowcase.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Codebolt 24/7 Autonomous Agent — Always-On Agents for Any Platform" navbarVariant="solid" site={site} navigation={navigation}>
+  <ProductHeroStack
+    eyebrow="CODEBOLT 24/7 AUTONOMOUS AGENT"
+    title="Always-on agents connected to every platform"
+    subtitle="Run autonomous agents on your own Codebolt server or in the cloud portal. Connect Telegram, Linear, webhooks, custom chat channels, native apps, schedules, hooks, memory, and multi-agent scaling through the same engine runtime."
+    buttons={[{"label":"Start Building","href":"/pricing","variant":"primary"},{"label":"Explore Plugins","href":"/engine/system-extensibility","variant":"secondary"}]}
+    stackTitle="Always-on runtime"
+    stackItems={[{"label":"Surfaces","value":"Telegram, Linear, webhooks, custom apps"},{"label":"Routing","value":"single, per-user, per-conversation, per-message, multi-thread"},{"label":"Triggers","value":"schedule, hooks, webhook, user request"},{"label":"Runtime","value":"self-hosted server or Codebolt Cloud"},{"label":"Scale","value":"memory, custom agents, plugins, multi-agent, multi-environment"}]}
+    footer="A long-running agent system, not a hosted chat widget."
+  />
+  <CenteredText
+    variant="thesis"
+    text="An autonomous agent is not just a hosted chat bot. In Codebolt it is a server-backed agent system: external platforms send messages or events into the gateway, the gateway maps them to the right thread strategy, agents use persistent memory and plans, plugins can modify applications in real time, and the runtime can scale across agents and environments as the workload grows."
+  />
+  <BentoGrid
+    kicker="PLATFORM INTEGRATIONS"
+    heading="Connect your agent to any surface"
+    description="Codebolt plugins let the autonomous agent meet users and systems where they already work. Chat channels, issue trackers, internal tools, webhooks, and Codebolt-native apps can all become front doors to the same server runtime."
+    columns={3}
+    gap="none"
+    items={[{"title":"Chat channel plugins","tag":"Telegram / Slack / Custom","description":"Build chat plugins like Telegram channel integrations so users can talk to a Codebolt server instance from external messaging platforms.","span":2,"visual":"Telegram / Slack / custom chat\n      │\n      ▼\nCodebolt channel plugin\n      │\n      ▼\nGateway → agent thread\n"},{"title":"Application plugins","tag":"Linear / Jira / GitHub","description":"Plugins like Linear agent integrations can convert platform events, issues, comments, and workflow changes into agent sessions.","visual":"Linear issue\n├─ webhook event\n├─ agent session\n└─ plan + updates\n"},{"title":"Custom platform adapters","tag":"Plugins","description":"Write custom plugins for internal tools, customer portals, monitoring systems, or any platform with an API."},{"title":"Codebolt-native apps","tag":"Runtime apps","description":"Use plugins and custom Codebolt-native applications to let agents modify product state, dashboards, panels, and workflows in real time."},{"title":"Remote webhooks","tag":"Webhooks","description":"Expose remote webhook entry points so third-party systems can trigger agent work without a human opening a prompt."}]}
+  />
+  <AccordionShowcase
+    kicker="ROUTING + DEPLOYMENT"
+    heading="Self-host it, use Cloud, and route every conversation correctly"
+    subtitle="The server gateway decides how incoming platform messages become agent work. That lets one integration behave like a shared chat, a per-user assistant, a per-conversation support agent, or a multi-thread workflow."
+    visualLabel="Gateway routing model"
+    visual="External Platform
+├─ Telegram message
+├─ Linear webhook
+├─ custom app event
+├─ calendar trigger
+└─ remote webhook
+
+        │
+        ▼
+
+Codebolt Gateway
+├─ single shared thread
+├─ one thread per user
+├─ one thread per conversation
+├─ one thread per message
+└─ multiple coordinated threads
+
+        │
+        ▼
+
+Autonomous agent runtime
+memory + plans + plugins + hooks
+"
+    items={[{"question":"Self-host locally or on your own server","answer":"Run Codebolt server wherever you need control: a local machine, private VM, internal network, or your own deployment. The same plugin and gateway model works without forcing you into hosted infrastructure."},{"question":"Use the cloud portal when you do not want to host","answer":"Use Codebolt Cloud as the managed control plane for teams that want always-on agents without maintaining the runtime themselves."},{"question":"Route by client and conversation shape","answer":"Gateway routing supports different thread strategies: shared chats, one thread per user, one thread per conversation, one thread per message, or multiple coordinated threads."},{"question":"Keep client communication flexible","answer":"Different clients need different routing. A support inbox, Telegram bot, Linear issue worker, webhook monitor, and Codebolt-native app do not have to use the same conversation model."}]}
+  />
+  <TabsShowcase
+    kicker="ALWAYS-ON WORK MODES"
+    heading="Autonomous agents can start from schedules, hooks, webhooks, or users"
+    subtitle="Long-term monitoring and background work becomes practical when schedules, calendar plans, hooks, platform events, and custom plugins all feed the same agent runtime."
+    tabs={[{"label":"Schedule","title":"Work on a schedule","tag":"Calendar + plans","description":"Use calendar and plan structures to schedule recurring or future agent work, then route triggered tasks through the gateway.","points":["Run daily, weekly, or time-based tasks.","Attach planned work to threads and task state.","Use persistent memory so recurring jobs improve over time."],"visual":"calendar\n├─ 09:00 check deploy health\n├─ 12:00 summarize Linear issues\n└─ Friday run release review\n      │\n      ▼\ngateway → agent thread\n"},{"label":"Hooks","title":"React to events as they happen","tag":"Runtime hooks","description":"Hooks let agents respond to events beyond time: application changes, plugin events, workflow transitions, monitoring alerts, or custom runtime signals.","points":["Monitor long-running systems without polling manually.","React when a plugin, app, or workflow emits an event.","Combine hooks with custom agents for domain-specific behavior."],"visual":"event occurs\n├─ plugin update\n├─ app state changed\n├─ workflow status\n└─ monitoring alert\n      │\n      ▼\nhook → agent action\n"},{"label":"Webhooks","title":"Accept remote webhook triggers","tag":"Remote events","description":"Remote systems can call webhooks to trigger autonomous work from outside the Codebolt UI.","points":["Connect CI, issue trackers, support tools, and internal systems.","Use gateway routing to choose the right thread strategy.","Return results through plugins or platform replies."],"visual":"remote system\n├─ POST /webhook\n├─ payload + metadata\n└─ thread strategy\n      │\n      ▼\nroute → run agent\n"},{"label":"User","title":"Work on direct user request","tag":"Chat + apps","description":"Users can still ask directly through chat channels, the editor, CLI, cloud portal, or custom Codebolt-native applications.","points":["One engine can serve many client surfaces.","The same agent can continue from user messages, schedules, or hooks.","Plugins can reply back to the originating platform."],"visual":"user request\n├─ Telegram\n├─ Cloud portal\n├─ Codebolt app\n└─ CLI / Editor\n      │\n      ▼\ngateway → memory → agent\n"}]}
+  />
+  <FeatureBlock
+    kicker="01 · MEMORY"
+    heading="Persistent memory keeps the intelligence alive"
+    body="Autonomous work only matters if the agent can retain context across runs. Codebolt's memory structure lets agents keep durable knowledge across sessions, tasks, users, and time. That memory can be retrieved into future conversations, scheduled jobs, webhook-triggered work, and long-term monitoring loops."
+    diagram="Memory structure
+├─ working context
+├─ episodic memory
+├─ persistent memory
+├─ vector retrieval
+├─ knowledge graph
+└─ context assembly
+
+schedule / hook / webhook / user
+          │
+          ▼
+    memory-aware agent
+"
+  />
+  <FeatureBlock
+    kicker="02 · SCALE"
+    heading="Scale from one always-on agent to coordinated agent systems"
+    body="A Codebolt autonomous agent can start as one worker and grow into multi-agent, multi-environment execution. The same engine supports custom agents, custom plugins, shared memory, multi-thread routing, and multi-environment scaling when the task needs more capacity or coordination."
+    reverse={true}
+    diagram="one autonomous agent
+          │
+          ▼
+custom agents + plugins
+          │
+          ▼
+multi-thread gateway routing
+          │
+          ▼
+multi-agent coordination
+          │
+          ▼
+local + server + cloud + fleet
+"
+  />
+  <CtaBlock
+    heading="Build an autonomous agent that lives where your work happens."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Explore Plugins","href":"/engine/system-extensibility","variant":"secondary"}]}
+  />
+</BaseLayout>

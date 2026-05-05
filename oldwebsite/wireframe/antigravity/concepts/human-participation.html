@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Participation - Codebolt Concepts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">Codebolt</a>
+            <ul class="nav-links">
+                <li><a href="../features/index.html">Features</a></li>
+                <li><a href="index.html">Concepts</a></li>
+                <li><a href="../use-cases.html">Use Cases</a></li>
+                <li><a href="../download.html" class="btn btn-primary" style="padding: 10px 20px;">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 160px 24px 80px;">
+        <div class="hero-content">
+            <div class="hero-badge">Core Concept</div>
+            <h1>You're a Swarm Member,<br>Not Just an Observer</h1>
+            <p class="hero-subtitle">
+                Humans participate in the swarm with the same tools as agents. Your role evolves as the swarm scales.
+            </p>
+        </div>
+    </section>
+
+    <!-- Same Tools -->
+    <section class="section">
+        <div class="container">
+            <div class="split">
+                <div>
+                    <span class="section-label">Participation</span>
+                    <h2 class="section-title">Same Tools, Same Influence</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        In Codebolt, humans and agents are symmetric participants. You use the same tools:
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-bullet">🐜</div>
+                            <div>
+                                <h4>Deposit Pheromones</h4>
+                                <p>Mark tasks as important, signal availability, indicate saturation.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">💬</div>
+                            <div>
+                                <h4>Send Mail</h4>
+                                <p>Direct messages to agents or teams when asynchronous communication is needed.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🗳️</div>
+                            <div>
+                                <h4>Participate in Deliberations</h4>
+                                <p>Vote on decisions, provide feedback, join Q&A sessions.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">📋</div>
+                            <div>
+                                <h4>Create and Claim Jobs</h4>
+                                <p>Define work, set priorities, and even do tasks yourself.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-block dark">
+                    [Symmetric Participation]<br><br>
+                    👤 Human + 🤖 Agent = Swarm Members<br>
+                    Same tools, same environment<br>
+                    Different capabilities, equal standing
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Role Evolution -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Evolution</span>
+                <h2 class="section-title">Your Role Evolves</h2>
+                <p class="section-desc">As the swarm scales and agents become more capable, your role shifts.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px;">
+                <div class="bento-card" style="text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">👨‍💻</div>
+                    <h3 style="margin-bottom: 8px;">Phase 1: Coder</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">You write most of the code yourself. AI assists with suggestions and snippets.</p>
+                    <div style="background: var(--accent-subtle); color: var(--accent); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;">Traditional IDE</div>
+                </div>
+                <div class="bento-card" style="text-align: center; border-color: var(--accent);">
+                    <div style="font-size: 48px; margin-bottom: 16px;">🎬</div>
+                    <h3 style="margin-bottom: 8px;">Phase 2: Director</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">You write prompts and specs. Agents execute. You review and guide.</p>
+                    <div style="background: var(--accent); color: white; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;">Current Transition</div>
+                </div>
+                <div class="bento-card" style="text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">⚖️</div>
+                    <h3 style="margin-bottom: 8px;">Phase 3: Governor</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">You set policies and handle escalations. The swarm self-manages within your guardrails.</p>
+                    <div style="background: var(--accent-subtle); color: var(--accent); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;">Full Autonomy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layered Control -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Control</span>
+                <h2 class="section-title">6 Levels of Control</h2>
+                <p class="section-desc">From gentle guidance to emergency halt. Intervene at the level appropriate to the situation.</p>
+            </div>
+            <div class="bento-grid" style="margin-top: 48px;">
+                <div class="bento-card span-4">
+                    <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                        <span style="background: #22c55e; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">1</span>
+                        Passive Surfacing
+                    </h4>
+                    <p class="bento-desc">Wait for the swarm to surface issues through escalation. Most hands-off.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                        <span style="background: #84cc16; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">2</span>
+                        Request Priority
+                    </h4>
+                    <p class="bento-desc">Use pheromones to shift agent attention. Gentle nudge without direct orders.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                        <span style="background: #eab308; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">3</span>
+                        Direct Task
+                    </h4>
+                    <p class="bento-desc">Assign specific jobs to specific agents. Stronger intervention.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                        <span style="background: #f97316; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">4</span>
+                        Request Termination
+                    </h4>
+                    <p class="bento-desc">Ask an agent to stop its current work. Goes through approval workflow.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                        <span style="background: #ef4444; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">5</span>
+                        Direct Halt
+                    </h4>
+                    <p class="bento-desc">Immediately stop an agent. Bypasses normal workflows.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                        <span style="background: #7f1d1d; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px;">6</span>
+                        Policy Change
+                    </h4>
+                    <p class="bento-desc">Modify rules that govern all agent behavior. Systemic intervention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accountability Gap -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="split reverse">
+                <div>
+                    <span class="section-label">Challenge</span>
+                    <h2 class="section-title">The Accountability Gap</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        AI agents move fast. They can make dozens of decisions before you've finished your coffee. How do you maintain human oversight without becoming a bottleneck?
+                    </p>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        <strong>The answer:</strong> Layered oversight interfaces. Heatmaps show aggregate activity. Job Maps show work distribution. Agent Panels show individual details.
+                    </p>
+                    <p class="section-desc">
+                        You zoom in when drift accumulates. You surface issues before they compound. Full audit trails ensure you can always understand what happened.
+                    </p>
+                </div>
+                <div class="visual-block">
+                    [Oversight Interfaces]<br><br>
+                    🔥 Heatmap — Aggregate view<br>
+                    📊 Job Map — Work distribution<br>
+                    🤖 Agent Panel — Individual detail
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join the Swarm</h2>
+            <p>Experience human-AI collaboration at scale.</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="../download.html" class="btn btn-primary">Download Free</a>
+                <a href="scaling.html" class="btn btn-secondary">Next: Scaling →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                © 2026 Codebolt. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

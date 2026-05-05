@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Agent Modes - Codebolt Concepts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">Codebolt</a>
+            <ul class="nav-links">
+                <li><a href="../features/index.html">Features</a></li>
+                <li><a href="index.html">Concepts</a></li>
+                <li><a href="../use-cases.html">Use Cases</a></li>
+                <li><a href="../download.html" class="btn btn-primary" style="padding: 10px 20px;">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 160px 24px 80px;">
+        <div class="hero-content">
+            <div class="hero-badge">Core Concept</div>
+            <h1>Four Ways to<br>Coordinate Agents</h1>
+            <p class="hero-subtitle">
+                Different coordination approaches for different needs. Choose what fits your workflow—or combine them.
+            </p>
+        </div>
+    </section>
+
+    <!-- Four Modes -->
+    <section class="section">
+        <div class="container">
+            <div class="bento-grid">
+                <!-- Parallel Agents -->
+                <div class="bento-card span-6">
+                    <div class="bento-icon">⚡</div>
+                    <h3 class="bento-title">Parallel Agents</h3>
+                    <p class="bento-desc" style="margin-bottom: 20px;">
+                        Multiple independent agents working on unrelated tasks simultaneously. No coordination overhead—just pure parallelism.
+                    </p>
+                    <div style="background: var(--surface-alt); padding: 16px; border-radius: 12px; margin-bottom: 16px;">
+                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;"><strong>Best for:</strong></p>
+                        <p style="font-size: 14px; color: var(--text);">Independent features, batch processing, isolated components</p>
+                    </div>
+                    <div style="font-size: 14px; color: var(--text-muted);">
+                        <strong>Coordination:</strong> None (tasks are independent)
+                    </div>
+                </div>
+
+                <!-- Sub-Agents -->
+                <div class="bento-card span-6">
+                    <div class="bento-icon">🌳</div>
+                    <h3 class="bento-title">Sub-Agents</h3>
+                    <p class="bento-desc" style="margin-bottom: 20px;">
+                        Parent agent spawns child agents for subtasks. Hierarchical decomposition with clear ownership.
+                    </p>
+                    <div style="background: var(--surface-alt); padding: 16px; border-radius: 12px; margin-bottom: 16px;">
+                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;"><strong>Best for:</strong></p>
+                        <p style="font-size: 14px; color: var(--text);">Complex tasks that need decomposition, recursive problems</p>
+                    </div>
+                    <div style="font-size: 14px; color: var(--text-muted);">
+                        <strong>Coordination:</strong> Parent-child hierarchy
+                    </div>
+                </div>
+
+                <!-- Orchestrator Mode -->
+                <div class="bento-card span-6">
+                    <div class="bento-icon">🎯</div>
+                    <h3 class="bento-title">Orchestrator Mode</h3>
+                    <p class="bento-desc" style="margin-bottom: 20px;">
+                        Central orchestrator agent that assigns tasks and monitors progress. Classic hub-and-spoke coordination.
+                    </p>
+                    <div style="background: var(--surface-alt); padding: 16px; border-radius: 12px; margin-bottom: 16px;">
+                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;"><strong>Best for:</strong></p>
+                        <p style="font-size: 14px; color: var(--text);">Small teams (≤50 agents), tight coordination requirements</p>
+                    </div>
+                    <div style="font-size: 14px; color: var(--text-muted);">
+                        <strong>Coordination:</strong> Central control
+                    </div>
+                </div>
+
+                <!-- Stigmergy Swarms -->
+                <div class="bento-card span-6 featured">
+                    <div class="bento-icon">🐜</div>
+                    <h3 class="bento-title">Stigmergy Swarms</h3>
+                    <p class="bento-desc" style="margin-bottom: 20px;">
+                        Decentralized coordination through environmental signals. No central controller. Agents self-organize through pheromones.
+                    </p>
+                    <div style="background: rgba(255,255,255,0.1); padding: 16px; border-radius: 12px; margin-bottom: 16px;">
+                        <p style="font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 8px;"><strong>Best for:</strong></p>
+                        <p style="font-size: 14px; color: white;">Large swarms (200+ agents), complex emergent behavior</p>
+                    </div>
+                    <div style="font-size: 14px; color: rgba(255,255,255,0.7);">
+                        <strong>Coordination:</strong> Environmental signals (stigmergy)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Comparison</span>
+                <h2 class="section-title">When to Use What</h2>
+            </div>
+            <div style="overflow-x: auto; margin-top: 48px;">
+                <table style="width: 100%; border-collapse: collapse; min-width: 700px;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--border);">
+                            <th style="text-align: left; padding: 16px; font-weight: 600;">Mode</th>
+                            <th style="text-align: left; padding: 16px; font-weight: 600;">Agents</th>
+                            <th style="text-align: left; padding: 16px; font-weight: 600;">Overhead</th>
+                            <th style="text-align: left; padding: 16px; font-weight: 600;">Coordination</th>
+                            <th style="text-align: left; padding: 16px; font-weight: 600;">Complexity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 16px;">Parallel</td>
+                            <td style="padding: 16px; color: var(--text-muted);">Any</td>
+                            <td style="padding: 16px; color: #22c55e;">None</td>
+                            <td style="padding: 16px; color: var(--text-muted);">None</td>
+                            <td style="padding: 16px; color: var(--text-muted);">Low</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 16px;">Sub-Agents</td>
+                            <td style="padding: 16px; color: var(--text-muted);">10-50</td>
+                            <td style="padding: 16px; color: #eab308;">O(depth)</td>
+                            <td style="padding: 16px; color: var(--text-muted);">Hierarchical</td>
+                            <td style="padding: 16px; color: var(--text-muted);">Medium</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 16px;">Orchestrator</td>
+                            <td style="padding: 16px; color: var(--text-muted);">≤50</td>
+                            <td style="padding: 16px; color: #ef4444;">O(n)</td>
+                            <td style="padding: 16px; color: var(--text-muted);">Central</td>
+                            <td style="padding: 16px; color: var(--text-muted);">Medium</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 16px; font-weight: 600; color: var(--accent);">Stigmergy</td>
+                            <td style="padding: 16px; color: var(--text-muted);">200+</td>
+                            <td style="padding: 16px; color: #22c55e;">O(1)</td>
+                            <td style="padding: 16px; color: var(--text-muted);">Environmental</td>
+                            <td style="padding: 16px; color: var(--text-muted);">High (emergent)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combining Modes -->
+    <section class="section">
+        <div class="container">
+            <div class="split">
+                <div>
+                    <span class="section-label">Hybrid</span>
+                    <h2 class="section-title">Combine Modes</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        Modes aren't mutually exclusive. Use orchestrator for a small coordinated team, while stigmergy coordinates across teams.
+                    </p>
+                    <p class="section-desc">
+                        <strong>Example:</strong> Frontend team (5 agents + orchestrator) and Backend team (8 agents + orchestrator) coordinate through stigmergic pheromones at the API boundary.
+                    </p>
+                </div>
+                <div class="visual-block dark">
+                    [Hybrid Architecture]<br><br>
+                    Team A (Orchestrator)<br>
+                    ↓ pheromones ↓<br>
+                    Environment<br>
+                    ↓ pheromones ↓<br>
+                    Team B (Orchestrator)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Choose Your Mode</h2>
+            <p>Download Codebolt and coordinate your way.</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="../download.html" class="btn btn-primary">Download Free</a>
+                <a href="stigmergy.html" class="btn btn-secondary">Deep Dive: Stigmergy →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">© 2026 Codebolt. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>

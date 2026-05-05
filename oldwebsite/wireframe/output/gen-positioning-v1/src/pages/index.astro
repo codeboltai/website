@@ -1,0 +1,82 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import Hero from '../components/Hero.astro';
+import HighlightBanner from '../components/HighlightBanner.astro';
+import StatGrid from '../components/StatGrid.astro';
+import CenteredText from '../components/CenteredText.astro';
+import ComparisonColumns from '../components/ComparisonColumns.astro';
+import CardGrid from '../components/CardGrid.astro';
+import IconGrid from '../components/IconGrid.astro';
+import DiagramSection from '../components/DiagramSection.astro';
+import QuoteBlock from '../components/QuoteBlock.astro';
+import PersonaGrid from '../components/PersonaGrid.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+---
+<BaseLayout title="Codebolt — The Agentic Development Platform" navbarVariant="transparent" site={site} navigation={navigation}>
+  <Hero
+    heading="Build agents. Build applications. Scale without limits."
+    subheading="Codebolt is the platform where you write custom agents, build autonomous applications as plugins, and coordinate everything across multiple environments. One agent or one hundred."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"See How It Works","href":"/features","variant":"secondary"}]}
+  />
+  <HighlightBanner
+    tone="accent"
+    content={`Coding copilots help you write code. Personal assistants manage your inbox. <span class="text-primary">Codebolt is where agents build software.</span>
+`}
+  />
+  <StatGrid
+    tone="muted"
+    columns={4}
+    stats={[{"label":"SDK Modules","value":"63+"},{"label":"LLM Providers","value":"17+"},{"label":"Communication Channels","value":"3"},{"label":"Environments","value":"Unlimited"}]}
+  />
+  <CenteredText
+    variant="thesis"
+    text="The industry has coding assistants and personal AI agents. What's missing is a platform — one where custom agents run, autonomous applications execute as plugins, and scaling across environments is built in."
+  />
+  <ComparisonColumns
+    problem={{"heading":"What exists today","items":["Coding copilots (Cursor, Copilot) — you USE an agent, you can't build one","Personal AI (OpenClaw, Manus) — great for your inbox, not your codebase","Agent frameworks (LangChain) — libraries, not execution environments","Running 3 independent agents ≠ 3 coordinated agents","No tool handles conflict resolution, drift tracking, or multi-environment state"]}}
+    solution={{"heading":"What Codebolt provides","items":["Write custom agents with a 63-module SDK — filesystem, git, terminal, browser, LLM, memory","Build applications as plugins that run inside the agentic environment","Coordinate agents with stigmergy, pheromones, and deliberation councils","Scale across local, Docker, cloud, and hierarchical environments","Built-in review/merge, guardrails, audit trails, and deterministic replay"]}}
+  />
+  <CardGrid
+    heading="Three Pillars"
+    cards={[{"title":"Custom Agent Platform","body":"Write your own agents with full SDK access — filesystem, git, terminal, browser, LLM, vector DB, memory, and 50+ more modules. Full control over the agentic loop. Not prompts. Code.","visual":"import { codebolt } from 'codeboltjs';\ncodebolt.onMessage(async (msg) => {\n  const files = await codebolt.fs.readDir('/');\n  const analysis = await codebolt.llm.chat(…);\n  await codebolt.git.commit(analysis);\n});\n"},{"title":"Agentic Application Runtime","body":"Build applications as plugins that run inside the platform. Unlike other SDKs, plugins don't need their own agent instances — they execute within the agentic environment. This is how you build CI/CD pipelines, review systems, and entire software factories.","visual":"Plugin connects via 3 channels:\n┌─ WS (actions) ────────┐\n│ Multiplexed (events)   │\n│ HTTP (CRUD)            │\n└─ No separate agent ───┘\n"},{"title":"Multi-Environment Infrastructure","body":"Scale agents across local, Docker, cloud, and hierarchical environments. Built-in coordination, drift tracking, conflict resolution, and state transfer. The provider system lets one Codebolt instance treat another as a coordinated environment.","visual":"local ─────┐\ndocker ─────┤→ reconciled\ncloud ──────┤  by platform\nremote ─────┘\n"}]}
+  />
+  <IconGrid
+    tone="muted"
+    kicker="PLATFORM CAPABILITIES"
+    title="Everything agents need
+Nothing they don't
+"
+    description="The infrastructure that makes autonomous development possible."
+    columns={3}
+    features={[{"icon":"layers","title":"Full Agent SDK","description":"63+ modules — filesystem, git, browser, terminal, LLM, vector DB, memory, knowledge graph, and more."},{"icon":"git-branch","title":"Multi-Environment Scaling","description":"Run agents across local, Docker, cloud, and remote environments with automatic state reconciliation."},{"icon":"shield","title":"Governance & Guardrails","description":"Policy engine with LLM risk classification. Scope by agent role, environment, and execution phase."},{"icon":"cpu","title":"Plugin System","description":"Build applications inside the platform. Three communication channels. No separate agent instance needed."},{"icon":"code","title":"Model-Agnostic","description":"17+ cloud providers plus local models (Ollama, LM Studio). Per-agent, per-task model selection."},{"icon":"zap","title":"Built-in Review & Merge","description":"Automatic code review at the application level. No GitHub PR bottleneck. Agents merge their own work."}]}
+  />
+  <DiagramSection
+    heading="The Three Communication Channels"
+    layers={[{"label":"Agent Channel — codeboltjs SDK","tag":"agents","style":"runtime"},{"label":"Plugin Channel — plugin SDK (WS + HTTP)","tag":"plugins","style":"surface"},{"label":"Client Channel — client SDK (UI/TUI/Web)","tag":"clients","style":"versioning"},{"label":"Core Engine — coordination, drift, versioning","tag":"core","style":"governance"}]}
+    annotation="Agents perform work. Plugins connect the platform to the world. Clients give you control."
+    buttons={[{"label":"Explore the architecture","href":"/architecture","variant":"secondary"}]}
+  />
+  <QuoteBlock
+    variant="muted"
+    align="center"
+    quote="A brilliant engineer in a company with no version control, no CI/CD, and no communication tools would be ineffective. Not because they lack skill — because the environment doesn't support good work. The same is true for AI agents today."
+    attribution="Codebolt Research"
+  />
+  <CardGrid
+    heading="The Progression"
+    cards={[{"title":"Day 1 — Better coding environment","body":"Use built-in agents to code. Like your current tool, but open. Any model. Full IDE, CLI, TUI, or web — your choice.","visual":"Download → Open → Start coding\nAgent assists, you direct\n"},{"title":"Month 1 — Write your first custom agent","body":"Install codeboltjs. Write 10 lines of code. You now have an agent with full filesystem, git, browser, terminal, and LLM access. No other free tool gives you this.","visual":"npm i codeboltjs\n→ Full 63-module SDK\n→ Your agent, your logic\n"},{"title":"Month 3 — Build workflows with plugins","body":"Create plugins that run inside the platform. Connect to external services. Automate review, testing, deployment. Multiple agents coordinating.","visual":"Plugin connects to:\nGitHub, Jira, Sentry, Slack\nAgents coordinate via platform\n"},{"title":"Year 1 — Build an autonomous company","body":"Scale across environments. Run 50 agents in Docker containers. Deliberation councils review work. Automatic merge. Your infrastructure, not your bottleneck.","visual":"50 agents → 5 environments\nAutomatic review & merge\nYou direct the vision\n"}]}
+  />
+  <PersonaGrid
+    personas={[{"label":"Individual Developers","body":"Write your own agents with a full SDK. Use one or one hundred. More power than any free coding tool — because you control the agent, not just the prompt."},{"label":"Teams Scaling AI","body":"Moving from 2 agents to 50. You need coordination, conflict resolution, and multi-environment management. This handles the complexity so you focus on the product."},{"label":"AI Startup Founders","body":"Build your company on Codebolt. Plugins run inside the platform — no separate agent instances needed. Scale across environments as you grow."},{"label":"Enterprise & Production","body":"Governance, audit trails, deterministic replay, and guardrails. You won't put agents in production without these. Neither would we."},{"label":"Platform & DevOps Engineers","body":"Run headless in CI/CD. Spawn Docker environments. Transfer state between them. Monitor with real-time events. Built for infrastructure-minded people."},{"label":"AI Researchers","body":"Stigmergy-based coordination. Pheromone systems. Narrative versioning. A platform grounded in research, with the depth to back it up."}]}
+  />
+  <CenteredText
+    variant="identity"
+    text="Not a personal assistant. Not a coding copilot. The platform where autonomous development happens."
+  />
+  <CtaBlock
+    heading="Start building. Scale when you're ready."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Read the Docs","href":"https://docs.codebolt.ai","variant":"secondary","external":true}]}
+  />
+</BaseLayout>

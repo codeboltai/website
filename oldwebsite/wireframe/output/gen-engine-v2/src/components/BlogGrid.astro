@@ -1,0 +1,27 @@
+---
+const { posts = [] } = Astro.props;
+---
+<section class="py-24 px-6 bg-background dark:bg-[#050505] border-b border-border dark:border-zinc-900">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.map((post) => (
+        <a href={post.href || '#'} class="border border-border dark:border-zinc-800 bg-card/30 p-8 hover:border-muted-foreground/50 dark:hover:border-zinc-700 transition-colors">
+          <div class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground dark:text-zinc-500 mb-4">
+            {post.date}
+          </div>
+          <h3 class="text-lg font-medium text-foreground dark:text-white mb-3 tracking-tight">
+            {post.title}
+          </h3>
+          <p class="text-sm text-muted-foreground dark:text-zinc-400 leading-relaxed mb-6">
+            {post.excerpt}
+          </p>
+          {post.tag && (
+            <span class="inline-flex px-2 py-1 border border-border bg-muted/20 text-[10px] tracking-wider text-muted-foreground">
+              {post.tag}
+            </span>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

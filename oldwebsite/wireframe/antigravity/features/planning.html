@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning & Whiteboard - Codebolt Features</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">Codebolt</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Features</a></li>
+                <li><a href="../concepts/index.html">Concepts</a></li>
+                <li><a href="../use-cases.html">Use Cases</a></li>
+                <li><a href="../download.html" class="btn btn-primary" style="padding: 10px 20px;">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 160px 24px 80px;">
+        <div class="hero-content">
+            <div class="hero-badge">Feature</div>
+            <h1>Planning & Whiteboard</h1>
+            <p class="hero-subtitle">
+                Roadmaps, specs, action plans. Integrated whiteboard for visual planning. Codemap for codebase visualization.
+            </p>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="section">
+        <div class="container">
+            <div class="split">
+                <div>
+                    <span class="section-label">Roadmap Panel</span>
+                    <h2 class="section-title">Strategic Planning</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        Define milestones, epics, and deliverables. The roadmap becomes the source of truth for what the swarm should build.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-bullet">🎯</div>
+                            <div>
+                                <h4>Milestones</h4>
+                                <p>Major release targets with deadlines.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">📦</div>
+                            <div>
+                                <h4>Epics</h4>
+                                <p>Large features that break into specs.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🔗</div>
+                            <div>
+                                <h4>Linked to Memory</h4>
+                                <p>Roadmap items connect to specs, jobs, and context.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-block dark">
+                    [Roadmap Timeline]<br><br>
+                    Q1: Auth Overhaul<br>
+                    ├── Epic: OAuth2 Integration<br>
+                    ├── Epic: Session Management<br>
+                    └── Epic: Permissions V2<br><br>
+                    Q2: API V2...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specs -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="split reverse">
+                <div>
+                    <span class="section-label">Specs Panel</span>
+                    <h2 class="section-title">Detailed Specifications</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        Write detailed specifications that agents reference during implementation. Rich text, diagrams, acceptance criteria—all in one place.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-bullet">📝</div>
+                            <div>
+                                <h4>Rich Specifications</h4>
+                                <p>Markdown, diagrams, code snippets, examples.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">✅</div>
+                            <div>
+                                <h4>Acceptance Criteria</h4>
+                                <p>Define what "done" looks like. Agents verify against criteria.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🔄</div>
+                            <div>
+                                <h4>Version History</h4>
+                                <p>Track spec changes over time. See evolution of requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-block">
+                    [Spec Document]<br><br>
+                    # OAuth2 Integration<br><br>
+                    ## Overview<br>
+                    Support Google, GitHub, Microsoft...<br><br>
+                    ## Acceptance Criteria<br>
+                    ☐ User can sign in with Google<br>
+                    ☐ Token refresh works...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Plans -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Execution</span>
+                <h2 class="section-title">Action Plans</h2>
+                <p class="section-desc">Turn specs into executable plans. Action plans are ordered sequences of jobs with dependencies.</p>
+            </div>
+            <div class="bento-grid" style="margin-top: 48px;">
+                <div class="bento-card span-4">
+                    <h4 style="margin-bottom: 12px;">📋 Auto-Generation</h4>
+                    <p class="bento-desc">Agents can generate action plans from specs. You review and approve.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <h4 style="margin-bottom: 12px;">🔀 Dependency Ordering</h4>
+                    <p class="bento-desc">Jobs are sequenced based on dependencies. Critical path highlighted.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <h4 style="margin-bottom: 12px;">📊 Progress Tracking</h4>
+                    <p class="bento-desc">Real-time visibility into plan execution. Bottlenecks surface quickly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Whiteboard -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="split">
+                <div>
+                    <span class="section-label">Visual Planning</span>
+                    <h2 class="section-title">Integrated Whiteboard</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        Sketch architecture, draw flows, brainstorm ideas. The whiteboard connects to specs and jobs—diagrams become executable.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-bullet">🎨</div>
+                            <div>
+                                <h4>Freeform Canvas</h4>
+                                <p>Draw, type, connect. Infinite canvas for big ideas.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🔗</div>
+                            <div>
+                                <h4>Linked Elements</h4>
+                                <p>Connect shapes to specs, jobs, or code files.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🤖</div>
+                            <div>
+                                <h4>Agent-Readable</h4>
+                                <p>Agents can interpret diagrams and generate code from them.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-block dark">
+                    [Whiteboard Canvas]<br><br>
+                    ┌─────────┐     ┌─────────┐<br>
+                    │ Frontend│────▶│   API   │<br>
+                    └─────────┘     └────┬────┘<br>
+                                         │<br>
+                                    ┌────▼────┐<br>
+                                    │   DB    │<br>
+                                    └─────────┘
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Codemap -->
+    <section class="section">
+        <div class="container">
+            <div class="split reverse">
+                <div>
+                    <span class="section-label">Visualization</span>
+                    <h2 class="section-title">Codemap</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        Visualize your codebase as an interactive map. See dependencies, hot spots, and agent activity overlaid on your architecture.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-bullet">🗺️</div>
+                            <div>
+                                <h4>Dependency Graph</h4>
+                                <p>See how files and modules connect.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🔥</div>
+                            <div>
+                                <h4>Activity Heatmap</h4>
+                                <p>Which areas are being actively modified.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🤖</div>
+                            <div>
+                                <h4>Agent Overlay</h4>
+                                <p>See which agents are working on which parts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-block">
+                    [Codemap View]<br><br>
+                    Interactive graph of modules<br>
+                    Color = activity level<br>
+                    Dots = active agents
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Plan with Precision</h2>
+            <p>Download Codebolt and turn ideas into action.</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="../download.html" class="btn btn-primary">Download Free</a>
+                <a href="review-merge.html" class="btn btn-secondary">Next: Review & Merge →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                © 2026 Codebolt. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

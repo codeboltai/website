@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concepts - Codebolt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">Codebolt</a>
+            <ul class="nav-links">
+                <li><a href="../features/index.html">Features</a></li>
+                <li class="dropdown">
+                    <a href="index.html">Concepts</a>
+                    <div class="dropdown-content">
+                        <a href="stigmergy.html">Stigmergy</a>
+                        <a href="externalized-memory.html">Externalized Memory</a>
+                        <a href="multi-agent-modes.html">Multi-Agent Modes</a>
+                        <a href="human-participation.html">Human Participation</a>
+                        <a href="emergent-governance.html">Emergent Governance</a>
+                        <a href="scaling.html">Scaling</a>
+                    </div>
+                </li>
+                <li><a href="../use-cases.html">Use Cases</a></li>
+                <li><a href="../download.html" class="btn btn-primary" style="padding: 10px 20px;">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 160px 24px 80px;">
+        <div class="hero-content">
+            <div class="hero-badge">The Paradigm</div>
+            <h1>Think Different About<br>Multi-Agent Systems</h1>
+            <p class="hero-subtitle">
+                Codebolt is built on foundational principles that challenge how we think about AI coordination. Understanding these concepts unlocks the platform's full potential.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Concepts -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Foundation</span>
+                <h2 class="section-title">Three Paradigm Shifts</h2>
+            </div>
+            <div class="bento-grid">
+                <!-- Stigmergy - Featured -->
+                <div class="bento-card span-12 featured" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                    <div>
+                        <div class="bento-icon">🐜</div>
+                        <h3 class="bento-title" style="font-size: 1.75rem;">Stigmergy Coordination</h3>
+                        <p class="bento-desc" style="font-size: 1rem; margin-bottom: 24px;">
+                            Like ant colonies coordinate through pheromone trails, agents coordinate through environmental signals. No central orchestrator. No direct communication. Just agents reading and modifying a shared environment.
+                        </p>
+                        <p class="bento-desc">
+                            9 pheromone types across 5 temporal layers enable sophisticated coordination for 200+ agents without O(n²) overhead.
+                        </p>
+                        <a href="stigmergy.html" class="bento-link" style="color: white; margin-top: 24px;">Deep dive into Stigmergy →</a>
+                    </div>
+                    <div class="visual-block" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); aspect-ratio: 4/3;">
+                        [Stigmergy Diagram]<br><br>
+                        Agent deposits signal → Environment stores signal<br>
+                        Other agents perceive → Emergent coordination
+                    </div>
+                </div>
+
+                <!-- Externalized Memory -->
+                <div class="bento-card span-6">
+                    <div class="bento-icon">💾</div>
+                    <h3 class="bento-title">Externalized Memory</h3>
+                    <p class="bento-desc" style="margin-bottom: 16px;">
+                        Memory is a feature of the environment, not the agent. When agents terminate, knowledge survives. The 3-layer Memoria architecture achieves 87% knowledge survival across generations.
+                    </p>
+                    <p class="bento-desc">
+                        <strong>5 memory layers:</strong> Persistent, Vector DB, Knowledge Graph, KV Store, Episodic.
+                    </p>
+                    <a href="externalized-memory.html" class="bento-link">Learn more →</a>
+                </div>
+
+                <!-- Human Participation -->
+                <div class="bento-card span-6">
+                    <div class="bento-icon">👥</div>
+                    <h3 class="bento-title">Human Participation</h3>
+                    <p class="bento-desc" style="margin-bottom: 16px;">
+                        You're a swarm member, not an observer. Humans use the same tools as agents: deposit pheromones, send mail, participate in deliberations, review changes.
+                    </p>
+                    <p class="bento-desc">
+                        <strong>Role evolution:</strong> Coder → Director → Governor as the swarm scales.
+                    </p>
+                    <a href="human-participation.html" class="bento-link">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Concepts -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Advanced</span>
+                <h2 class="section-title">Going Deeper</h2>
+            </div>
+            <div class="bento-grid">
+                <div class="bento-card span-4">
+                    <div class="bento-icon">⚡</div>
+                    <h3 class="bento-title">Multi-Agent Modes</h3>
+                    <p class="bento-desc">Four coordination approaches: Parallel, Sub-Agents, Orchestrator, and Stigmergy Swarms. Choose what fits your workflow.</p>
+                    <a href="multi-agent-modes.html" class="bento-link">Explore →</a>
+                </div>
+                <div class="bento-card span-4">
+                    <div class="bento-icon">⚖️</div>
+                    <h3 class="bento-title">Emergent Governance</h3>
+                    <p class="bento-desc">Policies evolve from collective experience. Reputation-weighted voting. The swarm develops its own culture and norms.</p>
+                    <a href="emergent-governance.html" class="bento-link">Explore →</a>
+                </div>
+                <div class="bento-card span-4">
+                    <div class="bento-icon">📈</div>
+                    <h3 class="bento-title">Scaling Architecture</h3>
+                    <p class="bento-desc">Why orchestrators hit ~50 agent ceiling. How stigmergy enables linear scaling to 200+. The math behind it.</p>
+                    <a href="scaling.html" class="bento-link">Explore →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.5rem; font-style: italic; color: var(--dark); line-height: 1.7; margin-bottom: 24px;">
+                    "We're not building smarter agents—we're designing smarter environments where simple agents can work as sophisticated societies."
+                </p>
+                <p style="color: var(--text-muted); font-size: 14px;">— The Codebolt Philosophy</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Experience the Paradigm</h2>
+            <p>Download Codebolt and see environment-centric coordination in action.</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="../download.html" class="btn btn-primary">Download Free</a>
+                <a href="../docs.html" class="btn btn-secondary">Documentation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                © 2026 Codebolt. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

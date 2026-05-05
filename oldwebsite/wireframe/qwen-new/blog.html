@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Codebolt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0f;
+            color: #e0e0e6;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #0f0f15;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #222230;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #6e56cf;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #e0e0e6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #a78bfa;
+        }
+        
+        .cta-button {
+            background-color: #6e56cf;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #7e65e3;
+        }
+        
+        .page-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #a78bfa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #e0e0e6;
+        }
+        
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .blog-card {
+            background-color: #121218;
+            border: 1px solid #222230;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: #6e56cf;
+        }
+        
+        .blog-image {
+            height: 200px;
+            background-color: #1a1a22;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            font-size: 3rem;
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background-color: #6e56cf;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .blog-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #e0e0e6;
+        }
+        
+        .blog-excerpt {
+            color: #a0aec0;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #718096;
+            font-size: 0.9rem;
+            border-top: 1px solid #222230;
+            padding-top: 1rem;
+        }
+        
+        .featured-post {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid #222230;
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .featured-category {
+            display: inline-block;
+            background-color: #6e56cf;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #e0e0e6;
+        }
+        
+        .featured-excerpt {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter {
+            background-color: #121218;
+            border: 1px solid #222230;
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .newsletter-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #e0e0e6;
+        }
+        
+        .newsletter-desc {
+            color: #a0aec0;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #222230;
+            border-radius: 4px 0 0 4px;
+            background-color: #1a1a22;
+            color: #e0e0e6;
+        }
+        
+        .newsletter-button {
+            background-color: #6e56cf;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .newsletter-button:hover {
+            background-color: #7e65e3;
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 3rem 0;
+            justify-content: center;
+        }
+        
+        .category-tag {
+            background-color: #1a1a22;
+            color: #a0aec0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-tag:hover, .category-tag.active {
+            background-color: #6e56cf;
+            color: white;
+        }
+        
+        footer {
+            background-color: #0f0f15;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid #222230;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #a78bfa;
+        }
+        
+        .copyright {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-posts {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .newsletter-input {
+                border-radius: 4px;
+            }
+            
+            .newsletter-button {
+                border-radius: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Codebolt</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="enterprise.html">Enterprise</a>
+            </div>
+            <a href="#" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Codebolt Blog</h1>
+        <p>Insights, updates, and thought leadership on the future of AI-powered development.</p>
+    </section>
+
+    <section class="section">
+        <div class="featured-post">
+            <div class="featured-category">RESEARCH</div>
+            <h2 class="featured-title">The Breakthrough Behind Externalized Memory in Multi-Agent Systems</h2>
+            <p class="featured-excerpt">How Codebolt's externalized memory architecture enables truly ephemeral agents with persistent collective intelligence across generations.</p>
+            <a href="#" class="cta-button">Read Article</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Latest Articles</h2>
+        
+        <div class="categories">
+            <div class="category-tag active">All</div>
+            <div class="category-tag">Research</div>
+            <div class="category-tag">Engineering</div>
+            <div class="category-tag">Product Updates</div>
+            <div class="category-tag">Case Studies</div>
+            <div class="category-tag">Industry Trends</div>
+        </div>
+        
+        <div class="blog-posts">
+            <div class="blog-card">
+                <div class="blog-image">🔬</div>
+                <div class="blog-content">
+                    <div class="blog-category">RESEARCH</div>
+                    <h3 class="blog-title">Stigmergy in Software Development: A New Paradigm</h3>
+                    <p class="blog-excerpt">Exploring how digital pheromones enable hundreds of AI agents to coordinate without central orchestration.</p>
+                    <div class="blog-meta">
+                        <span>Dr. Sarah Chen</span>
+                        <span>May 15, 2026</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image">🚀</div>
+                <div class="blog-content">
+                    <div class="blog-category">ENGINEERING</div>
+                    <h3 class="blog-title">Building the World's First Agentic IDE</h3>
+                    <p class="blog-excerpt">Technical insights into creating an IDE purpose-built for AI agents as first-class citizens.</p>
+                    <div class="blog-meta">
+                        <span>Marcus Rodriguez</span>
+                        <span>May 8, 2026</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image">💼</div>
+                <div class="blog-content">
+                    <div class="blog-category">CASE STUDY</div>
+                    <h3 class="blog-title">How TechGlobal Achieved 7x Faster Development</h3>
+                    <p class="blog-excerpt">A deep dive into how a financial services company deployed 200 agents to transform their development process.</p>
+                    <div class="blog-meta">
+                        <span>James Wilson</span>
+                        <span>April 28, 2026</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image">🧠</div>
+                <div class="blog-content">
+                    <div class="blog-category">RESEARCH</div>
+                    <h3 class="blog-title">Emergent Behaviors in Multi-Agent Software Systems</h3>
+                    <p class="blog-excerpt">Analysis of unexpected collaborative patterns that emerge when dozens of agents work together.</p>
+                    <div class="blog-meta">
+                        <span>Dr. Alex Kim</span>
+                        <span>April 20, 2026</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image">🛠️</div>
+                <div class="blog-content">
+                    <div class="blog-category">PRODUCT</div>
+                    <h3 class="blog-title">New Feature: Agent Deliberation System</h3>
+                    <p class="blog-excerpt">Agents can now vote on architectural decisions, provide feedback to each other, and reach consensus.</p>
+                    <div class="blog-meta">
+                        <span>Lisa Thompson</span>
+                        <span>April 12, 2026</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="blog-image">📊</div>
+                <div class="blog-content">
+                    <div class="blog-category">INDUSTRY</div>
+                    <h3 class="blog-title">The Future of Software Development: 2026-2030</h3>
+                    <p class="blog-excerpt">Predictions on how multi-agent systems will reshape the software development landscape.</p>
+                    <div class="blog-meta">
+                        <span>Robert Chang</span>
+                        <span>April 5, 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="newsletter">
+            <h3 class="newsletter-title">Stay Updated</h3>
+            <p class="newsletter-desc">Subscribe to our newsletter to receive the latest research findings, product updates, and industry insights.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address">
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="enterprise.html">Enterprise</a>
+                <a href="documentation.html">Documentation</a>
+                <a href="blog.html">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+            <p class="copyright">© 2026 Codebolt. The world's first Agentic Development Platform.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple category filtering
+        document.querySelectorAll('.category-tag').forEach(tag => {
+            tag.addEventListener('click', () => {
+                // Remove active class from all tags
+                document.querySelectorAll('.category-tag').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Add active class to clicked tag
+                tag.classList.add('active');
+                
+                // In a real implementation, this would filter the blog posts
+                // For this wireframe, we'll just simulate the interaction
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Codebolt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0f;
+            color: #e0e0e6;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #0f0f15;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #222230;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #6e56cf;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #e0e0e6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #a78bfa;
+        }
+        
+        .cta-button {
+            background-color: #6e56cf;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #7e65e3;
+        }
+        
+        .page-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #a78bfa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #e0e0e6;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background-color: #121218;
+            border: 1px solid #222230;
+            border-radius: 8px;
+            padding: 2.5rem;
+        }
+        
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #e0e0e6;
+        }
+        
+        .contact-desc {
+            color: #a0aec0;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #a78bfa;
+            flex-shrink: 0;
+        }
+        
+        .contact-text {
+            color: #e0e0e6;
+        }
+        
+        .contact-text strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-text a {
+            color: #a78bfa;
+            text-decoration: none;
+        }
+        
+        .contact-text a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact-form {
+            background-color: #121218;
+            border: 1px solid #222230;
+            border-radius: 8px;
+            padding: 2.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e0e0e6;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #222230;
+            border-radius: 4px;
+            background-color: #1a1a22;
+            color: #e0e0e6;
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background-color: #6e56cf;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-button:hover {
+            background-color: #7e65e3;
+        }
+        
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .support-card {
+            background-color: #121218;
+            border: 1px solid #222230;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .support-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #a78bfa;
+        }
+        
+        .support-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #e0e0e6;
+        }
+        
+        .support-desc {
+            color: #a0aec0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .support-link {
+            color: #a78bfa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .support-link:hover {
+            text-decoration: underline;
+        }
+        
+        .office-location {
+            background-color: #121218;
+            border: 1px solid #222230;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .office-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #e0e0e6;
+        }
+        
+        .office-address {
+            color: #a0aec0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .map-placeholder {
+            height: 300px;
+            background-color: #1a1a22;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            margin-top: 1.5rem;
+        }
+        
+        footer {
+            background-color: #0f0f15;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid #222230;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #a78bfa;
+        }
+        
+        .copyright {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Codebolt</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="enterprise.html">Enterprise</a>
+            </div>
+            <a href="#" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Get in Touch</h1>
+        <p>Have questions about Codebolt? Reach out to our team for support, sales inquiries, or partnership opportunities.</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Contact Us</h2>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3 class="contact-title">Contact Information</h3>
+                <p class="contact-desc">Reach out to us using any of the methods below. Our team is ready to help you transform your development process.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <strong>General Inquiries</strong>
+                            <a href="mailto:info@codebolt.ai">info@codebolt.ai</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-text">
+                            <strong>Sales</strong>
+                            <a href="mailto:sales@codebolt.ai">sales@codebolt.ai</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🛡️</div>
+                        <div class="contact-text">
+                            <strong>Security Issues</strong>
+                            <a href="mailto:security@codebolt.ai">security@codebolt.ai</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">❓</div>
+                        <div class="contact-text">
+                            <strong>Support</strong>
+                            <a href="mailto:support@codebolt.ai">support@codebolt.ai</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <strong>Phone</strong>
+                            <a href="tel:+1-555-123-4567">+1 (555) 123-4567</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-text">
+                            <strong>Live Chat</strong>
+                            <a href="#">Chat with us now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3 class="contact-title">Send us a message</h3>
+                
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" name="firstName">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" name="lastName">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject">
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="sales">Sales Question</option>
+                            <option value="support">Technical Support</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="press">Press Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Support Options</h2>
+        
+        <div class="support-options">
+            <div class="support-card">
+                <div class="support-icon">📚</div>
+                <h3 class="support-title">Documentation</h3>
+                <p class="support-desc">Find answers to common questions in our comprehensive documentation.</p>
+                <a href="documentation.html" class="support-link">Visit Documentation</a>
+            </div>
+            
+            <div class="support-card">
+                <div class="support-icon">💬</div>
+                <h3 class="support-title">Community Forum</h3>
+                <p class="support-desc">Connect with other users and share knowledge in our community forum.</p>
+                <a href="#" class="support-link">Join Community</a>
+            </div>
+            
+            <div class="support-card">
+                <div class="support-icon">📹</div>
+                <h3 class="support-title">Video Tutorials</h3>
+                <p class="support-desc">Watch step-by-step guides to get the most out of Codebolt.</p>
+                <a href="#" class="support-link">View Tutorials</a>
+            </div>
+            
+            <div class="support-card">
+                <div class="support-icon">📅</div>
+                <h3 class="support-title">Schedule a Demo</h3>
+                <p class="support-desc">Book a personalized demo with our solutions team.</p>
+                <a href="#" class="support-link">Schedule Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="office-location">
+            <h3 class="office-title">Our Office</h3>
+            <p class="office-address">123 Innovation Drive, Suite 500<br>San Francisco, CA 94105</p>
+            
+            <div class="map-placeholder">
+                Map Location
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="enterprise.html">Enterprise</a>
+                <a href="documentation.html">Documentation</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="copyright">© 2026 Codebolt. The world's first Agentic Development Platform.</p>
+        </div>
+    </footer>
+</body>
+</html>

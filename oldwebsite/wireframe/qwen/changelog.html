@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - Codebolt (Wireframe)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        .section { background: #fff; border: 2px solid #333; padding: 40px; margin-bottom: 20px; }
+        .section-label { display: inline-block; background: #333; color: #fff; padding: 4px 8px; font-size: 11px; text-transform: uppercase; margin-bottom: 15px; }
+        .hero-title { font-size: 56px; font-weight: 600; line-height: 1.1; margin-bottom: 20px; }
+        .hero-description { font-size: 18px; color: #666; }
+        .entry { padding: 40px 0; border-bottom: 1px solid #ddd; }
+        .entry:last-child { border-bottom: none; }
+        .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 15px; }
+        .entry-version { font-size: 24px; font-weight: 600; }
+        .entry-date { font-size: 14px; color: #666; }
+        .entry-type { display: inline-block; padding: 4px 12px; background: #0891b2; color: #fff; font-size: 11px; text-transform: uppercase; border-radius: 4px; margin-bottom: 15px; }
+        .change-list { list-style: none; margin: 20px 0; }
+        .change-list li { font-size: 14px; color: #666; padding: 8px 0; padding-left: 20px; position: relative; }
+        .change-list li:before { content: "▸"; position: absolute; left: 0; color: #0891b2; }
+        .change-category { font-size: 12px; font-weight: 600; text-transform: uppercase; color: #333; margin: 20px 0 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <span class="section-label">Changelog</span>
+            <h1 class="hero-title">What's New</h1>
+            <p class="hero-description">Track the latest updates, features, and improvements to Codebolt.</p>
+        </div>
+
+        <div class="section">
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-version">Version 3.0.2</span>
+                    <span class="entry-date">January 15, 2025</span>
+                </div>
+                <span class="entry-type">Release</span>
+                
+                <div class="change-category">New Features</div>
+                <ul class="change-list">
+                    <li>Added swarm management capabilities with team formation and role systems</li>
+                    <li>Introduced agent lifecycle controls with spawn and termination requests</li>
+                    <li>Enhanced observability with real-time agent monitoring dashboard</li>
+                    <li>Improved persistent memory with faster vector search queries</li>
+                </ul>
+
+                <div class="change-category">Improvements</div>
+                <ul class="change-list">
+                    <li>Fixed learning memory module for better context retention</li>
+                    <li>Enhanced inference stability for complex multi-agent tasks</li>
+                    <li>Optimized core engine performance for faster agent spawning</li>
+                    <li>Improved error messages and debugging information</li>
+                </ul>
+
+                <div class="change-category">Bug Fixes</div>
+                <ul class="change-list">
+                    <li>Resolved issue with agent state synchronization in swarms</li>
+                    <li>Fixed memory leak in long-running agent sessions</li>
+                    <li>Corrected pheromone signal decay calculations</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-version">Version 3.0.1</span>
+                    <span class="entry-date">January 5, 2025</span>
+                </div>
+                <span class="entry-type">Release</span>
+                
+                <div class="change-category">New Features</div>
+                <ul class="change-list">
+                    <li>Launch of visual agent builder with drag-and-drop interface</li>
+                    <li>Added support for external agents via WebSocket connections</li>
+                    <li>Introduced agent deliberation system for voting and consensus</li>
+                    <li>New agent templates for common workflows (testing, docs, security)</li>
+                </ul>
+
+                <div class="change-category">Improvements</div>
+                <ul class="change-list">
+                    <li>Enhanced stigmergy coordination with new pheromone types</li>
+                    <li>Improved job bidding and split proposal workflows</li>
+                    <li>Better error handling in agent-to-agent communications</li>
+                    <li>Updated SDK with new hooks and event system</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-version">Version 3.0.0</span>
+                    <span class="entry-date">December 20, 2024</span>
+                </div>
+                <span class="entry-type">Major Release</span>
+                
+                <div class="change-category">🎉 Major Update</div>
+                <ul class="change-list">
+                    <li><strong>Multi-Agent Swarms:</strong> Deploy 100+ specialized AI agents working in parallel</li>
+                    <li><strong>Stigmergy Coordination:</strong> Self-organizing intelligence inspired by nature</li>
+                    <li><strong>Persistent Memory:</strong> Knowledge graphs, vector DBs, and episodic memory for infinite context</li>
+                    <li><strong>Full Observability:</strong> Complete visibility into all agent operations and decisions</li>
+                    <li><strong>Custom Agents:</strong> Build specialized agents via code or visual builder</li>
+                    <li><strong>24/7 Operation:</strong> Agents work around the clock on long-horizon tasks</li>
+                </ul>
+
+                <div class="change-category">Breaking Changes</div>
+                <ul class="change-list">
+                    <li>New agent configuration format (YAML-based)</li>
+                    <li>Updated SDK with breaking API changes</li>
+                    <li>Memory system architecture redesigned</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-version">Version 2.5.0</span>
+                    <span class="entry-date">December 1, 2024</span>
+                </div>
+                <span class="entry-type">Release</span>
+                
+                <div class="change-category">New Features</div>
+                <ul class="change-list">
+                    <li>Added knowledge graph integration with Kuzu database</li>
+                    <li>Introduced vector database for semantic code search</li>
+                    <li>New episodic memory system for conversation tracking</li>
+                    <li>Improved agent debugging with request/response logging</li>
+                </ul>
+
+                <div class="change-category">Improvements</div>
+                <ul class="change-list">
+                    <li>Better context management across multiple sessions</li>
+                    <li>Enhanced code review workflow with PR integration</li>
+                    <li>Faster agent response times with optimized inference</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-version">Version 2.0.0</span>
+                    <span class="entry-date">November 15, 2024</span>
+                </div>
+                <span class="entry-type">Major Release</span>
+                
+                <div class="change-category">🎉 Major Update</div>
+                <ul class="change-list">
+                    <li><strong>Agent System:</strong> First release of AI agents with custom roles</li>
+                    <li><strong>Memory Architecture:</strong> Basic persistent memory implementation</li>
+                    <li><strong>Multi-LLM Support:</strong> Use different models for different tasks</li>
+                    <li><strong>Job System:</strong> Task creation, assignment, and tracking</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; padding: 40px;">
+            <h2 style="font-size: 24px; font-weight: 600; margin-bottom: 15px;">Stay Updated</h2>
+            <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Follow our changelog to track the latest improvements and features.</p>
+            <div style="font-size: 14px; color: #666;">
+                For more details, check out our <a href="#" style="color: #0891b2;">GitHub releases</a> or <a href="#" style="color: #0891b2;">blog</a>.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

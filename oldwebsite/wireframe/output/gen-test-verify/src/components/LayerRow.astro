@@ -1,0 +1,30 @@
+---
+import { cn } from '../lib/utils';
+
+const { level, title, meta, accent = 'default', className } = Astro.props;
+
+const accents = {
+  default: 'border-border',
+  primary: 'border-primary',
+  emerald: 'border-emerald-500',
+  amber: 'border-amber-500',
+  purple: 'border-purple-500',
+  red: 'border-red-500',
+};
+---
+
+<div class={cn('flex items-center justify-between gap-6 p-5 border border-border dark:border-zinc-800 bg-card/30', className)}>
+  <div class="flex items-center gap-4">
+    <span class={cn('text-[10px] font-mono uppercase tracking-widest px-2 py-1 border', accents[accent] ?? accents.default)}>
+      {level}
+    </span>
+    <span class="text-sm font-medium text-foreground dark:text-white">
+      {title}
+    </span>
+  </div>
+  {meta && (
+    <span class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground dark:text-zinc-500">
+      {meta}
+    </span>
+  )}
+</div>
