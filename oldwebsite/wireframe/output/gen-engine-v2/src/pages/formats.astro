@@ -1,0 +1,38 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import CenteredText from '../components/CenteredText.astro';
+import ProgressionStrip from '../components/ProgressionStrip.astro';
+import CardGrid from '../components/CardGrid.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+---
+<BaseLayout title="Formats — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="One Engine. Every Format."
+    subtitle="Same engine, same SDK, same plugins. Different interface for different needs."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Most tools force you to choose: CLI or IDE, personal agent or team tool, simple or powerful. Codebolt is one engine that runs in every format. Everything you build in one format works in all others."
+  />
+  <ProgressionStrip
+    heading="The Spectrum"
+    description="Pick your starting point. Scale when you're ready."
+    steps={[{"label":"CLI","description":"Terminal coding agent with full SDK.","reference":"Like Claude Code"},{"label":"IDE","description":"Desktop editor with agent workspace.","reference":"Like Cursor"},{"label":"Personal Agent","description":"24/7 agent with persistent memory.","reference":"Like OpenClaw"},{"label":"Orchestration","description":"100+ agents, multi-environment.","reference":"Beyond any tool"},{"label":"Autonomous Company","description":"Business domains as plugins.","reference":"Built-in, not bolted on"}]}
+  />
+  <CardGrid
+    heading="Explore Each Format"
+    columns={3}
+    cards={[{"title":"Codebolt as CLI","body":"A coding agent in your terminal. Like Claude Code but with model freedom, custom agents, and a growth path to multi-agent.","href":"/formats/cli"},{"title":"Codebolt as IDE","body":"Full desktop IDE with Monaco editor, agent workspace, and plugin panel. Built from scratch for agent coordination.","href":"/formats/ide"},{"title":"Codebolt as Personal Agent","body":"24/7 agent with persistent memory, plugin integrations, and proactive scheduling. Like OpenClaw on a scalable engine.","href":"/formats/personal-agent"},{"title":"Codebolt as Orchestration Engine","body":"50-100+ agents across Docker, cloud, and hierarchical environments. Stigmergy coordination, deliberation councils, auto review & merge.","href":"/formats/orchestration"},{"title":"Codebolt as Autonomous Company","body":"Business domains as plugins inside the engine. Engineering, QA, deployment, monitoring — all coordinated. No separate agent instances needed.","href":"/formats/autonomous-company"}]}
+  />
+  <CenteredText
+    variant="identity"
+    text="Same engine. Same SDK. Same plugins. Same memory. Whatever you build in one format carries forward to the next."
+  />
+  <CtaBlock
+    heading="Pick your format. Start building."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Explore the Engine","href":"/engine","variant":"secondary"}]}
+  />
+</BaseLayout>

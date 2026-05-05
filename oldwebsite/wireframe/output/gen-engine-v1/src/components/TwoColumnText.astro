@@ -1,0 +1,24 @@
+---
+const { columns = [], conclusion } = Astro.props;
+---
+<section class="py-24 px-6 bg-background dark:bg-[#050505] border-b border-border dark:border-zinc-900">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border border-border dark:border-zinc-800 bg-card/30 p-10 md:p-12">
+      {columns.map((col) => (
+        <div>
+          <h3 class="text-lg font-medium text-foreground dark:text-white mb-4 tracking-tight">
+            {col.heading}
+          </h3>
+          <p class="text-sm text-muted-foreground dark:text-zinc-400 leading-relaxed">
+            {col.body}
+          </p>
+        </div>
+      ))}
+    </div>
+    {conclusion && (
+      <p class="mt-10 text-lg text-foreground dark:text-white font-light leading-relaxed">
+        {conclusion}
+      </p>
+    )}
+  </div>
+</section>

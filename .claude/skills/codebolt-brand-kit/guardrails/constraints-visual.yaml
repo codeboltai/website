@@ -1,0 +1,61 @@
+## constraints-visual.yaml
+## Codebolt Brand System v1.0
+## Visual guardrails — what never to do visually
+
+metadata:
+  chunk_id: "guardrails-visual"
+  category: "guardrails"
+  subcategory: "visual"
+  context_tags:
+    - "visual-constraints"
+    - "logo-misuse"
+    - "design-dont"
+  token_count: ~300
+  last_updated: "2026-02-19"
+  description: >
+    Visual constraints for the Codebolt brand. Protects visual
+    consistency and prevents misrepresentation.
+
+---
+
+logo_constraints:
+  - "Never stretch, rotate, or skew the logo"
+  - "Never place the logo on busy or low-contrast backgrounds"
+  - "Never add effects (shadows, gradients, glows) to the logo"
+  - "Never alter the logo colors outside approved palette"
+  - "Never use the logo smaller than minimum size (24px height for digital)"
+  - "Maintain minimum clear space equal to the height of the 'C' in Codebolt"
+
+color_constraints:
+  - "Never use neon or fluorescent colors"
+  - "Never use gradients as primary background fills"
+  - "Never use more than 3 brand colors in a single composition"
+  - "Never use alert_amber or error_red as decorative colors"
+  - "Ensure minimum WCAG AA contrast ratios for all text"
+
+typography_constraints:
+  - "Never use decorative, script, or novelty fonts"
+  - "Never use more than 2 font families in a single layout"
+  - "Never use all-caps for body text (headlines only, sparingly)"
+  - "Never use light/thin font weights for body text on dark backgrounds"
+
+imagery_constraints:
+  - "Never use generic stock photography"
+  - "Never use AI-generated imagery that looks obviously synthetic"
+  - "Never use abstract tech illustrations (floating nodes, generic networks)"
+  - "Prefer architecture diagrams, data visualizations, and real product screenshots"
+  - "Never use images of people using laptops in coffee shops (generic tech aesthetic)"
+  - "If using diagrams, they must be technically accurate — not decorative"
+
+tone_visual_constraints:
+  - "Never use playful or whimsical illustrations"
+  - "Never use dark patterns (misleading UI elements)"
+  - "Never use excessive animation or micro-interactions"
+  - "Motion should be purposeful: state transitions, data loading, agent status"
+  - "Never use confetti, celebrations, or gamification elements"
+
+overall_principle: >
+  Every visual element should feel like it belongs in a precision-engineered
+  system. If it serves no functional or communicative purpose, remove it.
+  The visual language should mirror the product: deliberate, spare, and
+  quietly confident.

@@ -1,0 +1,40 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Agent Cloud — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Run agents in the cloud without giving up the engine."
+    subtitle="Use Codebolt Cloud for hosted agents, sandboxes, webhooks, long-running tasks, and managed access to the same runtime used locally."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Agent cloud should not mean a separate product with separate memory and separate tools. Codebolt Cloud is another surface on the same engine: run jobs remotely, connect webhooks, manage sandboxes, and keep work compatible with local and self-hosted Codebolt."
+  />
+  <CardGrid
+    heading="Cloud agent patterns"
+    cards={[{"title":"Hosted long-running work","body":"Move slow or scheduled work out of your laptop. Run autonomous agents for monitoring, maintenance, research, code review, customer workflows, and background automation.","visual":"schedule\nwebhook\nuser request\n   ↓\ncloud agent run\n"},{"title":"Managed sandboxes","body":"Run agents in isolated environments for builds, tests, experiments, and remote execution. Connect Docker, hosted sandboxes, remote servers, or custom environment providers.","visual":"Codebolt Cloud\n  → sandbox A\n  → sandbox B\n  → remote server\n"},{"title":"Cloud plus self-hosted","body":"Use the hosted portal when you want convenience, or self-host Codebolt server when you need control. Both paths keep the same engine model: agents, plugins, memory, routing, and orchestration.","visual":"local server\nself-hosted server\nCodebolt Cloud\nsame runtime model\n"}]}
+  />
+  <FeatureBlock
+    heading="Remote agents still connect to your product surfaces"
+    body="Cloud agents can be triggered by webhooks, schedules, chat channels, native apps, and plugins. They can route through the gateway, use persistent memory, call custom agents, and coordinate across environments."
+    diagram="webhook / schedule / chat
+         ↓
+Codebolt Gateway
+         ↓
+cloud agent runtime
+   ↙      ↓       ↘
+memory  plugins  sandboxes
+"
+  />
+  <CtaBlock
+    heading="Run agent work where it belongs."
+    buttons={[{"label":"Explore Codebolt Cloud","href":"/products/cloud","variant":"primary"},{"label":"Explore Autonomous Agent","href":"/products/autonomous-agent","variant":"secondary"}]}
+  />
+</BaseLayout>

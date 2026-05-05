@@ -1,0 +1,48 @@
+---
+import { cn } from '../lib/utils';
+
+const {
+  stats = [],
+  columns = 4,
+  tone = 'default',
+  borderTop = true,
+  borderBottom = true,
+  className,
+} = Astro.props;
+
+const toneStyles = {
+  default: 'bg-background dark:bg-[#050505]',
+  muted: 'bg-muted/10 dark:bg-zinc-900/20',
+};
+
+const columnStyles = {
+  2: 'grid-cols-2',
+  3: 'grid-cols-2 md:grid-cols-3',
+  4: 'grid-cols-2 md:grid-cols-4',
+};
+---
+
+<section
+  class={cn(
+    'py-12 md:py-14 px-6',
+    toneStyles[tone] ?? toneStyles.default,
+    borderTop && 'border-t border-border dark:border-zinc-800',
+    borderBottom && 'border-b border-border dark:border-zinc-800',
+    className
+  )}
+>
+  <div class="max-w-[1200px] mx-auto px-0 md:px-8">
+    <div class={cn('grid gap-8 text-center', columnStyles[columns] ?? columnStyles[4])}>
+      {stats.map((stat) => (
+        <div>
+          <span class="font-mono text-4xl font-medium text-primary dark:text-cyan-400 block mb-2">
+            {stat.value}
+          </span>
+          <span class="font-mono text-[9px] uppercase tracking-widest text-muted-foreground">
+            {stat.label}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

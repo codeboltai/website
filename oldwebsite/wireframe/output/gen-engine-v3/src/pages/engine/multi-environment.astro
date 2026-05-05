@@ -1,0 +1,104 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Multi-Environment Scaling — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Multi-Environment Scaling"
+    subtitle="Chain environments together. Proxy execution across machines. Any topology."
+  />
+  <CenteredText
+    variant="thesis"
+    text="One Codebolt instance can treat another as a coordinated environment. Agents in Environment A trigger work in Environment B, which can forward to Environment C. Linear chains, fan-out trees, peer-to-peer meshes. The proxy execution system is plugin-based — not hardcoded — so any environment can participate."
+  />
+  <FeatureBlock
+    heading="Proxy Execution — How It Works"
+    body="The RemoteExecutionPlugin runs in Environment B and claims the ExecutionGateway. It starts a ProviderServer on WebSocket port 3100. Environment A's provider connects to this WebSocket. When Agent A sends an execution request, the gateway routes it to Environment B. Environment B executes and streams results back in real-time. Notifications (progress, logs) flow bidirectionally."
+    diagram="Env A (your laptop)
+├─ Agent sends ExecutionRequest
+├─ Provider connects to Env B:3100
+│
+↓ WebSocket bridge
+│
+Env B (Docker GPU server)
+├─ RemoteExecutionPlugin (active)
+├─ Claims ExecutionGateway
+├─ ProviderServer on port 3100
+├─ Executes request
+└─ Streams results back to Env A
+"
+  />
+  <FeatureBlock
+    heading="Environment Chaining — Any Topology"
+    body="Environments can chain arbitrarily. Env A calls Env B which calls Env C. Or Env A fans out to B, C, and D simultaneously. Or environments form peer-to-peer meshes. Each environment runs its own full Codebolt instance. The proxy is plugin-based — any environment can claim the execution gateway. Lazy routing means gateways are only active when the RemoteExecutionPlugin is running."
+    reverse={true}
+    diagram="Linear:   A → B → C → D
+Fan-out:  A → [B, C, D]
+Tree:     A → B → [D, E]
+          A → C → [F, G]
+Mesh:     A ↔ B ↔ C ↔ A
+Hub:      [B, C, D] → A → [E, F]
+
+Any topology. Plugin-based routing.
+Each node = full Codebolt instance.
+"
+  />
+  <FeatureBlock
+    heading="State Transfer via Git Bundles"
+    body="The Narrative Engine snapshots workspace state per-environment using shadow git with per-thread refs. Git bundles package these snapshots for transfer between environments. Import/export as tar.gz or git bundles. Bidirectional — both environments can exchange state. The narrative hierarchy (Objective → Thread → Agent Run → Snapshot) is preserved across transfers."
+    diagram="Env A:
+[workspace state] → shadow git
+                 → git bundle (export)
+                 → transfer to Env B
+
+Env B:
+git bundle (import) → shadow git
+                   → [workspace restored]
+
+Hierarchy preserved:
+Objective → Thread → Agent Run → Snapshot
+"
+  />
+  <FeatureBlock
+    heading="Provider System — Local Is First-Class"
+    body="The provider registry treats local, Docker, cloud, and hybrid environments identically. No special-case code for local vs remote. Providers declare capabilities (GPU, Python, browser, etc.). The engine routes work to the right provider based on capability requirements. Environment lifecycle: CREATED → STARTING → RUNNING → STOPPING → STOPPED, with heartbeat monitoring every 30 seconds."
+    reverse={true}
+    diagram="Provider Registry:
+├─ local    (category: local)
+├─ docker   (category: local)
+├─ e2b      (category: cloud)
+├─ cloud-vm (category: cloud)
+└─ hybrid   (category: hybrid)
+
+All identical interface.
+Capabilities declared per-provider.
+Route by capability match.
+Heartbeat: 30s health checks.
+"
+  />
+  <FeatureBlock
+    heading="Use Cases for Multi-Environment"
+    body="GPU offloading — local agent sends training jobs to cloud GPU. Sandboxed execution — run untrusted code in isolated Docker containers. Distributed teams — each developer's Codebolt connects to a shared orchestration server. Progressive scaling — start local, add Docker, add cloud as you grow. Hierarchical — parent instance manages child instances, spawning and closing environments as needed."
+    diagram="GPU offload:
+laptop → cloud A100 → results back
+
+Sandboxed execution:
+main env → Docker sandbox → safe
+
+Distributed team:
+Dev A ←→ Orchestrator ←→ Dev B
+
+Progressive scaling:
+local → +Docker → +cloud → +more
+"
+  />
+  <CtaBlock
+    heading="Chain environments. Scale without limits."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Back to Engine","href":"/engine","variant":"secondary"}]}
+  />
+</BaseLayout>

@@ -1,0 +1,363 @@
+---
+/**
+ * StructureDiagram — Dense panel-based architecture diagram.
+ *
+ * Reference: x.com-style architecture info-graphics showing structured
+ * subsystem documentation with numbered sections, card columns,
+ * sub-section headings, typed list items, state rails, and distinctions.
+ *
+ * YAML shape:
+ *   type: structure-diagram
+ *   title: "CODEBOLT SERVER — EXECUTION TOPOLOGY"
+ *   subtitle: "how requests flow from transport to persistence"
+ *   sections:
+ *     - number: "1"
+ *       label: "TRANSPORT LAYER"
+ *       meta: "external requests become routed messages"
+ *       columns: 3
+ *       cards:
+ *         - title: "HTTP Router"
+ *           subtitle: "express routing, 85+ endpoints"
+ *           accent: "cyan"
+ *           body:
+ *             - heading: "HANDLES"
+ *               items:
+ *                 - "REST endpoints"
+ *                 - { type: "ref", text: "controllers/", suffix: "— 81 domain controllers" }
+ *                 - { type: "numbered", text: "auth middleware → CORS → route" }
+ *   stateRail:
+ *     label: "PERSISTENT STATE"
+ *     columns: 4
+ *     items:
+ *       - { name: "workspaceStore", desc: "workspaces" }
+ *   distinctions:
+ *     - { label: "DISTINCTION", text: "..." }
+ */
+
+import { cn } from '../lib/utils';
+
+type Accent = 'cyan' | 'emerald' | 'amber' | 'red' | 'purple' | 'default';
+
+interface Item {
+  type?: 'ref' | 'bullet' | 'numbered' | 'arrow' | 'badge';
+  text: string;
+  suffix?: string;
+  badge?: string;
+}
+
+interface CardBodySection {
+  heading?: string;
+  items: Array<string | Item>;
+}
+
+interface Card {
+  title: string;
+  subtitle?: string;
+  accent?: Accent;
+  body: CardBodySection[];
+}
+
+interface DiagramSection {
+  number?: string;
+  label: string;
+  meta?: string;
+  columns?: 1 | 2 | 3;
+  cards: Card[];
+}
+
+interface StateRailItem {
+  name: string;
+  desc?: string;
+}
+
+interface Distinction {
+  label?: string;
+  text: string;
+}
+
+interface Props {
+  kicker?: string;
+  title: string;
+  subtitle?: string;
+  sections: DiagramSection[];
+  stateRail?: {
+    label?: string;
+    columns?: 3 | 4 | 5 | 6;
+    items: StateRailItem[];
+  };
+  distinctions?: Distinction[];
+  exportId?: string;
+}
+
+const {
+  kicker,
+  title,
+  subtitle,
+  sections = [],
+  stateRail,
+  distinctions,
+  exportId,
+} = Astro.props;
+
+// Derive a slugified export id from the title if not explicitly provided
+const slugify = (s: string) =>
+  (s || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+const _exportId = exportId || slugify(title);
+
+// Accent color maps (border + text strip color)
+const accentBorderClass: Record<Accent, string> = {
+  cyan: 'border-cyan-500/40 dark:border-cyan-700/50',
+  emerald: 'border-emerald-500/40 dark:border-emerald-700/50',
+  amber: 'border-amber-500/40 dark:border-amber-700/50',
+  red: 'border-red-500/40 dark:border-red-700/50',
+  purple: 'border-purple-500/40 dark:border-purple-700/50',
+  default: 'border-border dark:border-zinc-800',
+};
+
+const accentStripClass: Record<Accent, string> = {
+  cyan: 'bg-cyan-500/70 dark:bg-cyan-400/80',
+  emerald: 'bg-emerald-500/70 dark:bg-emerald-400/80',
+  amber: 'bg-amber-500/70 dark:bg-amber-400/80',
+  red: 'bg-red-500/70 dark:bg-red-400/80',
+  purple: 'bg-purple-500/70 dark:bg-purple-400/80',
+  default: 'bg-muted-foreground/40',
+};
+
+const accentTextClass: Record<Accent, string> = {
+  cyan: 'text-cyan-400 dark:text-cyan-300',
+  emerald: 'text-emerald-400 dark:text-emerald-300',
+  amber: 'text-amber-400 dark:text-amber-300',
+  red: 'text-red-400 dark:text-red-300',
+  purple: 'text-purple-400 dark:text-purple-300',
+  default: 'text-foreground dark:text-white',
+};
+
+const sectionBorderClass: Record<Accent, string> = {
+  cyan: 'border-cyan-900/40 dark:border-cyan-900/40',
+  emerald: 'border-emerald-900/40 dark:border-emerald-900/40',
+  amber: 'border-amber-900/40 dark:border-amber-900/40',
+  red: 'border-red-900/40 dark:border-red-900/40',
+  purple: 'border-purple-900/40 dark:border-purple-900/40',
+  default: 'border-border dark:border-zinc-800/60',
+};
+
+const columnGridClass: Record<number, string> = {
+  1: 'grid-cols-1',
+  2: 'grid-cols-1 md:grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-3',
+};
+
+const stateRailGridClass: Record<number, string> = {
+  3: 'grid-cols-2 md:grid-cols-3',
+  4: 'grid-cols-2 md:grid-cols-4',
+  5: 'grid-cols-2 md:grid-cols-3 lg:grid-cols-5',
+  6: 'grid-cols-2 md:grid-cols-3 lg:grid-cols-6',
+};
+
+// Infer section accent from the first card's accent (for the outer border color)
+function sectionAccent(section: DiagramSection): Accent {
+  return (section.cards[0]?.accent as Accent) || 'default';
+}
+
+// Normalize an item into { type, text, suffix, badge }
+function normalize(item: string | Item): Item {
+  if (typeof item === 'string') return { type: 'bullet', text: item };
+  return { type: item.type || 'bullet', text: item.text, suffix: item.suffix, badge: item.badge };
+}
+---
+
+<section
+  class="py-24 px-6 bg-background dark:bg-[#050505] border-b border-border dark:border-zinc-900"
+  data-export-id={_exportId}
+  data-export-title={title}
+  data-export-kind="structure-diagram"
+>
+  <div class="max-w-[1200px] mx-auto" data-export-inner>
+    {/* Header */}
+    <div class="mb-12 text-center">
+      {kicker && (
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+          <span class="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]">{kicker}</span>
+        </div>
+      )}
+      <h2 class="font-mono text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-foreground dark:text-white">
+        {title}
+      </h2>
+      {subtitle && (
+        <p class="mt-2 text-xs md:text-sm text-muted-foreground dark:text-zinc-500 font-light">
+          {subtitle}
+        </p>
+      )}
+    </div>
+
+    {/* Main sections */}
+    <div class="space-y-4">
+      {sections.map((section: DiagramSection) => {
+        const accent = sectionAccent(section);
+        const cols = section.columns || 3;
+        return (
+          <div class={cn(
+            'relative border',
+            sectionBorderClass[accent] || sectionBorderClass.default,
+            'bg-card/20 dark:bg-[#070707]/60 p-5 md:p-6'
+          )}>
+            {/* Section header row */}
+            <div class="flex items-start justify-between gap-4 mb-5">
+              <div class="flex items-center gap-3">
+                {section.number && (
+                  <span class={cn(
+                    'font-mono text-[10px] uppercase tracking-widest',
+                    accentTextClass[accent] || 'text-muted-foreground'
+                  )}>
+                    {section.number}
+                  </span>
+                )}
+                <span class={cn(
+                  'font-mono text-[10px] font-semibold uppercase tracking-[0.18em]',
+                  accentTextClass[accent] || 'text-foreground'
+                )}>
+                  {section.label}
+                </span>
+              </div>
+              {section.meta && (
+                <span class="font-mono text-[10px] text-muted-foreground/70 dark:text-zinc-600 uppercase tracking-[0.12em] text-right">
+                  {section.meta}
+                </span>
+              )}
+            </div>
+
+            {/* Cards grid */}
+            <div class={cn('grid gap-4', columnGridClass[cols])}>
+              {section.cards.map((card: Card) => {
+                const cAccent = (card.accent as Accent) || accent || 'default';
+                return (
+                  <div class={cn(
+                    'relative border bg-card/40 dark:bg-[#050505]/80',
+                    accentBorderClass[cAccent] || accentBorderClass.default,
+                    'flex flex-col'
+                  )}>
+                    {/* Top accent strip */}
+                    <div class={cn('h-px w-full', accentStripClass[cAccent] || accentStripClass.default)}></div>
+
+                    {/* Card header */}
+                    <div class="px-4 pt-4 pb-3">
+                      <div class="flex items-baseline gap-2 flex-wrap">
+                        <h3 class={cn(
+                          'font-medium text-sm',
+                          accentTextClass[cAccent] || 'text-foreground dark:text-white'
+                        )}>
+                          {card.title}
+                        </h3>
+                        {card.subtitle && (
+                          <span class="font-mono text-[10px] text-muted-foreground/70 dark:text-zinc-600 uppercase tracking-[0.1em] leading-tight">
+                            {card.subtitle}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Card body sections */}
+                    <div class="px-4 pb-4 space-y-4 flex-1">
+                      {card.body.map((bodySection: CardBodySection) => (
+                        <div>
+                          {bodySection.heading && (
+                            <div class="font-mono text-[9px] text-muted-foreground/80 dark:text-zinc-500 uppercase tracking-[0.15em] mb-2 pt-1 border-t border-border/40 dark:border-zinc-800/60">
+                              <span class="block pt-2">{bodySection.heading}</span>
+                            </div>
+                          )}
+                          <ul class="space-y-1.5">
+                            {bodySection.items.map((raw: string | Item, i: number) => {
+                              const item = normalize(raw);
+                              const t = item.type;
+                              return (
+                                <li class="flex items-start gap-2 text-[11px] text-muted-foreground dark:text-zinc-400 leading-relaxed font-light">
+                                  {t === 'ref' && (
+                                    <span class={cn('font-mono flex-shrink-0 mt-[1px]', accentTextClass[cAccent] || 'text-primary')}>&rarr;</span>
+                                  )}
+                                  {t === 'arrow' && (
+                                    <span class="text-muted-foreground/60 font-mono flex-shrink-0 mt-[1px]">&rarr;</span>
+                                  )}
+                                  {t === 'bullet' && (
+                                    <span class="text-muted-foreground/60 font-mono flex-shrink-0 mt-[1px]">&middot;</span>
+                                  )}
+                                  {t === 'numbered' && (
+                                    <span class="font-mono text-[10px] text-muted-foreground/60 flex-shrink-0 mt-[2px] w-3">{i + 1}</span>
+                                  )}
+                                  <span class="flex-1">
+                                    {t === 'ref' ? (
+                                      <code class={cn('font-mono text-[11px]', accentTextClass[cAccent])}>{item.text}</code>
+                                    ) : (
+                                      <span class={cn(t === 'numbered' || t === 'arrow' ? 'text-foreground dark:text-zinc-300' : '')}>{item.text}</span>
+                                    )}
+                                    {item.suffix && (
+                                      <span class="text-muted-foreground/70 dark:text-zinc-500"> {item.suffix}</span>
+                                    )}
+                                    {item.badge && (
+                                      <span class="ml-1.5 inline-block font-mono text-[9px] px-1.5 py-[1px] border border-border dark:border-zinc-700 text-muted-foreground/80 dark:text-zinc-500 rounded-sm">
+                                        {item.badge}
+                                      </span>
+                                    )}
+                                  </span>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
+
+      {/* State rail */}
+      {stateRail && (
+        <div class="mt-6">
+          {stateRail.label && (
+            <div class="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.18em] mb-3 pb-2 border-b border-border/60 dark:border-zinc-800/60">
+              {stateRail.label}
+            </div>
+          )}
+          <div class={cn('grid gap-3', stateRailGridClass[stateRail.columns || 4])}>
+            {stateRail.items.map((item: StateRailItem) => (
+              <div class="border border-amber-500/20 dark:border-amber-700/30 bg-card/20 dark:bg-[#080808]/60 p-3">
+                <div class="font-mono text-[11px] font-medium text-amber-400 dark:text-amber-300 mb-1">
+                  {item.name}
+                </div>
+                {item.desc && (
+                  <div class="font-mono text-[9px] text-muted-foreground/70 dark:text-zinc-600 uppercase tracking-[0.1em] leading-snug">
+                    {item.desc}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Distinctions */}
+      {distinctions && distinctions.length > 0 && (
+        <div class={cn('grid gap-4 mt-6', distinctions.length >= 3 ? 'grid-cols-1 md:grid-cols-3' : distinctions.length === 2 ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1')}>
+          {distinctions.map((d: Distinction) => (
+            <div class="relative border border-border dark:border-zinc-800 bg-card/20 dark:bg-[#070707]/60 pl-4 py-3 pr-3">
+              <div class="absolute left-0 top-0 bottom-0 w-[2px] bg-amber-500/70 dark:bg-amber-400/80"></div>
+              <div class="font-mono text-[9px] text-amber-500/80 dark:text-amber-400/80 uppercase tracking-[0.18em] mb-1">
+                {d.label || 'DISTINCTION'}
+              </div>
+              <div class="text-[11px] text-muted-foreground dark:text-zinc-400 leading-relaxed font-light">
+                {d.text}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

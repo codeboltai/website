@@ -1,0 +1,221 @@
+---
+/**
+ * SubsystemDiagram — Planar subsystem map inspired by execution-orchestration
+ * info-graphics. Renders horizontal "planes" (e.g. Control Plane, Executive
+ * Plane, Wait & Delegation, Bus Events) as stacked panels of cards, with a
+ * bottom "state rail" of persistent stores. Uses CSS + Motion One for entrance
+ * animations and a faint scanning line that sweeps across each plane.
+ *
+ * YAML shape:
+ *   type: subsystem-diagram
+ *   kicker: "EXECUTION TOPOLOGY"
+ *   title: "CODEBOLT SERVER — SUBSYSTEM MAP"
+ *   subtitle: "control · execution · delegation · bus · state"
+ *   planes:
+ *     - label: "CONTROL PLANE"
+ *       meta: "external commands enter the engine"
+ *       accent: "cyan"
+ *       cards:
+ *         - title: "HTTP Commands"
+ *           tags: ["work_session", "session_threads"]
+ *           lines:
+ *             - "manually execute a pending eval run"
+ *             - "resolve a waiting run on human input"
+ *   stateRail:
+ *     label: "CORE TABLES"
+ *     items:
+ *       - { name: "jobs", desc: "scratch work" }
+ *       - { name: "job_dependencies", desc: "edges" }
+ *   footnote: "job is durable work · item is one executor attempt"
+ */
+
+type Accent = 'cyan' | 'emerald' | 'amber' | 'red' | 'purple' | 'default';
+
+interface Card {
+  title: string;
+  subtitle?: string;
+  tags?: string[];
+  lines?: string[];
+}
+
+interface Plane {
+  label: string;
+  meta?: string;
+  accent?: Accent;
+  cards: Card[];
+}
+
+interface StateItem {
+  name: string;
+  desc?: string;
+}
+
+interface Props {
+  kicker?: string;
+  title: string;
+  subtitle?: string;
+  planes: Plane[];
+  stateRail?: { label?: string; items: StateItem[] };
+  footnote?: string;
+}
+
+const { kicker, title, subtitle, planes = [], stateRail, footnote } = Astro.props;
+
+const accentText: Record<Accent, string> = {
+  cyan: 'text-cyan-300',
+  emerald: 'text-emerald-300',
+  amber: 'text-amber-300',
+  red: 'text-red-300',
+  purple: 'text-purple-300',
+  default: 'text-foreground dark:text-zinc-200',
+};
+
+const accentBorder: Record<Accent, string> = {
+  cyan: 'border-cyan-700/40',
+  emerald: 'border-emerald-700/40',
+  amber: 'border-amber-700/40',
+  red: 'border-red-700/40',
+  purple: 'border-purple-700/40',
+  default: 'border-zinc-800',
+};
+
+const accentGlow: Record<Accent, string> = {
+  cyan: 'from-cyan-500/40',
+  emerald: 'from-emerald-500/40',
+  amber: 'from-amber-500/40',
+  red: 'from-red-500/40',
+  purple: 'from-purple-500/40',
+  default: 'from-zinc-500/30',
+};
+---
+
+<section class="py-24 px-6 bg-background dark:bg-[#040404] border-b border-border dark:border-zinc-900">
+  <div class="max-w-[1200px] mx-auto">
+    {/* Header */}
+    <div class="mb-12">
+      {kicker && (
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-1.5 h-1.5 bg-primary rounded-full"></span>
+          <span class="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em]">{kicker}</span>
+        </div>
+      )}
+      <h2 class="font-mono text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-foreground dark:text-white">{title}</h2>
+      {subtitle && <p class="mt-2 text-xs md:text-sm text-muted-foreground dark:text-zinc-500 font-light">{subtitle}</p>}
+    </div>
+
+    {/* Outer board */}
+    <div class="relative border border-border dark:border-zinc-800 bg-card/20 dark:bg-[#070707]/80 p-4 md:p-6 overflow-hidden subsystem-board">
+      {/* Grid backdrop */}
+      <div class="absolute inset-0 pointer-events-none opacity-[0.04] dark:opacity-[0.08]" aria-hidden="true"
+           style="background-image: linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+      <div class="relative space-y-3">
+        {planes.map((plane: Plane) => {
+          const a: Accent = (plane.accent as Accent) || 'default';
+          return (
+            <div class={`subsystem-plane relative border ${accentBorder[a]} bg-[#050505]/60 dark:bg-[#050505]/80 p-4 md:p-5 overflow-hidden`}>
+              <div class="flex items-baseline justify-between gap-4 mb-4 relative">
+                <div class="flex items-center gap-3">
+                  <span class={`font-mono text-[10px] font-semibold uppercase tracking-[0.18em] ${accentText[a]}`}>{plane.label}</span>
+                </div>
+                {plane.meta && (
+                  <span class="font-mono text-[9px] text-muted-foreground/60 uppercase tracking-[0.12em] text-right">{plane.meta}</span>
+                )}
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 relative">
+                {plane.cards.map((card: Card) => (
+                  <div class={`subsystem-card relative border ${accentBorder[a]} bg-[#080808]/80 p-3 hover:bg-[#0c0c0c] transition-colors`}>
+                    <div class="flex items-baseline gap-2 mb-2">
+                      <h3 class={`font-mono text-[12px] font-semibold ${accentText[a]}`}>{card.title}</h3>
+                      {card.subtitle && (
+                        <span class="font-mono text-[9px] text-muted-foreground/60 uppercase tracking-[0.1em]">{card.subtitle}</span>
+                      )}
+                    </div>
+                    {card.tags && card.tags.length > 0 && (
+                      <div class="flex flex-wrap gap-1 mb-2">
+                        {card.tags.map((t: string) => (
+                          <span class={`font-mono text-[9px] px-1.5 py-[1px] border ${accentBorder[a]} ${accentText[a]} bg-black/40`}>{t}</span>
+                        ))}
+                      </div>
+                    )}
+                    {card.lines && card.lines.length > 0 && (
+                      <ul class="space-y-1">
+                        {card.lines.map((l: string) => (
+                          <li class="flex items-start gap-2 text-[10.5px] text-muted-foreground dark:text-zinc-400 leading-relaxed font-light">
+                            <span class="text-muted-foreground/50 font-mono mt-[1px]">›</span>
+                            <span>{l}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+
+        {/* State rail */}
+        {stateRail && stateRail.items.length > 0 && (
+          <div class="relative border border-amber-700/40 bg-[#050505]/80 p-4">
+            {stateRail.label && (
+              <div class="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-amber-300 mb-3">{stateRail.label}</div>
+            )}
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+              {stateRail.items.map((it: StateItem) => (
+                <div class="subsystem-state border border-amber-700/30 bg-[#080808]/80 p-2">
+                  <div class="font-mono text-[10px] text-amber-300">{it.name}</div>
+                  {it.desc && <div class="font-mono text-[8.5px] text-muted-foreground/60 uppercase tracking-[0.08em] mt-0.5">{it.desc}</div>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {footnote && (
+        <p class="relative mt-4 font-mono text-[9px] text-muted-foreground/60 uppercase tracking-[0.12em]">{footnote}</p>
+      )}
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  .subsystem-board .subsystem-plane,
+  .subsystem-board .subsystem-card,
+  .subsystem-board .subsystem-state { opacity: 0; transform: translateY(8px); }
+</style>
+
+<script>
+  import { animate, stagger } from 'motion';
+
+  function initSubsystemDiagram() {
+    const boards = document.querySelectorAll('.subsystem-board');
+    boards.forEach((board) => {
+      const planes = board.querySelectorAll('.subsystem-plane');
+      const cards = board.querySelectorAll('.subsystem-card');
+      const states = board.querySelectorAll('.subsystem-state');
+
+      if (planes.length) {
+        animate(planes, { opacity: [0, 1], transform: ['translateY(8px)', 'translateY(0px)'] },
+          { duration: 0.55, delay: stagger(0.12), ease: 'ease-out' });
+      }
+      if (cards.length) {
+        animate(cards, { opacity: [0, 1], transform: ['translateY(8px)', 'translateY(0px)'] },
+          { duration: 0.5, delay: stagger(0.04, { start: 0.25 }), ease: 'ease-out' });
+      }
+      if (states.length) {
+        animate(states, { opacity: [0, 1], transform: ['translateY(8px)', 'translateY(0px)'] },
+          { duration: 0.45, delay: stagger(0.03, { start: 0.6 }), ease: 'ease-out' });
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSubsystemDiagram);
+  } else {
+    initSubsystemDiagram();
+  }
+  document.addEventListener('astro:page-load', initSubsystemDiagram);
+</script>

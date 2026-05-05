@@ -1,0 +1,116 @@
+## terminology.yaml
+## Codebolt Brand System v1.0
+## Controlled vocabulary and terminology guidelines
+
+metadata:
+  chunk_id: "terminology"
+  category: "identity"
+  subcategory: "terminology"
+  context_tags:
+    - "vocabulary"
+    - "naming"
+    - "word-choice"
+    - "controlled-language"
+  token_count: ~380
+  last_updated: "2026-02-19"
+  description: >
+    What to call things and what to avoid. Controlled vocabulary
+    for consistent communication across all channels and agents.
+
+---
+
+product_terminology:
+
+  codebolt:
+    correct: "Codebolt"
+    incorrect: ["CodeBolt", "Code Bolt", "Code-bolt", "codebolt", "CB"]
+    note: "Always capitalized as one word. Never abbreviated."
+
+  the_product:
+    preferred: ["Codebolt", "the environment", "the platform", "the IDE"]
+    avoid: ["the tool", "the app", "the software", "our solution"]
+
+  agent_environment:
+    preferred: "environment"
+    avoid: ["harness", "wrapper", "framework", "platform (when ambiguous)"]
+    note: "'Environment' is our core word. It implies something agents operate within."
+
+concept_terminology:
+
+  multi_agent_coordination:
+    preferred: ["agent coordination", "multi-agent execution", "coordinated agents"]
+    avoid: ["agent swarm", "swarm intelligence", "agent council", "agent army"]
+    note: "'Coordination' implies structure. 'Swarm' implies chaos."
+
+  drift_tracking:
+    preferred: ["drift tracking", "drift detection", "drift correction"]
+    avoid: ["drift monitoring", "drift prevention", "anti-drift"]
+    context: "The system that detects when agents deviate from original intent."
+
+  conflict_resolution:
+    preferred: ["conflict resolution", "resolving agent conflicts"]
+    avoid: ["conflict management", "conflict avoidance", "deconfliction"]
+    context: "When agents make incompatible changes, the system resolves it at the environment level."
+
+  multi_environment:
+    preferred: ["multi-environment", "cross-environment"]
+    avoid: ["multi-workspace", "multi-instance"]
+    context: "Agents operating across branches, local, staging, and other environments simultaneously."
+
+  ground_up:
+    preferred: "built from the ground up"
+    avoid: ["built from scratch", "home-grown", "custom-built"]
+    note: "'Ground up' signals architectural intentionality. 'From scratch' sounds scrappy."
+
+  stigmergy:
+    preferred: "structured coordination" (public) / "stigmergy-based coordination" (technical)
+    note: "Use 'stigmergy' in technical docs and papers. Use 'structured coordination' in marketing."
+
+audience_terminology:
+
+  users:
+    preferred: ["engineers", "developers", "teams"]
+    avoid: ["users", "customers", "clients" (in product copy)]
+    note: "We speak to engineers. 'Users' is too generic."
+
+  experience_level:
+    preferred: ["power users", "experienced engineers", "teams at scale"]
+    avoid: ["advanced users", "pro users", "experts"]
+
+competitive_terminology:
+
+  other_ides:
+    preferred: "traditional IDEs" or "conventional AI coding tools"
+    avoid: naming specific competitors directly
+    note: "Differentiate through capability description, not competitor attacks."
+
+  the_difference:
+    preferred: "Codebolt is built from the ground up for multi-agent coordination. Traditional IDEs bolt AI onto an editor."
+    avoid: "Codebolt is better than X because..."
+
+words_we_use:
+  - engineered
+  - precision
+  - coordinates
+  - resolves
+  - handles
+  - scales
+  - built for
+  - ground-up
+  - deterministic
+  - traceable
+  - aligned
+
+words_we_never_use:
+  - revolutionary
+  - game-changing
+  - disruptive
+  - magic / automagic
+  - seamless (without evidence)
+  - supercharge
+  - unleash
+  - next-gen
+  - cutting-edge (overused)
+  - world-class
+  - best-in-class
+  - delightful

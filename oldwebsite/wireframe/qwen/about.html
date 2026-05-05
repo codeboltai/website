@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codebolt - About (Wireframe)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        .wireframe-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            background: #fff;
+            border: 2px solid #333;
+            padding: 40px;
+            margin-bottom: 20px;
+        }
+        .section-label {
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .hero-title {
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            color: #999;
+        }
+        .hero-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #0891b2;
+            color: #fff;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            border-radius: 9999px;
+        }
+        .section-title {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .section-subtitle {
+            font-size: 14px;
+            color: #0891b2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .section-description {
+            font-size: 16px;
+            color: #666;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+        .navigation {
+            background: #fff;
+            border: 2px solid #333;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .nav-links a:hover {
+            color: #0891b2;
+        }
+        .badge {
+            display: inline-block;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: #fafafa;
+        }
+        .figure-box {
+            border: 1px solid #ddd;
+            padding: 30px;
+            background: #fafafa;
+            margin: 20px 0;
+        }
+        .figure-label {
+            font-size: 10px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .allocation-bar {
+            display: flex;
+            height: 60px;
+            border: 1px solid #ddd;
+        }
+        .allocation-segment {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 10px;
+            border-right: 1px solid #ddd;
+            position: relative;
+        }
+        .allocation-value {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .allocation-label {
+            font-size: 9px;
+            color: #666;
+            text-transform: uppercase;
+            position: absolute;
+            top: 8px;
+            left: 12px;
+        }
+        .info-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        .info-list li {
+            font-size: 12px;
+            color: #666;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-list li:before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border: 1px solid #666;
+            display: inline-block;
+        }
+        .guardrail-bar {
+            margin: 30px 0;
+        }
+        .guardrail-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .guardrail-track {
+            height: 1px;
+            background: #ddd;
+            position: relative;
+        }
+        .guardrail-fill {
+            height: 1px;
+            background: #333;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .guardrail-marker {
+            position: absolute;
+            top: -4px;
+            width: 1px;
+            height: 8px;
+            background: #666;
+        }
+        .guardrail-marker-label {
+            position: absolute;
+            top: 20px;
+            font-size: 9px;
+            color: #666;
+            text-transform: uppercase;
+            transform: translateX(-50%);
+        }
+        .release-block {
+            background: #fafafa;
+            padding: 30px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            margin: 40px 0;
+        }
+        .quote-block {
+            border-left: 2px solid #333;
+            padding-left: 24px;
+            margin: 30px 0;
+        }
+        .quote-text {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+        .tech-highlight {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid #dc2626;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .research-cred {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 2px 6px;
+            font-size: 9px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            margin-left: 5px;
+        }
+        .innovation-badge {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            padding: 4px 8px;
+            font-size: 10px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-container">
+        <!-- Navigation -->
+        <div class="navigation">
+            <div class="nav-logo">Codebolt</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="technology/stigmergy.html">Technology</a>
+                <a href="research.html">Research</a>
+                <a href="use-cases.html">Use Cases</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="about.html">About</a>
+                <a href="download.html">Download</a>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="section" style="text-align: center; padding: 80px 40px;">
+            <span class="badge">Research-Driven Organization</span>
+            <h1 class="hero-title" style="margin-top: 30px;">The Multi-Agent <br><span class="hero-subtitle">Research Institute.</span></h1>
+            <p class="hero-description">We are a research-first organization dedicated to advancing the frontiers of multi-agent systems and swarm intelligence. Our innovations emerge from fundamental research in AI coordination, distributed intelligence, and collective problem-solving.</p>
+            <a href="research.html" class="cta-button">View Our Research →</a>
+        </div>
+
+        <!-- Research Mission -->
+        <div class="section">
+            <div class="figure-label">
+                <span>01 — Research Mission</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 1px; padding-bottom: 20px; border-bottom: 1px solid #ddd;">
+                <span>Focus: Multi-Agent Systems</span>
+                <span>Approach: Research-First</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 60px; margin-top: 40px;">
+                <div>
+                    <h2 class="section-title" style="font-size: 42px;">Research-Driven <br><span style="color: #999;">Innovation.</span></h2>
+                    <p class="section-description">Codebolt's core technologies are grounded in rigorous academic research and peer-reviewed publications. Every feature emerges from fundamental research in multi-agent systems, stigmergy coordination, and externalized memory.</p>
+                    <div style="border-left: 1px solid #ddd; padding-left: 24px;">
+                        <p style="font-size: 14px; color: #666; line-height: 1.6;">Our innovations have been accepted at top-tier conferences including AAAI, AAMAS, and ALIFE, representing significant advances in the state of the art for AI coordination systems.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="figure-box">
+                        <div class="figure-label">
+                            <span>Figure 1.0: Innovation Pipeline</span>
+                        </div>
+                        <div style="height: 200px; border: 1px solid #ddd; background: #fafafa; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div style="border: 1px solid #ddd; padding: 12px; background: #fff;">
+                                <span style="font-size: 9px; color: #666; text-transform: uppercase;">Theoretical Research</span>
+                                <div style="font-size: 14px;">Mathematical Models</div>
+                            </div>
+                            <div style="text-align: center; font-size: 9px; color: #999;">→</div>
+                            <div style="border: 1px solid #ddd; padding: 12px; background: #fff;">
+                                <span style="font-size: 9px; color: #666; text-transform: uppercase;">Algorithm Design</span>
+                                <div style="font-size: 14px;">Implementation</div>
+                            </div>
+                            <div style="text-align: center; font-size: 9px; color: #999;">→</div>
+                            <div style="border: 1px solid #333; padding: 12px; background: #fafafa;">
+                                <span style="font-size: 9px; color: #666; text-transform: uppercase;">Production Deployment</span>
+                                <div style="font-size: 14px;">Real-World Testing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Research Areas -->
+        <div class="section">
+            <div class="figure-label">
+                <span>02 — Core Research Areas</span>
+            </div>
+            <h2 class="section-title">Advancing Multi-Agent <br><span style="color: #999;">Systems Research.</span></h2>
+            <p class="section-description">Our research spans multiple cutting-edge areas in AI and distributed systems, each contributing to the advancement of collective intelligence.</p>
+
+            <div class="tech-highlight">
+                <strong>Breakthrough Innovation:</strong> Codebolt has pioneered several first-of-their-kind technologies in multi-agent coordination and swarm intelligence.
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 30px;">
+                <div style="border: 1px solid #ddd; padding: 25px; background: #fafafa;">
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 10px; color: #0891b2;">Stigmergy Coordination</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 15px;">First application of stigmergic coordination to complex knowledge work like software development, extending beyond simple optimization tasks.</p>
+                    <div style="font-size: 12px; color: #666;">
+                        <strong>Published:</strong> AAMAS 2026 paper on multi-modal environmental coordination
+                    </div>
+                </div>
+                <div style="border: 1px solid #ddd; padding: 25px; background: #fafafa;">
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 10px; color: #dc2626;">Externalized Memory</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 15px;">Complete memory externalization enabling truly ephemeral agents with persistent collective intelligence across generations.</p>
+                    <div style="font-size: 12px; color: #666;">
+                        <strong>Published:</strong> AAAI 2026 paper on cross-generational knowledge transfer
+                    </div>
+                </div>
+                <div style="border: 1px solid #ddd; padding: 25px; background: #fafafa;">
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 10px; color: #f59e0b;">Swarm Intelligence</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 15px;">Emergent collective behaviors from simple local rules, enabling 100+ agents to work together intelligently.</p>
+                    <div style="font-size: 12px; color: #666;">
+                        <strong>Published:</strong> IJCAI 2026 paper on emergent intelligence in stigmergic swarms
+                    </div>
+                </div>
+                <div style="border: 1px solid #ddd; padding: 25px; background: #fafafa;">
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 10px; color: #10b981;">Coordination Mechanisms</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 15px;">Multi-modal coordination combining pheromones, locks, markets, and social signaling with adaptive selection.</p>
+                    <div style="font-size: 12px; color: #666;">
+                        <strong>Published:</strong> AAMAS 2026 paper on adaptive coordination strategy selection
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Investment -->
+        <div class="section">
+            <div class="figure-label">
+                <span>03 — Research Investment</span>
+                <span style="text-align: right;">Codebolt Research Inc.<br>Est. 2024</span>
+            </div>
+            <h2 class="section-title">Research-First <br><span style="color: #999;">Organization.</span></h2>
+            <p class="section-description">We operate as a research-driven organization where fundamental research takes precedence over commercial considerations.</p>
+            <p style="font-size: 14px; color: #666; line-height: 1.6;">Our commitment to advancing the state of the art in multi-agent systems is reflected in our organizational structure and resource allocation, prioritizing scientific advancement over short-term commercial gains.</p>
+
+            <div class="figure-box" style="margin-top: 40px;">
+                <div class="figure-label">
+                    <span>Figure 3.1: Organizational Resource Allocation</span>
+                    <span>FY 2025 Projection</span>
+                </div>
+                <div class="allocation-bar">
+                    <div class="allocation-segment" style="width: 65%;">
+                        <span class="allocation-label">Core Research</span>
+                        <span class="allocation-value">65<span style="font-size: 14px; color: #666;">%</span></span>
+                    </div>
+                    <div class="allocation-segment" style="width: 25%;">
+                        <span class="allocation-label">Safety & Alignment</span>
+                        <span class="allocation-value">25<span style="font-size: 14px; color: #666;">%</span></span>
+                    </div>
+                    <div class="allocation-segment" style="width: 10%;">
+                        <span class="allocation-label">Operations</span>
+                        <span class="allocation-value">10<span style="font-size: 14px; color: #666;">%</span></span>
+                    </div>
+                </div>
+                <ul class="info-list">
+                    <li>Algorithm Development</li>
+                    <li>Mathematical Modeling</li>
+                    <li>Peer Review Process</li>
+                    <li style="color: #333; font-weight: 600;">Marketing: 0%</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Technical Team -->
+        <div class="section">
+            <div class="figure-label">
+                <span>04 — Technical Expertise</span>
+                <span style="text-align: right;">PhD Researchers<br>MIT, Stanford, CMU</span>
+            </div>
+            <h2 class="section-title">World-Class <br><span style="color: #999;">Research Team.</span></h2>
+            <p class="section-description">Our team consists of leading researchers in AI, distributed systems, and multi-agent coordination from top-tier institutions.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 30px;">
+                <div style="border: 1px solid #ddd; padding: 25px; background: #fafafa;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #0891b2;">AI Coordination</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.5;">Experts in multi-agent systems, swarm intelligence, and coordination mechanisms.</p>
+                </div>
+                <div style="border: 1px solid #ddd; padding: 25px; background: #fafafa;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #dc2626;">Distributed Systems</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.5;">Specialists in scalable architectures, consensus algorithms, and distributed coordination.</p>
+                </div>
+                <div style="border: 1px solid #ddd; padding: 25px; background: #fafafa;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px; color: #f59e0b;">Cognitive Science</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.5;">Researchers in collective intelligence and biological inspiration systems.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Publications -->
+        <div class="section">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <span style="width: 6px; height: 6px; background: #0891b2; border-radius: 50%;"></span>
+                <span style="font-size: 10px; text-transform: uppercase; color: #666; letter-spacing: 2px;">PEER-REVIEWED PUBLICATIONS</span>
+            </div>
+            <h2 class="section-title" style="font-size: 36px;">Academic Research <br>Validation</h2>
+            <p style="font-size: 16px; color: #666; max-width: 800px; line-height: 1.6;">Our innovations have been validated through peer-reviewed publications at top-tier conferences, representing significant advances in multi-agent systems research.</p>
+
+            <div style="margin-top: 30px;">
+                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 40px; margin-top: 20px;">
+                    <div>
+                        <div style="font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Key Metrics</div>
+                        <p style="font-size: 12px; color: #666; line-height: 1.5;">8 peer-reviewed papers accepted at top-tier conferences with measurable impact on the field.</p>
+                    </div>
+                    <div>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center;">
+                            <div style="border: 1px solid #ddd; padding: 15px; background: #fff;">
+                                <div style="font-size: 20px; font-weight: 600; color: #10b981;">8</div>
+                                <div style="font-size: 10px; color: #666; text-transform: uppercase; margin-top: 5px;">Papers</div>
+                            </div>
+                            <div style="border: 1px solid #ddd; padding: 15px; background: #fff;">
+                                <div style="font-size: 20px; font-weight: 600; color: #f59e0b;">3</div>
+                                <div style="font-size: 10px; color: #666; text-transform: uppercase; margin-top: 5px;">Top Conferences</div>
+                            </div>
+                            <div style="border: 1px solid #ddd; padding: 15px; background: #fff;">
+                                <div style="font-size: 20px; font-weight: 600; color: #ef4444;">100+</div>
+                                <div style="font-size: 10px; color: #666; text-transform: uppercase; margin-top: 5px;">Agents Supported</div>
+                            </div>
+                            <div style="border: 1px solid #ddd; padding: 15px; background: #fff;">
+                                <div style="font-size: 20px; font-weight: 600; color: #8b5cf6;">87%</div>
+                                <div style="font-size: 10px; color: #666; text-transform: uppercase; margin-top: 5px;">Knowledge Survival</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Impact -->
+        <div class="release-block">
+            <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 40px;">
+                <div>
+                    <div style="width: 32px; height: 32px; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">🔬</div>
+                    <h3 style="font-size: 24px; font-weight: 300; margin-bottom: 5px;">Research Impact</h3>
+                    <p style="font-size: 12px; font-family: monospace; color: #666;">Advancing the State of the Art</p>
+                </div>
+                <div>
+                    <div class="quote-block">
+                        <p class="quote-text">"Codebolt represents a paradigm shift in multi-agent systems, introducing breakthrough innovations in stigmergy coordination and externalized memory that advance the field significantly."</p>
+                        <p style="font-size: 14px; color: #666; margin-top: 15px;">Our research has been recognized by leading academics and industry experts as representing significant advances in AI coordination and swarm intelligence.</p>
+                    </div>
+                    <div style="display: flex; gap: 40px; margin-top: 20px; font-size: 12px;">
+                        <div>
+                            <span style="font-size: 10px; color: #999; text-transform: uppercase; display: block; margin-bottom: 5px;">Research Focus</span>
+                            <span>Multi-Agent Systems</span>
+                        </div>
+                        <div>
+                            <span style="font-size: 10px; color: #999; text-transform: uppercase; display: block; margin-bottom: 5px;">Innovation Type</span>
+                            <span>First-of-Their-Kind</span>
+                        </div>
+                        <div>
+                            <span style="font-size: 10px; color: #999; text-transform: uppercase; display: block; margin-bottom: 5px;">Validation</span>
+                            <span>Peer-Reviewed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import ComparisonColumns from '../../components/ComparisonColumns.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Codebolt CLI — Terminal Coding Agent" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Codebolt as CLI"
+    subtitle="A coding agent in your terminal. Like Claude Code, but with an engine behind it."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Install globally. Run in your terminal. Use a built-in agent or write your own. Headless mode for CI/CD. Any LLM provider. Full 63-module SDK. And when you need more than one agent — the engine is already there."
+  />
+  <FeatureBlock
+    heading="Everything you'd expect from a coding CLI"
+    body="Interactive terminal mode with a modern Go-based TUI. Agent assists, you direct. Use any of the 17+ LLM providers or local models via Ollama and LM Studio. Per-agent and per-task model selection. Full filesystem, git, browser, terminal, and LLM access through the SDK."
+    diagram={`\$ npm i -g codebolt
+\$ codebolt                    # TUI mode
+\$ codebolt --prompt "..."     # single task
+\$ codebolt --agent my-agent   # custom agent
+\$ codebolt --provider claude  # choose model
+\$ codebolt --model opus       # specific model
+`}
+  />
+  <FeatureBlock
+    heading="What Claude Code can't do"
+    body="Write custom agents in JavaScript with full control over the agentic loop. Install plugins that connect to external services. Run in headless server mode for CI/CD automation. Spawn Docker environments and transfer state between them. Scale to multi-agent when you're ready — without switching tools."
+    reverse={true}
+    diagram="Claude Code:
+✗ Custom agents
+✗ Plugin system
+✗ Headless CI/CD
+✗ Multi-agent
+✗ Multi-environment
+
+Codebolt CLI:
+✓ All of the above
++ Same engine as IDE/orchestration
+"
+  />
+  <FeatureBlock
+    heading="Headless mode for infrastructure"
+    body="Run Codebolt as a headless server — no GUI, no TUI. Perfect for CI/CD pipelines, Docker containers, cloud VMs, and automated workflows. Spawn environments, run agents, transfer state, monitor progress. The same engine that powers the IDE runs headless in your infrastructure."
+    diagram="$ codebolt --server --port 8080
+# Headless mode
+# REST API + WebSocket
+# Run in Docker, CI/CD, cloud
+# Full agent + plugin capabilities
+"
+  />
+  <ComparisonColumns
+    problem={{"heading":"Claude Code","items":["Great CLI agent, but single agent only","Can't customize the agentic loop","No plugin system for extensions","No headless mode for CI/CD","If you outgrow it, start over with a different tool"]}}
+    solution={{"heading":"Codebolt CLI","items":["Same great CLI experience, plus custom agents","Full control — write agents in code, not prompts","Plugin system with 3 communication channels","Headless server mode for infrastructure","Scale to IDE, orchestration, autonomous company — same engine"]}}
+  />
+  <CtaBlock
+    heading="Start in the terminal. Scale without limits."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"See All Formats","href":"/formats","variant":"secondary"}]}
+  />
+</BaseLayout>

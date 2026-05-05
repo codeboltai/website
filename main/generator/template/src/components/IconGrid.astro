@@ -1,0 +1,91 @@
+---
+import { cn } from '../lib/utils';
+
+const { kicker, title, description, features = [], columns = 3, tone = 'default', borderTop = false, borderBottom = false, className } =
+  Astro.props;
+
+const toneStyles = {
+  default: 'bg-background dark:bg-[#050505]',
+  muted: 'bg-muted/10 dark:bg-zinc-900/20',
+};
+
+const columnStyles = {
+  2: 'grid-cols-1 md:grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+  4: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
+};
+
+const ICON_SVGS = {
+  code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 9l-3 3 3 3"/><path d="M16 9l3 3-3 3"/><path d="M14 7l-4 10"/></svg>',
+  cpu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>',
+  'git-branch': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 8v8"/><path d="M8 6h6a4 4 0 0 1 4 4v0"/></svg>',
+  layers: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l10 6-10 6L2 8z"/><path d="M2 14l10 6 10-6"/></svg>',
+  shield: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6z"/></svg>',
+  zap: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h8l-1 8 10-12h-8z"/></svg>',
+};
+
+function iconMarkup(icon) {
+  if (!icon || typeof icon !== 'string') return '';
+  return ICON_SVGS[icon] ?? '';
+}
+
+const titleLines = (title ?? '').split('\n').filter(Boolean);
+---
+
+<section
+  class={cn(
+    'py-16 md:py-20 px-6',
+    toneStyles[tone] ?? toneStyles.default,
+    borderTop && 'border-t border-border dark:border-zinc-800',
+    borderBottom && 'border-b border-border dark:border-zinc-800',
+    className
+  )}
+>
+  <div class="max-w-[1200px] mx-auto px-0 md:px-8">
+    <div class="mb-10 md:mb-12">
+      {kicker && (
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-1.5 h-1.5 bg-primary rounded-full" />
+          <span class="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
+            {kicker}
+          </span>
+        </div>
+      )}
+      {titleLines.length > 0 && (
+        <h2 class="text-3xl font-medium text-foreground tracking-tight mb-4">
+          {titleLines.map((line, i) => (
+            <span class={cn('block', i > 0 && 'text-muted-foreground')}>
+              {line}
+            </span>
+          ))}
+        </h2>
+      )}
+      {description && (
+        <p class="text-lg text-muted-foreground font-light max-w-2xl">
+          {description}
+        </p>
+      )}
+    </div>
+
+    <div class={cn('grid gap-6', columnStyles[columns] ?? columnStyles[3])}>
+      {features.map((feature) => {
+        const svg = iconMarkup(feature.icon);
+        return (
+          <div class="border border-border p-6 bg-card/30 hover:border-primary/50 transition-colors">
+            {svg ? (
+              <div class="w-8 h-8 text-primary mb-4" set:html={svg} />
+            ) : (
+              <div class="w-8 h-8 mb-4 rounded-sm bg-muted" />
+            )}
+            <h3 class="text-lg font-medium text-foreground mb-2">
+              {feature.title}
+            </h3>
+            <p class="text-sm text-muted-foreground">
+              {feature.description}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

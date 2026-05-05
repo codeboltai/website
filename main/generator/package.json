@@ -1,0 +1,17 @@
+{
+  "name": "codebolt-site-generator",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "generate": "node generate.js",
+    "export-diagrams": "node scripts/export-diagrams.mjs",
+    "generate-code-image": "node scripts/generate-code-image.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.59.1"
+  }
+}

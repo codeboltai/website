@@ -1,0 +1,16 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import BlogGrid from '../components/BlogGrid.astro';
+---
+<BaseLayout title="Blog — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Blog"
+    subtitle="Engineering decisions, architecture deep-dives, and what we're learning about scaling agents."
+  />
+  <BlogGrid
+    posts={[{"date":"2026-03-25","title":"Why We Built an Engine, Not Another Agent","excerpt":"The origin story — why we chose to build a platform engine that can be a CLI, IDE, personal agent, and orchestration system, instead of another single-purpose AI tool.","tag":"Engineering"},{"date":"2026-03-18","title":"CLI to Autonomous Company: The Scaling Spectrum","excerpt":"How one engine handles the progression from a single coding agent to orchestrating hundreds of agents across multiple environments.","tag":"Architecture"},{"date":"2026-03-10","title":"How the Plugin System Enables Autonomous Applications","excerpt":"Why plugins in Codebolt don't need separate agent instances, how the three communication channels work, and what this means for building autonomous companies.","tag":"Architecture"},{"date":"2026-03-01","title":"Stigmergy vs Message Passing for Agent Coordination","excerpt":"A research-backed comparison of coordination strategies. Why indirect communication through shared state scales better than direct messaging.","tag":"Research"},{"date":"2026-02-20","title":"What Breaks When You Run 50 Agents on One Repo","excerpt":"Real problems we encountered scaling agent coordination — conflicts, drift, memory exhaustion — and the system-level solutions we built.","tag":"Engineering"},{"date":"2026-02-10","title":"Agent Deliberation: How Agents Make Decisions Together","excerpt":"Inside the deliberation council system — proposing, debating, voting, and reaching consensus without human intervention.","tag":"Architecture"}]}
+  />
+</BaseLayout>

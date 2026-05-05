@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stigmergy Coordination - Codebolt</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: #666; text-decoration: none; font-size: 14px; margin-bottom: 30px; }
+        .section { background: #fff; border: 2px solid #333; padding: 40px; margin-bottom: 20px; }
+        .section-label { display: inline-block; background: #333; color: #fff; padding: 4px 8px; font-size: 11px; text-transform: uppercase; margin-bottom: 15px; }
+        .badge { display: inline-block; background: #0891b2; color: #fff; padding: 4px 8px; font-size: 11px; text-transform: uppercase; margin-left: 10px; border-radius: 4px; }
+        .hero-title { font-size: 56px; font-weight: 600; line-height: 1.1; margin-bottom: 20px; }
+        .hero-description { font-size: 18px; color: #666; max-width: 700px; }
+        .highlight-section { background: rgba(8, 145, 178, 0.1); border: 2px solid #0891b2; padding: 30px; margin-bottom: 20px; font-size: 18px; line-height: 1.6; }
+        .section-title { font-size: 36px; font-weight: 600; margin-bottom: 15px; }
+        .section-subtitle { font-size: 14px; color: #0891b2; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .section-description { font-size: 16px; color: #666; max-width: 700px; margin-bottom: 30px; }
+        .pheromone-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 30px; }
+        .pheromone-card { padding: 20px; border: 1px solid #ddd; background: #fafafa; }
+        .pheromone-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .pheromone-indicator { width: 12px; height: 12px; border-radius: 50%; }
+        .pheromone-name { font-family: monospace; font-size: 14px; font-weight: 600; }
+        .pheromone-purpose { font-size: 13px; color: #666; margin-bottom: 5px; }
+        .pheromone-decay { font-size: 11px; color: #999; }
+        .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 30px; }
+        .feature-card { padding: 25px; border: 1px solid #ddd; background: #fff; }
+        .feature-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .feature-icon { font-size: 20px; }
+        .feature-title { font-size: 16px; font-weight: 600; }
+        .feature-description { font-size: 14px; color: #666; }
+        .deliberation-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px; }
+        .deliberation-card { padding: 25px; border: 1px solid #ddd; background: #fafafa; }
+        .deliberation-type { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .deliberation-purpose { font-size: 13px; color: #666; margin-bottom: 12px; }
+        .deliberation-example { background: #2a2a2a; color: #a0a0a0; padding: 12px; font-size: 12px; font-style: italic; }
+        .comparison-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 30px; }
+        .comparison-card { padding: 30px; border: 2px solid #ddd; }
+        .comparison-card.highlight { border-color: #0891b2; background: rgba(8, 145, 178, 0.05); }
+        .comparison-title { font-size: 18px; font-weight: 600; margin-bottom: 15px; }
+        .comparison-list { list-style: none; }
+        .comparison-list li { font-size: 14px; color: #666; padding: 8px 0; padding-left: 20px; position: relative; }
+        .comparison-list li:before { content: "•"; position: absolute; left: 0; color: #999; }
+        .comparison-list li.highlight:before { content: "✓"; color: #0891b2; }
+        .cta-section { text-align: center; padding: 60px; background: #fff; border-top: 1px solid #ddd; }
+        .cta-title { font-size: 36px; font-weight: 600; margin-bottom: 15px; }
+        .cta-description { font-size: 16px; color: #666; margin-bottom: 30px; }
+        .cta-button { display: inline-block; background: #0891b2; color: #fff; padding: 16px 32px; text-decoration: none; font-weight: 600; font-size: 11px; text-transform: uppercase; border-radius: 9999px; }
+        .navigation { background: #fff; border: 2px solid #333; padding: 15px 20px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-weight: 700; font-size: 20px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: #333; text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <div class="navigation">
+            <div class="nav-logo">Codebolt</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="demo.html">Demo</a>
+                <a href="docs.html">Docs</a>
+                <a href="research.html">Research</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="about.html">About</a>
+                <a href="download.html">Download</a>
+            </div>
+        </div>
+
+        <a href="features.html" class="back-link">← Back to Features</a>
+
+        <div class="section">
+            <span class="section-label">Coordination Protocol</span>
+            <span class="badge">Patent-Pending</span>
+            <span class="badge">Research-Backed</span>
+            <h1 class="hero-title">Stigmergy-Based Coordination</h1>
+            <p class="hero-description">Self-organizing intelligence inspired by nature. Agents coordinate through environmental signals—no central orchestrator required.</p>
+        </div>
+
+        <div class="highlight-section">
+            <strong>What is Stigmergy?</strong> Stigmergy is <strong>indirect coordination through environmental signals</strong>—the same mechanism that allows ant colonies to build complex structures without a central commander. In Codebolt, agents leave "pheromone" signals that other agents can sense and respond to, creating emergent organization without any coordination overhead.
+        </div>
+
+        <!-- Why Stigmergy Matters -->
+        <div class="section">
+            <span class="section-label">Why It Matters</span>
+            <div class="section-subtitle">The Problem with Central Orchestration</div>
+            <h2 class="section-title">50 Agents. Zero Coordination Meetings.</h2>
+            <p class="section-description">Traditional multi-agent systems require a central orchestrator to coordinate agents. This creates a bottleneck, limits scalability, and adds significant overhead. Stigmergy eliminates this problem.</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3 class="comparison-title">❌ Central Orchestration</h3>
+                    <ul class="comparison-list">
+                        <li>Single point of failure</li>
+                        <li>Bottleneck at scale</li>
+                        <li>O(n²) communication complexity</li>
+                        <li>Requires explicit task assignment</li>
+                        <li>Orchestrator becomes bottleneck</li>
+                        <li>Limited to ~10 agents effectively</li>
+                    </ul>
+                </div>
+                <div class="comparison-card highlight">
+                    <h3 class="comparison-title">✓ Stigmergy Coordination</h3>
+                    <ul class="comparison-list">
+                        <li class="highlight">No single point of failure</li>
+                        <li class="highlight">Scales to 100+ agents</li>
+                        <li class="highlight">O(1) coordination overhead</li>
+                        <li class="highlight">Self-organizing task allocation</li>
+                        <li class="highlight">Agents work autonomously</li>
+                        <li class="highlight">Proven at production scale</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-World Analogy -->
+        <div class="section">
+            <span class="section-label">Real-World Analogy</span>
+            <h2 class="section-title">Like Ant Colonies. Like Markets.</h2>
+            <p class="section-description">Stigmergy is all around us. Understanding these real-world examples helps explain how Codebolt agents coordinate.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 30px;">
+                <div>
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">🐜 Ant Colonies</h3>
+                    <p style="font-size: 14px; color: #666;">Ants leave pheromone trails to food sources. Other ants follow strong trails and reinforce them. No ant directs others—collective behavior emerges from simple signals.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">📈 Market Economies</h3>
+                    <p style="font-size: 14px; color: #666;">Prices signal scarcity and demand. Producers and consumers respond to prices without central direction. Market outcomes emerge from individual decisions based on signals.</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">🚗 Traffic Flow</h3>
+                    <p style="font-size: 14px; color: #666;">Drivers see brake lights (signals) and slow down. This propagates backward, creating traffic waves. No central control—emergent coordination through signals.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pheromone System -->
+        <div class="section">
+            <h2 class="section-title">Pheromone System</h2>
+            <p class="section-description">Agents deposit pheromones to signal state, priority, and intent. Other agents sense these signals and act accordingly. Each pheromone type serves a specific coordination purpose.</p>
+
+            <div class="pheromone-grid">
+                <div class="pheromone-card">
+                    <div class="pheromone-header">
+                        <div class="pheromone-indicator" style="background: #f59e0b;"></div>
+                        <span class="pheromone-name">importance</span>
+                    </div>
+                    <div class="pheromone-purpose">Signal job priority</div>
+                    <div class="pheromone-decay">Decay: None (sticky)</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 8px;">High priority tasks attract more agents</div>
+                </div>
+                <div class="pheromone-card">
+                    <div class="pheromone-header">
+                        <div class="pheromone-indicator" style="background: #a855f7;"></div>
+                        <span class="pheromone-name">request_split</span>
+                    </div>
+                    <div class="pheromone-purpose">Signal job should be split</div>
+                    <div class="pheromone-decay">Decay: None (sticky)</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 8px;">Agents see complex tasks needing decomposition</div>
+                </div>
+                <div class="pheromone-card">
+                    <div class="pheromone-header">
+                        <div class="pheromone-indicator" style="background: #ef4444;"></div>
+                        <span class="pheromone-name">saturation</span>
+                    </div>
+                    <div class="pheromone-purpose">Signal job is heavily worked on</div>
+                    <div class="pheromone-decay">Decay: Slow</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 8px;">Prevents too many agents on same task</div>
+                </div>
+                <div class="pheromone-card">
+                    <div class="pheromone-header">
+                        <div class="pheromone-indicator" style="background: #10b981;"></div>
+                        <span class="pheromone-name">takeup_interest</span>
+                    </div>
+                    <div class="pheromone-purpose">Signal interest in job</div>
+                    <div class="pheromone-decay">Decay: Moderate</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 8px;">Agents signal they're considering a task</div>
+                </div>
+                <div class="pheromone-card">
+                    <div class="pheromone-header">
+                        <div class="pheromone-indicator" style="background: #f97316;"></div>
+                        <span class="pheromone-name">task_not_ready</span>
+                    </div>
+                    <div class="pheromone-purpose">Signal blocking dependencies</div>
+                    <div class="pheromone-decay">Decay: None (sticky)</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 8px;">Agents avoid tasks with blockers</div>
+                </div>
+                <div class="pheromone-card">
+                    <div class="pheromone-header">
+                        <div class="pheromone-indicator" style="background: #22c55e;"></div>
+                        <span class="pheromone-name">job_available</span>
+                    </div>
+                    <div class="pheromone-purpose">Signal blockers resolved</div>
+                    <div class="pheromone-decay">Decay: Slow</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 8px;">Attracts agents to newly available tasks</div>
+                </div>
+                <div class="pheromone-card">
+                    <div class="pheromone-header">
+                        <div class="pheromone-indicator" style="background: #dc2626;"></div>
+                        <span class="pheromone-name">files_blocked</span>
+                    </div>
+                    <div class="pheromone-purpose">Signal files reserved</div>
+                    <div class="pheromone-decay">Decay: None (sticky)</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 8px;">Prevents file-level conflicts</div>
+                </div>
+                <div class="pheromone-card">
+                    <div class="pheromone-header">
+                        <div class="pheromone-indicator" style="background: #8b5cf6;"></div>
+                        <span class="pheromone-name">completion</span>
+                    </div>
+                    <div class="pheromone-purpose">Signal task completion</div>
+                    <div class="pheromone-decay">Decay: Fast</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 8px;">Signals downstream tasks can start</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How Pheromone Decays Work -->
+        <div class="section">
+            <span class="section-label">Pheromone Dynamics</span>
+            <h2 class="section-title">How Pheromone Decay Works</h2>
+            <p class="section-description">Not all signals should last forever. Pheromone decay controls how long signals persist, enabling temporal coordination.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 30px;">
+                <div style="padding: 20px; border: 1px solid #ddd; background: #fafafa;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">No Decay (Sticky)</h3>
+                    <p style="font-size: 13px; color: #666;">Important signals that must persist: importance, blockers, file locks. These remain until explicitly cleared.</p>
+                </div>
+                <div style="padding: 20px; border: 1px solid #ddd; background: #fafafa;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">Slow Decay</h3>
+                    <p style="font-size: 13px; color: #666;">Signals that fade over hours: saturation, job availability. Allows gradual redistribution of agents.</p>
+                </div>
+                <div style="padding: 20px; border: 1px solid #ddd; background: #fafafa;">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">Fast Decay</h3>
+                    <p style="font-size: 13px; color: #666;">Transient signals: completion, interest. Fades in minutes, enabling rapid re-coordination.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Smart Job Coordination -->
+        <div class="section">
+            <h2 class="section-title">Smart Job Coordination</h2>
+            <p class="section-description">Intelligent task management where agents claim work, signal intentions, and avoid conflicts automatically.</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <span class="feature-icon">🔒</span>
+                        <span class="feature-title">Job Locking</span>
+                    </div>
+                    <p class="feature-description">When an agent starts work, it locks the job—preventing others from duplicating effort. Other agents can request unlock if they have higher priority work.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <span class="feature-icon">🗳️</span>
+                        <span class="feature-title">Job Bidding</span>
+                    </div>
+                    <p class="feature-description">Agents can bid on tasks they are suited for. Bids include reasoning, priority score, and current status. Best bidder wins—no race conditions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <span class="feature-icon">🔄</span>
+                        <span class="feature-title">Split Proposals</span>
+                    </div>
+                    <p class="feature-description">Complex tasks can be split. Agents propose splits with reasoning. Multiple proposals compete. Best proposal wins via deliberation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <span class="feature-icon">💬</span>
+                        <span class="feature-title">Blocker Management</span>
+                    </div>
+                    <p class="feature-description">Track dependencies between jobs. Mark blockers with pheromones. Auto-signal when blockers resolve. Downstream tasks auto-start.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Deliberations -->
+        <div class="section">
+            <span class="section-label">Complementary Mechanism</span>
+            <h2 class="section-title">Agent Deliberations</h2>
+            <p class="section-description">Stigmergy handles task coordination. Deliberations handle decision-making. Together, they enable sophisticated agent collaboration.</p>
+
+            <div class="deliberation-grid">
+                <div class="deliberation-card">
+                    <div class="deliberation-type">🗳️ Voting</div>
+                    <div class="deliberation-purpose">Democratic decision making on technical choices</div>
+                    <div class="deliberation-example">"Which authentication method?" → Agents vote on JWT vs Session vs OAuth</div>
+                </div>
+                <div class="deliberation-card">
+                    <div class="deliberation-type">💬 Feedback</div>
+                    <div class="deliberation-purpose">Collect opinions and critiques on proposals</div>
+                    <div class="deliberation-example">"Here's my implementation plan" → Agents identify gaps and suggest improvements</div>
+                </div>
+                <div class="deliberation-card">
+                    <div class="deliberation-type">❓ Q&A</div>
+                    <div class="deliberation-purpose">Question and answer sessions for knowledge sharing</div>
+                    <div class="deliberation-example">"How does this module work?" → Agents explain and share context</div>
+                </div>
+                <div class="deliberation-card">
+                    <div class="deliberation-type">📋 Shared List</div>
+                    <div class="deliberation-purpose">Collaborative list building and brainstorming</div>
+                    <div class="deliberation-example">"What test cases are needed?" → Agents contribute comprehensive list</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research Backed -->
+        <div class="section">
+            <span class="section-label">Research Backed</span>
+            <div class="section-subtitle">Peer-Reviewed Science</div>
+            <h2 class="section-title">Not Marketing Hype. Real Research.</h2>
+            <p class="section-description">Our stigmergy implementation is documented in peer-reviewed papers. The results are proven at scale.</p>
+
+            <div style="background: #fafafa; padding: 30px; border: 1px solid #ddd;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; font-weight: 600; color: #0891b2;">100+</div>
+                        <div style="font-size: 14px; color: #666;">Agents Coordinated</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; font-weight: 600; color: #0891b2;">0</div>
+                        <div style="font-size: 14px; color: #666;">Coordination Overhead</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; font-weight: 600; color: #0891b2;">Linear</div>
+                        <div style="font-size: 14px; color: #666;">Performance Scaling</div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; text-align: center;">
+                    <a href="research.html" style="color: #0891b2; text-decoration: none; font-weight: 600;">Read the research papers →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h2 class="cta-title">Experience Self-Organizing Intelligence</h2>
+            <p class="cta-description">See stigmergy in action. Watch agents coordinate without a central commander.</p>
+            <a href="demo.html" class="cta-button">Watch the Demo</a>
+            <p style="margin-top: 20px; font-size: 12px; color: #666;">
+                Want technical details? <a href="docs.html" style="color: #0891b2;">Read the API documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

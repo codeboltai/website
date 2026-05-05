@@ -1,0 +1,31 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import CenteredText from '../components/CenteredText.astro';
+import TwoColumnText from '../components/TwoColumnText.astro';
+import ValueList from '../components/ValueList.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+---
+<BaseLayout title="About — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <CenteredText
+    variant="thesis"
+    text="We saw the gap between what AI agents promise and what they can actually deliver. The bottleneck isn't intelligence — it's infrastructure. We built the infrastructure."
+  />
+  <TwoColumnText
+    columns={[{"heading":"What everyone is building","body":"Smarter models. Better prompts. Faster autocomplete. Personal assistants that manage your calendar. Copilots that finish your sentences."},{"heading":"What's actually missing","body":"A platform where custom agents run, applications execute as plugins, and multi-agent coordination is built in. Not a tool — infrastructure."}]}
+    conclusion="Codebolt is the infrastructure."
+  />
+  <ValueList
+    heading="What We Believe"
+    values={["The environment is the multiplier, not the model.","Agents are programs, not prompts. Give developers the SDK.","Scale is an engineering problem. Solve it with architecture, not hope.","Depth over breadth. Solve the hard coordination problem well.","Honesty over hype. Show the architecture, not the adjectives."]}
+  />
+  <CenteredText
+    heading="The Engineering"
+    text="Codebolt is built from scratch — not forked, not wrapped. 73 controllers, 134 services, a Rust-based Narrative Engine, three communication channels, and a HostBridge abstraction that runs identically on desktop, CLI, and headless server. Every layer exists because the problem demanded it."
+  />
+  <CtaBlock
+    heading="We're building the infrastructure for autonomous development."
+    buttons={[{"label":"See Open Roles","href":"/careers","variant":"primary"},{"label":"Read the Architecture","href":"/architecture","variant":"secondary"}]}
+  />
+</BaseLayout>

@@ -1,0 +1,34 @@
+---
+import { cn } from '../lib/utils';
+
+const { label, value, meta, variant = 'default', size = 'md', className } = Astro.props;
+
+const variants = {
+  default: 'text-foreground dark:text-white',
+  primary: 'text-primary dark:text-cyan-400',
+  emerald: 'text-emerald-500',
+  amber: 'text-amber-500',
+  purple: 'text-purple-500',
+  red: 'text-red-500',
+};
+
+const sizes = {
+  sm: 'text-3xl',
+  md: 'text-4xl',
+  lg: 'text-5xl',
+};
+---
+
+<div class={cn('flex flex-col gap-2', className)}>
+  <span class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground dark:text-zinc-500">
+    {label}
+  </span>
+  <span class={cn('font-mono tracking-tighter', sizes[size] ?? sizes.md, variants[variant] ?? variants.default)}>
+    {value}
+  </span>
+  {meta && (
+    <span class="text-[10px] font-mono uppercase tracking-widest text-muted-foreground/70 dark:text-zinc-600">
+      {meta}
+    </span>
+  )}
+</div>

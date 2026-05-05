@@ -1,0 +1,182 @@
+---
+import { cn } from '../lib/utils';
+
+interface Action {
+  label: string;
+  href: string;
+}
+
+interface Media {
+  src?: string;
+  alt?: string;
+  label?: string;
+  placeholder?: string;
+}
+
+interface Tab {
+  label: string;
+  body?: string;
+  code?: string;
+  primary?: Action;
+  more?: Action;
+  media?: Media;
+}
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  tabs: Tab[];
+}
+
+const { eyebrow, heading, tabs = [] } = Astro.props;
+---
+
+<section class={cn(
+  "has-rule-fill relative bg-background text-foreground border-b border-border font-sans antialiased",
+  "dark:bg-[#050505] dark:border-neutral-900"
+)}>
+  <div class="start-tabs max-w-[1200px] mx-auto px-6 pt-8 pb-14 md:px-10 md:pt-10 md:pb-16 relative z-20">
+    <div class="mb-8 flex flex-col items-center gap-4 text-center">
+      {(eyebrow || heading) && (
+        <div class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+          {eyebrow || heading}
+        </div>
+      )}
+
+      <div
+        class="flex w-fit max-w-full items-center justify-center overflow-x-auto border border-border bg-background/70 p-1 backdrop-blur-sm dark:bg-black/45"
+        role="tablist"
+      >
+        {tabs.map((tab, idx) => (
+          <button
+            type="button"
+            role="tab"
+            data-tab-index={idx}
+            aria-selected={idx === 0 ? 'true' : 'false'}
+            class={cn(
+              "start-tab-trigger shrink-0 px-4 py-2 text-left text-sm font-medium transition-colors",
+              "hover:text-foreground",
+              idx === 0
+                ? "text-foreground bg-card shadow-sm"
+                : "text-muted-foreground"
+            )}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      {tabs.map((tab, idx) => (
+        <div
+          role="tabpanel"
+          data-tab-panel={idx}
+          class={cn(
+            "start-tab-panel mx-auto grid max-w-5xl gap-8 md:gap-10 md:grid-cols-2 md:items-center",
+            idx === 0 ? "" : "hidden"
+          )}
+        >
+          <div class="flex flex-col gap-5">
+            <div>
+              <h3 class="mb-3 text-2xl md:text-3xl font-semibold tracking-tight text-foreground dark:text-white">
+                {tab.label}
+              </h3>
+              {tab.body && (
+                <p class="text-sm leading-relaxed text-muted-foreground md:text-[15px] dark:text-zinc-400">
+                  {tab.body}
+                </p>
+              )}
+            </div>
+
+            {tab.code && (
+              <div class="flex min-w-0 items-center border border-border bg-muted/70 dark:border-zinc-700 dark:bg-black/80 shadow-inner">
+                <code class="min-w-0 flex-1 overflow-x-auto whitespace-nowrap px-4 py-3 font-mono text-xs text-foreground dark:text-zinc-100">
+                  {tab.code}
+                </code>
+                <button
+                  type="button"
+                  class="start-tab-copy h-full shrink-0 border-l border-border px-3 py-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground dark:border-zinc-700"
+                  data-copy-text={tab.code}
+                  aria-label="Copy command"
+                >
+                  Copy
+                </button>
+              </div>
+            )}
+
+            <div class="flex flex-wrap items-center gap-2">
+              {tab.primary && (
+                <a
+                  href={tab.primary.href}
+                  class={cn(
+                    "h-9 px-4 rounded-md inline-flex w-auto items-center justify-center text-sm font-medium transition-colors",
+                    "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20"
+                  )}
+                >
+                  {tab.primary.label}
+                </a>
+              )}
+              {tab.more && (
+                <a
+                  href={tab.more.href}
+                  class={cn(
+                    "h-9 px-4 rounded-md inline-flex w-auto items-center justify-center text-sm font-medium transition-colors",
+                    "text-muted-foreground hover:text-foreground border border-border dark:border-zinc-800 hover:border-muted-foreground/60"
+                  )}
+                >
+                  {tab.more.label}
+                  <svg class="ml-2 h-3 w-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M 0 6 H 12 M 9 3 L 12 6 L 9 9" />
+                  </svg>
+                </a>
+              )}
+            </div>
+          </div>
+
+          {tab.media && (
+            <div class="relative">
+              <div class="overflow-hidden border border-border bg-background shadow-2xl shadow-black/20 dark:border-zinc-800 dark:bg-[#0a0a0a]">
+                <div class="flex h-8 items-center gap-2 border-b border-border bg-muted/30 px-4 dark:border-zinc-800 dark:bg-zinc-950">
+                  <span class="h-2.5 w-2.5 bg-red-500/70"></span>
+                  <span class="h-2.5 w-2.5 bg-yellow-500/70"></span>
+                  <span class="h-2.5 w-2.5 bg-green-500/70"></span>
+                  {tab.media.label && (
+                    <span class="ml-3 truncate font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      {tab.media.label}
+                    </span>
+                  )}
+                </div>
+
+                <div class="relative aspect-[16/10] bg-background dark:bg-[#030303]">
+                  {tab.media.src ? (
+                    <img
+                      src={tab.media.src}
+                      alt={tab.media.alt || `${tab.label} demo`}
+                      class="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <>
+                      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5"></div>
+                      <div class="relative h-full flex items-center justify-center">
+                        <div class="text-center">
+                          <div class="mb-2 font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
+                            {tab.media.placeholder || `${tab.label} demo`}
+                          </div>
+                          <div class="text-3xl font-semibold text-foreground/40 dark:text-white/30">
+                            {tab.label}
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

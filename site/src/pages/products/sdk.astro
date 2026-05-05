@@ -1,0 +1,144 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import BentoGrid from '../../components/BentoGrid.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import ComparisonColumns from '../../components/ComparisonColumns.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Codebolt SDK — Build, Extend, and Scale on the Engine" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    eyebrow="CODEBOLT SDK"
+    title="The SDK layer for scalable agent software"
+    subtitle="Build custom agents, custom clients, plugins, providers, and Codebolt-native applications on top of the same engine that powers the Editor, CLI, Cloud, and autonomous agents."
+    buttons={[{"label":"Read SDK Docs","href":"https://docs.codebolt.ai/docs/04_build-on-codebolt/01_overview","variant":"primary"},{"label":"Codebolt Native Apps","href":"/engine/codebolt-native-applications","variant":"secondary"}]}
+    pills={["Agent SDK","Client SDK","Plugin SDK","Provider SDK"]}
+  />
+  <CenteredText
+    variant="thesis"
+    text="The SDK is the scalability layer of Codebolt. Use the Agent SDK and agent framework to control agent behavior, the Client SDK to build custom interfaces and integrate other applications, the Plugin SDK to extend the engine, and the Provider SDK to connect agent execution across platforms and environments."
+  />
+  <BentoGrid
+    kicker="SDK LAYERS"
+    heading="Build at every layer of the engine"
+    description="Codebolt is not just an app with an API. It exposes the layers you need to create agents, build interfaces, extend runtime behavior, connect external systems, and scale execution."
+    columns={4}
+    gap="none"
+    items={[{"title":"Agent SDK","tag":"codeboltjs","description":"Use <a href='https://docs.codebolt.ai/docs/05_reference/02_codeboltjs/01_intro'>codeboltjs</a> to create custom agents with direct access to files, git, terminal, browser, LLMs, memory, tasks, dynamic panels, environments, evals, and engine APIs.","span":2,"visual":"custom agent\n├─ codebolt.fs / git / terminal\n├─ codebolt.llm / browser / mcp\n├─ memory + knowledge\n├─ tasks + jobs + plans\n└─ dynamic panels + environments\n"},{"title":"Agent framework","tag":"@codebolt/agent","description":"Build agents like you would with LangChain, Mastra, or other frameworks, but Codebolt-aware. Compose tools, workflows, processors, message modifiers, compaction, and execution control for agents tailored to your workflow."},{"title":"Client SDK","tag":"Custom clients","description":"Use the <a href='/engine/codebolt-native-applications'>Client SDK</a> to build custom web apps, internal tools, dashboards, vertical IDEs, mobile surfaces, or product integrations that talk to Codebolt over REST and WebSocket APIs."},{"title":"Plugin SDK","tag":"Runtime extension","description":"Use the <a href='https://docs.codebolt.ai/docs/04_build-on-codebolt/05_plugins/01_overview'>Plugin SDK</a> to add backend capabilities, commands, routes, hooks, dynamic panels, provider integrations, marketplace packages, and app-specific runtime logic."},{"title":"Provider SDK","tag":"Agent routing","description":"Create custom agent providers and execution bridges so Codebolt can chain agent connections across platforms, environments, remote servers, and specialized runtimes."},{"title":"Native applications","tag":"Composable","description":"Combine SDK layers to create <a href='/engine/codebolt-native-applications'>Codebolt-native applications</a>: a custom app UI, plugin backend, custom agents, provider routing, and cloud or self-hosted execution on the same engine."}]}
+  />
+  <FeatureBlock
+    kicker="01 · AGENT SDK"
+    heading="Create custom agents tailored to your workflow"
+    body="Codebolt lets teams build agents the way they build software: with code, modules, tools, workflows, and explicit control over the agent loop. The codeboltjs Agent SDK gives agents direct access to Codebolt engine capabilities, while the @codebolt/agent framework provides a higher-level interface for tools, workflows, reusable processor pieces, message modifiers, loop detection, and conversation compaction. Use it when a generic prompt is not enough and the agent needs to follow your product, team, or domain workflow."
+    cta={{"label":"Read codeboltjs docs","href":"https://docs.codebolt.ai/docs/05_reference/02_codeboltjs/01_intro"}}
+    diagram="Agent SDK + framework
+├─ system prompt + instructions
+├─ allowed tools
+├─ message modifiers
+├─ pre/post inference processors
+├─ pre/post tool processors
+├─ workflows
+├─ compaction
+└─ Codebolt engine modules
+
+custom agent behavior
+without leaving the engine
+"
+  />
+  <FeatureBlock
+    kicker="02 · CLIENT SDK"
+    heading="Build your own interfaces and integrations"
+    body="The Editor and CLI are clients of the engine. With the Client SDK, your application can be one too. Build a custom UI, vertical workspace, internal operations console, product-specific dashboard, or integration from another application. The client layer can call Codebolt APIs, subscribe to real-time sockets, manage threads, tasks, jobs, agents, environments, memory, git, files, and application state."
+    reverse={true}
+    cta={{"label":"Explore native apps","href":"/engine/codebolt-native-applications"}}
+    diagram="your application
+    │ REST + WebSocket
+    ▼
+Codebolt Client SDK
+    │
+    ├─ chat + threads
+    ├─ agents + tasks + jobs
+    ├─ files + git + terminal
+    ├─ memory + knowledge
+    ├─ environments + providers
+    └─ application state
+
+custom interface
+same engine
+"
+  />
+  <FeatureBlock
+    kicker="03 · PLUGIN SDK"
+    heading="Extend the runtime, not just the UI"
+    body="Plugins let you add capabilities inside the Codebolt engine itself. A plugin can expose routes, connect to external APIs, register hooks, open dynamic panels, mediate application requests, push live events, add provider behavior, and serve as the backend for a Codebolt-native application. That means your product logic can live close to agents, memory, tasks, environments, and execution rather than in a disconnected service."
+    cta={{"label":"Read plugin docs","href":"https://docs.codebolt.ai/docs/04_build-on-codebolt/05_plugins/01_overview"}}
+    diagram="plugin runtime
+├─ lifecycle: onStart / onStop
+├─ HTTP-style routes
+├─ WebSocket + multiplexed events
+├─ hooks + commands
+├─ dynamic panels
+├─ external API adapters
+└─ engine API access
+
+plugins become backend
+capabilities for apps and agents
+"
+  />
+  <FeatureBlock
+    kicker="04 · PROVIDER SDK"
+    heading="Route agent execution across platforms"
+    body="The provider layer lets Codebolt connect to execution sources beyond one local runtime. Build custom providers to bridge agent connections across platforms, environments, remote machines, cloud sandboxes, or specialized agent systems. This is how the SDK story becomes a scaling story: agent work can move through the right provider instead of being trapped inside one client or one machine."
+    reverse={true}
+    cta={{"label":"Read provider commands","href":"https://docs.codebolt.ai/docs/02_using-codebolt/02_surfaces/03_cli/04_provider-commands"}}
+    diagram="Codebolt runtime
+    │ execution request
+    ▼
+provider layer
+    ├─ local engine
+    ├─ remote Codebolt server
+    ├─ cloud sandbox
+    ├─ custom agent platform
+    └─ specialized runtime
+
+one agent graph
+many execution backends
+"
+  />
+  <FeatureBlock
+    kicker="05 · CODEBOLT-NATIVE APPS"
+    heading="Combine SDKs into full applications"
+    body="The real power appears when the SDK layers are used together. Use the Agent SDK to control the agent flow, the Plugin SDK to provide backend application logic, the Client SDK to create the interface, and the Provider SDK to route execution across environments. The result is a Codebolt-native application: software that uses the Codebolt engine as its backend instead of rebuilding agents, plugins, memory, tasks, orchestration, and scaling from scratch."
+    cta={{"label":"Open native applications page","href":"/engine/codebolt-native-applications"}}
+    diagram="Codebolt-native application
+├─ Client SDK: custom UI / product
+├─ Plugin SDK: backend logic
+├─ Agent SDK: workflow agents
+├─ Provider SDK: execution routing
+└─ Codebolt engine
+    ├─ memory + tasks + jobs
+    ├─ plugins + tools + MCP
+    ├─ environments + cloud
+    └─ observability + evals
+"
+  />
+  <BentoGrid
+    kicker="WHAT YOU CAN BUILD"
+    heading="The SDK is for scaling beyond the default surfaces"
+    description="Use SDKs when you need something more specific than a stock editor, one terminal session, or one hosted agent."
+    columns={3}
+    gap="none"
+    items={[{"title":"Workflow-specific agents","tag":"Agents","description":"Create agents for code review, migration, compliance, support, research, release management, data labeling, product planning, or any domain workflow."},{"title":"Custom product interfaces","tag":"Clients","description":"Build your own UI on top of Codebolt: dashboards, vertical IDEs, internal portals, mobile apps, customer-facing tools, or embedded product surfaces."},{"title":"Engine extensions","tag":"Plugins","description":"Add integrations, routes, panels, hooks, commands, marketplace packages, backend logic, and domain capabilities directly into the engine runtime."},{"title":"Execution bridges","tag":"Providers","description":"Route agent work to local runtimes, cloud sandboxes, remote servers, or third-party agent platforms using custom providers."},{"title":"Packaged engine apps","tag":"Native apps","description":"Package Codebolt into your own application or make Codebolt itself become the shell for your app through panels, plugins, and custom clients."},{"title":"Scalable agent systems","tag":"Scale","description":"Grow from one custom agent to multi-agent, multi-environment workflows without changing the foundation."}]}
+  />
+  <ComparisonColumns
+    problem={{"heading":"Single-surface agent tools","items":["Let you use their agent, but not build your own agent runtime around your workflow","Expose a fixed UI instead of a client SDK for custom applications","Treat plugins as add-ons instead of runtime backends","Do not provide a provider layer for chaining execution across platforms","Force teams to rebuild memory, tasks, jobs, orchestration, and scaling around the tool"]}}
+    solution={{"heading":"Codebolt SDK","items":["Agent SDK and framework let you control agent flow, tools, processors, workflows, and compaction","Client SDK lets you build custom interfaces and integrate Codebolt into other applications","Plugin SDK lets you extend the engine and run app backend logic inside the runtime","Provider SDK lets you bridge agent execution across environments and platforms","Together, the SDK layers let teams build Codebolt-native applications that scale with the engine"]}}
+  />
+  <CtaBlock
+    heading="Build on the engine. Scale beyond the default app."
+    buttons={[{"label":"Read SDK Docs","href":"https://docs.codebolt.ai/docs/04_build-on-codebolt/01_overview","variant":"primary"},{"label":"Explore Native Apps","href":"/engine/codebolt-native-applications","variant":"secondary"}]}
+  />
+</BaseLayout>

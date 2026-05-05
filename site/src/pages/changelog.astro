@@ -1,0 +1,16 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import Timeline from '../components/Timeline.astro';
+---
+<BaseLayout title="Changelog — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Changelog"
+    subtitle="What shipped, when."
+  />
+  <Timeline
+    entries={[{"date":"2026-03-15","version":"v1.0.0","summary":"Codebolt Engine v1. Full CLI, IDE, and headless modes. 63+ SDK modules. Plugin system with 3 communication channels. Multi-environment provider system."},{"date":"2026-02-15","version":"v0.9.0","summary":"Provider system for multi-environment scaling. Codebolt instances coordinate with each other via git bundle state transfer and heartbeat monitoring."},{"date":"2026-02-01","version":"v0.8.0","summary":"Plugin SDK with three communication channels. Build applications that run inside the engine without separate agent instances."},{"date":"2026-01-18","version":"v0.7.0","summary":"Agent deliberation councils — propose, debate, vote, consensus. Automatic review-merge system with pheromone-based coordination."},{"date":"2026-01-05","version":"v0.6.0","summary":"Drift engine v2 — two-level architecture with local Rust assessment and global JavaScript coordination."},{"date":"2025-12-20","version":"v0.5.0","summary":"Stigmergy-based coordination replaces message-passing. Pheromone task ownership. Significant scaling improvements."},{"date":"2025-12-01","version":"v0.4.0","summary":"Narrative Engine (Rust) with shadow git snapshots. Agent attribution. Execution trace graph with replay."},{"date":"2025-11-15","version":"v0.3.0","summary":"HostBridge abstraction. One engine now powers desktop IDE, CLI, and headless server with identical capabilities."}]}
+  />
+</BaseLayout>

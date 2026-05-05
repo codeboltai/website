@@ -1,0 +1,19 @@
+---
+const { heading, values = [] } = Astro.props;
+---
+<section class="py-24 px-6 bg-background dark:bg-[#050505] border-b border-border dark:border-zinc-900">
+  <div class="max-w-4xl mx-auto">
+    {heading && (
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-foreground dark:text-white mb-10 leading-[1.12]">
+        {heading}
+      </h2>
+    )}
+    <div class="space-y-4">
+      {values.map((v) => (
+        <p class="text-lg text-muted-foreground dark:text-zinc-400 leading-relaxed">
+          {v}
+        </p>
+      ))}
+    </div>
+  </div>
+</section>

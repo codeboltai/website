@@ -1,0 +1,197 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, navigation } from '../data/site-data.js';
+import PageHeader from '../components/PageHeader.astro';
+import FeatureBlock from '../components/FeatureBlock.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+---
+<BaseLayout title="Features — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="What the platform handles."
+    subtitle="Every feature solves a real problem that emerges when agents work together at scale."
+  />
+  <FeatureBlock
+    heading="Write custom agents. Not prompts."
+    body="Most tools give you a prompt box. Codebolt gives you a 63-module SDK. Write agents in JavaScript with full access to filesystem, git, browser automation, terminal, LLM, vector database, memory systems, knowledge graphs, and more. Your agent connects as a child process, performs actions through the platform, and results appear in your workspace. This is agent programming, not prompt engineering."
+    diagram={`codebolt.onMessage(async (msg) => {
+  // Your agent logic
+  const files = await codebolt.fs.readDir('/src');
+  const code = await codebolt.fs.readFile('main.ts');
+  const review = await codebolt.llm.chat(
+    \`Review: \${code}\`
+  );
+  await codebolt.chat.sendMessage(review);
+});
+// 63+ modules available
+`}
+  />
+  <FeatureBlock
+    heading="Build applications as plugins. No separate agent needed."
+    body="Plugins connect to the platform through three communication channels — WebSocket actions, multiplexed events, and HTTP REST. Unlike other SDKs, plugins run inside the agentic environment. They don't need to start their own agent instance. This means your CI/CD pipeline, code review system, or deployment automation runs natively inside the platform with full access to agentic capabilities."
+    reverse={true}
+    diagram="┌──────────────────────────────┐
+│  Your Plugin                 │
+├──────────────────────────────┤
+│ WS channel → fs, git, llm    │
+│ Mux channel → events, tasks  │
+│ HTTP → CRUD, projects        │
+├──────────────────────────────┤
+│ Runs inside the platform.    │
+│ No separate agent instance.  │
+└──────────────────────────────┘
+"
+  />
+  <FeatureBlock
+    heading="Agents coordinate. They don't collide."
+    body="Traditional multi-agent setups are parallel LLM calls fighting over shared state. Codebolt uses stigmergy-based coordination — agents communicate through structured shared state, not fragile message passing. Pheromone-based task ownership prevents agents from stepping on each other's work. The environment manages sequencing, dependencies, and resource allocation."
+    diagram="┌──────────────────────────┐
+│  Stigmergy Coordination  │
+├──────────────────────────┤
+│ Agent A → shared state   │
+│ Agent B → shared state   │
+│ Agent C → shared state   │
+├──────────────────────────┤
+│ Pheromones: ownership     │
+│ Sequencing: dependencies  │
+│ Resources: allocation     │
+└──────────────────────────┘
+"
+  />
+  <FeatureBlock
+    heading="Multi-environment scaling. One platform, many worlds."
+    body="Agents operate across local, Docker, cloud, and hierarchical environments simultaneously. The provider system lets one Codebolt instance treat another as a coordinated environment — spawning, monitoring, and transferring state between them. Each environment runs its own agent instances with heartbeat monitoring and full lifecycle management. Build once, deploy everywhere."
+    reverse={true}
+    diagram="Main Codebolt Instance
+      │
+┌─────┼──────┐
+↓     ↓      ↓
+local docker  cloud
+env    env    env
+│      │      │
+└──────┼──────┘
+ reconciled by platform
+ state transfer via git bundles
+"
+  />
+  <FeatureBlock
+    heading="Agent conflicts are a system problem. The system solves them."
+    body="When two agents make incompatible changes to the same file, the platform resolves it using structured arbitration. No merge conflicts in your terminal. No manual intervention. The system handles disagreements with clear rules and traceable decisions. This is what makes running 50 agents on one codebase possible."
+    diagram="conflict detected
+      ↓
+structured arbitration
+      ↓
+resolution applied
+      ↓
+decision logged + traceable
+"
+  />
+  <FeatureBlock
+    heading="Automatic review and merge. No GitHub PR bottleneck."
+    body="Agents create review-merge requests for their changes. Other agents provide feedback — approve, request changes, or comment. Conflict detection runs before merge. Pheromone-based coordination prevents overlapping work. This enables agents to do long tasks in parallel, review each other's output, and merge without human intervention. Autonomous software development requires autonomous code review."
+    reverse={true}
+    diagram="Agent A: implements feature
+      ↓
+Review request created
+      ↓
+Agent B: reviews, approves
+      ↓
+Agent C: checks conflicts
+      ↓
+Auto-merged. No human needed.
+"
+  />
+  <FeatureBlock
+    heading="Agent Deliberation Council"
+    body="Agents can propose options, debate, vote, and reach consensus. The deliberation system supports decision, review, brainstorm, approval, and vote types. This is how agents make architectural decisions together — not by one agent guessing, but by multiple agents reasoning and agreeing. The system logs every deliberation for full traceability."
+    diagram="Agent A proposes option 1
+Agent B proposes option 2
+      ↓
+Agents discuss tradeoffs
+      ↓
+Vote: 3 for option 1, 2 for option 2
+      ↓
+Consensus reached. Decision logged.
+"
+  />
+  <FeatureBlock
+    heading="Drift tracking catches what code review can't."
+    body="The drift engine evaluates structural, scope, constraint, and coverage drift at two levels: local Rust assessment within each agent context, and global JavaScript coordination across all agents. When agents deviate from the original intent, the system flags it before the deviation compounds. This is how you maintain coherence across 50 agents working simultaneously."
+    reverse={true}
+    diagram="Intent
+  ↓
+Plan → [drift check]
+  ↓
+Code → [drift check]
+  ↓
+Output
+Rust (local) + JS (global)
+4 dimensions: structure, scope,
+constraints, coverage
+"
+  />
+  <FeatureBlock
+    heading="Every decision is traceable and replayable."
+    body="The Rust-based Narrative Engine captures the full reasoning chain for every agent action. Per-thread git history with snapshot versioning. Agent attribution for every change — what changed, why, and by which agent. You can replay any decision, audit any change, and understand exactly why your codebase looks the way it does. This is what makes enterprise deployment possible."
+    diagram="t0 → t1 → t2 → t3
+│    │    │    │
+Full decision trace graph
+Per-thread git refs
+Intent + diff + attribution
+[replay any point]
+"
+  />
+  <FeatureBlock
+    heading="Governance, guardrails, and guardrails for guardrails."
+    body="The policy engine evaluates rules and LLM classification for agent tool permissions. Scoped by agent role, agent ID, environment, provider, and execution phase. Decisions: allow, deny, or ask (require human approval). Per-agent and per-task LLM selection. Local model support including fine-tuned models. This is how you let agents run autonomously without losing control."
+    reverse={true}
+    diagram="Agent wants to: delete production DB
+      ↓
+Guardrail engine evaluates:
+- Agent role: junior
+- Environment: production
+- Risk classification: HIGH
+      ↓
+Decision: DENY
+Escalate to human: ASK
+      ↓
+All decisions logged + auditable
+"
+  />
+  <FeatureBlock
+    heading="Three-tier memory. Because context is everything."
+    body="Episodic memory provides time-based recall of past interactions. Persistent memory stores structured knowledge with chunking, embedding, and retrieval pipelines. The Context Assembly Engine assembles optimal context from all memory types using rules, pipelines, and token budgets. Agents don't just remember — they know what to remember."
+    diagram="┌────────────────────────────┐
+│  Context Assembly Engine   │
+├────────────────────────────┤
+│ Episodic → time-based      │
+│ Persistent → structured    │
+│ Rules → what to include    │
+│ Pipelines → how to process │
+│ Token budget → constraints │
+├────────────────────────────┤
+│ Optimal context to LLM     │
+└────────────────────────────┘
+"
+  />
+  <FeatureBlock
+    heading="One platform. Every interface."
+    body="Desktop IDE (Electron with Monaco editor). Web interface. Go-based TUI with sidebar panels. Full CLI with headless server mode. All backed by the same core engine through the HostBridge abstraction. Use the interface that fits your workflow — the platform stays the same."
+    reverse={true}
+    diagram="┌─ Electron IDE ──────┐
+│ Web UI              │
+│ Go TUI              │
+│ CLI / Headless      │
+├─────────────────────┤
+│ HostBridge           │
+│ (portability layer)  │
+├─────────────────────┤
+│ Core Engine          │
+└─────────────────────┘
+"
+  />
+  <CtaBlock
+    heading="See how it's built."
+    buttons={[{"label":"Explore Architecture","href":"/architecture","variant":"primary"},{"label":"View Use Cases","href":"/use-cases","variant":"secondary"}]}
+  />
+</BaseLayout>

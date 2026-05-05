@@ -1,0 +1,96 @@
+---
+// Auto-generated from site.yaml — edit site.yaml and regenerate
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="System Extensibility — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="System Extensibility"
+    subtitle="Extend the engine at every layer. Custom agents, custom plugins, custom clients."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Most tools give you a prompt box. Codebolt gives you three SDKs. The Agent SDK for building agents. The Plugin SDK for building applications inside the engine. The Client SDK for building any interface on top. Every layer of the system is open."
+  />
+  <FeatureBlock
+    heading="Agent SDK — codeboltjs"
+    body="Write agents in JavaScript/TypeScript. Agents connect as child processes via WebSocket and get access to 63+ API modules — filesystem, git, terminal, browser automation, LLM (any provider), vector database, memory systems, knowledge graphs, code search, and more. You control every step of the agent loop. Not prompts — code."
+    diagram={`import { codebolt } from 'codeboltjs';
+
+codebolt.onMessage(async (msg) => {
+  const files = await codebolt.fs.readDir('/src');
+  const code = await codebolt.fs.readFile('main.ts');
+  const review = await codebolt.llm.chat({...});
+  await codebolt.git.commit(review.summary);
+  await codebolt.chat.sendMessage(review);
+});
+// 63+ modules. Full control.
+`}
+  />
+  <FeatureBlock
+    heading="Plugin SDK — Three Communication Channels"
+    body="Plugins connect to the engine through three channels simultaneously. Channel 1: WebSocket (same as agents — filesystem, git, terminal, LLM access). Channel 2: Multiplexed events (real-time subscriptions to tasks, chat, jobs, swarm, calendar, review-merge). Channel 3: HTTP REST (CRUD for threads, tasks, projects, environments). Plugins run inside the engine — no separate agent instance needed."
+    reverse={true}
+    diagram="┌──────────────────────────────────┐
+│  Your Plugin                     │
+├──────────────────────────────────┤
+│ Ch.1 WS     → fs, git, llm, ... │
+│ Ch.2 Mux    → events, tasks, ... │
+│ Ch.3 HTTP   → CRUD, projects, ...│
+├──────────────────────────────────┤
+│ onStart() → receives PluginContext│
+│ onMessage() → incoming messages  │
+│ Lifecycle managed by engine      │
+│ Trigger-based auto-start         │
+└──────────────────────────────────┘
+"
+  />
+  <FeatureBlock
+    heading="Client SDK — Build Any Interface"
+    body="72 lazily-initialized REST API modules covering every domain: chat, agents, git, tasks, browser, file, LLM, vector DB, knowledge, swarm, orchestrator, environments, memory, calendar, and more. 33 WebSocket modules for real-time events: shell PTY, chat, editor, LSP, browser, tasks, jobs, swarm, debug. Connection presets (MINIMAL, STANDARD, FULL) and unified event filtering with wildcards and predicates."
+    diagram={`const client = new CodeBoltClient({
+  defaultPreset: 'standard'
+});
+
+// 72 REST APIs
+const tasks = await client.tasks.getTasks();
+const agents = await client.agents.list();
+
+// 33 WebSocket streams
+client.onEvents('tasks.*', (data) => {
+  updateDashboard(data);
+});
+
+// Build: dashboards, mobile apps,
+// Slack bots, VS Code extensions,
+// CLI tools, anything.
+`}
+  />
+  <FeatureBlock
+    heading="Plugin Discovery & Lifecycle"
+    body="Plugins are discovered from project .codeboltPlugins/ directories and global ~/.codebolt/plugins/. Each plugin declares itself in package.json with a codebolt.plugin key. The PluginProcessManager handles loading, starting, stopping, and trigger-based auto-start. Plugins receive a PluginContext with their ID, directory, and manifest. Built-in plugins include cloud integration, remote execution, and test execution."
+    reverse={true}
+    diagram="Discovery:
+├─ .codeboltPlugins/ (per-project)
+└─ ~/.codebolt/plugins/ (global)
+
+Lifecycle:
+discover → load → start → running
+                    ↕
+          stop ← trigger-based
+
+Built-in:
+├─ cloud-plugin
+├─ remote-execution-plugin
+└─ test-execution-plugin
+"
+  />
+  <CtaBlock
+    heading="Three SDKs. Every layer open."
+    buttons={[{"label":"Get Started","href":"/pricing","variant":"primary"},{"label":"Back to Engine","href":"/engine","variant":"secondary"}]}
+  />
+</BaseLayout>

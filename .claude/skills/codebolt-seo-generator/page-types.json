@@ -1,0 +1,601 @@
+{
+  "lastUpdated": "2025-01-18",
+  "version": "1.0.0",
+  "seoCore": {
+    "description": "SEO Core principles from @kalashbuilds' PSEO architecture for scale. This transforms PSEO from generating pages to managing them as a system.",
+    "principles": [
+      "Metadata as a factory (not inline code)",
+      "Schema as composable builders",
+      "Content uniqueness enforcement at scale",
+      "Internal linking as a graph (hubs and spokes)",
+      "Pages as first-class entities",
+      "Template-driven generation",
+      "Validation over volume",
+      "Intent-based routing decisions"
+    ]
+  },
+  "pageEntityModel": {
+    "requiredFields": {
+      "id": "Unique identifier",
+      "slug": "URL slug",
+      "url": "Full URL",
+      "intent": "informational | transactional | navigational",
+      "primaryKeyword": "Main target keyword",
+      "supportingKeywords": "Secondary keywords (array)",
+      "category": "Page category",
+      "template": "Template to use",
+      "schemaType": "Schema.org type"
+    },
+    "optionalFields": {
+      "parentHub": "Parent hub page URL",
+      "siblingPages": "Related pages at same level",
+      "childSpokes": "Long-tail variations",
+      "relatedPages": "Contextually related pages",
+      "lastModified": "Last modified date",
+      "wordCount": "Content length",
+      "seoScore": "SEO quality score (0-100)",
+      "completeness": "Completeness percentage (0-100)"
+    }
+  },
+  "contentUniqueness": {
+    "minimumWordCounts": {
+      "comparison": 800,
+      "use-case": 600,
+      "persona": 600,
+      "tech-stack": 500,
+      "industry": 700
+    },
+    "validationRules": {
+      "minWordCount": true,
+      "keywordOverlapThreshold": 0.7,
+      "contentHashing": true,
+      "duplicateThreshold": 0.85,
+      "faqMinCount": 3
+    },
+    "enforcement": {
+      "duplicateHandling": "canonical_assignment",
+      "keywordCannibalization": "merge_or_block",
+      "thinContent": "reject",
+      "keywordStuffing": "warn"
+    }
+  },
+  "internalLinkingGraph": {
+    "structure": "hubs-and-spokes",
+    "hubPages": [
+      {
+        "url": "/features",
+        "title": "Features",
+        "intent": "navigational",
+        "priority": 10
+      },
+      {
+        "url": "/use-cases",
+        "title": "Use Cases",
+        "intent": "informational",
+        "priority": 8
+      },
+      {
+        "url": "/for",
+        "title": "For You (Personas)",
+        "intent": "informational",
+        "priority": 7
+      }
+    ],
+    "spokePatterns": {
+      "comparison": {
+        "linksTo": ["features", "use-cases", "for"],
+        "maxLinks": 5,
+        "intent": "transactional"
+      },
+      "use-case": {
+        "linksTo": ["features", "for"],
+        "maxLinks": 5,
+        "intent": "transactional"
+      },
+      "persona": {
+        "linksTo": ["use-cases", "features"],
+        "maxLinks": 5,
+        "intent": "informational"
+      },
+      "tech-stack": {
+        "linksTo": ["use-cases", "tech"],
+        "maxLinks": 4,
+        "intent": "informational"
+      },
+      "industry": {
+        "linksTo": ["use-cases", "for"],
+        "maxLinks": 4,
+        "intent": "transactional"
+      }
+    }
+  },
+  "sitemapStrategy": {
+    "maxUrlsPerFile": 50000,
+    "strategy": "category-based",
+    "pagination": true,
+    "lastModifiedPrecision": "date"
+  },
+  "seoCoreComponents": {
+    "metadataFactory": "scripts/seo-core.ts - MetadataFactory class",
+    "schemaBuilder": "scripts/seo-core.ts - SchemaBuilder class",
+    "linkingGraph": "scripts/seo-core.ts - InternalLinkingGraph class",
+    "uniquenessValidator": "scripts/seo-core.ts - ContentUniquenessValidator class",
+    "sitemapGenerator": "scripts/seo-core.ts - SitemapGenerator class"
+  },
+  "pageTypes": [
+    {
+      "id": "comparison",
+      "name": "Comparison",
+      "description": "CodeBolt vs competitor",
+      "urlPattern": "/vs/{slug}",
+      "templateFile": "references/page-templates.md#comparison",
+      "schemaType": "softwareapplication",
+      "intent": "transactional",
+      "minWordCount": 800,
+      "contentGuidelines": {
+        "requiredSections": ["hero", "comparison-table", "key-features", "why-codebolt", "cta"],
+        "uniqueValue": "Head-to-head comparison showing specific differentiators"
+      },
+      "questions": [
+        {
+          "id": "competitor",
+          "type": "text",
+          "question": "Which competitor are you comparing against?",
+          "required": true
+        },
+        {
+          "id": "competitor-description",
+          "type": "text",
+          "question": "What's a brief description of this competitor?",
+          "required": true
+        },
+        {
+          "id": "competitor-features",
+          "type": "list",
+          "question": "What are their main features? (3-5 items)",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 5
+        },
+        {
+          "id": "competitor-strengths",
+          "type": "list",
+          "question": "What are their strengths compared to CodeBolt? (3-5 items)",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 5
+        },
+        {
+          "id": "competitor-weaknesses",
+          "type": "list",
+          "question": "What are their weaknesses? (3-5 items)",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 5
+        },
+        {
+          "id": "codebolt-advantages",
+          "type": "list",
+          "question": "What are CodeBolt's key advantages over them? (5-7 items)",
+          "required": true,
+          "minItems": 5,
+          "maxItems": 7,
+          "source": "conceptbank/features/"
+        },
+        {
+          "id": "target-keywords",
+          "type": "list",
+          "question": "Any specific keywords to target? (optional)",
+          "required": false,
+          "maxItems": 10
+        }
+      ],
+      "internalLinks": {
+        "linksTo": ["features", "use-cases", "for"],
+        "linksFrom": ["vs"],
+        "relatedType": "vs"
+      }
+    },
+    {
+      "id": "use-case",
+      "name": "Use Case",
+      "description": "Specific workflow or scenario",
+      "urlPattern": "/use-cases/{slug}",
+      "templateFile": "references/page-templates.md#use-case",
+      "schemaType": "article",
+      "intent": "transactional",
+      "minWordCount": 600,
+      "contentGuidelines": {
+        "requiredSections": ["problem", "solution", "features", "metrics", "cta"],
+        "uniqueValue": "Actionable, metric-driven content that solves specific problems"
+      },
+      "questions": [
+        {
+          "id": "use-case-name",
+          "type": "text",
+          "question": "What's the use case name? (e.g., 'Automated Refactoring')",
+          "required": true
+        },
+        {
+          "id": "problem",
+          "type": "text",
+          "question": "What problem does it solve? (2-3 sentences)",
+          "required": true
+        },
+        {
+          "id": "solution",
+          "type": "text",
+          "question": "How does CodeBolt solve it? (2-3 sentences)",
+          "required": true
+        },
+        {
+          "id": "features",
+          "type": "list",
+          "question": "Which CodeBolt features enable this? (4-6 features)",
+          "required": true,
+          "minItems": 4,
+          "maxItems": 6,
+          "source": "conceptbank/features/"
+        },
+        {
+          "id": "metrics",
+          "type": "list",
+          "question": "What are the expected results/metrics? (3-5 metrics)",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 5
+        },
+        {
+          "id": "persona",
+          "type": "choice",
+          "question": "Who is this use case primarily for?",
+          "required": true,
+          "options": [
+            {"label": "Enterprise Architect", "value": "enterprise-architect"},
+            {"label": "AI/ML Engineer", "value": "ai-ml-engineer"},
+            {"label": "Tech Lead", "value": "tech-lead"},
+            {"label": "Startup CTO", "value": "startup-cto"},
+            {"label": "DevOps Engineer", "value": "devops-champion"},
+            {"label": "Solo Developer", "value": "solo-developer"}
+          ]
+        },
+        {
+          "id": "keywords",
+          "type": "list",
+          "question": "What are the target keywords? (3-5 keywords)",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 5
+        }
+      ],
+      "internalLinks": {
+        "linksTo": ["features", "for"],
+        "linksFrom": ["use-cases", "for", "features"],
+        "relatedType": "use-cases"
+      }
+    },
+    {
+      "id": "persona",
+      "name": "Persona",
+      "description": "Target audience profile",
+      "urlPattern": "/for/{slug}",
+      "templateFile": "references/page-templates.md#persona",
+      "schemaType": "article",
+      "intent": "informational",
+      "minWordCount": 600,
+      "contentGuidelines": {
+        "requiredSections": ["profile", "challenges", "benefits", "features", "cta"],
+        "uniqueValue": "Personalized content that resonates with specific audience"
+      },
+      "questions": [
+        {
+          "id": "persona-name",
+          "type": "text",
+          "question": "Who is the target persona? (e.g., 'Startup CTO', 'DevOps Engineer')",
+          "required": true
+        },
+        {
+          "id": "persona-title",
+          "type": "text",
+          "question": "What's their formal job title?",
+          "required": true
+        },
+        {
+          "id": "company-size",
+          "type": "text",
+          "question": "What's their typical company size?",
+          "required": true
+        },
+        {
+          "id": "experience",
+          "type": "text",
+          "question": "What's their experience level?",
+          "required": true
+        },
+        {
+          "id": "challenges",
+          "type": "list",
+          "question": "What are their main challenges? (5-7 items)",
+          "required": true,
+          "minItems": 5,
+          "maxItems": 7
+        },
+        {
+          "id": "goals",
+          "type": "list",
+          "question": "What are their goals? (3-5 items)",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 5
+        },
+        {
+          "id": "benefits",
+          "type": "list",
+          "question": "How does CodeBolt help them? (5-7 benefits)",
+          "required": true,
+          "minItems": 5,
+          "maxItems": 7,
+          "source": "conceptbank/features/"
+        },
+        {
+          "id": "testimonials",
+          "type": "list",
+          "question": "Any testimonials or quotes? (2-3 testimonials, optional)",
+          "required": false,
+          "maxItems": 3
+        },
+        {
+          "id": "keywords",
+          "type": "list",
+          "question": "What are the target keywords? (3-5 keywords)",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 5
+        }
+      ],
+      "internalLinks": {
+        "linksTo": ["use-cases", "features"],
+        "linksFrom": ["for", "use-cases", "features"],
+        "relatedType": "for"
+      }
+    },
+    {
+      "id": "tech-stack",
+      "name": "Tech Stack",
+      "description": "Language or framework guide",
+      "urlPattern": "/tech/{slug}",
+      "templateFile": "references/page-templates.md#tech-stack",
+      "schemaType": "softwareapplication",
+      "intent": "informational",
+      "minWordCount": 500,
+      "contentGuidelines": {
+        "requiredSections": ["overview", "common-use-cases", "benefits", "features", "cta"],
+        "uniqueValue": "Technical depth with practical application"
+      },
+      "questions": [
+        {
+          "id": "tech-name",
+          "type": "text",
+          "question": "Which technology/language/framework?",
+          "required": true
+        },
+        {
+          "id": "category",
+          "type": "choice",
+          "question": "What category does it belong to?",
+          "required": true,
+          "options": [
+            {"label": "Language", "value": "language"},
+            {"label": "Frontend Framework", "value": "framework"},
+            {"label": "Backend Framework", "value": "backend"},
+            {"label": "Database", "value": "database"},
+            {"label": "CSS Framework", "value": "css"},
+            {"label": "Library", "value": "library"}
+          ]
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "question": "What's it used for? (brief description)",
+          "required": true
+        },
+        {
+          "id": "use-cases",
+          "type": "list",
+          "question": "What are common use cases? (4-6 items)",
+          "required": true,
+          "minItems": 4,
+          "maxItems": 6
+        },
+        {
+          "id": "benefits",
+          "type": "list",
+          "question": "How does CodeBolt help with this stack? (5-7 benefits)",
+          "required": true,
+          "minItems": 5,
+          "maxItems": 7
+        },
+        {
+          "id": "related-stacks",
+          "id": "related-stacks",
+          "type": "list",
+          "question": "Which related technologies to link to? (3-5)",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 5
+        },
+        {
+          "id": "keywords",
+          "type": "list",
+          "question": "What are the target keywords? (3-5 keywords)",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 5
+        }
+      ],
+      "internalLinks": {
+        "linksTo": ["use-cases", "tech"],
+        "linksFrom": ["tech"],
+        "relatedType": "tech"
+      }
+    },
+    {
+      "id": "industry",
+      "name": "Industry",
+      "description": "Vertical market focus",
+      "urlPattern": "/industries/{slug}",
+      "templateFile": "references/page-templates.md#industry",
+      "schemaType": "article",
+      "intent": "transactional",
+      "minWordCount": 700,
+      "contentGuidelines": {
+        "requiredSections": ["overview", "challenges", "solutions", "use-cases", "compliance"],
+        "uniqueValue": "Industry-specific content with compliance awareness"
+      },
+      "questions": [
+        {
+          "id": "industry-name",
+          "type": "text",
+          "question": "Which industry/vertical?",
+          "required": true
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "question": "Brief description of the industry",
+          "required": true
+        },
+        {
+          "id": "challenges",
+          "type": "list",
+          "question": "What are the key challenges? (5-7 items)",
+          "required": true,
+          "minItems": 5,
+          "maxItems": 7
+        },
+        {
+          "id": "compliance",
+          "id": "compliance",
+          "type": "list",
+          "question": "What compliance requirements exist? (2-5 standards)",
+          "required": true,
+          "minItems": 2,
+          "maxItems": 5
+        },
+        {
+          "id": "use-cases",
+          "type": "list",
+          "question": "What are common use cases? (4-6 items)",
+          "required": true,
+          "minItems": 4,
+          "maxItems": 6
+        },
+        {
+          "id": "solutions",
+          "id": "solutions",
+          "type": "list",
+          "question": "How does CodeBolt address industry needs? (5-7 solutions)",
+          "required": true,
+          "minItems": 5,
+          "maxItems": 7
+        },
+        {
+          "id": "keywords",
+          "id": "keywords",
+          "type": "list",
+          "question": "What are the target keywords? (3-5 keywords)",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 5
+        }
+      ],
+      "internalLinks": {
+        "linksTo": ["use-cases", "for"],
+        "linksFrom": ["industries"],
+        "relatedType": "industries"
+      }
+    }
+  ],
+  "internalLinkingRules": {
+    "hubPages": [
+      {
+        "url": "/features",
+        "title": "Features",
+        "linksToAllTypes": true
+      },
+      {
+        "url": "/use-cases",
+        "title": "Use Cases",
+        "linksToAllTypes": false
+      },
+      {
+        "url": "/for",
+        "title": "For You (Personas)",
+        "linksToAllTypes": false
+      }
+    ],
+    "crossLinking": {
+      "comparison": {
+        "linksTo": ["use-cases", "features", "for"],
+        "maxLinks": 5
+      },
+      "use-case": {
+        "linksTo": ["features", "for", "vs"],
+        "maxLinks": 5
+      },
+      "persona": {
+        "linksTo": ["use-cases", "features"],
+        "maxLinks": 5
+      },
+      "tech-stack": {
+        "linksTo": ["use-cases", "tech"],
+        "maxLinks": 4
+      },
+      "industry": {
+        "linksTo": ["use-cases", "for"],
+        "maxLinks": 4
+      }
+    },
+    "relatedPageCount": {
+      "min": 3,
+      "max": 5,
+      "default": 4
+    }
+  },
+  "seoRequirements": {
+    "title": {
+      "minLength": 30,
+      "maxLength": 60,
+      "includePrimaryKeyword": true
+    },
+    "description": {
+      "minLength": 120,
+      "maxLength": 160,
+      "includeValueProposition": true
+    },
+    "keywords": {
+      "minCount": 5,
+      "maxCount": 10,
+      "includePrimary": true,
+      "includeSecondary": true
+    },
+    "content": {
+      "keywordDensity": {
+        "min": 1,
+        "max": 2,
+        "unit": "percent"
+      },
+      "headingStructure": {
+        "h1": "One per page, includes primary keyword",
+        "h2": "3-5 per page, include secondary keywords",
+        "h3": "As needed for organization"
+      },
+    }
+  },
+  "conceptBankMapping": {
+    "features": "conceptbank/features/",
+    "personas": "conceptbank/users/personas/",
+    "philosophy": "conceptbank/core/philosophy/",
+    "business": "conceptbank/business/"
+  },
+}

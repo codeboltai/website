@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review & Merge - Codebolt Features</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo">Codebolt</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Features</a></li>
+                <li><a href="../concepts/index.html">Concepts</a></li>
+                <li><a href="../use-cases.html">Use Cases</a></li>
+                <li><a href="../download.html" class="btn btn-primary" style="padding: 10px 20px;">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 160px 24px 80px;">
+        <div class="hero-content">
+            <div class="hero-badge">Feature</div>
+            <h1>Review & Merge</h1>
+            <p class="hero-subtitle">
+                Multi-reviewer deliberation. Reputation-weighted voting. Cross-environment reviews with automatic merge integration.
+            </p>
+        </div>
+    </section>
+
+    <!-- Merge Request Lifecycle -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Workflow</span>
+                <h2 class="section-title">Merge Request Lifecycle</h2>
+                <p class="section-desc">Like GitHub PRs, but built for agent swarms. Multi-reviewer deliberation replaces single approvals.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 48px;">
+                <div style="text-align: center;">
+                    <div style="width: 56px; height: 56px; background: var(--accent-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; margin: 0 auto 12px;">📝</div>
+                    <h4 style="font-size: 14px; margin-bottom: 4px;">Draft</h4>
+                    <p style="font-size: 12px; color: var(--text-muted);">Work in progress</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 56px; height: 56px; background: var(--accent-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; margin: 0 auto 12px;">🔍</div>
+                    <h4 style="font-size: 14px; margin-bottom: 4px;">Review</h4>
+                    <p style="font-size: 12px; color: var(--text-muted);">Under deliberation</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 56px; height: 56px; background: var(--accent-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; margin: 0 auto 12px;">✅</div>
+                    <h4 style="font-size: 14px; margin-bottom: 4px;">Approved</h4>
+                    <p style="font-size: 12px; color: var(--text-muted);">Ready to merge</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 56px; height: 56px; background: var(--accent-subtle); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; margin: 0 auto 12px;">🔀</div>
+                    <h4 style="font-size: 14px; margin-bottom: 4px;">Merged</h4>
+                    <p style="font-size: 12px; color: var(--text-muted);">In main branch</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 56px; height: 56px; background: rgba(239, 68, 68, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; margin: 0 auto 12px;">❌</div>
+                    <h4 style="font-size: 14px; margin-bottom: 4px;">Rejected</h4>
+                    <p style="font-size: 12px; color: var(--text-muted);">Needs rework</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Reviewer Deliberation -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="split">
+                <div>
+                    <span class="section-label">Collective Review</span>
+                    <h2 class="section-title">Multi-Reviewer Deliberation</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        No single points of failure. Multiple agents review each MR. Approval requires consensus through reputation-weighted voting.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-bullet">🔍</div>
+                            <div>
+                                <h4>Diff Analysis</h4>
+                                <p>Reviewers analyze changes, check for issues, verify against spec.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">💬</div>
+                            <div>
+                                <h4>Inline Feedback</h4>
+                                <p>Comments, suggestions, and change requests on specific lines.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🗳️</div>
+                            <div>
+                                <h4>Reputation-Weighted Voting</h4>
+                                <p>Higher reputation = more voting weight. Experts have more say.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-block dark">
+                    [Review Deliberation]<br><br>
+                    MR-156: "Add OAuth2 support"<br><br>
+                    Agent-47: ✅ Approve (rep: 0.92)<br>
+                    Agent-12: ✅ Approve (rep: 0.85)<br>
+                    Agent-89: ⚠️ Request changes (rep: 0.78)<br><br>
+                    Weighted score: 0.84 → Approved
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conflict Resolution -->
+    <section class="section">
+        <div class="container">
+            <div class="split reverse">
+                <div>
+                    <span class="section-label">Merge Integration</span>
+                    <h2 class="section-title">Automatic Conflict Resolution</h2>
+                    <p class="section-desc" style="margin-bottom: 24px;">
+                        When conflicts arise, the swarm doesn't block—it resolves. Agents can propose resolutions, vote on approaches, or escalate to humans.
+                    </p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-bullet">⚠️</div>
+                            <div>
+                                <h4>Conflict Detection</h4>
+                                <p>Automatically detect merge conflicts before they block.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🔧</div>
+                            <div>
+                                <h4>Resolution Proposals</h4>
+                                <p>Agents propose resolutions. Best proposal wins by voting.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-bullet">🚨</div>
+                            <div>
+                                <h4>Human Escalation</h4>
+                                <p>Complex conflicts escalate to humans with full context.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-block">
+                    [Conflict Resolution Flow]<br><br>
+                    Conflict in auth.ts detected<br>
+                    → Agent-47 proposes resolution A<br>
+                    → Agent-12 proposes resolution B<br>
+                    → Voting: A wins (3-1)<br>
+                    → Auto-resolve applied
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cross-Environment Reviews -->
+    <section class="section" style="background: var(--surface-alt);">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-label">Multi-Environment</span>
+                <h2 class="section-title">Cross-Environment Reviews</h2>
+                <p class="section-desc">Changes in one environment can be reviewed and merged into another. Shadow git tracks isolated work until merge.</p>
+            </div>
+            <div class="bento-grid" style="margin-top: 48px;">
+                <div class="bento-card span-4">
+                    <h4 style="margin-bottom: 12px;">🌐 Environment Isolation</h4>
+                    <p class="bento-desc">Each agent team can work in isolated environments. No stepping on toes.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <h4 style="margin-bottom: 12px;">📊 Environment Diff</h4>
+                    <p class="bento-desc">See all changes between environments at a glance.</p>
+                </div>
+                <div class="bento-card span-4">
+                    <h4 style="margin-bottom: 12px;">🔀 Cross-Env Merge</h4>
+                    <p class="bento-desc">Merge vetted changes from dev to staging to production.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Merge with Confidence</h2>
+            <p>Download Codebolt and experience swarm-powered code review.</p>
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="../download.html" class="btn btn-primary">Download Free</a>
+                <a href="communication.html" class="btn btn-secondary">Next: Communication →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                © 2026 Codebolt. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
