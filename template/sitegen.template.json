@@ -15,9 +15,23 @@
   },
   "privateComponents": [
     "button",
+    "cta-button",
+    "diagram-panel",
+    "feature-card",
     "footer",
+    "kicker",
+    "layer-row",
+    "metric-bar",
+    "metric-display",
+    "metric-strip",
     "mobile-menu",
-    "navbar"
+    "navbar",
+    "protocol-card",
+    "section-shell",
+    "status-badge",
+    "step-card",
+    "tier-card",
+    "topo-card"
   ],
   "componentGroups": [
     {
