@@ -209,22 +209,8 @@ pages:
         body: "Don't settle for someone else's agent loop. Write <a class='inline-tag' href='/products/sdk'>custom agents</a> in JavaScript with the 63-module SDK — full control over prompts, tools, memory, and routing. Build <a class='inline-tag' href='/engine/system-extensibility'>custom plugins</a> that run inside the engine on three communication channels. Or ship <a class='inline-tag' href='/products/sdk'>custom UIs</a> on top of the Client SDK. Your agents, your tools, your rules."
         reverse: true
         cta: { label: "Explore Agent + Plugin SDKs", href: "/products/sdk" }
-        image: "/images/harness-code.png"
-        imageAlt: "Custom Agent and Plugin SDK code"
-        diagram: |
-          // Custom Agent — 10 lines, full power
-          import { codebolt } from 'codeboltjs';
-
-          codebolt.onMessage(async (msg) => {
-            const plan  = await codebolt.llm.plan(msg);
-            const code  = await codebolt.fs.read(plan.file);
-            const next  = await codebolt.llm.edit(code, plan);
-            await codebolt.fs.write(plan.file, next);
-            await codebolt.git.commit(`agent: ${plan.summary}`);
-          });
-
-          // Custom Plugin — runs inside the engine
-          // 3 channels: WebSocket · Mux · HTTP
+        image: "/images/sdk-code-diagram.svg"
+        imageAlt: "Codebolt Agent SDK code snippet showing a 10-line custom agent with LLM, filesystem, and git modules"
 
       # ── BENTO EXPERIMENT (Build harness variant) ──
       - type: bento-grid
@@ -255,14 +241,14 @@ pages:
             description: "Inherit a base agent. Customize in YAML + Markdown. Git-friendly. No code required."
             span: 1
             image:
-              src: "/images/sdk-agent-framework.svg"
+              src: "/images/remix.gif"
               alt: "Agent framework options for remix, flow, and custom agents"
           - title: "Flow Agents"
             tag: "VISUAL"
             description: "Drag-and-drop agent workflows. LiteGraph editor. Compose agents with no code."
             span: 1
             image:
-              src: "/images/sdk-workflow-agents.svg"
+              src: "/images/agentflow.gif"
               alt: "Visual flow agents moving through plan, edit, test, and review stages"
           - title: "Custom UI"
             tag: "CLIENT SDK"
@@ -270,7 +256,7 @@ pages:
             href: "/products/sdk"
             span: 1
             image:
-              src: "/images/sdk-client-interface.svg"
+              src: "/images/customuis.gif"
               alt: "Client SDK interface with REST, WebSocket, dashboard, panel, and mobile surfaces"
 
       - type: feature-block
@@ -387,13 +373,13 @@ pages:
             description: "Terminal client. Like Claude Code, but with custom agents and a growth path to multi-agent."
             href: "/products/cli"
             image:
-              src: "/images/cli-agent-conversations.svg"
+              src: "/images/cli-feature.gif"
               alt: "CLI agent conversations with terminal prompts, custom agents, server mode, and prompt runs"
           - title: "Editor"
             description: "Desktop editor with Monaco, agent workspace, and plugin panel. Not a fork."
             href: "/products/editor"
             image:
-              src: "/images/editor-project-workspace.svg"
+              src: "/images/editor-feature.gif"
               alt: "Editor workspace with project files, agents, terminal, browser, and plugin panels"
           - title: "24/7 Autonomous Agent"
             description: "Always-on agent with persistent memory and plugin integrations. Reaches your customers wherever they are."
@@ -405,7 +391,7 @@ pages:
             description: "Hosted engine with a browser portal. Sandbox runs, shared workspaces, no install."
             href: "/products/cloud"
             image:
-              src: "/images/cloud-sandboxes.svg"
+              src: "/images/cloud-feature.gif"
               alt: "Cloud portal with managed sandboxes, browser sessions, shared workspaces, and hosted runtime"
 
       - type: sdk-callout

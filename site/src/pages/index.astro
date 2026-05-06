@@ -81,22 +81,8 @@ distributes itself, and composes with other software like it.
     body={`Don't settle for someone else's agent loop. Write <a class='inline-tag' href='/products/sdk'>custom agents</a> in JavaScript with the 63-module SDK — full control over prompts, tools, memory, and routing. Build <a class='inline-tag' href='/engine/system-extensibility'>custom plugins</a> that run inside the engine on three communication channels. Or ship <a class='inline-tag' href='/products/sdk'>custom UIs</a> on top of the Client SDK. Your agents, your tools, your rules.`}
     reverse={true}
     cta={{"label":"Explore Agent + Plugin SDKs","href":"/products/sdk"}}
-    image="/images/harness-code.png"
-    imageAlt="Custom Agent and Plugin SDK code"
-    diagram={`// Custom Agent — 10 lines, full power
-import { codebolt } from 'codeboltjs';
-
-codebolt.onMessage(async (msg) => {
-  const plan  = await codebolt.llm.plan(msg);
-  const code  = await codebolt.fs.read(plan.file);
-  const next  = await codebolt.llm.edit(code, plan);
-  await codebolt.fs.write(plan.file, next);
-  await codebolt.git.commit(\`agent: \${plan.summary}\`);
-});
-
-// Custom Plugin — runs inside the engine
-// 3 channels: WebSocket · Mux · HTTP
-`}
+    image="/images/sdk-code-diagram.svg"
+    imageAlt="Codebolt Agent SDK code snippet showing a 10-line custom agent with LLM, filesystem, and git modules"
   />
   <BentoGrid
     kicker="BENTO VARIANT · BUILD HARNESS"
@@ -104,7 +90,7 @@ codebolt.onMessage(async (msg) => {
     description="Same content as the section above, in a bento grid layout. Compare and pick the one you like."
     columns={3}
     gap="none"
-    items={[{"title":"Custom Agents","tag":"AGENT SDK","description":"Write agents in JavaScript with 63+ SDK modules. Full control over the agentic loop — prompts, tools, memory, routing.","href":"/products/sdk","span":2,"image":{"src":"/images/sdk-agent-layer.svg","alt":"Agent SDK layer with prompts, tools, memory, browser, filesystem, and git modules"}},{"title":"Custom Plugins","tag":"PLUGIN SDK","description":"Run inside the engine on three channels — WebSocket actions, multiplexed events, HTTP REST.","href":"/engine/system-extensibility","span":1,"image":{"src":"/images/sdk-plugin-layer.svg","alt":"Plugin SDK layer with WebSocket, multiplexed event, and HTTP channels"}},{"title":"Remix Agents","tag":"NO-CODE","description":"Inherit a base agent. Customize in YAML + Markdown. Git-friendly. No code required.","span":1,"image":{"src":"/images/sdk-agent-framework.svg","alt":"Agent framework options for remix, flow, and custom agents"}},{"title":"Flow Agents","tag":"VISUAL","description":"Drag-and-drop agent workflows. LiteGraph editor. Compose agents with no code.","span":1,"image":{"src":"/images/sdk-workflow-agents.svg","alt":"Visual flow agents moving through plan, edit, test, and review stages"}},{"title":"Custom UI","tag":"CLIENT SDK","description":"Build dashboards, panels, mobile apps. 72 REST + 33 WebSocket modules.","href":"/products/sdk","span":1,"image":{"src":"/images/sdk-client-interface.svg","alt":"Client SDK interface with REST, WebSocket, dashboard, panel, and mobile surfaces"}}]}
+    items={[{"title":"Custom Agents","tag":"AGENT SDK","description":"Write agents in JavaScript with 63+ SDK modules. Full control over the agentic loop — prompts, tools, memory, routing.","href":"/products/sdk","span":2,"image":{"src":"/images/sdk-agent-layer.svg","alt":"Agent SDK layer with prompts, tools, memory, browser, filesystem, and git modules"}},{"title":"Custom Plugins","tag":"PLUGIN SDK","description":"Run inside the engine on three channels — WebSocket actions, multiplexed events, HTTP REST.","href":"/engine/system-extensibility","span":1,"image":{"src":"/images/sdk-plugin-layer.svg","alt":"Plugin SDK layer with WebSocket, multiplexed event, and HTTP channels"}},{"title":"Remix Agents","tag":"NO-CODE","description":"Inherit a base agent. Customize in YAML + Markdown. Git-friendly. No code required.","span":1,"image":{"src":"/images/remix.gif","alt":"Agent framework options for remix, flow, and custom agents"}},{"title":"Flow Agents","tag":"VISUAL","description":"Drag-and-drop agent workflows. LiteGraph editor. Compose agents with no code.","span":1,"image":{"src":"/images/agentflow.gif","alt":"Visual flow agents moving through plan, edit, test, and review stages"}},{"title":"Custom UI","tag":"CLIENT SDK","description":"Build dashboards, panels, mobile apps. 72 REST + 33 WebSocket modules.","href":"/products/sdk","span":1,"image":{"src":"/images/customuis.gif","alt":"Client SDK interface with REST, WebSocket, dashboard, panel, and mobile surfaces"}}]}
   />
   <FeatureBlock
     kicker="03 · RUN AUTONOMOUS"
@@ -164,7 +150,7 @@ codebolt.onMessage(async (msg) => {
     heading="One engine. Every surface."
     subtitle="Same engine, same SDK, same plugins — different interface for different needs."
     columns={4}
-    items={[{"title":"CLI","description":"Terminal client. Like Claude Code, but with custom agents and a growth path to multi-agent.","href":"/products/cli","image":{"src":"/images/cli-agent-conversations.svg","alt":"CLI agent conversations with terminal prompts, custom agents, server mode, and prompt runs"}},{"title":"Editor","description":"Desktop editor with Monaco, agent workspace, and plugin panel. Not a fork.","href":"/products/editor","image":{"src":"/images/editor-project-workspace.svg","alt":"Editor workspace with project files, agents, terminal, browser, and plugin panels"}},{"title":"24/7 Autonomous Agent","description":"Always-on agent with persistent memory and plugin integrations. Reaches your customers wherever they are.","href":"/products/autonomous-agent","image":{"src":"/images/autonomous-scale.svg","alt":"Always-on autonomous agent with memory, plugins, hooks, external channels, and scaling"}},{"title":"Cloud","description":"Hosted engine with a browser portal. Sandbox runs, shared workspaces, no install.","href":"/products/cloud","image":{"src":"/images/cloud-sandboxes.svg","alt":"Cloud portal with managed sandboxes, browser sessions, shared workspaces, and hosted runtime"}}]}
+    items={[{"title":"CLI","description":"Terminal client. Like Claude Code, but with custom agents and a growth path to multi-agent.","href":"/products/cli","image":{"src":"/images/cli-feature.gif","alt":"CLI agent conversations with terminal prompts, custom agents, server mode, and prompt runs"}},{"title":"Editor","description":"Desktop editor with Monaco, agent workspace, and plugin panel. Not a fork.","href":"/products/editor","image":{"src":"/images/editor-feature.gif","alt":"Editor workspace with project files, agents, terminal, browser, and plugin panels"}},{"title":"24/7 Autonomous Agent","description":"Always-on agent with persistent memory and plugin integrations. Reaches your customers wherever they are.","href":"/products/autonomous-agent","image":{"src":"/images/autonomous-scale.svg","alt":"Always-on autonomous agent with memory, plugins, hooks, external channels, and scaling"}},{"title":"Cloud","description":"Hosted engine with a browser portal. Sandbox runs, shared workspaces, no install.","href":"/products/cloud","image":{"src":"/images/cloud-feature.gif","alt":"Cloud portal with managed sandboxes, browser sessions, shared workspaces, and hosted runtime"}}]}
   />
   <SdkCallout
     kicker="BUILD YOUR OWN SURFACE"

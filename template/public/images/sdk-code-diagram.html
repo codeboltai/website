@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    background: #1a1b2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+  
+  .code-block {
+    background: #1e1f33;
+    border-radius: 16px;
+    padding: 40px 48px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 15px;
+    line-height: 2;
+    width: 780px;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  
+  .line {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 4px;
+    white-space: pre;
+  }
+  
+  .line.highlighted {
+    background: rgba(56, 189, 248, 0.08);
+    border-left: 2px solid rgba(56, 189, 248, 0.4);
+    padding-left: 10px;
+  }
+  
+  .line-num {
+    color: #4a4b6a;
+    width: 32px;
+    text-align: right;
+    margin-right: 24px;
+    font-size: 13px;
+    user-select: none;
+    flex-shrink: 0;
+  }
+  
+  .code { color: #c9d1d9; }
+  
+  /* Syntax colors */
+  .comment { color: #6a6f8a; font-style: italic; }
+  .keyword { color: #c678dd; }
+  .function { color: #61afef; }
+  .string { color: #98c379; }
+  .variable { color: #e5c07b; }
+  .operator { color: #c9d1d9; }
+  .property { color: #56b6c2; }
+  .bracket { color: #e5c07b; }
+  .template { color: #98c379; }
+  .interpolation { color: #e5c07b; }
+  .module { color: #61afef; }
+</style>
+</head>
+<body>
+<div class="code-block">
+  <!-- Line 1: Comment -->
+  <div class="line">
+    <span class="line-num">1</span>
+    <span class="code"><span class="comment">// Custom Agent — 10 lines, full power</span></span>
+  </div>
+  
+  <!-- Line 2: import -->
+  <div class="line">
+    <span class="line-num">2</span>
+    <span class="code"><span class="keyword">import</span> <span class="bracket">{</span> <span class="module">codebolt</span> <span class="bracket">}</span> <span class="keyword">from</span> <span class="string">'codeboltjs'</span><span class="operator">;</span></span>
+  </div>
+  
+  <!-- Line 3: empty -->
+  <div class="line">
+    <span class="line-num">3</span>
+    <span class="code"></span>
+  </div>
+  
+  <!-- Line 4: codebolt.onMessage -->
+  <div class="line">
+    <span class="line-num">4</span>
+    <span class="code"><span class="module">codebolt</span><span class="operator">.</span><span class="function">onMessage</span><span class="operator">(</span><span class="keyword">async</span> <span class="operator">(</span><span class="variable">msg</span><span class="operator">)</span> <span class="keyword">=></span> <span class="bracket">{</span></span>
+  </div>
+  
+  <!-- Line 5: plan (highlighted) -->
+  <div class="line highlighted">
+    <span class="line-num">5</span>
+    <span class="code">  <span class="keyword">const</span> <span class="variable">plan</span>  <span class="operator">=</span> <span class="keyword">await</span> <span class="module">codebolt</span><span class="operator">.</span><span class="property">llm</span><span class="operator">.</span><span class="function">plan</span><span class="operator">(</span><span class="variable">msg</span><span class="operator">);</span></span>
+  </div>
+  
+  <!-- Line 6: code (highlighted) -->
+  <div class="line highlighted">
+    <span class="line-num">6</span>
+    <span class="code">  <span class="keyword">const</span> <span class="variable">code</span>  <span class="operator">=</span> <span class="keyword">await</span> <span class="module">codebolt</span><span class="operator">.</span><span class="property">fs</span><span class="operator">.</span><span class="function">read</span><span class="operator">(</span><span class="variable">plan</span><span class="operator">.</span><span class="property">file</span><span class="operator">);</span></span>
+  </div>
+  
+  <!-- Line 7: next (highlighted) -->
+  <div class="line highlighted">
+    <span class="line-num">7</span>
+    <span class="code">  <span class="keyword">const</span> <span class="variable">next</span>  <span class="operator">=</span> <span class="keyword">await</span> <span class="module">codebolt</span><span class="operator">.</span><span class="property">llm</span><span class="operator">.</span><span class="function">edit</span><span class="operator">(</span><span class="variable">code</span><span class="operator">,</span> <span class="variable">plan</span><span class="operator">);</span></span>
+  </div>
+  
+  <!-- Line 8: write (highlighted) -->
+  <div class="line highlighted">
+    <span class="line-num">8</span>
+    <span class="code">  <span class="keyword">await</span> <span class="module">codebolt</span><span class="operator">.</span><span class="property">fs</span><span class="operator">.</span><span class="function">write</span><span class="operator">(</span><span class="variable">plan</span><span class="operator">.</span><span class="property">file</span><span class="operator">,</span> <span class="variable">next</span><span class="operator">);</span></span>
+  </div>
+  
+  <!-- Line 9: commit (highlighted) -->
+  <div class="line highlighted">
+    <span class="line-num">9</span>
+    <span class="code">  <span class="keyword">await</span> <span class="module">codebolt</span><span class="operator">.</span><span class="property">git</span><span class="operator">.</span><span class="function">commit</span><span class="operator">(</span><span class="template">`agent: <span class="interpolation">${</span><span class="variable">plan</span><span class="operator">.</span><span class="property">summary</span><span class="interpolation">}</span>`</span><span class="operator">);</span></span>
+  </div>
+  
+  <!-- Line 10: closing -->
+  <div class="line">
+    <span class="line-num">10</span>
+    <span class="code"><span class="bracket">}</span><span class="operator">);</span></span>
+  </div>
+  
+  <!-- Line 11: empty -->
+  <div class="line">
+    <span class="line-num">11</span>
+    <span class="code"></span>
+  </div>
+  
+  <!-- Line 12: comment -->
+  <div class="line">
+    <span class="line-num">12</span>
+    <span class="code"><span class="comment">// Custom Plugin — runs inside the engine</span></span>
+  </div>
+  
+  <!-- Line 13: comment -->
+  <div class="line">
+    <span class="line-num">13</span>
+    <span class="code"><span class="comment">// 3 channels: WebSocket · Mux · HTTP</span></span>
+  </div>
+</div>
+</body>
+</html>

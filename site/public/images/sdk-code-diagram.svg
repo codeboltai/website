@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 520" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap');
+      .mono { font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; }
+      .line-num { fill: #4a4b6a; font-size: 13px; }
+      .comment  { fill: #6a6f8a; font-style: italic; }
+      .keyword  { fill: #c678dd; }
+      .func     { fill: #61afef; }
+      .str      { fill: #98c379; }
+      .var      { fill: #e5c07b; }
+      .op       { fill: #c9d1d9; }
+      .prop     { fill: #56b6c2; }
+      .module   { fill: #61afef; }
+      .tmpl     { fill: #98c379; }
+      .interp   { fill: #e5c07b; }
+    </style>
+  </defs>
+
+  <!-- Rounded container with semi-transparent dark bg -->
+  <rect x="0" y="0" width="780" height="520" rx="16" ry="16" fill="#1e1f33" fill-opacity="0.85"/>
+  
+  <!-- Subtle border -->
+  <rect x="0.5" y="0.5" width="779" height="519" rx="16" ry="16" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- Highlighted line backgrounds (lines 5-9) -->
+  <rect x="16" y="172" width="748" height="36" rx="4" fill="#38bdf8" fill-opacity="0.08"/>
+  <rect x="16" y="208" width="748" height="36" rx="4" fill="#38bdf8" fill-opacity="0.08"/>
+  <rect x="16" y="244" width="748" height="36" rx="4" fill="#38bdf8" fill-opacity="0.08"/>
+  <rect x="16" y="280" width="748" height="36" rx="4" fill="#38bdf8" fill-opacity="0.08"/>
+  <rect x="16" y="316" width="748" height="36" rx="4" fill="#38bdf8" fill-opacity="0.08"/>
+
+  <!-- Left accent bars for highlighted lines -->
+  <rect x="16" y="172" width="2" height="36" rx="1" fill="#38bdf8" fill-opacity="0.4"/>
+  <rect x="16" y="208" width="2" height="36" rx="1" fill="#38bdf8" fill-opacity="0.4"/>
+  <rect x="16" y="244" width="2" height="36" rx="1" fill="#38bdf8" fill-opacity="0.4"/>
+  <rect x="16" y="280" width="2" height="36" rx="1" fill="#38bdf8" fill-opacity="0.4"/>
+  <rect x="16" y="316" width="2" height="36" rx="1" fill="#38bdf8" fill-opacity="0.4"/>
+
+  <!-- Line 1: comment -->
+  <text y="60" class="mono">
+    <tspan x="36" class="line-num">1</tspan>
+    <tspan x="80" class="comment">// Custom Agent — 10 lines, full power</tspan>
+  </text>
+
+  <!-- Line 2: import -->
+  <text y="96" class="mono">
+    <tspan x="36" class="line-num">2</tspan>
+    <tspan x="80" class="keyword">import</tspan>
+    <tspan class="op"> { </tspan>
+    <tspan class="module">codebolt</tspan>
+    <tspan class="op"> } </tspan>
+    <tspan class="keyword">from</tspan>
+    <tspan class="str"> 'codeboltjs'</tspan>
+    <tspan class="op">;</tspan>
+  </text>
+
+  <!-- Line 3: empty -->
+  <text y="132" class="mono">
+    <tspan x="36" class="line-num">3</tspan>
+  </text>
+
+  <!-- Line 4: codebolt.onMessage -->
+  <text y="168" class="mono">
+    <tspan x="36" class="line-num">4</tspan>
+    <tspan x="80" class="module">codebolt</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="func">onMessage</tspan>
+    <tspan class="op">(</tspan>
+    <tspan class="keyword">async</tspan>
+    <tspan class="op"> (</tspan>
+    <tspan class="var">msg</tspan>
+    <tspan class="op">) =&gt; {</tspan>
+  </text>
+
+  <!-- Line 5: plan (highlighted) -->
+  <text y="198" class="mono">
+    <tspan x="36" class="line-num">5</tspan>
+    <tspan x="100" class="keyword">const</tspan>
+    <tspan class="var"> plan</tspan>
+    <tspan class="op">  = </tspan>
+    <tspan class="keyword">await</tspan>
+    <tspan class="module"> codebolt</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="prop">llm</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="func">plan</tspan>
+    <tspan class="op">(</tspan>
+    <tspan class="var">msg</tspan>
+    <tspan class="op">);</tspan>
+  </text>
+
+  <!-- Line 6: code (highlighted) -->
+  <text y="234" class="mono">
+    <tspan x="36" class="line-num">6</tspan>
+    <tspan x="100" class="keyword">const</tspan>
+    <tspan class="var"> code</tspan>
+    <tspan class="op">  = </tspan>
+    <tspan class="keyword">await</tspan>
+    <tspan class="module"> codebolt</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="prop">fs</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="func">read</tspan>
+    <tspan class="op">(</tspan>
+    <tspan class="var">plan</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="prop">file</tspan>
+    <tspan class="op">);</tspan>
+  </text>
+
+  <!-- Line 7: next (highlighted) -->
+  <text y="270" class="mono">
+    <tspan x="36" class="line-num">7</tspan>
+    <tspan x="100" class="keyword">const</tspan>
+    <tspan class="var"> next</tspan>
+    <tspan class="op">  = </tspan>
+    <tspan class="keyword">await</tspan>
+    <tspan class="module"> codebolt</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="prop">llm</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="func">edit</tspan>
+    <tspan class="op">(</tspan>
+    <tspan class="var">code</tspan>
+    <tspan class="op">, </tspan>
+    <tspan class="var">plan</tspan>
+    <tspan class="op">);</tspan>
+  </text>
+
+  <!-- Line 8: write (highlighted) -->
+  <text y="306" class="mono">
+    <tspan x="36" class="line-num">8</tspan>
+    <tspan x="100" class="keyword">await</tspan>
+    <tspan class="module"> codebolt</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="prop">fs</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="func">write</tspan>
+    <tspan class="op">(</tspan>
+    <tspan class="var">plan</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="prop">file</tspan>
+    <tspan class="op">, </tspan>
+    <tspan class="var">next</tspan>
+    <tspan class="op">);</tspan>
+  </text>
+
+  <!-- Line 9: commit (highlighted) -->
+  <text y="342" class="mono">
+    <tspan x="36" class="line-num">9</tspan>
+    <tspan x="100" class="keyword">await</tspan>
+    <tspan class="module"> codebolt</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="prop">git</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="func">commit</tspan>
+    <tspan class="op">(</tspan>
+    <tspan class="tmpl">`agent: </tspan>
+    <tspan class="interp">${</tspan>
+    <tspan class="var">plan</tspan>
+    <tspan class="op">.</tspan>
+    <tspan class="prop">summary</tspan>
+    <tspan class="interp">}</tspan>
+    <tspan class="tmpl">`</tspan>
+    <tspan class="op">);</tspan>
+  </text>
+
+  <!-- Line 10: closing -->
+  <text y="378" class="mono">
+    <tspan x="30" class="line-num">10</tspan>
+    <tspan x="80" class="op">});</tspan>
+  </text>
+
+  <!-- Line 11: empty -->
+  <text y="414" class="mono">
+    <tspan x="30" class="line-num">11</tspan>
+  </text>
+
+  <!-- Line 12: comment -->
+  <text y="450" class="mono">
+    <tspan x="30" class="line-num">12</tspan>
+    <tspan x="80" class="comment">// Custom Plugin — runs inside the engine</tspan>
+  </text>
+
+  <!-- Line 13: comment -->
+  <text y="486" class="mono">
+    <tspan x="30" class="line-num">13</tspan>
+    <tspan x="80" class="comment">// 3 channels: WebSocket · Mux · HTTP</tspan>
+  </text>
+</svg>
