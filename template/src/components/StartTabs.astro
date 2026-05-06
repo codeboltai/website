@@ -96,9 +96,44 @@ const { eyebrow, heading, tabs = [] } = Astro.props;
                   </p>
                 )}
               </div>
+            </div>
+
+            <div
+              class={cn(
+                "flex w-full shrink-0 flex-col items-start gap-3 md:items-end md:pb-1",
+                tab.code ? "md:w-[360px]" : "md:w-auto"
+              )}
+            >
+              <div class="flex w-full flex-wrap items-center justify-start gap-2 md:w-auto md:justify-end">
+                {tab.primary && (
+                  <a
+                    href={tab.primary.href}
+                    class={cn(
+                      "h-9 px-4 rounded-md inline-flex w-auto items-center justify-center text-sm font-medium transition-colors",
+                      "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20"
+                    )}
+                  >
+                    {tab.primary.label}
+                  </a>
+                )}
+                {tab.more && (
+                  <a
+                    href={tab.more.href}
+                    class={cn(
+                      "h-9 px-4 rounded-md inline-flex w-auto items-center justify-center text-sm font-medium transition-colors",
+                      "text-muted-foreground hover:text-foreground border border-border dark:border-zinc-800 hover:border-muted-foreground/60"
+                    )}
+                  >
+                    {tab.more.label}
+                    <svg class="ml-2 h-3 w-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path d="M 0 6 H 12 M 9 3 L 12 6 L 9 9" />
+                    </svg>
+                  </a>
+                )}
+              </div>
 
               {tab.code && (
-                <div class="mt-5 flex min-w-0 items-center border border-border bg-muted/70 dark:border-zinc-700 dark:bg-black/80 shadow-inner">
+                <div class="flex w-full min-w-0 items-center border border-border bg-muted/70 shadow-inner dark:border-zinc-700 dark:bg-black/80">
                   <code class="min-w-0 flex-1 overflow-x-auto whitespace-nowrap px-4 py-3 font-mono text-xs text-foreground dark:text-zinc-100">
                     {tab.code}
                   </code>
@@ -111,34 +146,6 @@ const { eyebrow, heading, tabs = [] } = Astro.props;
                     Copy
                   </button>
                 </div>
-              )}
-            </div>
-
-            <div class="flex shrink-0 flex-wrap items-center justify-start gap-2 md:justify-end md:pb-1">
-              {tab.primary && (
-                <a
-                  href={tab.primary.href}
-                  class={cn(
-                    "h-9 px-4 rounded-md inline-flex w-auto items-center justify-center text-sm font-medium transition-colors",
-                    "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/20"
-                  )}
-                >
-                  {tab.primary.label}
-                </a>
-              )}
-              {tab.more && (
-                <a
-                  href={tab.more.href}
-                  class={cn(
-                    "h-9 px-4 rounded-md inline-flex w-auto items-center justify-center text-sm font-medium transition-colors",
-                    "text-muted-foreground hover:text-foreground border border-border dark:border-zinc-800 hover:border-muted-foreground/60"
-                  )}
-                >
-                  {tab.more.label}
-                  <svg class="ml-2 h-3 w-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M 0 6 H 12 M 9 3 L 12 6 L 9 9" />
-                  </svg>
-                </a>
               )}
             </div>
           </div>
