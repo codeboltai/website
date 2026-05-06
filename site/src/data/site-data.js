@@ -72,7 +72,29 @@ export const navigation = {
       },
       {
         "label": "Use Cases",
-        "href": "/use-cases"
+        "href": "/use-cases",
+        "children": [
+          {
+            "label": "Overview",
+            "href": "/use-cases"
+          },
+          {
+            "label": "Custom Agent Development",
+            "href": "/use-cases/custom-agent-development"
+          },
+          {
+            "label": "Autonomous Companies",
+            "href": "/use-cases/autonomous-companies"
+          },
+          {
+            "label": "Coding Agent",
+            "href": "/use-cases/coding-agent"
+          },
+          {
+            "label": "Agent Cloud",
+            "href": "/use-cases/agent-cloud"
+          }
+        ]
       },
       {
         "label": "Architecture",
@@ -161,6 +183,22 @@ export const navigation = {
           {
             "label": "Use Cases",
             "href": "/use-cases"
+          },
+          {
+            "label": "Custom Agent Development",
+            "href": "/use-cases/custom-agent-development"
+          },
+          {
+            "label": "Autonomous Companies",
+            "href": "/use-cases/autonomous-companies"
+          },
+          {
+            "label": "Coding Agent",
+            "href": "/use-cases/coding-agent"
+          },
+          {
+            "label": "Agent Cloud",
+            "href": "/use-cases/agent-cloud"
           },
           {
             "label": "Architecture",

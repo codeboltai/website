@@ -1,0 +1,41 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Custom Agent Development — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Build agents that are actually your software."
+    subtitle="Use Codebolt to write custom agents with your own loop, tools, models, memory, guardrails, and product logic."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Most agent products let you customize prompts. Codebolt lets you customize the agent itself. Write the loop in code, call the SDK directly, shape memory, route models per task, and package repeatable behavior as agents your team can run anywhere."
+  />
+  <CardGrid
+    heading="What you can customize"
+    cards={[{"title":"The agent loop","body":"Control planning, tool choice, memory reads, retries, reviews, commits, and handoffs. The agent is a program you own, not a hidden prompt behind a chat box.","visual":"observe → plan → act\nreview → retry → commit\nyour logic at every step\n"},{"title":"Tools and SDK access","body":"Use filesystem, git, terminal, browser, LLM, memory, task, notification, and orchestration modules from the Codebolt SDK. Agents can work inside the same engine as the CLI, Editor, Cloud, and server.","visual":"agent.ts\n  → codebolt.fs\n  → codebolt.git\n  → codebolt.memory\n  → codebolt.llm\n"},{"title":"Model and provider routing","body":"Use different providers for different parts of the work. Route planning, coding, review, extraction, and repetitive operations to the model that fits the job.","visual":"planner → GPT\ncoder → Claude\nreviewer → Gemini\nlocal tasks → Ollama\n"}]}
+  />
+  <FeatureBlock
+    heading="From one custom agent to a team of agents"
+    body="Start with a single specialist agent. Add reviewers, test agents, documentation agents, deployment agents, and monitors as the workflow grows. Because the agents run on the same engine, they can share memory, tasks, state, plugins, and environments."
+    diagram={`custom-agent
+   ↓
+reviewer-agent
+test-agent
+docs-agent
+deploy-agent
+   ↓
+coordinated by Codebolt
+`}
+  />
+  <CtaBlock
+    heading="Build agents as real software."
+    buttons={[{"label":"Explore Agent Extensibility","href":"/engine/agent-extensibility","variant":"primary"},{"label":"Read SDK Docs","href":"https://docs.codebolt.ai/docs/04_build-on-codebolt/01_overview","variant":"secondary"}]}
+  />
+</BaseLayout>
