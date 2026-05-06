@@ -110,6 +110,7 @@ pages:
         tabs:
           - label: "CLI"
             body: "Install globally with npm. Run in your terminal. Use a built-in agent or write your own — full SDK access, any LLM provider."
+            code: "npm i -g codebolt"
             primary: { label: "Install Guide", href: "/products/cli" }
             more: { label: "View CLI", href: "/products/cli" }
             media:
@@ -199,7 +200,7 @@ pages:
         heading: "Build software (and more) with Codebolt"
         body: "Use the <a class='inline-tag' href='/products/editor'>Editor</a>, <a class='inline-tag' href='/products/cli'>CLI</a>, or terminal as a coding partner — like Claude Code, but with <a class='inline-tag' href='/products/sdk'>custom agents</a>, any LLM, and full SDK access. Then push beyond software: spin up agents that draft documents, edit videos, run research, generate decks. Anything an agent can do, you can build a workflow for."
         cta: { label: "See the products", href: "/products/editor" }
-        image: "/images/editor-project-workspace.svg"
+        image: "/images/desktop.png"
         imageAlt: "Codebolt workspace connecting editor, CLI, agents, project context, and memory"
 
       - type: feature-block
