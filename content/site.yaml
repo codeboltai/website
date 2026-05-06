@@ -13,9 +13,10 @@ navigation:
           - { label: "Engine Overview", href: "/engine" }
           - { label: "System Extensibility", href: "/engine/system-extensibility" }
           - { label: "Agent Extensibility", href: "/engine/agent-extensibility" }
-          - { label: "Dynamic Scalable Evolving Memory", href: "/engine/dynamic-scalable-evolving-memory" }
+          - { label: "Dynamic Evolving Memory", href: "/engine/dynamic-scalable-evolving-memory" }
           - { label: "Multi-Agent Scaling", href: "/engine/multi-agent" }
           - { label: "Multi-Environment Scaling", href: "/engine/multi-environment" }
+          - { label: "Agent Orchestration", href: "/engine/agent-orchestration" }
           - { label: "Codebolt Native Applications", href: "/engine/codebolt-native-applications" }
       - label: "Products"
         href: "/products/editor"
@@ -48,9 +49,10 @@ navigation:
           - { label: "Engine", href: "/engine" }
           - { label: "System Extensibility", href: "/engine/system-extensibility" }
           - { label: "Agent Extensibility", href: "/engine/agent-extensibility" }
-          - { label: "Dynamic Scalable Evolving Memory", href: "/engine/dynamic-scalable-evolving-memory" }
+          - { label: "Dynamic Evolving Memory", href: "/engine/dynamic-scalable-evolving-memory" }
           - { label: "Multi-Agent Scaling", href: "/engine/multi-agent" }
           - { label: "Multi-Environment Scaling", href: "/engine/multi-environment" }
+          - { label: "Agent Orchestration", href: "/engine/agent-orchestration" }
           - { label: "Codebolt Native Applications", href: "/engine/codebolt-native-applications" }
           - { label: "Codebolt Editor", href: "/products/editor" }
           - { label: "Codebolt CLI", href: "/products/cli" }
@@ -275,7 +277,7 @@ pages:
       - type: feature-block
         kicker: "03 · RUN AUTONOMOUS"
         heading: "Run an autonomous organization"
-        body: "Promote your agents to always-on. The <a class='inline-tag' href='/products/autonomous-agent'>24/7 Autonomous Agent</a> runs locally or on <a class='inline-tag' href='/products/cloud'>Codebolt Cloud</a> — proactive scheduling, persistent memory, plugin integrations to the messengers and APIs your business already uses. From one always-on assistant to a full <a class='inline-tag' href='/use-cases/autonomous-company'>autonomous company</a> with agents managing engineering, QA, deployment, and monitoring as plugins."
+        body: "Promote your agents to always-on. The <a class='inline-tag' href='/products/autonomous-agent'>24/7 Autonomous Agent</a> runs locally or on <a class='inline-tag' href='/products/cloud'>Codebolt Cloud</a> — proactive scheduling, persistent memory, plugin integrations to the messengers and APIs your business already uses. From one always-on assistant to a full <a class='inline-tag' href='/use-cases/autonomous-companies'>autonomous company</a> with agents managing engineering, QA, deployment, and monitoring as plugins."
         cta: { label: "See the autonomous agent", href: "/products/autonomous-agent" }
         image: "/images/autonomous-scale.svg"
         imageAlt: "Always-on autonomous organization with persistent memory, schedules, hooks, webhooks, plugins, and scaling"
@@ -2556,6 +2558,80 @@ pages:
         buttons:
           - { label: "Read SDK Docs", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/01_overview", variant: "primary" }
           - { label: "Explore Native Apps", href: "/engine/codebolt-native-applications", variant: "secondary" }
+
+  # ── Use Case: Orchestration ────────────────
+  - slug: "engine/agent-orchestration"
+    title: "Codebolt Orchestration — Multi-Agent at Scale"
+    sections:
+
+      - type: page-header
+        title: "Codebolt as Orchestration Engine"
+        subtitle: "50-100+ agents across multiple environments. Coordination, governance, and scaling — built into the engine."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "When you need more than one agent, you need orchestration. Not a layer on top of 5 different tools — an engine that runs agents AND coordinates them. Stigmergy-based coordination, agent deliberation councils, automatic review and merge, drift tracking, and guardrails."
+
+      - type: feature-block
+        heading: "Stigmergy-based coordination"
+        body: "Traditional multi-agent systems use direct message passing — fragile and doesn't scale. Codebolt uses stigmergy: agents communicate through structured shared state. Pheromone-based task ownership prevents conflicts. The engine manages sequencing, dependencies, and resource allocation."
+        diagram: |
+          Agent A → shared state ← Agent B
+                         ↕
+          Agent C → shared state ← Agent D
+          Pheromones: ownership signals
+          No direct messaging needed
+          Scales: 2 agents → 200 agents
+
+      - type: feature-block
+        heading: "Multi-environment scaling"
+        body: "The provider system lets one Codebolt instance treat another as a coordinated environment. Run agents across local, Docker, cloud, and hierarchical setups. Each environment has full lifecycle management with heartbeat monitoring. Git bundles transfer state between environments."
+        reverse: true
+        diagram: |
+          Main Instance
+                │
+          ┌─────┼──────┐
+          ↓     ↓      ↓
+          local docker  cloud
+          │      │      │
+          └──────┼──────┘
+           git bundle state transfer
+           heartbeat monitoring
+
+      - type: feature-block
+        heading: "What Paperclip can't do"
+        body: "Paperclip orchestrates agents but doesn't run them. You need to bring Claude Code, OpenClaw, Cursor, and wire them together. Codebolt IS the engine — it runs agents AND orchestrates them. One system instead of five tools stitched together. And every agent has access to the full 63-module SDK, not just whatever each external tool exposes."
+        diagram: |
+          Paperclip:
+          ✓ Org charts, budgets, governance
+          ✗ Doesn't run agents
+          ✗ Requires external tools
+          ✗ Limited by each tool's API
+
+          Codebolt Orchestration:
+          ✓ Runs agents (63-module SDK)
+          ✓ Coordinates (stigmergy)
+          ✓ Governance (guardrails)
+          ✓ One engine, not five tools
+
+      - type: feature-block
+        heading: "Agent deliberation and automatic review"
+        body: "Agents propose options, debate tradeoffs, vote, and reach consensus. Review-merge requests let agents review each other's work without GitHub PR bottleneck. Conflict detection runs before merge. Drift tracking catches deviation across all agents. Every decision is logged and traceable."
+        reverse: true
+        diagram: |
+          Agent A: implements feature
+          Agent B: reviews code
+          Agent C: checks for conflicts
+          Agent D: runs tests
+                ↓
+          Auto-merged. Decision logged.
+          No human bottleneck needed.
+
+      - type: cta-block
+        heading: "Orchestration built into the engine."
+        buttons:
+          - { label: "Get Started", href: "/pricing", variant: "primary" }
+          - { label: "Explore the Engine", href: "/engine", variant: "secondary" }
 
   # ── Use Case: Custom Agent Development ─────
   - slug: "use-cases/custom-agent-development"
@@ -4840,50 +4916,88 @@ pages:
 
       - type: page-header
         title: "Pricing"
-        subtitle: "Start with one agent. Scale when you're ready."
+        subtitle: "Use the engine for free with your own keys. Add managed AI, sandboxes, memory, and team controls when you need them."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "Codebolt is free to run as an application and cloud workspace in BYOK mode. Paid plans are for managed AI capacity and team infrastructure: model routing across small, fast, text-specialized, coding, embedding, and frontier models; cloud sandboxes; cloud memory; and shared administration."
 
       - type: pricing-grid
-        cards:
-          - tier: "Community"
-            price: "Free"
-            for: "Individual developers — more agents than any other free tool"
-            features:
-              - "Full IDE + CLI + TUI + Web"
-              - "3 concurrent agents"
-              - "Full Agent SDK (63+ modules)"
-              - "Plugin system"
-              - "All 17+ LLM providers"
-              - "Community support"
-            cta: { label: "Start Free", href: "#", variant: "secondary" }
-          - tier: "Pro"
-            price: "$49"
-            price_sub: "/mo"
-            for: "Engineers and teams scaling from one agent to many"
-            featured: true
-            badge: "Most popular"
-            features:
-              - "Everything in Community"
-              - "Unlimited concurrent agents"
-              - "Full drift engine (4D tracking)"
-              - "Multi-environment coordination"
-              - "Agent deliberation councils"
-              - "Automatic review & merge"
-              - "Full memory system (3-tier)"
-              - "Priority support"
-            cta: { label: "Start Pro", href: "#", variant: "primary" }
-          - tier: "Enterprise"
-            price: "Custom"
-            for: "Organizations deploying autonomous agents in production"
-            features:
-              - "Everything in Pro"
-              - "Deterministic replay"
-              - "Full audit trails"
-              - "SSO / SAML"
-              - "Custom guardrail policies"
-              - "Dedicated support & SLA"
-              - "Environment templates"
-              - "On-premise deployment"
-            cta: { label: "Talk to Engineering", href: "mailto:eng@codebolt.ai", variant: "secondary" }
+        tabs:
+          - label: "Individual"
+            cards:
+              - tier: "BYOK"
+                price: "Always free"
+                for: "Bring your own model keys. Use Codebolt's apps and cloud surfaces without paying Codebolt for AI usage."
+                features:
+                  - "Codebolt Editor, CLI, Cloud, and SDK"
+                  - "All core features included"
+                  - "Use your own OpenAI, Anthropic, Google, local, or provider keys"
+                  - "Run agents, plugins, memory, and workflows"
+                  - "Local and self-hosted friendly"
+                  - "No Codebolt markup on your own keys"
+                cta: { label: "Start Free", href: "/download", variant: "secondary" }
+              - tier: "Pro"
+                price: "$20"
+                price_sub: "/mo"
+                for: "Managed AI credits for builders who want batteries included instead of managing provider keys."
+                featured: true
+                badge: "Early access"
+                features:
+                  - "Managed AI APIs and embeddings"
+                  - "Cloud memory and cloud sandboxes"
+                  - "Automatic routing across small, fast, text, coding, embedding, and frontier models"
+                  - "Lower effective model cost than using one large model for every task"
+                  - "Use BYOK alongside managed Codebolt capacity"
+                  - "Plan not active yet; request early access"
+                cta: { label: "Request Early Access", href: "#request-access", variant: "primary", waitlist: true, plan: "pro", audience: "individual" }
+              - tier: "Max"
+                price: "From $100"
+                price_sub: "/mo"
+                for: "More managed capacity for heavier agent work, larger runs, and more cloud execution."
+                badge: "Higher limits"
+                options:
+                  - label: "Max 5x"
+                    price: "$100/mo"
+                    description: "More managed AI, embeddings, memory, and sandbox capacity for frequent individual use."
+                  - label: "Max 20x"
+                    price: "$200/mo"
+                    description: "Highest individual capacity for heavier multi-agent runs and longer cloud work."
+                features:
+                  - "Everything in Pro"
+                  - "Higher included managed AI capacity"
+                  - "More cloud sandbox and cloud memory usage"
+                  - "Better fit for long-running or parallel agent workflows"
+                  - "Same multi-model routing strategy to reduce waste"
+                  - "Plan not active yet; request early access"
+                cta: { label: "Request Early Access", href: "#request-access", variant: "secondary", waitlist: true, plan: "max", audience: "individual" }
+          - label: "Team"
+            cards:
+              - tier: "Team BYOK"
+                price: "$10"
+                price_sub: "/seat/mo"
+                for: "Teams that want shared BYOK administration, collaboration controls, and team-level workspace features."
+                featured: true
+                badge: "BYOK for teams"
+                features:
+                  - "Everything in individual BYOK"
+                  - "Shared provider keys managed at team level"
+                  - "Team workspaces and access controls"
+                  - "Shared agents, plugins, and workflows"
+                  - "Usage visibility for team-owned keys"
+                  - "Designed for teams that already have provider contracts"
+                cta: { label: "Request Early Access", href: "#request-access", variant: "primary", waitlist: true, plan: "team-byok", audience: "team" }
+              - tier: "Enterprise"
+                price: "Custom"
+                for: "Organizations deploying Codebolt across teams, infrastructure, compliance boundaries, or private environments."
+                features:
+                  - "Everything in Team BYOK"
+                  - "Custom deployment, self-hosting, and private cloud options"
+                  - "SSO / SAML, audit trails, and policy controls"
+                  - "Custom guardrails and environment templates"
+                  - "Enterprise support and SLA"
+                  - "Commercial terms for larger managed AI capacity"
+                cta: { label: "Contact Us", href: "mailto:contact@codebolt.ai?subject=Codebolt%20Enterprise", variant: "secondary" }
 
       - type: accordion
         heading: "FAQ"
@@ -4908,6 +5022,8 @@ pages:
             answer: "Yes. The CLI runs in headless server mode. Spawn environments, run agents, transfer state, monitor progress — all without a GUI."
           - question: "Which AI models does Codebolt support?"
             answer: "All of them. 17+ cloud providers (OpenAI, Anthropic, Google, Mistral, Groq, DeepSeek, etc.) plus local models via Ollama and LM Studio. Per-agent and per-task model selection."
+          - question: "Why buy managed Codebolt AI instead of using a single model provider directly?"
+            answer: "A single provider plan usually pushes most work through a few large models. Codebolt can route different steps to different model types: small models for simple tasks, text-focused models for documentation, embedding models for retrieval, coding models for implementation, and frontier models only when they are actually needed. The headline credit is the spend; the effective useful work can feel lower-cost because the engine avoids using the largest model for every operation."
 
   # ── Blog ───────────────────────────────────
   - slug: "blog"

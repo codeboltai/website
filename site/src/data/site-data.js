@@ -27,7 +27,7 @@ export const navigation = {
             "href": "/engine/agent-extensibility"
           },
           {
-            "label": "Dynamic Scalable Evolving Memory",
+            "label": "Dynamic Evolving Memory",
             "href": "/engine/dynamic-scalable-evolving-memory"
           },
           {
@@ -37,6 +37,10 @@ export const navigation = {
           {
             "label": "Multi-Environment Scaling",
             "href": "/engine/multi-environment"
+          },
+          {
+            "label": "Agent Orchestration",
+            "href": "/engine/agent-orchestration"
           },
           {
             "label": "Codebolt Native Applications",
@@ -145,7 +149,7 @@ export const navigation = {
             "href": "/engine/agent-extensibility"
           },
           {
-            "label": "Dynamic Scalable Evolving Memory",
+            "label": "Dynamic Evolving Memory",
             "href": "/engine/dynamic-scalable-evolving-memory"
           },
           {
@@ -155,6 +159,10 @@ export const navigation = {
           {
             "label": "Multi-Environment Scaling",
             "href": "/engine/multi-environment"
+          },
+          {
+            "label": "Agent Orchestration",
+            "href": "/engine/agent-orchestration"
           },
           {
             "label": "Codebolt Native Applications",
