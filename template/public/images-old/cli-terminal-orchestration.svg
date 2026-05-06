@@ -1,0 +1,20 @@
+<svg width="960" height="560" viewBox="0 0 960 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="560" rx="24" fill="#050B14"/>
+  <rect x="36" y="38" width="888" height="484" rx="16" fill="#080C13" stroke="#1D3348"/>
+  <text x="72" y="88" fill="#7B8BA0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="4">TERMINAL ORCHESTRATION</text>
+  <rect x="72" y="124" width="386" height="156" rx="12" fill="#0B1320" stroke="#2A4058"/>
+  <text x="100" y="164" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="20" font-weight="700">Parent thread</text>
+  <rect x="100" y="190" width="308" height="22" rx="4" fill="#1B3148"/>
+  <rect x="100" y="226" width="236" height="22" rx="4" fill="#00D8FF"/>
+  <rect x="100" y="250" width="180" height="8" rx="4" fill="#5FF5D0"/>
+  <rect x="504" y="124" width="384" height="80" rx="12" fill="#111827" stroke="#00D8FF"/>
+  <text x="532" y="171" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="18" font-weight="700">child: refactor auth</text>
+  <rect x="504" y="228" width="384" height="80" rx="12" fill="#111827" stroke="#5FF5D0"/>
+  <text x="532" y="275" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="18" font-weight="700">child: write tests</text>
+  <rect x="504" y="332" width="384" height="80" rx="12" fill="#111827" stroke="#34475E"/>
+  <text x="532" y="379" fill="#CFE1F1" font-family="Arial, sans-serif" font-size="18" font-weight="700">child: review diff</text>
+  <path d="M458 202H504M458 228C486 228 476 268 504 268M458 252C504 252 470 372 504 372" stroke="#00D8FF" stroke-width="4" stroke-linecap="round"/>
+  <rect x="132" y="346" width="250" height="90" rx="12" fill="#061A22" stroke="#00D8FF"/>
+  <text x="178" y="382" fill="#E9F7FF" font-family="Arial, sans-serif" font-size="16" font-weight="700">one keyboard surface</text>
+  <text x="164" y="411" fill="#9EF7FF" font-family="Arial, sans-serif" font-size="13" font-weight="700">tile, inspect, approve, continue</text>
+</svg>

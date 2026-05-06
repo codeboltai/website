@@ -1,0 +1,32 @@
+<svg width="560" height="320" viewBox="0 0 560 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Custom platform adapters connect internal systems to autonomous agents</title>
+  <desc id="desc">Internal tools, customer portals, monitoring systems, and APIs use adapters to reach the Codebolt gateway.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1L9 5L1 9" stroke="#38BDF8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="560" height="320" rx="18" fill="#050816"/>
+  <rect x="30" y="28" width="500" height="264" rx="14" fill="#08111F" stroke="#1F2937"/>
+  <text x="54" y="64" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">CUSTOM ADAPTERS</text>
+  <g fill="#0F172A" stroke="#334155">
+    <rect x="54" y="92" width="132" height="44" rx="9"/>
+    <rect x="54" y="150" width="132" height="44" rx="9"/>
+    <rect x="54" y="208" width="132" height="44" rx="9"/>
+  </g>
+  <text x="120" y="120" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">Internal tool</text>
+  <text x="120" y="178" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">Customer portal</text>
+  <text x="120" y="236" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">Monitoring API</text>
+  <path d="M202 114C246 114 242 159 286 159" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M202 172H286" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M202 230C246 230 242 185 286 185" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="302" y="108" width="120" height="128" rx="14" fill="#071B2B" stroke="#38BDF8"/>
+  <text x="362" y="146" text-anchor="middle" fill="#E0F2FE" font-family="Inter, ui-sans-serif, system-ui" font-size="15" font-weight="700">Adapter</text>
+  <text x="362" y="170" text-anchor="middle" fill="#BAE6FD" font-family="Inter, ui-sans-serif, system-ui" font-size="11">auth</text>
+  <text x="362" y="190" text-anchor="middle" fill="#BAE6FD" font-family="Inter, ui-sans-serif, system-ui" font-size="11">schema</text>
+  <text x="362" y="210" text-anchor="middle" fill="#BAE6FD" font-family="Inter, ui-sans-serif, system-ui" font-size="11">routing</text>
+  <path d="M438 172H488" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="500" cy="172" r="28" fill="#0F172A" stroke="#475569"/>
+  <text x="500" y="168" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12" font-weight="700">Codebolt</text>
+  <text x="500" y="184" text-anchor="middle" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="10">gateway</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg width="880" height="500" viewBox="0 0 880 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Turn prompts into scheduled goals</title>
+  <desc id="desc">Prompts become recurring goals, cron schedules, webhook triggers, and API jobs that route to cloud agents for background work.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1L9 5L1 9" stroke="#FBBF24" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="880" height="500" rx="22" fill="#050816"/>
+  <rect x="40" y="40" width="800" height="420" rx="18" fill="#101006" stroke="#1F2937"/>
+  <text x="76" y="84" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">SCHEDULED GOALS</text>
+  <rect x="92" y="162" width="180" height="112" rx="16" fill="#111827" stroke="#475569"/>
+  <text x="182" y="208" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="16" font-weight="800">Prompt</text>
+  <text x="182" y="236" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">goal definition</text>
+  <path d="M292 218H376" stroke="#FBBF24" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="394" y="126" width="154" height="184" rx="16" fill="#251A06" stroke="#FBBF24"/>
+  <text x="471" y="171" text-anchor="middle" fill="#FEF3C7" font-family="Inter, ui-sans-serif, system-ui" font-size="17" font-weight="800">Scheduler</text>
+  <text x="471" y="204" text-anchor="middle" fill="#FDE68A" font-family="Inter, ui-sans-serif, system-ui" font-size="12">recurring goals</text>
+  <text x="471" y="230" text-anchor="middle" fill="#FDE68A" font-family="Inter, ui-sans-serif, system-ui" font-size="12">cron</text>
+  <text x="471" y="256" text-anchor="middle" fill="#FDE68A" font-family="Inter, ui-sans-serif, system-ui" font-size="12">webhook / API</text>
+  <path d="M568 218H652" stroke="#FBBF24" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="670" y="162" width="126" height="112" rx="16" fill="#111827" stroke="#475569"/>
+  <text x="733" y="208" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="15" font-weight="800">Cloud agent</text>
+  <text x="733" y="236" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">background run</text>
+  <rect x="254" y="360" width="372" height="34" rx="8" fill="#111827" stroke="#334155"/>
+  <text x="440" y="382" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">triage, maintenance, reports, repo watches, deploy checks</text>
+</svg>

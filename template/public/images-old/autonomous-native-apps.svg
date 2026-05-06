@@ -1,0 +1,30 @@
+<svg width="560" height="320" viewBox="0 0 560 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Codebolt-native apps let agents modify runtime dashboards and workflows</title>
+  <desc id="desc">An agent action updates product panels, dashboards, workflow state, and review queues inside a Codebolt-native app.</desc>
+  <rect width="560" height="320" rx="18" fill="#050816"/>
+  <rect x="30" y="28" width="500" height="264" rx="14" fill="#090A12" stroke="#1F2937"/>
+  <text x="54" y="64" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">CODEBOLT-NATIVE APP</text>
+  <rect x="58" y="88" width="444" height="176" rx="12" fill="#0B1220" stroke="#334155"/>
+  <rect x="78" y="110" width="126" height="132" rx="9" fill="#101827" stroke="#475569"/>
+  <text x="100" y="136" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13" font-weight="700">Agent panel</text>
+  <rect x="100" y="158" width="76" height="8" rx="4" fill="#5EEAD4"/>
+  <rect x="100" y="180" width="56" height="8" rx="4" fill="#334155"/>
+  <rect x="100" y="202" width="82" height="8" rx="4" fill="#334155"/>
+  <rect x="224" y="110" width="112" height="56" rx="9" fill="#111827" stroke="#475569"/>
+  <text x="280" y="143" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Dashboard</text>
+  <rect x="356" y="110" width="112" height="56" rx="9" fill="#111827" stroke="#475569"/>
+  <text x="412" y="143" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Workflow</text>
+  <rect x="224" y="186" width="112" height="56" rx="9" fill="#111827" stroke="#475569"/>
+  <text x="280" y="219" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Task state</text>
+  <rect x="356" y="186" width="112" height="56" rx="9" fill="#111827" stroke="#475569"/>
+  <text x="412" y="219" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Review queue</text>
+  <path d="M206 176H224" stroke="#FBBF24" stroke-width="2"/>
+  <path d="M336 138H356" stroke="#FBBF24" stroke-width="2"/>
+  <path d="M336 214H356" stroke="#FBBF24" stroke-width="2"/>
+  <circle cx="206" cy="176" r="4" fill="#FBBF24"/>
+  <circle cx="224" cy="176" r="4" fill="#FBBF24"/>
+  <circle cx="336" cy="138" r="4" fill="#FBBF24"/>
+  <circle cx="356" cy="138" r="4" fill="#FBBF24"/>
+  <circle cx="336" cy="214" r="4" fill="#FBBF24"/>
+  <circle cx="356" cy="214" r="4" fill="#FBBF24"/>
+</svg>

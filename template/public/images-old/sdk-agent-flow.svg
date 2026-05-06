@@ -1,0 +1,32 @@
+<svg width="880" height="500" viewBox="0 0 880 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Custom agent flow controlled by Agent SDK and framework</title>
+  <desc id="desc">Instructions, allowed tools, modifiers, processors, workflows, compaction, and engine modules shape custom agent behavior.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1L9 5L1 9" stroke="#5EEAD4" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="880" height="500" rx="22" fill="#050816"/>
+  <rect x="40" y="40" width="800" height="420" rx="18" fill="#07111F" stroke="#1F2937"/>
+  <text x="76" y="84" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">AGENT SDK + FRAMEWORK</text>
+  <g fill="#111827" stroke="#475569">
+    <rect x="78" y="122" width="172" height="46" rx="10"/>
+    <rect x="78" y="188" width="172" height="46" rx="10"/>
+    <rect x="78" y="254" width="172" height="46" rx="10"/>
+    <rect x="78" y="320" width="172" height="46" rx="10"/>
+  </g>
+  <text x="164" y="150" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">instructions</text>
+  <text x="164" y="216" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">allowed tools</text>
+  <text x="164" y="282" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">modifiers</text>
+  <text x="164" y="348" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="13">processors</text>
+  <path d="M270 244H354" stroke="#5EEAD4" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="372" y="150" width="158" height="188" rx="16" fill="#0D1B2A" stroke="#2DD4BF"/>
+  <text x="451" y="203" text-anchor="middle" fill="#CCFBF1" font-family="Inter, ui-sans-serif, system-ui" font-size="17" font-weight="800">Agent loop</text>
+  <text x="451" y="235" text-anchor="middle" fill="#99F6E4" font-family="Inter, ui-sans-serif, system-ui" font-size="12">workflows</text>
+  <text x="451" y="260" text-anchor="middle" fill="#99F6E4" font-family="Inter, ui-sans-serif, system-ui" font-size="12">compaction</text>
+  <text x="451" y="285" text-anchor="middle" fill="#99F6E4" font-family="Inter, ui-sans-serif, system-ui" font-size="12">engine modules</text>
+  <path d="M548 244H636" stroke="#5EEAD4" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="654" y="184" width="126" height="120" rx="16" fill="#111827" stroke="#475569"/>
+  <text x="717" y="234" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="15" font-weight="800">Custom</text>
+  <text x="717" y="256" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="15" font-weight="800">behavior</text>
+</svg>

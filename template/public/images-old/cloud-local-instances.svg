@@ -1,0 +1,24 @@
+<svg width="560" height="320" viewBox="0 0 560 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Connect local Codebolt instances to Cloud</title>
+  <desc id="desc">A cloud plugin links local Codebolt sessions to the Cloud portal so teams can manage local and cloud sessions together.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1L9 5L1 9" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="560" height="320" rx="18" fill="#050816"/>
+  <rect x="30" y="28" width="500" height="264" rx="14" fill="#090A17" stroke="#1F2937"/>
+  <text x="54" y="64" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">CONNECTED INSTANCES</text>
+  <rect x="68" y="104" width="128" height="48" rx="10" fill="#111827" stroke="#475569"/>
+  <rect x="68" y="178" width="128" height="48" rx="10" fill="#111827" stroke="#475569"/>
+  <text x="132" y="134" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Local session</text>
+  <text x="132" y="208" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Cloud session</text>
+  <path d="M214 165H292" stroke="#A78BFA" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="310" y="112" width="118" height="104" rx="14" fill="#17142A" stroke="#A78BFA"/>
+  <text x="369" y="154" text-anchor="middle" fill="#EDE9FE" font-family="Inter, ui-sans-serif, system-ui" font-size="15" font-weight="800">Cloud</text>
+  <text x="369" y="176" text-anchor="middle" fill="#C4B5FD" font-family="Inter, ui-sans-serif, system-ui" font-size="11">plugin</text>
+  <path d="M444 165H492" stroke="#A78BFA" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="504" cy="165" r="28" fill="#111827" stroke="#475569"/>
+  <text x="504" y="161" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="12" font-weight="800">Portal</text>
+  <text x="504" y="178" text-anchor="middle" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="10">control</text>
+</svg>

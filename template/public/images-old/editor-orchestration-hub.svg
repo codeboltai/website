@@ -1,0 +1,33 @@
+<svg width="880" height="500" viewBox="0 0 880 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Editor orchestration hub</title>
+  <desc id="desc">Codebolt Editor controls the server runtime, which routes agent work to local laptop, Docker, worktrees, cloud sandboxes, remote servers, and fleet environments.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L9 5L1 9" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <rect width="880" height="500" rx="22" fill="#050816"/>
+  <rect x="40" y="40" width="800" height="420" rx="18" fill="#07111F" stroke="#1F2937"/>
+  <text x="76" y="84" fill="#94A3B8" font-family="Inter, ui-sans-serif, system-ui" font-size="12" letter-spacing="1.8">ORCHESTRATION HUB</text>
+  <rect x="86" y="180" width="166" height="110" rx="16" fill="#071B2B" stroke="#38BDF8"/>
+  <text x="169" y="226" text-anchor="middle" fill="#E0F2FE" font-family="Inter, ui-sans-serif, system-ui" font-size="17" font-weight="800">Codebolt</text>
+  <text x="169" y="252" text-anchor="middle" fill="#BAE6FD" font-family="Inter, ui-sans-serif, system-ui" font-size="12">Editor</text>
+  <path d="M274 235H360" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="378" y="160" width="152" height="150" rx="16" fill="#111827" stroke="#475569"/>
+  <text x="454" y="216" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="16" font-weight="800">Server</text>
+  <text x="454" y="242" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">runtime</text>
+  <text x="454" y="268" text-anchor="middle" fill="#CBD5E1" font-family="Inter, ui-sans-serif, system-ui" font-size="12">control plane</text>
+  <g stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M548 200C590 128 620 124 664 124"/>
+    <path d="M548 220C590 176 620 172 664 172"/>
+    <path d="M548 240H664"/>
+    <path d="M548 260C590 304 620 308 664 308"/>
+    <path d="M548 280C590 364 620 374 664 374"/>
+  </g>
+  <g fill="#111827" stroke="#475569">
+    <rect x="682" y="104" width="124" height="38" rx="9"/><rect x="682" y="152" width="124" height="38" rx="9"/>
+    <rect x="682" y="220" width="124" height="38" rx="9"/><rect x="682" y="288" width="124" height="38" rx="9"/>
+    <rect x="682" y="356" width="124" height="38" rx="9"/>
+  </g>
+  <text x="744" y="128" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="11">local laptop</text>
+  <text x="744" y="176" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="11">Docker</text>
+  <text x="744" y="244" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="11">E2B / Daytona</text>
+  <text x="744" y="312" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="11">remote server</text>
+  <text x="744" y="380" text-anchor="middle" fill="#E2E8F0" font-family="Inter, ui-sans-serif, system-ui" font-size="11">fleet</text>
+</svg>

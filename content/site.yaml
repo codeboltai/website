@@ -108,12 +108,11 @@ pages:
         tabs:
           - label: "CLI"
             body: "Install globally with npm. Run in your terminal. Use a built-in agent or write your own — full SDK access, any LLM provider."
-            code: "npm i -g codebolt"
             primary: { label: "Install Guide", href: "/products/cli" }
             more: { label: "View CLI", href: "/products/cli" }
             media:
               label: "~ codebolt"
-              src: "/images/cli-1.png"
+              src: "/images/cli-1.gif"
               alt: "Codebolt CLI terminal interface"
               placeholder: "CLI Terminal"
           - label: "Editor"
@@ -122,7 +121,7 @@ pages:
             more: { label: "View Editor", href: "/products/editor" }
             media:
               label: "Codebolt Editor"
-              src: "/images/desktop-1.png"
+              src: "/images/desktop.png"
               alt: "Codebolt desktop editor interface"
               placeholder: "Desktop IDE"
           - label: "Cloud"
@@ -131,12 +130,11 @@ pages:
             more: { label: "View Cloud", href: "/products/cloud" }
             media:
               label: "Remote Chat"
-              src: "/images/cloud.png"
+              src: "/images-withoutbackground/cloud.png"
               alt: "Codebolt remote chat workspace showing a live autonomous agent completing build and server tasks"
               placeholder: "Browser Workspace"
           - label: "SDK"
             body: "Embed the engine in your own product. Agent SDK (63+ modules), Plugin SDK (3 channels), Client SDK (72 REST + 33 WS). Self-host the engine or call it as a service."
-            code: "npm i codeboltjs"
             primary: { label: "Get the SDK", href: "/products/sdk" }
             more: { label: "View SDK", href: "/products/sdk" }
             media:
@@ -1754,7 +1752,7 @@ pages:
         installCommand: "npm i -g codebolt"
         media:
           label: "Codebolt CLI Demo"
-          src: "/images/cli-1.png"
+          src: "/images/cli-1.gif"
           alt: "Codebolt CLI multi-agent terminal interface"
 
       - type: bento-grid
@@ -1801,7 +1799,7 @@ pages:
         heading: "tmux-style agent work, not one linear chat"
         body: "Codebolt CLI is designed for the way agent work actually happens: one thread explores, another edits, another tests, another reviews. The TUI can show parent and child conversations together, keep windows arranged on a terminal canvas, and let you supervise parallel work from one keyboard-first surface."
         reverse: true
-        image: "/images/cli-terminal-orchestration.svg"
+        image: "/images/cli-1.gif"
         imageAlt: "Codebolt CLI tmux-style terminal workspace showing multiple agent work panes in parallel"
 
       - type: accordion-showcase
@@ -1843,7 +1841,7 @@ pages:
               - "Autocomplete and search help attach the right project context."
               - "File read/write activity remains inspectable from the terminal."
             image:
-              src: "/images/cli-editor.png"
+              src: "/images/cli-files.png"
               alt: "Codebolt CLI project workspace with file tree and editor-style terminal panels"
             visual: |
               project
@@ -1916,7 +1914,7 @@ pages:
               - "Set pinned agents and defaults for the project."
               - "Change theme, keybindings, and app settings in place."
             image:
-              src: "/images/cli-setting.png"
+              src: "/images/cli-settings.png"
               alt: "Codebolt CLI settings panel for providers, models, agents, themes, and keybindings"
             visual: |
               settings
@@ -1964,7 +1962,7 @@ pages:
           - { label: "Read Editor Docs", href: "https://docs.codebolt.ai/docs/02_using-codebolt/02_surfaces/02_desktop-app/01_workspace-and-projects", variant: "secondary" }
         media:
           label: "Codebolt Editor Demo"
-          src: "/images/desktop-1.png"
+          src: "/images/desktop.png"
           placeholder: "Editor product screenshot"
           alt: "Codebolt Editor desktop agent workspace"
 
@@ -2332,7 +2330,7 @@ pages:
         heading: "Start cloud agents in the sandbox you choose"
         body: "Codebolt Cloud can launch agent work into provider-backed environments instead of forcing everything into one hosted runtime. Use Codebolt-managed sandboxes, connect your own E2B or Daytona accounts, route work to Docker or worktree environments, or build a custom provider for your infrastructure. The portal, API, and automations all talk to the same environment model."
         cta: { label: "Read environment orchestration docs", href: "https://docs.codebolt.ai/docs/04_build-on-codebolt/08a_multi-environment-orchestration/01_overview" }
-        image: "/images/cloud-sandbox-agents.svg"
+        image: "/images/Start_cloud_agents_in_the_sandbox.gif"
         imageAlt: "Codebolt Cloud launching agents into provider-backed sandbox environments"
 
       - type: feature-block
@@ -2340,14 +2338,14 @@ pages:
         heading: "Manage local Codebolt sessions from Cloud"
         body: "Cloud can connect to local Codebolt instances through the cloud plugin. That gives you a shared portal for local sessions, cloud sessions, and handoffs between them. You can begin in the desktop app or CLI, promote a run to cloud infrastructure, or keep a local machine as an environment Cloud can coordinate."
         reverse: true
-        image: "/images/cloud-local-handoff.svg"
+        image: "/images/control_local_from_cloud.gif"
         imageAlt: "Codebolt Cloud portal managing desktop and CLI sessions through the cloud plugin"
 
       - type: feature-block
         kicker: "03 · AUTOMATIONS"
         heading: "Turn prompts into scheduled goals"
         body: "Cloud agents do not have to start from a person typing in a chat box. Define recurring goals, cron-style schedules, webhook triggers, or API-triggered jobs. Agents can triage issues, run maintenance, generate reports, watch repos, check deployments, or execute business workflows on a schedule."
-        image: "/images/cloud-scheduled-goals.svg"
+        image: "/images/Turn_prompts_into_scheduled_goals.gif"
         imageAlt: "Codebolt Cloud turning prompts into recurring goals schedules webhooks and API jobs"
 
       - type: feature-block
@@ -5034,3 +5032,4 @@ pages:
           - date: "2025-11-15"
             version: "v0.3.0"
             summary: "HostBridge abstraction. One engine now powers desktop IDE, CLI, and headless server with identical capabilities."
+
