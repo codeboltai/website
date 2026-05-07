@@ -241,14 +241,14 @@ pages:
             description: "Inherit a base agent. Customize in YAML + Markdown. Git-friendly. No code required."
             span: 1
             image:
-              src: "/images/remix.gif"
+              src: "/images/remix.png"
               alt: "Agent framework options for remix, flow, and custom agents"
           - title: "Flow Agents"
             tag: "VISUAL"
             description: "Drag-and-drop agent workflows. LiteGraph editor. Compose agents with no code."
             span: 1
             image:
-              src: "/images/agentflow.gif"
+              src: "/images/agentflow.png"
               alt: "Visual flow agents moving through plan, edit, test, and review stages"
           - title: "Custom UI"
             tag: "CLIENT SDK"
@@ -256,7 +256,7 @@ pages:
             href: "/products/sdk"
             span: 1
             image:
-              src: "/images/customuis.gif"
+              src: "/images/customuis.png"
               alt: "Client SDK interface with REST, WebSocket, dashboard, panel, and mobile surfaces"
 
       - type: feature-block
