@@ -7,7 +7,7 @@
     "generate": "sitegen generate --template ./template --content ./content/site.yaml --output ./site",
     "validate": "sitegen validate --template ./template --content ./content/site.yaml",
     "build": "npm run generate && npm install --prefix ./site --loglevel error && npm run --prefix ./site build",
-    "dev": "npm run generate && npm install --prefix ./site --loglevel error && npm run --prefix ./site dev",
+    "dev": "npm run generate && npm install --prefix ./site --loglevel error && npm run --prefix ./site dev --",
     "export-diagrams": "node scripts/export-diagrams.mjs",
     "generate-code-image": "node scripts/generate-code-image.mjs"
   },
