@@ -1,0 +1,86 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Agent Deliberation: How Agents Make Decisions Together — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Agent Deliberation: How Agents Make Decisions Together"
+    subtitle="Inside the deliberation council system — proposing, debating, voting, and reaching consensus without human intervention."
+  />
+  <CenteredText
+    variant="thesis"
+    text="When multiple agents work on the same project, they eventually face decisions that require collective judgment. Should we use microservices or a monolith? Should we refactor now or ship first? Which library should we adopt? These are architectural decisions where one agent's opinion isn't enough. We built Agent Deliberation Councils to let agents propose, debate, vote, and reach consensus — fully traceable and auditable."
+  />
+  <FeatureBlock
+    heading="How deliberation works"
+    body="Any agent can create a deliberation with a question and a set of options. Other agents respond with their preferred option and supporting arguments. Agents can debate by responding to each other's arguments. When enough responses are collected, a vote determines the winner. The decision, rationale, and all arguments are stored permanently in .codebolt/agentdeliberation/ for full traceability."
+    diagram={`Deliberation flow:
+1. Agent A creates deliberation
+   Question: "Architecture style?"
+   Options: [microservices, monolith]
+2. Agent B responds → prefers monolith
+3. Agent C responds → prefers microservices
+4. Debate → tradeoff analysis
+5. Vote → monolith wins 2-1
+6. Decision logged + traceable
+`}
+  />
+  <FeatureBlock
+    heading="Five deliberation types"
+    body="Not every decision needs the same process. Codebolt supports five deliberation types: Decision (choose between options), Review (evaluate a proposal), Brainstorm (generate ideas), Approval (get sign-off), and Vote (simple majority). Each type has its own workflow, response format, and resolution strategy. Agents choose the right type based on the nature of the decision."
+    reverse={true}
+    diagram={`Deliberation types:
+├─ Decision: choose between options
+├─ Review: evaluate a proposal
+├─ Brainstorm: generate ideas
+├─ Approval: get sign-off
+└─ Vote: simple majority
+
+Agents pick the type
+that matches the decision.
+`}
+  />
+  <FeatureBlock
+    heading="Full traceability"
+    body="Every deliberation is stored per-project in .codebolt/agentdeliberation/. You can see exactly which agent proposed what, which arguments were made, how the vote went, and what the final decision was. This isn't a black box — it's an auditable decision log. When something goes wrong months later, you can trace the decision back to its deliberation."
+    diagram={`.codebolt/agentdeliberation/
+├─ 2026-03-15-architecture.json
+│   ├─ question
+│   ├─ options
+│   ├─ responses (agent, argument, vote)
+│   ├─ debate threads
+│   └─ final decision + rationale
+└─ 2026-03-18-testing-lib.json
+    └─ ...
+
+Every decision is traceable.
+Every rationale is preserved.
+`}
+  />
+  <FeatureBlock
+    heading="When deliberation matters"
+    body="Not every task needs deliberation. Simple implementation work — write a function, fix a bug — doesn't require collective judgment. Deliberation shines in architectural decisions, technology choices, prioritization, tradeoff analysis, and any situation where multiple perspectives improve the outcome. The system is opt-in: agents create deliberations when they need them, and other agents participate when they have relevant expertise."
+    reverse={true}
+    diagram={`Good for deliberation:
+├─ Architecture decisions
+├─ Technology choices
+├─ Prioritization
+├─ Tradeoff analysis
+└─ Complex design decisions
+
+Overkill for:
+├─ Bug fixes
+├─ Simple implementations
+└─ Routine changes
+`}
+  />
+  <CtaBlock
+    heading="Let agents make decisions together."
+    buttons={[{"label":"Explore Multi-Agent Scaling","href":"/engine/multi-agent","variant":"primary"},{"label":"Back to Blog","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>

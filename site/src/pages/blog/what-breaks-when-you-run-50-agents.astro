@@ -1,0 +1,97 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="What Breaks When You Run 50 Agents on One Repo — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="What Breaks When You Run 50 Agents on One Repo"
+    subtitle="Real problems we encountered scaling agent coordination — conflicts, drift, memory exhaustion — and the system-level solutions we built."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Scaling from 1 agent to 5 agents is easy. Scaling from 5 to 50 is where the real engineering begins. We ran 50 agents on a single repository and watched everything break. Here's what happened, what we learned, and the systems we built to fix it."
+  />
+  <FeatureBlock
+    heading="Problem 1: File conflicts everywhere"
+    body="With 50 agents editing the same codebase, file conflicts became the norm, not the exception. Agent A edits auth.ts while Agent B is also editing auth.ts. Agent C deletes a file that Agent D is trying to read. The git history becomes a mess of conflicting commits. We solved this with pheromone-based file ownership — agents deposit ownership signals on files they're working on, and other agents respect those signals."
+    diagram={`Before pheromones:
+Agent A edits auth.ts ← conflict!
+Agent B edits auth.ts ← conflict!
+50 agents × 200 files = chaos
+
+After pheromones:
+Agent A claims auth.ts → pheromone
+Agent B sees claim → picks user.ts
+Conflicts dropped by 95%
+`}
+  />
+  <FeatureBlock
+    heading="Problem 2: Scope drift"
+    body="Individual agents kept drifting from the original intent. Agent A was asked to fix a login bug but ended up refactoring the entire auth module. Agent B was supposed to write tests but started adding new features. The problem: no single agent could see the full picture. We built two-level drift tracking — local Rust instances assess per-agent drift, and the global JavaScript layer detects systemic patterns."
+    reverse={true}
+    diagram={`What drift looks like:
+Task: fix login bug
+Agent A: refactors auth module ← scope drift
+Agent B: adds new features ← scope drift
+Agent C: only fixes the bug ← correct
+
+Drift tracking:
+Local Rust: structural, scope, constraint drift
+Global JS: systemic patterns across agents
+Flagged before it compounds
+`}
+  />
+  <FeatureBlock
+    heading="Problem 3: Memory exhaustion"
+    body="50 agents each building their own context window. Each agent reading files, recalling past work, maintaining conversation state. The total token consumption was astronomical — and most of it was redundant. The Context Assembly Engine solved this by sharing memory across agents and budgeting token allocation. Each agent gets exactly the context it needs, drawn from a shared knowledge pool."
+    diagram={`Before shared memory:
+50 agents × 100K tokens each = 5M tokens/turn
+90% redundant context
+
+After CAE:
+Shared knowledge pool
+Per-agent token budgets
+Rule-based context selection
+5M → 500K tokens/turn
+10x reduction, better quality
+`}
+  />
+  <FeatureBlock
+    heading="Problem 4: Review bottleneck"
+    body="With 50 agents producing changes, human review became impossible. Even having agents review each other created bottlenecks — Agent A waits for Agent B's review, Agent B waits for Agent C. We built automatic review-merge with pheromone coordination. Agents create review requests, other agents provide feedback asynchronously, conflict detection runs before merge, and shadow git handles the actual merge operations."
+    reverse={true}
+    diagram={`Before auto review:
+50 agents → 50 PR equivalents
+Human reviews: impossible
+Agent reviews: sequential bottleneck
+
+After auto review:
+Agent creates review request
+Other agents review asynchronously
+Conflict detection before merge
+Shadow git handles merge
+No human bottleneck needed
+`}
+  />
+  <FeatureBlock
+    heading="The result: 50 agents, one coherent system"
+    body="After implementing pheromones, drift tracking, shared memory, and automatic review-merge, 50 agents could work on a single repository coherently. Task completion rate improved 3x. Conflicts dropped 95%. The system got better with use — memory compounded, patterns improved, and coordination became more natural over time."
+    diagram={`After all fixes:
+✅ 95% fewer file conflicts
+✅ 3x task completion rate
+✅ 10x reduction in token usage
+✅ Automatic review-merge working
+✅ Drift caught before compounding
+✅ System improves with use
+`}
+  />
+  <CtaBlock
+    heading="Scale agents without the chaos."
+    buttons={[{"label":"Explore Multi-Agent Scaling","href":"/engine/multi-agent","variant":"primary"},{"label":"Back to Blog","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>

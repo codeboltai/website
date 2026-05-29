@@ -1,0 +1,63 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="How the Plugin System Enables Autonomous Applications — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="How the Plugin System Enables Autonomous Applications"
+    subtitle="Why plugins in Codebolt don't need separate agent instances, how the three communication channels work, and what this means for building autonomous companies."
+  />
+  <CenteredText
+    variant="thesis"
+    text="In most agent platforms, plugins are afterthoughts — add-ons that extend a fixed system. In Codebolt, plugins are first-class citizens. They run inside the engine, have three communication channels, access the full SDK, and can serve as the backend for complete applications. This is what makes autonomous companies possible."
+  />
+  <FeatureBlock
+    heading="The three-channel architecture"
+    body="Every plugin in Codebolt connects through three simultaneous channels. Channel 1: WebSocket — the same protocol agents use, giving plugins direct access to filesystem, git, terminal, LLM, and all 63+ SDK modules. Channel 2: Multiplexed events — real-time subscriptions to tasks, chat, jobs, swarm, calendar, and review-merge events. Channel 3: HTTP REST — full CRUD for threads, tasks, projects, environments, and all 72 REST modules."
+    diagram={`Your Plugin
+├─ Ch.1 WS → fs, git, llm, terminal, browser
+├─ Ch.2 Mux → events, tasks, jobs, swarm
+└─ Ch.3 HTTP → CRUD, projects, environments
+All three run simultaneously.
+No separate agent instance needed.
+`}
+  />
+  <FeatureBlock
+    heading="Why plugins don't need their own agents"
+    body="In other platforms, a plugin or integration usually needs to spin up its own agent instance — adding overhead, state management, and complexity. In Codebolt, the plugin runs inside the engine's process space. It can call engine APIs directly, subscribe to real-time events, and participate in agent workflows without being a separate agent. This is a fundamentally different architecture."
+    reverse={true}
+    diagram={`Other platforms:
+Plugin → spawns agent → overhead + state mgmt
+
+Codebolt:
+Plugin → runs inside engine → direct API access
+→ subscribes to events
+→ participates in workflows
+→ zero overhead
+`}
+  />
+  <FeatureBlock
+    heading="From plugins to autonomous companies"
+    body="When plugins can serve as the backend for complete applications, you get autonomous companies. Each business domain — engineering, testing, deployment, monitoring — becomes a plugin. Agents coordinate across all plugins using stigmergy and deliberation. The company runs on one engine instead of five stitched-together tools."
+    diagram={`Traditional: 5 tools stitched together
+Claude Code + OpenClaw + Cursor + scripts + glue
+= Integration nightmare
+
+Codebolt: Business domains as plugins
+Engine → Plugin: Engineering
+       → Plugin: QA
+       → Plugin: Deployment
+       → Plugin: Monitoring
+= One coordinated system
+`}
+  />
+  <CtaBlock
+    heading="Build applications that run inside the engine."
+    buttons={[{"label":"Explore System Extensibility","href":"/engine/system-extensibility","variant":"primary"},{"label":"Back to Blog","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>

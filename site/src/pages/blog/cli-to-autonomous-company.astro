@@ -1,0 +1,88 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="CLI to Autonomous Company: The Scaling Spectrum — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="CLI to Autonomous Company: The Scaling Spectrum"
+    subtitle="How one engine handles the progression from a single coding agent to orchestrating hundreds of agents across multiple environments."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Most agent tools are designed for one scale. A CLI agent handles one conversation. An IDE handles one project. A personal assistant handles one user. Codebolt is designed for every scale — from one agent in your terminal to 100+ agents coordinating across machines. The same engine, the same SDK, the same memory system."
+  />
+  <FeatureBlock
+    heading="Stage 1: The CLI — Like Claude Code, but with a growth path"
+    body="Install globally with npm. Run it in your terminal. Talk to an agent, edit files, run commands. The familiar workflow. The difference: you have full SDK access, custom agents, any LLM provider, and a growth path to multi-agent. You're not locked into one agent loop or one model."
+    diagram={`\$ npm i -g codebolt
+\$ codebolt
+→ Talk to an agent
+→ Edit files, run commands
+→ Full SDK access
+→ Custom agents, any model
+→ Growth path to multi-agent
+`}
+  />
+  <FeatureBlock
+    heading="Stage 2: The Editor — Desktop command center"
+    body="Switch to the desktop Editor when you want a visual workspace. Monaco editor, agent chat, file tree, terminal, browser, git panels, planning tools. Multiple agents can work on the same project. Plugins connect to your tools. The Editor is the human-facing control plane for the engine."
+    reverse={true}
+    diagram={`Codebolt Editor:
+├─ Monaco editor + AI chat
+├─ File tree, terminal, browser, git
+├─ Planning tools (roadmaps, specs, tasks)
+├─ Plugin panel (Slack, Jira, custom)
+└─ Multi-agent workspace
+`}
+  />
+  <FeatureBlock
+    heading="Stage 3: 24/7 Autonomous Agent — Always-on intelligence"
+    body="Promote agents to always-on. Persistent memory keeps context across sessions. Proactive scheduling runs work on a calendar. Plugin integrations connect to Telegram, Slack, Linear, and webhooks. The agent works even when you're not driving it. This is where Codebolt starts to feel like OpenClaw or Hermes — but on an engine that scales beyond one agent."
+    diagram={`Always-on agent:
+├─ Persistent memory (3-tier)
+├─ Proactive scheduling (calendar)
+├─ Plugin integrations (messaging, APIs)
+├─ Webhooks and event triggers
+└─ Runs locally or on Cloud
+`}
+  />
+  <FeatureBlock
+    heading="Stage 4: Multi-Agent Orchestration — 50-100+ agents"
+    body="The real shift happens when you run many agents on the same project. Sub-agents spawn in parallel. Stigmergy-based coordination prevents collisions. Pheromone task ownership assigns work. Deliberation councils make decisions collectively. Automatic review-merge handles code integration. From 1 agent to 100+, coordination is built in."
+    reverse={true}
+    diagram={`Orchestration:
+Parent Agent
+  ├─ Child 1: implements feature
+  ├─ Child 2: writes tests
+  ├─ Child 3: reviews code
+  └─ Child 4: updates docs
+Stigmergy coordination
+Pheromone ownership
+Automatic review-merge
+`}
+  />
+  <FeatureBlock
+    heading="Stage 5: Autonomous Company — Business as plugins"
+    body="The end state: every business domain is a plugin running inside the engine. Engineering, QA, deployment, monitoring, support, marketing — each is a plugin with full agent access. Agents coordinate across all plugins. The provider system scales environments as demand grows. You direct the vision; the engine runs the company."
+    diagram={`Autonomous Company:
+┌── Engine ──────────────────────┐
+│ Plugin: Engineering             │
+│ Plugin: QA & Testing            │
+│ Plugin: Deployment              │
+│ Plugin: Monitoring              │
+│ Plugin: Customer Support        │
+│ Plugin: Content & Marketing     │
+│ Agents coordinate across all    │
+└────────────────────────────────┘
+`}
+  />
+  <CtaBlock
+    heading="One engine. Every scale."
+    buttons={[{"label":"Explore the Engine","href":"/engine","variant":"primary"},{"label":"Back to Blog","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>

@@ -1,0 +1,79 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Stigmergy vs Message Passing for Agent Coordination — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Stigmergy vs Message Passing for Agent Coordination"
+    subtitle="A research-backed comparison of coordination strategies. Why indirect communication through shared state scales better than direct messaging."
+  />
+  <CenteredText
+    variant="thesis"
+    text="When multiple agents need to work together, the coordination strategy matters more than the individual agent capabilities. Traditional multi-agent systems use direct message passing — Agent A sends a message to Agent B. It works for 2-3 agents. It breaks at 20. Codebolt uses stigmergy: agents communicate indirectly through structured shared state. This is how biological swarms scale to millions."
+  />
+  <FeatureBlock
+    heading="The message passing problem"
+    body="Direct message passing creates coupling. Agent A needs to know Agent B exists, what it can do, and how to talk to it. Add Agent C, and now A needs to know about C too. At 10 agents, you have 45 pairwise connections. At 100 agents, you have 4,950. The system becomes fragile — one broken message breaks the chain."
+    diagram={`Message passing (N agents):
+Connections = N × (N-1) / 2
+3 agents → 3 connections
+10 agents → 45 connections
+100 agents → 4,950 connections
+Fragile. Doesn't scale.
+`}
+  />
+  <FeatureBlock
+    heading="What is stigmergy?"
+    body="Stigmergy is a biological coordination mechanism observed in ant colonies, termite mounds, and bee swarms. Instead of direct communication, agents modify a shared environment. Other agents sense those modifications and adjust their behavior accordingly. No agent needs to know about any other agent. Coordination emerges from the environment, not from messaging."
+    reverse={true}
+    diagram={`In nature:
+Ant A deposits pheromone → trail in environment
+Ant B senses pheromone → follows trail
+No ant talks to another ant.
+Coordination emerges from the environment.
+
+In Codebolt:
+Agent A writes to shared state → task claimed
+Agent B reads shared state → picks different task
+No direct messaging. Scales to 200+.
+`}
+  />
+  <FeatureBlock
+    heading="Pheromone-based task ownership"
+    body="Codebolt implements pheromones as ownership signals on tasks and files. When an agent deposits a pheromone on a task, other agents can see it and avoid that work. Configurable pheromone types allow different kinds of ownership — exclusive, shared, or advisory. Aggregation resolves conflicts when multiple agents target the same work."
+    diagram={`Pheromone types:
+├─ Exclusive: one agent only
+├─ Shared: multiple agents, coordinated
+└─ Advisory: preferred but not enforced
+
+Conflict resolution:
+Agent A claims task → pheromone deposited
+Agent B sees claim → picks different task
+If conflict → aggregation system resolves
+`}
+  />
+  <FeatureBlock
+    heading="The scaling evidence"
+    body="We tested stigmergy against message passing with increasing agent counts. At 5 agents, both performed similarly. At 20 agents, message passing showed 3x more conflicts and 40% slower task completion. At 50 agents, message passing broke down entirely — agents spent more time managing connections than doing work. Stigmergy continued to scale linearly."
+    reverse={true}
+    diagram={`Test results:
+5 agents:  similar performance
+20 agents: 3x fewer conflicts with stigmergy
+50 agents: message passing broke down
+100 agents: stigmergy still scaling linearly
+
+Key insight: coordination overhead
+grows quadratically with message passing.
+It stays constant with stigmergy.
+`}
+  />
+  <CtaBlock
+    heading="Coordination that scales, not breaks."
+    buttons={[{"label":"Explore Multi-Agent Scaling","href":"/engine/multi-agent","variant":"primary"},{"label":"Back to Blog","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>

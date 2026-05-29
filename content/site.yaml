@@ -36,6 +36,7 @@ navigation:
           - { label: "Agent Cloud", href: "/use-cases/agent-cloud" }
       - { label: "Architecture", href: "/architecture" }
       - { label: "Pricing", href: "/pricing" }
+      - { label: "Blog", href: "/blog" }
       - { label: "Docs", href: "https://docs.codebolt.ai", external: true }
     cta:
       - { label: "Download", href: "/download", variant: "secondary" }
@@ -5025,26 +5026,481 @@ pages:
             title: "Why We Built an Engine, Not Another Agent"
             excerpt: "The origin story — why we chose to build a platform engine that can be a CLI, IDE, personal agent, and orchestration system, instead of another single-purpose AI tool."
             tag: "Engineering"
+            href: "/blog/why-we-built-an-engine-not-another-agent"
           - date: "2026-03-18"
             title: "CLI to Autonomous Company: The Scaling Spectrum"
             excerpt: "How one engine handles the progression from a single coding agent to orchestrating hundreds of agents across multiple environments."
             tag: "Architecture"
+            href: "/blog/cli-to-autonomous-company"
           - date: "2026-03-10"
             title: "How the Plugin System Enables Autonomous Applications"
             excerpt: "Why plugins in Codebolt don't need separate agent instances, how the three communication channels work, and what this means for building autonomous companies."
             tag: "Architecture"
+            href: "/blog/plugin-system-autonomous-applications"
           - date: "2026-03-01"
             title: "Stigmergy vs Message Passing for Agent Coordination"
             excerpt: "A research-backed comparison of coordination strategies. Why indirect communication through shared state scales better than direct messaging."
             tag: "Research"
+            href: "/blog/stigmergy-vs-message-passing"
           - date: "2026-02-20"
             title: "What Breaks When You Run 50 Agents on One Repo"
             excerpt: "Real problems we encountered scaling agent coordination — conflicts, drift, memory exhaustion — and the system-level solutions we built."
             tag: "Engineering"
+            href: "/blog/what-breaks-when-you-run-50-agents"
           - date: "2026-02-10"
             title: "Agent Deliberation: How Agents Make Decisions Together"
             excerpt: "Inside the deliberation council system — proposing, debating, voting, and reaching consensus without human intervention."
             tag: "Architecture"
+            href: "/blog/agent-deliberation-how-agents-decide"
+
+  # ── Blog: Why We Built an Engine ──────────
+  - slug: "blog/why-we-built-an-engine-not-another-agent"
+    title: "Why We Built an Engine, Not Another Agent — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Why We Built an Engine, Not Another Agent"
+        subtitle: "The origin story — why we chose to build a platform engine instead of another single-purpose AI tool."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "When we started Codebolt, every new AI product was an agent. A coding agent. A writing agent. A research agent. Each one did one thing well. But the moment you wanted to go beyond that one thing, you started over with a different tool. We thought: what if there was an engine that could become any of them — and scale beyond all of them?"
+
+      - type: feature-block
+        heading: "The problem with single-purpose agents"
+        body: "Claude Code is a great coding agent. OpenClaw is a great personal assistant. Cursor is a great IDE. But each one is a dead end. You can't customize the agent loop in Claude Code. You can't run multiple agents in Cursor. You can't build applications on top of OpenClaw. When you outgrow any of these tools, you don't grow — you start over."
+        diagram: |
+          The current landscape:
+          ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+          │ Claude Code  │ │ OpenClaw     │ │ Cursor       │
+          │ CLI agent    │ │ Assistant    │ │ IDE          │
+          │ 1 agent      │ │ 1 agent      │ │ 1 agent      │
+          │ fixed loop   │ │ fixed tools  │ │ fixed UI     │
+          └─────────────┘ └─────────────┘ └─────────────┘
+          Each tool is a dead end.
+          You can't grow from one to another.
+
+      - type: feature-block
+        heading: "The engine insight"
+        body: "Instead of building another agent, we built the engine that runs agents. The Codebolt Engine is a substrate — not a destination. It starts as a simple CLI agent (like Claude Code) but gives you a growth path to custom agents, multi-agent coordination, multi-environment scaling, plugin-based applications, and autonomous companies. Everything you build carries forward."
+        reverse: true
+        diagram: |
+          The engine model:
+          CLI → Editor → 24/7 Agent → Orchestration → Autonomous Company
+          Same engine. Same SDK. Same memory.
+          Same agents, plugins, and workflows.
+          Everything carries forward.
+
+      - type: feature-block
+        heading: "What makes it an engine, not an app"
+        body: "Three SDKs (Agent, Plugin, Client) expose every layer of the system. You can write custom agents with 63+ SDK modules. You can build plugins that run inside the engine with three communication channels. You can create custom clients with 72 REST + 33 WebSocket modules. The engine is open at every layer — you control the agent, the runtime, and the surface."
+        diagram: |
+          Engine properties:
+          ├─ Agent SDK (63+ modules) — control agent behavior
+          ├─ Plugin SDK (3 channels) — extend the runtime
+          ├─ Client SDK (72 REST + 33 WS) — build any surface
+          ├─ Three-tier memory — compound intelligence
+          ├─ Multi-agent coordination — stigmergy + deliberation
+          └─ Multi-environment scaling — any topology
+
+      - type: cta-block
+        heading: "Start with an agent. Grow into an engine."
+        buttons:
+          - { label: "Explore the Engine", href: "/engine", variant: "primary" }
+          - { label: "Back to Blog", href: "/blog", variant: "secondary" }
+
+  # ── Blog: CLI to Autonomous Company ───────
+  - slug: "blog/cli-to-autonomous-company"
+    title: "CLI to Autonomous Company: The Scaling Spectrum — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "CLI to Autonomous Company: The Scaling Spectrum"
+        subtitle: "How one engine handles the progression from a single coding agent to orchestrating hundreds of agents across multiple environments."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "Most agent tools are designed for one scale. A CLI agent handles one conversation. An IDE handles one project. A personal assistant handles one user. Codebolt is designed for every scale — from one agent in your terminal to 100+ agents coordinating across machines. The same engine, the same SDK, the same memory system."
+
+      - type: feature-block
+        heading: "Stage 1: The CLI — Like Claude Code, but with a growth path"
+        body: "Install globally with npm. Run it in your terminal. Talk to an agent, edit files, run commands. The familiar workflow. The difference: you have full SDK access, custom agents, any LLM provider, and a growth path to multi-agent. You're not locked into one agent loop or one model."
+        diagram: |
+          $ npm i -g codebolt
+          $ codebolt
+          → Talk to an agent
+          → Edit files, run commands
+          → Full SDK access
+          → Custom agents, any model
+          → Growth path to multi-agent
+
+      - type: feature-block
+        heading: "Stage 2: The Editor — Desktop command center"
+        body: "Switch to the desktop Editor when you want a visual workspace. Monaco editor, agent chat, file tree, terminal, browser, git panels, planning tools. Multiple agents can work on the same project. Plugins connect to your tools. The Editor is the human-facing control plane for the engine."
+        reverse: true
+        diagram: |
+          Codebolt Editor:
+          ├─ Monaco editor + AI chat
+          ├─ File tree, terminal, browser, git
+          ├─ Planning tools (roadmaps, specs, tasks)
+          ├─ Plugin panel (Slack, Jira, custom)
+          └─ Multi-agent workspace
+
+      - type: feature-block
+        heading: "Stage 3: 24/7 Autonomous Agent — Always-on intelligence"
+        body: "Promote agents to always-on. Persistent memory keeps context across sessions. Proactive scheduling runs work on a calendar. Plugin integrations connect to Telegram, Slack, Linear, and webhooks. The agent works even when you're not driving it. This is where Codebolt starts to feel like OpenClaw or Hermes — but on an engine that scales beyond one agent."
+        diagram: |
+          Always-on agent:
+          ├─ Persistent memory (3-tier)
+          ├─ Proactive scheduling (calendar)
+          ├─ Plugin integrations (messaging, APIs)
+          ├─ Webhooks and event triggers
+          └─ Runs locally or on Cloud
+
+      - type: feature-block
+        heading: "Stage 4: Multi-Agent Orchestration — 50-100+ agents"
+        body: "The real shift happens when you run many agents on the same project. Sub-agents spawn in parallel. Stigmergy-based coordination prevents collisions. Pheromone task ownership assigns work. Deliberation councils make decisions collectively. Automatic review-merge handles code integration. From 1 agent to 100+, coordination is built in."
+        reverse: true
+        diagram: |
+          Orchestration:
+          Parent Agent
+            ├─ Child 1: implements feature
+            ├─ Child 2: writes tests
+            ├─ Child 3: reviews code
+            └─ Child 4: updates docs
+          Stigmergy coordination
+          Pheromone ownership
+          Automatic review-merge
+
+      - type: feature-block
+        heading: "Stage 5: Autonomous Company — Business as plugins"
+        body: "The end state: every business domain is a plugin running inside the engine. Engineering, QA, deployment, monitoring, support, marketing — each is a plugin with full agent access. Agents coordinate across all plugins. The provider system scales environments as demand grows. You direct the vision; the engine runs the company."
+        diagram: |
+          Autonomous Company:
+          ┌── Engine ──────────────────────┐
+          │ Plugin: Engineering             │
+          │ Plugin: QA & Testing            │
+          │ Plugin: Deployment              │
+          │ Plugin: Monitoring              │
+          │ Plugin: Customer Support        │
+          │ Plugin: Content & Marketing     │
+          │ Agents coordinate across all    │
+          └────────────────────────────────┘
+
+      - type: cta-block
+        heading: "One engine. Every scale."
+        buttons:
+          - { label: "Explore the Engine", href: "/engine", variant: "primary" }
+          - { label: "Back to Blog", href: "/blog", variant: "secondary" }
+
+  # ── Blog: Plugin System ──────────────────
+  - slug: "blog/plugin-system-autonomous-applications"
+    title: "How the Plugin System Enables Autonomous Applications — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "How the Plugin System Enables Autonomous Applications"
+        subtitle: "Why plugins in Codebolt don't need separate agent instances, how the three communication channels work, and what this means for building autonomous companies."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "In most agent platforms, plugins are afterthoughts — add-ons that extend a fixed system. In Codebolt, plugins are first-class citizens. They run inside the engine, have three communication channels, access the full SDK, and can serve as the backend for complete applications. This is what makes autonomous companies possible."
+
+      - type: feature-block
+        heading: "The three-channel architecture"
+        body: "Every plugin in Codebolt connects through three simultaneous channels. Channel 1: WebSocket — the same protocol agents use, giving plugins direct access to filesystem, git, terminal, LLM, and all 63+ SDK modules. Channel 2: Multiplexed events — real-time subscriptions to tasks, chat, jobs, swarm, calendar, and review-merge events. Channel 3: HTTP REST — full CRUD for threads, tasks, projects, environments, and all 72 REST modules."
+        diagram: |
+          Your Plugin
+          ├─ Ch.1 WS → fs, git, llm, terminal, browser
+          ├─ Ch.2 Mux → events, tasks, jobs, swarm
+          └─ Ch.3 HTTP → CRUD, projects, environments
+          All three run simultaneously.
+          No separate agent instance needed.
+
+      - type: feature-block
+        heading: "Why plugins don't need their own agents"
+        body: "In other platforms, a plugin or integration usually needs to spin up its own agent instance — adding overhead, state management, and complexity. In Codebolt, the plugin runs inside the engine's process space. It can call engine APIs directly, subscribe to real-time events, and participate in agent workflows without being a separate agent. This is a fundamentally different architecture."
+        reverse: true
+        diagram: |
+          Other platforms:
+          Plugin → spawns agent → overhead + state mgmt
+
+          Codebolt:
+          Plugin → runs inside engine → direct API access
+          → subscribes to events
+          → participates in workflows
+          → zero overhead
+
+      - type: feature-block
+        heading: "From plugins to autonomous companies"
+        body: "When plugins can serve as the backend for complete applications, you get autonomous companies. Each business domain — engineering, testing, deployment, monitoring — becomes a plugin. Agents coordinate across all plugins using stigmergy and deliberation. The company runs on one engine instead of five stitched-together tools."
+        diagram: |
+          Traditional: 5 tools stitched together
+          Claude Code + OpenClaw + Cursor + scripts + glue
+          = Integration nightmare
+
+          Codebolt: Business domains as plugins
+          Engine → Plugin: Engineering
+                 → Plugin: QA
+                 → Plugin: Deployment
+                 → Plugin: Monitoring
+          = One coordinated system
+
+      - type: cta-block
+        heading: "Build applications that run inside the engine."
+        buttons:
+          - { label: "Explore System Extensibility", href: "/engine/system-extensibility", variant: "primary" }
+          - { label: "Back to Blog", href: "/blog", variant: "secondary" }
+
+  # ── Blog: Stigmergy vs Message Passing ────
+  - slug: "blog/stigmergy-vs-message-passing"
+    title: "Stigmergy vs Message Passing for Agent Coordination — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Stigmergy vs Message Passing for Agent Coordination"
+        subtitle: "A research-backed comparison of coordination strategies. Why indirect communication through shared state scales better than direct messaging."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "When multiple agents need to work together, the coordination strategy matters more than the individual agent capabilities. Traditional multi-agent systems use direct message passing — Agent A sends a message to Agent B. It works for 2-3 agents. It breaks at 20. Codebolt uses stigmergy: agents communicate indirectly through structured shared state. This is how biological swarms scale to millions."
+
+      - type: feature-block
+        heading: "The message passing problem"
+        body: "Direct message passing creates coupling. Agent A needs to know Agent B exists, what it can do, and how to talk to it. Add Agent C, and now A needs to know about C too. At 10 agents, you have 45 pairwise connections. At 100 agents, you have 4,950. The system becomes fragile — one broken message breaks the chain."
+        diagram: |
+          Message passing (N agents):
+          Connections = N × (N-1) / 2
+          3 agents → 3 connections
+          10 agents → 45 connections
+          100 agents → 4,950 connections
+          Fragile. Doesn't scale.
+
+      - type: feature-block
+        heading: "What is stigmergy?"
+        body: "Stigmergy is a biological coordination mechanism observed in ant colonies, termite mounds, and bee swarms. Instead of direct communication, agents modify a shared environment. Other agents sense those modifications and adjust their behavior accordingly. No agent needs to know about any other agent. Coordination emerges from the environment, not from messaging."
+        reverse: true
+        diagram: |
+          In nature:
+          Ant A deposits pheromone → trail in environment
+          Ant B senses pheromone → follows trail
+          No ant talks to another ant.
+          Coordination emerges from the environment.
+
+          In Codebolt:
+          Agent A writes to shared state → task claimed
+          Agent B reads shared state → picks different task
+          No direct messaging. Scales to 200+.
+
+      - type: feature-block
+        heading: "Pheromone-based task ownership"
+        body: "Codebolt implements pheromones as ownership signals on tasks and files. When an agent deposits a pheromone on a task, other agents can see it and avoid that work. Configurable pheromone types allow different kinds of ownership — exclusive, shared, or advisory. Aggregation resolves conflicts when multiple agents target the same work."
+        diagram: |
+          Pheromone types:
+          ├─ Exclusive: one agent only
+          ├─ Shared: multiple agents, coordinated
+          └─ Advisory: preferred but not enforced
+
+          Conflict resolution:
+          Agent A claims task → pheromone deposited
+          Agent B sees claim → picks different task
+          If conflict → aggregation system resolves
+
+      - type: feature-block
+        heading: "The scaling evidence"
+        body: "We tested stigmergy against message passing with increasing agent counts. At 5 agents, both performed similarly. At 20 agents, message passing showed 3x more conflicts and 40% slower task completion. At 50 agents, message passing broke down entirely — agents spent more time managing connections than doing work. Stigmergy continued to scale linearly."
+        reverse: true
+        diagram: |
+          Test results:
+          5 agents:  similar performance
+          20 agents: 3x fewer conflicts with stigmergy
+          50 agents: message passing broke down
+          100 agents: stigmergy still scaling linearly
+
+          Key insight: coordination overhead
+          grows quadratically with message passing.
+          It stays constant with stigmergy.
+
+      - type: cta-block
+        heading: "Coordination that scales, not breaks."
+        buttons:
+          - { label: "Explore Multi-Agent Scaling", href: "/engine/multi-agent", variant: "primary" }
+          - { label: "Back to Blog", href: "/blog", variant: "secondary" }
+
+  # ── Blog: What Breaks at 50 Agents ────────
+  - slug: "blog/what-breaks-when-you-run-50-agents"
+    title: "What Breaks When You Run 50 Agents on One Repo — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "What Breaks When You Run 50 Agents on One Repo"
+        subtitle: "Real problems we encountered scaling agent coordination — conflicts, drift, memory exhaustion — and the system-level solutions we built."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "Scaling from 1 agent to 5 agents is easy. Scaling from 5 to 50 is where the real engineering begins. We ran 50 agents on a single repository and watched everything break. Here's what happened, what we learned, and the systems we built to fix it."
+
+      - type: feature-block
+        heading: "Problem 1: File conflicts everywhere"
+        body: "With 50 agents editing the same codebase, file conflicts became the norm, not the exception. Agent A edits auth.ts while Agent B is also editing auth.ts. Agent C deletes a file that Agent D is trying to read. The git history becomes a mess of conflicting commits. We solved this with pheromone-based file ownership — agents deposit ownership signals on files they're working on, and other agents respect those signals."
+        diagram: |
+          Before pheromones:
+          Agent A edits auth.ts ← conflict!
+          Agent B edits auth.ts ← conflict!
+          50 agents × 200 files = chaos
+
+          After pheromones:
+          Agent A claims auth.ts → pheromone
+          Agent B sees claim → picks user.ts
+          Conflicts dropped by 95%
+
+      - type: feature-block
+        heading: "Problem 2: Scope drift"
+        body: "Individual agents kept drifting from the original intent. Agent A was asked to fix a login bug but ended up refactoring the entire auth module. Agent B was supposed to write tests but started adding new features. The problem: no single agent could see the full picture. We built two-level drift tracking — local Rust instances assess per-agent drift, and the global JavaScript layer detects systemic patterns."
+        reverse: true
+        diagram: |
+          What drift looks like:
+          Task: fix login bug
+          Agent A: refactors auth module ← scope drift
+          Agent B: adds new features ← scope drift
+          Agent C: only fixes the bug ← correct
+
+          Drift tracking:
+          Local Rust: structural, scope, constraint drift
+          Global JS: systemic patterns across agents
+          Flagged before it compounds
+
+      - type: feature-block
+        heading: "Problem 3: Memory exhaustion"
+        body: "50 agents each building their own context window. Each agent reading files, recalling past work, maintaining conversation state. The total token consumption was astronomical — and most of it was redundant. The Context Assembly Engine solved this by sharing memory across agents and budgeting token allocation. Each agent gets exactly the context it needs, drawn from a shared knowledge pool."
+        diagram: |
+          Before shared memory:
+          50 agents × 100K tokens each = 5M tokens/turn
+          90% redundant context
+
+          After CAE:
+          Shared knowledge pool
+          Per-agent token budgets
+          Rule-based context selection
+          5M → 500K tokens/turn
+          10x reduction, better quality
+
+      - type: feature-block
+        heading: "Problem 4: Review bottleneck"
+        body: "With 50 agents producing changes, human review became impossible. Even having agents review each other created bottlenecks — Agent A waits for Agent B's review, Agent B waits for Agent C. We built automatic review-merge with pheromone coordination. Agents create review requests, other agents provide feedback asynchronously, conflict detection runs before merge, and shadow git handles the actual merge operations."
+        reverse: true
+        diagram: |
+          Before auto review:
+          50 agents → 50 PR equivalents
+          Human reviews: impossible
+          Agent reviews: sequential bottleneck
+
+          After auto review:
+          Agent creates review request
+          Other agents review asynchronously
+          Conflict detection before merge
+          Shadow git handles merge
+          No human bottleneck needed
+
+      - type: feature-block
+        heading: "The result: 50 agents, one coherent system"
+        body: "After implementing pheromones, drift tracking, shared memory, and automatic review-merge, 50 agents could work on a single repository coherently. Task completion rate improved 3x. Conflicts dropped 95%. The system got better with use — memory compounded, patterns improved, and coordination became more natural over time."
+        diagram: |
+          After all fixes:
+          ✅ 95% fewer file conflicts
+          ✅ 3x task completion rate
+          ✅ 10x reduction in token usage
+          ✅ Automatic review-merge working
+          ✅ Drift caught before compounding
+          ✅ System improves with use
+
+      - type: cta-block
+        heading: "Scale agents without the chaos."
+        buttons:
+          - { label: "Explore Multi-Agent Scaling", href: "/engine/multi-agent", variant: "primary" }
+          - { label: "Back to Blog", href: "/blog", variant: "secondary" }
+
+  # ── Blog: Agent Deliberation ──────────────
+  - slug: "blog/agent-deliberation-how-agents-decide"
+    title: "Agent Deliberation: How Agents Make Decisions Together — Codebolt"
+    sections:
+
+      - type: page-header
+        title: "Agent Deliberation: How Agents Make Decisions Together"
+        subtitle: "Inside the deliberation council system — proposing, debating, voting, and reaching consensus without human intervention."
+
+      - type: centered-text
+        variant: "thesis"
+        text: "When multiple agents work on the same project, they eventually face decisions that require collective judgment. Should we use microservices or a monolith? Should we refactor now or ship first? Which library should we adopt? These are architectural decisions where one agent's opinion isn't enough. We built Agent Deliberation Councils to let agents propose, debate, vote, and reach consensus — fully traceable and auditable."
+
+      - type: feature-block
+        heading: "How deliberation works"
+        body: "Any agent can create a deliberation with a question and a set of options. Other agents respond with their preferred option and supporting arguments. Agents can debate by responding to each other's arguments. When enough responses are collected, a vote determines the winner. The decision, rationale, and all arguments are stored permanently in .codebolt/agentdeliberation/ for full traceability."
+        diagram: |
+          Deliberation flow:
+          1. Agent A creates deliberation
+             Question: "Architecture style?"
+             Options: [microservices, monolith]
+          2. Agent B responds → prefers monolith
+          3. Agent C responds → prefers microservices
+          4. Debate → tradeoff analysis
+          5. Vote → monolith wins 2-1
+          6. Decision logged + traceable
+
+      - type: feature-block
+        heading: "Five deliberation types"
+        body: "Not every decision needs the same process. Codebolt supports five deliberation types: Decision (choose between options), Review (evaluate a proposal), Brainstorm (generate ideas), Approval (get sign-off), and Vote (simple majority). Each type has its own workflow, response format, and resolution strategy. Agents choose the right type based on the nature of the decision."
+        reverse: true
+        diagram: |
+          Deliberation types:
+          ├─ Decision: choose between options
+          ├─ Review: evaluate a proposal
+          ├─ Brainstorm: generate ideas
+          ├─ Approval: get sign-off
+          └─ Vote: simple majority
+
+          Agents pick the type
+          that matches the decision.
+
+      - type: feature-block
+        heading: "Full traceability"
+        body: "Every deliberation is stored per-project in .codebolt/agentdeliberation/. You can see exactly which agent proposed what, which arguments were made, how the vote went, and what the final decision was. This isn't a black box — it's an auditable decision log. When something goes wrong months later, you can trace the decision back to its deliberation."
+        diagram: |
+          .codebolt/agentdeliberation/
+          ├─ 2026-03-15-architecture.json
+          │   ├─ question
+          │   ├─ options
+          │   ├─ responses (agent, argument, vote)
+          │   ├─ debate threads
+          │   └─ final decision + rationale
+          └─ 2026-03-18-testing-lib.json
+              └─ ...
+
+          Every decision is traceable.
+          Every rationale is preserved.
+
+      - type: feature-block
+        heading: "When deliberation matters"
+        body: "Not every task needs deliberation. Simple implementation work — write a function, fix a bug — doesn't require collective judgment. Deliberation shines in architectural decisions, technology choices, prioritization, tradeoff analysis, and any situation where multiple perspectives improve the outcome. The system is opt-in: agents create deliberations when they need them, and other agents participate when they have relevant expertise."
+        reverse: true
+        diagram: |
+          Good for deliberation:
+          ├─ Architecture decisions
+          ├─ Technology choices
+          ├─ Prioritization
+          ├─ Tradeoff analysis
+          └─ Complex design decisions
+
+          Overkill for:
+          ├─ Bug fixes
+          ├─ Simple implementations
+          └─ Routine changes
+
+      - type: cta-block
+        heading: "Let agents make decisions together."
+        buttons:
+          - { label: "Explore Multi-Agent Scaling", href: "/engine/multi-agent", variant: "primary" }
+          - { label: "Back to Blog", href: "/blog", variant: "secondary" }
 
   # ── About ──────────────────────────────────
   - slug: "about"

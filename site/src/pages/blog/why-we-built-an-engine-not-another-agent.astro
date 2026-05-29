@@ -1,0 +1,60 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Why We Built an Engine, Not Another Agent — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Why We Built an Engine, Not Another Agent"
+    subtitle="The origin story — why we chose to build a platform engine instead of another single-purpose AI tool."
+  />
+  <CenteredText
+    variant="thesis"
+    text="When we started Codebolt, every new AI product was an agent. A coding agent. A writing agent. A research agent. Each one did one thing well. But the moment you wanted to go beyond that one thing, you started over with a different tool. We thought: what if there was an engine that could become any of them — and scale beyond all of them?"
+  />
+  <FeatureBlock
+    heading="The problem with single-purpose agents"
+    body="Claude Code is a great coding agent. OpenClaw is a great personal assistant. Cursor is a great IDE. But each one is a dead end. You can't customize the agent loop in Claude Code. You can't run multiple agents in Cursor. You can't build applications on top of OpenClaw. When you outgrow any of these tools, you don't grow — you start over."
+    diagram={`The current landscape:
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│ Claude Code  │ │ OpenClaw     │ │ Cursor       │
+│ CLI agent    │ │ Assistant    │ │ IDE          │
+│ 1 agent      │ │ 1 agent      │ │ 1 agent      │
+│ fixed loop   │ │ fixed tools  │ │ fixed UI     │
+└─────────────┘ └─────────────┘ └─────────────┘
+Each tool is a dead end.
+You can't grow from one to another.
+`}
+  />
+  <FeatureBlock
+    heading="The engine insight"
+    body="Instead of building another agent, we built the engine that runs agents. The Codebolt Engine is a substrate — not a destination. It starts as a simple CLI agent (like Claude Code) but gives you a growth path to custom agents, multi-agent coordination, multi-environment scaling, plugin-based applications, and autonomous companies. Everything you build carries forward."
+    reverse={true}
+    diagram={`The engine model:
+CLI → Editor → 24/7 Agent → Orchestration → Autonomous Company
+Same engine. Same SDK. Same memory.
+Same agents, plugins, and workflows.
+Everything carries forward.
+`}
+  />
+  <FeatureBlock
+    heading="What makes it an engine, not an app"
+    body="Three SDKs (Agent, Plugin, Client) expose every layer of the system. You can write custom agents with 63+ SDK modules. You can build plugins that run inside the engine with three communication channels. You can create custom clients with 72 REST + 33 WebSocket modules. The engine is open at every layer — you control the agent, the runtime, and the surface."
+    diagram={`Engine properties:
+├─ Agent SDK (63+ modules) — control agent behavior
+├─ Plugin SDK (3 channels) — extend the runtime
+├─ Client SDK (72 REST + 33 WS) — build any surface
+├─ Three-tier memory — compound intelligence
+├─ Multi-agent coordination — stigmergy + deliberation
+└─ Multi-environment scaling — any topology
+`}
+  />
+  <CtaBlock
+    heading="Start with an agent. Grow into an engine."
+    buttons={[{"label":"Explore the Engine","href":"/engine","variant":"primary"},{"label":"Back to Blog","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>
