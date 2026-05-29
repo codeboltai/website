@@ -45,9 +45,10 @@ For portal-originated workflows:
 1. Complete the requested code or content change.
 2. Call `test-web-site` to verify the change.
 3. Summarize the completed work and test results.
-4. As the final tool/action step, call `create-pr`.
+4. Only if `test-web-site` succeeds, call `create-pr` as the final tool/action step.
 
 Do not call `create-pr` before implementation and `test-web-site` validation are complete.
+Do not call `create-pr` if `test-web-site` fails, returns an inconclusive result, or reports a verification blocker that cannot be fixed and rerun successfully in the current turn.
 
 ### How to call the test ActionBlock
 
@@ -65,11 +66,11 @@ Use the absolute path of the worktree where the changes were made. Do not use th
 }
 ```
 
-If `test-web-site` fails, fix the issue and rerun it before calling `create-pr`.
+If `test-web-site` fails, fix the issue and rerun it before calling `create-pr`. If the failure cannot be fixed in the current run, stop after reporting the blocker; do not call the PR ActionBlock.
 
 ### How to call the PR ActionBlock
 
-After `test-web-site` has executed successfully, use the `actionBlock_start` tool with the current worktree path passed as `params.cwd`.
+After `test-web-site` has executed successfully, use the `actionBlock_start` tool with the current worktree path passed as `params.cwd`. Never run this PR ActionBlock after a failed or inconclusive `test-web-site` result.
 
 ```json
 {
@@ -89,4 +90,4 @@ If the requested work cannot be completed, or checks fail and cannot be fixed in
 
 - Report the blocker clearly.
 - Do not claim the work is complete.
-- If the request came from the portal, run `test-web-site` first when possible, then call `create-pr` as the final step, including the blocker or check failure details.
+- If the request came from the portal, run `test-web-site` first when possible. If it does not succeed, do not call `create-pr`; report the blocker and stop.
