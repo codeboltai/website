@@ -1,0 +1,42 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="What Breaks When You Run 50 Agents on One Repo — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="What Breaks When You Run 50 Agents on One Repo"
+    subtitle="The practical failure modes that appear when agent work becomes parallel, long-running, and shared."
+  />
+  <CenteredText
+    variant="thesis"
+    text="At small scale, most failures look like bad prompts. At larger scale, failures become system problems: conflicts, drift, stale context, resource contention, unclear ownership, and missing review loops."
+  />
+  <CardGrid
+    heading="The failures that show up at scale"
+    columns={3}
+    cards={[{"title":"File collisions","body":"Multiple agents edit the same files without awareness of ownership or sequencing."},{"title":"Scope drift","body":"Agents solve adjacent problems and slowly move beyond the original objective."},{"title":"Memory overload","body":"More work creates more context than any single agent can safely consume."},{"title":"Review bottlenecks","body":"Parallel work becomes blocked if every change waits for one human gate."},{"title":"Environment pressure","body":"Builds, tests, browsers, and sandboxes compete for limited local resources."},{"title":"Unclear accountability","body":"Without traces, it is hard to know which agent made which decision and why."}]}
+  />
+  <FeatureBlock
+    kicker="SYSTEM SOLUTIONS"
+    heading="Scale requires runtime primitives"
+    body="Codebolt addresses these problems with pheromone coordination, deliberation councils, review-merge requests, drift tracking, context assembly, shadow git snapshots, and multi-environment routing."
+    diagram={`failure mode → engine primitive
+collisions   → pheromones
+drift        → drift tracking
+overload     → context assembly
+bottlenecks  → agent review
+resources    → environments
+accountability → narrative trace
+`}
+  />
+  <CtaBlock
+    heading="See the architecture built for parallel agent work."
+    buttons={[{"label":"Read Architecture","href":"/architecture","variant":"primary"},{"label":"Back to Blogs","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>

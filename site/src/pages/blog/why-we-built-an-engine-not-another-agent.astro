@@ -1,0 +1,45 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Why We Built an Engine, Not Another Agent — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Why We Built an Engine, Not Another Agent"
+    subtitle="The origin story behind building a platform engine instead of another single-purpose AI tool."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Agents are useful, but an agent alone is not enough. Teams need a runtime that can host agents, coordinate them, remember context, expose tools, and carry work across CLI, editor, cloud, and autonomous surfaces."
+  />
+  <CardGrid
+    heading="Why the engine matters"
+    columns={3}
+    cards={[{"title":"One runtime","body":"A single execution layer lets the same agent work continue across the CLI, Editor, Cloud, SDK, and always-on deployments without rebuilding state or integrations."},{"title":"Open extension points","body":"Agent SDK, Plugin SDK, Client SDK, and Provider SDK give developers control over agent behavior, product surfaces, backend logic, and execution environments."},{"title":"Scale by design","body":"Coordination, memory, environment lifecycle, reviews, and governance are engine concerns, not features each agent team should rebuild from scratch."}]}
+  />
+  <FeatureBlock
+    kicker="ENGINE FIRST"
+    heading="The engine is the multiplier"
+    body="A single-purpose agent can solve a narrow workflow. An engine can become many workflows. Codebolt was built so custom agents, plugins, applications, memory, and environments share one foundation and keep compounding as the system grows."
+    diagram={`single-purpose tool
+  → fixed surface
+  → fixed agent
+  → isolated memory
+
+Codebolt engine
+  → many surfaces
+  → custom agents
+  → shared runtime
+  → scalable coordination
+`}
+  />
+  <CtaBlock
+    heading="Explore the engine behind Codebolt."
+    buttons={[{"label":"Read Architecture","href":"/architecture","variant":"primary"},{"label":"Back to Blogs","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>

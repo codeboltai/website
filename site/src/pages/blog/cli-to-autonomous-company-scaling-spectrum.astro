@@ -1,0 +1,43 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import ProgressionStrip from '../../components/ProgressionStrip.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="CLI to Autonomous Company: The Scaling Spectrum — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="CLI to Autonomous Company: The Scaling Spectrum"
+    subtitle="How one engine supports the progression from a terminal agent to hundreds of coordinated agents."
+  />
+  <CenteredText
+    variant="thesis"
+    text="The first interaction can be as simple as a CLI prompt. The architecture underneath should not trap you there. Codebolt keeps the same runtime model as work grows from one agent to a coordinated organization."
+  />
+  <ProgressionStrip
+    kicker="SCALING PATH"
+    heading="Start simple. Grow without switching systems."
+    description="Each step uses the same engine primitives: agents, tools, memory, plugins, tasks, environments, and orchestration."
+    steps={[{"label":"CLI","description":"Run one focused coding agent from the terminal.","reference":"Day 1"},{"label":"Editor","description":"Add project context, panels, terminals, and richer review workflows.","reference":"Team workflow"},{"label":"Cloud","description":"Move long-running work to managed or bring-your-own sandboxes.","reference":"Remote capacity"},{"label":"Orchestration","description":"Coordinate multiple agents with shared state, review, and deliberation.","reference":"Scale"},{"label":"Autonomous Company","description":"Represent business domains as plugins and agent systems.","reference":"Full system"}]}
+  />
+  <FeatureBlock
+    kicker="CONTINUITY"
+    heading="Scaling should preserve what you already built"
+    body="Agents, memory, plugin integrations, task state, and environment configuration should carry forward. Codebolt treats surfaces as clients of the same engine so teams do not restart when they outgrow a single chat or terminal loop."
+    reverse={true}
+    diagram={`CLI ↔ Editor ↔ Cloud ↔ SDK
+       ↓
+  Codebolt engine
+       ↓
+agents · memory · plugins
+tasks · environments · governance
+`}
+  />
+  <CtaBlock
+    heading="See how Codebolt scales across environments."
+    buttons={[{"label":"Explore Multi-Environment","href":"/engine/multi-environment","variant":"primary"},{"label":"Back to Blogs","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>

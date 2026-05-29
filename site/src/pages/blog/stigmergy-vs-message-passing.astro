@@ -1,0 +1,40 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import ComparisonColumns from '../../components/ComparisonColumns.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Stigmergy vs Message Passing for Agent Coordination — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Stigmergy vs Message Passing for Agent Coordination"
+    subtitle="Why indirect coordination through shared state scales better than fragile direct message chains."
+  />
+  <CenteredText
+    variant="thesis"
+    text="Message passing works for small demos, but it becomes brittle when many agents work in parallel. Codebolt uses stigmergy: agents coordinate by reading and writing shared structured state."
+  />
+  <ComparisonColumns
+    problem={{"heading":"Message passing","items":["Agents depend on direct handoffs and brittle chains","Coordination state is scattered across conversations","Conflicts are discovered late, often after files diverge","Scaling requires more explicit routing logic"]}}
+    solution={{"heading":"Stigmergy","items":["Agents coordinate through durable shared state","Pheromones signal ownership, intent, and conflict risk","New agents can join by observing the environment","Coordination improves without centralizing every decision"]}}
+  />
+  <FeatureBlock
+    kicker="SWARM COORDINATION"
+    heading="Shared state lets coordination emerge"
+    body="Agents leave signals on tasks, files, and decisions. Other agents read those signals before acting. The result is lower collision risk and more scalable coordination than direct message chains alone."
+    reverse={true}
+    diagram={`Agent A → shared state ← Agent B
+          ↑          ↓
+Agent C ← shared state → Agent D
+
+ownership · review · progress · drift
+`}
+  />
+  <CtaBlock
+    heading="Explore Codebolt multi-agent coordination."
+    buttons={[{"label":"View Multi-Agent Scaling","href":"/engine/multi-agent","variant":"primary"},{"label":"Back to Blogs","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>

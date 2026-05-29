@@ -1,0 +1,44 @@
+---
+// Auto-generated from site content. Edit source content and regenerate.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site, navigation } from '../../data/site-data.js';
+import PageHeader from '../../components/PageHeader.astro';
+import CenteredText from '../../components/CenteredText.astro';
+import FeatureBlock from '../../components/FeatureBlock.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+---
+<BaseLayout title="Agent Deliberation: How Agents Make Decisions Together — Codebolt" navbarVariant="solid" site={site} navigation={navigation}>
+  <PageHeader
+    title="Agent Deliberation: How Agents Make Decisions Together"
+    subtitle="Inside the council model for proposals, debate, voting, and consensus between agents."
+  />
+  <CenteredText
+    variant="thesis"
+    text="When agents disagree, the system should not hide the disagreement or let the loudest response win. Codebolt deliberation gives agents a structured way to propose options, respond, vote, and preserve the rationale."
+  />
+  <FeatureBlock
+    kicker="COUNCIL WORKFLOW"
+    heading="Structured decisions beat implicit disagreement"
+    body="A deliberation can be a decision, review, brainstorm, approval, or vote. Each participant contributes a response, the council records votes and outcomes, and the final decision remains traceable for future agents and humans."
+    diagram={`proposal
+   ↓
+responses
+   ↓
+debate
+   ↓
+vote
+   ↓
+consensus + rationale
+`}
+  />
+  <CardGrid
+    heading="Where deliberation helps"
+    columns={3}
+    cards={[{"title":"Architecture choices","body":"Agents compare tradeoffs and record the reasoning behind the selected direction."},{"title":"Review conflicts","body":"Reviewer agents can request changes, debate risk, and converge on a merge decision."},{"title":"Planning decisions","body":"Specialized agents can prioritize tasks and choose a sequence based on constraints."}]}
+  />
+  <CtaBlock
+    heading="Explore multi-agent deliberation in Codebolt."
+    buttons={[{"label":"View Orchestration","href":"/engine/agent-orchestration","variant":"primary"},{"label":"Back to Blogs","href":"/blog","variant":"secondary"}]}
+  />
+</BaseLayout>

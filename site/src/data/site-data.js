@@ -109,6 +109,10 @@ export const navigation = {
         "href": "/pricing"
       },
       {
+        "label": "Blogs",
+        "href": "/blog"
+      },
+      {
         "label": "Docs",
         "href": "https://docs.codebolt.ai",
         "external": true
@@ -231,7 +235,7 @@ export const navigation = {
             "external": true
           },
           {
-            "label": "Blog",
+            "label": "Blogs",
             "href": "/blog"
           },
           {
