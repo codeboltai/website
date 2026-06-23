@@ -30,8 +30,13 @@ const download = await readFile(join(root, "newsite/download/index.html"), "utf8
 
 const requiredHomeSnippets = [
   '<meta name="description"',
+  '<meta name="application-name"',
+  '<meta name="keywords"',
   '<link rel="canonical"',
   '<meta property="og:title"',
+  '<meta property="og:image"',
+  '<meta property="og:image:alt"',
+  '<meta name="twitter:image"',
   '<script type="application/ld+json">',
   'href="/download"',
   'Choose your Codebolt surface',
@@ -42,7 +47,13 @@ const requiredHomeSnippets = [
 
 const requiredDownloadSnippets = [
   '<meta name="description"',
+  '<meta name="application-name"',
+  '<meta name="keywords"',
   '<link rel="canonical"',
+  '<meta property="og:image"',
+  '<meta property="og:image:alt"',
+  '<meta name="twitter:title"',
+  '<meta name="twitter:image"',
   'Download Codebolt',
   'Codebolt Editor',
   'Codebolt CLI',
