@@ -1,0 +1,13 @@
+node_modules/
+newsite/node_modules/
+newsite/dist/
+newsite/.wrangler/
+site/
+oldwebsite/
+agentlighthouse-reports/
+ref/
+.git/
+.env
+.env.*
+*.log
+*.pem

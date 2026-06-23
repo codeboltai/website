@@ -1,0 +1,922 @@
+Starting CodeBolt server on port 2719...
+Project path: D:\codeboltapps\website\ref
+Web frontend: C:\ProgramData\nvm\v20.18.3\node_modules\codebolt\dist\web
+🐛 DEBUG [2026-06-17T12:22:31.157Z] [ApplicationEventBus] New subscription: trigger:contextCompaction:auto, subId: 61215e71-832a-4bf4-987d-18cadb795c37, eventTypes: context:added
+🐛 DEBUG [2026-06-17T12:22:31.816Z] [Environment Lifecycle] Started health check monitoring (interval: 30000ms)
+ℹ️  INFO [2026-06-17T12:22:31.975Z] Started periodic message queue cleanup interval
+ℹ️  INFO [2026-06-17T12:22:31.975Z] Started periodic wsPtyMap cleanup interval
+ℹ️  INFO [2026-06-17T12:22:32.305Z] TaskManager initialized successfully
+ℹ️  INFO [2026-06-17T12:22:32.309Z] Database services initialized successfully
+ℹ️  INFO [2026-06-17T12:22:32.316Z] debugManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:32.531Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-17T12:22:32.532Z] chatManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:32.532Z] [EventActionManager] Initializing for project: D:\codeboltapps\codeboltdocs
+ℹ️  INFO [2026-06-17T12:22:32.533Z] [EventActionLoader] Loaded 0 eventActions from D:\codeboltapps\codeboltdocs\.codebolt\eventactions
+ℹ️  INFO [2026-06-17T12:22:32.534Z] [HookManager] Initializing for project: D:\codeboltapps\codeboltdocs
+ℹ️  INFO [2026-06-17T12:22:32.537Z] [EventActionLoader] Watching eventActions directory: D:\codeboltapps\codeboltdocs\.codebolt\eventactions
+🐛 DEBUG [2026-06-17T12:22:32.537Z] [EventActionManager] Registered 0 eventAction trigger(s)
+🐛 DEBUG [2026-06-17T12:22:32.538Z] [EventActionManager] Event listeners set up
+ℹ️  INFO [2026-06-17T12:22:32.538Z] [EventActionManager] Initialized with 0 eventActions
+ℹ️  INFO [2026-06-17T12:22:32.539Z] EventActionManager initialized for project
+🐛 DEBUG [2026-06-17T12:22:32.544Z] [ActionBlockRegistry] Discovered 0 global ActionBlocks
+🐛 DEBUG [2026-06-17T12:22:32.545Z] [ActionBlockRegistry] Discovered 0 project ActionBlocks
+ℹ️  INFO [2026-06-17T12:22:32.546Z] [ActionBlockRegistry] Total discovered ActionBlocks: 0
+ℹ️  INFO [2026-06-17T12:22:32.546Z] [ActionBlockRegistry] Initialized with project path: D:\codeboltapps\codeboltdocs
+ℹ️  INFO [2026-06-17T12:22:32.546Z] [HookLoader] Loaded 0 hook(s) from D:\codeboltapps\codeboltdocs\.codebolt\hooks
+ℹ️  INFO [2026-06-17T12:22:32.546Z] [HookLoader] Watching hooks directory: D:\codeboltapps\codeboltdocs\.codebolt\hooks
+ℹ️  INFO [2026-06-17T12:22:32.546Z] [HookManager] Initialized with 0 hook(s)
+ℹ️  INFO [2026-06-17T12:22:32.546Z] HookManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:32.547Z] [INIT] Overrode projectSetting.user_active_project_path with startup path: D:\codeboltapps\website\ref
+📝 LOG [2026-06-17T12:22:32.547Z] 🔍 Detailed Event: SERVICE_INIT {
+  message: [32m'setting service init'[39m,
+  logLevel: [32m'log'[39m,
+  distinctId: [32m'CONSOLE_USER'[39m,
+  properties: {},
+  timestamp: [32m'2026-06-17T12:22:32.547Z'[39m
+}
+ℹ️  INFO [2026-06-17T12:22:32.549Z] [CLI Bootstrap] Reusing existing user: Phs5G6nxJlglOn51d1e2TVl6vMn1
+ℹ️  INFO [2026-06-17T12:22:32.577Z] [CLI Bootstrap] Registered project: ref (id=19)
+ℹ️  INFO [2026-06-17T12:22:32.591Z] debugManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:32.593Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-17T12:22:32.593Z] chatManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:32.593Z] [EventActionManager] Shutting down
+🐛 DEBUG [2026-06-17T12:22:32.593Z] [EventActionManager] Event listeners removed
+🐛 DEBUG [2026-06-17T12:22:32.593Z] [EventActionLoader] Stopped watching eventActions directory
+🐛 DEBUG [2026-06-17T12:22:32.593Z] [EventActionRegistry] Cleared all eventActions
+ℹ️  INFO [2026-06-17T12:22:32.594Z] [EventActionManager] Shutdown complete
+ℹ️  INFO [2026-06-17T12:22:32.594Z] [HookManager] Shutting down
+🐛 DEBUG [2026-06-17T12:22:32.594Z] [HookLoader] Stopped watching hooks directory
+ℹ️  INFO [2026-06-17T12:22:32.594Z] [EventActionManager] Initializing for project: D:\codeboltapps\website\ref
+🐛 DEBUG [2026-06-17T12:22:32.594Z] [EventActionLoader] eventActions directory does not exist: D:\codeboltapps\website\ref\.codebolt\eventactions
+ℹ️  INFO [2026-06-17T12:22:32.594Z] [HookManager] Initializing for project: D:\codeboltapps\website\ref
+ℹ️  INFO [2026-06-17T12:22:32.598Z] [EventActionLoader] Watching eventActions directory: D:\codeboltapps\website\ref\.codebolt\eventactions
+🐛 DEBUG [2026-06-17T12:22:32.598Z] [EventActionManager] Registered 0 eventAction trigger(s)
+🐛 DEBUG [2026-06-17T12:22:32.598Z] [EventActionManager] Event listeners set up
+ℹ️  INFO [2026-06-17T12:22:32.598Z] [EventActionManager] Initialized with 0 eventActions
+ℹ️  INFO [2026-06-17T12:22:32.599Z] EventActionManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:32.600Z] [ActionBlockRegistry] Created project actionblocks directory: D:\codeboltapps\website\ref\.codebolt\actionblocks
+🐛 DEBUG [2026-06-17T12:22:32.602Z] [ActionBlockRegistry] Discovered 0 built-in ActionBlocks from D:\codeboltapps\website\ref\.codebolt\actionblocks
+🐛 DEBUG [2026-06-17T12:22:32.604Z] [ActionBlockRegistry] Discovered 0 global ActionBlocks
+🐛 DEBUG [2026-06-17T12:22:32.604Z] [ActionBlockRegistry] Discovered 0 project ActionBlocks
+ℹ️  INFO [2026-06-17T12:22:32.604Z] [ActionBlockRegistry] Total discovered ActionBlocks: 0
+ℹ️  INFO [2026-06-17T12:22:32.604Z] [ActionBlockRegistry] Initialized with project path: D:\codeboltapps\website\ref
+🐛 DEBUG [2026-06-17T12:22:32.604Z] [HookLoader] Hooks directory does not exist: D:\codeboltapps\website\ref\.codebolt\hooks
+ℹ️  INFO [2026-06-17T12:22:32.606Z] [HookLoader] Watching hooks directory: D:\codeboltapps\website\ref\.codebolt\hooks
+ℹ️  INFO [2026-06-17T12:22:32.606Z] [HookManager] Initialized with 0 hook(s)
+ℹ️  INFO [2026-06-17T12:22:32.606Z] HookManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:32.607Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-17T12:22:32.615Z] debugManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:32.615Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-17T12:22:32.616Z] chatManager initialized for project
+🐛 DEBUG [2026-06-17T12:22:32.616Z] [EventActionManager] Already initialized for this project
+🐛 DEBUG [2026-06-17T12:22:32.616Z] [HookManager] Already initialized for this project
+ℹ️  INFO [2026-06-17T12:22:32.616Z] EventActionManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:32.616Z] HookManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:32.685Z] [ApplicationEventBus] Loaded 0 subscription(s) from file
+ℹ️  INFO [2026-06-17T12:22:32.686Z] [ApplicationEventBus] Initialized for project: D:\codeboltapps\website\ref, loaded 0 persisted subscription(s), preserved 1 runtime subscription(s)
+ℹ️  INFO [2026-06-17T12:22:32.690Z] [ChannelStore] Initialized with 0 channels
+ℹ️  INFO [2026-06-17T12:22:32.690Z] [ChannelManager] Initialized with 0 channels
+ℹ️  INFO [2026-06-17T12:22:32.701Z] [CLI Bootstrap] Full project activation complete
+ℹ️  INFO [2026-06-17T12:22:32.701Z] [CLI Bootstrap] Complete — project ready at D:\codeboltapps\website\ref
+ℹ️  INFO [2026-06-17T12:22:32.758Z] Server started on port 2719
+🐛 DEBUG [2026-06-17T12:22:32.768Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+CodeBolt server running at http://localhost:2719
+Web UI available at http://localhost:2719
+Open http://localhost:2719 in your browser for the web UI.
+Launching TUI: C:\ProgramData\nvm\v20.18.3\node_modules\codebolt\node_modules\@codebolt\gotui-win32-x64\bin\gotui.exe
+ℹ️  INFO [2026-06-17T12:22:32.986Z] [Environment Initialization] Loading existing environments...
+🐛 DEBUG [2026-06-17T12:22:32.991Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-17T12:22:32.997Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+ℹ️  INFO [2026-06-17T12:22:32.998Z] [Environment Initialization] Completed. Registered 0 environments, 0 candidates for auto-reconnect.
+⚠️  WARN [2026-06-17T12:22:33.004Z] [Server Init] AgentFlow runtime setup failed (non-blocking): AgentFlow runtime is incomplete at C:\ProgramData\nvm\v20.18.3\node_modules\codebolt\dist\assets\agentflow-runtime. Missing: dist/index.cjs, dist/data.json
+ℹ️  INFO [2026-06-17T12:22:33.047Z] [PluginService] Discovered plugin: codex-plugin (C:\Users\utksh\.codebolt\plugins\codex-plugin)
+ℹ️  INFO [2026-06-17T12:22:33.048Z] [PluginService] Loaded 1 plugin(s)
+ℹ️  INFO [2026-06-17T12:22:33.049Z] [PluginService] Triggers set up for all plugins
+ℹ️  INFO [2026-06-17T12:22:33.060Z] [PluginProcessManager] Starting plugin: codex-plugin (codex-plugin)
+ℹ️  INFO [2026-06-17T12:22:33.083Z] [PluginProcessManager] Plugin codex-plugin spawned in 21ms
+ℹ️  INFO [2026-06-17T12:22:33.107Z] debugManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:33.108Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-17T12:22:33.108Z] chatManager initialized for project
+🐛 DEBUG [2026-06-17T12:22:33.108Z] [EventActionManager] Already initialized for this project
+🐛 DEBUG [2026-06-17T12:22:33.108Z] [HookManager] Already initialized for this project
+ℹ️  INFO [2026-06-17T12:22:33.109Z] debugManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:33.109Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-17T12:22:33.109Z] chatManager initialized for project
+🐛 DEBUG [2026-06-17T12:22:33.109Z] [EventActionManager] Already initialized for this project
+🐛 DEBUG [2026-06-17T12:22:33.109Z] [HookManager] Already initialized for this project
+ℹ️  INFO [2026-06-17T12:22:33.109Z] EventActionManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:33.110Z] HookManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:33.110Z] EventActionManager initialized for project
+ℹ️  INFO [2026-06-17T12:22:33.110Z] HookManager initialized for project
+👤 User identified: {
+  id: [32m'Phs5G6nxJlglOn51d1e2TVl6vMn1'[39m,
+  email: [90mundefined[39m,
+  name: [90mundefined[39m
+}
+ℹ️  INFO [2026-06-17T12:22:33.588Z] [PluginProcessManager] Plugin started: codex-plugin (instanceId: plugin_codex-plugin_1781698953060_v2nymh01)
+ℹ️  INFO [2026-06-17T12:22:33.615Z] Started plugin debug session: plugin_codex-plugin_1781698953060_v2nymh01 (codex-plugin)
+ℹ️  INFO [2026-06-17T12:22:33.630Z] [PluginService] Plugin started as child process: codex-plugin (instanceId: plugin_codex-plugin_1781698953060_v2nymh01)
+Socket route: chat
+Socket route: structuredLog
+Socket route: multiplexed
+ℹ️  INFO [2026-06-17T12:22:35.607Z] [Multiplexed] Client connected
+Socket route: plugin
+ℹ️  INFO [2026-06-17T12:22:35.611Z] [pluginSocket] Plugin connected: codex-plugin (total pluginConnections: 1, keys: [codex-plugin])
+ℹ️  INFO [2026-06-17T12:22:35.612Z] [pluginSocket] Sent pluginStartMessage to plugin: codex-plugin
+ℹ️  INFO [2026-06-17T12:22:35.612Z] [Multiplexed] Received message: channel=main, action=subscribe
+ℹ️  INFO [2026-06-17T12:22:35.612Z] [Multiplexed] Client subscribed to channel: main
+ℹ️  INFO [2026-06-17T12:22:35.613Z] [Multiplexed] Received message: channel=systemAlert, action=subscribe
+ℹ️  INFO [2026-06-17T12:22:35.613Z] [Multiplexed] Client subscribed to channel: systemAlert
+⚠️  WARN [2026-06-17T12:22:36.808Z] [Plugin:codex-plugin] stderr: [CodexPlugin] Dynamic model discovery failed, using fallback list: Model discovery failed: 403 {"error":"You have insufficient permissions for this operation. Missing scopes: api.model.read. Check that you have the correct role in your organization (Reader, Writer, Owner) and project (Viewer, Member, Owner), and if you're using a restricted API key, that it has the necessary scopes."}
+ℹ️  INFO [2026-06-17T12:22:36.830Z] [pluginHandleCliMessages] Routing llmProvider message: type=llmProvider.register, pluginId=codex-plugin
+ℹ️  INFO [2026-06-17T12:22:36.830Z] [llmProvider] Plugin codex-plugin registered provider "openaicodex"
+🐛 DEBUG [2026-06-17T12:23:28.937Z] Emitting event for messageId: ee247200-a353-4891-b093-9ce111757ee8, type: messageResponse, listeners: 0
+message received in chat socket form user {
+  event: [32m'CHAT_MESSAGE_RECEIVED'[39m,
+  data: {
+    data: {
+      text: [32m'when i run http-server then try to access it from other system, then it does not open how to run it'[39m
+    },
+    default_llm: { model: [32m'glm-5.1'[39m, provider: [36m[Object][39m },
+    id: [32m'525683f9-f28e-42b8-bf3e-60a3566adc6e'[39m,
+    message: {
+      default_llm: [36m[Object][39m,
+      messageId: [32m'ee247200-a353-4891-b093-9ce111757ee8'[39m,
+      selectedAgent: [36m[Object][39m,
+      selectedModel: [36m[Object][39m,
+      threadId: [32m'95f94069-47f0-4a57-9217-391402e49bf9'[39m,
+      userMessage: [32m'when i run http-server then try to access it from other system, then it does not open how to run it'[39m
+    },
+    messageId: [32m'ee247200-a353-4891-b093-9ce111757ee8'[39m,
+    selectedModel: { model: [32m'glm-5.1'[39m, name: [32m'glm-5.1'[39m, provider: [32m'zai'[39m },
+    templateType: [32m'userChat'[39m,
+    timestamp: [32m'1781699008936'[39m,
+    type: [32m'messageResponse'[39m
+  }
+}
+ℹ️  INFO [2026-06-17T12:23:28.946Z] [EventFlow][1-Publish] Event published: type=thread:created, eventId=cb353f4b-3e45-46e9-9dca-bd83915fe2e5, source={"threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:23:28.946Z] [EventFlow][1-Publish] Payload keys: thread, threadType, creatorType, parentThreadId
+ℹ️  INFO [2026-06-17T12:23:28.946Z] [EventFlow][1-Publish] Event published: type=conversation:started, eventId=c1d569c7-beec-4b95-8ba5-b480248af6cc, source={"threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:23:28.947Z] [EventFlow][1-Publish] Payload keys: thread, threadType, creatorType, parentThreadId
+ℹ️  INFO [2026-06-17T12:23:28.947Z] Created thread 95f94069-47f0-4a57-9217-391402e49bf9 in threadFileStore
+ℹ️  INFO [2026-06-17T12:23:28.950Z] Using threadId: 95f94069-47f0-4a57-9217-391402e49bf9 (from message: 95f94069-47f0-4a57-9217-391402e49bf9)
+ℹ️  INFO [2026-06-17T12:23:28.954Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:23:28.955Z] [MessageRouter] Routing message: type=messageResponse, isSteeringMessage=undefined, hasEnvironment=false, remoteEnv=false, hasEnvironmentProvider=false, parentRuntimeId=, threadId=95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:23:28.955Z] [SteeringMessageHandler] canHandle check: isSteeringMessage=false, type=messageResponse
+ℹ️  INFO [2026-06-17T12:23:28.955Z] [MessageRouter] Message handled by: AgentMessageHandler canHandle=true
+selectedAgent {
+  agentDetails: [32m'Codebolt Dev, is  a highly skilled software developer with extensive knowledge in many programming languages, frameworks, design patterns, and best practices.'[39m,
+  id: [32m'act'[39m,
+  name: [32m'Act'[39m
+}
+ℹ️  INFO [2026-06-17T12:23:28.969Z] Sending message to UI: [object Object] for agent: Act
+🐛 DEBUG [2026-06-17T12:23:28.969Z] UI socket status: 1
+ℹ️  INFO [2026-06-17T12:23:28.975Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:23:28.975Z] [IconView] Unmapped template/action: templateType=undefined, actionType=sendMessage, type=startAgentConversation
+ℹ️  INFO [2026-06-17T12:23:28.987Z] Generated new token for threadId 95f94069-47f0-4a57-9217-391402e49bf9: db9525bb-4b5d-447a-827d-259e661478b2
+ℹ️  INFO [2026-06-17T12:23:29.030Z] [Narrative] Transport binary info: {"binaryPath":"C:\\ProgramData\\nvm\\v20.18.3\\node_modules\\codebolt\\node_modules\\@codebolt\\narrative-win32-x64\\bin\\codebolt-narrative.exe","args":["--environment-id","local","--workspace","D:\\codeboltapps\\website\\ref"]}
+ℹ️  INFO [2026-06-17T12:23:30.251Z] [AGENT START] Initiating agent startup - agentId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9, name: Act
+ℹ️  INFO [2026-06-17T12:23:30.255Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+📝 LOG [2026-06-17T12:23:30.257Z] 🔍 Detailed Event: [Agent Path] agent path is {
+  message: [32m'C:\\Users\\utksh\\.codebolt\\agents\\c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9\\index.js'[39m,
+  logLevel: [32m'log'[39m,
+  distinctId: [32m'Phs5G6nxJlglOn51d1e2TVl6vMn1'[39m,
+  properties: {},
+  timestamp: [32m'2026-06-17T12:23:30.257Z'[39m
+}
+ℹ️  INFO [2026-06-17T12:23:30.276Z] Started tracking agent execution: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn for thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:23:30.299Z] Started debug session: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn (individual)
+ℹ️  INFO [2026-06-17T12:23:30.317Z] [AgentMessageHandler] Created step 209c66c2-4644-46fa-8964-ec6acfd1d7b4 for message type agent_messageResponse in thread 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:23:30.322Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] Process spawned successfully in 64ms
+ℹ️  INFO [2026-06-17T12:23:30.359Z] Updated agent execution status: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn -> running
+ℹ️  INFO [2026-06-17T12:23:30.370Z] [EventFlow][1-Publish] Event thread:created dispatched to 0/1 subscriptions
+ℹ️  INFO [2026-06-17T12:23:30.371Z] [EventFlow][1-Publish] Event conversation:started dispatched to 0/1 subscriptions
+⚠️  WARN [2026-06-17T12:23:30.627Z] [Agent Update] Background update check failed for c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9: AxiosError: Request failed with status code 404
+⚠️  WARN [2026-06-17T12:23:30.761Z] [Narrative] Summary API call failed for objective:95f94069-47f0-4a57-9217-391402e49bf9: Request failed with status code 500
+ℹ️  INFO [2026-06-17T12:23:30.777Z] [EventFlow][1-Publish] Event published: type=thread:updated, eventId=f90bd0b2-b594-4207-830e-f4e590c33ff6, source={"threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:23:30.778Z] [EventFlow][1-Publish] Payload keys: thread, changedFields, threadType, status, parentThreadId
+ℹ️  INFO [2026-06-17T12:23:30.782Z] [EventFlow][1-Publish] Event thread:updated dispatched to 0/1 subscriptions
+Socket route: codebolt
+🐛 DEBUG [2026-06-17T12:23:33.257Z] Retrieved threadId 95f94069-47f0-4a57-9217-391402e49bf9 for token db9525bb-4b5d-447a-827d-259e661478b2
+ℹ️  INFO [2026-06-17T12:23:33.258Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] Thread ID 95f94069-47f0-4a57-9217-391402e49bf9 retrieved successfully
+ℹ️  INFO [2026-06-17T12:23:33.262Z] [AGENT START] Process started successfully: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:23:33.266Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:23:33.271Z] [EventFlow][1-Publish] Event published: type=agent:started, eventId=8d9a44e6-b277-4355-834c-70fac9ff9529, source={"agentId":"c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9","threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:23:33.271Z] [EventFlow][1-Publish] Payload keys: agentName, agentType
+ℹ️  INFO [2026-06-17T12:23:33.277Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:23:33.280Z] [AgentEventQueueSocket] Initialized
+ℹ️  INFO [2026-06-17T12:23:33.313Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:23:33.315Z] debugManager initialized for project
+ℹ️  INFO [2026-06-17T12:23:33.315Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-17T12:23:33.316Z] chatManager initialized for project
+🐛 DEBUG [2026-06-17T12:23:33.316Z] [EventActionManager] Already initialized for this project
+🐛 DEBUG [2026-06-17T12:23:33.316Z] [HookManager] Already initialized for this project
+ℹ️  INFO [2026-06-17T12:23:33.316Z] EventActionManager initialized for project
+ℹ️  INFO [2026-06-17T12:23:33.316Z] HookManager initialized for project
+find_and_start_agent: 4.358s
+ℹ️  INFO [2026-06-17T12:23:33.320Z] [Agent] Marking task as in progress for thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:23:33.321Z] Tasks and threads are separate - thread 95f94069-47f0-4a57-9217-391402e49bf9 activity does not affect tasks
+🐛 DEBUG [2026-06-17T12:23:33.321Z] [AgentEventQueueCliService] Event listeners configured
+ℹ️  INFO [2026-06-17T12:23:33.322Z] [AgentEventQueueCliService] Initialized successfully
+🐛 DEBUG [2026-06-17T12:23:33.324Z] Message routing info - threadId: 95f94069-47f0-4a57-9217-391402e49bf9, agentId: act, socketId: undefined
+🐛 DEBUG [2026-06-17T12:23:33.324Z] Retrying to find target socket (attempt 2/5) after 50ms delay
+ℹ️  INFO [2026-06-17T12:23:33.330Z] [EventFlow][1-Publish] Event agent:started dispatched to 0/1 subscriptions
+🐛 DEBUG [2026-06-17T12:23:33.375Z] Retrying to find target socket (attempt 3/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:23:33.437Z] Retrying to find target socket (attempt 4/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:23:33.497Z] Retrying to find target socket (attempt 5/5) after 50ms delay
+⚠️  WARN [2026-06-17T12:23:33.547Z] Failed to find target socket after 5 attempts
+🐛 DEBUG [2026-06-17T12:23:33.548Z] No active agent found
+🐛 DEBUG [2026-06-17T12:23:33.548Z] Sending message to fallback codeboltSocketConnection
+🐛 DEBUG [2026-06-17T12:23:33.590Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: [act-updated] Agent started, received message: "when i run http-server then try to access it from other system, then it does not open how to run it"
+🐛 DEBUG [2026-06-17T12:23:33.713Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: Message types:  [ 'getProjectPathResponse' ]
+🐛 DEBUG [2026-06-17T12:23:33.846Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: [act-updated][Loop] Pending external events: 0
+Chat added successfully: threadId=95f94069-47f0-4a57-9217-391402e49bf9, agentInstanceId=c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn, messageType=agentMessage
+ℹ️  INFO [2026-06-17T12:23:33.951Z] [EventFlow][1-Publish] Event published: type=context:added, eventId=a91de996-b768-4ece-bf96-9efc6db08605, source={"threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:23:33.952Z] [EventFlow][1-Publish] Payload keys: threadId, reason, messageCount, hasSummary, hasCompactedContext
+ℹ️  INFO [2026-06-17T12:23:33.953Z] AI response saved: ai_1781699013952_6bgl2jz for thread: 95f94069-47f0-4a57-9217-391402e49bf9, agent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+🐛 DEBUG [2026-06-17T12:23:33.959Z] [IconView] Unmapped template/action: templateType=aiStream, actionType=aiStream, type=aiStream
+ℹ️  INFO [2026-06-17T12:23:33.973Z] [EventFlow][1-Publish] Notifying handler: subscriberId=trigger:contextCompaction:auto, subId=61215e71-832a-4bf4-987d-18cadb795c37, eventType=context:added
+ℹ️  INFO [2026-06-17T12:23:33.998Z] [EventFlow][1-Publish] Handler completed: subId=61215e71-832a-4bf4-987d-18cadb795c37, eventType=context:added, duration=24ms
+ℹ️  INFO [2026-06-17T12:23:33.999Z] [EventFlow][1-Publish] Event context:added dispatched to 1/1 subscriptions
+ℹ️  INFO [2026-06-17T12:24:09.025Z] AI response saved: ai_1781699049024_qs70qbm for thread: 95f94069-47f0-4a57-9217-391402e49bf9, agent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+Model glm-5.1 not found in pricing data. Skipping calculation.
+Chat added successfully: threadId=95f94069-47f0-4a57-9217-391402e49bf9, agentInstanceId=c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn, messageType=aiResponse
+ℹ️  INFO [2026-06-17T12:24:09.083Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:24:09.125Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: [act-updated][Loop] Pending post-tool external events: 0
+ℹ️  INFO [2026-06-17T12:24:09.135Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.174Z] Updated agent execution status: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn -> completed
+ℹ️  INFO [2026-06-17T12:24:09.174Z] Updated agent execution status to COMPLETED: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn
+ℹ️  INFO [2026-06-17T12:24:09.175Z] [AgentProcessManager] Firing agentSessionEnd hook for c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 from completion (instanceId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn, cwd: D:\codeboltapps\website\ref)
+🐛 DEBUG [2026-06-17T12:24:09.175Z] No child threads found for parent: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.185Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.186Z] Main agent finished (no parentId) for thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.187Z] Main agent finished for thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.192Z] Completed step 209c66c2-4644-46fa-8964-ec6acfd1d7b4 (was in_progress) for thread 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.194Z] No more steps found for thread 95f94069-47f0-4a57-9217-391402e49bf9, finalizing thread status
+ℹ️  INFO [2026-06-17T12:24:09.201Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.210Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.215Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.222Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.224Z] [EventFlow][1-Publish] Event published: type=conversation:ended, eventId=c04942ad-1432-4d12-9f08-7127891b207c, source={"threadId":"95f94069-47f0-4a57-9217-391402e49bf9","agentId":"c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9"}
+ℹ️  INFO [2026-06-17T12:24:09.224Z] [EventFlow][1-Publish] Payload keys: threadType, creatorType, status, completionMessage
+ℹ️  INFO [2026-06-17T12:24:09.226Z] [EventFlow][1-Publish] Event conversation:ended dispatched to 0/1 subscriptions
+ℹ️  INFO [2026-06-17T12:24:09.227Z] [ApplicationEventBus] Emitted conversation:ended for thread 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.227Z] [EventFlow][1-Publish] Event published: type=agent:completed, eventId=b6aae7d4-ff89-4f3c-a4b9-fb8c0c4ba236, source={"agentId":"c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9","threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:24:09.227Z] [EventFlow][1-Publish] Payload keys: agentName, agentType, status
+ℹ️  INFO [2026-06-17T12:24:09.251Z] [EventFlow][1-Publish] Event agent:completed dispatched to 0/1 subscriptions
+ℹ️  INFO [2026-06-17T12:24:09.251Z] [ApplicationEventBus] Emitted agent:completed for agent c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:24:09.252Z] [SideExecutionManager] Stopping all side executions for parent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+🐛 DEBUG [2026-06-17T12:24:09.252Z] [ThreadCompletion] Broadcast sent to agent connection c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn (agentId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9, threadId: 95f94069-47f0-4a57-9217-391402e49bf9)
+ℹ️  INFO [2026-06-17T12:24:09.253Z] [ThreadCompletion] Thread completion event broadcasted to 1 connected agent(s) for thread 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:24:09.253Z] [ThreadCompletion] No pending promise found for thread 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:09.254Z] [SideExecutionManager] Stopped 0 side executions for parent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:24:09.254Z] [AGENT STOP] Attempting to stop process: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (agentId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9, instanceId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn)
+🐛 DEBUG [2026-06-17T12:24:09.255Z] [AGENT STOP] Sending SIGTERM to process tree: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (pid: 3324)
+ℹ️  INFO [2026-06-17T12:24:09.883Z] [SideExecutionManager] Stopping all side executions for parent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:24:09.883Z] [SideExecutionManager] Stopped 0 side executions for parent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:24:09.884Z] [AGENT STOP] Attempting to stop process: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (agentId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9, instanceId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn)
+🐛 DEBUG [2026-06-17T12:24:09.884Z] [AGENT STOP] Sending SIGTERM to process tree: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (pid: 3324)
+ℹ️  INFO [2026-06-17T12:24:09.893Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] Process exited with code 1 after 39635ms (instanceId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn)
+ℹ️  INFO [2026-06-17T12:24:09.925Z] Updated agent execution status: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn -> completed
+ℹ️  INFO [2026-06-17T12:24:09.939Z] Ended debug session: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn with status completed
+ℹ️  INFO [2026-06-17T12:24:09.940Z] [AGENT STOP] Process stopped successfully: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (code: 1)
+ℹ️  INFO [2026-06-17T12:24:09.961Z] Updated agent execution status: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn -> completed
+ℹ️  INFO [2026-06-17T12:24:09.961Z] [EventFlow][1-Publish] Event published: type=agent:completed, eventId=bfca97be-c598-4fe6-89f0-f7414d0e364a, source={"agentId":"c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9","threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:24:09.961Z] [EventFlow][1-Publish] Payload keys: agentName, agentType, status
+ℹ️  INFO [2026-06-17T12:24:09.961Z] [AGENT STOP] Process stopped successfully: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (code: 1)
+ℹ️  INFO [2026-06-17T12:24:09.984Z] Updated agent execution status: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699010251_le7vm6rwibn -> completed
+ℹ️  INFO [2026-06-17T12:24:09.984Z] [EventFlow][1-Publish] Event published: type=agent:completed, eventId=e93667b5-84f8-4dd3-b9b4-f4bd7f890a20, source={"agentId":"c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9","threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:24:09.984Z] [EventFlow][1-Publish] Payload keys: agentName, agentType, status
+ℹ️  INFO [2026-06-17T12:24:09.988Z] [EventFlow][1-Publish] Event agent:completed dispatched to 0/1 subscriptions
+ℹ️  INFO [2026-06-17T12:24:09.988Z] [EventFlow][1-Publish] Event agent:completed dispatched to 0/1 subscriptions
+⚠️  WARN [2026-06-17T12:24:10.480Z] [AGENT STOP] tree-kill SIGTERM warning: Command failed: taskkill /pid 3324 /T /F
+ERROR: The process "3324" not found.
+
+🐛 DEBUG [2026-06-17T12:24:57.921Z] Emitting event for messageId: 7d5bda19-d0da-4607-bbf2-8c64287238c3, type: messageResponse, listeners: 0
+message received in chat socket form user {
+  event: [32m'CHAT_MESSAGE_RECEIVED'[39m,
+  data: {
+    data: { text: [32m'yes'[39m },
+    default_llm: { model: [32m'glm-5.1'[39m, provider: [36m[Object][39m },
+    id: [32m'6dd8c0f7-2f18-463f-a7db-b25f29573ba9'[39m,
+    message: {
+      default_llm: [36m[Object][39m,
+      messageId: [32m'7d5bda19-d0da-4607-bbf2-8c64287238c3'[39m,
+      selectedAgent: [36m[Object][39m,
+      selectedModel: [36m[Object][39m,
+      threadId: [32m'95f94069-47f0-4a57-9217-391402e49bf9'[39m,
+      userMessage: [32m'yes'[39m
+    },
+    messageId: [32m'7d5bda19-d0da-4607-bbf2-8c64287238c3'[39m,
+    selectedModel: { model: [32m'glm-5.1'[39m, name: [32m'glm-5.1'[39m, provider: [32m'zai'[39m },
+    templateType: [32m'userChat'[39m,
+    timestamp: [32m'1781699097921'[39m,
+    type: [32m'messageResponse'[39m
+  }
+}
+ℹ️  INFO [2026-06-17T12:24:57.924Z] Using threadId: 95f94069-47f0-4a57-9217-391402e49bf9 (from message: 95f94069-47f0-4a57-9217-391402e49bf9)
+ℹ️  INFO [2026-06-17T12:24:57.929Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:57.929Z] [MessageRouter] Routing message: type=messageResponse, isSteeringMessage=undefined, hasEnvironment=false, remoteEnv=false, hasEnvironmentProvider=false, parentRuntimeId=, threadId=95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:57.930Z] [SteeringMessageHandler] canHandle check: isSteeringMessage=false, type=messageResponse
+ℹ️  INFO [2026-06-17T12:24:57.930Z] [MessageRouter] Message handled by: AgentMessageHandler canHandle=true
+selectedAgent {
+  agentDetails: [32m'Codebolt Dev, is  a highly skilled software developer with extensive knowledge in many programming languages, frameworks, design patterns, and best practices.'[39m,
+  id: [32m'act'[39m,
+  name: [32m'Act'[39m
+}
+ℹ️  INFO [2026-06-17T12:24:57.940Z] Sending message to UI: [object Object] for agent: Act
+🐛 DEBUG [2026-06-17T12:24:57.941Z] UI socket status: 1
+ℹ️  INFO [2026-06-17T12:24:57.946Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:24:57.946Z] [IconView] Unmapped template/action: templateType=undefined, actionType=sendMessage, type=startAgentConversation
+🐛 DEBUG [2026-06-17T12:24:57.951Z] Using existing token for threadId 95f94069-47f0-4a57-9217-391402e49bf9: db9525bb-4b5d-447a-827d-259e661478b2
+ℹ️  INFO [2026-06-17T12:24:57.953Z] [AGENT START] Initiating agent startup - agentId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9, name: Act
+ℹ️  INFO [2026-06-17T12:24:57.956Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+📝 LOG [2026-06-17T12:24:57.957Z] 🔍 Detailed Event: [Agent Path] agent path is {
+  message: [32m'C:\\Users\\utksh\\.codebolt\\agents\\c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9\\index.js'[39m,
+  logLevel: [32m'log'[39m,
+  distinctId: [32m'Phs5G6nxJlglOn51d1e2TVl6vMn1'[39m,
+  properties: {},
+  timestamp: [32m'2026-06-17T12:24:57.957Z'[39m
+}
+ℹ️  INFO [2026-06-17T12:24:57.995Z] Started tracking agent execution: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9 for thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:58.014Z] Started debug session: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9 (individual)
+ℹ️  INFO [2026-06-17T12:24:58.033Z] [AgentMessageHandler] Created step 987d8914-4de4-44d9-9218-2ceba54ecce6 for message type agent_messageResponse in thread 95f94069-47f0-4a57-9217-391402e49bf9
+(node:25432) Warning: Label 'findind_agent' already exists for console.time()
+(Use `node --trace-warnings ...` to show where the warning was created)
+ℹ️  INFO [2026-06-17T12:24:58.038Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] Process spawned successfully in 80ms
+ℹ️  INFO [2026-06-17T12:24:58.077Z] Updated agent execution status: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9 -> running
+ℹ️  INFO [2026-06-17T12:24:58.327Z] [Narrative] Reused existing narrative thread b4aac073-fc89-4915-877c-b0a6c7f0675d for new agent run 5a34ddb2-ac3a-46cf-ad9a-775c9c967bbb
+ℹ️  INFO [2026-06-17T12:24:58.332Z] [EventFlow][1-Publish] Event published: type=thread:updated, eventId=249011c4-fd60-40af-ac30-ae79e1ee1100, source={"threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:24:58.332Z] [EventFlow][1-Publish] Payload keys: thread, changedFields, threadType, status, parentThreadId
+ℹ️  INFO [2026-06-17T12:24:58.338Z] [EventFlow][1-Publish] Event thread:updated dispatched to 0/1 subscriptions
+⚠️  WARN [2026-06-17T12:24:58.385Z] [Agent Update] Background update check failed for c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9: AxiosError: Request failed with status code 404
+Socket route: codebolt
+🐛 DEBUG [2026-06-17T12:24:58.411Z] Retrieved threadId 95f94069-47f0-4a57-9217-391402e49bf9 for token db9525bb-4b5d-447a-827d-259e661478b2
+ℹ️  INFO [2026-06-17T12:24:58.412Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] Thread ID 95f94069-47f0-4a57-9217-391402e49bf9 retrieved successfully
+ℹ️  INFO [2026-06-17T12:24:58.415Z] [AGENT START] Process started successfully: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:24:58.421Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:58.422Z] [EventFlow][1-Publish] Event published: type=agent:started, eventId=fd15783a-c6f7-424d-9d33-b16f6f8d76d1, source={"agentId":"c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9","threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:24:58.422Z] [EventFlow][1-Publish] Payload keys: agentName, agentType
+ℹ️  INFO [2026-06-17T12:24:58.428Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:58.438Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:24:58.439Z] debugManager initialized for project
+ℹ️  INFO [2026-06-17T12:24:58.440Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-17T12:24:58.440Z] chatManager initialized for project
+🐛 DEBUG [2026-06-17T12:24:58.440Z] [EventActionManager] Already initialized for this project
+🐛 DEBUG [2026-06-17T12:24:58.440Z] [HookManager] Already initialized for this project
+ℹ️  INFO [2026-06-17T12:24:58.440Z] EventActionManager initialized for project
+ℹ️  INFO [2026-06-17T12:24:58.440Z] HookManager initialized for project
+find_and_start_agent: 506.658ms
+ℹ️  INFO [2026-06-17T12:24:58.440Z] [Agent] Marking task as in progress for thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:24:58.441Z] Tasks and threads are separate - thread 95f94069-47f0-4a57-9217-391402e49bf9 activity does not affect tasks
+🐛 DEBUG [2026-06-17T12:24:58.444Z] Message routing info - threadId: 95f94069-47f0-4a57-9217-391402e49bf9, agentId: act, socketId: undefined
+🐛 DEBUG [2026-06-17T12:24:58.444Z] Retrying to find target socket (attempt 2/5) after 50ms delay
+ℹ️  INFO [2026-06-17T12:24:58.446Z] [EventFlow][1-Publish] Event agent:started dispatched to 0/1 subscriptions
+🐛 DEBUG [2026-06-17T12:24:58.505Z] Retrying to find target socket (attempt 3/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:24:58.567Z] Retrying to find target socket (attempt 4/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:24:58.628Z] Retrying to find target socket (attempt 5/5) after 50ms delay
+⚠️  WARN [2026-06-17T12:24:58.691Z] Failed to find target socket after 5 attempts
+🐛 DEBUG [2026-06-17T12:24:58.691Z] No active agent found
+🐛 DEBUG [2026-06-17T12:24:58.692Z] Sending message to fallback codeboltSocketConnection
+🐛 DEBUG [2026-06-17T12:24:58.745Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: [act-updated] Agent started, received message: "yes"
+🐛 DEBUG [2026-06-17T12:24:58.850Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: Message types:  [ 'getProjectPathResponse' ]
+🐛 DEBUG [2026-06-17T12:24:58.954Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: Message types:  [ 'getLocalToolBoxesResponse' ]
+Chat added successfully: threadId=95f94069-47f0-4a57-9217-391402e49bf9, agentInstanceId=c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9, messageType=agentMessage
+ℹ️  INFO [2026-06-17T12:24:58.999Z] [EventFlow][1-Publish] Event published: type=context:added, eventId=f68f9f8f-0107-483f-bd41-a6add9462da8, source={"threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:24:59.000Z] [EventFlow][1-Publish] Payload keys: threadId, reason, messageCount, hasSummary, hasCompactedContext
+ℹ️  INFO [2026-06-17T12:24:59.001Z] AI response saved: ai_1781699099000_1yb5wau for thread: 95f94069-47f0-4a57-9217-391402e49bf9, agent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+🐛 DEBUG [2026-06-17T12:24:59.005Z] [IconView] Unmapped template/action: templateType=aiStream, actionType=aiStream, type=aiStream
+ℹ️  INFO [2026-06-17T12:24:59.011Z] [EventFlow][1-Publish] Notifying handler: subscriberId=trigger:contextCompaction:auto, subId=61215e71-832a-4bf4-987d-18cadb795c37, eventType=context:added
+ℹ️  INFO [2026-06-17T12:24:59.037Z] [EventFlow][1-Publish] Handler completed: subId=61215e71-832a-4bf4-987d-18cadb795c37, eventType=context:added, duration=25ms
+ℹ️  INFO [2026-06-17T12:24:59.037Z] [EventFlow][1-Publish] Event context:added dispatched to 1/1 subscriptions
+ℹ️  INFO [2026-06-17T12:25:08.950Z] AI response saved: ai_1781699108950_ucas93h for thread: 95f94069-47f0-4a57-9217-391402e49bf9, agent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+Model glm-5.1 not found in pricing data. Skipping calculation.
+Chat added successfully: threadId=95f94069-47f0-4a57-9217-391402e49bf9, agentInstanceId=c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9, messageType=aiResponse
+🐛 DEBUG [2026-06-17T12:25:09.033Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: Message types:  [ 'commandError', 'commandFinish', 'commandRunning' ]
+ℹ️  INFO [2026-06-17T12:25:09.037Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:25:09.042Z] Current app state for permissions: {"layout":[{"name":"Normal Mode","layout":{"grid":{"root":{"type":"branch","data":[{"type":"leaf","data":{"views":["Code"],"activeView":"Code","id":"1"},"size":624},{"type":"leaf","data":{"views":["Ch...
+ℹ️  INFO [2026-06-17T12:25:09.067Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+[handleTerminalOperation] escalate: waiting for UI reply, messageId=yscj8mz5uxk17damqibugj
+[waitForReplyFormUi] subscribing on messageId=yscj8mz5uxk17damqibugj, templateType=commandconfirmation
+ℹ️  INFO [2026-06-17T12:25:09.072Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:25:09.073Z] Setting up subscriber for messageId: yscj8mz5uxk17damqibugj
+🐛 DEBUG [2026-06-17T12:25:09.073Z] Subscriber setup completed for messageId: yscj8mz5uxk17damqibugj
+🐛 DEBUG [2026-06-17T12:25:17.952Z] Emitting event for messageId: yscj8mz5uxk17damqibugj, type: confirmationResponse, listeners: 1
+[handleIncomingMessage] confirmationResponse messageId=yscj8mz5uxk17damqibugj userMessage=Run Command listeners=1
+🐛 DEBUG [2026-06-17T12:25:17.953Z] Received response for messageId: yscj8mz5uxk17damqibugj
+[waitForReplyFormUi] got response for messageId=yscj8mz5uxk17damqibugj, type=confirmationResponse
+message received in chat socket form user {
+  event: [32m'CHAT_MESSAGE_RECEIVED'[39m,
+  data: {
+    data: { text: [32m'Run Command'[39m },
+    message: {
+      action: [32m'approve'[39m,
+      actions: [],
+      activeFile: [32m''[39m,
+      controlFiles: [],
+      currentFile: [32m''[39m,
+      feedbackMessage: [32m''[39m,
+      links: [],
+      mentionedAgents: [],
+      mentionedDocs: [],
+      mentionedFiles: [],
+      mentionedFolders: [],
+      mentionedMCPs: [],
+      mentionedMultiFile: [],
+      messageId: [32m'yscj8mz5uxk17damqibugj'[39m,
+      openedFiles: [],
+      orchestratorId: [32m''[39m,
+      processId: [32m''[39m,
+      selectedAgent: [36m[Object][39m,
+      selection: [1mnull[22m,
+      templateType: [32m'COMMANDCONFIRMATION'[39m,
+      terminalMessage: [32m''[39m,
+      threadId: [32m'95f94069-47f0-4a57-9217-391402e49bf9'[39m,
+      timestamp: [32m'2026-06-17T17:55:17.9524079+05:30'[39m,
+      type: [32m'confirmationResponse'[39m,
+      uploadedImages: [],
+      userMessage: [32m'Run Command'[39m
+    },
+    messageId: [32m'yscj8mz5uxk17damqibugj'[39m,
+    sender: { senderInfo: {}, senderType: [32m'user'[39m },
+    templateType: [32m'COMMANDCONFIRMATION'[39m,
+    threadId: [32m'95f94069-47f0-4a57-9217-391402e49bf9'[39m,
+    timestamp: [32m'2026-06-17T17:55:17.9524079+05:30'[39m,
+    type: [32m'confirmationResponse'[39m
+  }
+}
+[handleTerminalOperation] got UI reply: response=Run Command, messageId=yscj8mz5uxk17damqibugj
+ℹ️  INFO [2026-06-17T12:25:17.956Z] notifyUserexecuteTool
+ℹ️  INFO [2026-06-17T12:25:17.957Z] Using threadId: 95f94069-47f0-4a57-9217-391402e49bf9 (from message: 95f94069-47f0-4a57-9217-391402e49bf9)
+ℹ️  INFO [2026-06-17T12:25:17.966Z] [MessageRouter] Routing message: type=confirmationResponse, isSteeringMessage=undefined, hasEnvironment=false, remoteEnv=false, hasEnvironmentProvider=false, parentRuntimeId=, threadId=95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:25:17.966Z] [SteeringMessageHandler] canHandle check: isSteeringMessage=false, type=confirmationResponse
+ℹ️  INFO [2026-06-17T12:25:17.966Z] [MessageRouter] Message handled by: ResponseMessageHandler canHandle=true
+🐛 DEBUG [2026-06-17T12:25:17.966Z] Message routing info - threadId: 95f94069-47f0-4a57-9217-391402e49bf9, agentId: act, socketId: undefined
+🐛 DEBUG [2026-06-17T12:25:17.966Z] Retrying to find target socket (attempt 2/5) after 50ms delay
+ℹ️  INFO [2026-06-17T12:25:17.971Z] commandipconfig
+ℹ️  INFO [2026-06-17T12:25:17.972Z] executing command in shell
+ℹ️  INFO [2026-06-17T12:25:18.465Z] opening new terminal
+ℹ️  INFO [2026-06-17T12:25:18.465Z] Command PTY spawned with pid: 28972 for command: ipconfig
+🐛 DEBUG [2026-06-17T12:25:18.466Z] Setting up process stopped subscriber for messageId: yscj8mz5uxk17damqibugj
+🐛 DEBUG [2026-06-17T12:25:18.466Z] Process stopped subscriber setup completed for messageId: yscj8mz5uxk17damqibugj
+ℹ️  INFO [2026-06-17T12:25:18.471Z] Updated process 28972 status to executing
+ℹ️  INFO [2026-06-17T12:25:18.471Z] Updated process 28972 command to ipconfig
+ℹ️  INFO [2026-06-17T12:25:18.471Z] [PortScannerService] Starting port scanner service
+🐛 DEBUG [2026-06-17T12:25:18.498Z] Retrying to find target socket (attempt 3/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:25:18.505Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.535Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.552Z] Retrying to find target socket (attempt 4/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:25:18.553Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.567Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.582Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.590Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.593Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.595Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.597Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.598Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.600Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.601Z] [PortScannerService] Ports opened: 135, 445, 2179, 2719, 5040, 5357, 7070, 7680, 5354, 8080, 9223, 9277, 139
+🐛 DEBUG [2026-06-17T12:25:18.601Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.602Z] Retrying to find target socket (attempt 5/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:25:18.602Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.603Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.606Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.609Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.612Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.614Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.615Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.617Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.620Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.621Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.622Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.623Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.623Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.625Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.627Z] Using raw terminal output for process 28972
+🐛 DEBUG [2026-06-17T12:25:18.628Z] Using raw terminal output for process 28972
+⚠️  WARN [2026-06-17T12:25:18.659Z] Failed to find target socket after 5 attempts
+🐛 DEBUG [2026-06-17T12:25:18.659Z] No active agent found
+🐛 DEBUG [2026-06-17T12:25:18.660Z] Sending message to fallback codeboltSocketConnection
+🐛 DEBUG [2026-06-17T12:25:19.489Z] Setting up subscriber for messageId: yscj8mz5uxk17damqibugj
+🐛 DEBUG [2026-06-17T12:25:19.490Z] Subscriber setup completed for messageId: yscj8mz5uxk17damqibugj
+ℹ️  INFO [2026-06-17T12:25:19.653Z] [executeCommandInShell] PTY exited for "ipconfig" exitCode=0, signal=undefined
+ℹ️  INFO [2026-06-17T12:25:19.855Z] Updated process 28972 status to done
+🐛 DEBUG [2026-06-17T12:25:19.867Z] Closed log buffer for process 28972
+🐛 DEBUG [2026-06-17T12:25:19.925Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: [Response from cbterminal.executeCommand] {
+  type: 'executeCommandResponse',
+  success: true,
+  output: 'Command executed.\n' +
+    'Output:\n' +
+    'Windows IP ConfigurationUnknown adapter Tailscale:   Connection-specific DNS Suffix  . : \n' +
+    '   Link-local IPv6 Address . . . . . : fe80::c244:4672:e203:56d7%28\n' +
+    '   Autoconfiguration IPv4 Address. . : 169.254.83.107\n' +
+    '   Subnet Mask . . . . . . . . . . . : 255.255.0.0\n' +
+    '   Default Gateway . . . . . .. . . : Ethernet adapter vEthernet (Default Switch):   Connection-specific DNS Suffix  . : \n' +
+    '   Link-local IPv6 Address . . . . . : fe80::de2a:f705:da00:f444%31\n' +
+    '   IPv4 Address. . . . . . . . . . . : 172.31.32.1\n' +
+    '   Subnet Mask . . . . . . . . . . . : 255.255.240.0\n' +
+    '   Default Gateway . . . . . . . . . : Wireless LAN adapterLocal Area Connection* 1:   Media State . . . . . . . . . . . : Media disconnected\n' +
+    '   Connection-specific DNS Suffix  . :Wireless LAN adapter Local Area Connection* 2:Media State . . . . . . . . . . . : Media disconnectedConnection-specific DNS Suffix  . :Wireless LAN adapter Wi-Fi:Connection-specific DNS Suffix  . :IPv6 Address. . . . . . . . . . . : 2401:4900:8813:b37c:ea6a:3a32:5727:27c2Temporary IPv6 Address. . . . . . : 2401:4900:8813:b37c:953a:8cdf:cd18:7664Link-local IPv6 Address . . . . . : fe80::3319:4e87:7e64:6ac6%10IPv4 Address. . . . . . . . . . . : 192.168.1.15Subnet Mask . . . . . . . . . . . : 255.255.255.0Default Gateway . . . . . . . . . : fe80::1%10192.168.1.1Ethernet adapter Ethernet:Media State . . . . . . . . . . . : Media disconnectedConnection-specific DNS Suffix  . : utkarsh.lan',
+  exitCode: 0,
+  processId: 28972,
+  message: 'Command executed successfully',
+  timestamp: '2026-06-17T12:25:19.868Z',
+  requestId: 'd471b286-910b-4f02-ad03-d0b2ad44279f'
+}
+ℹ️  INFO [2026-06-17T12:25:19.966Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:25:19.970Z] Current app state for permissions: {"layout":[{"name":"Normal Mode","layout":{"grid":{"root":{"type":"branch","data":[{"type":"leaf","data":{"views":["Code"],"activeView":"Code","id":"1"},"size":624},{"type":"leaf","data":{"views":["Ch...
+ℹ️  INFO [2026-06-17T12:25:19.978Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+[handleTerminalOperation] escalate: waiting for UI reply, messageId=rgi5xo7hms4ilo3iid6ig
+[waitForReplyFormUi] subscribing on messageId=rgi5xo7hms4ilo3iid6ig, templateType=commandconfirmation
+ℹ️  INFO [2026-06-17T12:25:19.983Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:25:19.983Z] Setting up subscriber for messageId: rgi5xo7hms4ilo3iid6ig
+🐛 DEBUG [2026-06-17T12:25:19.983Z] Subscriber setup completed for messageId: rgi5xo7hms4ilo3iid6ig
+🐛 DEBUG [2026-06-17T12:25:24.628Z] Emitting event for messageId: rgi5xo7hms4ilo3iid6ig, type: confirmationResponse, listeners: 1
+[handleIncomingMessage] confirmationResponse messageId=rgi5xo7hms4ilo3iid6ig userMessage=Run Command listeners=1
+🐛 DEBUG [2026-06-17T12:25:24.628Z] Received response for messageId: rgi5xo7hms4ilo3iid6ig
+[waitForReplyFormUi] got response for messageId=rgi5xo7hms4ilo3iid6ig, type=confirmationResponse
+message received in chat socket form user {
+  event: [32m'CHAT_MESSAGE_RECEIVED'[39m,
+  data: {
+    data: { text: [32m'Run Command'[39m },
+    message: {
+      action: [32m'approve'[39m,
+      actions: [],
+      activeFile: [32m''[39m,
+      controlFiles: [],
+      currentFile: [32m''[39m,
+      feedbackMessage: [32m''[39m,
+      links: [],
+      mentionedAgents: [],
+      mentionedDocs: [],
+      mentionedFiles: [],
+      mentionedFolders: [],
+      mentionedMCPs: [],
+      mentionedMultiFile: [],
+      messageId: [32m'rgi5xo7hms4ilo3iid6ig'[39m,
+      openedFiles: [],
+      orchestratorId: [32m''[39m,
+      processId: [32m''[39m,
+      selectedAgent: [36m[Object][39m,
+      selection: [1mnull[22m,
+      templateType: [32m'COMMANDCONFIRMATION'[39m,
+      terminalMessage: [32m''[39m,
+      threadId: [32m'95f94069-47f0-4a57-9217-391402e49bf9'[39m,
+      timestamp: [32m'2026-06-17T17:55:24.6280155+05:30'[39m,
+      type: [32m'confirmationResponse'[39m,
+      uploadedImages: [],
+      userMessage: [32m'Run Command'[39m
+    },
+    messageId: [32m'rgi5xo7hms4ilo3iid6ig'[39m,
+    sender: { senderInfo: {}, senderType: [32m'user'[39m },
+    templateType: [32m'COMMANDCONFIRMATION'[39m,
+    threadId: [32m'95f94069-47f0-4a57-9217-391402e49bf9'[39m,
+    timestamp: [32m'2026-06-17T17:55:24.6280155+05:30'[39m,
+    type: [32m'confirmationResponse'[39m
+  }
+}
+[handleTerminalOperation] got UI reply: response=Run Command, messageId=rgi5xo7hms4ilo3iid6ig
+ℹ️  INFO [2026-06-17T12:25:24.631Z] notifyUserexecuteTool
+ℹ️  INFO [2026-06-17T12:25:24.631Z] Using threadId: 95f94069-47f0-4a57-9217-391402e49bf9 (from message: 95f94069-47f0-4a57-9217-391402e49bf9)
+ℹ️  INFO [2026-06-17T12:25:24.640Z] [MessageRouter] Routing message: type=confirmationResponse, isSteeringMessage=undefined, hasEnvironment=false, remoteEnv=false, hasEnvironmentProvider=false, parentRuntimeId=, threadId=95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:25:24.641Z] [SteeringMessageHandler] canHandle check: isSteeringMessage=false, type=confirmationResponse
+ℹ️  INFO [2026-06-17T12:25:24.641Z] [MessageRouter] Message handled by: ResponseMessageHandler canHandle=true
+🐛 DEBUG [2026-06-17T12:25:24.641Z] Message routing info - threadId: 95f94069-47f0-4a57-9217-391402e49bf9, agentId: act, socketId: undefined
+🐛 DEBUG [2026-06-17T12:25:24.641Z] Retrying to find target socket (attempt 2/5) after 50ms delay
+ℹ️  INFO [2026-06-17T12:25:24.644Z] commandnpx http-server --version
+ℹ️  INFO [2026-06-17T12:25:24.644Z] executing command in shell
+ℹ️  INFO [2026-06-17T12:25:24.699Z] opening new terminal
+ℹ️  INFO [2026-06-17T12:25:24.699Z] Command PTY spawned with pid: 47552 for command: npx http-server --version
+🐛 DEBUG [2026-06-17T12:25:24.699Z] Setting up process stopped subscriber for messageId: rgi5xo7hms4ilo3iid6ig
+🐛 DEBUG [2026-06-17T12:25:24.699Z] Process stopped subscriber setup completed for messageId: rgi5xo7hms4ilo3iid6ig
+ℹ️  INFO [2026-06-17T12:25:24.703Z] Updated process 47552 status to executing
+ℹ️  INFO [2026-06-17T12:25:24.704Z] Updated process 47552 command to npx http-server --version
+🐛 DEBUG [2026-06-17T12:25:24.704Z] [PortScannerService] Already running
+🐛 DEBUG [2026-06-17T12:25:24.710Z] Retrying to find target socket (attempt 3/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:25:24.718Z] Using raw terminal output for process 47552
+🐛 DEBUG [2026-06-17T12:25:24.760Z] Retrying to find target socket (attempt 4/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:25:24.780Z] Using raw terminal output for process 47552
+🐛 DEBUG [2026-06-17T12:25:24.817Z] Retrying to find target socket (attempt 5/5) after 50ms delay
+⚠️  WARN [2026-06-17T12:25:24.880Z] Failed to find target socket after 5 attempts
+🐛 DEBUG [2026-06-17T12:25:24.880Z] No active agent found
+🐛 DEBUG [2026-06-17T12:25:24.880Z] Sending message to fallback codeboltSocketConnection
+🐛 DEBUG [2026-06-17T12:25:24.969Z] Using raw terminal output for process 47552
+🐛 DEBUG [2026-06-17T12:25:25.075Z] Using raw terminal output for process 47552
+🐛 DEBUG [2026-06-17T12:25:25.708Z] Setting up subscriber for messageId: rgi5xo7hms4ilo3iid6ig
+🐛 DEBUG [2026-06-17T12:25:25.709Z] Subscriber setup completed for messageId: rgi5xo7hms4ilo3iid6ig
+🐛 DEBUG [2026-06-17T12:25:26.188Z] Using raw terminal output for process 47552
+🐛 DEBUG [2026-06-17T12:25:26.214Z] Using raw terminal output for process 47552
+🐛 DEBUG [2026-06-17T12:25:26.231Z] Using raw terminal output for process 47552
+🐛 DEBUG [2026-06-17T12:25:26.326Z] Using raw terminal output for process 47552
+🐛 DEBUG [2026-06-17T12:25:26.572Z] Using raw terminal output for process 47552
+🐛 DEBUG [2026-06-17T12:25:26.587Z] Using raw terminal output for process 47552
+🐛 DEBUG [2026-06-17T12:25:26.602Z] Using raw terminal output for process 47552
+ℹ️  INFO [2026-06-17T12:25:27.629Z] [executeCommandInShell] PTY exited for "npx http-server --version" exitCode=0, signal=undefined
+ℹ️  INFO [2026-06-17T12:25:27.706Z] Updated process 47552 status to background
+🐛 DEBUG [2026-06-17T12:25:27.773Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: [Response from cbterminal.executeCommand] {
+  type: 'executeCommandResponse',
+  success: true,
+  output: 'Command is running in the background.\n' +
+    'Process ID: 47552\n' +
+    'Output so far:\n' +
+    '\\v14.1.1',
+  exitCode: 0,
+  processId: 47552,
+  status: 'running',
+  message: 'Command is running in the background',
+  timestamp: '2026-06-17T12:25:27.716Z',
+  requestId: 'adf59921-1d45-4864-8013-9d62d6ddf333'
+}
+ℹ️  INFO [2026-06-17T12:25:27.842Z] Updated process 47552 status to done
+🐛 DEBUG [2026-06-17T12:25:27.847Z] Closed log buffer for process 47552
+🐛 DEBUG [2026-06-17T12:25:27.847Z] [AgentEventQueueStore] Created queue for agent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+🐛 DEBUG [2026-06-17T12:25:27.849Z] [AgentEventQueueSocket] Sent UI update: eventDelivered
+🐛 DEBUG [2026-06-17T12:25:27.849Z] [AgentEventQueueStore] Marked event f2bf52d0-c31c-4e0d-bcc5-d366325f6631 as delivered
+ℹ️  INFO [2026-06-17T12:25:27.849Z] [AgentEventQueueCliService] Delivered event f2bf52d0-c31c-4e0d-bcc5-d366325f6631 to agent c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:25:27.851Z] [AgentEventQueueStore] Added event f2bf52d0-c31c-4e0d-bcc5-d366325f6631 for agent c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (type: custom, priority: normal)
+⚠️  WARN [2026-06-17T12:25:27.851Z] [AgentEventQueueStore] Cannot mark delivered: event f2bf52d0-c31c-4e0d-bcc5-d366325f6631 not in pending queue
+ℹ️  INFO [2026-06-17T12:25:27.851Z] [AgentEventQueueCliService] Delivered event f2bf52d0-c31c-4e0d-bcc5-d366325f6631 to agent c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+🐛 DEBUG [2026-06-17T12:25:27.852Z] [AgentEventQueueSocket] Sent UI update: eventAdded
+Chat added successfully: threadId=95f94069-47f0-4a57-9217-391402e49bf9, agentInstanceId=c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9, messageType=agentMessage
+ℹ️  INFO [2026-06-17T12:25:27.901Z] [EventFlow][1-Publish] Event published: type=context:added, eventId=fa22baa3-6f56-4a18-82d2-a932a56945d8, source={"threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:25:27.901Z] [EventFlow][1-Publish] Payload keys: threadId, reason, messageCount, hasSummary, hasCompactedContext
+ℹ️  INFO [2026-06-17T12:25:27.902Z] AI response saved: ai_1781699127901_6709w3z for thread: 95f94069-47f0-4a57-9217-391402e49bf9, agent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+🐛 DEBUG [2026-06-17T12:25:27.906Z] [IconView] Unmapped template/action: templateType=aiStream, actionType=aiStream, type=aiStream
+ℹ️  INFO [2026-06-17T12:25:27.915Z] [EventFlow][1-Publish] Notifying handler: subscriberId=trigger:contextCompaction:auto, subId=61215e71-832a-4bf4-987d-18cadb795c37, eventType=context:added
+ℹ️  INFO [2026-06-17T12:25:27.937Z] [EventFlow][1-Publish] Handler completed: subId=61215e71-832a-4bf4-987d-18cadb795c37, eventType=context:added, duration=22ms
+ℹ️  INFO [2026-06-17T12:25:27.938Z] [EventFlow][1-Publish] Event context:added dispatched to 1/1 subscriptions
+🐛 DEBUG [2026-06-17T12:25:32.032Z] Cleaned up orphaned message queue for non-existent process 28972
+🐛 DEBUG [2026-06-17T12:25:32.032Z] Cleaned up orphaned message queue for non-existent process 47552
+ℹ️  INFO [2026-06-17T12:25:32.033Z] Periodic cleanup: removed 39 stale messages from message queues
+ℹ️  INFO [2026-06-17T12:25:38.041Z] AI response saved: ai_1781699138039_2kpxs5v for thread: 95f94069-47f0-4a57-9217-391402e49bf9, agent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+Model glm-5.1 not found in pricing data. Skipping calculation.
+Chat added successfully: threadId=95f94069-47f0-4a57-9217-391402e49bf9, agentInstanceId=c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9, messageType=aiResponse
+🐛 DEBUG [2026-06-17T12:25:38.127Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: Message types:  [ 'commandError', 'commandFinish', 'commandRunning' ]
+ℹ️  INFO [2026-06-17T12:25:38.133Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:25:38.136Z] Current app state for permissions: {"layout":[{"name":"Normal Mode","layout":{"grid":{"root":{"type":"branch","data":[{"type":"leaf","data":{"views":["Code"],"activeView":"Code","id":"1"},"size":624},{"type":"leaf","data":{"views":["Ch...
+ℹ️  INFO [2026-06-17T12:25:38.143Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+[handleTerminalOperation] escalate: waiting for UI reply, messageId=bvthljcwnxc9awi19a0mq
+[waitForReplyFormUi] subscribing on messageId=bvthljcwnxc9awi19a0mq, templateType=commandconfirmation
+ℹ️  INFO [2026-06-17T12:25:38.149Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:25:38.150Z] Setting up subscriber for messageId: bvthljcwnxc9awi19a0mq
+🐛 DEBUG [2026-06-17T12:25:38.150Z] Subscriber setup completed for messageId: bvthljcwnxc9awi19a0mq
+🐛 DEBUG [2026-06-17T12:25:40.250Z] Emitting event for messageId: bvthljcwnxc9awi19a0mq, type: confirmationResponse, listeners: 1
+[handleIncomingMessage] confirmationResponse messageId=bvthljcwnxc9awi19a0mq userMessage=Run Command listeners=1
+🐛 DEBUG [2026-06-17T12:25:40.251Z] Received response for messageId: bvthljcwnxc9awi19a0mq
+[waitForReplyFormUi] got response for messageId=bvthljcwnxc9awi19a0mq, type=confirmationResponse
+message received in chat socket form user {
+  event: [32m'CHAT_MESSAGE_RECEIVED'[39m,
+  data: {
+    data: { text: [32m'Run Command'[39m },
+    message: {
+      action: [32m'approve'[39m,
+      actions: [],
+      activeFile: [32m''[39m,
+      controlFiles: [],
+      currentFile: [32m''[39m,
+      feedbackMessage: [32m''[39m,
+      links: [],
+      mentionedAgents: [],
+      mentionedDocs: [],
+      mentionedFiles: [],
+      mentionedFolders: [],
+      mentionedMCPs: [],
+      mentionedMultiFile: [],
+      messageId: [32m'bvthljcwnxc9awi19a0mq'[39m,
+      openedFiles: [],
+      orchestratorId: [32m''[39m,
+      processId: [32m''[39m,
+      selectedAgent: [36m[Object][39m,
+      selection: [1mnull[22m,
+      templateType: [32m'COMMANDCONFIRMATION'[39m,
+      terminalMessage: [32m''[39m,
+      threadId: [32m'95f94069-47f0-4a57-9217-391402e49bf9'[39m,
+      timestamp: [32m'2026-06-17T17:55:40.2507392+05:30'[39m,
+      type: [32m'confirmationResponse'[39m,
+      uploadedImages: [],
+      userMessage: [32m'Run Command'[39m
+    },
+    messageId: [32m'bvthljcwnxc9awi19a0mq'[39m,
+    sender: { senderInfo: {}, senderType: [32m'user'[39m },
+    templateType: [32m'COMMANDCONFIRMATION'[39m,
+    threadId: [32m'95f94069-47f0-4a57-9217-391402e49bf9'[39m,
+    timestamp: [32m'2026-06-17T17:55:40.2507392+05:30'[39m,
+    type: [32m'confirmationResponse'[39m
+  }
+}
+[handleTerminalOperation] got UI reply: response=Run Command, messageId=bvthljcwnxc9awi19a0mq
+ℹ️  INFO [2026-06-17T12:25:40.254Z] notifyUserexecuteTool
+ℹ️  INFO [2026-06-17T12:25:40.254Z] Using threadId: 95f94069-47f0-4a57-9217-391402e49bf9 (from message: 95f94069-47f0-4a57-9217-391402e49bf9)
+ℹ️  INFO [2026-06-17T12:25:40.258Z] [MessageRouter] Routing message: type=confirmationResponse, isSteeringMessage=undefined, hasEnvironment=false, remoteEnv=false, hasEnvironmentProvider=false, parentRuntimeId=, threadId=95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:25:40.259Z] [SteeringMessageHandler] canHandle check: isSteeringMessage=false, type=confirmationResponse
+ℹ️  INFO [2026-06-17T12:25:40.259Z] [MessageRouter] Message handled by: ResponseMessageHandler canHandle=true
+🐛 DEBUG [2026-06-17T12:25:40.259Z] Message routing info - threadId: 95f94069-47f0-4a57-9217-391402e49bf9, agentId: act, socketId: undefined
+🐛 DEBUG [2026-06-17T12:25:40.259Z] Retrying to find target socket (attempt 2/5) after 50ms delay
+ℹ️  INFO [2026-06-17T12:25:40.261Z] commandnpx http-server -a 0.0.0.0 -p 8080
+ℹ️  INFO [2026-06-17T12:25:40.261Z] executing command in shell
+ℹ️  INFO [2026-06-17T12:25:40.327Z] opening new terminal
+ℹ️  INFO [2026-06-17T12:25:40.327Z] Command PTY spawned with pid: 19672 for command: npx http-server -a 0.0.0.0 -p 8080
+🐛 DEBUG [2026-06-17T12:25:40.327Z] Setting up process stopped subscriber for messageId: bvthljcwnxc9awi19a0mq
+🐛 DEBUG [2026-06-17T12:25:40.327Z] Process stopped subscriber setup completed for messageId: bvthljcwnxc9awi19a0mq
+ℹ️  INFO [2026-06-17T12:25:40.331Z] Updated process 19672 status to executing
+ℹ️  INFO [2026-06-17T12:25:40.331Z] Updated process 19672 command to npx http-server -a 0.0.0.0 -p 8080
+🐛 DEBUG [2026-06-17T12:25:40.332Z] [PortScannerService] Already running
+🐛 DEBUG [2026-06-17T12:25:40.341Z] Retrying to find target socket (attempt 3/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:25:40.346Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:25:40.382Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:25:40.391Z] Retrying to find target socket (attempt 4/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:25:40.448Z] Retrying to find target socket (attempt 5/5) after 50ms delay
+🐛 DEBUG [2026-06-17T12:25:40.498Z] Using raw terminal output for process 19672
+⚠️  WARN [2026-06-17T12:25:40.500Z] Failed to find target socket after 5 attempts
+🐛 DEBUG [2026-06-17T12:25:40.500Z] No active agent found
+🐛 DEBUG [2026-06-17T12:25:40.500Z] Sending message to fallback codeboltSocketConnection
+🐛 DEBUG [2026-06-17T12:25:40.605Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:25:41.152Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:25:41.174Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:25:41.196Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:25:41.221Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:25:41.436Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:25:41.460Z] Using raw terminal output for process 19672
+ℹ️  INFO [2026-06-17T12:25:43.336Z] Updated process 19672 status to background
+🐛 DEBUG [2026-06-17T12:25:43.385Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: [Response from cbterminal.executeCommand] {
+  type: 'executeCommandResponse',
+  success: true,
+  output: 'Command is running in the background.\n' +
+    'Process ID: 19672\n' +
+    'Output so far:\n' +
+    '\\Starting up http-server, serving ./http-server version: 14.1.1http-server settings: \n' +
+    'CORS: disabled\n' +
+    'Cache: 3600 seconds\n' +
+    'Connection Timeout: 120 seconds\n' +
+    'Directory Listings: visible\n' +
+    'AutoIndex: visible\n' +
+    'Serve GZIP Files: false\n' +
+    'Serve Brotli Files: false\n' +
+    'Default File Extension: noneAvailable on:\n' +
+    '  http://169.254.83.107:8080\n' +
+    '  http://172.31.32.1:8080\n' +
+    '  http://192.168.1.15:8080\n' +
+    '  http://127.0.0.1:8080\n' +
+    'Hit CTRL-C to stop the server',
+  exitCode: 0,
+  processId: 19672,
+  status: 'running',
+  message: 'Command is running in the background',
+  timestamp: '2026-06-17T12:25:43.350Z',
+  requestId: '38d972e1-dd2c-42e2-ba8c-04b26fd04955'
+}
+ℹ️  INFO [2026-06-17T12:25:43.411Z] [AgentEventQueueCliService] acknowledgeEvent called with eventId: f2bf52d0-c31c-4e0d-bcc5-d366325f6631, agentId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:25:43.411Z] [AgentEventQueueCliService] Calling handleAck for event: f2bf52d0-c31c-4e0d-bcc5-d366325f6631
+🐛 DEBUG [2026-06-17T12:25:43.412Z] [AgentEventQueueSocket] Sent UI update: eventAcknowledged
+ℹ️  INFO [2026-06-17T12:25:43.413Z] [AgentEventQueueStore] Acknowledged event f2bf52d0-c31c-4e0d-bcc5-d366325f6631 for agent c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:25:43.413Z] [AgentEventQueueCliService] handleAck result for f2bf52d0-c31c-4e0d-bcc5-d366325f6631: true
+ℹ️  INFO [2026-06-17T12:25:43.415Z] [AgentEventQueueCliService] acknowledgeEvent called with eventId: f2bf52d0-c31c-4e0d-bcc5-d366325f6631, agentId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:25:43.415Z] [AgentEventQueueCliService] Calling handleAck for event: f2bf52d0-c31c-4e0d-bcc5-d366325f6631
+⚠️  WARN [2026-06-17T12:25:43.415Z] [AgentEventQueueStore] Cannot handle ACK: event f2bf52d0-c31c-4e0d-bcc5-d366325f6631 not found in index
+ℹ️  INFO [2026-06-17T12:25:43.415Z] [AgentEventQueueCliService] handleAck result for f2bf52d0-c31c-4e0d-bcc5-d366325f6631: false
+Chat added successfully: threadId=95f94069-47f0-4a57-9217-391402e49bf9, agentInstanceId=c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9, messageType=agentMessage
+ℹ️  INFO [2026-06-17T12:25:43.531Z] [EventFlow][1-Publish] Event published: type=context:added, eventId=2d51cb08-aae7-489e-a9ce-efe6b85e14bc, source={"threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:25:43.531Z] [EventFlow][1-Publish] Payload keys: threadId, reason, messageCount, hasSummary, hasCompactedContext
+ℹ️  INFO [2026-06-17T12:25:43.532Z] AI response saved: ai_1781699143531_jehh4h8 for thread: 95f94069-47f0-4a57-9217-391402e49bf9, agent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+🐛 DEBUG [2026-06-17T12:25:43.538Z] [IconView] Unmapped template/action: templateType=aiStream, actionType=aiStream, type=aiStream
+ℹ️  INFO [2026-06-17T12:25:43.555Z] [EventFlow][1-Publish] Notifying handler: subscriberId=trigger:contextCompaction:auto, subId=61215e71-832a-4bf4-987d-18cadb795c37, eventType=context:added
+ℹ️  INFO [2026-06-17T12:25:43.586Z] [EventFlow][1-Publish] Handler completed: subId=61215e71-832a-4bf4-987d-18cadb795c37, eventType=context:added, duration=30ms
+ℹ️  INFO [2026-06-17T12:25:43.586Z] [EventFlow][1-Publish] Event context:added dispatched to 1/1 subscriptions
+ℹ️  INFO [2026-06-17T12:26:03.376Z] AI response saved: ai_1781699163375_5j8mi8h for thread: 95f94069-47f0-4a57-9217-391402e49bf9, agent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+Model glm-5.1 not found in pricing data. Skipping calculation.
+Chat added successfully: threadId=95f94069-47f0-4a57-9217-391402e49bf9, agentInstanceId=c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9, messageType=aiResponse
+🐛 DEBUG [2026-06-17T12:26:03.511Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] stdout: [act-updated][Loop] Pending post-tool external events: 0
+ℹ️  INFO [2026-06-17T12:26:03.521Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.530Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.571Z] Updated agent execution status: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9 -> completed
+ℹ️  INFO [2026-06-17T12:26:03.571Z] Updated agent execution status to COMPLETED: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9
+ℹ️  INFO [2026-06-17T12:26:03.571Z] [AgentProcessManager] Firing agentSessionEnd hook for c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 from completion (instanceId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9, cwd: D:\codeboltapps\website\ref)
+🐛 DEBUG [2026-06-17T12:26:03.571Z] No child threads found for parent: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.580Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.581Z] Main agent finished (no parentId) for thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.581Z] Main agent finished for thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.586Z] Completed step 987d8914-4de4-44d9-9218-2ceba54ecce6 (was in_progress) for thread 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.588Z] No more steps found for thread 95f94069-47f0-4a57-9217-391402e49bf9, finalizing thread status
+ℹ️  INFO [2026-06-17T12:26:03.596Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.609Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.618Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.625Z] Added new chat message to thread: 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.626Z] [EventFlow][1-Publish] Event published: type=conversation:ended, eventId=9ca05110-4c2e-48c8-9f8a-4f9f30f94036, source={"threadId":"95f94069-47f0-4a57-9217-391402e49bf9","agentId":"c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9"}
+ℹ️  INFO [2026-06-17T12:26:03.627Z] [EventFlow][1-Publish] Payload keys: threadType, creatorType, status, completionMessage
+ℹ️  INFO [2026-06-17T12:26:03.677Z] [EventFlow][1-Publish] Event conversation:ended dispatched to 0/1 subscriptions
+ℹ️  INFO [2026-06-17T12:26:03.678Z] [ApplicationEventBus] Emitted conversation:ended for thread 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.678Z] [EventFlow][1-Publish] Event published: type=agent:completed, eventId=0990ae76-3a5f-496e-9377-d777f685c143, source={"agentId":"c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9","threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:26:03.678Z] [EventFlow][1-Publish] Payload keys: agentName, agentType, status
+ℹ️  INFO [2026-06-17T12:26:03.701Z] [EventFlow][1-Publish] Event agent:completed dispatched to 0/1 subscriptions
+ℹ️  INFO [2026-06-17T12:26:03.701Z] [ApplicationEventBus] Emitted agent:completed for agent c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:26:03.701Z] [SideExecutionManager] Stopping all side executions for parent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+🐛 DEBUG [2026-06-17T12:26:03.702Z] [ThreadCompletion] Broadcast sent to agent connection c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9 (agentId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9, threadId: 95f94069-47f0-4a57-9217-391402e49bf9)
+ℹ️  INFO [2026-06-17T12:26:03.702Z] [ThreadCompletion] Thread completion event broadcasted to 1 connected agent(s) for thread 95f94069-47f0-4a57-9217-391402e49bf9
+🐛 DEBUG [2026-06-17T12:26:03.702Z] [ThreadCompletion] No pending promise found for thread 95f94069-47f0-4a57-9217-391402e49bf9
+ℹ️  INFO [2026-06-17T12:26:03.704Z] [SideExecutionManager] Stopped 0 side executions for parent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:26:03.704Z] [AGENT STOP] Attempting to stop process: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (agentId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9, instanceId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9)
+🐛 DEBUG [2026-06-17T12:26:03.704Z] [AGENT STOP] Sending SIGTERM to process tree: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (pid: 49172)
+ℹ️  INFO [2026-06-17T12:26:04.333Z] [SideExecutionManager] Stopping all side executions for parent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:26:04.334Z] [SideExecutionManager] Stopped 0 side executions for parent: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9
+ℹ️  INFO [2026-06-17T12:26:04.334Z] [AGENT STOP] Attempting to stop process: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (agentId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9, instanceId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9)
+🐛 DEBUG [2026-06-17T12:26:04.334Z] [AGENT STOP] Sending SIGTERM to process tree: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (pid: 49172)
+ℹ️  INFO [2026-06-17T12:26:04.341Z] [AGENT c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9] Process exited with code 1 after 66383ms (instanceId: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9)
+ℹ️  INFO [2026-06-17T12:26:04.369Z] Updated agent execution status: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9 -> completed
+ℹ️  INFO [2026-06-17T12:26:04.383Z] Ended debug session: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9 with status completed
+ℹ️  INFO [2026-06-17T12:26:04.383Z] [AGENT STOP] Process stopped successfully: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (code: 1)
+ℹ️  INFO [2026-06-17T12:26:04.407Z] Updated agent execution status: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9 -> completed
+ℹ️  INFO [2026-06-17T12:26:04.408Z] [EventFlow][1-Publish] Event published: type=agent:completed, eventId=95e97ff9-f839-4835-93ce-56773d4c0a87, source={"agentId":"c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9","threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:26:04.408Z] [EventFlow][1-Publish] Payload keys: agentName, agentType, status
+ℹ️  INFO [2026-06-17T12:26:04.408Z] [AGENT STOP] Process stopped successfully: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9 (code: 1)
+ℹ️  INFO [2026-06-17T12:26:04.433Z] Updated agent execution status: c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9_1781699097953_gel5uf2jqx9 -> completed
+ℹ️  INFO [2026-06-17T12:26:04.434Z] [EventFlow][1-Publish] Event published: type=agent:completed, eventId=f032f28b-ad38-4db0-8189-6a615d92562d, source={"agentId":"c4d3fdb9-cf9e-4f82-8a1d-0160bbfc9ae9","threadId":"95f94069-47f0-4a57-9217-391402e49bf9"}
+ℹ️  INFO [2026-06-17T12:26:04.434Z] [EventFlow][1-Publish] Payload keys: agentName, agentType, status
+ℹ️  INFO [2026-06-17T12:26:04.436Z] [EventFlow][1-Publish] Event agent:completed dispatched to 0/1 subscriptions
+ℹ️  INFO [2026-06-17T12:26:04.437Z] [EventFlow][1-Publish] Event agent:completed dispatched to 0/1 subscriptions
+⚠️  WARN [2026-06-17T12:26:04.903Z] [AGENT STOP] tree-kill SIGTERM warning: Command failed: taskkill /pid 49172 /T /F
+ERROR: The process "49172" not found.
+
+🐛 DEBUG [2026-06-17T12:26:08.713Z] [PortScannerService] Ports opened: 8081
+🐛 DEBUG [2026-06-17T12:26:21.124Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:26:21.129Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:26:21.147Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:26:21.485Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:26:21.486Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:26:21.487Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:26:21.502Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:26:26.475Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-17T12:27:02.055Z] Removed 10 stale messages from queue for process 19672
+ℹ️  INFO [2026-06-17T12:27:02.056Z] Periodic cleanup: removed 10 stale messages from message queues
+🐛 DEBUG [2026-06-17T12:27:32.057Z] Removed 8 stale messages from queue for process 19672
+ℹ️  INFO [2026-06-17T12:27:32.058Z] Periodic cleanup: removed 8 stale messages from message queues
+🐛 DEBUG [2026-06-17T14:03:22.418Z] [PortScannerService] Ports closed: 9223
+🐛 DEBUG [2026-06-17T19:20:40.826Z] [PortScannerService] Ports closed: 5040
+🐛 DEBUG [2026-06-18T03:27:02.338Z] [PortScannerService] Ports closed: 139
+🐛 DEBUG [2026-06-18T03:27:05.978Z] [PortScannerService] Ports opened: 5040, 139
+🐛 DEBUG [2026-06-18T03:34:31.800Z] [PortScannerService] Ports closed: 5040
+🐛 DEBUG [2026-06-18T06:56:02.253Z] [PortScannerService] Ports opened: 5040
+🐛 DEBUG [2026-06-18T08:43:11.921Z] [PortScannerService] Ports closed: 7680
+🐛 DEBUG [2026-06-18T11:13:16.308Z] [PortScannerService] Ports closed: 5040
+🐛 DEBUG [2026-06-18T12:23:18.695Z] [PortScannerService] Ports opened: 7680
+🐛 DEBUG [2026-06-18T12:23:22.541Z] [PortScannerService] Ports opened: 5040
+🐛 DEBUG [2026-06-18T14:28:44.253Z] [PortScannerService] Ports opened: 9223
+🐛 DEBUG [2026-06-18T14:30:54.484Z] [PortScannerService] Ports closed: 9223
+🐛 DEBUG [2026-06-18T14:32:14.544Z] [PortScannerService] Ports opened: 9224
+🐛 DEBUG [2026-06-18T16:31:15.421Z] [PortScannerService] Ports closed: 5040
+🐛 DEBUG [2026-06-18T17:31:41.563Z] [PortScannerService] Ports opened: 5040
+🐛 DEBUG [2026-06-18T17:33:36.749Z] [PortScannerService] Ports closed: 5040
+🐛 DEBUG [2026-06-19T04:59:00.711Z] [PortScannerService] Ports opened: 5040
+🐛 DEBUG [2026-06-19T05:56:40.128Z] [PortScannerService] Ports closed: 5040
+🐛 DEBUG [2026-06-19T06:12:21.470Z] [PortScannerService] Ports opened: 5040
+🐛 DEBUG [2026-06-19T07:24:00.991Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-19T07:24:01.405Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-19T07:24:01.408Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-19T07:24:01.432Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-19T07:24:08.501Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-19T07:25:17.485Z] Removed 5 stale messages from queue for process 19672
+ℹ️  INFO [2026-06-19T07:25:17.486Z] Periodic cleanup: removed 5 stale messages from message queues
+🐛 DEBUG [2026-06-19T07:36:08.777Z] [PortScannerService] Ports opened: 1234
+🐛 DEBUG [2026-06-19T07:38:43.997Z] [PortScannerService] Ports closed: 1234
+🐛 DEBUG [2026-06-19T07:41:06.123Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-19T07:41:06.127Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-19T07:41:06.137Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-19T07:42:17.736Z] Removed 3 stale messages from queue for process 19672
+ℹ️  INFO [2026-06-19T07:42:17.738Z] Periodic cleanup: removed 3 stale messages from message queues
+🐛 DEBUG [2026-06-19T11:36:55.819Z] [PortScannerService] Ports closed: 9224
+🐛 DEBUG [2026-06-19T11:37:35.902Z] [PortScannerService] Ports opened: 9333
+🐛 DEBUG [2026-06-19T14:25:46.929Z] [PortScannerService] Ports closed: 5040
+🐛 DEBUG [2026-06-20T02:25:50.385Z] [PortScannerService] Ports closed: 139
+🐛 DEBUG [2026-06-20T02:25:55.327Z] [PortScannerService] Ports opened: 139
+🐛 DEBUG [2026-06-20T05:47:06.135Z] [PortScannerService] Ports opened: 5040
+🐛 DEBUG [2026-06-20T07:27:09.896Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-20T07:27:09.910Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-20T07:28:32.038Z] Removed 2 stale messages from queue for process 19672
+ℹ️  INFO [2026-06-20T07:28:32.039Z] Periodic cleanup: removed 2 stale messages from message queues
+🐛 DEBUG [2026-06-20T09:36:36.965Z] Using raw terminal output for process 19672
+🐛 DEBUG [2026-06-20T09:38:04.182Z] Removed 1 stale messages from queue for process 19672
+ℹ️  INFO [2026-06-20T09:38:04.182Z] Periodic cleanup: removed 1 stale messages from message queues
+🐛 DEBUG [2026-06-20T15:05:36.601Z] [PortScannerService] Ports closed: 5040
+🐛 DEBUG [2026-06-21T03:05:37.921Z] [PortScannerService] Ports closed: 139
+🐛 DEBUG [2026-06-21T03:05:41.830Z] [PortScannerService] Ports opened: 139
+🐛 DEBUG [2026-06-21T05:34:15.745Z] [PortScannerService] Ports opened: 5040
+🐛 DEBUG [2026-06-21T20:34:18.641Z] [PortScannerService] Ports closed: 135, 445, 2179, 2719, 5040, 5357, 7070, 7680, 8080, 8081, 5354, 9277, 9333, 139
+🐛 DEBUG [2026-06-21T20:34:19.987Z] [PortScannerService] Ports opened: 135, 445, 2179, 2719, 5357, 7070, 7680, 8080, 8081, 5354, 9277, 9333
+🐛 DEBUG [2026-06-21T20:34:23.691Z] [PortScannerService] Ports opened: 139
+🐛 DEBUG [2026-06-22T06:06:45.834Z] [PortScannerService] Ports closed: 139
+🐛 DEBUG [2026-06-22T06:06:50.331Z] [PortScannerService] Ports opened: 5040, 139
+🐛 DEBUG [2026-06-22T09:22:12.559Z] [PortScannerService] Ports closed: 7680
+🐛 DEBUG [2026-06-22T09:38:19.078Z] [PortScannerService] Ports opened: 7680
+🐛 DEBUG [2026-06-22T09:39:14.226Z] [PortScannerService] Ports closed: 7680
+🐛 DEBUG [2026-06-22T11:22:58.551Z] [PortScannerService] Ports opened: 7680
+🐛 DEBUG [2026-06-22T12:35:00.335Z] [PortScannerService] Ports closed: 7680
+🐛 DEBUG [2026-06-22T14:41:11.936Z] [PortScannerService] Ports opened: 7680
+🐛 DEBUG [2026-06-22T16:08:18.902Z] [PortScannerService] Ports closed: 5040
+🐛 DEBUG [2026-06-23T03:46:37.884Z] [PortScannerService] Ports opened: 5040
+🐛 DEBUG [2026-06-23T04:27:25.060Z] [PortScannerService] Ports closed: 5040
+🐛 DEBUG [2026-06-23T04:27:30.015Z] [PortScannerService] Ports opened: 5040
+🐛 DEBUG [2026-06-23T05:41:11.670Z] [PortScannerService] Ports opened: 8082
+🐛 DEBUG [2026-06-23T06:01:48.606Z] [PortScannerService] Ports closed: 7680
+🐛 DEBUG [2026-06-23T06:16:19.926Z] [PortScannerService] Ports opened: 3001
+🐛 DEBUG [2026-06-23T06:19:50.285Z] [PortScannerService] Ports closed: 3001
+🐛 DEBUG [2026-06-23T06:38:46.889Z] [PortScannerService] Ports closed: 8082
+🐛 DEBUG [2026-06-23T06:40:47.058Z] [PortScannerService] Ports opened: 8082

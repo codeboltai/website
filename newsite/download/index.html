@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Codebolt</title>
+<meta name="description" content="Download Codebolt for macOS, Windows, and Linux, install the CLI, open Codebolt Cloud, or use the SDK to embed the software foundry in your product.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0B0C10">
+<link rel="canonical" href="https://codebolt.ai/download/">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Codebolt">
+<meta property="og:title" content="Download Codebolt">
+<meta property="og:description" content="Pick a Codebolt surface: desktop editor, CLI, cloud, or SDK.">
+<meta property="og:url" content="https://codebolt.ai/download/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Codebolt",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "macOS, Windows, Linux, Web",
+  "description": "Download Codebolt desktop editor, install the CLI, open Codebolt Cloud, or use the SDK.",
+  "url": "https://codebolt.ai/download/"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"></noscript>
+<style>
+  :root{
+    --ink:#0B0C10;--ink-raised:#101218;--line:#21252F;--line-bright:#2C313D;
+    --text:#ECEEF2;--text-dim:#969BA8;--text-faint:#5E626D;--signal:#FFB23E;
+    --signal-soft:rgba(255,178,62,0.12);--signal-line:rgba(255,178,62,0.30);
+    --maxw:1180px;--gut:clamp(20px,5vw,64px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--text);font-family:"Inter",system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.18;mask-image:radial-gradient(ellipse 120% 90% at 50% 0%,#000 35%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 120% 90% at 50% 0%,#000 35%,transparent 80%)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut);position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
+  .display{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;line-height:1.02;letter-spacing:-.02em}
+  .mono{font-family:"IBM Plex Mono",monospace}
+  header{position:sticky;top:0;z-index:20;background:rgba(11,12,16,.76);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav{height:62px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:11px;font-family:"Bricolage Grotesque";font-weight:700;font-size:18px}
+  .glyph{width:22px;height:22px;border-radius:5px;background:linear-gradient(135deg,var(--signal),#F59E2B);box-shadow:0 0 18px rgba(255,178,62,.45)}
+  .nav a:not(.brand){font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--text-dim);border:1px solid var(--line-bright);border-radius:7px;padding:8px 13px}
+  .hero{padding:clamp(72px,12vw,132px) 0 clamp(48px,8vw,86px)}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);margin-bottom:22px;display:block}
+  h1{font-size:clamp(48px,8vw,96px);max-width:10ch;margin-bottom:24px}
+  .sub{font-size:clamp(17px,2vw,22px);color:var(--text-dim);max-width:56ch}
+  .sub b{color:var(--text);font-weight:600}
+  section{padding:clamp(42px,7vw,76px) 0}
+  .section-head{max-width:68ch;margin-bottom:28px}
+  .section-head h2{font-size:clamp(30px,4.4vw,52px);margin-bottom:14px}
+  .section-head p{color:var(--text-dim);font-size:18px}
+  .download-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .card{background:var(--ink-raised);padding:26px;min-height:246px;display:flex;flex-direction:column}
+  .card h3{font-family:"Bricolage Grotesque",sans-serif;font-size:26px;line-height:1.08;margin-bottom:10px}
+  .card p{color:var(--text-dim);font-size:14.5px;margin-bottom:18px}
+  pre{font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.65;color:var(--signal);background:#0B0C10;border:1px solid var(--line-bright);border-radius:9px;padding:14px;overflow:auto;margin-top:auto}
+  .btn{display:inline-flex;width:max-content;align-items:center;justify-content:center;border-radius:8px;padding:11px 15px;font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;background:var(--signal);border:1px solid var(--signal);color:#1A1206;margin-top:18px}
+  .rows{display:grid;gap:16px}
+  .row{display:grid;grid-template-columns:.42fr .58fr;gap:24px;border:1px solid var(--line);border-radius:14px;background:var(--ink-raised);padding:24px}
+  .row h3{font-family:"Bricolage Grotesque",sans-serif;font-size:28px;line-height:1.08;margin-bottom:10px}
+  .row p{color:var(--text-dim)}
+  .cta{border:1px solid var(--signal-line);background:var(--signal-soft);border-radius:14px;padding:28px;display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}
+  .cta h2{font-size:clamp(26px,4vw,42px)}
+  .cta .links{display:flex;gap:10px;flex-wrap:wrap}
+  .ghost{background:transparent;color:var(--text);border-color:var(--line-bright)}
+  @media(max-width:860px){.download-grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="grid-bg" aria-hidden="true"></div>
+<header><div class="wrap nav"><a class="brand" href="/"><span class="glyph"></span>Codebolt</a><a href="/">Back home</a></div></header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Download</span>
+      <h1 class="display">Download Codebolt</h1>
+      <p class="sub">Pick a surface. <b>Same foundry underneath all of them.</b> Start in the desktop editor, terminal, browser, or SDK.</p>
+    </div>
+  </section>
+
+  <section id="desktop">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">Codebolt Editor — Desktop</h2>
+        <p>Install the full coding workspace with editor, terminal, browser, agents, plugin panels, and local runtime controls.</p>
+      </div>
+      <div class="download-grid">
+        <article class="card" id="download-macos"><h3>macOS</h3><p>Apple Silicon and Intel. Universal binary. Requires macOS 12 or later.</p><pre>codebolt.dmg
+├─ Apple Silicon
+└─ Intel x64</pre><a class="btn" href="#">Download macOS</a></article>
+        <article class="card" id="download-windows"><h3>Windows</h3><p>x64 installer. Windows 10 and later. Auto-updates included.</p><pre>codebolt-setup.exe
+└─ Windows x64</pre><a class="btn" href="#">Download Windows</a></article>
+        <article class="card" id="download-linux"><h3>Linux</h3><p>.deb, .rpm, and AppImage. x64 and arm64. Includes desktop integration.</p><pre>codebolt.deb
+codebolt.rpm
+codebolt.AppImage</pre><a class="btn" href="#">Download Linux</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap rows">
+      <article class="row">
+        <div><h3>Codebolt CLI — Terminal</h3><p>Install globally with npm and run the foundry in your terminal. Headless server mode for CI/CD. Works standalone or inside the editor.</p></div>
+        <pre>$ npm i -g codebolt
+$ codebolt
+$ codebolt --prompt "..."
+$ codebolt --server --port 3100</pre>
+      </article>
+      <article class="row">
+        <div><h3>Codebolt Cloud — Browser</h3><p>No install. Open a workspace in your browser, drop in agents and plugins, and run them on managed sandboxes.</p><a class="btn" href="https://cloud.codebolt.ai">Open Cloud</a></div>
+        <pre>cloud.codebolt.ai
+├─ Browser portal
+├─ Managed sandboxes
+└─ Shared workspaces</pre>
+      </article>
+      <article class="row">
+        <div><h3>Codebolt SDK — Embed</h3><p>Build your own product on top of the foundry. Agent, Plugin, and Client SDKs cover every layer.</p></div>
+        <pre># Self-host the engine
+$ docker run codebolt/engine:latest
+
+# Or install the SDK package
+$ npm i codeboltjs</pre>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta">
+        <h2 class="display">Need help getting started?</h2>
+        <div class="links"><a class="btn" href="https://docs.codebolt.ai">Read the docs</a><a class="btn ghost" href="/">Back to homepage</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

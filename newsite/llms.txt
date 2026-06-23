@@ -1,0 +1,32 @@
+# Codebolt
+
+> Codebolt is a software foundry for autonomous AI coding agents.
+
+Codebolt provides a coding platform where built-in or custom agents run inside a larger system. The platform handles tools, multi-environment coordination, peer review, verification, correction loops, monitoring, and runtime controls outside the agent.
+
+## Primary pages
+
+- Homepage: https://codebolt.ai/
+- Download: https://codebolt.ai/download/
+- Docs: https://docs.codebolt.ai
+- Cloud app: https://cloud.codebolt.ai
+
+## Product surfaces
+
+- CLI: terminal-first Codebolt surface for running agents inside repositories.
+- Editor: desktop coding workspace with editor, terminal, browser, agents, plugin panels, and local runtime controls.
+- Cloud: browser workspace with managed sandboxes and shared team state.
+- SDK: Agent SDK, Plugin SDK, and Client SDK for building products and custom workflows on top of Codebolt.
+
+## Core positioning
+
+- Category: software foundry for autonomous AI coding agents.
+- Outcome: build, ship, monitor, and maintain software with less babysitting.
+- Differentiator: verification, review, coordination, tools, environments, and correction loops live outside the worker agent.
+- Architecture: runtime layer underneath agents and plugins.
+
+## Agent-readable tasks
+
+- To evaluate the static site locally, run `npm run build` then `npm test`.
+- Active source is `newsite/`.
+- Legacy generated Astro site is preserved under `site/` and `template/`.

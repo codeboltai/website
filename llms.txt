@@ -1,0 +1,37 @@
+# Codebolt Website
+
+## Summary
+
+Codebolt is an autonomous software foundry: a coding platform with agentic infrastructure for running, coordinating, reviewing, and scaling AI software work without forcing each agent to rebuild its own harness.
+
+The active deployable website is in `newsite/`. The legacy Agent Sitegen/Astro site remains in `content/`, `template/`, and `site/` for reference only.
+
+## Key Files
+
+- [README.md](README.md): repository quickstart, commands, examples, and deployment notes.
+- [AGENTS.md](AGENTS.md): coding-agent instructions, safety rules, active source boundaries, and ownership notes.
+- [CLAUDE.md](CLAUDE.md): Claude-specific project notes and product boundaries.
+- [agentlighthouse.tasks.yaml](agentlighthouse.tasks.yaml): repeatable agent benchmark tasks.
+- [docs/architecture.md](docs/architecture.md): static site architecture and Cloudflare Workers deployment model.
+- [docs/development.md](docs/development.md): development workflow, validation commands, and deploy command.
+- [docs/seo-geo.md](docs/seo-geo.md): SEO and GEO expectations for crawlers and answer engines.
+- [scripts/validate-newsite.mjs](scripts/validate-newsite.mjs): deterministic validation script for active pages and metadata.
+- [newsite/index.html](newsite/index.html): active homepage.
+- [newsite/download/index.html](newsite/download/index.html): active download page.
+- [newsite/build.mjs](newsite/build.mjs): static build script.
+- [newsite/llms.txt](newsite/llms.txt): public LLM-readable site summary copied to production.
+- [newsite/ai.txt](newsite/ai.txt): public answer-engine summary copied to production.
+
+## Commands
+
+```bash
+npm run build
+npm test
+npm run lint
+npm run typecheck
+npm run deploy
+```
+
+## Constraints
+
+Do not put secrets, Cloudflare tokens, or `.env*` files into the repository. Do not treat `site/` as active source unless explicitly requested.
