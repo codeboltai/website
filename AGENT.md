@@ -11,21 +11,23 @@ treat the task as a portal-originated workflow.
 
 ## Website Change Rules
 
-This website is generated from source inputs.
+The active website is the static `newsite/` project.
 
-- Make durable website content changes in `content/site.yaml`.
-- Make reusable layout, styling, or section capability changes in `template/`.
-- Do not hand-edit `site/` for durable changes; it is generated output and can be overwritten.
+- Make durable homepage changes in `newsite/index.html`.
+- Make durable download page changes in `newsite/download/index.html`.
+- Make SEO/GEO crawler changes in `newsite/robots.txt`, `newsite/sitemap.xml`, `newsite/llms.txt`, and `newsite/ai.txt`.
+- Do not hand-edit `site/` for durable changes; it is deprecated generated output.
+- `content/`, `template/`, and `site/` are legacy Sitegen/Astro reference material unless the user explicitly asks for that flow.
 - `oldwebsite/` is archived context and should not be treated as the active website.
 
 For non-portal local work, the normal website validation flow is:
 
 ```bash
-npm run validate
-npm run dev
+npm run build
+npm test
 ```
 
-`npm run dev` already runs the generation step first, so a separate `npm run generate` is not required before local development. Use `npm run build` only when a production static build is specifically needed.
+Use `npm run dev` when local browser verification is needed.
 
 For portal-originated workflows, do **not** manually run these website commands:
 
@@ -34,6 +36,7 @@ npm run validate
 npm run generate
 npm run build
 npm run dev
+npm test
 ```
 
 When the request comes from the portal, complete the file changes only. The website tester ActionBlock will handle install, validation/build/start, and browser verification manually through the portal workflow.

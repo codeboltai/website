@@ -1,0 +1,91 @@
+version: 1
+tasks:
+  - id: build-active-static-site
+    title: Build the active newsite
+    objective: A coding agent must prove the active Codebolt website builds from the repository root into the Cloudflare-ready static output without using the deprecated Sitegen flow.
+    difficulty: easy
+    requiredDocs:
+      - AGENTS.md
+      - README.md
+      - docs/architecture.md
+      - docs/development.md
+    files:
+      - package.json
+      - newsite/build.mjs
+      - newsite/index.html
+      - newsite/download/index.html
+      - newsite/wrangler.jsonc
+    verificationCommands:
+      - npm run build
+      - npm test
+    successCriteria:
+      - `npm run build` exits successfully.
+      - `npm test` exits successfully and prints `newsite validation passed`.
+      - `newsite/dist/index.html` exists.
+      - `newsite/dist/download/index.html` exists.
+      - `newsite/dist/robots.txt` exists.
+      - `newsite/dist/llms.txt` exists.
+      - No durable source changes are made under `site/`.
+    commonFailureModes:
+      - Editing deprecated `site/` output instead of `newsite/`.
+      - Forgetting to copy crawler files into `newsite/dist/`.
+      - Reintroducing the large `cli-1.gif` into the deploy output.
+
+  - id: validate-seo-geo-assets
+    title: Validate SEO and GEO assets
+    objective: A coding agent must update and verify the homepage, download page, and crawler files so search engines and answer engines can understand Codebolt's production site.
+    difficulty: medium
+    requiredDocs:
+      - AGENTS.md
+      - docs/seo-geo.md
+      - newsite/llms.txt
+      - newsite/ai.txt
+    files:
+      - scripts/validate-newsite.mjs
+      - newsite/index.html
+      - newsite/download/index.html
+      - newsite/robots.txt
+      - newsite/sitemap.xml
+      - newsite/llms.txt
+      - newsite/ai.txt
+    verificationCommands:
+      - npm run build
+      - npm run lint
+    successCriteria:
+      - The homepage includes a meta description, canonical URL, Open Graph metadata, Twitter metadata, and JSON-LD.
+      - The download page includes a meta description and canonical URL.
+      - `newsite/robots.txt`, `newsite/sitemap.xml`, `newsite/llms.txt`, and `newsite/ai.txt` exist.
+      - Production URLs use `https://codebolt.ai/`.
+      - `npm run lint` prints `newsite validation passed`.
+    commonFailureModes:
+      - Leaving canonical URLs pointed at a temporary Workers preview domain.
+      - Updating metadata in source files but not verifying copied `dist/` output.
+      - Making the homepage sound like only an agent framework instead of an autonomous software foundry.
+
+  - id: update-homepage-surface-tabs
+    title: Update homepage surface tabs
+    objective: A coding agent must safely change the homepage product-surface tab area while preserving performance, accessibility, and the download call to action.
+    difficulty: medium
+    requiredDocs:
+      - AGENTS.md
+      - CLAUDE.md
+      - docs/development.md
+      - docs/seo-geo.md
+    files:
+      - newsite/index.html
+      - scripts/validate-newsite.mjs
+    verificationCommands:
+      - npm run build
+      - npm test
+      - npm run typecheck
+    successCriteria:
+      - The hero primary CTA links to `/download`.
+      - The surface selector includes CLI, Editor, Cloud, and SDK.
+      - The visible CLI preview uses `/images/cli-1.png`, not the larger GIF.
+      - Inactive tab screenshots are deferred with `data-src` until selected.
+      - Tab controls expose valid ARIA tab semantics after JavaScript runs.
+      - `npm test` and `npm run typecheck` pass.
+    commonFailureModes:
+      - Eager-loading every tab screenshot and hurting mobile PageSpeed.
+      - Breaking tab behavior while changing copy.
+      - Removing product-surface context that shows Codebolt is a platform.

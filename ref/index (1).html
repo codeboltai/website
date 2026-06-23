@@ -184,6 +184,14 @@
   .incident-row .d{color:var(--text-dim);font-size:15.5px;flex:1;min-width:240px}
   .incident-row .d b{color:var(--text);font-weight:600}
 
+  .harness-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .hpiece{background:var(--ink-raised);padding:24px;min-height:132px}
+  .hpiece .hk{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--signal);margin-bottom:12px}
+  .hpiece .ht{font-family:"Bricolage Grotesque";font-weight:600;font-size:19px;line-height:1.15;color:var(--text);margin-bottom:9px}
+  .hpiece .hd{font-size:14px;color:var(--text-dim);line-height:1.5}
+  @media(max-width:900px){.harness-strip{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.harness-strip{grid-template-columns:1fr}}
+
   /* ---- OS STACK diagram ---- */
   .stack{display:flex;flex-direction:column;gap:14px;margin-top:8px}
   .layer{
@@ -335,12 +343,12 @@
     <div class="wrap">
       <span class="eyebrow hero-tag">The agent OS for AI coding</span>
       <h1 class="display">Run agents.<br><span class="b">Not harnesses.</span></h1>
-      <p class="hero-sub">Stop rebuilding the tools and harness around every agent. Codebolt is agentic runtime infrastructure: <b>your agents encode your process; the runtime owns tools, models, environments, coordination, and the rest of the agentic stack.</b></p>
+      <p class="hero-sub">Stop rebuilding the tools and harness around every agent. Codebolt is agentic runtime infrastructure: <b>agents stay focused on process logic; the runtime owns tools, models, environments, coordination, and the rest of the agentic stack.</b></p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#start">Run your first agent <span class="arr">→</span></a>
         <a class="btn btn-ghost" href="#coordination">See how it coordinates</a>
       </div>
-      <div class="hero-note"><span class="live-dot" aria-hidden="true"></span> Process-specific agents · always-on plugins · 500+ tools on demand · runtime-owned models, environments, and the rest</div>
+      <div class="hero-note"><span class="live-dot" aria-hidden="true"></span> Process-specific lightweight agents · always-on plugins · 500+ tools surfaced on demand · runtime-owned models, environments, and the rest</div>
 
       <div class="hero-stage" aria-hidden="true">
         <div class="stage-bar">
@@ -377,47 +385,42 @@
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">§ 01 — The problem</span>
-        <h2 class="display">The market doesn't have a model problem.<br>It has a verification debt problem.</h2>
-        <p>Drafting code is cheap now. Trusting it isn't. Agents compress drafting faster than they compress judgment — so the bottleneck moved to verification, coordination, and control. <b>The harness is where the leverage is, and everyone's rebuilding it by hand.</b></p>
+        <h2 class="display">Agents don't have a model problem.<br>They have a trust problem.</h2>
+        <p>Agents can already draft, edit, and call tools. The hard part is trusting the work: knowing what they saw, what they touched, where they ran, what changed, and who approved it. <b>The harness is where the leverage is, and everyone's rebuilding it by hand.</b></p>
       </div>
 
-      <div class="stat-grid rv">
-        <div class="stat">
-          <div class="num">96<span class="u">%</span></div>
-          <div><div class="lbl">of developers don't fully trust AI-generated code</div><div class="src">Sonar 2026</div></div>
+      <div class="harness-strip rv">
+        <div class="hpiece">
+          <div class="hk">Context</div>
+          <div class="ht">Know what the agent saw</div>
+          <div class="hd">Context, files, logs, memory, and prior decisions should be assembled and traceable.</div>
         </div>
-        <div class="stat">
-          <div class="num">48<span class="u">%</span></div>
-          <div><div class="lbl">always check it before committing — the verification gap, in one number</div><div class="src">Sonar 2026</div></div>
+        <div class="hpiece">
+          <div class="hk">Tools</div>
+          <div class="ht">Know what the agent can touch</div>
+          <div class="hd">File ops, terminal, browser, APIs, and sandboxes need scoped access, not ad hoc wiring.</div>
         </div>
-        <div class="stat">
-          <div class="num">17<span class="u">△</span></div>
-          <div><div class="lbl">problem swing on SWE-bench from the <i>same model</i> — only the harness changed</div><div class="src">Morph 2026</div></div>
+        <div class="hpiece">
+          <div class="hk">Environments</div>
+          <div class="ht">Know where the work ran</div>
+          <div class="hd">Local, remote, and cloud work needs state, control, and provenance across every handoff.</div>
         </div>
-        <div class="stat">
-          <div class="num">19<span class="u">%</span></div>
-          <div><div class="lbl">slower with AI — while developers felt 20% faster</div><div class="src">METR</div></div>
+        <div class="hpiece">
+          <div class="hk">Verification</div>
+          <div class="ht">Know what is safe to accept</div>
+          <div class="hd">Every handoff needs permissions, checks, traceability, and a clear owner.</div>
         </div>
-      </div>
-
-      <div class="incident-row rv">
-        <span class="t">Incident · 9 sec</span>
-        <span class="d"><b>PocketOS.</b> A Cursor agent deleted the production database and every backup via one API call. Not hacked, not injected — it removed an obstacle to finish its task. The runtime had no blast-radius limit it couldn't cross.</span>
-      </div>
-      <div class="incident-row rv">
-        <span class="t">Incident · 13 hr</span>
-        <span class="d"><b>AWS Kiro &amp; Replit.</b> An agent change caused a 13-hour outage; another deleted a live database during a code freeze, then misled the user about recovery. Even Anthropic shipped an undetected agent bug to every paying customer on their own site.</span>
       </div>
     </div>
   </section>
 
-  <!-- ONE IDEA / OS STACK -->
+  <!-- ARCHITECTURE / OS STACK -->
   <section id="runtime-idea">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow">§ 02 — One idea</span>
-        <h2 class="display">Your agents encode process.<br>The runtime owns the substrate.</h2>
-        <p>Claude Code and Cursor bundle the agent, tools, model calls, and environment into one assistant. Codebolt separates them. Your agents stay specific to your workflow; Codebolt is the operating system they run on.</p>
+        <span class="eyebrow">§ 02 — Architecture</span>
+        <h2 class="display">From bundled assistant<br>to runtime infrastructure.</h2>
+        <p>Most coding agents are bundled assistants: agent logic, tools, model calls, permissions, and execution environment fused into one product. Codebolt pulls the toolchain, control plane, and execution substrate into a runtime layer — the OS/infrastructure layer agents and plugins run on.</p>
       </div>
 
       <div class="stack rv">

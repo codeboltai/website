@@ -1,14 +1,14 @@
-name: Build & Publish Artifact
+name: Build & Deploy Website
 
 on:
-  push:
-    branches:
-      - main
-      - master
-  pull_request:
-    branches:
-      - main
-      - master
+  # push:
+  #   branches:
+  #     - main
+  #     - master
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - master
   workflow_dispatch:
 
 permissions:
@@ -16,12 +16,12 @@ permissions:
 
 jobs:
   build:
-    name: Build Site & Upload Artifact
+    name: Build New Site
     runs-on: ubuntu-latest
 
     defaults:
       run:
-        working-directory: site
+        working-directory: newsite
 
     steps:
       - name: Checkout repository
@@ -32,18 +32,25 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: site/package-lock.json
+          cache-dependency-path: newsite/package-lock.json
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Astro site
+      - name: Build static site
         run: npm run build
 
+      - name: Deploy to Cloudflare Workers
+        if: github.event_name == 'push'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx wrangler deploy
+
       - name: Upload site build as GitHub Artifact
+        if: github.event_name != 'push'
         uses: actions/upload-artifact@v4
         with:
           name: codebolt-website-dist
-          path: site/dist/
+          path: newsite/dist/
           retention-days: 30
           if-no-files-found: error
