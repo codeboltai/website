@@ -1529,3 +1529,533 @@ Error fetching models: AxiosError: connect ETIMEDOUT 100.66.109.32:1234
 🐛 DEBUG [2026-06-23T07:30:06.771Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
 ⚠️  WARN [2026-06-23T07:30:06.778Z] [cloudprovider] Failed to save sync debug JSON: Error: ENOSPC: no space left on device, open '/Users/ravirawat/Documents/codeboltai/AiEditor/website/.codebolt/providers/cloudprovider/debug/latest-sync-json.json'
 🐛 DEBUG [2026-06-23T07:30:06.780Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+
+  Update available: 1.12.72 → 1.12.75
+  Run "npm install -g codebolt" to update
+
+Starting CodeBolt server on port 2721...
+Project path: /Users/ravirawat/Documents/codeboltai/AiEditor/website
+Web frontend: /opt/homebrew/lib/node_modules/codebolt/dist/web
+🐛 DEBUG [2026-06-23T07:43:24.961Z] [ApplicationEventBus] New subscription: trigger:contextCompaction:auto, subId: 3c5c607b-c06c-476f-92de-b6e2a46a72bf, eventTypes: context:added
+🐛 DEBUG [2026-06-23T07:43:25.033Z] [Environment Lifecycle] Started health check monitoring (interval: 30000ms)
+ℹ️  INFO [2026-06-23T07:43:25.114Z] Started periodic message queue cleanup interval
+ℹ️  INFO [2026-06-23T07:43:25.114Z] Started periodic wsPtyMap cleanup interval
+ℹ️  INFO [2026-06-23T07:43:28.237Z] TaskManager initialized successfully
+ℹ️  INFO [2026-06-23T07:43:28.238Z] Database services initialized successfully
+ℹ️  INFO [2026-06-23T07:43:28.239Z] debugManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.260Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-23T07:43:28.260Z] chatManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.260Z] [EventActionManager] Initializing for project: /Users/ravirawat/Documents/codeboltai/AiEditor/codeboltdocs
+ℹ️  INFO [2026-06-23T07:43:28.260Z] [EventActionLoader] Loaded 0 eventActions from /Users/ravirawat/Documents/codeboltai/AiEditor/codeboltdocs/.codebolt/eventactions
+ℹ️  INFO [2026-06-23T07:43:28.260Z] [HookManager] Initializing for project: /Users/ravirawat/Documents/codeboltai/AiEditor/codeboltdocs
+ℹ️  INFO [2026-06-23T07:43:28.261Z] [EventActionLoader] Watching eventActions directory: /Users/ravirawat/Documents/codeboltai/AiEditor/codeboltdocs/.codebolt/eventactions
+🐛 DEBUG [2026-06-23T07:43:28.261Z] [EventActionManager] Registered 0 eventAction trigger(s)
+🐛 DEBUG [2026-06-23T07:43:28.261Z] [EventActionManager] Event listeners set up
+ℹ️  INFO [2026-06-23T07:43:28.261Z] [EventActionManager] Initialized with 0 eventActions
+ℹ️  INFO [2026-06-23T07:43:28.261Z] EventActionManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.263Z] [Environment Initialization] Loading existing environments...
+🐛 DEBUG [2026-06-23T07:43:28.267Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:43:28.270Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+ℹ️  INFO [2026-06-23T07:43:28.271Z] [Environment Lifecycle] Registered environment: cloud:49098d4c-1ada-4123-b95e-c821f19745bb (CodeBolt)
+⚠️  WARN [2026-06-23T07:43:28.272Z] Environment debug session not found for state update: cloud:49098d4c-1ada-4123-b95e-c821f19745bb
+ℹ️  INFO [2026-06-23T07:43:28.272Z] [Environment Lifecycle] Environment cloud:49098d4c-1ada-4123-b95e-c821f19745bb state changed: created -> stopped
+🐛 DEBUG [2026-06-23T07:43:28.272Z] [Environment Initialization] Registered environment: CodeBolt (cloud:49098d4c-1ada-4123-b95e-c821f19745bb)
+ℹ️  INFO [2026-06-23T07:43:28.272Z] [Environment Lifecycle] Registered environment: cloud:0af759f6-1164-4d4f-bb61-88a5f99aaa06 (CodeBolt 2)
+⚠️  WARN [2026-06-23T07:43:28.272Z] Environment debug session not found for state update: cloud:0af759f6-1164-4d4f-bb61-88a5f99aaa06
+ℹ️  INFO [2026-06-23T07:43:28.272Z] [Environment Lifecycle] Environment cloud:0af759f6-1164-4d4f-bb61-88a5f99aaa06 state changed: created -> stopped
+🐛 DEBUG [2026-06-23T07:43:28.272Z] [Environment Initialization] Registered environment: CodeBolt 2 (cloud:0af759f6-1164-4d4f-bb61-88a5f99aaa06)
+ℹ️  INFO [2026-06-23T07:43:28.272Z] [Environment Lifecycle] Registered environment: cloud:5f59e3c5-d7e3-41e0-baef-ebeee31770e9 (website)
+⚠️  WARN [2026-06-23T07:43:28.272Z] Environment debug session not found for state update: cloud:5f59e3c5-d7e3-41e0-baef-ebeee31770e9
+ℹ️  INFO [2026-06-23T07:43:28.272Z] [Environment Lifecycle] Environment cloud:5f59e3c5-d7e3-41e0-baef-ebeee31770e9 state changed: created -> stopped
+🐛 DEBUG [2026-06-23T07:43:28.272Z] [Environment Initialization] Registered environment: website (cloud:5f59e3c5-d7e3-41e0-baef-ebeee31770e9)
+ℹ️  INFO [2026-06-23T07:43:28.272Z] [Environment Initialization] Completed. Registered 3 environments, 0 candidates for auto-reconnect.
+🐛 DEBUG [2026-06-23T07:43:28.307Z] [ActionBlockRegistry] Discovered 2 built-in ActionBlocks from /Users/ravirawat/Documents/codeboltai/AiEditor/website/.codebolt/actionblocks
+🐛 DEBUG [2026-06-23T07:43:28.309Z] [ActionBlockRegistry] Discovered 1 global ActionBlocks
+🐛 DEBUG [2026-06-23T07:43:28.309Z] [ActionBlockRegistry] Discovered 0 project ActionBlocks
+ℹ️  INFO [2026-06-23T07:43:28.309Z] [ActionBlockRegistry] Total discovered ActionBlocks: 2
+ℹ️  INFO [2026-06-23T07:43:28.309Z] [ActionBlockRegistry] Initialized with project path: /Users/ravirawat/Documents/codeboltai/AiEditor/codeboltdocs
+ℹ️  INFO [2026-06-23T07:43:28.309Z] [HookLoader] Loaded 0 hook(s) from /Users/ravirawat/Documents/codeboltai/AiEditor/codeboltdocs/.codebolt/hooks
+ℹ️  INFO [2026-06-23T07:43:28.309Z] [HookLoader] Watching hooks directory: /Users/ravirawat/Documents/codeboltai/AiEditor/codeboltdocs/.codebolt/hooks
+ℹ️  INFO [2026-06-23T07:43:28.309Z] [HookManager] Initialized with 0 hook(s)
+ℹ️  INFO [2026-06-23T07:43:28.309Z] HookManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.309Z] [INIT] Overrode projectSetting.user_active_project_path with startup path: /Users/ravirawat/Documents/codeboltai/AiEditor/website
+📝 LOG [2026-06-23T07:43:28.309Z] 🔍 Detailed Event: SERVICE_INIT {
+  message: [32m'setting service init'[39m,
+  logLevel: [32m'log'[39m,
+  distinctId: [32m'CONSOLE_USER'[39m,
+  properties: {},
+  timestamp: [32m'2026-06-23T07:43:28.309Z'[39m
+}
+ℹ️  INFO [2026-06-23T07:43:28.310Z] [CLI Bootstrap] Reusing existing user: I78QLYLcsjdLEv9ZPEEobcDffrU2
+ℹ️  INFO [2026-06-23T07:43:28.311Z] [CLI Bootstrap] Registered project: website (id=67)
+ℹ️  INFO [2026-06-23T07:43:28.323Z] debugManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.323Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-23T07:43:28.323Z] chatManager initialized for project
+🐛 DEBUG [2026-06-23T07:43:28.323Z] [EventActionManager] Already initialized for this project
+🐛 DEBUG [2026-06-23T07:43:28.323Z] [HookManager] Already initialized for this project
+ℹ️  INFO [2026-06-23T07:43:28.323Z] EventActionManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.323Z] HookManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.347Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-23T07:43:28.358Z] debugManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.358Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-23T07:43:28.358Z] chatManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.358Z] [EventActionManager] Shutting down
+🐛 DEBUG [2026-06-23T07:43:28.358Z] [EventActionManager] Event listeners removed
+🐛 DEBUG [2026-06-23T07:43:28.358Z] [EventActionLoader] Stopped watching eventActions directory
+🐛 DEBUG [2026-06-23T07:43:28.358Z] [EventActionRegistry] Cleared all eventActions
+ℹ️  INFO [2026-06-23T07:43:28.358Z] [EventActionManager] Shutdown complete
+ℹ️  INFO [2026-06-23T07:43:28.358Z] [HookManager] Shutting down
+🐛 DEBUG [2026-06-23T07:43:28.358Z] [HookLoader] Stopped watching hooks directory
+ℹ️  INFO [2026-06-23T07:43:28.358Z] [EventActionManager] Initializing for project: /Users/ravirawat/Documents/codeboltai/AiEditor/website
+ℹ️  INFO [2026-06-23T07:43:28.359Z] [EventActionLoader] Loaded 0 eventActions from /Users/ravirawat/Documents/codeboltai/AiEditor/website/.codebolt/eventactions
+ℹ️  INFO [2026-06-23T07:43:28.359Z] [HookManager] Initializing for project: /Users/ravirawat/Documents/codeboltai/AiEditor/website
+ℹ️  INFO [2026-06-23T07:43:28.359Z] [EventActionLoader] Watching eventActions directory: /Users/ravirawat/Documents/codeboltai/AiEditor/website/.codebolt/eventactions
+🐛 DEBUG [2026-06-23T07:43:28.359Z] [EventActionManager] Registered 0 eventAction trigger(s)
+🐛 DEBUG [2026-06-23T07:43:28.359Z] [EventActionManager] Event listeners set up
+ℹ️  INFO [2026-06-23T07:43:28.359Z] [EventActionManager] Initialized with 0 eventActions
+ℹ️  INFO [2026-06-23T07:43:28.359Z] EventActionManager initialized for project
+🐛 DEBUG [2026-06-23T07:43:28.360Z] [ActionBlockRegistry] Discovered 2 built-in ActionBlocks from /Users/ravirawat/Documents/codeboltai/AiEditor/website/.codebolt/actionblocks
+🐛 DEBUG [2026-06-23T07:43:28.360Z] [ActionBlockRegistry] Discovered 1 global ActionBlocks
+🐛 DEBUG [2026-06-23T07:43:28.361Z] [ActionBlockRegistry] Discovered 2 project ActionBlocks
+ℹ️  INFO [2026-06-23T07:43:28.361Z] [ActionBlockRegistry] Total discovered ActionBlocks: 2
+ℹ️  INFO [2026-06-23T07:43:28.361Z] [ActionBlockRegistry] Initialized with project path: /Users/ravirawat/Documents/codeboltai/AiEditor/website
+ℹ️  INFO [2026-06-23T07:43:28.361Z] [HookLoader] Loaded 0 hook(s) from /Users/ravirawat/Documents/codeboltai/AiEditor/website/.codebolt/hooks
+ℹ️  INFO [2026-06-23T07:43:28.361Z] [HookLoader] Watching hooks directory: /Users/ravirawat/Documents/codeboltai/AiEditor/website/.codebolt/hooks
+ℹ️  INFO [2026-06-23T07:43:28.361Z] [HookManager] Initialized with 0 hook(s)
+ℹ️  INFO [2026-06-23T07:43:28.361Z] HookManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.364Z] [ApplicationEventBus] Loaded 0 subscription(s) from file
+ℹ️  INFO [2026-06-23T07:43:28.364Z] [ApplicationEventBus] Initialized for project: /Users/ravirawat/Documents/codeboltai/AiEditor/website, loaded 0 persisted subscription(s), preserved 1 runtime subscription(s)
+ℹ️  INFO [2026-06-23T07:43:28.365Z] [ChannelStore] Initialized with 0 channels
+ℹ️  INFO [2026-06-23T07:43:28.365Z] [ChannelManager] Initialized with 0 channels
+ℹ️  INFO [2026-06-23T07:43:28.367Z] [CLI Bootstrap] Full project activation complete
+ℹ️  INFO [2026-06-23T07:43:28.367Z] [CLI Bootstrap] Complete — project ready at /Users/ravirawat/Documents/codeboltai/AiEditor/website
+ℹ️  INFO [2026-06-23T07:43:28.371Z] Server started on port 2721
+🐛 DEBUG [2026-06-23T07:43:28.374Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+CodeBolt server running at http://localhost:2721
+Web UI available at http://localhost:2721
+Open http://localhost:2721 in your browser for the web UI.
+Launching TUI: /opt/homebrew/lib/node_modules/codebolt/node_modules/@codebolt/gotui-darwin-arm64/bin/gotui
+⚠️  WARN [2026-06-23T07:43:28.375Z] [Server Init] AgentFlow runtime setup failed (non-blocking): AgentFlow runtime is incomplete at /opt/homebrew/lib/node_modules/codebolt/dist/assets/agentflow-runtime. Missing: dist/index.cjs, dist/data.json
+ℹ️  INFO [2026-06-23T07:43:28.376Z] [PluginService] Discovered plugin: anthropic-plugin (/Users/ravirawat/.codebolt/plugins/anthropic-plugin)
+ℹ️  INFO [2026-06-23T07:43:28.377Z] [PluginService] Discovered plugin: artifact-listener-plugin (/Users/ravirawat/.codebolt/plugins/artifact-listener-plugin)
+ℹ️  INFO [2026-06-23T07:43:28.377Z] [PluginService] Discovered plugin: cloud-plugin (/Users/ravirawat/.codebolt/plugins/cloud-plugin)
+ℹ️  INFO [2026-06-23T07:43:28.378Z] [PluginService] Discovered plugin: codex-plugin (/Users/ravirawat/.codebolt/plugins/codex-plugin)
+ℹ️  INFO [2026-06-23T07:43:28.378Z] [PluginService] Discovered plugin: feedback-form-plugin (/Users/ravirawat/.codebolt/plugins/feedback-form-plugin)
+ℹ️  INFO [2026-06-23T07:43:28.379Z] [PluginService] Discovered plugin: linear-agent-plugin (/Users/ravirawat/.codebolt/plugins/linear-agent-plugin)
+ℹ️  INFO [2026-06-23T07:43:28.379Z] [PluginService] Discovered plugin: simpleui-plugin (/Users/ravirawat/.codebolt/plugins/simpleui-plugin)
+ℹ️  INFO [2026-06-23T07:43:28.380Z] [PluginService] Discovered plugin: telegram-channel (/Users/ravirawat/.codebolt/plugins/telegram-channel)
+ℹ️  INFO [2026-06-23T07:43:28.380Z] [PluginService] Loaded 8 plugin(s)
+ℹ️  INFO [2026-06-23T07:43:28.381Z] [PluginService] Triggers set up for all plugins
+ℹ️  INFO [2026-06-23T07:43:28.382Z] [PluginProcessManager] Starting plugin: anthropic-plugin (anthropic-plugin)
+ℹ️  INFO [2026-06-23T07:43:28.385Z] [PluginProcessManager] Plugin anthropic-plugin spawned in 3ms
+ℹ️  INFO [2026-06-23T07:43:28.520Z] debugManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.520Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-23T07:43:28.520Z] chatManager initialized for project
+🐛 DEBUG [2026-06-23T07:43:28.520Z] [EventActionManager] Already initialized for this project
+🐛 DEBUG [2026-06-23T07:43:28.520Z] [HookManager] Already initialized for this project
+ℹ️  INFO [2026-06-23T07:43:28.520Z] debugManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.520Z] ChatManager initialized (delegating to ThreadFileStore)
+ℹ️  INFO [2026-06-23T07:43:28.520Z] chatManager initialized for project
+🐛 DEBUG [2026-06-23T07:43:28.520Z] [EventActionManager] Already initialized for this project
+🐛 DEBUG [2026-06-23T07:43:28.520Z] [HookManager] Already initialized for this project
+ℹ️  INFO [2026-06-23T07:43:28.520Z] EventActionManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.520Z] HookManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.520Z] EventActionManager initialized for project
+ℹ️  INFO [2026-06-23T07:43:28.520Z] HookManager initialized for project
+👤 User identified: {
+  id: [32m'Z1pSFyfUrqSPU4uS972vJlUFo1E3'[39m,
+  email: [90mundefined[39m,
+  name: [90mundefined[39m
+}
+Socket route: plugin
+ℹ️  INFO [2026-06-23T07:43:28.577Z] [pluginSocket] Plugin connected: anthropic-plugin (total pluginConnections: 1, keys: [anthropic-plugin])
+ℹ️  INFO [2026-06-23T07:43:28.577Z] [pluginSocket] Sent pluginStartMessage to plugin: anthropic-plugin
+Socket route: multiplexed
+ℹ️  INFO [2026-06-23T07:43:28.578Z] [Multiplexed] Client connected
+ℹ️  INFO [2026-06-23T07:43:28.590Z] Synced 4 stale plugin debug sessions (marked as cancelled)
+ℹ️  INFO [2026-06-23T07:43:28.592Z] [pluginHandleCliMessages] Routing llmProvider message: type=llmProvider.register, pluginId=anthropic-plugin
+ℹ️  INFO [2026-06-23T07:43:28.592Z] [llmProvider] Plugin anthropic-plugin registered provider "claudeoauth"
+ℹ️  INFO [2026-06-23T07:43:28.592Z] [Multiplexed] Received message: channel=main, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:28.592Z] [Multiplexed] Client subscribed to channel: main
+ℹ️  INFO [2026-06-23T07:43:28.592Z] [Multiplexed] Received message: channel=systemAlert, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:28.592Z] [Multiplexed] Client subscribed to channel: systemAlert
+ℹ️  INFO [2026-06-23T07:43:28.882Z] [PluginProcessManager] Starting plugin: artifact-listener-plugin (artifact-listener-plugin)
+ℹ️  INFO [2026-06-23T07:43:28.883Z] [PluginProcessManager] Plugin artifact-listener-plugin spawned in 1ms
+ℹ️  INFO [2026-06-23T07:43:28.885Z] [PluginProcessManager] Plugin started: anthropic-plugin (instanceId: plugin_anthropic-plugin_1782200608382_7j1ez0p7)
+ℹ️  INFO [2026-06-23T07:43:28.888Z] Started plugin debug session: plugin_anthropic-plugin_1782200608382_7j1ez0p7 (anthropic-plugin)
+ℹ️  INFO [2026-06-23T07:43:28.888Z] [PluginService] Plugin started as child process: anthropic-plugin (instanceId: plugin_anthropic-plugin_1782200608382_7j1ez0p7)
+Socket route: multiplexed
+ℹ️  INFO [2026-06-23T07:43:29.167Z] [Multiplexed] Client connected
+Socket route: plugin
+ℹ️  INFO [2026-06-23T07:43:29.169Z] [pluginSocket] Plugin connected: artifact-listener-plugin (total pluginConnections: 2, keys: [anthropic-plugin, artifact-listener-plugin])
+ℹ️  INFO [2026-06-23T07:43:29.169Z] [pluginSocket] Sent pluginStartMessage to plugin: artifact-listener-plugin
+ℹ️  INFO [2026-06-23T07:43:29.171Z] [Multiplexed] Received message: channel=main, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:29.171Z] [Multiplexed] Client subscribed to channel: main
+ℹ️  INFO [2026-06-23T07:43:29.171Z] [Multiplexed] Received message: channel=systemAlert, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:29.171Z] [Multiplexed] Client subscribed to channel: systemAlert
+ℹ️  INFO [2026-06-23T07:43:29.173Z] [Multiplexed] Received message: channel=artifact, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:29.174Z] [Multiplexed] Client subscribed to channel: artifact
+ℹ️  INFO [2026-06-23T07:43:29.174Z] [Multiplexed] Received message: channel=artifact, action=send
+ℹ️  INFO [2026-06-23T07:43:29.174Z] [Multiplexed] handleSend: channel=artifact, hasPayload=true
+ℹ️  INFO [2026-06-23T07:43:29.174Z] [Multiplexed] handleSend: socketServer found for artifact, hasHandleMessage=true
+ℹ️  INFO [2026-06-23T07:43:29.382Z] [PluginProcessManager] Starting plugin: cloud-plugin (cloud-plugin)
+ℹ️  INFO [2026-06-23T07:43:29.383Z] [PluginProcessManager] Plugin cloud-plugin spawned in 1ms
+ℹ️  INFO [2026-06-23T07:43:29.383Z] [PluginProcessManager] Plugin started: artifact-listener-plugin (instanceId: plugin_artifact-listener-plugin_1782200608882_o1h7ybfh)
+ℹ️  INFO [2026-06-23T07:43:29.385Z] Started plugin debug session: plugin_artifact-listener-plugin_1782200608882_o1h7ybfh (artifact-listener-plugin)
+ℹ️  INFO [2026-06-23T07:43:29.385Z] [PluginService] Plugin started as child process: artifact-listener-plugin (instanceId: plugin_artifact-listener-plugin_1782200608882_o1h7ybfh)
+Socket route: multiplexed
+ℹ️  INFO [2026-06-23T07:43:29.554Z] [Multiplexed] Client connected
+Socket route: plugin
+ℹ️  INFO [2026-06-23T07:43:29.554Z] [pluginSocket] Plugin connected: cloud-plugin (total pluginConnections: 3, keys: [anthropic-plugin, artifact-listener-plugin, cloud-plugin])
+ℹ️  INFO [2026-06-23T07:43:29.554Z] [pluginSocket] Sent pluginStartMessage to plugin: cloud-plugin
+ℹ️  INFO [2026-06-23T07:43:29.556Z] [Multiplexed] Received message: channel=main, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:29.556Z] [Multiplexed] Client subscribed to channel: main
+ℹ️  INFO [2026-06-23T07:43:29.556Z] [Multiplexed] Received message: channel=systemAlert, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:29.556Z] [Multiplexed] Client subscribed to channel: systemAlert
+❌ ERROR [2026-06-23T07:43:29.564Z] [Plugin:cloud-plugin] stderr: (node:3217) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+🐛 DEBUG [2026-06-23T07:43:29.593Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+ℹ️  INFO [2026-06-23T07:43:29.618Z] [pluginHandleCliMessages] Routing executionGateway message: type=executionGateway.subscribe, pluginId=cloud-plugin
+ℹ️  INFO [2026-06-23T07:43:29.619Z] [pluginHandleCliMessages] executionGateway response: {"type":"executionGatewaySubscribeResponse","success":true,"data":{"subscribed":true,"pluginId":"cloud-plugin"},"requestId":"b8b12645-4e79-4689-8fab-c1bdfc977967","timestamp":"2026-06-23T07:43:29.619Z"}
+🐛 DEBUG [2026-06-23T07:43:29.630Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+ℹ️  INFO [2026-06-23T07:43:29.638Z] [Multiplexed] Received message: channel=artifact, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:29.638Z] [Multiplexed] Client subscribed to channel: artifact
+ℹ️  INFO [2026-06-23T07:43:29.638Z] [Multiplexed] Received message: channel=artifact, action=send
+ℹ️  INFO [2026-06-23T07:43:29.638Z] [Multiplexed] handleSend: channel=artifact, hasPayload=true
+ℹ️  INFO [2026-06-23T07:43:29.638Z] [Multiplexed] handleSend: socketServer found for artifact, hasHandleMessage=true
+ℹ️  INFO [2026-06-23T07:43:29.638Z] [Multiplexed] Received message: channel=inbox, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:29.638Z] [Multiplexed] Client subscribed to channel: inbox
+ℹ️  INFO [2026-06-23T07:43:29.638Z] [Multiplexed] Received message: channel=inbox, action=send
+ℹ️  INFO [2026-06-23T07:43:29.638Z] [Multiplexed] handleSend: channel=inbox, hasPayload=true
+ℹ️  INFO [2026-06-23T07:43:29.638Z] [Multiplexed] handleSend: socketServer found for inbox, hasHandleMessage=true
+ℹ️  INFO [2026-06-23T07:43:29.639Z] [pluginHandleCliMessages] Routing applicationEvents message: type=applicationEvents.subscribe, pluginId=cloud-plugin
+🐛 DEBUG [2026-06-23T07:43:29.639Z] [ApplicationEventBus] New subscription: trigger:plugin:cloud-plugin:runtime:4491d8fe-4355-480d-ae0f-43d59cd36294, subId: dc60a9e4-df50-439b-866d-5331491949b6, eventTypes: thread:created,thread:updated,thread:completed
+ℹ️  INFO [2026-06-23T07:43:29.639Z] [applicationEventsHandler] Plugin cloud-plugin subscribed to thread:created,thread:updated,thread:completed (plugin:cloud-plugin:runtime:4491d8fe-4355-480d-ae0f-43d59cd36294)
+Socket route: chat
+ℹ️  INFO [2026-06-23T07:43:29.641Z] [pluginHandleCliMessages] Routing applicationEvents message: type=applicationEvents.subscribe, pluginId=cloud-plugin
+🐛 DEBUG [2026-06-23T07:43:29.641Z] [ApplicationEventBus] New subscription: trigger:plugin:cloud-plugin:runtime:f8b7f9aa-e4a9-45d1-bb40-3c1c3ed6a327, subId: 39471354-b874-43a9-a003-2c2150eec36c, eventTypes: task:created,task:updated,task:started,task:completed,task:failed,task:deleted
+ℹ️  INFO [2026-06-23T07:43:29.641Z] [applicationEventsHandler] Plugin cloud-plugin subscribed to task:created,task:updated,task:started,task:completed,task:failed,task:deleted (plugin:cloud-plugin:runtime:f8b7f9aa-e4a9-45d1-bb40-3c1c3ed6a327)
+ℹ️  INFO [2026-06-23T07:43:29.651Z] [pluginHandleCliMessages] Routing applicationEvents message: type=applicationEvents.subscribe, pluginId=cloud-plugin
+🐛 DEBUG [2026-06-23T07:43:29.651Z] [ApplicationEventBus] New subscription: trigger:plugin:cloud-plugin:runtime:150f8f09-cb70-441c-a32c-e3fd9cc6943b, subId: c5fec1a1-7da2-487d-a070-1f2cd36c9ad5, eventTypes: reviewMergeRequest:created,reviewMergeRequest:updated,reviewMergeRequest:deleted,reviewMergeRequest:reviewAdded,reviewMergeRequest:statusChanged,reviewMergeRequest:merged
+ℹ️  INFO [2026-06-23T07:43:29.651Z] [applicationEventsHandler] Plugin cloud-plugin subscribed to reviewMergeRequest:created,reviewMergeRequest:updated,reviewMergeRequest:deleted,reviewMergeRequest:reviewAdded,reviewMergeRequest:statusChanged,reviewMergeRequest:merged (plugin:cloud-plugin:runtime:150f8f09-cb70-441c-a32c-e3fd9cc6943b)
+Socket route: structuredLog
+ℹ️  INFO [2026-06-23T07:43:29.881Z] [PluginProcessManager] Starting plugin: codex-plugin (codex-plugin)
+ℹ️  INFO [2026-06-23T07:43:29.883Z] [PluginProcessManager] Plugin codex-plugin spawned in 1ms
+ℹ️  INFO [2026-06-23T07:43:29.883Z] [PluginProcessManager] Plugin started: cloud-plugin (instanceId: plugin_cloud-plugin_1782200609382_cxttj9uq)
+ℹ️  INFO [2026-06-23T07:43:29.885Z] Started plugin debug session: plugin_cloud-plugin_1782200609382_cxttj9uq (cloud-plugin)
+ℹ️  INFO [2026-06-23T07:43:29.885Z] [PluginService] Plugin started as child process: cloud-plugin (instanceId: plugin_cloud-plugin_1782200609382_cxttj9uq)
+Socket route: multiplexed
+ℹ️  INFO [2026-06-23T07:43:30.342Z] [Multiplexed] Client connected
+Socket route: plugin
+ℹ️  INFO [2026-06-23T07:43:30.342Z] [pluginSocket] Plugin connected: codex-plugin (total pluginConnections: 4, keys: [anthropic-plugin, artifact-listener-plugin, cloud-plugin, codex-plugin])
+ℹ️  INFO [2026-06-23T07:43:30.342Z] [pluginSocket] Sent pluginStartMessage to plugin: codex-plugin
+ℹ️  INFO [2026-06-23T07:43:30.345Z] [Multiplexed] Received message: channel=main, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:30.345Z] [Multiplexed] Client subscribed to channel: main
+ℹ️  INFO [2026-06-23T07:43:30.345Z] [Multiplexed] Received message: channel=systemAlert, action=subscribe
+ℹ️  INFO [2026-06-23T07:43:30.345Z] [Multiplexed] Client subscribed to channel: systemAlert
+ℹ️  INFO [2026-06-23T07:43:30.385Z] [PluginProcessManager] Plugin started: codex-plugin (instanceId: plugin_codex-plugin_1782200609881_gc753g0p)
+ℹ️  INFO [2026-06-23T07:43:30.387Z] Started plugin debug session: plugin_codex-plugin_1782200609881_gc753g0p (codex-plugin)
+ℹ️  INFO [2026-06-23T07:43:30.387Z] [PluginService] Plugin started as child process: codex-plugin (instanceId: plugin_codex-plugin_1782200609881_gc753g0p)
+⚠️  WARN [2026-06-23T07:43:31.091Z] [Plugin:codex-plugin] stderr: [CodexPlugin] Dynamic model discovery failed, using fallback list: Model discovery failed: 403 {"error":"You have insufficient permissions for this operation. Missing scopes: api.model.read. Check that you have the correct role in your organization (Reader, Writer, Owner) and project (Viewer, Member, Owner), and if you're using a restricted API key, that it has the necessary scopes."}
+ℹ️  INFO [2026-06-23T07:43:31.092Z] [pluginHandleCliMessages] Routing llmProvider message: type=llmProvider.register, pluginId=codex-plugin
+ℹ️  INFO [2026-06-23T07:43:31.092Z] [llmProvider] Plugin codex-plugin registered provider "openaicodex"
+🐛 DEBUG [2026-06-23T07:43:39.624Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:43:39.633Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:43:49.632Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:43:49.641Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:43:59.627Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:43:59.638Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:44:09.627Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:44:09.637Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:44:19.630Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:44:19.638Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:44:29.629Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:44:29.640Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:44:39.627Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:44:39.637Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+Error fetching models: AxiosError: connect ETIMEDOUT 100.66.109.32:1234
+    at AxiosError.from (/opt/homebrew/lib/node_modules/[4mcodebolt[24m/dist/index.js:502706:24)
+    at RedirectableRequest.handleRequestError (/opt/homebrew/lib/node_modules/[4mcodebolt[24m/dist/index.js:505538:29)
+[90m    at RedirectableRequest.emit (node:events:509:20)[39m
+    at eventHandlers.<computed> (/opt/homebrew/lib/node_modules/[4mcodebolt[24m/dist/index.js:100797:24)
+[90m    at ClientRequest.emit (node:events:509:20)[39m
+[90m    at emitErrorEvent (node:_http_client:109:11)[39m
+[90m    at Socket.socketErrorListener (node:_http_client:593:5)[39m
+[90m    at Socket.emit (node:events:509:20)[39m
+[90m    at emitErrorNT (node:internal/streams/destroy:170:8)[39m
+[90m    at emitErrorCloseNT (node:internal/streams/destroy:129:3)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m
+    at Axios.request (/opt/homebrew/lib/node_modules/[4mcodebolt[24m/dist/index.js:506854:41)
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)[39m
+    at async LMStudio.getModels (/opt/homebrew/lib/node_modules/[4mcodebolt[24m/dist/index.js:273670:30)
+    at async fetchProviderModels (/opt/homebrew/lib/node_modules/[4mcodebolt[24m/dist/index.js:422262:40)
+    at async Promise.all (index 0)
+    at async Object.getAllModels (/opt/homebrew/lib/node_modules/[4mcodebolt[24m/dist/index.js:422271:27)
+    at async getAllModels (/opt/homebrew/lib/node_modules/[4mcodebolt[24m/dist/index.js:330896:24) {
+  isAxiosError: [33mtrue[39m,
+  code: [32m'ETIMEDOUT'[39m,
+  config: {
+    transitional: {
+      silentJSONParsing: [33mtrue[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      clarifyTimeoutError: [33mfalse[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m
+    },
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    transformRequest: [ [36m[Function: transformRequest][39m ],
+    transformResponse: [ [36m[Function: transformResponse][39m ],
+    timeout: [33m0[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m,
+    maxContentLength: [33m-1[39m,
+    maxBodyLength: [33m-1[39m,
+    env: { FormData: [36m[Function][39m, Blob: [36m[class Blob][39m },
+    validateStatus: [36m[Function: validateStatus][39m,
+    headers: Object [AxiosHeaders] {
+      Accept: [32m'application/json, text/plain, */*'[39m,
+      [32m'Content-Type'[39m: [32m'application/json'[39m,
+      [32m'User-Agent'[39m: [32m'axios/1.13.6'[39m,
+      [32m'Accept-Encoding'[39m: [32m'gzip, compress, deflate, br'[39m
+    },
+    method: [32m'get'[39m,
+    url: [32m'http://100.66.109.32:1234/v1/models'[39m,
+    allowAbsoluteUrls: [33mtrue[39m,
+    data: [90mundefined[39m
+  },
+  request: [36m<ref *1>[39m Writable {
+    _events: {
+      close: [90mundefined[39m,
+      error: [36m[Function: handleRequestError][39m,
+      prefinish: [90mundefined[39m,
+      finish: [90mundefined[39m,
+      drain: [90mundefined[39m,
+      response: [36m[Function: handleResponse][39m,
+      socket: [36m[Array][39m,
+      abort: [90mundefined[39m
+    },
+    _writableState: WritableState {
+      highWaterMark: [33m65536[39m,
+      length: [33m0[39m,
+      corked: [33m0[39m,
+      onwrite: [36m[Function (anonymous)][39m,
+      writelen: [33m0[39m,
+      bufferedIndex: [33m0[39m,
+      pendingcb: [33m0[39m,
+      [32mSymbol(kState)[39m: [33m17580812[39m,
+      [32mSymbol(kBufferedValue)[39m: [1mnull[22m
+    },
+    _maxListeners: [90mundefined[39m,
+    _options: {
+      maxRedirects: [33m21[39m,
+      maxBodyLength: [33mInfinity[39m,
+      protocol: [32m'http:'[39m,
+      path: [32m'/v1/models'[39m,
+      method: [32m'GET'[39m,
+      headers: [36m[Object: null prototype][39m,
+      agents: [36m[Object][39m,
+      auth: [90mundefined[39m,
+      family: [90mundefined[39m,
+      beforeRedirect: [36m[Function: dispatchBeforeRedirect][39m,
+      beforeRedirects: [36m[Object][39m,
+      http2Options: [90mundefined[39m,
+      hostname: [32m'100.66.109.32'[39m,
+      port: [32m'1234'[39m,
+      agent: [90mundefined[39m,
+      nativeProtocols: [36m[Object][39m,
+      pathname: [32m'/v1/models'[39m
+    },
+    _ended: [33mtrue[39m,
+    _ending: [33mtrue[39m,
+    _redirectCount: [33m0[39m,
+    _redirects: [],
+    _requestBodyLength: [33m0[39m,
+    _requestBodyBuffers: [],
+    _eventsCount: [33m3[39m,
+    _onNativeResponse: [36m[Function (anonymous)][39m,
+    _currentRequest: ClientRequest {
+      _events: [36m[Object: null prototype][39m,
+      _eventsCount: [33m7[39m,
+      _maxListeners: [90mundefined[39m,
+      outputData: [],
+      outputSize: [33m0[39m,
+      writable: [33mtrue[39m,
+      destroyed: [33mfalse[39m,
+      _last: [33mtrue[39m,
+      chunkedEncoding: [33mfalse[39m,
+      shouldKeepAlive: [33mtrue[39m,
+      maxRequestsOnConnectionReached: [33mfalse[39m,
+      _defaultKeepAlive: [33mtrue[39m,
+      useChunkedEncodingByDefault: [33mfalse[39m,
+      sendDate: [33mfalse[39m,
+      _removedConnection: [33mfalse[39m,
+      _removedContLen: [33mfalse[39m,
+      _removedTE: [33mfalse[39m,
+      strictContentLength: [33mfalse[39m,
+      _contentLength: [33m0[39m,
+      _hasBody: [33mtrue[39m,
+      _trailer: [32m''[39m,
+      finished: [33mtrue[39m,
+      _headerSent: [33mtrue[39m,
+      _closed: [33mfalse[39m,
+      _header: [32m'GET /v1/models HTTP/1.1\r\n'[39m +
+        [32m'Accept: application/json, text/plain, */*\r\n'[39m +
+        [32m'Content-Type: application/json\r\n'[39m +
+        [32m'User-Agent: axios/1.13.6\r\n'[39m +
+        [32m'Accept-Encoding: gzip, compress, deflate, br\r\n'[39m +
+        [32m'Host: 100.66.109.32:1234\r\n'[39m +
+        [32m'Connection: keep-alive\r\n'[39m +
+        [32m'\r\n'[39m,
+      _keepAliveTimeout: [33m0[39m,
+      _onPendingData: [36m[Function: nop][39m,
+      agent: [36m[Agent][39m,
+      socketPath: [90mundefined[39m,
+      method: [32m'GET'[39m,
+      maxHeaderSize: [90mundefined[39m,
+      insecureHTTPParser: [90mundefined[39m,
+      joinDuplicateHeaders: [90mundefined[39m,
+      _ended: [33mfalse[39m,
+      res: [1mnull[22m,
+      aborted: [33mfalse[39m,
+      timeoutCb: [36m[Function: emitRequestTimeout][39m,
+      upgradeOrConnect: [33mfalse[39m,
+      parser: [1mnull[22m,
+      maxHeadersCount: [1mnull[22m,
+      reusedSocket: [33mfalse[39m,
+      host: [32m'100.66.109.32'[39m,
+      protocol: [32m'http:'[39m,
+      _redirectable: [36m[Circular *1][39m,
+      [32mSymbol(shapeMode)[39m: [33mfalse[39m,
+      [32mSymbol(kCapture)[39m: [33mfalse[39m,
+      [32mSymbol(kBytesWritten)[39m: [33m0[39m,
+      [32mSymbol(kNeedDrain)[39m: [33mfalse[39m,
+      [32mSymbol(corked)[39m: [33m0[39m,
+      [32mSymbol(kChunkedBuffer)[39m: [],
+      [32mSymbol(kChunkedLength)[39m: [33m0[39m,
+      [32mSymbol(kSocket)[39m: [36m[Socket][39m,
+      [32mSymbol(kOutHeaders)[39m: [36m[Object: null prototype][39m,
+      [32mSymbol(errored)[39m: [1mnull[22m,
+      [32mSymbol(kHighWaterMark)[39m: [33m65536[39m,
+      [32mSymbol(kRejectNonStandardBodyWrites)[39m: [33mfalse[39m,
+      [32mSymbol(kPath)[39m: [32m'/v1/models'[39m,
+      [32mSymbol(kUniqueHeaders)[39m: [1mnull[22m
+    },
+    _currentUrl: [32m'http://100.66.109.32:1234/v1/models'[39m,
+    _timeout: [1mnull[22m,
+    [32mSymbol(shapeMode)[39m: [33mtrue[39m,
+    [32mSymbol(kCapture)[39m: [33mfalse[39m
+  },
+  cause: Error: connect ETIMEDOUT 100.66.109.32:1234
+  [90m    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1705:16)[39m {
+    errno: [33m-60[39m,
+    code: [32m'ETIMEDOUT'[39m,
+    syscall: [32m'connect'[39m,
+    address: [32m'100.66.109.32'[39m,
+    port: [33m1234[39m
+  }
+}
+🐛 DEBUG [2026-06-23T07:44:49.634Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:44:49.642Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:44:59.636Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:44:59.649Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:45:09.635Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:45:09.649Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:45:19.634Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:45:19.648Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:45:29.634Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:45:29.663Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:45:39.638Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:45:39.654Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:45:49.640Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:45:49.657Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:45:59.636Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:45:59.650Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:46:09.639Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:46:09.656Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:46:19.636Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:46:19.650Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:46:29.649Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:46:29.663Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:46:39.649Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:46:39.661Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:46:49.643Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:46:49.656Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:46:59.643Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:46:59.658Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:47:09.644Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:47:09.659Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:47:19.645Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:47:19.662Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:47:29.646Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:47:29.663Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:47:39.648Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:47:39.665Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:47:49.648Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:47:49.663Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:47:59.652Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:47:59.667Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:48:09.653Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:48:09.667Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:48:19.648Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:48:19.665Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:48:29.652Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:48:29.667Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:48:39.671Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:48:39.688Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:48:49.654Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:48:49.670Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:48:59.659Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:48:59.673Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:49:09.663Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:49:09.700Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:49:19.656Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:49:19.671Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:49:29.654Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:49:29.668Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:49:39.660Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:49:39.681Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:49:49.659Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:49:49.675Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:49:59.662Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:49:59.678Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:50:09.672Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:50:09.689Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:50:19.660Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:50:19.675Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:50:29.659Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:50:29.677Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:50:39.671Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:50:39.685Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:50:49.669Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:50:49.694Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:50:59.667Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:50:59.682Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:51:09.667Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:51:09.682Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:51:19.662Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:51:19.680Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:51:29.659Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:51:29.678Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:51:39.671Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:51:39.692Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:51:49.666Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:51:49.686Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:51:59.668Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:51:59.685Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:52:09.666Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:52:09.686Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:52:19.669Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:52:19.682Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:52:29.673Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:52:29.685Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:52:39.678Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:52:39.694Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:52:49.695Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:52:49.709Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:52:59.712Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:52:59.724Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:53:09.716Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:53:09.733Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:53:19.716Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:53:19.730Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
+🐛 DEBUG [2026-06-23T07:53:29.710Z] [cloudprovider] Built-in cloudprovider is not available for auto sync startup
+🐛 DEBUG [2026-06-23T07:53:29.724Z] [cloudprovider] Using fallback cloudprovider metadata for runtime sync: Error: Built-in cloudprovider was not found
