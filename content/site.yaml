@@ -97,7 +97,7 @@ pages:
 
       - type: hero
         eyebrow: "AGENT-NATIVE SOFTWARE"
-        heading: "The self-evolving, swarm-scale AI agent engine"
+        heading: "The self-evolving, swarm-scale AI orchestration engine"
         headingAccent:
           - "self-evolving"
           - "swarm-scale"
