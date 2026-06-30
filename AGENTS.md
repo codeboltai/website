@@ -4,9 +4,12 @@
 
 The active website is `newsite/`.
 
-- Edit `newsite/index.html` for homepage copy, layout, metadata, and product screenshots.
-- Edit `newsite/download/index.html` for the download page.
-- Edit `newsite/robots.txt`, `newsite/sitemap.xml`, `newsite/llms.txt`, and `newsite/ai.txt` for SEO and GEO crawler context.
+- Edit `newsite/src/pages/index.astro` for homepage metadata and page wiring.
+- Edit `newsite/src/content/home.html`, `newsite/src/styles/home.css`, and `newsite/src/scripts/home.js` for homepage content, layout, and interactions.
+- Edit `newsite/src/pages/download/index.astro`, `newsite/src/content/download.html`, and `newsite/src/styles/download.css` for the download page.
+- Edit shared layout in `newsite/src/layouts/BaseLayout.astro`, `newsite/src/components/Header.astro`, and `newsite/src/components/Footer.astro`.
+- Edit `newsite/theme.tokens.json` and `newsite/DESIGN.md` before introducing new shared design patterns.
+- Edit `newsite/public/robots.txt`, `newsite/public/sitemap.xml`, `newsite/public/llms.txt`, and `newsite/public/ai.txt` for SEO and GEO crawler context.
 - Do not make durable website changes in `site/`; it is deprecated generated output.
 - Do not revive the old Sitegen flow unless the user explicitly asks for it.
 
@@ -52,7 +55,7 @@ npm run deploy
 
 ## Architecture
 
-`newsite/build.mjs` creates `newsite/dist/`, copies the static pages, copies product image folders, and copies crawler files. `newsite/wrangler.jsonc` points Cloudflare Workers static assets at `./dist`.
+Astro builds the active static site from `newsite/src/` and `newsite/public/` into `newsite/dist/`. `newsite/wrangler.jsonc` points Cloudflare Workers static assets at `./dist`.
 
 The root package scripts are wrappers around the active `newsite` project so CI and agents can work from the repository root.
 
@@ -66,7 +69,7 @@ Every public page should keep:
 - Structured data when the page represents the product or app.
 - Internal links to the homepage and download page where relevant.
 
-Keep `newsite/llms.txt` and `newsite/ai.txt` aligned with the live positioning so LLM crawlers and answer engines can summarize the product correctly.
+Keep `newsite/public/llms.txt` and `newsite/public/ai.txt` aligned with the live positioning so LLM crawlers and answer engines can summarize the product correctly.
 
 ## Safety
 
@@ -77,11 +80,14 @@ Keep `newsite/llms.txt` and `newsite/ai.txt` aligned with the live positioning s
 
 ## Ownership And Review
 
-- `newsite/index.html` owns product positioning, homepage layout, hero imagery, and structured data.
-- `newsite/download/index.html` owns install and product-surface entry points.
+- `newsite/src/pages/index.astro` owns homepage metadata and structured data.
+- `newsite/src/content/home.html` owns homepage body content and product positioning.
+- `newsite/src/pages/download/index.astro` owns download page metadata and structured data.
+- `newsite/src/content/download.html` owns install and product-surface entry points.
+- `newsite/src/components/Header.astro`, `newsite/src/components/Footer.astro`, and `newsite/theme.tokens.json` own shared navigation and design consistency.
 - `scripts/validate-newsite.mjs` owns deterministic checks; update it when adding required public assets or metadata.
 - Review homepage changes in a browser when layout, tab behavior, animation, or image loading changes.
-- Keep `README.md`, `AGENTS.md`, `CLAUDE.md`, root `llms.txt`, and `newsite/llms.txt` consistent when the active source or product positioning changes.
+- Keep `README.md`, `AGENTS.md`, `CLAUDE.md`, root `llms.txt`, and `newsite/public/llms.txt` consistent when the active source or product positioning changes.
 
 ## Legacy Reference
 

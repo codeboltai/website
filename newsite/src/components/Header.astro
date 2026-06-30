@@ -1,0 +1,17 @@
+---
+import tokens from "../../theme.tokens.json";
+
+const { navigation } = tokens;
+---
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a class="brand" href={navigation.brand.href}>
+      <span class="glyph" aria-hidden="true"></span>{navigation.brand.label}
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      {navigation.primary.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a class="nav-cta" href={navigation.cta.href}>{navigation.cta.label}</a>
+    </nav>
+  </div>
+</header>

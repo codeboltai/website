@@ -1,6 +1,6 @@
 # Claude Project Notes
 
-The active Codebolt website is the static `newsite/` project. The older Sitegen/Astro folders are deprecated reference material.
+The active Codebolt website is the static Astro project in `newsite/`. The older Sitegen folders are deprecated reference material.
 
 ## Fast Path
 
@@ -13,10 +13,13 @@ Use `npm run deploy` only when the user asks to deploy.
 
 ## Editing Rules
 
-- Homepage: `newsite/index.html`
-- Download page: `newsite/download/index.html`
-- SEO/GEO crawler files: `newsite/robots.txt`, `newsite/sitemap.xml`, `newsite/llms.txt`, `newsite/ai.txt`
-- Static build script: `newsite/build.mjs`
+- Homepage route and metadata: `newsite/src/pages/index.astro`
+- Homepage body/styles/scripts: `newsite/src/content/home.html`, `newsite/src/styles/home.css`, `newsite/src/scripts/home.js`
+- Download route and metadata: `newsite/src/pages/download/index.astro`
+- Download body/styles: `newsite/src/content/download.html`, `newsite/src/styles/download.css`
+- Shared layout: `newsite/src/layouts/BaseLayout.astro`, `newsite/src/components/Header.astro`, `newsite/src/components/Footer.astro`
+- Design source of truth: `newsite/DESIGN.md`, `newsite/theme.tokens.json`
+- SEO/GEO crawler files: `newsite/public/robots.txt`, `newsite/public/sitemap.xml`, `newsite/public/llms.txt`, `newsite/public/ai.txt`
 - Validator: `scripts/validate-newsite.mjs`
 
 Do not edit `site/` for durable changes. It is not the active deployment source.

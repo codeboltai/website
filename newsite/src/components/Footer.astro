@@ -1,0 +1,19 @@
+---
+import tokens from "../../theme.tokens.json";
+
+const { navigation } = tokens;
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="fb">
+        <span class="brand"><span class="glyph" aria-hidden="true"></span></span>{navigation.brand.label}
+      </div>
+      <div class="fl">
+        {navigation.footer.map((item) => <a href={item.href}>{item.label}</a>)}
+      </div>
+    </div>
+    <p class="foot-tag">Software foundry for autonomous AI coding agents.</p>
+  </div>
+</footer>

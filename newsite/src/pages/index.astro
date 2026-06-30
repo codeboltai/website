@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import content from "../content/home.html?raw";
+import pageStyles from "../styles/home.css?raw";
+import pageScript from "../scripts/home.js?raw";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://codebolt.ai/#organization",
+      "name": "Codebolt",
+      "url": "https://codebolt.ai/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://codebolt.ai/#website",
+      "url": "https://codebolt.ai/",
+      "name": "Codebolt",
+      "description": "Software foundry for autonomous AI coding agents.",
+      "publisher": { "@id": "https://codebolt.ai/#organization" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://codebolt.ai/#software",
+      "name": "Codebolt",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "macOS, Windows, Linux, Web",
+      "description": "Codebolt is a software foundry for autonomous AI coding agents with CLI, editor, cloud, SDK, tools, multi-environment coordination, peer review, and verification loops.",
+      "url": "https://codebolt.ai/",
+      "downloadUrl": "https://codebolt.ai/download/",
+      "publisher": { "@id": "https://codebolt.ai/#organization" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Codebolt - Software Foundry for Autonomous AI Coding Agents"
+  description="Codebolt is a software foundry for autonomous AI coding agents: a coding platform with CLI, editor, cloud, SDK, tools, multi-environment coordination, peer review, and verification loops outside the agent."
+  keywords="Codebolt, autonomous software foundry, AI coding agents, agentic coding platform, coding agent runtime, multi-agent software development, AI code review, developer tools"
+  canonicalPath="/"
+  ogTitle="Codebolt - Software Foundry for Autonomous AI Coding Agents"
+  ogDescription="Run built-in or custom coding agents inside a platform that handles tools, environments, coordination, peer review, and verification loops."
+  twitterDescription="A coding platform for autonomous AI agents, with CLI, editor, cloud, SDK, and runtime verification loops outside the agent."
+  structuredData={structuredData}
+  pageStyles={pageStyles}
+  pageScript={pageScript}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

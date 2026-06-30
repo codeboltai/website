@@ -1,6 +1,6 @@
 # Codebolt Website
 
-This repository contains the Codebolt marketing website. The active deployable site is the static `newsite/` project. The older Agent Sitegen/Astro flow remains in `content/`, `template/`, and `site/` as deprecated reference material and should not be edited for durable homepage changes unless the user explicitly asks for that legacy flow.
+This repository contains the Codebolt marketing website. The active deployable site is the static Astro project in `newsite/`. The older Agent Sitegen flow remains in `content/`, `template/`, and `site/` as deprecated reference material and should not be edited for durable homepage changes unless the user explicitly asks for that legacy flow.
 
 ## Quickstart
 
@@ -15,11 +15,11 @@ The production build output is written to `newsite/dist/`.
 ## Common Commands
 
 ```bash
-npm run dev        # build newsite and start wrangler dev
+npm run dev        # start Astro dev server for newsite
 npm run build      # build the static newsite output
 npm test           # build and validate required SEO/GEO assets
 npm run lint       # run the static newsite validator
-npm run typecheck  # syntax-check the build and validation scripts
+npm run typecheck  # syntax-check Astro config and validation scripts
 npm run deploy     # build and deploy with Wrangler
 ```
 
@@ -27,15 +27,23 @@ npm run deploy     # build and deploy with Wrangler
 
 ```txt
 newsite/
-  index.html                  # Active homepage
-  download/index.html         # Download page linked from the hero CTA
-  images/                     # Product surface screenshots and previews
-  images-withoutbackground/   # Transparent/product images
-  robots.txt                  # Search crawler entry point
-  sitemap.xml                 # Search index map
-  llms.txt                    # LLM-readable site summary
-  ai.txt                      # GEO-oriented crawler summary
-  build.mjs                   # Static build script
+  astro.config.mjs            # Static Astro build config
+  DESIGN.md                   # Design rules for consistent pages
+  theme.tokens.json           # Shared colors, typography, nav, and SEO defaults
+  src/
+    layouts/BaseLayout.astro  # Shared document shell, SEO, header, footer
+    components/               # Shared Header and Footer components
+    pages/                    # Public Astro routes
+    content/                  # Page body HTML extracted from the original static pages
+    styles/                   # Page-specific CSS
+    scripts/                  # Page-specific client scripts
+  public/
+    images/                   # Product surface screenshots and previews
+    images-withoutbackground/ # Transparent/product images
+    robots.txt                # Search crawler entry point
+    sitemap.xml               # Search index map
+    llms.txt                  # LLM-readable site summary
+    ai.txt                    # GEO-oriented crawler summary
   wrangler.jsonc              # Cloudflare Workers static assets config
 
 scripts/

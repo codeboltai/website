@@ -1,0 +1,126 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import tokens from "../../theme.tokens.json";
+
+const {
+  title,
+  description,
+  keywords,
+  canonicalPath = "/",
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = tokens.seoDefaults.ogImage,
+  ogImageAlt = tokens.seoDefaults.ogImageAlt,
+  twitterTitle = ogTitle,
+  twitterDescription = ogDescription,
+  structuredData,
+  pageStyles = "",
+  pageScript = ""
+} = Astro.props;
+
+const siteUrl = tokens.seoDefaults.siteUrl;
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, siteUrl).toString();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="application-name" content={tokens.seoDefaults.siteName}>
+  <meta name="author" content={tokens.seoDefaults.siteName}>
+  <meta name="creator" content={tokens.seoDefaults.siteName}>
+  <meta name="publisher" content={tokens.seoDefaults.siteName}>
+  <meta name="category" content="Developer tools">
+  {keywords && <meta name="keywords" content={keywords}>}
+  <meta name="theme-color" content={tokens.seoDefaults.themeColor}>
+  <link rel="canonical" href={canonicalUrl}>
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content={tokens.seoDefaults.siteName}>
+  <meta property="og:title" content={ogTitle}>
+  <meta property="og:description" content={ogDescription}>
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:image" content={ogImageUrl}>
+  <meta property="og:image:secure_url" content={ogImageUrl}>
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content={String(tokens.seoDefaults.ogImageWidth)}>
+  <meta property="og:image:height" content={String(tokens.seoDefaults.ogImageHeight)}>
+  <meta property="og:image:alt" content={ogImageAlt}>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={twitterTitle}>
+  <meta name="twitter:description" content={twitterDescription}>
+  <meta name="twitter:image" content={ogImageUrl}>
+  <meta name="twitter:image:alt" content={ogImageAlt}>
+  {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href={tokens.typography.googleFontsHref} onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href={tokens.typography.googleFontsHref}></noscript>
+  {pageStyles && <style is:global set:html={pageStyles}></style>}
+  <style is:global>
+    :root{
+      --ink:#0B0C10;
+      --ink-raised:#101218;
+      --ink-card:#13161D;
+      --line:#21252F;
+      --line-bright:#2C313D;
+      --text:#ECEEF2;
+      --text-dim:#969BA8;
+      --text-faint:#838A98;
+      --signal:#FFB23E;
+      --signal-deep:#F59E2B;
+      --signal-soft:rgba(255,178,62,0.12);
+      --signal-line:rgba(255,178,62,0.30);
+      --steel:#7E8AA8;
+      --danger:#E5604D;
+      --maxw:1180px;
+      --gut:clamp(20px,5vw,64px);
+    }
+
+    .site-header{
+      position:sticky;top:0;z-index:40;
+      backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      background:rgba(11,12,16,0.72);
+      border-bottom:1px solid var(--line);
+    }
+    .site-header .nav-row{display:flex;align-items:center;justify-content:space-between;height:62px}
+    .site-header .brand,.site-footer .brand{display:flex;align-items:center;gap:11px;font-family:"Bricolage Grotesque";font-weight:700;font-size:18px;letter-spacing:-0.01em}
+    .site-header .glyph,.site-footer .glyph{
+      width:22px;height:22px;border-radius:5px;position:relative;flex:none;
+      background:linear-gradient(135deg,var(--signal),var(--signal-deep));
+      box-shadow:0 0 18px rgba(255,178,62,0.45);
+    }
+    .site-header .glyph::after,.site-footer .glyph::after{content:"";position:absolute;inset:6px 6px auto 6px;height:2px;background:var(--ink);border-radius:2px;box-shadow:0 4px 0 var(--ink)}
+    .site-header .nav-links{display:flex;align-items:center;gap:30px}
+    .site-header .nav-links a{font-size:14px;color:var(--text-dim);transition:color .18s}
+    .site-header .nav-links a:hover{color:var(--text)}
+    .site-header .nav-cta{
+      font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:500;
+      padding:9px 16px;border:1px solid var(--line-bright);border-radius:7px;color:var(--text);
+      transition:border-color .18s,background .18s;
+    }
+    .site-header .nav-cta:hover{border-color:var(--signal);background:var(--signal-soft)}
+    @media(max-width:760px){.site-header .nav-links a:not(.nav-cta){display:none}}
+
+    .site-footer{border-top:1px solid var(--line);padding:40px 0;position:relative;z-index:1}
+    .site-footer .foot-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    .site-footer .fb{display:flex;align-items:center;gap:11px;font-family:"Bricolage Grotesque";font-weight:700;font-size:16px}
+    .site-footer .fl{font-family:"IBM Plex Mono";font-size:12.5px;color:var(--text-faint);display:flex;gap:22px;flex-wrap:wrap}
+    .site-footer .fl a:hover{color:var(--text)}
+    .site-footer .foot-tag{font-family:"IBM Plex Mono";font-size:12px;color:var(--text-faint);margin-top:18px}
+  </style>
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <Header />
+  <slot />
+  <Footer />
+  {pageScript && <script is:inline set:html={pageScript}></script>}
+</body>
+</html>

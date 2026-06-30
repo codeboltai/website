@@ -1,0 +1,64 @@
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Download</span>
+      <h1 class="display">Download Codebolt</h1>
+      <p class="sub">Pick a surface. <b>Same foundry underneath all of them.</b> Start in the desktop editor, terminal, browser, or SDK.</p>
+    </div>
+  </section>
+
+  <section id="desktop">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">Codebolt Editor — Desktop</h2>
+        <p>Install the full coding workspace with editor, terminal, browser, agents, plugin panels, and local runtime controls.</p>
+      </div>
+      <div class="download-grid">
+        <article class="card" id="download-macos"><h3>macOS</h3><p>Apple Silicon and Intel. Universal binary. Requires macOS 12 or later.</p><pre>codebolt.dmg
+├─ Apple Silicon
+└─ Intel x64</pre><a class="btn" href="#">Download macOS</a></article>
+        <article class="card" id="download-windows"><h3>Windows</h3><p>x64 installer. Windows 10 and later. Auto-updates included.</p><pre>codebolt-setup.exe
+└─ Windows x64</pre><a class="btn" href="#">Download Windows</a></article>
+        <article class="card" id="download-linux"><h3>Linux</h3><p>.deb, .rpm, and AppImage. x64 and arm64. Includes desktop integration.</p><pre>codebolt.deb
+codebolt.rpm
+codebolt.AppImage</pre><a class="btn" href="#">Download Linux</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap rows">
+      <article class="row">
+        <div><h3>Codebolt CLI — Terminal</h3><p>Install globally with npm and run the foundry in your terminal. Headless server mode for CI/CD. Works standalone or inside the editor.</p></div>
+        <pre>$ npm i -g codebolt
+$ codebolt
+$ codebolt --prompt "..."
+$ codebolt --server --port 3100</pre>
+      </article>
+      <article class="row">
+        <div><h3>Codebolt Cloud — Browser</h3><p>No install. Open a workspace in your browser, drop in agents and plugins, and run them on managed sandboxes.</p><a class="btn" href="https://cloud.codebolt.ai">Open Cloud</a></div>
+        <pre>cloud.codebolt.ai
+├─ Browser portal
+├─ Managed sandboxes
+└─ Shared workspaces</pre>
+      </article>
+      <article class="row">
+        <div><h3>Codebolt SDK — Embed</h3><p>Build your own product on top of the foundry. Agent, Plugin, and Client SDKs cover every layer.</p></div>
+        <pre># Self-host the engine
+$ docker run codebolt/engine:latest
+
+# Or install the SDK package
+$ npm i codeboltjs</pre>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta">
+        <h2 class="display">Need help getting started?</h2>
+        <div class="links"><a class="btn" href="https://docs.codebolt.ai">Read the docs</a><a class="btn ghost" href="/">Back to homepage</a></div>
+      </div>
+    </div>
+  </section>
+</main>

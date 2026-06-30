@@ -28,8 +28,8 @@ Current source files:
 
 - `theme.tokens.json` owns design tokens and named navigation/footer links.
 - This `DESIGN.md` owns design rules and component behavior.
-- During the Astro conversion, create shared components for `Header`, `Footer`, `Seo`, `BaseLayout`, `Button`, and common section/card primitives.
-- After Astro conversion, do not author standalone full HTML pages with copied headers or footers.
+- Astro owns shared `Header`, `Footer`, and `BaseLayout` components.
+- Do not author standalone full HTML pages with copied headers or footers.
 
 ## Page Rules
 
@@ -174,13 +174,13 @@ Examples: Architecture, Runtime, Extensibility.
 
 These pages should be diagram-led and explanatory, not fluffy. Prefer process diagrams, system boundaries, and concrete ownership models.
 
-## Astro Conversion Rules
+## Astro Rules
 
-When converting to Astro:
+When working in Astro:
 
-- Move repeated `<head>` behavior into `Seo.astro`.
-- Move header and footer into components immediately.
-- Move global tokens and shared classes into one global stylesheet.
+- Keep repeated `<head>` behavior in `BaseLayout.astro` or a dedicated SEO component if one is added.
+- Keep header and footer in shared components.
+- Keep global tokens and shared classes centralized.
 - Keep page-specific CSS scoped to page components only when the pattern is not reusable.
 - Keep public assets under `public/` or configure Astro to copy the existing image folders into `dist/`.
 - Keep Wrangler static assets pointed at `./dist`.

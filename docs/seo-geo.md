@@ -15,12 +15,12 @@ Every public page should include:
 
 ## Required Crawler Files
 
-The active public crawler files live in `newsite/` and are copied to `newsite/dist/` during build:
+The active public crawler files live in `newsite/public/` and are copied to `newsite/dist/` during the Astro build:
 
-- `robots.txt`
-- `sitemap.xml`
-- `llms.txt`
-- `ai.txt`
+- `newsite/public/robots.txt`
+- `newsite/public/sitemap.xml`
+- `newsite/public/llms.txt`
+- `newsite/public/ai.txt`
 
 Keep these files aligned with homepage positioning whenever product messaging changes.
 

@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import content from "../../content/download.html?raw";
+import pageStyles from "../../styles/download.css?raw";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Codebolt",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "macOS, Windows, Linux, Web",
+  "description": "Download Codebolt desktop editor, install the CLI, open Codebolt Cloud, or use the SDK.",
+  "url": "https://codebolt.ai/download/"
+};
+---
+
+<BaseLayout
+  title="Download Codebolt"
+  description="Download Codebolt for macOS, Windows, and Linux, install the CLI, open Codebolt Cloud, or use the SDK to embed the software foundry in your product."
+  keywords="download Codebolt, Codebolt editor, Codebolt CLI, Codebolt Cloud, Codebolt SDK, AI coding agent platform, autonomous coding tools"
+  canonicalPath="/download/"
+  ogTitle="Download Codebolt"
+  ogDescription="Pick a Codebolt surface: desktop editor, CLI, cloud, or SDK."
+  ogImageAlt="Codebolt desktop editor showing the downloadable AI coding workspace with browser, chat, code, terminal, and agent panels."
+  twitterTitle="Download Codebolt"
+  twitterDescription="Download the Codebolt editor, install the CLI, open Cloud, or use the SDK."
+  structuredData={structuredData}
+  pageStyles={pageStyles}
+>
+  <Fragment set:html={content} />
+</BaseLayout>

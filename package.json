@@ -9,7 +9,7 @@
     "deploy": "npm run --prefix ./newsite deploy",
     "test": "npm run build && node scripts/validate-newsite.mjs",
     "lint": "node scripts/validate-newsite.mjs",
-    "typecheck": "node --check newsite/build.mjs && node --check scripts/validate-newsite.mjs",
+    "typecheck": "node --check newsite/astro.config.mjs && node --check scripts/validate-newsite.mjs",
     "seo:check": "node scripts/validate-newsite.mjs",
     "sitegen:generate": "sitegen generate --template ./template --content ./content/site.yaml --output ./site",
     "sitegen:validate": "sitegen validate --template ./template --content ./content/site.yaml",

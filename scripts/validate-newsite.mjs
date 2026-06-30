@@ -3,18 +3,26 @@ import { join } from "node:path";
 
 const root = process.cwd();
 const requiredFiles = [
-  "newsite/index.html",
-  "newsite/download/index.html",
+  "newsite/astro.config.mjs",
+  "newsite/src/pages/index.astro",
+  "newsite/src/pages/download/index.astro",
+  "newsite/src/layouts/BaseLayout.astro",
+  "newsite/src/components/Header.astro",
+  "newsite/src/components/Footer.astro",
+  "newsite/src/content/home.html",
+  "newsite/src/content/download.html",
+  "newsite/src/styles/home.css",
+  "newsite/src/styles/download.css",
   "newsite/DESIGN.md",
   "newsite/theme.tokens.json",
-  "newsite/robots.txt",
-  "newsite/sitemap.xml",
-  "newsite/llms.txt",
-  "newsite/ai.txt",
-  "newsite/images/desktop.png",
-  "newsite/images/cli-1.png",
-  "newsite/images/sdk-editor.png",
-  "newsite/images-withoutbackground/cloud.png",
+  "newsite/public/robots.txt",
+  "newsite/public/sitemap.xml",
+  "newsite/public/llms.txt",
+  "newsite/public/ai.txt",
+  "newsite/public/images/desktop.png",
+  "newsite/public/images/cli-1.png",
+  "newsite/public/images/sdk-editor.png",
+  "newsite/public/images-withoutbackground/cloud.png",
   "newsite/dist/index.html",
   "newsite/dist/download/index.html",
   "newsite/dist/robots.txt",
@@ -27,8 +35,8 @@ for (const file of requiredFiles) {
   await access(join(root, file));
 }
 
-const home = await readFile(join(root, "newsite/index.html"), "utf8");
-const download = await readFile(join(root, "newsite/download/index.html"), "utf8");
+const home = await readFile(join(root, "newsite/dist/index.html"), "utf8");
+const download = await readFile(join(root, "newsite/dist/download/index.html"), "utf8");
 const themeTokens = JSON.parse(await readFile(join(root, "newsite/theme.tokens.json"), "utf8"));
 
 for (const key of ["ink", "inkRaised", "line", "text", "textDim", "signal"]) {
@@ -73,16 +81,25 @@ const requiredDownloadSnippets = [
 ];
 
 for (const snippet of requiredHomeSnippets) {
-  if (!home.includes(snippet)) throw new Error(`newsite/index.html missing ${snippet}`);
+  if (!home.includes(snippet)) throw new Error(`newsite/dist/index.html missing ${snippet}`);
 }
 
 for (const snippet of requiredDownloadSnippets) {
-  if (!download.includes(snippet)) throw new Error(`newsite/download/index.html missing ${snippet}`);
+  if (!download.includes(snippet)) throw new Error(`newsite/dist/download/index.html missing ${snippet}`);
 }
 
-const cliImage = await stat(join(root, "newsite/images/cli-1.png"));
+const cliImage = await stat(join(root, "newsite/public/images/cli-1.png"));
 if (cliImage.size > 2_000_000) {
   throw new Error("CLI preview image is unexpectedly large; keep hero assets lightweight.");
+}
+
+for (const file of ["newsite/public/images/cli-1.gif", "newsite/dist/images/cli-1.gif"]) {
+  try {
+    await access(join(root, file));
+    throw new Error(`${file} should not be published; use the optimized PNG preview instead.`);
+  } catch (error) {
+    if (error?.code !== "ENOENT") throw error;
+  }
 }
 
 console.log("newsite validation passed");
