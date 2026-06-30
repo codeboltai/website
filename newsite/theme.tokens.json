@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "codebolt-newsite-theme",
+  "description": "Design tokens and shared navigation for the Codebolt static website.",
+  "colors": {
+    "ink": "#0B0C10",
+    "inkRaised": "#101218",
+    "inkCard": "#13161D",
+    "line": "#21252F",
+    "lineBright": "#2C313D",
+    "text": "#ECEEF2",
+    "textDim": "#969BA8",
+    "textFaint": "#838A98",
+    "signal": "#FFB23E",
+    "signalDeep": "#F59E2B",
+    "signalSoft": "rgba(255,178,62,0.12)",
+    "signalLine": "rgba(255,178,62,0.30)",
+    "steel": "#7E8AA8",
+    "danger": "#E5604D"
+  },
+  "typography": {
+    "display": {
+      "family": "Bricolage Grotesque",
+      "fallback": "sans-serif",
+      "weights": [500, 600, 700, 800]
+    },
+    "body": {
+      "family": "Inter",
+      "fallback": "system-ui, sans-serif",
+      "weights": [400, 500, 600]
+    },
+    "mono": {
+      "family": "IBM Plex Mono",
+      "fallback": "monospace",
+      "weights": [400, 500, 600]
+    },
+    "googleFontsHref": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+  },
+  "layout": {
+    "maxWidth": "1180px",
+    "gutter": "clamp(20px, 5vw, 64px)",
+    "headerHeight": "62px",
+    "gridSize": "64px",
+    "sectionPadding": "clamp(56px, 9vw, 104px)"
+  },
+  "radii": {
+    "control": "7px",
+    "button": "9px",
+    "card": "14px",
+    "glyph": "5px"
+  },
+  "navigation": {
+    "brand": {
+      "label": "Codebolt",
+      "href": "/"
+    },
+    "primary": [
+      {
+        "key": "product",
+        "label": "Product",
+        "href": "/#runtime-idea"
+      },
+      {
+        "key": "architecture",
+        "label": "Architecture",
+        "href": "/#runtime-handles"
+      },
+      {
+        "key": "extensibility",
+        "label": "Extensibility",
+        "href": "/#extensibility"
+      },
+      {
+        "key": "download",
+        "label": "Download",
+        "href": "/download/"
+      }
+    ],
+    "cta": {
+      "key": "start",
+      "label": "Start free",
+      "href": "/download/"
+    },
+    "footer": [
+      {
+        "key": "problem",
+        "label": "Problem",
+        "href": "/#problem"
+      },
+      {
+        "key": "compose",
+        "label": "Compose",
+        "href": "/#compose"
+      },
+      {
+        "key": "runtime",
+        "label": "Runtime",
+        "href": "/#runtime-handles"
+      },
+      {
+        "key": "extensibility",
+        "label": "Extensibility",
+        "href": "/#extensibility"
+      },
+      {
+        "key": "download",
+        "label": "Download",
+        "href": "/download/"
+      },
+      {
+        "key": "docs",
+        "label": "Docs",
+        "href": "https://docs.codebolt.ai"
+      }
+    ]
+  },
+  "seoDefaults": {
+    "siteName": "Codebolt",
+    "siteUrl": "https://codebolt.ai",
+    "themeColor": "#0B0C10",
+    "ogImage": "/images/desktop.png",
+    "ogImageWidth": 2940,
+    "ogImageHeight": 1840,
+    "ogImageAlt": "Codebolt desktop editor showing an AI coding workspace with browser, chat, code, terminal, and agent debug panels."
+  }
+}

@@ -5,6 +5,8 @@ const root = process.cwd();
 const requiredFiles = [
   "newsite/index.html",
   "newsite/download/index.html",
+  "newsite/DESIGN.md",
+  "newsite/theme.tokens.json",
   "newsite/robots.txt",
   "newsite/sitemap.xml",
   "newsite/llms.txt",
@@ -27,6 +29,15 @@ for (const file of requiredFiles) {
 
 const home = await readFile(join(root, "newsite/index.html"), "utf8");
 const download = await readFile(join(root, "newsite/download/index.html"), "utf8");
+const themeTokens = JSON.parse(await readFile(join(root, "newsite/theme.tokens.json"), "utf8"));
+
+for (const key of ["ink", "inkRaised", "line", "text", "textDim", "signal"]) {
+  if (!themeTokens.colors?.[key]) throw new Error(`newsite/theme.tokens.json missing colors.${key}`);
+}
+
+if (!Array.isArray(themeTokens.navigation?.primary) || themeTokens.navigation.primary.length === 0) {
+  throw new Error("newsite/theme.tokens.json missing primary navigation");
+}
 
 const requiredHomeSnippets = [
   '<meta name="description"',
