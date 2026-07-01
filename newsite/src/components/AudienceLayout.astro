@@ -1,0 +1,88 @@
+---
+import type { AudiencePage } from "../data/audiences";
+import { getAudiencePage } from "../data/audiences";
+
+type Props = {
+  page: AudiencePage;
+};
+
+const { page } = Astro.props;
+---
+
+<main class="audience-page">
+  <section class="audience-hero">
+    <div class="wrap audience-hero-grid">
+      <div>
+        <span class="eyebrow">{page.eyebrow}</span>
+        <h1 class="display">{page.title}</h1>
+        <p class="audience-lede">{page.description}</p>
+        <div class="audience-actions">
+          <a class="btn btn-primary" href={page.primaryCta.href}>{page.primaryCta.label} <span class="arr">-&gt;</span></a>
+          <a class="btn btn-ghost" href={page.secondaryCta.href}>{page.secondaryCta.label}</a>
+        </div>
+      </div>
+      <aside class="audience-panel" aria-label={`${page.eyebrow} summary`}>
+        <span class="panel-k">Why this matters</span>
+        <h2>{page.problem.title}</h2>
+        <p>{page.problem.body}</p>
+        <ul>
+          {page.problem.points.map((point) => <li>{point}</li>)}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="audience-section">
+    <div class="wrap two-col">
+      <div class="section-copy">
+        <span class="eyebrow dim">What you get</span>
+        <h2 class="display">{page.fit.title}</h2>
+        <p>{page.fit.body}</p>
+      </div>
+      <div class="capability-grid">
+        {page.fit.capabilities.map((item) => (
+          <article class="capability-card">
+            <span>{item.label}</span>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="audience-section workflow-band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Launch path</span>
+        <h2 class="display">Move from interest to shipped work.</h2>
+      </div>
+      <div class="workflow-grid">
+        {page.workflow.map((item) => (
+          <article class="workflow-step">
+            <span>{item.step}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="audience-section">
+    <div class="wrap outcome-grid">
+      <div class="outcome-panel">
+        <span class="eyebrow dim">Built for</span>
+        {page.proof.map((item) => <p>{item}</p>)}
+      </div>
+      <div class="related-panel">
+        <span class="panel-k">Keep exploring</span>
+        <div class="related-links">
+          {page.related.map((slug) => {
+            const related = getAudiencePage(slug);
+            return related && <a href={`/for/${related.slug}/`}>{related.eyebrow.replace("For ", "")}</a>;
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

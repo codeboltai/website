@@ -56,24 +56,70 @@
     },
     "primary": [
       {
-        "key": "product",
-        "label": "Product",
-        "href": "/#runtime-idea"
-      },
-      {
-        "key": "architecture",
-        "label": "Architecture",
-        "href": "/#runtime-handles"
-      },
-      {
-        "key": "extensibility",
-        "label": "Extensibility",
-        "href": "/#extensibility"
+        "key": "solutions",
+        "label": "Solutions",
+        "href": "/for/",
+        "match": [
+          "/for/"
+        ],
+        "groups": [
+          {
+            "label": "Use Codebolt",
+            "items": [
+              {
+                "key": "developers",
+                "label": "Developers",
+                "description": "Individual software development",
+                "href": "/for/developers/"
+              },
+              {
+                "key": "teams",
+                "label": "Teams",
+                "description": "Team Version on Codebolt Cloud",
+                "href": "/for/teams/"
+              },
+              {
+                "key": "enterprise",
+                "label": "Enterprise",
+                "description": "Private or on-prem deployment",
+                "href": "/for/enterprise/"
+              }
+            ]
+          },
+          {
+            "label": "Build on Codebolt",
+            "items": [
+              {
+                "key": "product-builders",
+                "label": "Product Builders",
+                "description": "Build on the Codebolt engine",
+                "href": "/for/product-builders/"
+              },
+              {
+                "key": "plugin-builders",
+                "label": "Plugin Builders",
+                "description": "Sell inside the workspace",
+                "href": "/for/plugin-builders/"
+              },
+              {
+                "key": "embedded-products",
+                "label": "Embedded Products",
+                "description": "Use the headless server",
+                "href": "/for/embedded-products/"
+              }
+            ]
+          }
+        ]
       },
       {
         "key": "download",
         "label": "Download",
         "href": "/download/"
+      },
+      {
+        "key": "docs",
+        "label": "Docs",
+        "href": "https://docs.codebolt.ai"
       }
     ],
     "cta": {
@@ -82,6 +128,31 @@
       "href": "/download/"
     },
     "footer": [
+      {
+        "key": "solutions",
+        "label": "Solutions",
+        "href": "/for/"
+      },
+      {
+        "key": "developers",
+        "label": "Developers",
+        "href": "/for/developers/"
+      },
+      {
+        "key": "teams",
+        "label": "Teams",
+        "href": "/for/teams/"
+      },
+      {
+        "key": "enterprise",
+        "label": "Enterprise",
+        "href": "/for/enterprise/"
+      },
+      {
+        "key": "builders",
+        "label": "Product Builders",
+        "href": "/for/product-builders/"
+      },
       {
         "key": "problem",
         "label": "Problem",

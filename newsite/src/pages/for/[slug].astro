@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AudienceLayout from "../../components/AudienceLayout.astro";
+import { audiencePages } from "../../data/audiences";
+import pageStyles from "../../styles/audience.css?raw";
+
+export function getStaticPaths() {
+  return audiencePages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page }
+  }));
+}
+
+const { page } = Astro.props;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": page.metaTitle,
+  "description": page.metaDescription,
+  "url": `https://codebolt.ai/for/${page.slug}/`
+};
+---
+
+<BaseLayout
+  title={page.metaTitle}
+  description={page.metaDescription}
+  keywords={`Codebolt, ${page.eyebrow}, autonomous AI coding agents, software foundry, Codebolt engine`}
+  canonicalPath={`/for/${page.slug}/`}
+  ogTitle={page.metaTitle}
+  ogDescription={page.metaDescription}
+  twitterTitle={page.metaTitle}
+  twitterDescription={page.metaDescription}
+  structuredData={structuredData}
+  pageStyles={pageStyles}
+>
+  <AudienceLayout page={page} />
+</BaseLayout>

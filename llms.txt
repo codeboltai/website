@@ -4,7 +4,7 @@
 
 Codebolt is an autonomous software foundry: a coding platform with agentic infrastructure for running, coordinating, reviewing, and scaling AI software work without forcing each agent to rebuild its own harness.
 
-The active deployable website is in `newsite/`. The legacy Agent Sitegen/Astro site remains in `content/`, `template/`, and `site/` for reference only.
+The active deployable website is the Astro project in `newsite/`. The legacy Agent Sitegen output remains in `content/`, `template/`, and `site/` for reference only.
 
 ## Key Files
 
@@ -16,11 +16,13 @@ The active deployable website is in `newsite/`. The legacy Agent Sitegen/Astro s
 - [docs/development.md](docs/development.md): development workflow, validation commands, and deploy command.
 - [docs/seo-geo.md](docs/seo-geo.md): SEO and GEO expectations for crawlers and answer engines.
 - [scripts/validate-newsite.mjs](scripts/validate-newsite.mjs): deterministic validation script for active pages and metadata.
-- [newsite/index.html](newsite/index.html): active homepage.
-- [newsite/download/index.html](newsite/download/index.html): active download page.
-- [newsite/build.mjs](newsite/build.mjs): static build script.
-- [newsite/llms.txt](newsite/llms.txt): public LLM-readable site summary copied to production.
-- [newsite/ai.txt](newsite/ai.txt): public answer-engine summary copied to production.
+- [newsite/src/pages/index.astro](newsite/src/pages/index.astro): homepage route and metadata.
+- [newsite/src/pages/download/index.astro](newsite/src/pages/download/index.astro): download page route and metadata.
+- [newsite/src/pages/for/index.astro](newsite/src/pages/for/index.astro): solutions hub route.
+- [newsite/src/pages/for/[slug].astro](newsite/src/pages/for/[slug].astro): generated audience landing page routes.
+- [newsite/src/data/audiences.ts](newsite/src/data/audiences.ts): audience landing page content for developers, teams, enterprise, product builders, plugin builders, and embedded products.
+- [newsite/public/llms.txt](newsite/public/llms.txt): public LLM-readable site summary copied to production.
+- [newsite/public/ai.txt](newsite/public/ai.txt): public answer-engine summary copied to production.
 
 ## Commands
 

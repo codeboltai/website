@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { audienceIndex, audiencePages } from "../../data/audiences";
+import pageStyles from "../../styles/audience.css?raw";
+
+const pageBySlug = new Map(audiencePages.map((page) => [page.slug, page]));
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Find the right Codebolt path",
+  "description": audienceIndex.description,
+  "url": "https://codebolt.ai/for/"
+};
+---
+
+<BaseLayout
+  title="Codebolt for Developers, Teams, Enterprise, and Product Builders"
+  description={audienceIndex.description}
+  keywords="Codebolt for developers, Codebolt for teams, Codebolt enterprise, Codebolt on prem, Codebolt engine, Codebolt plugins, headless Codebolt server"
+  canonicalPath="/for/"
+  ogTitle="Find the right Codebolt path"
+  ogDescription={audienceIndex.description}
+  twitterTitle="Find the right Codebolt path"
+  twitterDescription={audienceIndex.description}
+  structuredData={structuredData}
+  pageStyles={pageStyles}
+>
+  <main>
+    <section class="for-hero">
+      <div class="wrap">
+        <span class="eyebrow">Solutions</span>
+        <h1 class="display">{audienceIndex.title}</h1>
+        <p>{audienceIndex.description}</p>
+      </div>
+    </section>
+
+    {audienceIndex.groups.map((group) => (
+      <section class="for-group">
+        <div class="wrap">
+          <h2 class="display">{group.label}</h2>
+          <div class="for-grid">
+            {group.pages.map((slug) => {
+              const page = pageBySlug.get(slug);
+              return page && (
+                <article class="for-card">
+                  <span class="k">{page.eyebrow}</span>
+                  <h3>{page.title}</h3>
+                  <p>{page.description}</p>
+                  <a href={`/for/${page.slug}/`}>Explore offer</a>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    ))}
+  </main>
+</BaseLayout>

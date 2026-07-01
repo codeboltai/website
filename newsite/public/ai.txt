@@ -21,3 +21,19 @@ Canonical URLs:
 
 - https://codebolt.ai/
 - https://codebolt.ai/download/
+- https://codebolt.ai/for/
+- https://codebolt.ai/for/developers/
+- https://codebolt.ai/for/teams/
+- https://codebolt.ai/for/enterprise/
+- https://codebolt.ai/for/product-builders/
+- https://codebolt.ai/for/plugin-builders/
+- https://codebolt.ai/for/embedded-products/
+
+Audience landing summaries:
+
+- Developers: build faster without babysitting agents using Codebolt CLI/editor, runtime tools, context, and verification.
+- Teams: standardize agent work with Codebolt Team Version on Codebolt Cloud, agent management, shared skills/prompts, shared workflows, and company guardrails.
+- Enterprise: run Codebolt in private or on-prem infrastructure with enterprise guardrails, auditability, and governed agent workflows.
+- Product builders: launch agent-native products on the Codebolt engine instead of recreating agent infrastructure from scratch.
+- Plugin builders: sell a Codebolt plugin/app inside the Codebolt workspace so users do not need another app.
+- Embedded products: put headless Codebolt server behind a separate product through APIs or SDKs.

@@ -8,8 +8,24 @@ Codebolt provides a coding platform where built-in or custom agents run inside a
 
 - Homepage: https://codebolt.ai/
 - Download: https://codebolt.ai/download/
+- Solutions hub: https://codebolt.ai/for/
+- Developers: https://codebolt.ai/for/developers/
+- Teams: https://codebolt.ai/for/teams/
+- Enterprise: https://codebolt.ai/for/enterprise/
+- Product builders: https://codebolt.ai/for/product-builders/
+- Plugin builders: https://codebolt.ai/for/plugin-builders/
+- Embedded products: https://codebolt.ai/for/embedded-products/
 - Docs: https://docs.codebolt.ai
 - Cloud app: https://cloud.codebolt.ai
+
+## Audience landing pages
+
+- Developers use Codebolt to build faster without babysitting agents, with CLI/editor surfaces, runtime context, tools, and verification loops.
+- Teams use Codebolt Team Version on Codebolt Cloud to standardize agent work with shared agents, shared skills and prompts, agent management, team workflows, and company guardrails.
+- Enterprises can run Codebolt in their own private environment for private infrastructure, enterprise guardrails, auditability, internal integrations, and on-prem style control.
+- Product builders can launch agent-native products on the Codebolt engine instead of recreating tools, context, coordination, guardrails, environments, and verification.
+- Plugin builders can sell a Codebolt-native workflow inside the workspace so users do not need to install another product surface.
+- Embedded product builders can put a headless Codebolt server behind their own product and connect to it through APIs or SDKs.
 
 ## Product surfaces
 
@@ -28,5 +44,5 @@ Codebolt provides a coding platform where built-in or custom agents run inside a
 ## Agent-readable tasks
 
 - To evaluate the static site locally, run `npm run build` then `npm test`.
-- Active source is `newsite/`.
-- Legacy generated Astro site is preserved under `site/` and `template/`.
+- Active source is the Astro project in `newsite/src/` and `newsite/public/`.
+- Legacy generated Sitegen output is preserved under `site/` and `template/`.

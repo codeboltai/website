@@ -96,16 +96,16 @@ All pages use the same header component:
 - Sticky at top.
 - 62px high.
 - Codebolt brand links to `/`.
-- Primary nav uses root-relative links.
+- Primary nav keeps buyer landing pages grouped under a `Solutions` dropdown, not as separate top-level links.
+- The active route is visibly marked in the shared header component.
 - CTA links to `/download/`.
 - Mobile hides non-critical nav links while keeping the primary CTA visible.
 
 Recommended nav labels:
 
-- Product: `/#runtime-idea`
-- Architecture: `/#runtime-handles`
-- Extensibility: `/#extensibility`
+- Solutions: `/for/`, with dropdown groups for `Use Codebolt` and `Build on Codebolt`
 - Download: `/download/`
+- Docs: `https://docs.codebolt.ai`
 - Start free: `/download/`
 
 ### Footer

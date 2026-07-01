@@ -9,10 +9,15 @@ const requiredFiles = [
   "newsite/src/layouts/BaseLayout.astro",
   "newsite/src/components/Header.astro",
   "newsite/src/components/Footer.astro",
+  "newsite/src/components/AudienceLayout.astro",
+  "newsite/src/data/audiences.ts",
   "newsite/src/content/home.html",
   "newsite/src/content/download.html",
   "newsite/src/styles/home.css",
   "newsite/src/styles/download.css",
+  "newsite/src/styles/audience.css",
+  "newsite/src/pages/for/index.astro",
+  "newsite/src/pages/for/[slug].astro",
   "newsite/DESIGN.md",
   "newsite/theme.tokens.json",
   "newsite/public/robots.txt",
@@ -25,6 +30,13 @@ const requiredFiles = [
   "newsite/public/images-withoutbackground/cloud.png",
   "newsite/dist/index.html",
   "newsite/dist/download/index.html",
+  "newsite/dist/for/index.html",
+  "newsite/dist/for/developers/index.html",
+  "newsite/dist/for/teams/index.html",
+  "newsite/dist/for/enterprise/index.html",
+  "newsite/dist/for/product-builders/index.html",
+  "newsite/dist/for/plugin-builders/index.html",
+  "newsite/dist/for/embedded-products/index.html",
   "newsite/dist/robots.txt",
   "newsite/dist/sitemap.xml",
   "newsite/dist/llms.txt",
@@ -37,7 +49,16 @@ for (const file of requiredFiles) {
 
 const home = await readFile(join(root, "newsite/dist/index.html"), "utf8");
 const download = await readFile(join(root, "newsite/dist/download/index.html"), "utf8");
+const solutions = await readFile(join(root, "newsite/dist/for/index.html"), "utf8");
 const themeTokens = JSON.parse(await readFile(join(root, "newsite/theme.tokens.json"), "utf8"));
+const audienceRoutes = [
+  ["developers", "Codebolt for Developers", "Build faster without babysitting agents"],
+  ["teams", "Codebolt for Teams", "Codebolt Team Version"],
+  ["enterprise", "Codebolt for Enterprise", "Run Codebolt inside your private environment"],
+  ["product-builders", "Codebolt for Product Builders", "Launch agent-native products on the Codebolt engine"],
+  ["plugin-builders", "Codebolt for Plugin Builders", "Sell a workflow inside the Codebolt workspace"],
+  ["embedded-products", "Codebolt for Embedded Products", "Put Codebolt"]
+];
 
 for (const key of ["ink", "inkRaised", "line", "text", "textDim", "signal"]) {
   if (!themeTokens.colors?.[key]) throw new Error(`newsite/theme.tokens.json missing colors.${key}`);
@@ -57,7 +78,8 @@ const requiredHomeSnippets = [
   '<meta property="og:image:alt"',
   '<meta name="twitter:image"',
   '<script type="application/ld+json">',
-  'href="/download"',
+  'href="/for/"',
+  'href="/download',
   'Choose your Codebolt surface',
   'src="/images/cli-1.png"',
   'data-src="/images/desktop.png"',
@@ -86,6 +108,25 @@ for (const snippet of requiredHomeSnippets) {
 
 for (const snippet of requiredDownloadSnippets) {
   if (!download.includes(snippet)) throw new Error(`newsite/dist/download/index.html missing ${snippet}`);
+}
+
+for (const snippet of ["Find the right Codebolt path", "Developers", "Teams", "Enterprise", "Product Builders"]) {
+  if (!solutions.includes(snippet)) throw new Error(`newsite/dist/for/index.html missing ${snippet}`);
+}
+
+for (const [slug, title, phrase] of audienceRoutes) {
+  const page = await readFile(join(root, `newsite/dist/for/${slug}/index.html`), "utf8");
+  for (const snippet of [
+    '<meta name="description"',
+    '<link rel="canonical"',
+    '<meta property="og:title"',
+    '<script type="application/ld+json">',
+    title,
+    phrase,
+    'href="/for/"'
+  ]) {
+    if (!page.includes(snippet)) throw new Error(`newsite/dist/for/${slug}/index.html missing ${snippet}`);
+  }
 }
 
 const cliImage = await stat(join(root, "newsite/public/images/cli-1.png"));

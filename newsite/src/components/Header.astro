@@ -1,7 +1,28 @@
 ---
 import tokens from "../../theme.tokens.json";
 
+type NavItem = {
+  href: string;
+  label: string;
+  description?: string;
+  match?: string[];
+  groups?: Array<{
+    label: string;
+    items: NavItem[];
+  }>;
+};
+
 const { navigation } = tokens;
+const currentPath = Astro.url.pathname.endsWith("/") ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const isPathActive = (path: string) => {
+  if (path.startsWith("http")) return false;
+  const normalized = path.endsWith("/") ? path : `${path}/`;
+  return currentPath === normalized || currentPath.startsWith(normalized);
+};
+const isActive = (item: NavItem) => {
+  const matchPaths = item.match ?? [item.href];
+  return matchPaths.some(isPathActive);
+};
 ---
 
 <header class="site-header">
@@ -10,8 +31,82 @@ const { navigation } = tokens;
       <span class="glyph" aria-hidden="true"></span>{navigation.brand.label}
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
-      {navigation.primary.map((item) => <a href={item.href}>{item.label}</a>)}
+      {navigation.primary.map((item) => {
+        const active = isActive(item);
+        if (item.groups) {
+          const menuId = `nav-menu-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
+          return (
+            <div class="nav-dropdown" data-nav-dropdown>
+              <button
+                class={active ? "nav-trigger is-active" : "nav-trigger"}
+                type="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-controls={menuId}
+              >
+                <span>{item.label}</span>
+                <span class="nav-chevron" aria-hidden="true">v</span>
+              </button>
+              <div class="nav-menu" id={menuId} role="menu" hidden>
+                {item.groups.map((group) => (
+                  <div class="nav-menu-group">
+                    <span class="nav-menu-k">{group.label}</span>
+                    {group.items.map((link) => {
+                      const linkActive = isPathActive(link.href);
+                      return (
+                        <a href={link.href} class={linkActive ? "nav-menu-link is-active" : "nav-menu-link"} aria-current={linkActive ? "page" : undefined}>
+                          <span>{link.label}</span>
+                          {link.description && <small>{link.description}</small>}
+                        </a>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        }
+        return (
+          <a href={item.href} class={active ? "is-active" : undefined} aria-current={active ? "page" : undefined}>
+            {item.label}
+          </a>
+        );
+      })}
       <a class="nav-cta" href={navigation.cta.href}>{navigation.cta.label}</a>
     </nav>
   </div>
 </header>
+
+<script is:inline>
+  (() => {
+    const dropdowns = document.querySelectorAll("[data-nav-dropdown]");
+    const close = (dropdown) => {
+      dropdown.removeAttribute("data-open");
+      dropdown.querySelector(".nav-trigger")?.setAttribute("aria-expanded", "false");
+      dropdown.querySelector(".nav-menu")?.setAttribute("hidden", "");
+    };
+
+    dropdowns.forEach((dropdown) => {
+      const trigger = dropdown.querySelector(".nav-trigger");
+      trigger?.addEventListener("click", () => {
+        const isOpen = dropdown.hasAttribute("data-open");
+        dropdowns.forEach(close);
+        if (!isOpen) {
+          dropdown.setAttribute("data-open", "true");
+          trigger.setAttribute("aria-expanded", "true");
+          dropdown.querySelector(".nav-menu")?.removeAttribute("hidden");
+        }
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      dropdowns.forEach((dropdown) => {
+        if (!dropdown.contains(event.target)) close(dropdown);
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") dropdowns.forEach(close);
+    });
+  })();
+</script>
